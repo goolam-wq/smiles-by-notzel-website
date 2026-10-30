@@ -1,0 +1,958 @@
+<section class="hero-stage" id="top" data-hero-stage>
+  <div class="hero-sticky" data-hero-sticky>
+    <div class="hero-left-panel" data-hero-left aria-hidden="true"></div>
+
+    <div class="hero-image-plane" data-hero-plane aria-hidden="true">
+      <div class="hero-image-inner" data-hero-image-inner>
+        <img src="/images/hero-dental-studio.png" alt="" fetchpriority="high" />
+      </div>
+      <div class="image-shade"></div>
+      <div class="image-caption">
+        <span>Whole-health dentistry</span>
+        <span>Illinois · 2026</span>
+      </div>
+    </div>
+
+    <div class="hero-grid" aria-hidden="true">
+      <span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="hero-content container-shell">
+      <div class="hero-title-block" data-hero-copy>
+        <p class="hero-kicker hero-meta">Complete health · Chicago's south suburbs</p>
+        <h1 aria-label="Dentistry that helps you feel, live and smile better.">
+          <span class="title-line"><span>Dentistry that</span></span>
+          <span class="title-line"><span>helps you feel,</span></span>
+          <span class="title-line"><span>live &amp; <em>smile</em> better.</span></span>
+        </h1>
+      </div>
+
+      <div class="hero-video-card" data-video-card>
+        <div class="video-frame" data-video-frame>
+          <video
+            data-hero-video
+            data-site-video
+            src="/videos/hero-whole-health-15s.mp4"
+            poster="/images/consultation-video-cover-v1.png"
+            aria-label="A calm consultation between a dentist and patient"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          ></video>
+          <span class="video-scan" aria-hidden="true"></span>
+          <button type="button" aria-label="Play the hero film with voiceover" data-hero-video-toggle data-magnetic>
+            <span class="play-icon" data-hero-video-icon>▶</span>
+            <span class="play-orbit">Our story · Our story ·</span>
+          </button>
+        </div>
+        <div class="video-meta">
+          <span>Meet your new dental experience</span>
+          <span>00:15</span>
+        </div>
+      </div>
+
+      <div class="video-side-copy video-side-copy-left" data-side-left aria-hidden="true">
+        <span class="side-copy-index">02 / Whole-health care</span>
+        <p>Care that<br /><em>sees.</em></p>
+      </div>
+
+      <div class="video-side-copy video-side-copy-right" data-side-right aria-hidden="true">
+        <p>The whole<br /><em>you.</em></p>
+        <span class="side-copy-note">Thoughtful dentistry, connected to how you breathe, sleep, feel and live.</span>
+      </div>
+
+      <div class="scene-counter hero-meta" data-scene-counter>
+        <span>01</span><i></i><span>03</span>
+      </div>
+
+      <div class="hero-bottom" data-hero-bottom>
+        <p>Calm, connected care for your smile, airway and whole-body wellness.</p>
+        <a class="appointment-button" href="#contact" data-magnetic>
+          <span>Request an appointment</span>
+          <i>↗</i>
+        </a>
+      </div>
+
+      <div class="hero-side-note hero-meta">
+        <span>Chicago Heights</span>
+        <span>Mokena</span>
+      </div>
+
+      <div class="scroll-cue hero-meta">
+        <span>Scroll to experience</span>
+        <i><b data-scroll-progress></b></i>
+      </div>
+    </div>
+
+    <div class="hero-ghost" aria-hidden="true" data-hero-ghost>SMILE</div>
+    <div class="pointer-aura" aria-hidden="true" data-pointer-aura></div>
+    <div class="hero-light-wash" aria-hidden="true" data-light-wash></div>
+    <div class="hero-handoff-preview" aria-hidden="true" data-hero-handoff>
+      <span>A different kind of dental visit</span>
+      <p>We see more<br />than teeth.</p>
+      <i>Continue ↓</i>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-stage {
+    position: relative;
+    height: 320svh;
+    background: var(--pine-950);
+  }
+
+  .hero-sticky {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    overflow: hidden;
+    background: var(--pine-950);
+    color: var(--porcelain);
+    isolation: isolate;
+  }
+
+  .hero-left-panel {
+    position: absolute;
+    z-index: -1;
+    inset: 0 50% 0 0;
+    background:
+      radial-gradient(circle at 12% 78%, rgba(158, 215, 196, 0.12), transparent 27%),
+      var(--pine-950);
+  }
+
+  .hero-image-plane {
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    clip-path: inset(0 0 0 43.5%);
+    will-change: clip-path;
+  }
+
+  .hero-image-inner {
+    width: 108%;
+    height: 108%;
+    margin: -4%;
+    will-change: transform;
+  }
+
+  .hero-image-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 61% center;
+    filter: saturate(0.86) contrast(1.04);
+    transform: scale(1.08);
+  }
+
+  .image-shade {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(6, 29, 25, 0.28), transparent 28%),
+      linear-gradient(0deg, rgba(6, 29, 25, 0.28), transparent 35%);
+    pointer-events: none;
+  }
+
+  .image-caption {
+    position: absolute;
+    right: 2rem;
+    bottom: 1.8rem;
+    left: 2rem;
+    display: flex;
+    justify-content: space-between;
+    color: rgba(245, 240, 231, 0.72);
+    font-size: 0.58rem;
+    font-weight: 750;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .hero-grid {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    pointer-events: none;
+  }
+
+  .hero-grid span {
+    border-right: 1px solid rgba(245, 240, 231, 0.075);
+  }
+
+  .hero-grid span:first-child {
+    border-left: 1px solid rgba(245, 240, 231, 0.075);
+  }
+
+  .hero-content {
+    position: relative;
+    height: 100%;
+  }
+
+  .hero-title-block {
+    position: absolute;
+    z-index: 4;
+    top: clamp(8.2rem, 17vh, 10.5rem);
+    left: 0;
+    width: min(41vw, 39rem);
+  }
+
+  .hero-kicker {
+    display: flex;
+    margin: 0 0 1.6rem;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--mint-300);
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .hero-kicker::before {
+    width: 2.2rem;
+    height: 1px;
+    background: currentColor;
+    content: '';
+  }
+
+  h1 {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(3.1rem, 4.65vw, 5.4rem);
+    font-weight: 400;
+    line-height: 0.93;
+    letter-spacing: -0.058em;
+  }
+
+  .title-line {
+    display: block;
+    overflow: hidden;
+    padding: 0.055em 0;
+  }
+
+  .title-line > span {
+    display: block;
+  }
+
+  h1 em {
+    color: var(--mint-300);
+    font-weight: 400;
+  }
+
+  .hero-video-card {
+    position: absolute;
+    z-index: 6;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: max(100svh, 56.25vw);
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(245, 240, 231, 0.28);
+    border-radius: 1rem;
+    background: rgba(245, 240, 231, 0.08);
+    box-shadow: 0 38px 100px rgba(0, 0, 0, 0.36);
+    opacity: 0;
+    contain: layout paint;
+    transform: translate(-50%, -50%) scale(0.34);
+    transform-origin: 50% 50%;
+    will-change: transform, opacity, border-radius;
+  }
+
+  .video-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: inherit;
+  }
+
+  .video-frame::after {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    content: '';
+    pointer-events: none;
+  }
+
+  .video-frame video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.02);
+    will-change: transform;
+  }
+
+  .video-scan {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: -45%;
+    width: 42%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: translate3d(0, 0, 0) skewX(-15deg);
+    will-change: transform;
+    animation: scan 5.2s ease-in-out infinite 1.5s;
+  }
+
+  @keyframes scan {
+    0%, 20% { transform: translate3d(0, 0, 0) skewX(-15deg); }
+    58%, 100% { transform: translate3d(400%, 0, 0) skewX(-15deg); }
+  }
+
+  .video-frame button {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    width: 5.2rem;
+    height: 5.2rem;
+    padding: 0;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: var(--porcelain);
+    color: var(--pine-950);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+  }
+
+  .play-icon {
+    margin-left: 0.15rem;
+    font-size: 0.9rem;
+  }
+
+  .play-orbit {
+    position: absolute;
+    inset: -1.05rem;
+    display: none;
+    border: 1px solid rgba(245, 240, 231, 0.45);
+    border-radius: 50%;
+  }
+
+  .video-meta {
+    position: absolute;
+    z-index: 3;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    padding: 1.8rem 1.15rem 0.8rem;
+    justify-content: space-between;
+    background: linear-gradient(transparent, rgba(6, 29, 25, 0.72));
+    color: rgba(245, 240, 231, 0.72);
+    font-size: 0.56rem;
+    font-weight: 750;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .hero-bottom {
+    position: absolute;
+    z-index: 4;
+    bottom: clamp(3.8rem, 8vh, 6rem);
+    left: 0;
+    width: min(30rem, 36vw);
+  }
+
+  .hero-bottom > p {
+    max-width: 25rem;
+    margin: 0 0 1.5rem;
+    color: rgba(245, 240, 231, 0.75);
+    font-size: clamp(1rem, 1.22vw, 1.22rem);
+    line-height: 1.5;
+  }
+
+  .appointment-button {
+    display: flex;
+    width: min(19rem, 100%);
+    min-height: 4rem;
+    padding: 0.6rem 0.65rem 0.6rem 1.25rem;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 999px;
+    background: var(--porcelain);
+    color: var(--pine-950);
+    font-size: 0.77rem;
+    font-weight: 750;
+    will-change: transform;
+  }
+
+  .appointment-button i {
+    display: grid;
+    width: 2.8rem;
+    height: 2.8rem;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--mint-300);
+    font-style: normal;
+    transition: transform 280ms ease;
+  }
+
+  .appointment-button:hover i {
+    transform: rotate(45deg);
+  }
+
+  .hero-side-note {
+    position: absolute;
+    z-index: 4;
+    right: 0;
+    bottom: 5.5rem;
+    display: flex;
+    gap: 1rem;
+    color: rgba(245, 240, 231, 0.7);
+    font-size: 0.57rem;
+    font-weight: 750;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .video-side-copy {
+    position: absolute;
+    z-index: 8;
+    width: min(18vw, 18rem);
+    color: var(--porcelain);
+    pointer-events: none;
+  }
+
+  .video-side-copy-left {
+    top: 29%;
+    left: 1.75vw;
+  }
+
+  .video-side-copy-right {
+    right: 1.75vw;
+    bottom: 19%;
+    text-align: right;
+    text-shadow: 0 0.2rem 1.5rem rgba(6, 29, 25, 0.72);
+  }
+
+  .video-side-copy p {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(3rem, 4.65vw, 5.6rem);
+    font-weight: 400;
+    line-height: 0.8;
+    letter-spacing: -0.07em;
+  }
+
+  .video-side-copy p em {
+    color: var(--mint-300);
+    font-weight: 400;
+  }
+
+  .side-copy-index,
+  .side-copy-note {
+    display: block;
+    color: rgba(245, 240, 231, 0.62);
+    font-size: 0.55rem;
+    font-weight: 750;
+    line-height: 1.55;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .side-copy-index {
+    margin-bottom: 1.2rem;
+  }
+
+  .side-copy-note {
+    max-width: 13rem;
+    margin: 1.3rem 0 0 auto;
+    text-transform: none;
+  }
+
+  .scene-counter {
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    bottom: 3.1rem;
+    display: flex;
+    width: 8.5rem;
+    align-items: center;
+    gap: 0.65rem;
+    color: rgba(245, 240, 231, 0.7);
+    font-size: 0.55rem;
+  }
+
+  .scene-counter i {
+    height: 1px;
+    flex: 1;
+    background: rgba(245, 240, 231, 0.35);
+  }
+
+  .hero-side-note span + span::before {
+    margin-right: 1rem;
+    content: '·';
+  }
+
+  .scroll-cue {
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: rgba(245, 240, 231, 0.62);
+    font-size: 0.54rem;
+    font-weight: 750;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    transform: rotate(90deg) translateX(50%);
+    transform-origin: right center;
+  }
+
+  .scroll-cue i {
+    position: relative;
+    display: block;
+    width: 6rem;
+    height: 1px;
+    overflow: hidden;
+    background: rgba(245, 240, 231, 0.25);
+  }
+
+  .scroll-cue b {
+    position: absolute;
+    inset: 0;
+    display: block;
+    background: var(--mint-300);
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  .hero-ghost {
+    position: absolute;
+    z-index: 0;
+    right: -2vw;
+    bottom: -0.2em;
+    color: transparent;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(9rem, 18vw, 21rem);
+    line-height: 0.72;
+    letter-spacing: -0.08em;
+    opacity: 0;
+    -webkit-text-stroke: 1px rgba(245, 240, 231, 0.22);
+    pointer-events: none;
+  }
+
+  .pointer-aura {
+    position: absolute;
+    z-index: 3;
+    top: -8rem;
+    left: -8rem;
+    width: 16rem;
+    height: 16rem;
+    border: 1px solid rgba(158, 215, 196, 0.22);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    will-change: transform;
+  }
+
+  .hero-handoff-preview {
+    position: absolute;
+    z-index: 24;
+    top: 24%;
+    left: max(2rem, calc((100vw - 86rem) / 2));
+    width: min(55vw, 50rem);
+    color: var(--pine-950);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .hero-light-wash {
+    position: absolute;
+    z-index: 5;
+    inset: 0;
+    background: var(--porcelain);
+    opacity: 0;
+    pointer-events: none;
+    will-change: opacity;
+  }
+
+  .hero-handoff-preview > span,
+  .hero-handoff-preview > i {
+    display: block;
+    color: var(--pine-700);
+    font-size: 0.58rem;
+    font-style: normal;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .hero-handoff-preview p {
+    margin: 2rem 0 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(4.5rem, 8vw, 9rem);
+    line-height: 0.82;
+    letter-spacing: -0.065em;
+  }
+
+  .hero-handoff-preview > i {
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 68rem) {
+    .hero-stage {
+      height: 300svh;
+    }
+
+    .hero-title-block {
+      top: 50%;
+      width: 44vw;
+      translate: 0 -50%;
+    }
+
+    h1 {
+      font-size: clamp(3.1rem, 5.8vw, 4.6rem);
+    }
+
+    .hero-video-card {
+      left: 50%;
+      width: 100vw;
+      height: 100svh;
+      overflow: visible;
+      border-color: transparent;
+      background: transparent;
+      box-shadow: none;
+      contain: layout;
+    }
+
+    .video-frame {
+      overflow: hidden;
+      border-radius: 0;
+      clip-path: inset(35% 14% 35% 14% round 1rem);
+      will-change: clip-path;
+    }
+
+    .video-frame::after {
+      display: none;
+    }
+
+    .video-frame video {
+      position: absolute;
+      top: 35%;
+      left: 14%;
+      width: 72%;
+      height: 30%;
+      will-change: top, left, width, height, transform;
+    }
+
+    .video-meta {
+      display: none;
+    }
+
+    .video-side-copy {
+      width: 14vw;
+    }
+
+    .video-side-copy-left {
+      top: 19%;
+      left: 1.5vw;
+    }
+
+    .video-side-copy-right {
+      right: 1.5vw;
+      bottom: 2%;
+    }
+
+    .video-side-copy p {
+      font-size: clamp(2.65rem, 5.2vw, 3.7rem);
+    }
+
+    .side-copy-note {
+      display: none;
+    }
+
+    .hero-handoff-preview {
+      display: none;
+    }
+  }
+
+  @media (min-width: 46.001rem) and (max-width: 68rem) {
+    .video-side-copy p {
+      font-size: clamp(3.1rem, 6.25vw, 4.3rem);
+    }
+  }
+
+  @media (max-width: 46rem) {
+    .hero-stage {
+      height: 290svh;
+    }
+
+    .hero-left-panel {
+      right: 42%;
+    }
+
+    .hero-image-plane {
+      width: 100%;
+      clip-path: inset(0 0 0 49%);
+    }
+
+    .hero-image-inner img {
+      object-position: 61% center;
+    }
+
+    .hero-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-grid span:nth-child(n+3) {
+      display: none;
+    }
+
+    .hero-content {
+      width: calc(100% - 1.5rem);
+    }
+
+    .hero-title-block {
+      top: 50%;
+      width: 92%;
+    }
+
+    .hero-kicker {
+      max-width: 12rem;
+      margin-bottom: 1.1rem;
+      font-size: 0.52rem;
+      line-height: 1.45;
+    }
+
+    h1 {
+      max-width: 22rem;
+      font-size: clamp(2.9rem, 11.5vw, 4.25rem);
+      line-height: 0.9;
+    }
+
+    .hero-video-card {
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 100svh;
+      padding: 0;
+      border-radius: 0.8rem;
+    }
+
+    .video-frame {
+      clip-path: inset(39% 6% 39% 6% round 0.8rem);
+    }
+
+    .video-frame video {
+      top: 39%;
+      left: 6%;
+      width: 88%;
+      height: 22%;
+    }
+
+    .video-side-copy {
+      width: calc(100% - 2rem);
+    }
+
+    .video-side-copy-left {
+      top: 13%;
+      left: 1rem;
+    }
+
+    .video-side-copy-right {
+      right: 1rem;
+      bottom: 5%;
+    }
+
+    .video-side-copy p {
+      font-size: clamp(2.65rem, 12vw, 3.5rem);
+    }
+
+    .side-copy-index,
+    .side-copy-note {
+      max-width: 12rem;
+      font-size: 0.48rem;
+    }
+
+    .side-copy-note {
+      display: none;
+    }
+
+    .hero-handoff-preview {
+      top: 14%;
+      left: 1rem;
+      width: calc(100% - 2rem);
+    }
+
+    .hero-handoff-preview p {
+      margin-top: 1.4rem;
+      font-size: clamp(3.4rem, 16vw, 4.6rem);
+    }
+
+    .video-frame button {
+      width: 4.2rem;
+      height: 4.2rem;
+    }
+
+    .hero-bottom {
+      bottom: 1.7rem;
+      width: min(88%, 22rem);
+    }
+
+    .hero-bottom > p {
+      max-width: 17rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.78rem;
+      line-height: 1.4;
+    }
+
+    .appointment-button {
+      min-height: 3.35rem;
+      font-size: 0.7rem;
+    }
+
+    .appointment-button i {
+      width: 2.35rem;
+      height: 2.35rem;
+    }
+
+    .hero-side-note,
+    .image-caption,
+    .scroll-cue,
+    .scene-counter {
+      display: none;
+    }
+
+    .hero-ghost {
+      right: -1rem;
+      bottom: -0.08em;
+      font-size: 42vw;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .hero-sticky:hover .pointer-aura {
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  const heroVideo = document.querySelector<HTMLVideoElement>('[data-hero-video]');
+  const heroVideoToggle = document.querySelector<HTMLButtonElement>('[data-hero-video-toggle]');
+  const heroVideoIcon = document.querySelector<HTMLElement>('[data-hero-video-icon]');
+  const heroVideoCard = document.querySelector<HTMLElement>('[data-video-card]');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let heroCardVisible = false;
+  let heroExitTimer: number | undefined;
+
+  const updateHeroVideoControl = () => {
+    if (!heroVideo || !heroVideoToggle || !heroVideoIcon) return;
+    const isAudibleAndPlaying = !heroVideo.paused && !heroVideo.muted;
+    heroVideoIcon.textContent = isAudibleAndPlaying ? '❚❚' : '▶';
+    heroVideoToggle.setAttribute(
+      'aria-label',
+      isAudibleAndPlaying ? 'Pause the hero film' : 'Play the hero film with voiceover'
+    );
+  };
+
+  const isHeroCardVisible = () => {
+    if (!heroVideoCard) return false;
+    const rect = heroVideoCard.getBoundingClientRect();
+    return rect.bottom > window.innerHeight * 0.08 && rect.top < window.innerHeight * 0.92;
+  };
+
+  const resetHeroVideo = (resumeMutedPreview = false) => {
+    if (!heroVideo) return;
+    heroVideo.pause();
+    heroVideo.loop = true;
+    heroVideo.defaultMuted = true;
+    heroVideo.muted = true;
+    heroVideo.setAttribute('muted', '');
+    heroVideo.currentTime = 0;
+    heroVideo.dispatchEvent(new Event('volumechange'));
+
+    if (resumeMutedPreview && !reducedMotion.matches && !document.hidden) {
+      void heroVideo.play().catch(() => {});
+    }
+  };
+
+  const silenceOtherSiteVideos = () => {
+    document.querySelectorAll<HTMLVideoElement>('[data-site-video]').forEach((video) => {
+      if (video === heroVideo) return;
+      video.pause();
+      video.loop = true;
+      video.defaultMuted = true;
+      video.muted = true;
+      video.setAttribute('muted', '');
+      video.currentTime = 0;
+      video.dispatchEvent(new Event('volumechange'));
+    });
+  };
+
+  if (heroVideo && heroVideoToggle) {
+    if (reducedMotion.matches) heroVideo.pause();
+
+    heroVideoToggle.addEventListener('click', async () => {
+      if (heroVideo.paused || heroVideo.muted) {
+        heroCardVisible = isHeroCardVisible();
+        window.clearTimeout(heroExitTimer);
+        silenceOtherSiteVideos();
+        heroVideo.pause();
+        heroVideo.loop = false;
+        heroVideo.removeAttribute('muted');
+        heroVideo.defaultMuted = false;
+        heroVideo.muted = false;
+        heroVideo.currentTime = 0;
+        try {
+          await heroVideo.play();
+        } catch {
+          heroVideo.controls = true;
+        }
+      } else {
+        heroVideo.pause();
+      }
+      updateHeroVideoControl();
+    });
+
+    heroVideo.addEventListener('play', updateHeroVideoControl);
+    heroVideo.addEventListener('pause', updateHeroVideoControl);
+    heroVideo.addEventListener('volumechange', updateHeroVideoControl);
+    heroVideo.addEventListener('ended', () => resetHeroVideo(heroCardVisible));
+
+    if (heroVideoCard) {
+      const heroVideoObserver = new IntersectionObserver(
+        ([entry]) => {
+          heroCardVisible = Boolean(entry?.isIntersecting && entry.intersectionRatio > 0.08) || isHeroCardVisible();
+          window.clearTimeout(heroExitTimer);
+          if (!heroCardVisible) {
+            heroExitTimer = window.setTimeout(() => {
+              heroCardVisible = isHeroCardVisible();
+              if (!heroCardVisible) resetHeroVideo(false);
+            }, 220);
+          } else if (heroVideo.muted && heroVideo.paused) {
+            resetHeroVideo(true);
+          }
+        },
+        { threshold: [0, 0.08, 0.35] }
+      );
+      heroVideoObserver.observe(heroVideoCard);
+    }
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        resetHeroVideo(false);
+      } else if (heroCardVisible && heroVideo.muted) {
+        resetHeroVideo(true);
+      }
+    });
+    updateHeroVideoControl();
+  }
+</script>

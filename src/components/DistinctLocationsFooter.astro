@@ -1,0 +1,216 @@
+---
+const faqs=[
+  ['Can I visit either office?','Yes. Services are available through both Chicago Heights and Mokena, with advanced programs scheduled by appointment.'],
+  ['Do you offer same-day emergency care?','Same-day emergency care is listed at both offices. Call first so the team can assess urgency.'],
+  ['Can I see fixed, monthly and yearly pricing?','Yes. Customer-facing pricing is organized in all three formats. Case-dependent treatment may change after clinical planning.'],
+  ['What does complete-health dentistry mean?','The practice connects oral health with airway, sleep, inflammation and wider health signals.'],
+  ['Do you welcome children and anxious patients?','Yes. The service map includes pediatric care, HealthyStart, nitrous oxide and virtual-reality comfort options.'],
+];
+---
+
+<section class="split-story" id="locations" data-split-story>
+  <div class="split-sticky">
+    <header class="split-title"><p class="eyebrow">Choose your door</p><h2>Same care.<br /><em>Two rhythms.</em></h2></header>
+    <div class="office-split">
+      <article class="office office--chicago" data-office="chicago"><div class="office-media"><img src="/images/generated/clinic-operatory-consistent.webp" alt="Chicago Heights office environment, provisional imagery" loading="lazy" /></div><div class="office-copy"><span>01 · Chicago Heights</span><h3>500 Ashland Ave,<br />Suite #2</h3><a href="tel:+17087551333">(708) 755-1333</a><p>Mon–Thu 7:30–7 · Fri 7:30–12 · Sat 8–12</p><a class="map" href="https://maps.app.goo.gl/htHhNrnhbbu2WNR17">Open map ↗</a></div></article>
+      <article class="office office--mokena" data-office="mokena"><div class="office-media"><img src="/images/generated/dental-exam-candid.webp" alt="Mokena care environment, provisional imagery" loading="lazy" /></div><div class="office-copy"><span>02 · Mokena</span><h3>19160<br />88th Avenue</h3><a href="tel:+17084797733">(708) 479-7733</a><p>Mon 8–7 · Thu 9:30–6 · Every other Sat 8–12</p><a class="map" href="https://www.google.com/maps/search/?api=1&query=Ashland+Dental+and+Wellness+Center+19160+88th+Avenue+Mokena+IL+60448">Open map ↗</a></div></article>
+    </div>
+    <div class="split-instruction" aria-hidden="true"><span>Chicago Heights</span><i></i><span>Mokena</span></div>
+  </div>
+</section>
+
+<section class="faq" id="faq"><div class="container-shell faq-grid"><header class="faq-heading" data-fade><p class="eyebrow">Questions, answered</p><h2>Start with<br /><em>clarity.</em></h2><a href="/faq/">View all FAQs ↗</a></header><div class="faq-list">{faqs.map((faq,index)=><details data-fade><summary><span>0{index+1}</span>{faq[0]}<i>+</i></summary><p>{faq[1]}</p></details>)}</div></div></section>
+
+<footer class="site-footer" id="contact" data-footer-story>
+  <div class="footer-sticky">
+    <div class="footer-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="footer-orbit" aria-hidden="true"><i></i></div>
+
+    <header class="footer-intro">
+      <p class="eyebrow">Ready when you are</p>
+      <h2 aria-label="Ready for a different visit?">
+        <span data-footer-line="one">Ready for a</span>
+        <span data-footer-line="two"><em>different visit?</em></span>
+      </h2>
+    </header>
+
+    <div class="footer-portal" data-footer-portal>
+      <div class="footer-portal__contact">
+        <img src="/brand/smiles-by-noetzel-mark.svg" alt="" />
+        <div class="footer-portal__copy" data-footer-portal-copy>
+          <p>Thoughtful dentistry begins with a real conversation.</p>
+          <div class="footer-portal__links">
+            <a href="#appointment-form">Book your visit <i>↓</i></a>
+            <a href="tel:+17087551333">(708) 755-1333</a>
+            <a href="mailto:nadia.ashland@gmail.com">Email the team</a>
+          </div>
+        </div>
+      </div>
+
+      <form
+        class="footer-form"
+        id="appointment-form"
+        action="https://formsubmit.co/ajax/nadia.ashland@gmail.com"
+        method="POST"
+        data-appointment-form
+        data-footer-form
+      >
+        <input type="hidden" name="_subject" value="New website appointment request" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <label class="footer-form__trap" aria-hidden="true">Leave this empty<input name="_honey" tabindex="-1" autocomplete="off" /></label>
+        <label class="footer-form__field">
+          <span>Your name</span>
+          <input name="name" type="text" autocomplete="name" required placeholder="First and last name" />
+        </label>
+        <label class="footer-form__field">
+          <span>Phone</span>
+          <input name="phone" type="tel" autocomplete="tel" required placeholder="(000) 000-0000" />
+        </label>
+        <label class="footer-form__field">
+          <span>Email</span>
+          <input name="email" type="email" autocomplete="email" required placeholder="you@email.com" />
+        </label>
+        <label class="footer-form__field">
+          <span>Preferred office</span>
+          <select name="office" required>
+            <option value="" selected disabled>Select a location</option>
+            <option value="Chicago Heights">Chicago Heights</option>
+            <option value="Mokena">Mokena</option>
+            <option value="No preference">No preference</option>
+          </select>
+        </label>
+        <button class="footer-form__submit" type="submit">
+          <span>Send request</span><i aria-hidden="true">↗</i>
+        </button>
+        <div class="footer-form__meta">
+          <p>Scheduling request only—please don’t include confidential medical information.</p>
+          <output aria-live="polite" data-form-status></output>
+        </div>
+      </form>
+    </div>
+
+    <div class="container-shell footer-bottom" data-footer-bottom>
+      <div class="footer-bottom__nav">
+        <div><strong>Smiles by Noetzel</strong><span>Ashland Dental &amp; Wellness Center</span></div>
+        <nav aria-label="Footer"><a href="/services/">Services</a><a href="/service-areas/">Service Areas</a><a href="/pricing/">Pricing</a><a href="/team/">Team</a><a href="/faq/">FAQ</a></nav>
+        <span>Chicago Heights · Mokena</span>
+      </div>
+      <div class="footer-details" aria-label="Practice information">
+        <section>
+          <span>01 · Chicago Heights</span>
+          <a class="footer-details__phone" href="tel:+17087551333">(708) 755-1333</a>
+          <a href="https://maps.app.goo.gl/htHhNrnhbbu2WNR17">500 Ashland Ave, Suite #2<br />Chicago Heights, IL 60411 ↗</a>
+          <p>Mon–Thu 7:30 AM–7 PM · Fri 7:30 AM–12 PM<br />Sat 8 AM–12 PM · Sun closed</p>
+        </section>
+        <section>
+          <span>02 · Mokena</span>
+          <a class="footer-details__phone" href="tel:+17084797733">(708) 479-7733</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Ashland+Dental+and+Wellness+Center+19160+88th+Avenue+Mokena+IL+60448">19160 88th Avenue, Mokena, IL 60448 ↗</a>
+          <p>Mon 8 AM–7 PM · Thu 9:30 AM–6 PM<br />Every other Sat 8 AM–12 PM* · Other days closed</p>
+        </section>
+        <section class="footer-details__connect">
+          <span>Connect</span>
+          <a class="footer-details__email" href="mailto:nadia.ashland@gmail.com">nadia.ashland@gmail.com ↗</a>
+          <nav aria-label="Social media"><a href="https://www.facebook.com/ashlanddentalcenter/" target="_blank" rel="noopener noreferrer">Facebook ↗</a><a href="https://www.instagram.com/ashlanddentalcenter/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></nav>
+          <p>*Saturday hours may vary; please call ahead.</p>
+        </section>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .split-story{position:relative;z-index:8;height:320svh;background:var(--pine-950);color:var(--porcelain)}.split-sticky{position:sticky;top:0;height:100svh;overflow:hidden;background:var(--pine-950)}.split-title{position:absolute;z-index:5;top:clamp(7rem,12vh,9rem);left:50%;transform:translateX(-50%);text-align:center;pointer-events:none}.split-title .eyebrow{color:var(--mint-300)}.split-title h2{margin:1.4rem 0 0;font-family:Georgia,serif;font-size:clamp(5rem,8.5vw,9.5rem);font-weight:400;line-height:.79;letter-spacing:-.07em;white-space:nowrap}.split-title h2 em{color:var(--mint-300);font-weight:400}.office-split{display:flex;width:100%;height:100%}.office{position:relative;width:50%;height:100%;overflow:hidden;will-change:width,filter}.office::after{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,29,25,.08),rgba(6,29,25,.85));content:''}.office--mokena{border-left:1px solid rgba(245,240,231,.25)}.office-media,.office-media img{width:100%;height:100%}.office-media img{object-fit:cover;filter:saturate(.75);will-change:transform}.office-copy{position:absolute;z-index:2;right:2rem;bottom:4.5rem;left:2rem;opacity:0;transform:translateY(30px);will-change:transform,opacity}.office-copy>span{color:var(--mint-300);font-size:.62rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}.office-copy h3{margin:1.2rem 0 .8rem;font-family:Georgia,serif;font-size:clamp(3.2rem,5vw,5.8rem);font-weight:400;line-height:.86;letter-spacing:-.055em}.office-copy>a:not(.map){font-family:Georgia,serif;font-size:1.35rem;color:var(--mint-300)}.office-copy p{font-size:.7rem;opacity:.68}.office-copy .map{display:block;width:max-content;margin-top:1rem;padding-bottom:.4rem;border-bottom:1px solid currentColor;font-size:.62rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.split-instruction{position:absolute;z-index:5;right:1rem;bottom:1rem;left:1rem;display:flex;align-items:center;gap:1rem;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase}.split-instruction i{height:1px;flex:1;background:rgba(245,240,231,.3)}
+  .faq{padding:11rem 0;background:var(--paper);overflow:hidden}.faq-grid{display:grid;grid-template-columns:.8fr 1.45fr;gap:7vw}.faq-heading{position:sticky;top:9rem;align-self:start}.faq-heading .eyebrow{color:var(--pine-700)}.faq-heading h2{margin:2rem 0 3rem;font-family:Georgia,serif;font-size:clamp(4.7rem,7vw,8rem);font-weight:400;line-height:.82;letter-spacing:-.06em}.faq-heading h2 em{color:var(--pine-700);font-weight:400}.faq-heading a{display:block;padding-top:1rem;border-top:1px solid rgba(16,35,31,.2);font-size:.62rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.faq-list details{border-top:1px solid rgba(16,35,31,.2)}.faq-list summary{display:grid;padding:2rem 0;grid-template-columns:2.5rem 1fr auto;gap:1rem;align-items:center;cursor:pointer;font-family:Georgia,serif;font-size:clamp(1.7rem,2.4vw,2.7rem);list-style:none}.faq-list summary::-webkit-details-marker{display:none}.faq-list summary span{font-family:Arial,sans-serif;font-size:.58rem}.faq-list summary i{font-family:Arial,sans-serif;font-style:normal}.faq-list details[open] summary i{transform:rotate(45deg)}.faq-list details p{max-width:40rem;margin:0 0 2rem 3.5rem;color:rgba(16,35,31,.65);line-height:1.65}
+  .site-footer{position:relative;z-index:8;height:220svh;overflow:clip;background:var(--pine-950);color:var(--porcelain)}.footer-sticky{position:sticky;top:0;height:100svh;overflow:hidden;background:radial-gradient(circle at 50% 44%,rgba(34,118,96,.14),transparent 34%),var(--pine-950)}.footer-grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);opacity:.16}.footer-grid i{border-left:1px solid rgba(158,215,196,.12)}.footer-grid i:last-child{border-right:1px solid rgba(158,215,196,.12)}
+  .footer-orbit{position:absolute;z-index:1;top:43%;left:50%;width:min(42vw,36rem);aspect-ratio:1.55;border:1px solid rgba(158,215,196,.14);border-radius:50%;transform:translate(-50%,-50%)}.footer-orbit i{position:absolute;inset:19%;border:inherit;border-radius:inherit}
+  .footer-intro{position:absolute;z-index:3;top:12vh;right:1rem;left:1rem;text-align:center;pointer-events:none}.footer-intro .eyebrow{margin:0;color:var(--mint-300)}.footer-intro h2{margin:1.45rem auto 0;font-family:Georgia,serif;font-size:clamp(4.2rem,6.8vw,7.2rem);font-weight:400;line-height:.84;letter-spacing:-.06em}.footer-intro h2 span{display:block;will-change:transform,opacity}.footer-intro h2 em{color:var(--mint-300);font-weight:400}
+  .footer-portal{position:absolute;z-index:4;top:48%;left:50%;display:grid;width:min(78vw,68rem);padding:1.25rem 0;gap:1rem;border-top:1px solid rgba(245,240,231,.2);border-bottom:1px solid rgba(245,240,231,.2);transform:translate(-50%,-50%);will-change:transform,opacity}.footer-portal__contact{display:grid;grid-template-columns:auto 1fr;gap:1.25rem;align-items:center}.footer-portal__contact>img{box-sizing:content-box;width:3.35rem;height:auto;padding:.75rem;border-radius:50%;background:var(--mint-200)}.footer-portal__copy{display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:center}.footer-portal__copy p{max-width:24rem;margin:0;font-family:Georgia,serif;font-size:clamp(1.3rem,1.8vw,1.85rem);line-height:1.08}.footer-portal__links{display:flex;align-items:center;gap:1rem}.footer-portal__links>a{padding-bottom:.3rem;border-bottom:1px solid rgba(245,240,231,.35);font-size:.54rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.footer-portal__links>a:first-child{display:flex;min-width:11.5rem;min-height:3rem;padding:.65rem .8rem .65rem 1rem;align-items:center;justify-content:space-between;border:0;border-radius:999px;background:var(--mint-300);color:var(--pine-950)}.footer-portal__links>a:first-child i{display:grid;width:1.8rem;aspect-ratio:1;place-items:center;border-radius:50%;background:var(--pine-950);color:var(--porcelain);font-style:normal}
+  .footer-form{position:relative;display:grid;padding-top:1rem;grid-template-columns:1.1fr .9fr 1.1fr 1fr auto;gap:.75rem;align-items:end;border-top:1px solid rgba(245,240,231,.13)}.footer-form__trap{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(1px,1px,1px,1px)!important;white-space:nowrap!important}.footer-form__field{display:grid;gap:.45rem}.footer-form__field>span{color:var(--mint-300);font-size:.48rem;font-weight:900;letter-spacing:.11em;text-transform:uppercase}.footer-form input,.footer-form select{width:100%;height:2.35rem;padding:0 0 .25rem;border:0;border-bottom:1px solid rgba(245,240,231,.28);border-radius:0;outline:0;background:transparent;color:var(--porcelain);font:inherit;font-size:.7rem}.footer-form input::placeholder{color:rgba(245,240,231,.42)}.footer-form select{color:rgba(245,240,231,.72);cursor:pointer}.footer-form select option{background:var(--pine-950);color:var(--porcelain)}.footer-form input:focus,.footer-form select:focus{border-color:var(--mint-300)}.footer-form__submit{display:flex;min-width:9.5rem;height:2.75rem;padding:.45rem .45rem .45rem .9rem;align-items:center;justify-content:space-between;border:0;border-radius:999px;background:var(--porcelain);color:var(--pine-950);cursor:pointer;font-size:.52rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.footer-form__submit i{display:grid;width:1.9rem;aspect-ratio:1;place-items:center;border-radius:50%;background:var(--mint-300);font-style:normal}.footer-form__submit[disabled]{cursor:wait;opacity:.58}.footer-form__meta{display:flex;min-height:1rem;grid-column:1/-1;align-items:center;justify-content:space-between;gap:1rem}.footer-form__meta p,.footer-form__meta output{margin:0;color:rgba(245,240,231,.48);font-size:.46rem;line-height:1.4}.footer-form__meta output{color:var(--mint-300);text-align:right}.footer-form.is-success input,.footer-form.is-success select{border-color:rgba(158,215,196,.6)}
+  .footer-bottom{position:absolute;z-index:5;right:0;bottom:1.2rem;left:0;font-size:.52rem;letter-spacing:.08em;text-transform:uppercase}.footer-bottom__nav{display:grid;padding:1rem 0;grid-template-columns:1fr 1.2fr 1fr;gap:2rem;border-top:1px solid rgba(245,240,231,.18);border-bottom:1px solid rgba(245,240,231,.18)}.footer-bottom__nav>div{display:grid;gap:.28rem}.footer-bottom__nav>div span{color:rgba(245,240,231,.55)}.footer-bottom__nav nav{display:flex;justify-content:center;gap:1rem}.footer-bottom__nav>span{text-align:right}.footer-details{display:grid;padding-top:1rem;grid-template-columns:1fr 1fr .8fr;gap:clamp(1rem,3vw,3rem);text-transform:none}.footer-details section{display:grid;align-content:start;gap:.35rem}.footer-details section>span{color:var(--mint-300);font-size:.48rem;font-weight:900;letter-spacing:.11em;text-transform:uppercase}.footer-details section>a:not(.footer-details__phone){color:rgba(245,240,231,.72);font-size:.56rem;line-height:1.4}.footer-details__phone{font-family:Georgia,serif;font-size:1.15rem;letter-spacing:-.02em}.footer-details p{margin:.2rem 0 0;color:rgba(245,240,231,.5);font-size:.5rem;line-height:1.55}.footer-details__connect nav{display:flex;gap:.8rem;font-size:.53rem;text-transform:uppercase}.footer-details__connect nav a{padding-bottom:.2rem;border-bottom:1px solid rgba(245,240,231,.25)}
+  @media (min-width:46.001rem) and (max-width:68rem){.split-story{height:300svh}.split-title h2{font-size:clamp(5rem,10vw,7rem)}.office-copy{right:1rem;left:1rem}.office-copy h3{font-size:clamp(3rem,5vw,4.5rem)}.faq-grid{grid-template-columns:1fr}.faq-heading{position:relative;top:auto}.site-footer{height:225svh}.footer-intro{top:9vh}.footer-intro h2{font-size:clamp(4.7rem,8vw,6rem)}.footer-orbit{width:55vw}.footer-portal{top:46%;width:88vw}.footer-portal__copy{gap:1rem}.footer-portal__copy p{font-size:1.45rem}.footer-portal__links{gap:.7rem}.footer-portal__links>a:first-child{min-width:10rem}.footer-form{grid-template-columns:1fr 1fr}.footer-form__submit{min-width:100%}.footer-form__meta{grid-column:1/-1}.footer-bottom__nav{grid-template-columns:1fr 1fr}.footer-bottom__nav>span{display:none}.footer-bottom__nav nav{justify-content:flex-end}.footer-details{grid-template-columns:1fr 1fr .8fr;gap:1.3rem}}
+  @media (max-width:46rem){.split-story{height:310svh}.split-title{top:8.5rem}.split-title h2{font-size:clamp(3.8rem,17vw,5.2rem);white-space:normal}.office-copy{right:1rem;bottom:4rem;left:1rem}.office-copy h3{font-size:clamp(2.7rem,12vw,4rem)}.office-copy p{font-size:.62rem}.faq{padding:7rem 0}.faq-grid{grid-template-columns:1fr;gap:4rem}.faq-heading{position:relative;top:auto}.faq-heading h2{font-size:clamp(3.8rem,17vw,5.2rem)}.faq-list summary{padding:1.5rem 0;grid-template-columns:2rem 1fr auto;font-size:1.6rem}.faq-list details p{margin-left:3rem}.site-footer{height:270svh}.footer-grid{grid-template-columns:repeat(2,1fr)}.footer-grid i:nth-child(n+3){display:none}.footer-intro{top:6.5rem;right:.75rem;left:.75rem}.footer-intro h2{margin-top:1rem;font-size:clamp(3.2rem,14vw,4.1rem);line-height:.86}.footer-orbit{top:38%;width:96vw;aspect-ratio:1.35}.footer-portal{top:26%;width:calc(100% - 1.5rem);padding:1rem 0;gap:.8rem;text-align:center}.footer-portal__contact{grid-template-columns:1fr;gap:.6rem}.footer-portal__contact>img{width:2.8rem;margin:auto;padding:.65rem}.footer-portal__copy{grid-template-columns:1fr;gap:.7rem}.footer-portal__copy p{max-width:18rem;margin:auto;font-size:1.15rem}.footer-portal__links{flex-wrap:wrap;justify-content:center;gap:.6rem .75rem}.footer-portal__links>a:first-child{min-width:10rem;min-height:2.8rem}.footer-portal__links>a{font-size:.48rem}.footer-form{grid-template-columns:1fr 1fr;gap:.7rem;text-align:left}.footer-form__submit{min-width:100%}.footer-form__meta{display:grid;gap:.25rem;text-align:left}.footer-form__meta output{text-align:left}.footer-bottom{right:.75rem;bottom:.55rem;left:.75rem;font-size:.48rem}.footer-bottom__nav{padding:.65rem 0;grid-template-columns:1fr 1.25fr;gap:.5rem}.footer-bottom__nav nav{display:grid;grid-template-columns:1fr 1fr;gap:.35rem;text-align:right}.footer-bottom__nav>span{display:none}.footer-details{padding-top:.65rem;grid-template-columns:1fr 1fr;gap:.7rem}.footer-details section{gap:.22rem}.footer-details section>span{font-size:.46rem}.footer-details section>a:not(.footer-details__phone){font-size:.51rem}.footer-details__phone{font-size:1.02rem}.footer-details p{font-size:.46rem;line-height:1.4}.footer-details__connect{grid-column:1/-1;grid-template-columns:1fr auto;align-items:end}.footer-details__connect>span,.footer-details__connect>p{grid-column:1/-1}.footer-details__email{font-size:.51rem!important}.footer-details__connect nav{font-size:.46rem}}
+  @media (prefers-reduced-motion:reduce){.split-story{height:auto}.split-sticky{position:relative;height:auto;min-height:100svh}.office-split{display:grid}.office{width:100%;min-height:45rem}.office-copy{opacity:1;transform:none}.site-footer{height:auto}.footer-sticky{position:relative;height:auto;min-height:100svh;padding:7rem 1rem 2rem}.footer-intro,.footer-portal,.footer-bottom{position:relative;inset:auto;transform:none!important;opacity:1!important;visibility:visible!important}.footer-intro{margin-bottom:3rem}.footer-portal{margin:0 auto 5rem}.footer-bottom{right:auto;bottom:auto;left:auto}}
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduced){
+    const split=gsap.timeline({scrollTrigger:{trigger:'[data-split-story]',start:'top top',end:'bottom bottom',scrub:.85,invalidateOnRefresh:true}});
+    split.to('[data-office="chicago"]',{width:'72%',duration:.6,ease:'power2.inOut'},.25).to('[data-office="mokena"]',{width:'28%',duration:.6,ease:'power2.inOut'},.25)
+      .to('[data-office="chicago"] .office-copy',{opacity:1,y:0,duration:.4},.35)
+      .to('.split-title',{opacity:.1,y:'-10vh',scale:.7,duration:.45},.48)
+      .to('[data-office="chicago"] .office-copy',{opacity:0,y:-25,duration:.25},.9)
+      .to('[data-office="chicago"]',{width:'28%',duration:.65,ease:'power2.inOut'},1).to('[data-office="mokena"]',{width:'72%',duration:.65,ease:'power2.inOut'},1)
+      .to('[data-office="mokena"] .office-copy',{opacity:1,y:0,duration:.4},1.15)
+      .to('.office--chicago img',{scale:1.12,duration:1.6,ease:'none'},0).to('.office--mokena img',{scale:1.12,duration:1.6,ease:'none'},0);
+    gsap.utils.toArray<HTMLElement>('[data-fade]').forEach(item=>gsap.from(item,{y:65,opacity:0,duration:.8,ease:'power3.out',scrollTrigger:{trigger:item,start:'top 88%',once:true}}));
+
+    const footerStory=document.querySelector<HTMLElement>('[data-footer-story]');
+    if(footerStory){
+      gsap.set('[data-footer-line="one"]',{y:28,opacity:.18});
+      gsap.set('[data-footer-line="two"]',{y:38,opacity:.18});
+      gsap.set('[data-footer-portal]',{autoAlpha:0,y:38,scale:.96});
+      gsap.set('[data-footer-portal-copy]',{autoAlpha:0,y:18});
+      gsap.set('[data-footer-form]',{autoAlpha:0,y:16});
+      gsap.set('[data-footer-bottom]',{autoAlpha:0,y:22});
+      gsap.set('.footer-orbit',{scale:.82,opacity:.08});
+
+      const footerTimeline=gsap.timeline({
+        scrollTrigger:{
+          trigger:footerStory,
+          start:'top top',
+          end:'bottom bottom',
+          scrub:.78,
+          invalidateOnRefresh:true
+        }
+      });
+
+      footerTimeline
+        .to('[data-footer-line="one"],[data-footer-line="two"]',{y:0,opacity:1,duration:.28,ease:'power3.out'},0)
+        .to('.footer-orbit',{scale:1,opacity:.65,duration:.42,ease:'power2.out'},.04)
+        .to('[data-footer-line="one"],[data-footer-line="two"]',{y:-18,opacity:.22,duration:.24,ease:'power2.inOut'},.32)
+        .to('[data-footer-portal]',{autoAlpha:1,y:0,scale:1,duration:.3,ease:'power3.out'},.34)
+        .to('[data-footer-portal-copy]',{autoAlpha:1,y:0,duration:.22,ease:'power2.out'},.44)
+        .to('[data-footer-form]',{autoAlpha:1,y:0,duration:.22,ease:'power2.out'},.5)
+        .to('.footer-orbit',{scale:1.08,opacity:.3,duration:.34,ease:'none'},.44)
+        .to('[data-footer-bottom]',{autoAlpha:1,y:0,duration:.24,ease:'power2.out'},.64)
+        .to({}, {duration:.08},.92);
+    }
+  }
+
+  const appointmentForm=document.querySelector<HTMLFormElement>('[data-appointment-form]');
+  if(appointmentForm){
+    const submitButton=appointmentForm.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const submitLabel=submitButton?.querySelector<HTMLElement>('span');
+    const status=appointmentForm.querySelector<HTMLOutputElement>('[data-form-status]');
+    appointmentForm.addEventListener('submit',async(event)=>{
+      event.preventDefault();
+      if(!appointmentForm.reportValidity()) return;
+      if(submitButton) submitButton.disabled=true;
+      if(submitLabel) submitLabel.textContent='Sending…';
+      if(status) status.textContent='Sending your request…';
+      appointmentForm.classList.remove('is-success');
+      try{
+        const response=await fetch(appointmentForm.action,{
+          method:'POST',
+          body:new FormData(appointmentForm),
+          headers:{Accept:'application/json'}
+        });
+        if(!response.ok) throw new Error('Submission failed');
+        appointmentForm.reset();
+        appointmentForm.classList.add('is-success');
+        if(status) status.textContent='Thank you—your request was sent. The team will be in touch.';
+      }catch(error){
+        if(status) status.textContent='We couldn’t send that. Please call (708) 755-1333.';
+      }finally{
+        if(submitButton) submitButton.disabled=false;
+        if(submitLabel) submitLabel.textContent='Send request';
+      }
+    });
+  }
+</script>

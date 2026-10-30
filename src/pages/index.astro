@@ -1,0 +1,289 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Manifesto from '../components/Manifesto.astro';
+import Services from '../components/Services.astro';
+import LavaProcessReveal from '../components/LavaProcessReveal.astro';
+import DistinctCoverageReviews from '../components/DistinctCoverageReviews.astro';
+import DistinctTeamPricing from '../components/DistinctTeamPricing.astro';
+import DistinctLocationsFooter from '../components/DistinctLocationsFooter.astro';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Complete health, cosmetic and restorative dentistry in Chicago Heights and Mokena, Illinois." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Smiles by Noetzel | Ashland Dental &amp; Wellness Center</title>
+  </head>
+  <body>
+    <Navbar />
+    <main>
+      <Hero />
+      <Manifesto />
+      <Services />
+      <LavaProcessReveal />
+      <DistinctCoverageReviews />
+      <DistinctTeamPricing />
+      <DistinctLocationsFooter />
+    </main>
+
+    <script>
+      import gsap from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      const stage = document.querySelector<HTMLElement>('[data-hero-stage]');
+      const sticky = document.querySelector<HTMLElement>('[data-hero-sticky]');
+      const imageInner = document.querySelector<HTMLElement>('[data-hero-image-inner]');
+      const aura = document.querySelector<HTMLElement>('[data-pointer-aura]');
+      const sceneValue = document.querySelector<HTMLElement>('[data-scene-counter] span');
+      const compactHero = window.matchMedia('(max-width: 46rem)').matches;
+      const tabletHero = window.matchMedia('(min-width: 46.001rem) and (max-width: 68rem)').matches;
+      const responsiveHero = compactHero || tabletHero;
+
+      const getHeroLayout = () => window.matchMedia('(max-width: 46rem)').matches
+        ? 'phone'
+        : window.matchMedia('(max-width: 68rem)').matches ? 'tablet' : 'desktop';
+      let activeHeroLayout = getHeroLayout();
+      let layoutRefreshTimer = 0;
+      window.addEventListener('resize', () => {
+        const nextHeroLayout = getHeroLayout();
+        if (nextHeroLayout === activeHeroLayout) return;
+        activeHeroLayout = nextHeroLayout;
+        window.clearTimeout(layoutRefreshTimer);
+        layoutRefreshTimer = window.setTimeout(() => {
+          if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual';
+          window.scrollTo(0, 0);
+          window.location.reload();
+        }, 120);
+      }, { passive: true });
+      const restingClip = compactHero
+        ? 'inset(39% 6% 39% 6% round 0.8rem)'
+        : tabletHero
+          ? 'inset(35% 14% 35% 14% round 1rem)'
+          : 'inset(0% 0% 0% 0% round 0rem)';
+      const exitClip = compactHero
+        ? 'inset(22% 5% 22% 5% round 0.8rem)'
+        : tabletHero
+          ? 'inset(16% 6% 16% 6% round 1rem)'
+          : 'inset(0% 0% 0% 0% round 0rem)';
+      const restingImage = compactHero
+        ? { top: '39%', left: '6%', width: '88%', height: '22%' }
+        : tabletHero
+          ? { top: '35%', left: '14%', width: '72%', height: '30%' }
+          : { top: '0%', left: '0%', width: '100%', height: '100%' };
+      const exitImage = compactHero
+        ? { top: '22%', left: '5%', width: '90%', height: '56%' }
+        : tabletHero
+          ? { top: '16%', left: '6%', width: '88%', height: '68%' }
+          : { top: '0%', left: '0%', width: '100%', height: '100%' };
+
+      if (!reduceMotion && stage && sticky) {
+        gsap.set('[data-video-card]', {
+          xPercent: -50,
+          yPercent: -50,
+          x: 0,
+          y: responsiveHero ? '72svh' : '78svh',
+          scale: responsiveHero ? 1 : 0.34,
+          rotate: 0,
+          opacity: 0,
+          force3D: true,
+        });
+        gsap.set('[data-video-frame]', { clipPath: restingClip });
+        gsap.set('[data-video-frame] video', restingImage);
+        gsap.set('[data-hero-plane]', { opacity: 1 });
+        gsap.set('[data-manifesto]', {
+          opacity: 1,
+          y: 0,
+          willChange: 'auto',
+        });
+        gsap.set('[data-side-left]', { x: -28, opacity: 0 });
+        gsap.set('[data-side-right]', { x: 28, opacity: 0 });
+        gsap.set('[data-hero-handoff]', { y: 70, opacity: 0 });
+
+        const intro = gsap.timeline({ defaults: { ease: 'power4.out' } });
+
+        intro
+          .from('[data-hero-plane]', { clipPath: 'inset(0 0 0 100%)', duration: 1.35 })
+          .from('.hero-kicker', { y: 22, opacity: 0, duration: 0.6 }, '-=0.85')
+          .from('.title-line > span', { yPercent: 120, duration: 1.05, stagger: 0.09 }, '-=0.72')
+          .from('[data-hero-bottom]', { y: 42, duration: 0.72 }, '-=0.74')
+          .from('.hero-meta', { opacity: 0, duration: 0.5, stagger: 0.08 }, '-=0.5');
+
+        const heroScroll = gsap.timeline({
+          scrollTrigger: {
+            trigger: stage,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 0.65,
+            invalidateOnRefresh: true,
+            onUpdate: (self) => {
+              gsap.set('[data-scroll-progress]', { scaleX: self.progress });
+              if (sceneValue) sceneValue.textContent = String(Math.min(3, Math.floor(self.progress * 3) + 1)).padStart(2, '0');
+            },
+          },
+        });
+
+        heroScroll
+          .to('[data-hero-copy]', { yPercent: -26, opacity: 0, duration: 0.18, ease: 'sine.inOut' }, 0.03)
+          .to('[data-hero-bottom]', { yPercent: -40, opacity: 0, duration: 0.17, ease: 'sine.inOut' }, 0.05)
+          .to('[data-hero-left]', { xPercent: -18, duration: 0.3, ease: 'sine.inOut' }, 0.05)
+          .to('[data-hero-plane]', { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.34, ease: 'sine.inOut' }, 0.06)
+          .to('[data-hero-image-inner] img', { scale: 1.14, duration: 0.62, ease: 'none' }, 0.02)
+          .to('[data-video-card]', {
+            y: compactHero ? '7svh' : tabletHero ? '4svh' : 0,
+            scale: responsiveHero ? 1 : 0.58,
+            rotate: 0,
+            opacity: 1,
+            duration: 0.3,
+            ease: 'none',
+            force3D: true,
+          }, 0.1)
+          .to('[data-side-left]', { x: 0, opacity: 1, duration: 0.2, ease: 'sine.out' }, 0.25)
+          .to('[data-side-right]', { x: 0, opacity: 1, duration: 0.2, ease: 'sine.out' }, 0.27)
+          .to('[data-video-frame] video', { scale: 1.08, duration: 0.44, ease: 'none', force3D: true }, 0.2)
+          .to('[data-side-left]', { x: -24, opacity: 0, duration: 0.16, ease: 'sine.inOut' }, 0.41)
+          .to('[data-side-right]', { x: 24, opacity: 0, duration: 0.16, ease: 'sine.inOut' }, 0.41)
+          .to('.hero-side-note, .scroll-cue, [data-scene-counter], .image-caption', { opacity: 0, duration: 0.14, ease: 'sine.inOut' }, 0.42)
+          .to('[data-video-card]', {
+            x: 0,
+            y: 0,
+            scale: 1,
+            borderRadius: 0,
+            duration: responsiveHero ? 0.2 : 0.3,
+            ease: 'none',
+            force3D: true,
+          }, 0.45)
+          .to('[data-video-frame]', {
+            clipPath: 'inset(0% 0% 0% 0% round 0rem)',
+            duration: responsiveHero ? 0.2 : 0.3,
+            ease: 'none',
+          }, 0.45)
+          .to('[data-video-frame] video', {
+            top: '0%',
+            left: '0%',
+            width: '100%',
+            height: '100%',
+            duration: responsiveHero ? 0.2 : 0.3,
+            ease: 'none',
+          }, 0.45)
+          .to('.video-meta', { opacity: 0, duration: 0.16, ease: 'sine.inOut' }, 0.45)
+          .to('[data-hero-plane], [data-hero-left], .hero-grid, [data-hero-ghost]', { opacity: 0, duration: 0.2, ease: 'sine.inOut' }, 0.48)
+          .to('[data-video-frame] video', { scale: 1.16, duration: responsiveHero ? 0.3 : 0.52, ease: 'none', force3D: true }, 0.44)
+          .to('[data-light-wash]', { opacity: responsiveHero ? 0 : 1, duration: 0.14, ease: 'sine.inOut' }, 0.68)
+          .to('[data-video-frame]', {
+            clipPath: exitClip,
+            duration: responsiveHero ? 0.12 : 0.18,
+            ease: responsiveHero ? 'sine.out' : 'none',
+          }, 0.74)
+          .to('[data-video-frame] video', {
+            ...exitImage,
+            duration: responsiveHero ? 0.12 : 0.18,
+            ease: responsiveHero ? 'sine.out' : 'none',
+          }, 0.74)
+          .to('[data-video-card]', {
+            x: responsiveHero ? 0 : '35vw',
+            y: compactHero ? '-32svh' : tabletHero ? '-28svh' : '-18vh',
+            scale: responsiveHero ? 1 : 0.31,
+            opacity: compactHero ? 0.58 : tabletHero ? 0.72 : 0.94,
+            borderRadius: '1.2rem',
+            duration: responsiveHero ? 0.12 : 0.18,
+            ease: responsiveHero ? 'sine.out' : 'none',
+            force3D: true,
+          }, 0.74)
+          .to('[data-video-card]', {
+            y: compactHero ? '-62svh' : tabletHero ? '-58svh' : '-25vh',
+            opacity: 0,
+            duration: responsiveHero ? 0.08 : 0.1,
+            ease: responsiveHero ? 'sine.in' : 'none',
+            force3D: true,
+          }, responsiveHero ? 0.84 : 0.9);
+
+        ScrollTrigger.create({
+          trigger: stage,
+          start: 'top top',
+          end: 'bottom bottom',
+          onUpdate: (self) => {
+            const progress = self.progress;
+            let opacity = 0;
+            let y = 70;
+
+            if (progress >= 0.76 && progress < 0.8) {
+              const phase = (progress - 0.76) / 0.04;
+              opacity = phase;
+              y = 70 * (1 - phase);
+            } else if (progress >= 0.8 && progress < 0.87) {
+              opacity = 1;
+              y = 0;
+            } else if (progress >= 0.87 && progress < 0.92) {
+              const phase = (progress - 0.87) / 0.05;
+              opacity = 1 - phase;
+              y = -34 * phase;
+            } else if (progress >= 0.92) {
+              y = -34;
+            }
+
+            gsap.set('[data-hero-handoff]', { opacity, y });
+          },
+        });
+
+        if (finePointer && imageInner && aura) {
+          const imageX = gsap.quickTo(imageInner, 'x', { duration: 1.2, ease: 'power3.out' });
+          const imageY = gsap.quickTo(imageInner, 'y', { duration: 1.2, ease: 'power3.out' });
+          const auraX = gsap.quickTo(aura, 'x', { duration: 0.35, ease: 'power2.out' });
+          const auraY = gsap.quickTo(aura, 'y', { duration: 0.35, ease: 'power2.out' });
+
+          sticky.addEventListener('pointermove', (event) => {
+            const rect = sticky.getBoundingClientRect();
+            const nx = (event.clientX - rect.left) / rect.width - 0.5;
+            const ny = (event.clientY - rect.top) / rect.height - 0.5;
+            imageX(nx * 24);
+            imageY(ny * 18);
+            auraX(event.clientX - rect.left);
+            auraY(event.clientY - rect.top);
+          });
+
+          sticky.addEventListener('pointerleave', () => {
+            imageX(0);
+            imageY(0);
+          });
+
+          document.querySelectorAll<HTMLElement>('[data-magnetic]').forEach((item) => {
+            item.addEventListener('pointermove', (event) => {
+              const rect = item.getBoundingClientRect();
+              gsap.to(item, {
+                x: (event.clientX - rect.left - rect.width / 2) * 0.13,
+                y: (event.clientY - rect.top - rect.height / 2) * 0.13,
+                duration: 0.35,
+                ease: 'power2.out',
+              });
+            });
+            item.addEventListener('pointerleave', () => gsap.to(item, { x: 0, y: 0, duration: 0.55, ease: 'elastic.out(1, .45)' }));
+          });
+        }
+
+        document.querySelectorAll<HTMLElement>('.manifesto-line').forEach((line, index) => {
+          gsap.to(line, {
+            color: '#10231f',
+            ease: 'none',
+            scrollTrigger: {
+              trigger: line,
+              start: `top ${72 - index * 3}%`,
+              end: `bottom ${42 - index * 2}%`,
+              scrub: true,
+            },
+          });
+        });
+
+      }
+    </script>
+  </body>
+</html>

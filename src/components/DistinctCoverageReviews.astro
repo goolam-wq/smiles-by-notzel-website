@@ -1,0 +1,86 @@
+---
+const reviews=[
+  {n:'01',name:'Keanna Benson',quote:'Long-term family care, thoughtful technology and efficient visits.',metric:'4.9',place:'Chicago Heights · 258 reviews'},
+  {n:'02',name:'Jason Bracken',quote:'Prompt support for severe pain, with comfort prioritized throughout the visit.',metric:'5.0',place:'Mokena · 5 reviews'},
+  {n:'03',name:'Terre Robertson',quote:'Friendly, patient and pain-conscious care with accommodating scheduling.',metric:'76',place:'friendly-staff mentions'},
+];
+---
+
+<section class="route-story" id="service-areas" data-route-story>
+  <div class="route-sticky">
+    <header class="route-title" data-route-title><p class="eyebrow">Service area</p><h2>One circle<br /><em>of care.</em></h2><p>From Chicago Heights to Mokena and the communities between.</p></header>
+    <div class="route-world" data-route-world>
+      <svg viewBox="0 0 1000 650" role="img" aria-label="Abstract route connecting the Chicago Heights and Mokena service areas">
+        <path class="route-ghost" d="M65 510 C205 495 265 175 448 245 S675 540 935 150" />
+        <path class="route-line" data-route-line pathLength="1" d="M65 510 C205 495 265 175 448 245 S675 540 935 150" />
+      </svg>
+      <div class="route-node route-node--chicago" data-route-node="chicago"><i></i><span>01</span><strong>Chicago<br />Heights</strong><small>500 Ashland Ave, Suite #2</small></div>
+      <div class="route-node route-node--mokena" data-route-node="mokena"><i></i><span>02</span><strong>Mokena</strong><small>19160 88th Avenue</small></div>
+      <div class="community-cloud community-cloud--south" data-community-cloud="south"><span>Steger</span><span>Glenwood</span><span>Park Forest</span><span>Flossmoor</span><span>Matteson</span><span>Lynwood</span></div>
+      <div class="community-cloud community-cloud--west" data-community-cloud="west"><span>Frankfort</span><span>New Lenox</span><span>Tinley Park</span><span>Orland Park</span><span>Homer Glen</span><span>Lockport</span></div>
+      <figure class="route-lens" data-route-lens><img src="/images/generated/clinic-operatory-consistent.webp" alt="The calm forest-green and ivory visual language of the practice" loading="lazy" /></figure>
+    </div>
+    <div class="route-caption" data-route-caption><span>21 communities</span><b>Two offices · one connected experience</b><a href="/service-areas/">View all service areas ↗</a></div>
+  </div>
+</section>
+
+<section class="review-story" id="reviews" data-review-story>
+  <div class="review-sticky" data-review-sticky>
+    <div class="review-index"><span>Patient proof</span><i></i><b data-review-index>01</b></div>
+    {reviews.map((review,index)=><article class:list={['quote-scene',`quote-scene--${index+1}`]} data-quote-scene>
+      <div class="quote-metric"><strong>{review.metric}</strong><span>{review.place}</span></div>
+      <blockquote>“{review.quote}”</blockquote>
+      <footer><span>★★★★★</span><b>{review.name}</b></footer>
+    </article>)}
+    <div class="review-ticker" aria-hidden="true"><span>LISTEN · CONNECT · CARE · </span><span>LISTEN · CONNECT · CARE · </span></div>
+  </div>
+</section>
+
+<style>
+  .route-story{position:relative;z-index:6;height:360svh;background:var(--porcelain);color:var(--ink)}.route-sticky,.review-sticky{position:sticky;top:0;height:100svh;overflow:hidden}.route-sticky{background:radial-gradient(circle at 70% 45%,rgba(158,215,196,.22),transparent 28%),var(--porcelain)}
+  .route-title{position:absolute;z-index:4;top:clamp(7rem,12vh,9rem);left:max(1rem,calc((100vw - 92rem)/2 + 1rem));transform-origin:left top}.route-title .eyebrow{color:var(--pine-700)}.route-title h2{margin:1.6rem 0 1rem;font-family:Georgia,serif;font-size:clamp(5rem,9vw,10rem);font-weight:400;line-height:.78;letter-spacing:-.07em}.route-title h2 em{color:var(--pine-700);font-weight:400}.route-title>p:last-child{max-width:27rem;color:rgba(16,35,31,.6);line-height:1.6}
+  .route-world{position:absolute;z-index:2;inset:6vh 2vw 8vh 25vw;transform-origin:50% 50%;will-change:transform}.route-world svg{width:100%;height:100%;overflow:visible}.route-ghost,.route-line{fill:none;stroke-width:2}.route-ghost{stroke:rgba(27,92,77,.13)}.route-line{stroke:var(--pine-700);stroke-dasharray:1;stroke-dashoffset:1}
+  .route-node{position:absolute;display:grid;width:12rem;gap:.35rem;transform:translate(-50%,-50%);will-change:transform}.route-node i{position:absolute;top:0;left:-2.3rem;width:1.45rem;aspect-ratio:1;border:.35rem solid var(--porcelain);border-radius:50%;background:var(--pine-700);box-shadow:0 0 0 1px var(--pine-700),0 0 0 1.2rem rgba(158,215,196,.22)}.route-node span{font-size:.58rem;font-weight:900}.route-node strong{font-family:Georgia,serif;font-size:2.3rem;font-weight:400;line-height:.87}.route-node small{font-size:.56rem;opacity:.58}.route-node--chicago{left:6.5%;top:79%}.route-node--mokena{left:93%;top:23%}
+  .community-cloud{position:absolute;display:flex;width:18rem;flex-wrap:wrap;gap:.4rem;opacity:0;visibility:hidden}.community-cloud span{padding:.5rem .65rem;border:1px solid rgba(16,35,31,.24);border-radius:999px;background:rgba(251,248,242,.68);font-size:.55rem;backdrop-filter:blur(8px)}.community-cloud--south{left:10%;top:49%}.community-cloud--west{right:3%;top:43%}
+  .route-lens{position:absolute;left:47%;top:48%;width:14rem;aspect-ratio:1;margin:0;overflow:hidden;border:.7rem solid rgba(251,248,242,.8);border-radius:50%;box-shadow:0 2rem 5rem rgba(6,29,25,.18);transform:translate(-50%,-50%) scale(.35);will-change:transform}.route-lens img{width:100%;height:100%;object-fit:cover}
+  .route-caption{position:absolute;z-index:4;right:max(1rem,calc((100vw - 92rem)/2 + 1rem));bottom:1.2rem;left:max(1rem,calc((100vw - 92rem)/2 + 1rem));display:grid;padding-top:1rem;grid-template-columns:1fr 1fr 1fr;border-top:1px solid rgba(16,35,31,.2);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase}.route-caption b{text-align:center}.route-caption a{text-align:right}
+  .review-story{position:relative;z-index:6;height:340svh;background:var(--mint-200)}.review-sticky{background:var(--mint-200);color:var(--pine-950)}.review-index{position:absolute;z-index:5;top:7rem;right:1rem;left:1rem;display:flex;align-items:center;gap:1rem;font-size:.62rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.review-index i{height:1px;flex:1;background:currentColor;opacity:.22}
+  .quote-scene{position:absolute;inset:0;display:grid;padding:clamp(8rem,15vh,11rem) max(1rem,calc((100vw - 92rem)/2 + 1rem)) 5rem;grid-template-columns:.35fr 1.65fr;align-items:center;gap:5vw;opacity:0;visibility:hidden;clip-path:inset(100% 0 0 0);will-change:clip-path,opacity,transform}.quote-scene blockquote{margin:0;font-family:Georgia,serif;font-size:clamp(4.7rem,8vw,9rem);line-height:.88;letter-spacing:-.065em}.quote-metric{display:grid;align-self:start;margin-top:8vh}.quote-metric strong{font-family:Georgia,serif;font-size:clamp(5rem,10vw,11rem);font-weight:400;line-height:.8}.quote-metric span{max-width:10rem;margin-top:1rem;font-size:.6rem;line-height:1.5;letter-spacing:.1em;text-transform:uppercase}.quote-scene footer{position:absolute;right:max(1rem,calc((100vw - 92rem)/2 + 1rem));bottom:4.2rem;left:max(1rem,calc((100vw - 92rem)/2 + 1rem));display:flex;justify-content:space-between;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase}.quote-scene--2{color:var(--porcelain)}.quote-scene--3{color:var(--ink)}.review-ticker{position:absolute;bottom:-.13em;display:flex;width:max-content;font-family:Georgia,serif;font-size:clamp(5rem,12vw,13rem);line-height:.7;color:rgba(6,29,25,.08);white-space:nowrap}
+  @media (min-width:46.001rem) and (max-width:68rem){.route-story{height:330svh}.route-title h2{font-size:clamp(5rem,10vw,7rem)}.route-world{inset:10vh 0 11vh 20vw}.review-story{height:320svh}.quote-scene{grid-template-columns:.45fr 1.55fr}.quote-scene blockquote{font-size:clamp(4rem,8vw,6rem)}}
+  @media (max-width:46rem){.route-story{height:340svh}.route-title{top:8.5rem;left:1rem}.route-title h2{font-size:clamp(3.8rem,17vw,5.3rem)}.route-title>p:last-child{font-size:.75rem}.route-world{inset:22vh -50vw 10vh -15vw}.route-node{width:8rem}.route-node strong{font-size:1.55rem}.route-node--chicago{left:25%;top:77%}.route-node--mokena{left:86%;top:24%}.community-cloud{width:12rem}.community-cloud--south{left:17%;top:48%}.community-cloud--west{right:9%;top:43%}.route-lens{width:9rem}.route-caption{right:1rem;left:1rem;grid-template-columns:1fr 1fr}.route-caption b{display:none}.review-story{height:330svh}.quote-scene{padding:8.5rem 1rem 5rem;grid-template-columns:1fr;align-content:center}.quote-scene blockquote{font-size:clamp(3.6rem,16vw,5rem)}.quote-metric{display:flex;margin:0 0 2rem;align-items:end;gap:1rem}.quote-metric strong{font-size:5rem}.quote-scene footer{right:1rem;left:1rem}.review-ticker{font-size:5rem}}
+  @media (prefers-reduced-motion:reduce){.route-story,.review-story{height:auto}.route-sticky,.review-sticky{position:relative;height:auto;min-height:100svh;padding:8rem 1rem}.route-title,.route-world,.route-caption,.quote-scene{position:relative;inset:auto;margin:0 0 2rem}.route-title{left:auto}.route-world{height:45rem}.quote-scene{display:grid;min-height:42rem;padding:4rem 0;opacity:1;visibility:visible;clip-path:none}.review-sticky{padding-inline:1rem}}
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduced){
+    gsap.set('[data-community-cloud]',{autoAlpha:0,y:20});
+    const route=gsap.timeline({scrollTrigger:{trigger:'[data-route-story]',start:'top top',end:'bottom bottom',scrub:.85,invalidateOnRefresh:true}});
+    route.to('[data-route-line]',{attr:{'stroke-dashoffset':0},duration:1.8,ease:'none'},0)
+      .to('[data-route-lens]',{scale:1,duration:.7,ease:'power2.out'},.2)
+      .to('[data-community-cloud="south"]',{autoAlpha:1,y:0,duration:.35},.48)
+      .to('[data-route-world]',{x:'-11vw',y:'-5vh',scale:1.17,duration:.8,ease:'power2.inOut'},.9)
+      .to('[data-community-cloud="south"]',{autoAlpha:.2,duration:.3},1.05)
+      .to('[data-community-cloud="west"]',{autoAlpha:1,y:0,duration:.4},1.15)
+      .to('[data-route-title]',{y:'-10vh',scale:.68,autoAlpha:.28,duration:.55,ease:'power2.inOut'},.78)
+      .to('[data-route-lens]',{x:'12vw',y:'-7vh',scale:1.3,duration:.65,ease:'power2.inOut'},1.08);
+
+    const quotes=gsap.utils.toArray<HTMLElement>('[data-quote-scene]');
+    gsap.set(quotes,{autoAlpha:0,clipPath:'inset(100% 0% 0% 0%)'});
+    const reviewIndex=document.querySelector<HTMLElement>('[data-review-index]');
+    const review=gsap.timeline({scrollTrigger:{trigger:'[data-review-story]',start:'top top',end:'bottom bottom',scrub:.78,invalidateOnRefresh:true,onUpdate:(self)=>{
+      if(reviewIndex) reviewIndex.textContent=self.progress<.53?'01':self.progress<.86?'02':'03';
+    }}});
+    quotes.forEach((quote,index)=>{
+      const at=index*.78;
+      const bg=index===1?'#061d19':'#c4eadc';
+      review.to('[data-review-sticky]',{backgroundColor:bg,duration:.42,ease:'power2.inOut'},at)
+        .to(quote,{autoAlpha:1,clipPath:'inset(0% 0% 0% 0%)',duration:.55,ease:'power3.inOut'},at);
+      if(index<quotes.length-1) review.to(quote,{autoAlpha:0,y:'-8vh',duration:.24,ease:'power2.in'},at+.92);
+    });
+    gsap.to('.review-ticker',{x:'-50%',ease:'none',scrollTrigger:{trigger:'[data-review-story]',start:'top bottom',end:'bottom top',scrub:1}});
+  }
+</script>

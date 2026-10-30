@@ -1,0 +1,86 @@
+---
+interface Props {
+  compact?: boolean;
+  light?: boolean;
+}
+
+const { compact = false, light = false } = Astro.props;
+---
+
+<span class:list={["brand-lockup", { compact, light }]}>
+  <svg class="brand-mark" viewBox="0 0 160 160" aria-hidden="true">
+    <path class="mark-primary" d="M22 105C39 126 58 137 79 137c20 0 39-9 56-28" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" />
+    <path class="mark-primary" d="M26 87C44 48 65 27 80 27c17 0 30 25 48 71" fill="none" stroke="currentColor" stroke-width="11" stroke-linecap="round" />
+    <path class="mark-accent" d="M27 63c25-27 43-29 61-8l43 52" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" />
+    <path class="mark-primary" d="M129 31v78" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" />
+  </svg>
+  <span class="brand-copy">
+    <span class="brand-name">Smiles by Noetzel</span>
+    <span class="brand-descriptor">Ashland Dental &amp; Wellness Center</span>
+  </span>
+</span>
+
+<style>
+  .brand-lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: inherit;
+  }
+
+  .brand-mark {
+    width: 3.2rem;
+    height: 3.2rem;
+    flex: 0 0 auto;
+  }
+
+  .mark-accent {
+    color: #70bda5;
+  }
+
+  .brand-copy {
+    display: grid;
+    line-height: 1;
+  }
+
+  .brand-name {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.3rem;
+    letter-spacing: -0.045em;
+  }
+
+  .brand-descriptor {
+    margin-top: 0.36rem;
+    font-size: 0.47rem;
+    font-weight: 700;
+    letter-spacing: 0.155em;
+    text-transform: uppercase;
+  }
+
+  .light {
+    color: var(--porcelain);
+  }
+
+  .light .mark-accent {
+    color: var(--mint-300);
+  }
+
+  .compact .brand-descriptor {
+    display: none;
+  }
+
+  @media (max-width: 35rem) {
+    .brand-mark {
+      width: 2.75rem;
+      height: 2.75rem;
+    }
+
+    .brand-name {
+      font-size: 1.05rem;
+    }
+
+    .brand-descriptor {
+      display: none;
+    }
+  }
+</style>

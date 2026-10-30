@@ -1,0 +1,83 @@
+---
+const doctors=[
+  {img:'/images/generated/doctor-joseph-provisional.webp',n:'01',name:'Dr. Joseph William Noetzel',role:'Complete-health dentistry',detail:'Oral medicine, complex rehabilitation and more than two decades of clinical experience.'},
+  {img:'/images/generated/doctor-ilenne-provisional.webp',n:'02',name:'Dr. Ilenne Noetzel',role:'Connection across the details',detail:'Long-term patient relationships, oral-systemic health and ReCODE 2.0.'},
+  {img:'/images/generated/doctor-michael-provisional.webp',n:'03',name:'Dr. Michael Drinski',role:'Comfort meets precision',detail:'Complete Health Dentistry including simple extractions and root-canal care.'},
+];
+const services=[
+  {name:'Professional cleaning',fixed:'$125',monthly:'$21',yearly:'$250'},
+  {name:'Invisalign treatment',fixed:'$5,495',monthly:'$153',yearly:'$5,495'},
+  {name:'Perio Protect therapy',fixed:'$1,200',monthly:'$50',yearly:'$1,200'},
+];
+---
+
+<section class="reel-story" id="team" data-reel-story>
+  <div class="reel-sticky">
+    <header class="reel-header"><p class="eyebrow">The people behind the care</p><span><b data-reel-index>01</b> / 03</span></header>
+    <div class="doctor-reel" data-doctor-reel>
+      {doctors.map((doctor)=><article class="reel-frame">
+        <figure><img src={doctor.img} alt={`${doctor.name}, provisional portrait pending client approval`} loading="lazy" /></figure>
+        <div class="reel-copy"><span>{doctor.n} · D.D.S.</span><h2>{doctor.name}</h2><h3>{doctor.role}</h3><p>{doctor.detail}</p><a href="/team/">Meet the complete team ↗</a></div>
+      </article>)}
+    </div>
+    <div class="reel-film" aria-hidden="true">PORTRAIT OF CARE · PORTRAIT OF CARE · PORTRAIT OF CARE</div>
+  </div>
+</section>
+
+<section class="matrix-story" id="pricing" data-matrix-story>
+  <div class="matrix-sticky">
+    <header class="matrix-title"><p class="eyebrow">Pricing, made legible</p><h2>Change the pace.<br /><em>Keep the plan.</em></h2><p>Scroll between fixed, monthly and yearly views.</p></header>
+    <nav class="mode-rail" aria-label="Pricing views"><span data-mode-label="fixed">Fixed</span><span data-mode-label="monthly">Monthly</span><span data-mode-label="yearly">Yearly</span></nav>
+    <div class="price-matrix">
+      <div class="matrix-head"><span>Service</span><b>Fixed</b><b>Monthly</b><b>Yearly</b></div>
+      {services.map((service)=><div class="matrix-row"><h3>{service.name}</h3><strong data-price-mode="fixed">{service.fixed}</strong><strong data-price-mode="monthly">{service.monthly}<small>/mo</small></strong><strong data-price-mode="yearly">{service.yearly}<small>/yr</small></strong></div>)}
+      <a href="/pricing/">View all service pricing <i>↗</i></a>
+    </div>
+    <div class="mode-word" data-mode-word aria-hidden="true">FIXED</div>
+  </div>
+</section>
+
+<style>
+  .reel-story{position:relative;z-index:7;height:390svh;background:var(--pine-950);color:var(--porcelain)}.reel-sticky,.matrix-sticky{position:sticky;top:0;height:100svh;overflow:hidden}.reel-sticky{background:var(--pine-950)}.reel-header{position:absolute;z-index:5;top:6.8rem;right:1rem;left:1rem;display:flex;padding:.8rem 0;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(245,240,231,.2)}.reel-header .eyebrow{color:var(--mint-300)}.reel-header>span{font-size:.62rem;letter-spacing:.14em}.doctor-reel{display:flex;width:max-content;height:100%;will-change:transform}.reel-frame{display:grid;width:100vw;height:100svh;padding:6.5rem max(1rem,calc((100vw - 92rem)/2 + 1rem)) 4.2rem;grid-template-columns:1.15fr .85fr;gap:6vw;align-items:center;flex:none}.reel-frame figure{height:72vh;margin:0;overflow:hidden;border-radius:1.2rem}.reel-frame img{width:100%;height:100%;object-fit:cover;object-position:center 25%;will-change:transform}.reel-copy>span{color:var(--mint-300);font-size:.62rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.reel-copy h2{margin:1.5rem 0 1rem;font-family:Georgia,serif;font-size:clamp(4rem,6.5vw,7.5rem);font-weight:400;line-height:.83;letter-spacing:-.065em}.reel-copy h3{margin:0 0 1rem;font-family:Georgia,serif;font-size:clamp(1.8rem,2.6vw,3rem);font-weight:400;color:var(--mint-300)}.reel-copy p{max-width:31rem;color:rgba(245,240,231,.62);line-height:1.65}.reel-copy a{display:block;width:max-content;margin-top:2rem;padding-bottom:.55rem;border-bottom:1px solid rgba(245,240,231,.35);font-size:.65rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.reel-film{position:absolute;bottom:-.12em;left:0;width:max-content;font-family:Georgia,serif;font-size:clamp(5rem,10vw,11rem);line-height:.7;color:rgba(245,240,231,.07);white-space:nowrap}
+  .matrix-story{position:relative;z-index:7;height:340svh;background:var(--paper);color:var(--ink)}.matrix-sticky{background:var(--paper)}.matrix-title{position:absolute;z-index:3;top:clamp(7rem,12vh,9rem);left:max(1rem,calc((100vw - 92rem)/2 + 1rem));width:min(37rem,38vw)}.matrix-title .eyebrow{color:var(--pine-700)}.matrix-title h2{margin:1.6rem 0 1rem;font-family:Georgia,serif;font-size:clamp(4.5rem,7vw,8rem);font-weight:400;line-height:.8;letter-spacing:-.07em}.matrix-title h2 em{color:var(--pine-700);font-weight:400}.matrix-title>p:last-child{color:rgba(16,35,31,.6)}.mode-rail{position:absolute;z-index:4;right:max(1rem,calc((100vw - 92rem)/2 + 1rem));top:8vh;display:flex;gap:2rem;font-size:.62rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.mode-rail span{opacity:.25;transition:opacity .2s}.mode-rail span:first-child{opacity:1}.price-matrix{position:absolute;z-index:3;right:max(1rem,calc((100vw - 92rem)/2 + 1rem));bottom:8vh;width:min(50rem,55vw)}.matrix-head,.matrix-row{display:grid;grid-template-columns:1.5fr repeat(3,.65fr);align-items:center}.matrix-head{padding:1rem 0;border-top:1px solid rgba(16,35,31,.2);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase}.matrix-head b{text-align:right}.matrix-row{min-height:8rem;border-top:1px solid rgba(16,35,31,.2)}.matrix-row h3{margin:0;font-family:Georgia,serif;font-size:clamp(1.7rem,2.5vw,2.7rem);font-weight:400}.matrix-row strong{text-align:right;font-family:Georgia,serif;font-size:clamp(1.8rem,2.8vw,3rem);font-weight:400;opacity:.18;transform:scale(.84);transform-origin:right}.matrix-row strong[data-price-mode="fixed"]{opacity:1;transform:scale(1)}.matrix-row small{display:block;font-family:Arial,sans-serif;font-size:.5rem;text-transform:uppercase}.price-matrix>a{display:flex;padding:1rem 0;justify-content:space-between;border-top:1px solid rgba(16,35,31,.2);font-size:.62rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.price-matrix i{font-style:normal}.mode-word{position:absolute;right:-.05em;bottom:-.13em;font-family:Georgia,serif;font-size:clamp(9rem,22vw,24rem);line-height:.7;color:rgba(27,92,77,.06)}
+  .doctor-reel{position:absolute;inset:0;width:100%;height:100%}
+  .reel-frame{position:absolute;inset:0;width:100%;opacity:0;visibility:hidden;clip-path:inset(0 100% 0 0);will-change:clip-path,opacity}
+  @media (min-width:46.001rem) and (max-width:68rem){.reel-story{height:360svh}.reel-frame{grid-template-columns:1fr 1fr;gap:3vw}.reel-frame figure{height:65vh}.reel-copy h2{font-size:clamp(3.8rem,6vw,5.4rem)}.matrix-story{height:320svh}.matrix-title{width:40vw}.matrix-title h2{font-size:clamp(4rem,8vw,6rem)}.price-matrix{width:56vw}}
+  @media (max-width:46rem){.reel-story{height:360svh}.reel-header{top:4.7rem}.reel-header .eyebrow{font-size:.55rem}.reel-frame{padding:7.5rem 1rem 3.5rem;grid-template-columns:1fr;grid-template-rows:55% 45%;gap:0}.reel-frame figure{height:100%;border-radius:1rem 1rem 0 0}.reel-copy{padding:1rem;border:1px solid rgba(245,240,231,.16);border-top:0;border-radius:0 0 1rem 1rem}.reel-copy h2{margin:.75rem 0 .4rem;font-size:clamp(2.7rem,12vw,3.8rem)}.reel-copy h3{font-size:1.15rem}.reel-copy p{font-size:.72rem;line-height:1.4}.reel-copy a{margin-top:.7rem}.reel-film{font-size:5rem}.matrix-story{height:330svh}.matrix-title{top:8.5rem;left:1rem;width:calc(100vw - 2rem)}.matrix-title h2{font-size:clamp(3.7rem,16vw,5.1rem)}.mode-rail{top:48vh;right:1rem;left:1rem;justify-content:space-between}.price-matrix{right:1rem;bottom:7vh;left:1rem;width:auto}.matrix-head,.matrix-row{grid-template-columns:1.3fr repeat(3,.75fr)}.matrix-row{min-height:5.4rem}.matrix-row h3{font-size:1.2rem}.matrix-row strong{font-size:1.2rem}.mode-word{font-size:8rem}}
+  @media (prefers-reduced-motion:reduce){.reel-story,.matrix-story{height:auto}.reel-sticky,.matrix-sticky{position:relative;height:auto;min-height:100svh;padding:7rem 0}.doctor-reel{position:relative;display:grid;width:auto;height:auto}.reel-frame{position:relative;width:auto;height:auto;min-height:50rem;opacity:1;visibility:visible;clip-path:none}.matrix-title,.mode-rail,.price-matrix{position:relative;inset:auto;width:min(100% - 2rem,55rem);margin:0 auto 3rem}}
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduced){
+    const frames=gsap.utils.toArray<HTMLElement>('.reel-frame');
+    gsap.set(frames,{autoAlpha:0,clipPath:'inset(0% 100% 0% 0%)'});
+    gsap.set(frames[0],{autoAlpha:1,clipPath:'inset(0% 0% 0% 0%)'});
+    const reelIndex=document.querySelector<HTMLElement>('[data-reel-index]');
+    const reel=gsap.timeline({scrollTrigger:{trigger:'[data-reel-story]',start:'top top',end:'bottom bottom',scrub:.82,invalidateOnRefresh:true,onUpdate:(self)=>{
+      if(reelIndex) reelIndex.textContent=self.progress<.40?'01':self.progress<.79?'02':'03';
+    }}});
+    reel.fromTo(frames[0].querySelector('img'),{scale:1.08},{scale:1,duration:.55,ease:'power2.out'},0);
+    frames.slice(1).forEach((frame,index)=>{
+      const at=.62+index*.86;
+      const previous=frames[index];
+      reel.to(previous,{autoAlpha:0,clipPath:'inset(0% 0% 0% 100%)',duration:.48,ease:'power2.inOut'},at)
+        .to(frame,{autoAlpha:1,clipPath:'inset(0% 0% 0% 0%)',duration:.58,ease:'power3.inOut'},at)
+        .fromTo(frame.querySelector('img'),{scale:1.12},{scale:1,duration:.7,ease:'power2.out'},at);
+    });
+    const fixed=gsap.utils.toArray<HTMLElement>('[data-price-mode="fixed"]');
+    const monthly=gsap.utils.toArray<HTMLElement>('[data-price-mode="monthly"]');
+    const yearly=gsap.utils.toArray<HTMLElement>('[data-price-mode="yearly"]');
+    const matrix=gsap.timeline({scrollTrigger:{trigger:'[data-matrix-story]',start:'top top',end:'bottom bottom',scrub:.8,invalidateOnRefresh:true}});
+    matrix.to(fixed,{opacity:.18,scale:.84,duration:.35},.55).to(monthly,{opacity:1,scale:1,duration:.45},.55)
+      .to('[data-mode-label="fixed"]',{opacity:.25,duration:.2},.55).to('[data-mode-label="monthly"]',{opacity:1,duration:.2},.55)
+      .set('[data-mode-word]',{textContent:'MONTHLY'},.55)
+      .to(monthly,{opacity:.18,scale:.84,duration:.35},1.35).to(yearly,{opacity:1,scale:1,duration:.45},1.35)
+      .to('[data-mode-label="monthly"]',{opacity:.25,duration:.2},1.35).to('[data-mode-label="yearly"]',{opacity:1,duration:.2},1.35)
+      .set('[data-mode-word]',{textContent:'YEARLY'},1.35)
+      .to('.mode-word',{x:'-5vw',duration:1.8,ease:'none'},0);
+  }
+</script>

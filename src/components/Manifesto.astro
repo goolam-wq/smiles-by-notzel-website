@@ -1,0 +1,111 @@
+<section class="manifesto" id="about" data-manifesto>
+  <div class="container-shell manifesto-grid">
+    <p class="eyebrow manifesto-label">A different kind of dental visit</p>
+    <p class="manifesto-copy" aria-label="We see more than teeth. We listen, connect the details and create care that feels calm, clear and completely personal.">
+      {['We see more than teeth.', 'We listen, connect the details', 'and create care that feels calm,', 'clear and completely personal.'].map((line) => (
+        <span class="manifesto-line">{line}</span>
+      ))}
+    </p>
+    <div class="manifesto-note">
+      <span>01</span>
+      <p>Complete health dentistry, thoughtful technology and genuine human care—together in one experience.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .manifesto {
+    position: relative;
+    z-index: 3;
+    min-height: 115vh;
+    margin-top: -50svh;
+    padding: 11vh 0 15vh;
+    background: var(--porcelain);
+  }
+
+  .manifesto-grid {
+    display: grid;
+    grid-template-columns: 0.72fr 2.1fr 0.65fr;
+    align-items: start;
+    gap: 3rem;
+  }
+
+  .manifesto-label {
+    position: sticky;
+    top: 9rem;
+    color: var(--pine-700);
+  }
+
+  .manifesto-copy {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(3.2rem, 6.3vw, 7.1rem);
+    line-height: 0.95;
+    letter-spacing: -0.058em;
+  }
+
+  .manifesto-line {
+    display: block;
+    color: rgba(16, 35, 31, 0.16);
+  }
+
+  .manifesto-note {
+    position: sticky;
+    top: 9rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(16, 35, 31, 0.25);
+  }
+
+  .manifesto-note span {
+    color: var(--pine-700);
+    font-size: 0.68rem;
+    font-weight: 800;
+  }
+
+  .manifesto-note p {
+    margin-top: 2rem;
+    color: rgba(16, 35, 31, 0.72);
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 68rem) {
+    .manifesto {
+      min-height: auto;
+      margin-top: -60svh;
+      padding: clamp(5.5rem, 9vh, 7.5rem) 0 clamp(6rem, 10vh, 8rem);
+    }
+  }
+
+  @media (max-width: 60rem) {
+    .manifesto-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .manifesto-label,
+    .manifesto-note {
+      position: static;
+    }
+
+    .manifesto-note {
+      max-width: 18rem;
+      margin-left: auto;
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .manifesto {
+      min-height: auto;
+      margin-top: -60svh;
+      padding: 4.5rem 0 5.5rem;
+    }
+
+    .manifesto-grid {
+      gap: 2.5rem;
+    }
+
+    .manifesto-copy {
+      font-size: clamp(3.1rem, 14vw, 4.6rem);
+    }
+  }
+</style>

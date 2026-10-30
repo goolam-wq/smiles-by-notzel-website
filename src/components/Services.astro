@@ -1,0 +1,431 @@
+---
+const categories = [
+  { number: '01', title: 'Complete Health & Airway', count: '4 services', accent: 'mint', items: ['Oral-cancer screening', 'Airway & sleep screening', 'ProSomnus therapy'] },
+  { number: '02', title: 'Cosmetic Dentistry', count: '7 services', accent: 'sage', items: ['Professional whitening', 'Veneers & Lumineers', 'Complete smile makeover'] },
+  { number: '03', title: 'Preventive & Diagnostic', count: '9 services', accent: 'paper', items: ['Cleanings & exams', 'Digital X-rays', 'Guards & laser dentistry'] },
+  { number: '04', title: 'Implants & Oral Surgery', count: '8 services', accent: 'image', image: '/images/generated/dental-exam-candid.webp', items: ['Single-tooth implants', 'All-on-4 solutions', 'Extractions & bone grafting'] },
+  { number: '05', title: 'Restorative Care', count: '7 services', accent: 'mint', items: ['Fillings, crowns & bridges', 'Dentures & partials', 'Full-mouth reconstruction'] },
+  { number: '06', title: 'Invisalign', count: '1 service', accent: 'image', image: '/images/generated/clear-aligner-consultation.webp', items: ['Clear-aligner treatment', 'Teen and adult options', 'Personalized case planning'] },
+  { number: '07', title: 'Kids & Development', count: '3 services', accent: 'paper', items: ['First dental visits', 'Pediatric cleaning & exam', 'HealthyStart treatment'] },
+  { number: '08', title: 'Periodontal Care', count: '2 services', accent: 'image', image: '/images/generated/clinic-operatory-consistent.webp', items: ['Deep cleaning', 'Gum-disease treatment', 'Perio Protect tray therapy'] },
+  { number: '09', title: 'Emergency & Comfort', count: '3 services', accent: 'mint', items: ['Same-day emergency care', 'Nitrous oxide sedation', 'Virtual-reality comfort'] },
+  { number: '10', title: 'ReCODE & Cognitive Health', count: '3 services', accent: 'sage', items: ['ReCODE 2.0 program', 'Oral spirochete testing', 'Amalgam replacement'] },
+  { number: '11', title: 'Wellness', count: '1 offering', accent: 'paper', items: ['Juice Plus program', 'Wellness coordination', 'In-office or remote access'] },
+];
+---
+
+<section class="services-story" id="services" data-services-story>
+  <div class="services-sticky">
+    <header class="services-heading container-shell">
+      <p class="eyebrow">Explore your care</p>
+      <div>
+        <h2>Care, connected<br /><em>under one roof.</em></h2>
+        <p>Eleven focused categories. Forty-eight customer-facing offerings. One coordinated whole-health point of view.</p>
+      </div>
+    </header>
+
+    <div class="services-window">
+      <div class="services-track" data-services-track>
+        {categories.map((category) => (
+          <article class:list={["service-card", `service-card--${category.accent}`]} style={category.image ? `--card-image: url('${category.image}')` : undefined}>
+            <div class="service-card-top">
+              <span>{category.number}</span>
+              <span>{category.count}</span>
+            </div>
+            <div class="service-card-body">
+              <h3>{category.title}</h3>
+              <ul>
+                {category.items.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+            <a href="/services/" aria-label={`Explore ${category.title}`}>Explore category <i>↗</i></a>
+          </article>
+        ))}
+        <article class="service-card service-card--final">
+          <span class="eyebrow">All services</span>
+          <h3>Find the care that fits your whole story.</h3>
+          <a href="/services/">View all 48 services <i>↗</i></a>
+        </article>
+      </div>
+    </div>
+
+    <div class="services-progress container-shell" aria-hidden="true">
+      <span>01</span><i><b data-services-progress></b></i><span>12</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-story {
+    position: relative;
+    z-index: 4;
+    height: 520svh;
+    background: var(--pine-950);
+    color: var(--porcelain);
+  }
+
+  .services-sticky {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 82% 10%, rgba(158, 215, 196, 0.1), transparent 27%),
+      var(--pine-950);
+  }
+
+  .services-heading {
+    display: grid;
+    grid-template-columns: 0.55fr 2.35fr;
+    gap: 2rem;
+    padding-top: clamp(7rem, 13vh, 9rem);
+  }
+
+  .services-heading > .eyebrow {
+    align-self: start;
+    color: var(--mint-300);
+  }
+
+  .services-heading h2 {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(4.5rem, 7vw, 8rem);
+    font-weight: 400;
+    line-height: 0.82;
+    letter-spacing: -0.065em;
+  }
+
+  .services-heading h2 em {
+    color: var(--mint-300);
+    font-weight: 400;
+  }
+
+  .services-heading > div > p {
+    max-width: 37rem;
+    margin: 1.5rem 0 0;
+    color: rgba(245, 240, 231, 0.63);
+    line-height: 1.6;
+  }
+
+  .services-window {
+    position: absolute;
+    right: 0;
+    bottom: clamp(4rem, 8vh, 6.5rem);
+    left: 0;
+    overflow: visible;
+    perspective: 1100px;
+  }
+
+  .services-track {
+    display: flex;
+    width: max-content;
+    gap: 1rem;
+    padding: 0 max(1rem, calc((100vw - 92rem) / 2 + 1rem));
+    will-change: transform;
+  }
+
+  .service-card {
+    position: relative;
+    display: flex;
+    width: min(32vw, 31rem);
+    min-height: min(49vh, 31rem);
+    padding: 1.25rem;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    border: 1px solid rgba(245, 240, 231, 0.18);
+    border-radius: 1.15rem;
+    background: var(--pine-900);
+    color: var(--porcelain);
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
+  }
+
+  .service-card::after {
+    position: absolute;
+    right: -18%;
+    bottom: -34%;
+    width: 72%;
+    aspect-ratio: 1;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    content: '';
+    opacity: 0.12;
+  }
+
+  .service-card--mint {
+    background: var(--mint-300);
+    color: var(--pine-950);
+  }
+
+  .service-card--sage {
+    background: var(--mint-200);
+    color: var(--pine-950);
+  }
+
+  .service-card--paper {
+    background: var(--porcelain);
+    color: var(--pine-950);
+  }
+
+  .service-card--image {
+    background:
+      linear-gradient(180deg, rgba(6, 29, 25, 0.16), rgba(6, 29, 25, 0.9)),
+      var(--card-image) center / cover;
+  }
+
+  .service-card-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .service-card-body {
+    position: relative;
+    z-index: 1;
+  }
+
+  .service-card h3 {
+    max-width: 8em;
+    margin: 0 0 1.6rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(2.5rem, 3.3vw, 4rem);
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+  }
+
+  .service-card ul {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    gap: 0.45rem;
+    list-style: none;
+    font-size: 0.78rem;
+  }
+
+  .service-card li::before {
+    margin-right: 0.55rem;
+    content: '·';
+  }
+
+  .service-card > a,
+  .service-card--final > a {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    padding-top: 0.8rem;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid currentColor;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .service-card a i {
+    font-size: 1rem;
+    font-style: normal;
+  }
+
+  .service-card--final {
+    width: min(39vw, 38rem);
+    padding: 2rem;
+    background: transparent;
+  }
+
+  .service-card--final h3 {
+    max-width: 8.5em;
+    font-size: clamp(3.6rem, 5vw, 6rem);
+  }
+
+  .services-progress {
+    position: absolute;
+    right: 0;
+    bottom: 1.4rem;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: rgba(245, 240, 231, 0.6);
+    font-size: 0.58rem;
+  }
+
+  .services-progress i {
+    position: relative;
+    height: 1px;
+    flex: 1;
+    overflow: hidden;
+    background: rgba(245, 240, 231, 0.2);
+  }
+
+  .services-progress b {
+    position: absolute;
+    inset: 0;
+    display: block;
+    background: var(--mint-300);
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  @media (min-width: 46.001rem) and (max-width: 68rem) {
+    .services-story {
+      height: 470svh;
+    }
+
+    .services-heading {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      padding-top: 8rem;
+    }
+
+    .services-heading h2 {
+      max-width: 8em;
+      font-size: clamp(5rem, 10vw, 7rem);
+    }
+
+    .services-heading > div > p {
+      max-width: 31rem;
+    }
+
+    .service-card {
+      width: min(58vw, 36rem);
+      min-height: min(43vh, 34rem);
+    }
+
+    .service-card h3 {
+      font-size: clamp(3rem, 6vw, 4.4rem);
+    }
+
+    .service-card--final {
+      width: min(65vw, 40rem);
+    }
+  }
+
+  @media (max-width: 46rem) {
+    .services-story {
+      height: auto;
+    }
+
+    .services-sticky {
+      position: relative;
+      height: auto;
+      overflow: hidden;
+      padding: 6.5rem 0 5rem;
+    }
+
+    .services-heading {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding-top: 0;
+    }
+
+    .services-heading h2 {
+      font-size: clamp(3.8rem, 17vw, 5.4rem);
+    }
+
+    .services-window {
+      position: relative;
+      bottom: auto;
+      margin-top: 4rem;
+    }
+
+    .services-track {
+      width: auto;
+      padding-inline: 1rem;
+      flex-direction: column;
+      gap: 1rem;
+      transform: none !important;
+    }
+
+    .service-card,
+    .service-card--final {
+      width: 100%;
+      min-height: 29rem;
+    }
+
+    .service-card h3 {
+      font-size: clamp(3rem, 13vw, 4.25rem);
+    }
+
+    .services-progress {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .services-story { height: auto; }
+    .services-sticky { position: relative; height: auto; padding: 7rem 0; overflow: hidden; }
+    .services-window { position: relative; bottom: auto; margin-top: 4rem; }
+    .services-track { width: auto; flex-wrap: wrap; transform: none !important; }
+    .service-card, .service-card--final { width: min(100%, 30rem); }
+    .services-progress { display: none; }
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const servicesStory = document.querySelector<HTMLElement>('[data-services-story]');
+  const servicesTrack = document.querySelector<HTMLElement>('[data-services-track]');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (servicesStory && servicesTrack && !reduceMotion) {
+    const mm = gsap.matchMedia();
+
+    mm.add('(min-width: 46.001rem)', () => {
+      const getDistance = () => Math.max(0, servicesTrack.scrollWidth - window.innerWidth + window.innerWidth * 0.08);
+      const cards = gsap.utils.toArray<HTMLElement>('.service-card');
+      const focusCards = (progress: number) => {
+        const center = window.innerWidth / 2;
+        const translate = -getDistance() * progress;
+        cards.forEach((card) => {
+          const cardCenter = card.offsetLeft + card.offsetWidth / 2 + translate;
+          const signed = (cardCenter - center) / center;
+          const focus = 1 - Math.min(1, Math.abs(signed));
+          gsap.set(card, {
+            scale: 0.86 + focus * 0.14,
+            opacity: 0.5 + focus * 0.5,
+            rotateY: gsap.utils.clamp(-7, 7, signed * -7),
+            z: focus * 65,
+          });
+        });
+      };
+      focusCards(0);
+      gsap.to(servicesTrack, {
+        x: () => -getDistance(),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: servicesStory,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 0.65,
+          invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            gsap.set('[data-services-progress]', { scaleX: self.progress });
+            focusCards(self.progress);
+          },
+        },
+      });
+    });
+
+    mm.add('(max-width: 46rem)', () => {
+      gsap.utils.toArray<HTMLElement>('.service-card').forEach((card) => {
+        gsap.from(card, {
+          y: 70,
+          opacity: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: card, start: 'top 88%', once: true },
+        });
+      });
+    });
+  }
+</script>

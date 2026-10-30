@@ -1,0 +1,105 @@
+---
+const doctors = [
+  { image:'/images/generated/doctor-joseph-provisional.webp', number:'01', name:'Dr. Joseph William Noetzel', degree:'D.D.S.', title:'Complete-health dentistry', detail:'Oral medicine, complex dental rehabilitation and more than two decades of clinical experience.', note:'20+ years of clinical experience' },
+  { image:'/images/generated/doctor-ilenne-provisional.webp', number:'02', name:'Dr. Ilenne Noetzel', degree:'D.D.S.', title:'Connection across the details', detail:'Long-term patient relationships, oral-systemic health and ReCODE 2.0.', note:'ReCODE 2.0 certified' },
+  { image:'/images/generated/doctor-michael-provisional.webp', number:'03', name:'Dr. Michael Drinski', degree:'D.D.S.', title:'Comfort meets precision', detail:'Complete Health Dentistry with a focus that includes simple extractions and root-canal care.', note:'University of Louisville graduate' },
+];
+const prices = [
+  { number:'01', label:'Preventive', title:'Professional cleaning', fixed:'$125', monthly:'$21/mo', yearly:'$250/yr', note:'Yearly basis includes two visits.' },
+  { number:'02', label:'Clear aligners', title:'Invisalign treatment', fixed:'$5,495', monthly:'$153/mo', yearly:'$5,495/yr', note:'Complete case; teen and adult options.' },
+  { number:'03', label:'Gum health', title:'Perio Protect therapy', fixed:'$1,200', monthly:'$50/mo', yearly:'$1,200/yr', note:'Upper and lower tray system.' },
+];
+---
+
+<section class="team-story" id="team" data-team-story>
+  <div class="team-sticky">
+    <header class="team-intro" data-team-intro>
+      <p class="eyebrow">Meet the doctors</p>
+      <h2>Clinical depth.<br /><em>Human connection.</em></h2>
+    </header>
+    <div class="team-stage">
+      {doctors.map((doctor) => (
+        <article class="doctor-scene" data-doctor-scene>
+          <figure><img src={doctor.image} alt={`${doctor.name}, provisional portrait pending client approval`} loading="lazy" /><span>{doctor.number} · {doctor.degree}</span></figure>
+          <div class="doctor-copy">
+            <span>{doctor.note}</span>
+            <h3>{doctor.name}</h3>
+            <h4>{doctor.title}</h4>
+            <p>{doctor.detail}</p>
+            <a href="/team/">Meet the complete team <i>↗</i></a>
+          </div>
+        </article>
+      ))}
+    </div>
+    <div class="team-counter" aria-hidden="true"><span data-team-count>01</span><i></i><span>03</span></div>
+  </div>
+</section>
+
+<section class="pricing-story" id="pricing" data-pricing-story>
+  <div class="pricing-sticky">
+    <header class="pricing-intro" data-pricing-intro>
+      <p class="eyebrow">Pricing with a pulse</p>
+      <h2>One treatment.<br /><em>Three ways to plan.</em></h2>
+      <p>Fixed, monthly and yearly customer-facing options—organized so the next step feels clear.</p>
+      <a href="/pricing/">View all service pricing <i>↗</i></a>
+    </header>
+    <div class="price-deck">
+      {prices.map((price) => (
+        <article class="price-scene" data-price-scene>
+          <div class="price-scene__head"><span>{price.number}</span><b>{price.label}</b></div>
+          <h3>{price.title}</h3>
+          <dl><div><dt>Fixed</dt><dd>{price.fixed}</dd></div><div><dt>Monthly</dt><dd>{price.monthly}</dd></div><div><dt>Yearly</dt><dd>{price.yearly}</dd></div></dl>
+          <p>{price.note}</p>
+        </article>
+      ))}
+    </div>
+    <div class="price-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+  </div>
+</section>
+
+<style>
+  .team-story,.pricing-story{position:relative;z-index:6}.team-story{height:370svh;background:var(--pine-950);color:var(--porcelain)}.team-sticky,.pricing-sticky{position:sticky;top:0;height:100svh;overflow:hidden}.team-sticky{background:radial-gradient(circle at 80% 20%,rgba(158,215,196,.12),transparent 32%),var(--pine-950)}
+  .team-intro{position:absolute;z-index:5;top:clamp(7rem,12vh,9rem);left:max(1rem,calc((100vw - 92rem)/2 + 1rem));transform-origin:left top}.team-intro .eyebrow{color:var(--mint-300)}.team-intro h2,.pricing-intro h2{margin:2rem 0 0;font-family:Georgia,'Times New Roman',serif;font-size:clamp(5rem,8vw,9rem);font-weight:400;line-height:.8;letter-spacing:-.07em}.team-intro h2 em,.pricing-intro h2 em{color:var(--mint-300);font-weight:400}
+  .team-stage{position:absolute;inset:0}.doctor-scene{position:absolute;inset:clamp(6.5rem,11vh,8.5rem) max(1rem,calc((100vw - 92rem)/2 + 1rem)) 5vh;display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(2rem,7vw,8rem);align-items:end;will-change:transform,opacity}.doctor-scene figure{position:relative;height:75vh;margin:0;overflow:hidden;border-radius:1.4rem;background:var(--pine-900);clip-path:inset(0 round 1.4rem)}.doctor-scene figure::after{position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(6,29,25,.65));content:''}.doctor-scene img{width:100%;height:100%;object-fit:cover;object-position:center 25%;will-change:transform}.doctor-scene figure span{position:absolute;z-index:1;right:1rem;bottom:1rem;font-size:.6rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.doctor-copy{padding-bottom:2.8rem}.doctor-copy>span{color:var(--mint-300);font-size:.62rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.doctor-copy h3{margin:1.4rem 0 1rem;font-family:Georgia,serif;font-size:clamp(3rem,4.8vw,5.6rem);font-weight:400;line-height:.88;letter-spacing:-.055em}.doctor-copy h4{margin:0 0 1rem;font-family:Georgia,serif;font-size:1.55rem;font-weight:400;color:var(--mint-300)}.doctor-copy p{max-width:31rem;color:rgba(245,240,231,.62);line-height:1.65}.doctor-copy a{display:flex;margin-top:2.2rem;padding-top:1rem;justify-content:space-between;border-top:1px solid rgba(245,240,231,.25);font-size:.65rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.doctor-copy i{font-style:normal}.team-counter{position:absolute;z-index:6;right:max(1rem,calc((100vw - 92rem)/2 + 1rem));bottom:1.2rem;display:flex;align-items:center;gap:.7rem;font-size:.58rem}.team-counter i{width:7rem;height:1px;background:rgba(245,240,231,.25)}
+
+  .pricing-story{height:330svh;background:var(--porcelain);color:var(--ink)}.pricing-sticky{background:var(--porcelain)}.pricing-intro{position:absolute;z-index:4;top:clamp(7rem,12vh,9rem);left:max(1rem,calc((100vw - 92rem)/2 + 1rem));width:min(43rem,44vw)}.pricing-intro .eyebrow{color:var(--pine-700)}.pricing-intro h2{font-size:clamp(4.5rem,7vw,8rem)}.pricing-intro h2 em{color:var(--pine-700)}.pricing-intro>p:last-of-type{max-width:32rem;margin-top:1.7rem;color:rgba(16,35,31,.62);line-height:1.6}.pricing-intro>a{display:flex;width:min(100%,25rem);margin-top:2rem;padding:1rem 1.2rem;justify-content:space-between;border:1px solid rgba(16,35,31,.2);border-radius:999px;font-size:.65rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.pricing-intro a i{font-style:normal}
+  .price-deck{position:absolute;z-index:3;top:14vh;right:max(1rem,calc((100vw - 92rem)/2 + 1rem));width:min(39rem,43vw);height:72vh;perspective:1200px}.price-scene{position:absolute;inset:0;display:flex;padding:1.7rem;flex-direction:column;justify-content:space-between;border:1px solid rgba(16,35,31,.17);border-radius:1.4rem;background:rgba(251,248,242,.9);box-shadow:0 2.5rem 5rem rgba(6,29,25,.12);backdrop-filter:blur(18px);transform-origin:50% 100%;will-change:transform,opacity}.price-scene:nth-child(2){background:var(--mint-200)}.price-scene:nth-child(3){background:var(--pine-900);color:var(--porcelain)}.price-scene__head{display:flex;justify-content:space-between;font-size:.62rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}.price-scene h3{max-width:8em;margin:2rem 0;font-family:Georgia,serif;font-size:clamp(3.4rem,5vw,6rem);font-weight:400;line-height:.86;letter-spacing:-.06em}.price-scene dl{margin:0}.price-scene dl div{display:flex;padding:1rem 0;justify-content:space-between;border-top:1px solid currentColor}.price-scene dt{font-size:.62rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.price-scene dd{margin:0;font-family:Georgia,serif;font-size:clamp(1.6rem,2.6vw,3rem)}.price-scene>p{font-size:.72rem;opacity:.62}.price-orbit{position:absolute;right:-17rem;bottom:-21rem;width:52rem;aspect-ratio:1;border:1px solid rgba(27,92,77,.12);border-radius:50%}.price-orbit i{position:absolute;inset:17%;border:inherit;border-radius:inherit}.price-orbit i:nth-child(2){inset:34%}.price-orbit i:nth-child(3){inset:45%}
+  .doctor-scene{opacity:0;visibility:hidden;transform:translateX(12vw) scale(.92)}
+  .price-scene{opacity:0;visibility:hidden;transform:translateY(38vh) rotateX(-12deg) scale(.9)}
+
+  @media (min-width:46.001rem) and (max-width:68rem){.team-story{height:340svh}.team-intro h2,.pricing-intro h2{font-size:clamp(4.8rem,10vw,7rem)}.doctor-scene{grid-template-columns:1.1fr .9fr;gap:2rem}.doctor-scene figure{height:66vh}.doctor-copy h3{font-size:clamp(3rem,5vw,4.5rem)}.pricing-story{height:310svh}.pricing-intro{width:44vw}.price-deck{width:47vw}.price-scene h3{font-size:clamp(3rem,5vw,4.6rem)}}
+  @media (max-width:46rem){.team-story{height:360svh}.team-intro{top:8.5rem;left:1rem}.team-intro h2,.pricing-intro h2{font-size:clamp(3.7rem,16vw,5.1rem)}.doctor-scene{inset:6.2rem 1rem 4rem;grid-template-columns:1fr;grid-template-rows:53% 47%;gap:0}.doctor-scene figure{height:100%;border-radius:1rem 1rem 0 0}.doctor-copy{padding:1.1rem;border:1px solid rgba(245,240,231,.16);border-top:0;border-radius:0 0 1rem 1rem;background:rgba(6,29,25,.74);backdrop-filter:blur(16px)}.doctor-copy h3{margin:.75rem 0 .5rem;font-size:clamp(2.5rem,11vw,3.6rem)}.doctor-copy h4{font-size:1.15rem}.doctor-copy p{margin:.6rem 0;font-size:.72rem;line-height:1.45}.doctor-copy a{margin-top:.8rem}.team-counter{right:1rem}.pricing-story{height:330svh}.pricing-intro{top:8.5rem;left:1rem;width:calc(100vw - 2rem)}.pricing-intro>p:last-of-type{font-size:.78rem}.price-deck{top:auto;right:1rem;bottom:5vh;left:1rem;width:auto;height:55vh}.price-scene{padding:1.1rem}.price-scene h3{font-size:clamp(3rem,13vw,4.2rem)}.price-scene dl div{padding:.7rem 0}.price-scene dd{font-size:1.7rem}.price-orbit{width:34rem}}
+  @media (prefers-reduced-motion:reduce){.team-story,.pricing-story{height:auto}.team-sticky,.pricing-sticky{position:relative;height:auto;min-height:100svh;padding:8rem 1rem}.team-intro,.pricing-intro,.team-stage,.price-deck{position:relative;inset:auto;width:auto}.team-intro,.pricing-intro{left:auto;margin-bottom:3rem}.team-stage,.price-deck{display:grid;height:auto;gap:1rem}.doctor-scene,.price-scene{position:relative;inset:auto;min-height:42rem;opacity:1;visibility:visible;transform:none}.doctor-scene{display:grid}.price-scene{min-height:35rem}}
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced) {
+    const doctors=gsap.utils.toArray<HTMLElement>('[data-doctor-scene]');
+    gsap.set(doctors,{autoAlpha:0,x:'12vw',scale:.92});
+    doctors.forEach((doctor)=>gsap.set(doctor.querySelector('img'),{scale:1.16}));
+    const team=gsap.timeline({scrollTrigger:{trigger:'[data-team-story]',start:'top top',end:'bottom bottom',scrub:.72,invalidateOnRefresh:true}});
+    team.to('[data-team-intro]',{y:'-14vh',scale:.52,autoAlpha:.12,duration:.5,ease:'power2.inOut'},.15);
+    doctors.forEach((doctor,index)=>{
+      const at=.38+index*.68;
+      team.to(doctor,{autoAlpha:1,x:0,scale:1,duration:.54,ease:'power3.out'},at)
+        .to(doctor.querySelector('img'),{scale:1,duration:.68,ease:'power2.out'},at)
+        .set('[data-team-count]',{textContent:`0${index+1}`},at);
+      if(index<doctors.length-1) team.to(doctor,{autoAlpha:0,x:'-10vw',scale:.95,duration:.38,ease:'power2.in'},at+.57);
+    });
+
+    const cards=gsap.utils.toArray<HTMLElement>('[data-price-scene]');
+    gsap.set(cards,{autoAlpha:0,y:'38vh',rotateX:-12,scale:.9});
+    const pricing=gsap.timeline({scrollTrigger:{trigger:'[data-pricing-story]',start:'top top',end:'bottom bottom',scrub:.7,invalidateOnRefresh:true}});
+    pricing.to('[data-pricing-intro]',{y:'-8vh',scale:.82,autoAlpha:.44,duration:.65,ease:'power2.inOut'},.55);
+    cards.forEach((card,index)=>{
+      const at=.22+index*.72;
+      pricing.to(card,{autoAlpha:1,y:0,rotateX:0,scale:1,duration:.55,ease:'power3.out'},at);
+      if(index<cards.length-1) pricing.to(card,{y:'-14vh',scale:.88,rotate:-2,autoAlpha:.2,duration:.45,ease:'power2.in'},at+.58);
+    });
+    gsap.to('.price-orbit',{rotate:100,scale:1.16,ease:'none',scrollTrigger:{trigger:'[data-pricing-story]',start:'top bottom',end:'bottom top',scrub:1}});
+  }
+</script>

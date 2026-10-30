@@ -1,0 +1,375 @@
+---
+const steps = [
+  {
+    number: '1',
+    title: 'Start with your story',
+    body: 'Tell us what you want to change, what has held you back and what would make care feel genuinely comfortable.'
+  },
+  {
+    number: '2',
+    title: 'See the complete picture',
+    body: 'A complete-health exam, digital imaging and airway-aware screening connect the details—not just the tooth in front of us.'
+  },
+  {
+    number: '3',
+    title: 'Preview the path ahead',
+    body: 'We translate the findings into a clear plan, visual options and transparent fixed, monthly or yearly ways to move forward.'
+  },
+  {
+    number: '4',
+    title: 'Feel calm at every visit',
+    body: 'Thoughtful pacing, comfort options and a team that explains each step make treatment feel composed and predictable.'
+  },
+  {
+    number: '5',
+    title: 'Care, coordinated in one place',
+    body: 'Preventive, cosmetic, restorative and complete-health care work together across our Chicago Heights and Mokena teams.'
+  },
+  {
+    number: '6',
+    title: 'Keep the result working for you',
+    body: 'Personalized maintenance and whole-health follow-through protect the smile, comfort and confidence you worked to create.'
+  }
+];
+---
+
+<section class="lava-process" id="process" data-lava-process>
+  <div class="lava-process__sticky">
+    <h2 class="lava-process__title">Your care starts here</h2>
+
+    <div class="lava-wheel-shell" data-lava-wheel-shell>
+      <div class="lava-wheel" data-lava-wheel aria-hidden="true">
+        {steps.map((step, index) => (
+          <div class="lava-wheel__spoke" style={`--step-angle:${index * 60}deg`}>
+            <div class="lava-wheel__node" data-lava-node>
+              <span>{step.number}</span>
+              <i></i>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="lava-process__copy-stack" aria-live="polite">
+        {steps.map((step, index) => (
+          <article class="lava-process__copy" data-lava-copy data-step={index + 1}>
+            <h3>{step.title}</h3>
+            <p>{step.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lava-reveal" id="practice-story" data-lava-reveal>
+  <div class="lava-reveal__sticky">
+    <h2 class="lava-reveal__title" data-lava-reveal-title>That’s us — Smiles by Noetzel.</h2>
+
+    <div class="lava-reveal__media" data-lava-reveal-media aria-hidden="true">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+        <g fill="none" stroke="currentColor" stroke-width="2.4">
+          <path d="M-102 81C80-71 268-29 353 102s-3 291 91 378 231-24 350 62 188 244 390 154" />
+          <path d="M-86 139C72 2 229 21 298 136s-11 260 86 339 219-15 329 62 178 213 370 145" />
+          <path d="M-58 211C82 90 192 96 257 189s-23 222 71 299 201 4 301 68 160 183 342 136" />
+          <path d="M103-83c98 104 59 217 165 270s201-8 269 75 22 175 111 242 172 24 251 98 53 171 177 211" />
+          <path d="M166-74c72 89 43 178 127 222s170 2 227 68 21 147 92 205 151 30 218 91 46 146 151 180" />
+          <path d="M731-62c-91 109-38 229 79 270s234-35 294 74-17 202 80 291" />
+          <path d="M790-66c-62 94-17 182 75 216s192-25 240 64-13 169 68 242" />
+          <path d="M-96 533c137-101 264-38 310 65s-31 197 74 261" />
+          <path d="M-68 604c117-78 218-23 257 62s-20 164 70 216" />
+          <path d="M242-72c-30 86 17 142 84 167s148 13 178 91-34 139 31 210" />
+          <path d="M379-82c-17 68 27 109 82 122s119-3 146 59-11 116 44 167" />
+          <path d="M864 393c-76 58-63 134 5 174s147 21 193 81 30 123 99 164" />
+          <path d="M818 447c-54 45-41 101 12 131s111 19 145 65 20 96 76 127" />
+        </g>
+      </svg>
+    </div>
+
+    <article class="lava-reveal__card" data-lava-reveal-card>
+      <figure>
+        <video
+          data-practice-video
+          data-site-video
+          src="/videos/practice-story-15s.mp4"
+          poster="/images/generated/doctor-ilenne-provisional.webp"
+          aria-label="The Smiles by Noetzel team caring for a patient"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+        ></video>
+        <button type="button" aria-label="Play the Smiles by Noetzel practice story with voiceover" data-practice-video-toggle><span data-practice-video-icon>▶</span></button>
+      </figure>
+      <div>
+        <h3>Book your visit and step into a calmer dental experience.</h3>
+        <a href="#contact">Book a visit</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<style>
+  .lava-process{position:relative;z-index:8;height:400svh;background:var(--pine-950);color:var(--porcelain)}
+  .lava-process__sticky,.lava-reveal__sticky{position:sticky;top:0;height:100svh;overflow:hidden}
+  .lava-process__sticky{background:var(--pine-950)}
+  .lava-process__title{position:absolute;z-index:4;top:clamp(8.5rem,16vh,11rem);left:max(1.5rem,calc((100vw - 82rem)/2));margin:0;font-size:clamp(3rem,4.2vw,4.4rem);font-weight:500;letter-spacing:.035em;line-height:1.05}
+  .lava-wheel-shell{position:absolute;inset:0;will-change:transform}
+  .lava-wheel{position:absolute;top:48vh;left:50%;width:min(70vw,66rem);aspect-ratio:1;border:1px solid rgba(196,234,220,.16);border-radius:50%;transform:translateX(-50%);transform-origin:50% 50%;will-change:transform}
+  .lava-wheel__spoke{position:absolute;inset:0;transform:rotate(var(--step-angle));transform-origin:50% 50%}
+  .lava-wheel__node{position:absolute;top:0;left:50%;display:grid;width:3.6rem;justify-items:center;gap:.55rem;transform:translate(-50%,-50%);color:rgba(245,240,231,.58);transition:color .28s ease}
+  .lava-wheel__node span{display:grid;width:2.35rem;aspect-ratio:1;place-items:center;border:1px solid rgba(196,234,220,.5);border-radius:50%;font-size:1.05rem;font-weight:700}
+  .lava-wheel__node::after{width:.72rem;aspect-ratio:1;border-radius:50%;background:#dfbd86;content:""}
+  .lava-wheel__node i{width:1px;height:3.3rem;background:rgba(196,234,220,.7);transform-origin:top}
+  .lava-wheel__node.is-active{color:var(--pine-950)}
+  .lava-wheel__node.is-active span{border-color:var(--mint-200);background:var(--mint-200)}
+  .lava-process__copy-stack{position:absolute;z-index:2;top:65vh;left:50%;width:min(46rem,52vw);transform:translateX(-50%);text-align:center}
+  .lava-process__copy{position:absolute;inset:0;opacity:0;visibility:hidden;transform:translateY(1.5rem);will-change:opacity,transform}
+  .lava-process__copy h3{margin:0 0 1.5rem;color:#dfbd86;font-size:clamp(1.9rem,2.4vw,2.8rem);font-weight:600;letter-spacing:.035em}
+  .lava-process__copy p{max-width:44rem;margin:0 auto;color:rgba(245,240,231,.88);font-size:clamp(.95rem,1.25vw,1.2rem);line-height:1.55}
+
+  .lava-reveal{position:relative;z-index:9;height:320svh;margin-top:-18svh;background:var(--mint-200);color:var(--pine-950)}
+  .lava-reveal__sticky{background:var(--mint-200)}
+  .lava-reveal__title{position:absolute;z-index:4;top:50%;left:50%;width:min(64rem,86vw);margin:0;color:var(--mint-200);mix-blend-mode:difference;opacity:.58;transform:translate(-50%,-50%);font-size:clamp(3rem,4.2vw,4.7rem);font-weight:500;letter-spacing:.04em;line-height:1.1;text-align:center;will-change:opacity,clip-path}
+  .lava-reveal__media{position:absolute;z-index:2;top:50%;left:50%;width:1rem;height:1rem;overflow:hidden;background:var(--pine-950);color:rgba(158,215,196,.24);transform:translate(-50%,-50%) scale(0);will-change:width,height,transform,border-radius}
+  .lava-reveal__media svg{width:100%;height:100%}
+  .lava-reveal__card{position:absolute;z-index:5;top:47%;left:50%;display:grid;width:min(58.5vw,52.5rem);height:min(59.25svh,33.3rem);margin:0;overflow:hidden;border-radius:.55rem;background:rgba(220,241,229,.9);box-shadow:0 2rem 6rem rgba(0,0,0,.16);grid-template-columns:35.35% 64.65%;opacity:0;visibility:hidden;transform:translate(-50%,-50%) scale(.92);backdrop-filter:blur(14px);will-change:opacity,transform}
+  .lava-reveal__card figure{position:relative;min-height:0;margin:0;overflow:hidden}
+  .lava-reveal__card video{display:block;width:100%;height:100%;object-fit:cover}
+  .lava-reveal__card button{position:absolute;top:50%;left:50%;display:grid;width:3.2rem;aspect-ratio:1;padding:0;place-items:center;border:0;border-radius:50%;background:var(--mint-200);color:var(--pine-950);transform:translate(-50%,-50%);cursor:pointer}
+  .lava-reveal__card button span{font-size:.8rem;transform:translateX(.08rem)}
+  .lava-reveal__card>div{display:flex;padding:2.7rem 2.5rem 2.4rem;flex-direction:column;justify-content:space-between}
+  .lava-reveal__card h3{max-width:25rem;margin:0;font-family:inherit;font-size:clamp(2rem,2.65vw,2.45rem);font-weight:500;line-height:1.32;letter-spacing:.035em}
+  .lava-reveal__card a{display:grid;width:13.75rem;min-height:4rem;padding:.8rem 1.2rem;place-items:center;border-radius:999px;background:var(--pine-950);color:var(--porcelain);font-size:.8rem;font-weight:500}
+
+  @media (min-width:46.001rem) and (max-width:68rem){
+    .lava-process__title{top:8.7rem;left:2rem;font-size:clamp(3.2rem,6vw,4.7rem)}
+    .lava-wheel{top:42vh;width:94vw}
+    .lava-process__copy-stack{top:61vh;width:68vw}
+    .lava-reveal__title{width:88vw;font-size:clamp(3.2rem,5.6vw,4.8rem)}
+    .lava-reveal__card{top:50%;width:78vw;height:47svh;grid-template-columns:38% 62%}
+  }
+
+  @media (max-width:46rem){
+    .lava-process__title{top:8rem;left:1.5rem;width:18rem;font-size:clamp(2.7rem,12vw,3.5rem);line-height:1.18}
+    .lava-wheel{top:47vh;width:150vw}
+    .lava-wheel__node{width:2.6rem;gap:.35rem}
+    .lava-wheel__node span{width:1.55rem;font-size:.7rem}
+    .lava-wheel__node::after{width:.38rem}
+    .lava-wheel__node i{height:2rem}
+    .lava-process__copy-stack{top:56vh;width:84vw}
+    .lava-process__copy h3{margin-bottom:1rem;font-size:clamp(1.5rem,6.5vw,2rem)}
+    .lava-process__copy p{font-size:.86rem;line-height:1.5}
+    .lava-reveal{height:320svh;margin-top:-14svh}
+    .lava-reveal__title{width:82vw;font-size:clamp(2.15rem,9vw,2.65rem);line-height:1.08}
+    .lava-reveal__media{width:1rem;height:1rem}
+    .lava-reveal__card{top:48%;width:83vw;height:64svh;grid-template-columns:1fr;grid-template-rows:60% 40%}
+    .lava-reveal__card figure{min-height:0}
+    .lava-reveal__card>div{padding:1.65rem 2rem 1.9rem}
+    .lava-reveal__card h3{font-size:clamp(1.55rem,6.6vw,1.85rem);line-height:1.38}
+    .lava-reveal__card a{width:11.4rem;min-height:3.2rem;padding:.7rem 1rem}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .lava-process,.lava-reveal{height:auto;margin-top:0}
+    .lava-process__sticky,.lava-reveal__sticky{position:relative;height:auto;min-height:100svh;padding:8rem 1rem 5rem;overflow:hidden}
+    .lava-process__title,.lava-reveal__title{position:relative;top:auto;left:auto;width:auto;margin:0 0 4rem;transform:none}
+    .lava-wheel-shell{position:relative;inset:auto}
+    .lava-wheel{display:none}
+    .lava-process__copy-stack{position:relative;top:auto;left:auto;width:auto;transform:none;text-align:left}
+    .lava-process__copy{position:relative;inset:auto;margin:0 0 3rem;opacity:1;visibility:visible;transform:none}
+    .lava-reveal__media{position:relative;top:auto;left:auto;width:100%;height:28rem;transform:none}
+    .lava-reveal__card{position:relative;top:auto;left:auto;width:min(100%,48rem);margin:2rem auto 0;opacity:1;visibility:visible;transform:none}
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!reduced) {
+    const processCopies = gsap.utils.toArray<HTMLElement>('[data-lava-copy]');
+    const processNodes = gsap.utils.toArray<HTMLElement>('[data-lava-node]');
+    const phone = window.matchMedia('(max-width:46rem)').matches;
+    const tablet = window.matchMedia('(min-width:46.001rem) and (max-width:68rem)').matches;
+
+    gsap.set(processCopies, { autoAlpha: 0, y: 24 });
+    gsap.set(processCopies[0], { autoAlpha: 1, y: 0 });
+    processNodes[0]?.classList.add('is-active');
+
+    const processTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: '[data-lava-process]',
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 0.72,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          const active = Math.min(5, Math.round(self.progress * 5));
+          processNodes.forEach((node, index) => node.classList.toggle('is-active', index === active));
+        }
+      }
+    });
+
+    processTimeline
+      .fromTo('[data-lava-wheel-shell]', { y: '22vh' }, { y: 0, duration: .5, ease: 'power2.out' }, 0)
+      .to('[data-lava-wheel]', { rotation: -300, duration: 6, ease: 'none' }, 0);
+
+    for (let index = 1; index < processCopies.length; index += 1) {
+      const at = index * 1.05;
+      processTimeline
+        .to(processCopies[index - 1], { autoAlpha: 0, y: -22, duration: .22, ease: 'power2.in' }, at - .18)
+        .to(processCopies[index], { autoAlpha: 1, y: 0, duration: .34, ease: 'power2.out' }, at);
+    }
+
+    const revealMedia = document.querySelector<HTMLElement>('[data-lava-reveal-media]');
+    const revealTitle = document.querySelector<HTMLElement>('[data-lava-reveal-title]');
+    const revealCard = document.querySelector<HTMLElement>('[data-lava-reveal-card]');
+
+    if (revealMedia && revealTitle && revealCard) {
+      const middleSize = phone
+        ? { width: '59vw', height: '61.5svh' }
+        : tablet
+          ? { width: '76vw', height: '58svh' }
+          : { width: '61vw', height: '61svh' };
+      const fullSize = phone
+        ? { width: 'calc(100vw - 2rem)', height: 'calc(100svh - 2rem)' }
+        : { width: 'calc(100vw - 3rem)', height: '100svh' };
+
+      gsap.set(revealCard, { autoAlpha: 0, scale: .88 });
+      gsap.set(revealTitle, { autoAlpha: .58 });
+      const revealTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: '[data-lava-reveal]',
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: .58,
+          invalidateOnRefresh: true
+        }
+      });
+
+      revealTimeline
+        .to(revealMedia, { scale: 1, duration: .08, ease: 'power2.out' }, .16)
+        .to(revealMedia, { ...middleSize, duration: .21, ease: 'power2.inOut' }, .19)
+        .to(revealMedia, { ...fullSize, borderRadius: phone ? '0' : '.18rem', duration: .3, ease: 'power2.inOut' }, .46)
+        .to(revealTitle, { autoAlpha: .25, duration: .2, ease: 'sine.out' }, .5)
+        .to(revealCard, { autoAlpha: 1, scale: 1, duration: .14, ease: 'power2.out' }, .86)
+        .to({}, { duration: .001 }, .999);
+    }
+  }
+
+  const practiceVideo = document.querySelector<HTMLVideoElement>('[data-practice-video]');
+  const practiceVideoToggle = document.querySelector<HTMLButtonElement>('[data-practice-video-toggle]');
+  const practiceVideoIcon = document.querySelector<HTMLElement>('[data-practice-video-icon]');
+  const practiceVideoCard = document.querySelector<HTMLElement>('[data-lava-reveal-card]');
+  let practiceCardVisible = false;
+  let practiceExitTimer: number | undefined;
+
+  const updatePracticeVideoControl = () => {
+    if (!practiceVideo || !practiceVideoToggle || !practiceVideoIcon) return;
+    const isAudibleAndPlaying = !practiceVideo.paused && !practiceVideo.muted;
+    practiceVideoIcon.textContent = isAudibleAndPlaying ? '❚❚' : '▶';
+    practiceVideoToggle.setAttribute(
+      'aria-label',
+      isAudibleAndPlaying
+        ? 'Pause the Smiles by Noetzel practice story'
+        : 'Play the Smiles by Noetzel practice story with voiceover'
+    );
+  };
+
+  const isPracticeCardVisible = () => {
+    if (!practiceVideoCard) return false;
+    const rect = practiceVideoCard.getBoundingClientRect();
+    return rect.bottom > window.innerHeight * 0.08 && rect.top < window.innerHeight * 0.92;
+  };
+
+  const resetPracticeVideo = (resumeMutedPreview = false) => {
+    if (!practiceVideo) return;
+    practiceVideo.pause();
+    practiceVideo.loop = true;
+    practiceVideo.defaultMuted = true;
+    practiceVideo.muted = true;
+    practiceVideo.setAttribute('muted', '');
+    practiceVideo.currentTime = 0;
+    practiceVideo.dispatchEvent(new Event('volumechange'));
+
+    if (resumeMutedPreview && !reduced && !document.hidden) {
+      void practiceVideo.play().catch(() => {});
+    }
+  };
+
+  const silenceOtherSiteVideos = () => {
+    document.querySelectorAll<HTMLVideoElement>('[data-site-video]').forEach((video) => {
+      if (video === practiceVideo) return;
+      video.pause();
+      video.loop = true;
+      video.defaultMuted = true;
+      video.muted = true;
+      video.setAttribute('muted', '');
+      video.currentTime = 0;
+      video.dispatchEvent(new Event('volumechange'));
+    });
+  };
+
+  if (practiceVideo && practiceVideoToggle) {
+    if (reduced) practiceVideo.pause();
+
+    practiceVideoToggle.addEventListener('click', async () => {
+      if (practiceVideo.paused || practiceVideo.muted) {
+        practiceCardVisible = isPracticeCardVisible();
+        window.clearTimeout(practiceExitTimer);
+        silenceOtherSiteVideos();
+        practiceVideo.pause();
+        practiceVideo.loop = false;
+        practiceVideo.removeAttribute('muted');
+        practiceVideo.defaultMuted = false;
+        practiceVideo.muted = false;
+        practiceVideo.currentTime = 0;
+        try {
+          await practiceVideo.play();
+        } catch {
+          practiceVideo.controls = true;
+        }
+      } else {
+        practiceVideo.pause();
+      }
+      updatePracticeVideoControl();
+    });
+
+    practiceVideo.addEventListener('play', updatePracticeVideoControl);
+    practiceVideo.addEventListener('pause', updatePracticeVideoControl);
+    practiceVideo.addEventListener('volumechange', updatePracticeVideoControl);
+    practiceVideo.addEventListener('ended', () => resetPracticeVideo(practiceCardVisible));
+
+    if (practiceVideoCard) {
+      const practiceVideoObserver = new IntersectionObserver(
+        ([entry]) => {
+          practiceCardVisible = Boolean(entry?.isIntersecting && entry.intersectionRatio > 0.08) || isPracticeCardVisible();
+          window.clearTimeout(practiceExitTimer);
+          if (!practiceCardVisible) {
+            practiceExitTimer = window.setTimeout(() => {
+              practiceCardVisible = isPracticeCardVisible();
+              if (!practiceCardVisible) resetPracticeVideo(false);
+            }, 220);
+          } else if (practiceVideo.muted && practiceVideo.paused) {
+            resetPracticeVideo(true);
+          }
+        },
+        { threshold: [0, 0.08, 0.35] }
+      );
+      practiceVideoObserver.observe(practiceVideoCard);
+    }
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        resetPracticeVideo(false);
+      } else if (practiceCardVisible && practiceVideo.muted) {
+        resetPracticeVideo(true);
+      }
+    });
+    updatePracticeVideoControl();
+  }
+</script>

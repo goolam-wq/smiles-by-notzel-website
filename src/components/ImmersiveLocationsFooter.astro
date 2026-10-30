@@ -1,0 +1,73 @@
+---
+const faqs = [
+  { q:'Can I visit either office?', a:'Yes. The mapped service list is available through both Chicago Heights and Mokena, with advanced programs scheduled by appointment.' },
+  { q:'Do you offer same-day emergency care?', a:'Same-day emergency dental care is listed at both offices. Call first so the team can assess urgency and reserve the right window.' },
+  { q:'Can I see fixed, monthly and yearly pricing?', a:'Yes. Customer-facing pricing is organized in fixed, monthly and yearly formats. Case-dependent treatment may change after clinical planning.' },
+  { q:'What does complete-health dentistry mean?', a:'The practice connects oral health with airway, sleep, inflammation and wider health signals through screening, education and coordinated care.' },
+  { q:'Do you welcome children and anxious patients?', a:'The service map includes first visits, pediatric cleaning and exams, HealthyStart, nitrous oxide and virtual-reality comfort options.' },
+];
+---
+
+<section class="location-story" id="locations" data-location-story>
+  <div class="location-sticky">
+    <figure class="location-cinema" data-location-cinema>
+      <img src="/images/generated/dental-exam-candid.webp" alt="Dentist caring for a patient in the practice's warm clinical environment" loading="lazy" />
+    </figure>
+    <header class="location-intro" data-location-intro><p class="eyebrow">Visit us</p><h2>Two doors.<br /><em>One way of caring.</em></h2></header>
+    <article class="location-panel" data-location-panel="chicago">
+      <span>01 · Chicago Heights</span><h3>500 Ashland Ave,<br />Suite #2</h3><a href="tel:+17087551333">(708) 755-1333</a>
+      <dl><div><dt>Mon–Thu</dt><dd>7:30am–7:00pm</dd></div><div><dt>Friday</dt><dd>7:30am–12:00pm</dd></div><div><dt>Saturday</dt><dd>8:00am–12:00pm</dd></div></dl>
+      <a class="map" href="https://maps.app.goo.gl/htHhNrnhbbu2WNR17">Open in Google Maps <i>↗</i></a>
+    </article>
+    <article class="location-panel location-panel--mokena" data-location-panel="mokena">
+      <span>02 · Mokena</span><h3>19160 88th Avenue</h3><a href="tel:+17084797733">(708) 479-7733</a>
+      <dl><div><dt>Monday</dt><dd>8:00am–7:00pm</dd></div><div><dt>Thursday</dt><dd>9:30am–6:00pm</dd></div><div><dt>Every other Sat</dt><dd>8:00am–12:00pm</dd></div></dl>
+      <a class="map" href="https://www.google.com/maps/search/?api=1&query=Ashland+Dental+and+Wellness+Center+19160+88th+Avenue+Mokena+IL+60448">Open in Google Maps <i>↗</i></a>
+    </article>
+    <div class="location-word" aria-hidden="true">COME AS YOU ARE</div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="container-shell faq-grid">
+    <header class="faq-heading" data-simple-reveal><p class="eyebrow">Questions, answered</p><h2>Start with<br /><em>clarity.</em></h2><a href="/faq/">View all FAQs <i>↗</i></a></header>
+    <div class="faq-list">{faqs.map((faq,index)=><details data-simple-reveal><summary><span>0{index+1}</span>{faq.q}<i>+</i></summary><p>{faq.a}</p></details>)}</div>
+  </div>
+</section>
+
+<footer class="site-footer" id="contact">
+  <div class="footer-orbit" aria-hidden="true"><i></i><i></i></div>
+  <div class="container-shell footer-main" data-simple-reveal><p class="eyebrow">Ready when you are</p><h2>Let’s make your next<br /><em>visit feel different.</em></h2><div class="footer-actions"><a href="tel:+17087551333">Call (708) 755-1333</a><a href="mailto:nadia.ashland@gmail.com">Email the team <i>↗</i></a></div></div>
+  <div class="footer-marquee" aria-hidden="true"><span>CHICAGO HEIGHTS · MOKENA · COMPLETE HEALTH · HUMAN CARE · </span><span>CHICAGO HEIGHTS · MOKENA · COMPLETE HEALTH · HUMAN CARE · </span></div>
+  <div class="container-shell footer-bottom"><div><strong>Smiles by Noetzel</strong><span>Ashland Dental &amp; Wellness Center</span></div><nav aria-label="Footer"><a href="/services/">Services</a><a href="/service-areas/">Service Areas</a><a href="/pricing/">Pricing</a><a href="/team/">Team</a><a href="/faq/">FAQ</a></nav><span>Illinois · 2026</span></div>
+</footer>
+
+<style>
+  .location-story{position:relative;z-index:7;height:310svh;background:var(--pine-950);color:var(--porcelain)}.location-sticky{position:sticky;top:0;height:100svh;overflow:hidden}.location-cinema{position:absolute;inset:0;margin:0;overflow:hidden}.location-cinema::after{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,29,25,.94) 0%,rgba(6,29,25,.55) 43%,rgba(6,29,25,.12) 100%);content:''}.location-cinema img{width:100%;height:100%;object-fit:cover;object-position:center;will-change:transform,filter}.location-intro{position:absolute;z-index:2;top:clamp(7rem,12vh,9rem);left:max(1rem,calc((100vw - 92rem)/2 + 1rem));transform-origin:left top}.location-intro .eyebrow{color:var(--mint-300)}.location-intro h2{margin:2rem 0 0;font-family:Georgia,serif;font-size:clamp(5rem,8.5vw,9.5rem);font-weight:400;line-height:.8;letter-spacing:-.07em}.location-intro h2 em{color:var(--mint-300);font-weight:400}.location-panel{position:absolute;z-index:3;right:max(1rem,calc((100vw - 92rem)/2 + 1rem));bottom:6vh;width:min(37rem,42vw);padding:1.5rem;border:1px solid rgba(245,240,231,.24);border-radius:1.3rem;background:rgba(6,29,25,.76);backdrop-filter:blur(18px);will-change:transform,opacity}.location-panel--mokena{background:rgba(196,234,220,.9);color:var(--pine-950)}.location-panel>span{font-size:.62rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase;color:var(--mint-300)}.location-panel--mokena>span{color:var(--pine-700)}.location-panel h3{margin:1.5rem 0 1rem;font-family:Georgia,serif;font-size:clamp(3.2rem,5vw,5.7rem);font-weight:400;line-height:.88;letter-spacing:-.06em}.location-panel>a:not(.map){font-family:Georgia,serif;font-size:1.4rem;color:var(--mint-300)}.location-panel--mokena>a:not(.map){color:var(--pine-700)}.location-panel dl{margin:2.4rem 0 0}.location-panel dl div{display:flex;padding:.75rem 0;justify-content:space-between;border-top:1px solid currentColor}.location-panel dt{font-size:.62rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.location-panel dd{margin:0;font-size:.75rem;opacity:.67}.location-panel .map{display:flex;margin-top:1.5rem;padding-top:.9rem;justify-content:space-between;border-top:1px solid currentColor;font-size:.62rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.location-panel i{font-style:normal}.location-word{position:absolute;z-index:1;bottom:-.05em;left:-.03em;font-family:Georgia,serif;font-size:clamp(6rem,13vw,14rem);line-height:.7;white-space:nowrap;color:rgba(245,240,231,.08)}
+  .location-panel{opacity:0;visibility:hidden;transform:translateY(90px) scale(.95)}
+  .faq{position:relative;z-index:8;padding:11rem 0;background:var(--paper);overflow:hidden}.faq-grid{display:grid;grid-template-columns:.8fr 1.45fr;gap:7vw}.faq-heading{position:sticky;top:9rem;align-self:start}.faq-heading .eyebrow{color:var(--pine-700)}.faq-heading h2{margin:2rem 0 3rem;font-family:Georgia,serif;font-size:clamp(4.6rem,7vw,8rem);font-weight:400;line-height:.82;letter-spacing:-.06em}.faq-heading h2 em{color:var(--pine-700);font-weight:400}.faq-heading>a{display:flex;padding-top:1rem;justify-content:space-between;border-top:1px solid rgba(16,35,31,.22);font-size:.65rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.faq-heading i{font-style:normal}.faq-list details{border-top:1px solid rgba(16,35,31,.2)}.faq-list summary{display:grid;padding:2rem 0;grid-template-columns:2.5rem 1fr auto;gap:1rem;align-items:center;cursor:pointer;font-family:Georgia,serif;font-size:clamp(1.7rem,2.4vw,2.7rem);list-style:none}.faq-list summary::-webkit-details-marker{display:none}.faq-list summary span{font-family:Arial,sans-serif;font-size:.58rem}.faq-list summary i{font-family:Arial,sans-serif;font-size:1.5rem;font-style:normal;transition:transform .3s ease}.faq-list details[open] summary i{transform:rotate(45deg)}.faq-list details p{max-width:41rem;margin:0 0 2rem 3.5rem;color:rgba(16,35,31,.66);line-height:1.65}
+  .site-footer{position:relative;z-index:8;padding:10rem 0 2rem;overflow:hidden;background:var(--pine-950);color:var(--porcelain)}.footer-orbit{position:absolute;right:-14rem;bottom:-25rem;width:60rem;aspect-ratio:1;border:1px solid rgba(158,215,196,.15);border-radius:50%}.footer-orbit i{position:absolute;inset:17%;border:inherit;border-radius:inherit}.footer-orbit i:nth-child(2){inset:36%}.footer-main{position:relative;z-index:1}.footer-main .eyebrow{color:var(--mint-300)}.footer-main h2{margin:3rem 0 4rem;font-family:Georgia,serif;font-size:clamp(5rem,9vw,10rem);font-weight:400;line-height:.8;letter-spacing:-.07em}.footer-main h2 em{color:var(--mint-300);font-weight:400}.footer-actions{display:flex;gap:1rem}.footer-actions a{display:flex;min-width:16rem;padding:1.1rem 1.3rem;justify-content:space-between;border:1px solid rgba(245,240,231,.25);border-radius:999px;font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.footer-actions a:first-child{background:var(--mint-300);color:var(--pine-950)}.footer-actions i{font-style:normal}.footer-marquee{display:flex;width:max-content;margin-top:7rem;animation:footerRoll 30s linear infinite;font-family:Georgia,serif;font-size:clamp(3rem,7vw,7rem);color:rgba(245,240,231,.1);white-space:nowrap}@keyframes footerRoll{to{transform:translateX(-50%)}}.footer-bottom{position:relative;z-index:1;display:grid;padding-top:2rem;grid-template-columns:1fr 1fr 1fr;gap:2rem;border-top:1px solid rgba(245,240,231,.18);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase}.footer-bottom>div{display:grid;gap:.4rem}.footer-bottom nav{display:flex;flex-wrap:wrap;gap:1rem}.footer-bottom>span{text-align:right}
+  @media (min-width:46.001rem) and (max-width:68rem){.location-story{height:290svh}.location-intro h2{font-size:clamp(5rem,10vw,7rem)}.location-panel{width:48vw}.faq{padding-top:8rem}.faq-grid{grid-template-columns:1fr}.faq-heading{position:relative;top:auto}.footer-bottom{grid-template-columns:1fr 1fr}.footer-bottom>span{grid-column:1/-1;text-align:left}}
+  @media (max-width:46rem){.location-story{height:300svh}.location-cinema::after{background:linear-gradient(180deg,rgba(6,29,25,.75),rgba(6,29,25,.28) 45%,rgba(6,29,25,.88))}.location-intro{top:8.5rem;left:1rem}.location-intro h2{font-size:clamp(3.8rem,17vw,5.3rem)}.location-panel{right:1rem;bottom:5vh;left:1rem;width:auto;padding:1rem}.location-panel h3{font-size:clamp(3.2rem,15vw,4.6rem)}.location-word{font-size:5rem}.faq{padding:7rem 0}.faq-grid{grid-template-columns:1fr;gap:4rem}.faq-heading{position:relative;top:auto}.faq-heading h2{font-size:clamp(3.8rem,17vw,5.2rem)}.faq-list summary{padding:1.5rem 0;grid-template-columns:2rem 1fr auto;font-size:1.65rem}.faq-list details p{margin-left:3rem}.site-footer{padding-top:7rem}.footer-main h2{font-size:clamp(4rem,18vw,6rem)}.footer-actions{flex-direction:column}.footer-actions a{min-width:0}.footer-bottom{grid-template-columns:1fr;margin-top:0}.footer-bottom nav{display:grid;grid-template-columns:1fr 1fr}.footer-bottom>span{text-align:left}}
+  @media (prefers-reduced-motion:reduce){.location-story{height:auto}.location-sticky{position:relative;height:auto;min-height:100svh;padding:8rem 1rem}.location-intro,.location-cinema,.location-panel{position:relative;inset:auto;width:auto;margin:0 0 1rem}.location-intro{left:auto}.location-cinema{height:38rem}.location-panel{opacity:1;visibility:visible;transform:none}.footer-marquee{animation:none}}
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduced){
+    gsap.set('[data-location-panel]',{autoAlpha:0,y:90,scale:.95});
+    const location=gsap.timeline({scrollTrigger:{trigger:'[data-location-story]',start:'top top',end:'bottom bottom',scrub:.72,invalidateOnRefresh:true}});
+    location.fromTo('[data-location-cinema] img',{scale:1.18,filter:'saturate(.65)'},{scale:1,filter:'saturate(.9)',duration:1,ease:'power2.inOut'},0)
+      .to('[data-location-intro]',{y:'-13vh',scale:.58,autoAlpha:.18,duration:.55,ease:'power2.inOut'},.45)
+      .to('[data-location-panel="chicago"]',{autoAlpha:1,y:0,scale:1,duration:.55,ease:'power3.out'},.58)
+      .to('[data-location-panel="chicago"]',{autoAlpha:0,y:-70,scale:.96,duration:.36,ease:'power2.in'},1.24)
+      .to('[data-location-panel="mokena"]',{autoAlpha:1,y:0,scale:1,duration:.55,ease:'power3.out'},1.4)
+      .to('[data-location-cinema] img',{x:'-4vw',scale:1.06,duration:.8,ease:'power2.inOut'},1.2);
+    gsap.to('.location-word',{x:'-30vw',ease:'none',scrollTrigger:{trigger:'[data-location-story]',start:'top bottom',end:'bottom top',scrub:1}});
+    gsap.utils.toArray<HTMLElement>('[data-simple-reveal]').forEach(item=>gsap.from(item,{y:70,opacity:0,duration:.85,ease:'power3.out',scrollTrigger:{trigger:item,start:'top 88%',once:true}}));
+    gsap.to('.footer-orbit',{rotate:90,scale:1.18,ease:'none',scrollTrigger:{trigger:'.site-footer',start:'top bottom',end:'bottom bottom',scrub:1}});
+  }
+</script>

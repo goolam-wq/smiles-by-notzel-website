@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 172" role="img" aria-labelledby="title desc">
+  <title id="title">Smiles by Noetzel</title>
+  <desc id="desc">Ashland Dental and Wellness Center.</desc>
+  <g transform="translate(6 6)" color="#103e35">
+    <path d="M20 104c17 22 36 33 57 33 20 0 39-9 56-28" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round"/>
+    <path d="M24 86c18-39 39-60 54-60 17 0 30 25 48 71" fill="none" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+    <path d="M25 62c25-27 43-29 61-8l43 52" fill="none" stroke="#9ed7c4" stroke-width="7" stroke-linecap="round"/>
+    <path d="M127 30v78" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <text x="164" y="93" fill="#103e35" font-family="Georgia, 'Times New Roman', serif" font-size="57" letter-spacing="-1.5">Smiles by Noetzel</text>
+  <text x="168" y="128" fill="#103e35" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" letter-spacing="4.1">ASHLAND DENTAL &amp; WELLNESS CENTER</text>
+</svg>

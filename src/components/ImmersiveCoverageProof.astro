@@ -1,0 +1,133 @@
+---
+const southAreas = ['Chicago Heights', 'South Chicago Heights', 'Steger', 'Sauk Village', 'Lynwood', 'Glenwood', 'Olympia Fields', 'Park Forest', 'Homewood', 'Flossmoor', 'Matteson'];
+const westAreas = ['Mokena', 'Frankfort', 'New Lenox', 'Tinley Park', 'Orland Park', 'Homer Glen', 'Lockport', 'Manhattan', 'Frankfort Square', 'Orland Hills'];
+const reviews = [
+  { name: 'Keanna Benson', text: 'Long-term family care, thoughtful technology and efficient visits.', metric: '76', label: 'friendly-staff mentions' },
+  { name: 'Jason Bracken', text: 'Prompt support for severe pain, with comfort prioritized throughout the visit.', metric: '35', label: 'caring-staff mentions' },
+  { name: 'Terre Robertson', text: 'Friendly, patient and pain-conscious care with accommodating scheduling.', metric: '18', label: 'hygienist mentions' },
+];
+---
+
+<section class="coverage-story" id="service-areas" data-coverage-story>
+  <div class="coverage-sticky">
+    <div class="coverage-grid" aria-hidden="true"></div>
+    <header class="coverage-intro" data-coverage-intro>
+      <p class="eyebrow">One connected circle</p>
+      <h2>Care that travels<br /><em>with your life.</em></h2>
+      <p>Two offices, twenty-one nearby communities and one continuous care philosophy.</p>
+    </header>
+
+    <figure class="coverage-portal" data-coverage-portal>
+      <img src="/images/generated/clinic-operatory-consistent.webp" alt="Warm modern dental operatory with forest-green cabinetry and advanced equipment" loading="lazy" />
+      <figcaption><span>Inside the practice</span><b>Chicago Heights · Mokena</b></figcaption>
+    </figure>
+
+    <article class="area-scene area-scene--south" data-area-scene="south">
+      <div class="area-scene__number">01</div>
+      <div>
+        <p>500 Ashland Ave, Suite #2</p>
+        <h3>Chicago<br />Heights</h3>
+        <div class="area-pills">{southAreas.map((area) => <span>{area}</span>)}</div>
+        <a href="/service-areas/">Explore south-suburban care <i>↗</i></a>
+      </div>
+    </article>
+
+    <article class="area-scene area-scene--west" data-area-scene="west">
+      <div class="area-scene__number">02</div>
+      <div>
+        <p>19160 88th Avenue</p>
+        <h3>Mokena</h3>
+        <div class="area-pills">{westAreas.map((area) => <span>{area}</span>)}</div>
+        <a href="/service-areas/">Explore Mokena-area care <i>↗</i></a>
+      </div>
+    </article>
+
+    <div class="coverage-index" aria-hidden="true"><span>01</span><i><b data-coverage-progress></b></i><span>03</span></div>
+  </div>
+</section>
+
+<section class="proof-story" id="reviews" data-proof-story>
+  <div class="proof-sticky">
+    <div class="proof-aura" aria-hidden="true"></div>
+    <header class="proof-intro" data-proof-intro>
+      <p class="eyebrow">Patient proof</p>
+      <h2>Trust you can<br /><em>feel in the room.</em></h2>
+    </header>
+
+    <div class="ratings" data-ratings>
+      <div><strong>4.9</strong><span>Chicago Heights<br />258 Google reviews</span></div>
+      <div><strong>5.0</strong><span>Mokena<br />5 Google reviews</span></div>
+    </div>
+
+    <div class="review-stage">
+      {reviews.map((review, index) => (
+        <article class="review-scene" data-review-scene>
+          <div class="review-scene__top"><span>0{index + 1}</span><span>★★★★★</span></div>
+          <blockquote>“{review.text}”</blockquote>
+          <footer><b>{review.name}</b><div><strong>{review.metric}</strong><span>{review.label}</span></div></footer>
+        </article>
+      ))}
+    </div>
+
+    <div class="proof-whisper" aria-hidden="true">REAL CARE · REAL PEOPLE · REAL CONTINUITY ·</div>
+  </div>
+</section>
+
+<style>
+  .coverage-story,.proof-story{position:relative;z-index:5;background:var(--porcelain)}
+  .coverage-story{height:330svh}.coverage-sticky,.proof-sticky{position:sticky;top:0;height:100svh;overflow:hidden}
+  .coverage-sticky{background:var(--porcelain);color:var(--ink)}
+  .coverage-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(27,92,77,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(27,92,77,.09) 1px,transparent 1px);background-size:25% 100%,25% 100%;mask-image:linear-gradient(90deg,transparent,black 15%,black 85%,transparent)}
+  .coverage-intro{position:absolute;z-index:3;top:clamp(7rem,13vh,9rem);left:max(1rem,calc((100vw - 92rem)/2 + 1rem));width:min(78rem,calc(100vw - 2rem));transform-origin:left top}
+  .coverage-intro .eyebrow{color:var(--pine-700)}.coverage-intro h2,.proof-intro h2{margin:2rem 0 1.4rem;font-family:Georgia,'Times New Roman',serif;font-size:clamp(5rem,9vw,10rem);font-weight:400;line-height:.79;letter-spacing:-.07em}.coverage-intro h2 em,.proof-intro h2 em{color:var(--pine-700);font-weight:400}.coverage-intro>p:last-child{max-width:34rem;color:rgba(16,35,31,.62);line-height:1.6}
+  .coverage-portal{position:absolute;z-index:2;inset:10vh 4vw 7vh 42vw;margin:0;overflow:hidden;border-radius:1.4rem;background:var(--pine-900);box-shadow:0 2.8rem 6rem rgba(6,29,25,.18);will-change:transform,clip-path}
+  .coverage-portal::after{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(6,29,25,.64));content:''}.coverage-portal img{width:100%;height:100%;object-fit:cover;will-change:transform}.coverage-portal figcaption{position:absolute;z-index:1;right:1.2rem;bottom:1.1rem;left:1.2rem;display:flex;justify-content:space-between;color:var(--porcelain);font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.coverage-portal figcaption span{color:var(--mint-300)}
+  .area-scene{position:absolute;z-index:4;bottom:7vh;left:max(1rem,calc((100vw - 92rem)/2 + 1rem));display:grid;width:min(34rem,37vw);max-height:70vh;padding:1.5rem;grid-template-columns:2.4rem 1fr;gap:1rem;overflow:auto;border:1px solid rgba(16,35,31,.16);border-radius:1.2rem;background:rgba(251,248,242,.86);box-shadow:0 2rem 5rem rgba(6,29,25,.14);backdrop-filter:blur(18px);will-change:transform,opacity}
+  .area-scene--west{background:rgba(6,29,25,.9);color:var(--porcelain)}.area-scene__number{font-size:.62rem;font-weight:900}.area-scene p{margin:0 0 .8rem;font-size:.72rem;opacity:.58}.area-scene h3{margin:0 0 1.4rem;font-family:Georgia,serif;font-size:clamp(3.6rem,5.7vw,6.4rem);font-weight:400;line-height:.82;letter-spacing:-.06em}.area-pills{display:flex;flex-wrap:wrap;gap:.4rem}.area-pills span{padding:.47rem .6rem;border:1px solid currentColor;border-radius:999px;font-size:.58rem;opacity:.65}.area-scene a{display:flex;margin-top:1.4rem;padding-top:.85rem;justify-content:space-between;border-top:1px solid currentColor;font-size:.62rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.area-scene a i{font-style:normal}
+  .coverage-index{position:absolute;z-index:5;right:max(1rem,calc((100vw - 92rem)/2 + 1rem));bottom:1.4rem;left:max(1rem,calc((100vw - 92rem)/2 + 1rem));display:flex;align-items:center;gap:.7rem;font-size:.58rem;color:rgba(16,35,31,.52)}.coverage-index i{height:1px;flex:1;background:rgba(16,35,31,.15)}.coverage-index b{display:block;width:100%;height:100%;background:var(--pine-700);transform:scaleX(0);transform-origin:left}
+
+  .proof-story{height:300svh}.proof-sticky{background:var(--mint-200);color:var(--pine-950)}.proof-aura{position:absolute;right:-18rem;top:-18rem;width:50rem;aspect-ratio:1;border:1px solid rgba(6,29,25,.13);border-radius:50%}.proof-aura::before,.proof-aura::after{position:absolute;inset:16%;border:inherit;border-radius:inherit;content:''}.proof-aura::after{inset:33%}
+  .proof-intro{position:absolute;z-index:2;top:clamp(7rem,12vh,9rem);left:max(1rem,calc((100vw - 92rem)/2 + 1rem));width:min(65rem,80vw);transform-origin:left top}.proof-intro .eyebrow{color:var(--pine-700)}.proof-intro h2{font-size:clamp(5rem,8.5vw,9.6rem)}
+  .ratings{position:absolute;z-index:3;left:max(1rem,calc((100vw - 92rem)/2 + 1rem));bottom:7vh;display:flex;gap:1rem}.ratings>div{display:grid;min-width:15rem;padding:1rem;grid-template-columns:auto 1fr;align-items:center;gap:1rem;border-top:1px solid rgba(6,29,25,.25)}.ratings strong{font-family:Georgia,serif;font-size:4.6rem;font-weight:400;line-height:1}.ratings span{font-size:.62rem;line-height:1.5;letter-spacing:.08em;text-transform:uppercase}
+  .review-stage{position:absolute;z-index:4;right:max(1rem,calc((100vw - 92rem)/2 + 1rem));bottom:7vh;width:min(41rem,44vw);height:min(34rem,63vh)}.review-scene{position:absolute;inset:0;display:flex;padding:1.5rem;flex-direction:column;justify-content:space-between;border:1px solid rgba(6,29,25,.2);border-radius:1.4rem;background:rgba(251,248,242,.88);box-shadow:0 2rem 5rem rgba(6,29,25,.16);backdrop-filter:blur(20px);will-change:transform,opacity}.review-scene__top{display:flex;justify-content:space-between;font-size:.62rem;font-weight:900;letter-spacing:.15em}.review-scene blockquote{margin:2rem 0;font-family:Georgia,serif;font-size:clamp(2.6rem,4vw,4.8rem);line-height:.94;letter-spacing:-.05em}.review-scene footer{display:flex;align-items:end;justify-content:space-between}.review-scene footer>b{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase}.review-scene footer>div{display:grid;text-align:right}.review-scene footer strong{font-family:Georgia,serif;font-size:3.4rem;font-weight:400;line-height:.9}.review-scene footer span{max-width:8rem;font-size:.54rem;letter-spacing:.08em;text-transform:uppercase}
+  .proof-whisper{position:absolute;bottom:-.13em;left:0;width:max-content;font-family:Georgia,serif;font-size:clamp(5rem,11vw,12rem);line-height:.7;white-space:nowrap;color:rgba(6,29,25,.08)}
+  .area-scene{opacity:0;visibility:hidden;transform:translateY(90px) scale(.96)}
+  .review-scene{opacity:0;visibility:hidden;transform:translateY(90px) rotate(2deg) scale(.95)}
+
+  @media (min-width:46.001rem) and (max-width:68rem){.coverage-story{height:300svh}.coverage-intro h2,.proof-intro h2{font-size:clamp(5rem,10vw,7.2rem)}.coverage-portal{inset:14vh 4vw 9vh 35vw}.area-scene{width:42vw;max-height:64vh}.proof-story{height:280svh}.proof-intro{width:76vw}.ratings{bottom:5vh}.ratings>div{min-width:12rem}.review-stage{right:4vw;bottom:17vh;width:48vw;height:48vh}.review-scene blockquote{font-size:clamp(2.5rem,5vw,3.8rem)}}
+  @media (max-width:46rem){.coverage-story{height:300svh}.coverage-intro{top:8.5rem;left:1rem;width:calc(100vw - 2rem)}.coverage-intro h2,.proof-intro h2{font-size:clamp(3.8rem,17vw,5.4rem)}.coverage-intro>p:last-child{font-size:.8rem}.coverage-portal{inset:22vh 1rem 16vh 1rem;border-radius:1rem}.coverage-portal figcaption{font-size:.48rem}.area-scene{right:1rem;bottom:6vh;left:1rem;width:auto;max-height:57vh;padding:1rem;grid-template-columns:1.8rem 1fr}.area-scene h3{font-size:clamp(3.6rem,17vw,5rem)}.area-pills span{font-size:.52rem}.coverage-index{right:1rem;left:1rem}.proof-story{height:310svh}.proof-intro{top:8.5rem;left:1rem;width:calc(100vw - 2rem)}.ratings{right:1rem;bottom:5vh;left:1rem;gap:.4rem}.ratings>div{min-width:0;padding:.7rem;flex:1}.ratings strong{font-size:2.8rem}.ratings span{font-size:.48rem}.review-stage{right:1rem;bottom:20vh;left:1rem;width:auto;height:48vh}.review-scene{padding:1.1rem}.review-scene blockquote{font-size:clamp(2.4rem,10vw,3.5rem)}.review-scene footer strong{font-size:2.5rem}.proof-whisper{font-size:5rem}}
+  @media (prefers-reduced-motion:reduce){.coverage-story,.proof-story{height:auto}.coverage-sticky,.proof-sticky{position:relative;height:auto;min-height:100svh;padding:8rem 1rem}.coverage-intro,.proof-intro,.coverage-portal,.area-scene,.ratings,.review-stage{position:relative;inset:auto;width:auto;margin:0 0 1rem}.coverage-intro,.proof-intro{left:auto}.coverage-portal{height:34rem}.area-scene{max-height:none;opacity:1;visibility:visible;transform:none}.review-stage{display:grid;height:auto;gap:1rem}.review-scene{position:relative;min-height:27rem;opacity:1;visibility:visible;transform:none}}
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced) {
+    const coverage = gsap.timeline({scrollTrigger:{trigger:'[data-coverage-story]',start:'top top',end:'bottom bottom',scrub:.75,invalidateOnRefresh:true}});
+    coverage
+      .set('[data-area-scene]',{autoAlpha:0,y:90,scale:.96})
+      .fromTo('[data-coverage-portal]',{clipPath:'inset(35% 30% 35% 30% round 1.4rem)',scale:.82},{clipPath:'inset(0% 0% 0% 0% round 1.4rem)',scale:1,duration:1,ease:'power2.inOut'},0)
+      .fromTo('[data-coverage-portal] img',{scale:1.18},{scale:1,duration:1,ease:'power2.inOut'},0)
+      .to('[data-coverage-intro]',{y:'-16vh',scale:.55,autoAlpha:.18,duration:.55,ease:'power2.inOut'},.42)
+      .to('[data-area-scene="south"]',{autoAlpha:1,y:0,scale:1,duration:.6,ease:'power3.out'},.55)
+      .to('[data-area-scene="south"]',{autoAlpha:0,y:-70,scale:.96,duration:.38,ease:'power2.in'},1.2)
+      .to('[data-coverage-portal]',{x:'-7vw',scale:1.07,duration:.75,ease:'power2.inOut'},1.1)
+      .to('[data-area-scene="west"]',{autoAlpha:1,y:0,scale:1,duration:.6,ease:'power3.out'},1.38)
+      .to('[data-coverage-progress]',{scaleX:1,duration:2,ease:'none'},0);
+
+    const scenes = gsap.utils.toArray<HTMLElement>('[data-review-scene]');
+    gsap.set(scenes,{autoAlpha:0,y:90,rotate:2,scale:.95});
+    const proof = gsap.timeline({scrollTrigger:{trigger:'[data-proof-story]',start:'top top',end:'bottom bottom',scrub:.72,invalidateOnRefresh:true}});
+    proof.to('[data-proof-intro]',{y:'-13vh',scale:.62,autoAlpha:.2,duration:.5,ease:'power2.inOut'},.2)
+      .to('[data-ratings]',{y:'-4vh',duration:.5,ease:'power2.out'},.25);
+    scenes.forEach((scene,index)=>{
+      const at=.45+index*.62;
+      proof.to(scene,{autoAlpha:1,y:0,rotate:0,scale:1,duration:.48,ease:'power3.out'},at);
+      if(index<scenes.length-1) proof.to(scene,{autoAlpha:0,y:-90,rotate:-2,scale:.96,duration:.35,ease:'power2.in'},at+.48);
+    });
+    gsap.to('.proof-aura',{rotate:80,scale:1.15,ease:'none',scrollTrigger:{trigger:'[data-proof-story]',start:'top bottom',end:'bottom top',scrub:1}});
+    gsap.to('.proof-whisper',{x:'-28vw',ease:'none',scrollTrigger:{trigger:'[data-proof-story]',start:'top bottom',end:'bottom top',scrub:1}});
+  }
+</script>
