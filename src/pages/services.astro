@@ -1,0 +1,24 @@
+---
+import Navbar from '../components/Navbar.astro';
+import ServicesHub from '../components/ServicesHub.astro';
+import HubHeroV2 from '../components/HubHeroV2.astro';
+import HubProcess from '../components/HubProcess.astro';
+import HubReviews from '../components/HubReviews.astro';
+import HubFooter from '../components/HubFooter.astro';
+import HubAboutStory from '../components/HubAboutStory.astro';
+import WhyChooseStory from '../components/WhyChooseStory.astro';
+import HubFaq from '../components/HubFaq.astro';
+import '../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore 48 dental and wellness offerings across 11 connected service categories at Smiles by Noetzel." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Dental Services | Smiles by Noetzel</title>
+  </head>
+  <body><Navbar /><main><HubHeroV2 kind="services" /><HubAboutStory kind="services" /><ServicesHub hideHero hideHandoff /><WhyChooseStory kind="services" /><HubProcess kind="services" /><HubReviews kind="services" /><HubFaq kind="services" /><HubFooter eyebrow="Ready to find your next step?" title="Care becomes clearer when the whole story is connected." /></main></body>
+</html>

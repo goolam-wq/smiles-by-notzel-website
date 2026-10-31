@@ -1,0 +1,105 @@
+---
+const categories=[
+  {slug:'complete-health-airway',num:'01',name:'Complete Health & Airway',count:4,accent:'Whole-body signals, airway and sleep',image:'/images/generated/clinic-operatory-consistent.webp',services:['Oral-cancer screening','Airway and sleep screening','Artery-health screening','ProSomnus sleep-apnea oral appliance']},
+  {slug:'cosmetic-dentistry',num:'02',name:'Cosmetic Dentistry',count:7,accent:'Natural confidence, carefully composed',image:'/images/generated/clear-aligner-consultation.webp',services:['Professional teeth whitening','Porcelain veneers and laminates','Lumineers','Snap-on Smile','Dental bonding','Tooth contouring','Complete smile makeover']},
+  {slug:'emergency-comfort',num:'03',name:'Emergency & Comfort',count:3,accent:'Urgent help without unnecessary stress',image:'/images/generated/dental-exam-candid.webp',services:['Nitrous oxide sedation','Virtual-reality anxiety reduction','Same-day emergency dental care']},
+  {slug:'implants-oral-surgery',num:'04',name:'Implants & Oral Surgery',count:8,accent:'Restore strength, function and possibility',image:'/images/generated/clinic-operatory-consistent.webp',services:['Single-tooth dental implant','Implant-supported bridge','All-on-4 implant solution','Bone grafting','Dental implant restoration','Simple tooth extraction','Surgical tooth extraction','Wisdom-tooth removal']},
+  {slug:'orthodontic-dentistry',num:'05',name:'Orthodontic Dentistry',count:1,accent:'A clearer route to alignment',image:'/images/generated/clear-aligner-consultation.webp',services:['Invisalign clear-aligner treatment']},
+  {slug:'pediatric-developmental',num:'06',name:'Pediatric & Developmental',count:3,accent:'Gentle beginnings that support growth',image:'/images/generated/dental-exam-candid.webp',services:['HealthyStart System treatment','First dental visit','Pediatric cleaning and exam']},
+  {slug:'periodontal-dentistry',num:'07',name:'Periodontal Dentistry',count:2,accent:'Healthier foundations for every smile',image:'/images/generated/clinic-operatory-consistent.webp',services:['Gum-disease treatment and deep cleaning','Perio Protect tray therapy']},
+  {slug:'preventive-diagnostic',num:'08',name:'Preventive & Diagnostic',count:9,accent:'See early. Protect what matters.',image:'/images/generated/dental-exam-candid.webp',services:['Professional dental cleaning','Routine or comprehensive dental exam','Digital dental X-rays','Fluoride treatment','Dental sealant','Gum-disease screening and evaluation','Custom sports mouthguard','Custom night guard','Laser dentistry']},
+  {slug:'recode-cognitive-health',num:'09',name:'ReCODE & Cognitive Health',count:3,accent:'Oral health connected to cognition',image:'/images/generated/doctor-ilenne-provisional.webp',services:['ReCODE 2.0 dental program','Oral spirochete test','Amalgam filling replacement']},
+  {slug:'restorative-reconstructive',num:'10',name:'Restorative & Reconstructive',count:7,accent:'Rebuild comfort, function and confidence',image:'/images/generated/clinic-operatory-consistent.webp',services:['Full denture','Partial denture','Tooth-colored dental filling','Dental crown','Dental bridge','Full-mouth reconstruction','Root-canal treatment and coordination']},
+  {slug:'wellness-offering',num:'11',name:'Wellness Offering',count:1,accent:'Everyday support beyond the chair',image:'/images/generated/doctor-joseph-provisional.webp',services:['Juice Plus wellness program']},
+];
+const priceHighlights=[
+  ['Professional dental cleaning','$125','$21/mo','$250/yr'],
+  ['Invisalign clear-aligner treatment','$5,495','$153/mo','$5,495/yr'],
+  ['Single-tooth dental implant','$4,500','$125/mo','$4,500/yr'],
+  ['Perio Protect tray therapy','$1,200','$50/mo','$1,200/yr'],
+];
+const {hideHero=false,hideHandoff=false}=Astro.props;
+---
+
+{!hideHero && (
+<section class="services-hero" id="top" data-services-hero>
+  <div class="services-hero__sticky">
+    <div class="services-hero__grid" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="services-hero__copy" data-services-hero-copy>
+      <p class="eyebrow">48 exact offerings · 11 connected categories</p>
+      <h1>Care that<br /><em>moves with</em><br />your whole life.</h1>
+    </div>
+    <div class="services-hero__media" data-services-hero-media>
+      <img src="/images/generated/dental-exam-candid.webp" alt="A calm, candid dental consultation" />
+      <span>One coordinated point of view</span>
+    </div>
+    <div class="services-orbit" aria-hidden="true" data-services-orbit>
+      {categories.slice(0,6).map((category,index)=><span style={`--i:${index}`}>{category.name}</span>)}
+    </div>
+    <div class="services-hero__bottom"><p>Complete health, confidence, prevention and restoration—designed as one connected experience.</p><a href="#service-atlas">Explore all services ↓</a></div>
+  </div>
+</section>
+)}
+
+<section class="service-intro" data-reveal-section>
+  <div class="container-shell service-intro__grid">
+    <p class="eyebrow">The service atlas</p>
+    <h2>Not a list of procedures.<br /><em>A map of what you need next.</em></h2>
+    <p>Every offering is organized around the way care actually unfolds—from early signals and preventive visits to advanced reconstruction, airway support and long-term wellness.</p>
+  </div>
+</section>
+
+<section class="service-atlas" id="service-atlas">
+  <aside class="service-atlas__visual" data-atlas-visual>
+    <img src={categories[0].image} alt="Dental care environment" data-atlas-image />
+    <div><span data-atlas-number>01</span><p data-atlas-accent>{categories[0].accent}</p></div>
+  </aside>
+  <div class="service-atlas__list">
+    {categories.map((category)=><article id={category.slug} class="service-category" data-service-category data-image={category.image} data-number={category.num} data-accent={category.accent}>
+      <header><span>{category.num}</span><div><p>{category.count} {category.count===1?'offering':'services'}</p><h3>{category.name}</h3></div><i>↗</i></header>
+      <ul>{category.services.map(service=><li><span>—</span>{service}</li>)}</ul>
+      <a href="#contact">Talk with the team <span>↗</span></a>
+    </article>)}
+  </div>
+</section>
+
+<section class="service-pricing" id="pricing" data-pricing-story>
+  <div class="service-pricing__sticky">
+    <header><p class="eyebrow">Pricing, made legible</p><h2>One service.<br /><em>Three ways to plan.</em></h2><p>Fixed, monthly and yearly customer-facing views are available for every mapped service.</p></header>
+    <div class="pricing-track" data-pricing-track>
+      {priceHighlights.map((item,index)=><article><span>0{index+1}</span><h3>{item[0]}</h3><div><p>Fixed<strong>{item[1]}</strong></p><p>Monthly<strong>{item[2]}</strong></p><p>Yearly<strong>{item[3]}</strong></p></div></article>)}
+      <article class="pricing-track__end"><span>48 / 48</span><h3>See the complete pricing map.</h3><a href="/#pricing">Explore pricing ↗</a></article>
+    </div>
+  </div>
+</section>
+
+{!hideHandoff && (
+<section class="service-handoff" data-reveal-section>
+  <div class="container-shell"><p class="eyebrow">Two offices · one connected team</p><h2>Find the service.<br /><em>Then choose your door.</em></h2><a href="/service-areas/">Explore service areas ↗</a></div>
+</section>
+)}
+
+<style>
+  .services-hero{position:relative;height:230svh;background:var(--pine-950);color:var(--porcelain)}.services-hero__sticky{position:sticky;top:0;height:100svh;overflow:hidden}.services-hero__grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);opacity:.1}.services-hero__grid i{border-left:1px solid var(--mint-300)}.services-hero__copy{position:absolute;z-index:3;top:19vh;left:6vw}.services-hero .eyebrow{color:var(--mint-300)}.services-hero h1{margin:1.5rem 0 0;font-family:Georgia,serif;font-size:clamp(5.5rem,10vw,11rem);font-weight:400;line-height:.76;letter-spacing:-.075em}.services-hero h1 em{color:var(--mint-300);font-weight:400}.services-hero__media{position:absolute;z-index:2;top:16vh;right:7vw;width:min(34vw,33rem);height:68vh;overflow:hidden;border-radius:50% 50% 1.2rem 1.2rem;box-shadow:0 35px 100px rgba(0,0,0,.3)}.services-hero__media::after{position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(6,29,25,.8));content:''}.services-hero__media img{width:100%;height:100%;object-fit:cover;will-change:transform}.services-hero__media span{position:absolute;z-index:1;right:1.3rem;bottom:1rem;left:1.3rem;font-size:.6rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.services-orbit{position:absolute;z-index:1;top:50%;left:67%;width:50rem;aspect-ratio:1;border:1px solid rgba(158,215,196,.16);border-radius:50%;transform:translate(-50%,-50%)}.services-orbit span{position:absolute;top:50%;left:50%;width:9rem;color:rgba(245,240,231,.42);font-size:.56rem;text-align:center;text-transform:uppercase;transform:rotate(calc(var(--i)*60deg)) translateY(-25rem) rotate(calc(var(--i)*-60deg)) translate(-50%,-50%)}.services-hero__bottom{position:absolute;z-index:4;right:5vw;bottom:2.5rem;left:5vw;display:flex;justify-content:space-between;gap:2rem;border-top:1px solid rgba(245,240,231,.25);padding-top:1rem;font-size:.7rem}.services-hero__bottom p{max-width:28rem;margin:0;opacity:.65}.services-hero__bottom a{font-weight:850;letter-spacing:.1em;text-transform:uppercase}
+  .service-intro{padding:clamp(7rem,10vw,10rem) 0;background:var(--paper)}.service-intro__grid{display:grid;grid-template-columns:.5fr 1.5fr .7fr;gap:4vw;align-items:start}.service-intro .eyebrow{color:var(--pine-700)}.service-intro h2{margin:0;font-family:Georgia,serif;font-size:clamp(3.5rem,6.4vw,7.2rem);font-weight:400;line-height:.88;letter-spacing:-.065em}.service-intro h2 em{color:var(--pine-700);font-weight:400}.service-intro__grid>p:last-child{margin:0;color:rgba(16,35,31,.65);line-height:1.75}
+  .service-atlas{display:grid;grid-template-columns:42% 58%;background:var(--paper)}.service-atlas__visual{position:sticky;top:0;height:100svh;overflow:hidden;background:var(--pine-950);color:var(--porcelain)}.service-atlas__visual::after{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,29,25,.05),rgba(6,29,25,.8));content:''}.service-atlas__visual img{width:100%;height:100%;object-fit:cover;filter:saturate(.72);transition:opacity .35s ease}.service-atlas__visual>div{position:absolute;z-index:2;right:2rem;bottom:2rem;left:2rem;display:flex;align-items:end;justify-content:space-between;gap:2rem}.service-atlas__visual span{font-family:Georgia,serif;font-size:5rem}.service-atlas__visual p{max-width:15rem;margin:0;text-align:right}.service-atlas__list{padding:0 4vw 8rem}.service-category{min-height:66svh;padding:7rem 0 3rem;border-top:1px solid rgba(16,35,31,.2)}.service-category header{display:grid;grid-template-columns:3rem 1fr auto;gap:1rem;align-items:start}.service-category header>span{color:var(--pine-700);font-size:.62rem;font-weight:900}.service-category header p{margin:0 0 1rem;color:rgba(16,35,31,.5);font-size:.6rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.service-category h3{max-width:42rem;margin:0;font-family:Georgia,serif;font-size:clamp(3.2rem,5vw,6rem);font-weight:400;line-height:.88;letter-spacing:-.06em}.service-category header i{font-style:normal;font-size:1.4rem}.service-category ul{display:grid;margin:3rem 0 2.5rem;padding:0 0 0 4rem;grid-template-columns:1fr 1fr;gap:.8rem 2rem;list-style:none}.service-category li{display:grid;grid-template-columns:1rem 1fr;color:rgba(16,35,31,.7);font-size:.84rem}.service-category>a{display:flex;width:max-content;margin-left:4rem;padding-bottom:.4rem;gap:2rem;border-bottom:1px solid currentColor;font-size:.62rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}
+  .service-pricing{height:340svh;background:var(--pine-950);color:var(--porcelain)}.service-pricing__sticky{position:sticky;top:0;height:100svh;overflow:hidden;padding:clamp(7rem,10vh,9rem) 5vw 3rem}.service-pricing header{position:relative;z-index:2;max-width:42rem}.service-pricing .eyebrow{color:var(--mint-300)}.service-pricing h2{margin:1.3rem 0;font-family:Georgia,serif;font-size:clamp(4rem,7vw,8rem);font-weight:400;line-height:.82;letter-spacing:-.07em}.service-pricing h2 em{color:var(--mint-300);font-weight:400}.service-pricing header>p:last-child{max-width:27rem;color:rgba(245,240,231,.62);line-height:1.6}.pricing-track{position:absolute;top:58%;left:48vw;display:flex;width:max-content;gap:1.25rem;will-change:transform}.pricing-track article{display:flex;width:min(36vw,31rem);min-height:21rem;padding:1.4rem;flex-direction:column;border:1px solid rgba(158,215,196,.22);border-radius:1rem;background:var(--pine-900)}.pricing-track article>span{color:var(--mint-300);font-size:.58rem;font-weight:900}.pricing-track h3{margin:1.5rem 0 auto;font-family:Georgia,serif;font-size:clamp(2rem,3vw,3.6rem);font-weight:400;line-height:.95}.pricing-track article>div{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(245,240,231,.2)}.pricing-track article p{display:grid;margin:0;padding:1rem .6rem 0 0;gap:.5rem;color:rgba(245,240,231,.55);font-size:.55rem;text-transform:uppercase}.pricing-track article strong{color:var(--porcelain);font-family:Georgia,serif;font-size:1.15rem;font-weight:400;text-transform:none}.pricing-track__end{justify-content:center;background:var(--mint-300)!important;color:var(--pine-950)}.pricing-track__end>span{color:var(--pine-700)!important}.pricing-track__end a{width:max-content;padding-bottom:.35rem;border-bottom:1px solid currentColor;font-size:.65rem;font-weight:900;text-transform:uppercase}
+  .service-handoff{padding:clamp(9rem,16vw,16rem) 0;background:var(--porcelain);text-align:center}.service-handoff .eyebrow{color:var(--pine-700)}.service-handoff h2{margin:2rem auto 3rem;font-family:Georgia,serif;font-size:clamp(4rem,8vw,9rem);font-weight:400;line-height:.82;letter-spacing:-.07em}.service-handoff h2 em{color:var(--pine-700);font-weight:400}.service-handoff a{display:inline-block;padding:.9rem 1.2rem;border:1px solid rgba(16,35,31,.35);border-radius:999px;font-size:.65rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+  @media(max-width:68rem){.services-hero__copy{top:17vh;left:5vw}.services-hero h1{font-size:clamp(5rem,12vw,8rem)}.services-hero__media{top:34vh;right:5vw;width:48vw;height:51vh}.services-orbit{left:71%;width:43rem}.service-intro__grid{grid-template-columns:1fr}.service-intro h2{max-width:50rem}.service-intro__grid>p:last-child{max-width:35rem}.service-atlas{grid-template-columns:38% 62%}.service-category{min-height:58svh;padding-top:7rem}.service-category ul{grid-template-columns:1fr}.pricing-track{top:57%;left:36vw}.pricing-track article{width:48vw}}
+  @media(max-width:46rem){.services-hero{height:205svh}.services-hero__grid{grid-template-columns:repeat(2,1fr)}.services-hero__copy{top:8rem;right:1rem;left:1rem}.services-hero h1{font-size:clamp(4rem,18vw,5.4rem)}.services-hero__media{top:auto;right:1rem;bottom:6.5rem;width:72vw;height:46vh}.services-orbit{top:61%;left:86%;width:30rem}.services-orbit span{transform:rotate(calc(var(--i)*60deg)) translateY(-15rem) rotate(calc(var(--i)*-60deg)) translate(-50%,-50%)}.services-hero__bottom{bottom:1rem;font-size:.58rem}.services-hero__bottom p{display:none}.service-intro{padding:7rem 0}.service-intro h2{font-size:clamp(3.2rem,14vw,4.4rem)}.service-atlas{display:block}.service-atlas__visual{position:relative;height:58svh}.service-atlas__list{padding:0 1rem 6rem}.service-category{min-height:auto;padding:6rem 0 3rem}.service-category header{grid-template-columns:2rem 1fr auto}.service-category h3{font-size:clamp(3rem,13vw,4.2rem)}.service-category ul{padding-left:2rem}.service-category>a{margin-left:2rem}.service-pricing{height:290svh}.service-pricing__sticky{padding:7rem 1rem 2rem}.service-pricing h2{font-size:clamp(3.6rem,15vw,5rem)}.service-pricing header>p:last-child{font-size:.72rem}.pricing-track{top:55%;left:1rem}.pricing-track article{width:82vw;min-height:20rem}.pricing-track h3{font-size:2.45rem}.service-handoff h2{font-size:clamp(3.6rem,15vw,5.2rem)}}
+  @media(prefers-reduced-motion:reduce){.services-hero,.service-pricing{height:auto}.services-hero__sticky,.service-pricing__sticky{position:relative;min-height:100svh}.pricing-track{position:relative;top:auto;left:auto;width:auto;flex-wrap:wrap;margin-top:3rem}.pricing-track article{width:min(100%,31rem)}.service-atlas__visual{position:relative}}
+</style>
+
+<script>
+  import gsap from 'gsap';import {ScrollTrigger} from 'gsap/ScrollTrigger';gsap.registerPlugin(ScrollTrigger);
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce){
+    const heroStage=document.querySelector<HTMLElement>('[data-services-hero]');if(heroStage){const hero=gsap.timeline({scrollTrigger:{trigger:heroStage,start:'top top',end:'bottom bottom',scrub:.8,invalidateOnRefresh:true}});
+    hero.to('[data-services-hero-copy]',{y:'-18vh',scale:.78,opacity:.18,duration:.5,ease:'sine.inOut'},0).to('[data-services-hero-media]',{width:'100vw',height:'100svh',top:0,right:0,borderRadius:0,duration:.7,ease:'sine.inOut'},.15).to('[data-services-hero-media] img',{scale:1.12,duration:1,ease:'none'},0).to('[data-services-orbit]',{rotation:120,scale:1.2,opacity:.25,duration:1,ease:'none'},0);}
+    document.querySelectorAll<HTMLElement>('[data-reveal-section]').forEach(section=>gsap.from(section.children,{y:70,opacity:0,stagger:.08,duration:.8,ease:'power3.out',scrollTrigger:{trigger:section,start:'top 82%',once:true}}));
+    const image=document.querySelector<HTMLImageElement>('[data-atlas-image]');const number=document.querySelector<HTMLElement>('[data-atlas-number]');const accent=document.querySelector<HTMLElement>('[data-atlas-accent]');
+    document.querySelectorAll<HTMLElement>('[data-service-category]').forEach(category=>ScrollTrigger.create({trigger:category,start:'top 52%',end:'bottom 52%',onEnter:()=>setAtlas(category),onEnterBack:()=>setAtlas(category)}));
+    function setAtlas(category:HTMLElement){if(image&&image.getAttribute('src')!==category.dataset.image){gsap.to(image,{opacity:0,duration:.18,onComplete:()=>{image.src=category.dataset.image||'';gsap.to(image,{opacity:1,duration:.35})}})}if(number)number.textContent=category.dataset.number||'';if(accent)accent.textContent=category.dataset.accent||'';}
+    const track=document.querySelector<HTMLElement>('[data-pricing-track]');const story=document.querySelector<HTMLElement>('[data-pricing-story]');if(track&&story)gsap.to(track,{x:()=>-(track.scrollWidth-window.innerWidth*.52),ease:'none',scrollTrigger:{trigger:story,start:'top top',end:'bottom bottom',scrub:.7,invalidateOnRefresh:true}});
+  }
+</script>

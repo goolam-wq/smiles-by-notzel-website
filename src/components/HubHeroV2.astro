@@ -1,0 +1,89 @@
+---
+interface Props { kind: 'services' | 'areas' }
+const {kind}=Astro.props;
+const services=kind==='services';
+---
+
+{services ? (
+  <section class="hub-cinema hub-cinema--services" id="top" data-hero-stage data-hub-hero="services">
+    <div class="hub-cinema__sticky">
+      <div class="hub-cinema__rules" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <p class="hub-cinema__index" aria-hidden="true">48</p>
+      <header class="hub-cinema__headline" data-hub-headline>
+        <p class="eyebrow">The complete service collection</p>
+        <h1>Not one kind<br />of care. <em>Every<br />way forward.</em></h1>
+        <p>Forty-eight exact offerings, composed into one connected point of view.</p>
+      </header>
+      <div class="service-curtain" data-service-curtain>
+        <figure class="service-curtain__panel service-curtain__panel--one"><img src="/images/generated/clinic-operatory-consistent.webp" alt="Calm dental studio operatory" /></figure>
+        <figure class="service-curtain__panel service-curtain__panel--two"><img src="/images/generated/dental-exam-candid.webp" alt="Dentist caring for a patient" /></figure>
+        <figure class="service-curtain__panel service-curtain__panel--three"><img src="/images/generated/clear-aligner-consultation.webp" alt="Clear aligner consultation" /></figure>
+        <span>Complete health</span><span>Confidence</span><span>Restoration</span>
+      </div>
+      <div class="service-score" data-service-score><span>01</span><i></i><span>11 categories</span><i></i><span>48 offerings</span></div>
+      <a class="hub-cinema__continue" href="#service-atlas">Enter the service atlas ↓</a>
+    </div>
+  </section>
+) : (
+  <section class="hub-cinema hub-cinema--areas" id="top" data-hero-stage data-hub-hero="areas">
+    <div class="hub-cinema__sticky">
+      <div class="hub-cinema__rules" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <header class="area-door__headline" data-hub-headline>
+        <p class="eyebrow">Chicago’s south suburbs</p>
+        <h1>Two front doors.<br /><em>One standard of care.</em></h1>
+      </header>
+      <div class="area-door" data-area-door>
+        <article class="area-door__panel area-door__panel--chicago">
+          <img src="/images/generated/clinic-operatory-consistent.webp" alt="Chicago Heights dental studio" />
+          <div><span>01 / 16 communities</span><h2>Chicago<br />Heights</h2><p>500 Ashland Ave, Suite #2</p></div>
+        </article>
+        <article class="area-door__panel area-door__panel--mokena">
+          <img src="/images/generated/dental-exam-candid.webp" alt="Mokena dental studio care" />
+          <div><span>02 / 10 communities</span><h2>Mokena</h2><p>19160 88th Avenue</p></div>
+        </article>
+        <div class="area-door__seam"><span>26</span><small>mapped communities</small></div>
+      </div>
+      <p class="area-door__statement" data-area-statement>Choose the address.<br /><em>Keep the whole plan.</em></p>
+      <a class="hub-cinema__continue" href="#community-map">See every community ↓</a>
+    </div>
+  </section>
+)}
+
+<style>
+  .hub-cinema{position:relative;height:260svh;background:var(--pine-950);color:var(--porcelain)}.hub-cinema__sticky{position:sticky;top:0;height:100svh;overflow:hidden}.hub-cinema__rules{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);opacity:.1}.hub-cinema__rules i{border-left:1px solid var(--mint-300)}.hub-cinema .eyebrow{color:var(--mint-300)}.hub-cinema__continue{position:absolute;z-index:12;right:2rem;bottom:1.5rem;padding-bottom:.45rem;border-bottom:1px solid currentColor;font-size:.58rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+  .hub-cinema__index{position:absolute;top:4vh;right:3vw;margin:0;color:rgba(158,215,196,.08);font-family:Georgia,serif;font-size:min(52vw,48rem);line-height:.8;letter-spacing:-.1em}.hub-cinema__headline{position:absolute;z-index:8;top:17vh;left:5vw;width:min(60rem,70vw)}.hub-cinema__headline h1{margin:1.3rem 0;font-family:Georgia,serif;font-size:clamp(5.7rem,9.2vw,10.3rem);font-weight:400;line-height:.78;letter-spacing:-.075em}.hub-cinema__headline h1 em{color:var(--mint-300);font-weight:400}.hub-cinema__headline>p:last-child{max-width:25rem;margin-left:31vw;color:rgba(245,240,231,.65);line-height:1.65}.service-curtain{position:absolute;z-index:5;right:4vw;bottom:8vh;display:grid;width:48vw;height:72vh;grid-template-columns:repeat(3,1fr);gap:.55rem;transform:translateY(42vh);will-change:transform}.service-curtain figure{position:relative;margin:0;overflow:hidden;border-radius:.8rem}.service-curtain img{width:100%;height:100%;object-fit:cover;filter:saturate(.7);will-change:transform}.service-curtain__panel--one img{object-position:34% center}.service-curtain__panel--three img{object-position:60% center}.service-curtain>span{position:absolute;z-index:2;bottom:1rem;color:var(--porcelain);font-size:.52rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;writing-mode:vertical-rl}.service-curtain>span:nth-of-type(1){left:1rem}.service-curtain>span:nth-of-type(2){left:calc(33.33% + 1rem)}.service-curtain>span:nth-of-type(3){left:calc(66.66% + 1rem)}.service-score{position:absolute;z-index:9;bottom:1.5rem;left:2rem;display:flex;width:min(32rem,55vw);align-items:center;gap:1rem;font-size:.55rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.service-score i{height:1px;flex:1;background:rgba(245,240,231,.35)}
+  .area-door__headline{position:absolute;z-index:8;top:14vh;right:3vw;left:3vw;text-align:center}.area-door__headline h1{margin:1rem 0 0;font-family:Georgia,serif;font-size:clamp(5.5rem,9vw,10rem);font-weight:400;line-height:.82;letter-spacing:-.075em}.area-door__headline h1 em{color:var(--mint-300);font-weight:400}.area-door{position:absolute;z-index:4;right:0;bottom:0;left:0;display:grid;height:61vh;grid-template-columns:1fr 1fr;will-change:clip-path}.area-door__panel{position:relative;overflow:hidden}.area-door__panel::after{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,29,25,.05),rgba(6,29,25,.88));content:''}.area-door__panel img{width:100%;height:100%;object-fit:cover;filter:saturate(.68);will-change:transform}.area-door__panel>div{position:absolute;z-index:2;right:2rem;bottom:2rem;left:2rem}.area-door__panel--mokena>div{left:5rem}.area-door__panel span{color:var(--mint-300);font-size:.55rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.area-door__panel h2{margin:1rem 0 .5rem;font-family:Georgia,serif;font-size:clamp(3.2rem,5vw,5.8rem);font-weight:400;line-height:.82}.area-door__panel p{margin:0;color:rgba(245,240,231,.68);font-size:.65rem}.area-door__seam{position:absolute;z-index:5;top:0;bottom:0;left:50%;display:flex;width:7rem;align-items:center;justify-content:center;flex-direction:column;border-right:1px solid rgba(158,215,196,.4);border-left:1px solid rgba(158,215,196,.4);background:rgba(6,29,25,.7);transform:translateX(-50%);backdrop-filter:blur(12px)}.area-door__seam span{font-family:Georgia,serif;font-size:3.8rem}.area-door__seam small{width:5rem;color:var(--mint-300);font-size:.48rem;letter-spacing:.1em;text-align:center;text-transform:uppercase}.area-door__statement{position:absolute;z-index:10;top:46%;left:50%;margin:0;font-family:Georgia,serif;font-size:clamp(4rem,7vw,8rem);line-height:.82;text-align:center;letter-spacing:-.07em;opacity:0;transform:translate(-50%,-50%);white-space:nowrap}.area-door__statement em{color:var(--mint-300);font-weight:400}
+  @media(max-width:68rem){.hub-cinema{height:240svh}.hub-cinema__headline{top:14vh;width:90vw}.hub-cinema__headline h1{font-size:clamp(5.5rem,12vw,8rem)}.hub-cinema__headline>p:last-child{margin-left:42vw}.service-curtain{right:2rem;width:65vw;height:60vh}.area-door__headline{top:13vh}.area-door__headline h1{font-size:clamp(5rem,11vw,7.7rem)}.area-door{height:60vh}.area-door__panel>div{right:1.2rem;left:1.2rem}.area-door__seam{width:5rem}.area-door__statement{font-size:clamp(4.4rem,9vw,6.6rem)}}
+  @media(max-width:46rem){.hub-cinema{height:220svh}.hub-cinema__rules{grid-template-columns:repeat(2,1fr)}.hub-cinema__continue{right:1rem;bottom:1rem}.hub-cinema__index{top:13vh;right:-5vw;font-size:65vw}.hub-cinema__headline{top:8rem;right:1rem;left:1rem;width:auto}.hub-cinema__headline h1{font-size:clamp(4.2rem,18vw,5.4rem)}.hub-cinema__headline>p:last-child{display:none}.service-curtain{right:1rem;bottom:5.5rem;width:calc(100vw - 2rem);height:52vh;gap:.25rem;transform:translateY(40vh)}.service-curtain>span{bottom:4.5rem}.service-score{bottom:4rem;left:1rem;width:55vw}.service-score span:nth-of-type(2),.service-score i:last-of-type{display:none}.area-door__headline{top:8rem;right:1rem;left:1rem}.area-door__headline h1{font-size:clamp(4.1rem,17vw,5.4rem)}.area-door{height:62vh;grid-template-columns:1fr 1fr}.area-door__panel img{object-position:center}.area-door__panel>div{right:.65rem;bottom:4.5rem;left:.65rem}.area-door__panel--mokena>div{left:2.6rem}.area-door__panel h2{font-size:2.25rem}.area-door__panel p{display:none}.area-door__seam{width:3.2rem}.area-door__seam span{font-size:2.5rem}.area-door__seam small{display:none}.area-door__statement{top:43%;font-size:clamp(3.6rem,15vw,4.7rem);white-space:normal;width:94vw}}
+  @media(prefers-reduced-motion:reduce){.hub-cinema{height:auto}.hub-cinema__sticky{position:relative;min-height:100svh}.service-curtain{transform:none}.area-door__statement{display:none}}
+</style>
+
+<script>
+  import gsap from 'gsap';import {ScrollTrigger} from 'gsap/ScrollTrigger';gsap.registerPlugin(ScrollTrigger);
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce){
+    const stage=document.querySelector<HTMLElement>('[data-hub-hero]');
+    if(stage?.dataset.hubHero==='services'){
+      const tl=gsap.timeline({scrollTrigger:{trigger:stage,start:'top top',end:'bottom bottom',scrub:.85,invalidateOnRefresh:true}});
+      tl.to('[data-hub-headline]',{y:'-15vh',scale:.82,opacity:.18,duration:.42,ease:'sine.inOut'},0)
+        .to('[data-service-curtain]',{y:0,width:'100vw',height:'100svh',right:0,bottom:0,gap:0,duration:.68,ease:'sine.inOut'},.12)
+        .to('.service-curtain figure',{borderRadius:0,duration:.3},.2)
+        .to('.service-curtain__panel--one',{xPercent:-24,duration:.55,ease:'sine.inOut'},.48)
+        .to('.service-curtain__panel--three',{xPercent:24,duration:.55,ease:'sine.inOut'},.48)
+        .to('.service-curtain__panel--two',{scale:1.18,duration:.55,ease:'none'},.48)
+        .to('.service-curtain img',{scale:1.1,duration:1,ease:'none'},0)
+        .to('[data-service-score]',{opacity:0,y:20,duration:.2},.3);
+    }
+    if(stage?.dataset.hubHero==='areas'){
+      const compact=window.matchMedia('(max-width:68rem)').matches;
+      const tl=gsap.timeline({scrollTrigger:{trigger:stage,start:'top top',end:'bottom bottom',scrub:.85,invalidateOnRefresh:true}});
+      tl.to('[data-hub-headline]',{y:compact?'-8vh':'-13vh',scale:.84,opacity:.16,duration:.45,ease:'sine.inOut'},0)
+        .to('.area-door__panel--chicago',{xPercent:-18,duration:.6,ease:'sine.inOut'},.22)
+        .to('.area-door__panel--mokena',{xPercent:18,duration:.6,ease:'sine.inOut'},.22)
+        .to('.area-door__seam',{width:compact?'82vw':'62vw',backgroundColor:'rgba(6,29,25,.94)',duration:.65,ease:'sine.inOut'},.2)
+        .to('.area-door__seam span,.area-door__seam small',{opacity:0,duration:.2},.25)
+        .to('[data-area-statement]',{autoAlpha:1,y:0,duration:.4,ease:'power2.out'},.52)
+        .to('.area-door__panel img',{scale:1.12,duration:1,ease:'none'},0);
+    }
+  }
+</script>

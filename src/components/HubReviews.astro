@@ -1,0 +1,37 @@
+---
+interface Props { kind:'services'|'areas' }
+const {kind}=Astro.props;
+const reviews=kind==='services'?[
+  ['Michael B','Preventive care','“Excellent cleaning and consistently positive visits.”','4.9','258 Chicago Heights reviews'],
+  ['Jason Bracken','Emergency care','“Seen promptly for extreme pain and made comfortable.”','5.0','Comfort when it mattered'],
+  ['Keanna Benson','Family care','“Technology, efficiency and thoughtful long-term care.”','263','reviews across two profiles']
+]:[
+  ['Keanna Benson','Chicago Heights','“Long-term family care with technology, efficiency and minimal waiting.”','4.9','258 Google reviews'],
+  ['Terre Robertson','Mokena','“Friendly, patient, pain-conscious and accommodating with scheduling.”','5.0','5 Google reviews'],
+  ['Jason Bracken','Chicago Heights','“Prompt support for severe pain, with comfort prioritized.”','263','reviews across two profiles']
+];
+---
+
+<section class="hub-reviews" id="reviews" data-hub-reviews>
+  <div class="hub-reviews__sticky">
+    <header><span>Patient proof</span><i></i><b data-review-counter>01</b></header>
+    {reviews.map((review,index)=><article class:list={['hub-review',index===0&&'is-first']} data-hub-review>
+      <div class="hub-review__metric"><strong>{review[3]}</strong><span>{review[4]}</span></div>
+      <blockquote>{review[2]}</blockquote>
+      <footer><span>★★★★★</span><div><b>{review[0]}</b><small>{review[1]}</small></div></footer>
+    </article>)}
+    <p class="hub-reviews__ticker" aria-hidden="true">CARE PEOPLE REMEMBER · CARE PEOPLE REMEMBER ·</p>
+  </div>
+</section>
+
+<style>
+  .hub-reviews{height:330svh;background:var(--mint-200);color:var(--pine-950)}.hub-reviews__sticky{position:sticky;top:0;height:100svh;overflow:hidden}.hub-reviews__sticky>header{position:absolute;z-index:5;top:7rem;right:2rem;left:2rem;display:flex;align-items:center;gap:1rem;font-size:.58rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.hub-reviews__sticky>header i{height:1px;flex:1;background:rgba(6,29,25,.25)}.hub-review{position:absolute;inset:0;display:grid;padding:clamp(9rem,15vh,12rem) max(2rem,calc((100vw - 88rem)/2)) 5rem;grid-template-columns:.4fr 1.6fr;align-items:center;gap:5vw;opacity:0;visibility:hidden;clip-path:inset(100% 0 0 0);will-change:clip-path,transform,opacity}.hub-review.is-first{opacity:1;visibility:visible;clip-path:inset(0)}.hub-review__metric{display:grid;align-self:start;margin-top:9vh}.hub-review__metric strong{font-family:Georgia,serif;font-size:clamp(5.5rem,11vw,12rem);font-weight:400;line-height:.78;letter-spacing:-.07em}.hub-review__metric span{max-width:10rem;margin-top:1rem;font-size:.58rem;line-height:1.5;letter-spacing:.1em;text-transform:uppercase}.hub-review blockquote{margin:0;font-family:Georgia,serif;font-size:clamp(4.8rem,8vw,9rem);line-height:.86;letter-spacing:-.07em}.hub-review footer{position:absolute;right:max(2rem,calc((100vw - 88rem)/2));bottom:4rem;left:max(2rem,calc((100vw - 88rem)/2));display:flex;align-items:end;justify-content:space-between;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase}.hub-review footer>span{letter-spacing:.35em}.hub-review footer>div{display:grid;text-align:right}.hub-review footer small{margin-top:.4rem;opacity:.55}.hub-reviews__ticker{position:absolute;bottom:-.18em;margin:0;color:rgba(6,29,25,.06);font-family:Georgia,serif;font-size:clamp(6rem,13vw,14rem);line-height:.75;white-space:nowrap}
+  @media(max-width:68rem){.hub-reviews{height:310svh}.hub-review{grid-template-columns:.45fr 1.55fr}.hub-review blockquote{font-size:clamp(4.2rem,8vw,6.2rem)}}
+  @media(max-width:46rem){.hub-reviews{height:310svh}.hub-reviews__sticky>header{top:6.5rem;right:1rem;left:1rem}.hub-review{padding:8rem 1rem 4.5rem;grid-template-columns:1fr;align-content:center}.hub-review__metric{display:flex;margin:0 0 2rem;align-items:end;gap:1rem}.hub-review__metric strong{font-size:5rem}.hub-review blockquote{font-size:clamp(3.1rem,12.8vw,3.55rem);line-height:.9}.hub-review footer{right:1rem;bottom:3rem;left:1rem}.hub-reviews__ticker{font-size:5rem}}
+  @media(prefers-reduced-motion:reduce){.hub-reviews{height:auto}.hub-reviews__sticky{position:relative;height:auto;padding:8rem 1rem}.hub-review{position:relative;inset:auto;min-height:38rem;padding:4rem 0;opacity:1;visibility:visible;clip-path:none}.hub-review footer{right:0;left:0}}
+</style>
+
+<script>
+  import gsap from 'gsap';import {ScrollTrigger} from 'gsap/ScrollTrigger';gsap.registerPlugin(ScrollTrigger);
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){const scenes=gsap.utils.toArray<HTMLElement>('[data-hub-review]');const counter=document.querySelector<HTMLElement>('[data-review-counter]');const colors=['#c5ecdf','#061d19','#f4efe6'];const sticky='[data-hub-reviews] .hub-reviews__sticky';const tl=gsap.timeline({scrollTrigger:{trigger:'[data-hub-reviews]',start:'top top',end:'bottom bottom',scrub:.78,invalidateOnRefresh:true,onUpdate:self=>{if(counter)counter.textContent=String(Math.min(3,Math.floor(self.progress*3)+1)).padStart(2,'0')}}});tl.to(sticky,{opacity:1,duration:1,ease:'none'},0);scenes.forEach((scene,index)=>{if(index===0){tl.set(scene,{autoAlpha:1,clipPath:'inset(0)',y:0,filter:'blur(0px)'},0);return;}const at=index/3;tl.set(sticky,{backgroundColor:colors[index],color:index===1?'#f4efe6':'#061d19'},at).set(scenes[index-1],{autoAlpha:0},at).set(scene,{autoAlpha:1,clipPath:'inset(0)'},at).fromTo(scene,{y:'1.2vh',filter:'blur(4px)'},{y:0,filter:'blur(0px)',duration:.03,ease:'power2.out'},at)});gsap.to('.hub-reviews__ticker',{xPercent:-30,ease:'none',scrollTrigger:{trigger:'[data-hub-reviews]',start:'top bottom',end:'bottom top',scrub:1}});}
+</script>

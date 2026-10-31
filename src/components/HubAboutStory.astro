@@ -1,0 +1,98 @@
+---
+interface Props { kind: 'services' | 'areas' }
+const { kind } = Astro.props;
+const isServices = kind === 'services';
+const content = isServices ? {
+  eyebrow: 'About the way we care',
+  title: 'A service map built around the whole person.',
+  statement: 'The procedure is only one part of the story.',
+  body: 'Smiles by Noetzel connects prevention, airway, comfort, restoration and confidence before recommending the next step. That wider view turns forty-eight offerings into one coherent care experience.',
+  proof: ['48 exact offerings', '11 connected categories', '2 coordinated offices'],
+  images: ['/images/generated/dental-exam-candid.webp','/images/generated/clinic-operatory-consistent.webp','/images/generated/clear-aligner-consultation.webp'],
+  alts: ['A thoughtful dental consultation','A calm dental operatory','A clear-aligner consultation']
+} : {
+  eyebrow: 'About our connected offices',
+  title: 'Two addresses. One complete view of you.',
+  statement: 'Choose the door without restarting the story.',
+  body: 'Chicago Heights and Mokena share the same whole-health philosophy, connected service map and human approach to comfort. Your location can change with your day while the quality and context of care stay intact.',
+  proof: ['2 connected offices', '26 mapped communities', '1 coordinated experience'],
+  images: ['/images/generated/clinic-operatory-consistent.webp','/images/generated/dental-exam-candid.webp','/images/generated/doctor-ilenne-provisional.webp'],
+  alts: ['A calm Smiles by Noetzel operatory','A dentist listening to a patient','A Smiles by Noetzel clinician']
+};
+---
+
+<section class:list={['hub-about', `hub-about--${kind}`]} id="about-care" data-hub-about>
+  <div class="hub-about__sticky">
+    <div class="hub-about__grid" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <header class="hub-about__intro" data-about-intro>
+      <p class="eyebrow">{content.eyebrow}</p>
+      <h2>{content.title}</h2>
+    </header>
+
+    <div class="hub-about__visual" data-about-visual>
+      {content.images.map((image,index)=><figure class={`hub-about__frame hub-about__frame--${index+1}`} data-about-frame>
+        <img src={image} alt={content.alts[index]} />
+        <span>0{index+1}</span>
+      </figure>)}
+    </div>
+
+    <article class="hub-about__statement" data-about-statement>
+      <span>Our point of view</span>
+      <h3>{content.statement}</h3>
+      <p>{content.body}</p>
+    </article>
+
+    <footer class="hub-about__proof" data-about-proof>
+      {content.proof.map((item,index)=><div><span>0{index+1}</span><strong>{item}</strong></div>)}
+    </footer>
+  </div>
+</section>
+
+<style>
+  .hub-about{position:relative;height:290svh;overflow:clip;background:var(--paper);color:var(--ink)}
+  .hub-about__sticky{position:sticky;top:0;height:100svh;overflow:hidden}
+  .hub-about__grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);opacity:.08}
+  .hub-about__grid i{border-left:1px solid var(--pine-700)}
+  .hub-about__intro{position:absolute;z-index:4;top:13vh;left:5vw;width:min(61rem,68vw);transform-origin:left top}
+  .hub-about .eyebrow{color:var(--pine-700)}
+  .hub-about__intro h2{margin:1.5rem 0 0;font-family:Georgia,serif;font-size:clamp(5rem,8.7vw,9.7rem);font-weight:400;line-height:.81;letter-spacing:-.075em}
+  .hub-about__visual{position:absolute;z-index:2;right:4vw;bottom:10vh;display:grid;width:56vw;height:59vh;grid-template-columns:repeat(3,1fr);gap:.65rem;transform:translateY(31vh);will-change:transform}
+  .hub-about__frame{position:relative;margin:0;overflow:hidden;border-radius:999px 999px .9rem .9rem;clip-path:inset(22% 0 0 round 999px 999px .9rem .9rem);will-change:clip-path,transform}
+  .hub-about__frame:nth-child(2){transform:translateY(8vh)}
+  .hub-about__frame:nth-child(3){transform:translateY(16vh)}
+  .hub-about__frame img{width:100%;height:100%;object-fit:cover;filter:saturate(.68);transform:scale(1.12);will-change:transform}
+  .hub-about__frame--1 img{object-position:34% center}.hub-about__frame--2 img{object-position:center}.hub-about__frame--3 img{object-position:55% center}
+  .hub-about__frame span{position:absolute;right:.8rem;bottom:.8rem;display:grid;width:2.3rem;aspect-ratio:1;place-items:center;border-radius:50%;background:rgba(244,239,230,.9);color:var(--pine-950);font-size:.54rem;font-weight:900}
+  .hub-about__statement{position:absolute;z-index:5;top:24vh;right:5vw;width:min(34rem,37vw);padding:2rem;border-top:1px solid rgba(16,35,31,.25);background:rgba(244,239,230,.94);opacity:0;transform:translateX(5vw);backdrop-filter:blur(18px);will-change:transform,clip-path,opacity}
+  .hub-about__statement>span{color:var(--pine-700);font-size:.58rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+  .hub-about__statement h3{margin:1.3rem 0;font-family:Georgia,serif;font-size:clamp(3rem,4.7vw,5.3rem);font-weight:400;line-height:.88;letter-spacing:-.06em}
+  .hub-about__statement p{max-width:31rem;margin:0;color:rgba(16,35,31,.66);font-size:clamp(.86rem,1.05vw,1.02rem);line-height:1.72}
+  .hub-about__proof{position:absolute;z-index:5;right:5vw;bottom:2rem;left:5vw;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(16,35,31,.2);opacity:0;transform:translateY(1.5rem)}
+  .hub-about__proof div{display:flex;padding:1rem 0;align-items:center;gap:1rem;border-right:1px solid rgba(16,35,31,.16)}
+  .hub-about__proof div:last-child{border-right:0}.hub-about__proof span{color:var(--pine-700);font-size:.55rem;font-weight:900}.hub-about__proof strong{font-family:Georgia,serif;font-size:clamp(1.15rem,1.7vw,1.7rem);font-weight:400}
+  @media(max-width:68rem){.hub-about{height:270svh}.hub-about__intro{top:9rem;width:90vw}.hub-about__intro h2{font-size:clamp(5rem,11vw,7rem)}.hub-about__visual{right:2rem;bottom:6rem;width:74vw;height:57vh;transform:translateY(12vh)}.hub-about__statement{top:25vh;right:2rem;width:46vw}.hub-about__proof{right:2rem;left:2rem}}
+  @media(max-width:46rem){.hub-about{height:250svh}.hub-about__grid{grid-template-columns:repeat(2,1fr)}.hub-about__intro{top:7.5rem;right:1rem;left:1rem;width:auto}.hub-about__intro h2{font-size:clamp(3.8rem,16vw,4.9rem)}.hub-about__visual{right:1rem;bottom:4.5rem;left:1rem;width:auto;height:48vh;gap:.3rem;transform:translateY(12vh)}.hub-about__statement{top:auto;right:1rem;bottom:4.2rem;left:1rem;width:auto;padding:1.2rem;background:var(--paper);opacity:1;visibility:visible;clip-path:inset(0% 0% 100% 0%);transform:translateY(1.5rem)}.hub-about__statement h3{font-size:clamp(2.7rem,12.8vw,3.7rem)}.hub-about__statement p{font-size:.76rem;line-height:1.55}.hub-about__proof{right:1rem;bottom:.5rem;left:1rem}.hub-about__proof div{padding:.65rem .25rem;gap:.35rem}.hub-about__proof span{display:none}.hub-about__proof strong{font-size:.78rem}}
+  @media(prefers-reduced-motion:reduce){.hub-about{height:auto}.hub-about__sticky{position:relative;min-height:auto;padding:8rem 1rem 3rem}.hub-about__intro,.hub-about__visual,.hub-about__statement,.hub-about__proof{position:relative;inset:auto;width:auto;height:auto;opacity:1;visibility:visible;transform:none;clip-path:none}.hub-about__intro{margin-bottom:3rem}.hub-about__visual{min-height:34rem;margin-bottom:2rem}.hub-about__statement{margin-bottom:2rem}.hub-about__proof{display:grid}.hub-about__frame{clip-path:none;transform:none!important}}
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+  const stage=document.querySelector<HTMLElement>('[data-hub-about]');
+  if(stage&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    const compact=window.matchMedia('(max-width:46rem)').matches;
+    const tablet=window.matchMedia('(max-width:68rem)').matches&&!compact;
+    if(compact)gsap.set('[data-about-statement]',{opacity:1,x:0,y:24,clipPath:'inset(0% 0% 100% 0%)'});
+    const statementMotion=compact
+      ?{x:0,y:0,clipPath:'inset(0% 0% 0% 0%)',duration:.6,ease:'sine.inOut'}
+      :{autoAlpha:1,x:0,clipPath:'inset(0% 0 0)',duration:.42,ease:'power3.out'};
+    const tl=gsap.timeline({scrollTrigger:{trigger:stage,start:'top top',end:'bottom bottom',scrub:compact?1.08:.82,invalidateOnRefresh:true}});
+    tl.to('[data-about-intro]',{y:compact?'-9vh':'-13vh',scale:compact?.78:.68,opacity:.12,duration:.5,ease:'sine.inOut'},0)
+      .to('[data-about-visual]',{y:compact?'-19vh':tablet?'-14vh':'-4vh',x:compact?0:'-34vw',scale:compact?.92:.86,duration:.72,ease:'sine.inOut'},.12)
+      .to('[data-about-frame]',{y:0,clipPath:'inset(0% 0% 0% round 1rem)',duration:.58,stagger:.06,ease:'power2.inOut'},.16)
+      .to('[data-about-frame] img',{scale:1,duration:.8,ease:'none'},.08)
+      .to('[data-about-statement]',statementMotion,compact?.5:tablet?.44:.57)
+      .to('[data-about-proof]',{autoAlpha:1,y:0,duration:.32,ease:'power2.out'},.7);
+  }
+</script>

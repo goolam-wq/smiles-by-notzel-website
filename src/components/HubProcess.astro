@@ -1,0 +1,41 @@
+---
+interface Props { kind:'services'|'areas' }
+const {kind}=Astro.props;
+const services=kind==='services';
+const steps=services?[
+  ['01','Begin with the full picture','Tell us what you want to change. We connect comfort, health, function and confidence before recommending a path.'],
+  ['02','See the signals together','Exams, imaging and whole-health screening reveal how the details relate—not just what is happening to one tooth.'],
+  ['03','Choose a clear way forward','Your options arrive in plain language with fixed, monthly and yearly customer-facing ways to plan.'],
+  ['04','Keep every next step connected','Preventive, cosmetic, restorative and wellness care stay coordinated as your needs evolve.']
+]:[
+  ['01','Choose the rhythm that fits','Start with Chicago Heights or Mokena based on your week, preferred hours and proximity.'],
+  ['02','Share one complete story','Your needs, records and care priorities remain connected across the team—not restarted at every door.'],
+  ['03','Arrive with the path in view','The office confirms the right visit, timing and next step before you arrive.'],
+  ['04','Move without losing continuity','If your schedule changes, the plan can move between locations while the standard of care stays intact.']
+];
+---
+
+<section class="hub-process" id="process" data-hub-process>
+  <div class="hub-process__sticky">
+    <header><p class="eyebrow">{services?'How connected care moves':'How two locations work as one'}</p><h2>{services?'From question to clarity.':'Choose the door. Keep the plan.'}</h2></header>
+    <div class="hub-process__meter"><i data-process-meter></i><span data-process-number>01</span></div>
+    <div class="hub-process__scenes">
+      {steps.map((step,index)=><article class:list={['hub-process__scene',index===0&&'is-first']} data-process-scene>
+        <span>{step[0]}</span><div><h3>{step[1]}</h3><p>{step[2]}</p></div>
+      </article>)}
+    </div>
+    <p class="hub-process__whisper" aria-hidden="true">LISTEN · SEE · PLAN · CARE ·</p>
+  </div>
+</section>
+
+<style>
+  .hub-process{height:380svh;background:var(--porcelain);color:var(--ink)}.hub-process__sticky{position:sticky;top:0;height:100svh;overflow:hidden}.hub-process header{position:absolute;z-index:4;top:10vh;right:5vw;left:5vw;display:flex;align-items:end;justify-content:space-between;gap:2rem;border-bottom:1px solid rgba(16,35,31,.2);padding-bottom:1.2rem}.hub-process .eyebrow{color:var(--pine-700)}.hub-process header h2{max-width:54rem;margin:0;font-family:Georgia,serif;font-size:clamp(4rem,6.8vw,7.5rem);font-weight:400;line-height:.84;letter-spacing:-.07em;text-align:right}.hub-process__meter{position:absolute;z-index:5;top:35%;bottom:10%;left:8vw;width:1px;background:rgba(16,35,31,.18)}.hub-process__meter i{position:absolute;top:0;left:0;width:100%;height:100%;background:var(--pine-700);transform:scaleY(0);transform-origin:top}.hub-process__meter span{position:absolute;top:0;left:50%;display:grid;width:3rem;aspect-ratio:1;place-items:center;border-radius:50%;background:var(--pine-700);color:var(--porcelain);font-size:.58rem;font-weight:900;transform:translate(-50%,-50%)}.hub-process__scenes{position:absolute;top:40%;right:8vw;width:min(67rem,72vw);height:47vh}.hub-process__scene{position:absolute;inset:0;display:grid;grid-template-columns:.25fr 1.75fr;gap:2rem;align-items:start;background:var(--porcelain);opacity:0;visibility:hidden;clip-path:inset(0 0 100% 0);will-change:clip-path,transform,opacity}.hub-process__scene.is-first{opacity:1;visibility:visible;clip-path:inset(0)}.hub-process__scene>span{color:var(--pine-700);font-size:.62rem;font-weight:900}.hub-process__scene h3{max-width:56rem;margin:0 0 2rem;font-family:Georgia,serif;font-size:clamp(4.5rem,7.8vw,8.7rem);font-weight:400;line-height:.82;letter-spacing:-.07em}.hub-process__scene p{max-width:38rem;margin:0;color:rgba(16,35,31,.62);font-size:clamp(.9rem,1.2vw,1.12rem);line-height:1.7}.hub-process__whisper{position:absolute;right:0;bottom:-.22em;margin:0;color:rgba(16,35,31,.045);font-family:Georgia,serif;font-size:clamp(6rem,14vw,15rem);white-space:nowrap}
+  @media(max-width:68rem){.hub-process{height:350svh}.hub-process header{top:8rem;display:grid}.hub-process header h2{text-align:left;font-size:clamp(4.6rem,9vw,6.6rem)}.hub-process__meter{top:36%;left:3rem}.hub-process__scenes{top:42%;right:3rem;width:78vw}.hub-process__scene h3{font-size:clamp(4.2rem,9vw,6.5rem)}}
+  @media(max-width:46rem){.hub-process{height:340svh}.hub-process header{top:7.5rem;right:1rem;left:1rem}.hub-process header h2{font-size:clamp(3.6rem,15vw,4.8rem)}.hub-process__meter{top:40%;bottom:6rem;left:1.3rem}.hub-process__scenes{top:44%;right:1rem;width:calc(100vw - 3.6rem);height:45vh}.hub-process__scene{grid-template-columns:1fr;gap:1.2rem}.hub-process__scene h3{font-size:clamp(3.7rem,16vw,5rem)}.hub-process__scene p{font-size:.78rem}.hub-process__whisper{font-size:5rem}}
+  @media(prefers-reduced-motion:reduce){.hub-process{height:auto}.hub-process__sticky{position:relative;height:auto;padding:8rem 1rem}.hub-process header,.hub-process__scenes,.hub-process__scene{position:relative;inset:auto;width:auto;height:auto}.hub-process header{margin-bottom:4rem}.hub-process__scenes{display:grid;gap:4rem}.hub-process__scene{opacity:1;visibility:visible;clip-path:none}.hub-process__meter{display:none}}
+</style>
+
+<script>
+  import gsap from 'gsap';import {ScrollTrigger} from 'gsap/ScrollTrigger';gsap.registerPlugin(ScrollTrigger);
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){const scenes=gsap.utils.toArray<HTMLElement>('[data-process-scene]');const number=document.querySelector<HTMLElement>('[data-process-number]');const tl=gsap.timeline({scrollTrigger:{trigger:'[data-hub-process]',start:'top top',end:'bottom bottom',scrub:.8,invalidateOnRefresh:true,onUpdate:self=>{if(number)number.textContent=String(Math.min(4,Math.floor(self.progress*4)+1)).padStart(2,'0')}}});tl.to('[data-process-meter]',{scaleY:1,duration:1,ease:'none'},0).to('[data-process-number]',{top:'100%',duration:1,ease:'none'},0);scenes.forEach((scene,index)=>{if(index===0){tl.set(scene,{autoAlpha:1,clipPath:'inset(0)',y:0,filter:'blur(0px)'},0);return;}const at=index*.25;tl.set(scenes[index-1],{autoAlpha:0},at).set(scene,{autoAlpha:1,clipPath:'inset(0)'},at).fromTo(scene,{y:'1.2vh',filter:'blur(4px)'},{y:0,filter:'blur(0px)',duration:.03,ease:'power2.out'},at)});}
+</script>

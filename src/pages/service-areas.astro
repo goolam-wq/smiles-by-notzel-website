@@ -1,0 +1,25 @@
+---
+import Navbar from '../components/Navbar.astro';
+import ServiceAreasHub from '../components/ServiceAreasHub.astro';
+import ServiceAreasHeroV3 from '../components/ServiceAreasHeroV3.astro';
+import CommunityRail from '../components/CommunityRail.astro';
+import HubProcess from '../components/HubProcess.astro';
+import HubReviews from '../components/HubReviews.astro';
+import HubFooter from '../components/HubFooter.astro';
+import HubAboutStory from '../components/HubAboutStory.astro';
+import WhyChooseStory from '../components/WhyChooseStory.astro';
+import HubFaq from '../components/HubFaq.astro';
+import '../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore Chicago Heights, Mokena and 24 nearby service communities supported by Smiles by Noetzel." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Service Areas | Smiles by Noetzel</title>
+  </head>
+  <body><Navbar /><main><ServiceAreasHeroV3 /><HubAboutStory kind="areas" /><ServiceAreasHub hideHero hideCommunity hideHandoff /><CommunityRail /><WhyChooseStory kind="areas" /><HubProcess kind="areas" /><HubReviews kind="areas" /><HubFaq kind="areas" /><HubFooter eyebrow="Two locations. One place to begin." title="Choose the office that fits your day. We’ll connect the rest." /></main></body>
+</html>

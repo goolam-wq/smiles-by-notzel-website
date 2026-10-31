@@ -1,0 +1,77 @@
+---
+interface Props { kind: 'home' | 'services' | 'areas' }
+const { kind } = Astro.props;
+const sets = {
+  home: {
+    eyebrow:'Why choose Smiles by Noetzel',
+    title:'Care designed to make more sense.',
+    items:[
+      ['01','Whole-health perspective','We connect oral health, airway, comfort and long-term wellness before planning what comes next.','See the complete picture','/images/generated/dental-exam-candid.webp'],
+      ['02','Technology with a purpose','Modern diagnostics and thoughtful tools support clearer decisions—not a colder experience.','Clarity before complexity','/images/generated/clinic-operatory-consistent.webp'],
+      ['03','Comfort built into the visit','A calm pace, anxiety-conscious options and a team that listens help care feel manageable.','Human by design','/images/generated/doctor-michael-provisional.webp'],
+      ['04','One story across two offices','Chicago Heights and Mokena keep the philosophy, service map and care context connected.','Choose the door, keep the plan','/images/generated/clear-aligner-consultation.webp']
+    ]
+  },
+  services: {
+    eyebrow:'Why this service experience works',
+    title:'The choices are broad. The path stays clear.',
+    items:[
+      ['01','Forty-eight offerings, organized','Every service lives inside a connected category, so the next step is easier to understand.','48 exact offerings','/images/generated/clinic-operatory-consistent.webp'],
+      ['02','One wider clinical view','Preventive, cosmetic, restorative, airway and wellness needs are considered together.','11 connected categories','/images/generated/dental-exam-candid.webp'],
+      ['03','Pricing you can compare','Fixed, monthly and yearly views make planning visible before the conversation becomes complicated.','3 customer-facing views','/images/generated/clear-aligner-consultation.webp'],
+      ['04','Comfort without losing precision','Technology, thoughtful pacing and anxiety-conscious options support both clarity and calm.','Care that sees the whole person','/images/generated/doctor-michael-provisional.webp']
+    ]
+  },
+  areas: {
+    eyebrow:'Why connected locations matter',
+    title:'Closer to home. Never disconnected.',
+    items:[
+      ['01','Two offices, one standard','Choose Chicago Heights or Mokena while the complete-health philosophy remains consistent.','2 connected offices','/images/generated/clinic-operatory-consistent.webp'],
+      ['02','A network built around real life','Twenty-six mapped communities make it easier to find care near work, home or family.','26 mapped communities','/images/generated/dental-exam-candid.webp'],
+      ['03','The story travels with you','Service context and care priorities stay connected instead of beginning again at a new door.','1 coordinated experience','/images/generated/doctor-ilenne-provisional.webp'],
+      ['04','Hours that respect the week','Early, evening and select Saturday availability give different schedules a workable route in.','Access shaped around your day','/images/generated/clear-aligner-consultation.webp']
+    ]
+  }
+};
+const content=sets[kind];
+---
+
+<section class:list={['why-story',`why-story--${kind}`]} id="why-choose" data-why-story>
+  <div class="why-story__sticky">
+    <div class="why-story__rules" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <header><p class="eyebrow">{content.eyebrow}</p><h2>{content.title}</h2></header>
+    <div class="why-story__counter"><span data-why-count>01</span><i></i><span>04</span></div>
+    <div class="why-story__track" data-why-track>
+      {content.items.map((item,index)=><article class="why-panel">
+        <div class="why-panel__copy"><span>{item[0]}</span><h3>{item[1]}</h3><p>{item[2]}</p><strong>{item[3]}</strong></div>
+        <figure><img src={item[4]} alt="" loading={index===0?'eager':'lazy'} /><figcaption>{item[3]}</figcaption></figure>
+      </article>)}
+    </div>
+    <p class="why-story__instruction">Scroll to follow the difference <span>→</span></p>
+  </div>
+</section>
+
+<style>
+  .why-story{height:430svh;background:var(--pine-950);color:var(--porcelain)}.why-story__sticky{position:sticky;top:0;height:100svh;overflow:hidden}.why-story__rules{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);opacity:.1}.why-story__rules i{border-left:1px solid var(--mint-300)}
+  .why-story>div>header{position:absolute;z-index:5;top:7rem;right:5vw;left:5vw;display:flex;align-items:start;justify-content:space-between;gap:2rem}.why-story .eyebrow{color:var(--mint-300)}.why-story header h2{max-width:52rem;margin:0;font-family:Georgia,serif;font-size:clamp(3rem,5vw,5.7rem);font-weight:400;line-height:.88;letter-spacing:-.06em;text-align:right}
+  .why-story__counter{position:absolute;z-index:6;right:5vw;bottom:1.4rem;display:flex;align-items:center;gap:.8rem;font-size:.58rem;font-weight:900}.why-story__counter i{width:7rem;height:1px;background:rgba(245,240,231,.35)}
+  .why-story__track{position:absolute;top:0;left:0;display:flex;width:400vw;height:100%;will-change:transform}.why-panel{display:grid;width:100vw;height:100%;padding:clamp(12rem,23vh,15rem) 5vw 4rem;grid-template-columns:.76fr 1.24fr;gap:6vw;align-items:center}.why-panel__copy{align-self:end;padding-bottom:6vh}.why-panel__copy>span{color:var(--mint-300);font-size:.62rem;font-weight:900;letter-spacing:.13em}.why-panel h3{max-width:39rem;margin:1.5rem 0;font-family:Georgia,serif;font-size:clamp(4.1rem,6.5vw,7.4rem);font-weight:400;line-height:.83;letter-spacing:-.07em}.why-panel p{max-width:33rem;color:rgba(245,240,231,.66);font-size:clamp(.88rem,1.1vw,1.05rem);line-height:1.7}.why-panel strong{display:block;width:max-content;margin-top:2rem;padding-top:.7rem;border-top:1px solid rgba(158,215,196,.45);color:var(--mint-300);font-size:.62rem;letter-spacing:.11em;text-transform:uppercase}
+  .why-panel figure{position:relative;height:61vh;margin:0;overflow:hidden;border-radius:1rem;background:var(--pine-900);clip-path:inset(0 round 1rem)}.why-panel figure::after{position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(6,29,25,.75));content:''}.why-panel img{width:112%;height:100%;object-fit:cover;filter:saturate(.7);transform:translateX(-6%);will-change:transform}.why-panel:nth-child(2) img{object-position:30% center}.why-panel:nth-child(3) img{object-position:center 20%}.why-panel figcaption{position:absolute;z-index:2;right:1rem;bottom:1rem;left:1rem;font-size:.56rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.why-story__instruction{position:absolute;z-index:5;bottom:1.4rem;left:5vw;margin:0;color:rgba(245,240,231,.58);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase}.why-story__instruction span{color:var(--mint-300);font-size:1rem}
+  @media(max-width:68rem){.why-story{height:400svh}.why-story>div>header{top:7rem;display:grid}.why-story header h2{max-width:42rem;font-size:clamp(3.8rem,7.5vw,5.4rem);text-align:left}.why-panel{padding:13rem 2rem 4rem;grid-template-columns:.9fr 1.1fr;gap:2rem}.why-panel h3{font-size:clamp(4rem,8vw,6rem)}.why-panel figure{height:57vh}.why-story__counter{right:2rem}.why-story__instruction{left:2rem}}
+  @media(max-width:46rem){.why-story{height:390svh}.why-story__rules{grid-template-columns:repeat(2,1fr)}.why-story>div>header{top:6.5rem;right:1rem;left:1rem}.why-story header h2{font-size:clamp(2.7rem,11.5vw,3.5rem)}.why-panel{padding:19rem 1rem 1.75rem;grid-template-columns:1fr;grid-template-rows:auto 35vh;gap:1rem;align-content:start}.why-panel__copy{align-self:auto;padding:0}.why-panel h3{margin:.75rem 0;font-size:clamp(3rem,13vw,4.1rem)}.why-panel p{margin:.6rem 0;font-size:.76rem;line-height:1.5}.why-panel strong{margin-top:.8rem}.why-panel figure{height:35vh}.why-story__counter{right:1rem;bottom:1rem}.why-story__instruction{bottom:1rem;left:1rem;font-size:.48rem}}
+  @media(prefers-reduced-motion:reduce){.why-story{height:auto}.why-story__sticky{position:relative;height:auto;padding:7rem 0 3rem}.why-story>div>header{position:relative;inset:auto;padding:0 1rem;margin-bottom:3rem}.why-story__track{position:relative;inset:auto;display:grid;width:auto;height:auto}.why-panel{width:auto;min-height:auto;padding:3rem 1rem;grid-template-columns:1fr 1fr}.why-story__counter,.why-story__instruction{display:none}}
+  @media(prefers-reduced-motion:reduce) and (max-width:46rem){.why-panel{grid-template-columns:1fr}.why-panel figure{height:44vh}}
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+  const stage=document.querySelector<HTMLElement>('[data-why-story]');
+  if(stage&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    const track=stage.querySelector<HTMLElement>('[data-why-track]');
+    const count=stage.querySelector<HTMLElement>('[data-why-count]');
+    if(track){gsap.to(track,{x:()=>-(track.scrollWidth-window.innerWidth),ease:'none',scrollTrigger:{trigger:stage,start:'top top',end:'bottom bottom',scrub:.82,snap:{snapTo:1/3,duration:{min:.28,max:.6},delay:.08,ease:'power2.inOut'},invalidateOnRefresh:true,onUpdate:self=>{if(count)count.textContent=String(Math.min(4,Math.floor(self.progress*4)+1)).padStart(2,'0')}}});}
+    gsap.to(stage.querySelectorAll('.why-panel img'),{xPercent:5,ease:'none',scrollTrigger:{trigger:stage,start:'top top',end:'bottom bottom',scrub:1}});
+  }
+</script>

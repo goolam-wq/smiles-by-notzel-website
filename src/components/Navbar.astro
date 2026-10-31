@@ -2,17 +2,17 @@
 import Logo from './Logo.astro';
 
 const serviceGroups = [
-  ['01', 'Complete Health & Airway'],
-  ['02', 'Cosmetic Dentistry'],
-  ['03', 'Emergency & Comfort'],
-  ['04', 'Implants & Oral Surgery'],
-  ['05', 'Orthodontic Dentistry'],
-  ['06', 'Pediatric Dentistry'],
-  ['07', 'Periodontal Dentistry'],
-  ['08', 'Preventive & Diagnostic'],
-  ['09', 'ReCODE & Cognitive Health'],
-  ['10', 'Restorative Dentistry'],
-  ['11', 'Wellness Offering'],
+  ['01', 'Complete Health & Airway', 'complete-health-airway'],
+  ['02', 'Cosmetic Dentistry', 'cosmetic-dentistry'],
+  ['03', 'Emergency & Comfort', 'emergency-comfort'],
+  ['04', 'Implants & Oral Surgery', 'implants-oral-surgery'],
+  ['05', 'Orthodontic Dentistry', 'orthodontic-dentistry'],
+  ['06', 'Pediatric Dentistry', 'pediatric-developmental'],
+  ['07', 'Periodontal Dentistry', 'periodontal-dentistry'],
+  ['08', 'Preventive & Diagnostic', 'preventive-diagnostic'],
+  ['09', 'ReCODE & Cognitive Health', 'recode-cognitive-health'],
+  ['10', 'Restorative Dentistry', 'restorative-reconstructive'],
+  ['11', 'Wellness Offering', 'wellness-offering'],
 ];
 
 const serviceAreas = [
@@ -29,7 +29,7 @@ const serviceAreas = [
 
 <header class="site-header" data-header>
   <div class="nav-shell">
-    <a class="logo-link" href="#top" aria-label="Smiles by Noetzel home">
+    <a class="logo-link" href="/#top" aria-label="Smiles by Noetzel home">
       <Logo />
     </a>
 
@@ -43,11 +43,11 @@ const serviceAreas = [
             <p class="mega-index">01 — Services</p>
             <h2>Care that sees<br /><em>the whole you.</em></h2>
             <p>Explore 48 exact offerings across complete health, comfort, prevention and advanced smile care.</p>
-            <a class="mega-primary" href="#services">View all services <span>↗</span></a>
+            <a class="mega-primary" href="/services/">View all services <span>↗</span></a>
           </div>
           <div class="service-links">
-            {serviceGroups.map(([number, label]) => (
-              <a href="#services">
+            {serviceGroups.map(([number, label, slug]) => (
+              <a href={`/services/#${slug}`}>
                 <span>{number}</span>
                 <strong>{label}</strong>
                 <i>↗</i>
@@ -73,25 +73,25 @@ const serviceAreas = [
             <p class="mega-index">02 — Service Areas</p>
             <h2>Close to home.<br /><em>Centered on you.</em></h2>
             <p>Two welcoming studios serving families across Chicago's south suburbs.</p>
-            <a class="mega-primary" href="#locations">View all service areas <span>↗</span></a>
+            <a class="mega-primary" href="/service-areas/">View all service areas <span>↗</span></a>
           </div>
           <div class="area-columns">
             <div>
               <span class="area-label">Our studios</span>
-              <a href="#locations"><strong>Chicago Heights</strong><small>500 Ashland Ave, Suite #2</small></a>
-              <a href="#locations"><strong>Mokena</strong><small>19160 88th Avenue</small></a>
+              <a href="/service-areas/#chicago-heights"><strong>Chicago Heights</strong><small>500 Ashland Ave, Suite #2</small></a>
+              <a href="/service-areas/#mokena"><strong>Mokena</strong><small>19160 88th Avenue</small></a>
             </div>
             <div>
               <span class="area-label">Nearby communities</span>
               <div class="area-grid">
-                {serviceAreas.slice(2).map((item) => <a href="#locations">{item}<span>↗</span></a>)}
+                {serviceAreas.slice(2).map((item) => <a href="/service-areas/#community-map">{item}<span>↗</span></a>)}
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <a class="nav-link" href="#pricing">Pricing</a>
+      <a class="nav-link" href="/#pricing">Pricing</a>
       <a class="nav-link" href="#contact">Contact</a>
 
       <div class="nav-group resources-group">
@@ -99,10 +99,10 @@ const serviceAreas = [
           Resources <span class="chevron" aria-hidden="true"></span>
         </button>
         <div class="resource-menu">
-          <a href="#about"><span>01</span> About <i>↗</i></a>
-          <a href="#team"><span>02</span> Team <i>↗</i></a>
-          <a href="#blog"><span>03</span> Blog <i>↗</i></a>
-          <a href="#faq"><span>04</span> FAQ <i>↗</i></a>
+          <a href="/#about"><span>01</span> About <i>↗</i></a>
+          <a href="/#team"><span>02</span> Team <i>↗</i></a>
+          <a href="/#blog"><span>03</span> Blog <i>↗</i></a>
+          <a href="/#faq"><span>04</span> FAQ <i>↗</i></a>
         </div>
       </div>
     </nav>
@@ -120,13 +120,13 @@ const serviceAreas = [
   <div class="mobile-menu" data-mobile-menu aria-hidden="true">
     <p class="mobile-kicker">Explore Smiles by Noetzel</p>
     <div class="mobile-links">
-      <a href="#services"><span>01</span> Services <i>↗</i></a>
-      <a href="#locations"><span>02</span> Service Areas <i>↗</i></a>
-      <a href="#pricing"><span>03</span> Pricing <i>↗</i></a>
+      <a href="/services/"><span>01</span> Services <i>↗</i></a>
+      <a href="/service-areas/"><span>02</span> Service Areas <i>↗</i></a>
+      <a href="/#pricing"><span>03</span> Pricing <i>↗</i></a>
       <a href="#contact"><span>04</span> Contact <i>↗</i></a>
-      <a href="#about"><span>05</span> About <i>↗</i></a>
-      <a href="#team"><span>06</span> Team <i>↗</i></a>
-      <a href="#faq"><span>07</span> FAQ <i>↗</i></a>
+      <a href="/#about"><span>05</span> About <i>↗</i></a>
+      <a href="/#team"><span>06</span> Team <i>↗</i></a>
+      <a href="/#faq"><span>07</span> FAQ <i>↗</i></a>
     </div>
     <div class="mobile-meta">
       <p>Chicago Heights · Mokena</p>
@@ -143,9 +143,9 @@ const serviceAreas = [
   const panel = document.querySelector<HTMLElement>('[data-mobile-menu]');
 
   if (header) {
-    const heroStage = document.querySelector<HTMLElement>('[data-hero-stage]');
+    const heroStage = document.querySelector<HTMLElement>('[data-hero-stage], [data-services-hero], [data-areas-hero]');
     const updateHeader = () => {
-      const heroRange = heroStage ? Math.max(1, heroStage.offsetHeight - window.innerHeight) : 1;
+      const heroRange = heroStage ? Math.max(1, heroStage.offsetHeight - window.innerHeight) : 80;
       const heroProgress = window.scrollY / heroRange;
       header.classList.toggle('scrolled', heroProgress > 0.74);
     };

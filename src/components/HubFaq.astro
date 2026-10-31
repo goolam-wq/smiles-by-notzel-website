@@ -1,0 +1,58 @@
+---
+interface Props { kind: 'services' | 'areas' }
+const { kind } = Astro.props;
+const isServices=kind==='services';
+const faqs=isServices?[
+  ['How do I know which service I need?','Start with a conversation and comprehensive evaluation. The team can connect your goals, symptoms, imaging and whole-health signals before recommending the most appropriate service path.'],
+  ['Are all services available at both offices?','The two offices share the same connected service philosophy and broad service map. Some advanced or specialized appointments may be scheduled at a specific office, so call ahead for the exact service and date you need.'],
+  ['Can I compare fixed, monthly and yearly pricing?','Yes. This website organizes each mapped service into fixed, monthly and yearly customer-facing views so you can compare practical planning options before speaking with the team.'],
+  ['Do you provide same-day emergency dental care?','Same-day emergency dental care is listed for both offices. Call first so the team can understand the urgency and reserve the right appointment window.'],
+  ['What does complete-health dentistry mean here?','It means oral health is considered alongside airway, sleep, inflammation, comfort and long-term wellness—not treated as an isolated set of teeth.']
+]:[
+  ['Which office should I choose?','Choose the office that best fits your location and schedule. Chicago Heights and Mokena share the same connected philosophy, service map and approach to whole-health care.'],
+  ['Can I use a different office for a future visit?','Yes. The experience is designed so your needs and care priorities remain connected rather than feeling like a complete restart at a second front door.'],
+  ['What are the Chicago Heights hours?','Chicago Heights is open Monday through Thursday from 7:30 AM to 7:00 PM, Friday from 7:30 AM to noon, and Saturday from 8:00 AM to noon.'],
+  ['When is the Mokena office open?','Mokena is open Monday from 8:00 AM to 7:00 PM, Thursday from 9:30 AM to 6:00 PM, and every other Saturday from 8:00 AM to noon. Saturday hours may vary, so please call ahead.'],
+  ['Do both locations support emergency visits?','Same-day emergency care is listed at both locations. Call the office first so the team can assess urgency and direct you to the best available appointment.']
+];
+---
+
+<section class:list={['hub-faq',`hub-faq--${kind}`]} id="faq" data-hub-faq>
+  <div class="hub-faq__wash" aria-hidden="true">CLARITY · CLARITY ·</div>
+  <div class="container-shell hub-faq__grid">
+    <header data-faq-reveal>
+      <p class="eyebrow">Questions, answered</p>
+      <h2>{isServices?'Understand the path before you choose it.':'Know the route before you leave home.'}</h2>
+      <p>{isServices?'Clear answers about services, access and planning.':'Clear answers about offices, schedules and connected care.'}</p>
+      <a href="tel:+17087551333">Still deciding? Call the team ↗</a>
+    </header>
+    <div class="hub-faq__list">
+      {faqs.map((faq,index)=><details data-faq-item open={index===0}>
+        <summary><span>0{index+1}</span><strong>{faq[0]}</strong><i>+</i></summary>
+        <div><p>{faq[1]}</p></div>
+      </details>)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hub-faq{position:relative;overflow:hidden;padding:clamp(8rem,12vw,13rem) 0;background:var(--paper);color:var(--ink)}.hub-faq__wash{position:absolute;right:-.1em;bottom:-.12em;color:rgba(16,35,31,.035);font-family:Georgia,serif;font-size:clamp(8rem,18vw,20rem);line-height:.7;white-space:nowrap}.hub-faq__grid{position:relative;z-index:2;display:grid;grid-template-columns:.72fr 1.28fr;gap:8vw}.hub-faq header{position:sticky;top:8rem;align-self:start}.hub-faq .eyebrow{color:var(--pine-700)}.hub-faq h2{margin:1.5rem 0;font-family:Georgia,serif;font-size:clamp(4rem,6.4vw,7.2rem);font-weight:400;line-height:.84;letter-spacing:-.065em}.hub-faq header>p:last-of-type{max-width:29rem;color:rgba(16,35,31,.62);line-height:1.65}.hub-faq header>a{display:block;width:max-content;margin-top:2rem;padding-bottom:.45rem;border-bottom:1px solid currentColor;font-size:.62rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.hub-faq__list{border-top:1px solid rgba(16,35,31,.2)}.hub-faq details{border-bottom:1px solid rgba(16,35,31,.2)}.hub-faq summary{display:grid;padding:2rem 0;grid-template-columns:2.5rem 1fr auto;gap:1rem;align-items:center;cursor:pointer;list-style:none}.hub-faq summary::-webkit-details-marker{display:none}.hub-faq summary span{color:var(--pine-700);font-size:.58rem;font-weight:900}.hub-faq summary strong{font-family:Georgia,serif;font-size:clamp(1.8rem,2.8vw,3rem);font-weight:400;line-height:1.05}.hub-faq summary i{font-size:1.4rem;font-style:normal;transition:transform .3s ease}.hub-faq details[open] summary i{transform:rotate(45deg)}.hub-faq details>div{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.2,.8,.2,1)}.hub-faq details[open]>div{grid-template-rows:1fr}.hub-faq details>div>p{max-width:43rem;margin:0 2rem 0 3.5rem;overflow:hidden;color:rgba(16,35,31,.65);line-height:1.7}.hub-faq details[open]>div>p{margin-bottom:2rem}
+  @media(max-width:68rem){.hub-faq__grid{grid-template-columns:1fr;gap:4rem}.hub-faq header{position:relative;top:auto}.hub-faq h2{max-width:50rem;font-size:clamp(4.6rem,9vw,6.6rem)}}
+  @media(max-width:46rem){.hub-faq{padding:7rem 0}.hub-faq__grid{gap:3rem}.hub-faq h2{font-size:clamp(3.5rem,15vw,4.7rem)}.hub-faq summary{padding:1.5rem 0;grid-template-columns:2rem 1fr auto}.hub-faq summary strong{font-size:1.65rem}.hub-faq details>div>p{margin-left:3rem;font-size:.82rem}}
+  @media(prefers-reduced-motion:reduce){.hub-faq details>div{transition:none}}
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+  const section=document.querySelector<HTMLElement>('[data-hub-faq]');
+  if(section){
+    const details=[...section.querySelectorAll<HTMLDetailsElement>('[data-faq-item]')];
+    details.forEach(item=>item.addEventListener('toggle',()=>{if(item.open)details.forEach(other=>{if(other!==item)other.open=false;});}));
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      gsap.from(section.querySelector('[data-faq-reveal]'),{y:55,opacity:0,duration:.8,ease:'power3.out',scrollTrigger:{trigger:section,start:'top 78%',once:true}});
+      gsap.from(details,{y:45,opacity:0,duration:.65,stagger:.09,ease:'power3.out',scrollTrigger:{trigger:section,start:'top 68%',once:true}});
+    }
+  }
+</script>

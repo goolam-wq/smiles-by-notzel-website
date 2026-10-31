@@ -46,13 +46,21 @@
 
 ## Homepage Reference and Motion Direction
 
+### Reference boundary — final
+
+- LAVA was a historical homepage reference only. The portions already approved and implemented are the complete extent of its influence.
+- **No future page, section, layout, animation, interaction, scroll behavior, responsive composition, or visual treatment may be sourced from or matched to LAVA.**
+- All new work—including all remaining homepage work and every internal page—must be created from Smiles by Noetzel's own content, brand system, user journey, and original design brainstorming.
+- Existing work should not be changed toward LAVA unless the client explicitly requests that exact change again.
+- Originality, narrative fit, and cross-viewport quality are required; LAVA is no longer an active design reference.
+
 ### Primary reference
 
 - Reference website: [LAVA dental](https://lavadental.lv/en)
 - The homepage will closely follow the reference site's visual composition, section pacing, motion language, scroll choreography, interactivity, and mobile experience.
 - We will not reuse the reference brand, copy, business data, or media. All visible content, services, service areas, pricing, reviews, team details, locations, and contact information will be Ashland Dental's.
 - The navbar will follow the custom structure documented above, not the reference site's navigation.
-- Additional website pages will be designed later using the homepage's approved visual and motion system.
+- This reference record applies only to the already completed historical homepage direction. It is not an instruction for future work.
 
 ### Homepage experience to reproduce
 
