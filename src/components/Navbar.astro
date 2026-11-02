@@ -47,7 +47,7 @@ const serviceAreas = [
           </div>
           <div class="service-links">
             {serviceGroups.map(([number, label, slug]) => (
-              <a href={`/services/#${slug}`}>
+              <a href={slug === 'cosmetic-dentistry' ? '/services/cosmetic-dentistry/' : `/services/#${slug}`}>
                 <span>{number}</span>
                 <strong>{label}</strong>
                 <i>↗</i>
@@ -78,7 +78,7 @@ const serviceAreas = [
           <div class="area-columns">
             <div>
               <span class="area-label">Our studios</span>
-              <a href="/service-areas/#chicago-heights"><strong>Chicago Heights</strong><small>500 Ashland Ave, Suite #2</small></a>
+              <a href="/service-areas/chicago-heights/"><strong>Chicago Heights</strong><small>500 Ashland Ave, Suite #2</small></a>
               <a href="/service-areas/#mokena"><strong>Mokena</strong><small>19160 88th Avenue</small></a>
             </div>
             <div>
