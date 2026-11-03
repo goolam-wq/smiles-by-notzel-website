@@ -13,6 +13,7 @@ const routes = [
   '/services/pediatric-developmental/',
   '/services/periodontal-dentistry/',
   '/services/preventive-diagnostic/',
+  '/services/recode-cognitive-health/',
 ];
 const browser = await chromium.launch({ headless: true, executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe' });
 const uses = [];

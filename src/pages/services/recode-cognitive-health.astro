@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore ReCODE-informed dental care, oral spirochete testing and individualized amalgam replacement at Smiles by Noetzel." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>ReCODE & Cognitive Health Dentistry | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-recode-cognitive-health.webp" mediaAlt="An oral microbiome swab and specimen prepared for focused testing" />
+    <main>
+      <DetailExperience kind="recode-cognitive-health" />
+      <BeforeAfterStory id="before-after-recode-cognitive-health" tone="light" number="08" eyebrow="Materials story · a clearer plan" title="Materials made visible." emphasis="A restoration that fits the wider plan."
+        intro="A materials conversation should stay specific to the tooth, the patient and the wider care plan. This case shows the same patient before a failing dark amalgam restoration was addressed and after a tooth-colored replacement was completed."
+        image="/images/generated/before-after-recode-cognitive-health-v1.webp" imageAlt="The same mature patient before replacement of a visible dark amalgam restoration and after a natural tooth-colored restoration"
+        beforeLabel="Before material review" beforeDetail="A visible dark amalgam restoration was reviewed in the context of tooth condition, symptoms and the patient’s wider health questions."
+        afterLabel="After coordinated replacement" afterDetail="A tooth-colored restoration followed an individualized risk-and-benefit discussion and a carefully sequenced dental plan."
+        caseNote="Safe amalgam replacement + coordinated follow-up" />
+      <HubFooter eyebrow="Ready for a coordinated dental baseline?" title="Start with a ReCODE-informed dental conversation that keeps every finding in context." />
+    </main>
+  </body>
+</html>
