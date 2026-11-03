@@ -6,6 +6,7 @@ const routes = [
   ['chicago', '/service-areas/chicago-heights/?qa=detail-matrix'],
   ['cosmetic', '/services/cosmetic-dentistry/?qa=detail-matrix'],
   ['complete-health-airway', '/services/complete-health-airway/?qa=detail-matrix'],
+  ['emergency-comfort', '/services/emergency-comfort/?qa=detail-matrix'],
   ['whitening', '/services/professional-teeth-whitening/?qa=detail-matrix'],
 ];
 const routeFilter = process.argv[2];

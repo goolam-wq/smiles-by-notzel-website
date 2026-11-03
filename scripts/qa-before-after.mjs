@@ -8,6 +8,7 @@ const routes = [
   ['service-areas', '/service-areas/', '#before-after-service-areas'],
   ['cosmetic', '/services/cosmetic-dentistry/', '#before-after-cosmetic'],
   ['complete-health-airway', '/services/complete-health-airway/', '#before-after-complete-health-airway'],
+  ['emergency-comfort', '/services/emergency-comfort/', '#before-after-emergency-comfort'],
   ['chicago-heights', '/service-areas/chicago-heights/', '#before-after-chicago-heights'],
   ['whitening', '/services/professional-teeth-whitening/', '#before-after-professional-whitening'],
 ];
