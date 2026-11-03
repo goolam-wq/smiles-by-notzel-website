@@ -11,6 +11,7 @@ const routes = [
   ['emergency-comfort', '/services/emergency-comfort/', '#before-after-emergency-comfort'],
   ['implants-oral-surgery', '/services/implants-oral-surgery/', '#before-after-implants-oral-surgery'],
   ['orthodontic-dentistry', '/services/orthodontic-dentistry/', '#before-after-orthodontic-dentistry'],
+  ['pediatric-developmental', '/services/pediatric-developmental/', '#before-after-pediatric-developmental'],
   ['chicago-heights', '/service-areas/chicago-heights/', '#before-after-chicago-heights'],
   ['whitening', '/services/professional-teeth-whitening/', '#before-after-professional-whitening'],
 ];

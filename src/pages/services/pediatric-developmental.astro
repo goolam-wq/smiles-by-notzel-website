@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore first dental visits, pediatric cleaning and exams, and HealthyStart developmental care at Smiles by Noetzel in Chicago Heights and Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Pediatric &amp; Developmental Dentistry | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-pediatric-dentistry.webp" mediaAlt="A child and parent being welcomed at the dental reception desk" />
+    <main>
+      <DetailExperience kind="pediatric-developmental" />
+      <BeforeAfterStory id="before-after-pediatric-developmental" tone="light" number="04" eyebrow="Growing-smile story · gentle progress" title="Healthier habits." emphasis="The same bright kid."
+        intro="The strongest pediatric result is not only a cleaner smile. It is a child who understands the visit, feels proud of the progress and carries better habits into the next stage of growth."
+        image="/images/generated/before-after-pediatric-dentistry-v1.webp" imageAlt="The same child before a pediatric cleaning with visible plaque and after care with naturally clean teeth"
+        beforeLabel="Before preventive care" beforeDetail="Visible plaque and uncertain home-care habits made daily brushing less effective and the next visit feel unfamiliar."
+        afterLabel="After cleaning and guidance" afterDetail="Gentle preventive care and child-friendly coaching created a naturally clean smile and a routine the family could repeat at home."
+        caseNote="Pediatric cleaning, exam and home-care guidance" />
+      <HubFooter eyebrow="Ready for a gentler first step?" title="Start with trust. We’ll help the healthy habits grow from there." />
+    </main>
+  </body>
+</html>

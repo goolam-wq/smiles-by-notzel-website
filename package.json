@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "qa:process": "node scripts/qa-process-parity.mjs"
   },
   "keywords": [],
   "author": "",
