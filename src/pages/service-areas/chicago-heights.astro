@@ -2,6 +2,7 @@
 import Navbar from '../../components/Navbar.astro';
 import DetailExperience from '../../components/DetailExperience.astro';
 import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
 import '../../styles/global.css';
 ---
 <!doctype html>
@@ -15,9 +16,15 @@ import '../../styles/global.css';
     <title>Chicago Heights Dentist | Smiles by Noetzel</title>
   </head>
   <body>
-    <Navbar />
+    <Navbar mediaImage="/images/generated/unique/nav-chicago.webp" mediaAlt="A Chicago Heights patient speaking with the care team" />
     <main>
       <DetailExperience kind="chicago" />
+      <BeforeAfterStory id="before-after-chicago-heights" tone="dark" reverse number="05" eyebrow="Chicago Heights · real care" title="One small repair." emphasis="A complete return."
+        intro="A chipped front edge can change how freely someone smiles. This Chicago Heights case focused on one tooth and left the rest of the story untouched."
+        image="/images/generated/before-after-chicago-heights-v1.webp" imageAlt="Before and after Chicago Heights case showing a natural tooth-colored front-edge repair"
+        beforeLabel="A chipped front edge" beforeDetail="A local fracture and surface staining made one tooth feel more visible than the whole smile."
+        afterLabel="Bonded to belong" afterDetail="Tooth-colored material restores the edge, polish and proportion without flattening natural character."
+        caseNote="Tooth-colored bonding" />
       <HubFooter eyebrow="Chicago Heights is ready when you are." title="Begin with a conversation. We’ll connect the care around you." />
     </main>
   </body>

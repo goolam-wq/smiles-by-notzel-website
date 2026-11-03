@@ -2,6 +2,7 @@
 import Navbar from '../../components/Navbar.astro';
 import DetailExperience from '../../components/DetailExperience.astro';
 import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
 import '../../styles/global.css';
 ---
 <!doctype html>
@@ -15,9 +16,15 @@ import '../../styles/global.css';
     <title>Cosmetic Dentistry | Smiles by Noetzel</title>
   </head>
   <body>
-    <Navbar />
+    <Navbar mediaImage="/images/generated/unique/nav-cosmetic.webp" mediaAlt="A patient discussing natural cosmetic-care goals" />
     <main>
       <DetailExperience kind="cosmetic" />
+      <BeforeAfterStory id="before-after-cosmetic" tone="light" number="04" eyebrow="Cosmetic case · conservative change" title="Refined." emphasis="Never replaced."
+        intro="Cosmetic care works best when shade, spacing and edge shape are read together. The goal is a result that belongs to the face—not a template."
+        image="/images/generated/before-after-cosmetic-v1.webp" imageAlt="Before and after cosmetic dentistry view showing conservative bonding and shade refinement"
+        beforeLabel="Spacing, shade and edge" beforeDetail="Mild discoloration, a small space and uneven incisal edges shaped the starting plan."
+        afterLabel="Balanced, not standardized" afterDetail="Conservative bonding and shade refinement create rhythm while keeping natural variation."
+        caseNote="Bonding + shade refinement" />
       <HubFooter eyebrow="Ready to see your options clearly?" title="A natural smile begins with a plan made around you." />
     </main>
   </body>

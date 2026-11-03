@@ -9,6 +9,7 @@ import HubFooter from '../components/HubFooter.astro';
 import HubAboutStory from '../components/HubAboutStory.astro';
 import WhyChooseStory from '../components/WhyChooseStory.astro';
 import HubFaq from '../components/HubFaq.astro';
+import BeforeAfterStory from '../components/BeforeAfterStory.astro';
 import '../styles/global.css';
 ---
 <!doctype html>
@@ -21,5 +22,5 @@ import '../styles/global.css';
     <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
     <title>Service Areas | Smiles by Noetzel</title>
   </head>
-  <body><Navbar /><main><ServiceAreasHeroV3 /><HubAboutStory kind="areas" /><ServiceAreasHub hideHero hideCommunity hideHandoff /><CommunityRail /><WhyChooseStory kind="areas" /><HubProcess kind="areas" /><HubReviews kind="areas" /><HubFaq kind="areas" /><HubFooter eyebrow="Two locations. One place to begin." title="Choose the office that fits your day. We’ll connect the rest." /></main></body>
+  <body><Navbar mediaImage="/images/generated/unique/nav-service-areas-arrival.webp" mediaAlt="A patient arriving at a connected practice location" /><main><ServiceAreasHeroV3 /><HubAboutStory kind="areas" /><ServiceAreasHub hideHero hideCommunity hideHandoff /><CommunityRail /><BeforeAfterStory id="before-after-service-areas" tone="dark" number="03" eyebrow="Care close to home" title="Local care." emphasis="Visible confidence." intro="A familiar office can make returning to care feel easier. This result began with prevention, then refined only the detail that needed attention." image="/images/generated/before-after-service-areas-v1.webp" imageAlt="Before and after view of an older woman receiving gentle preventive care and edge refinement" beforeLabel="Returning to care" beforeDetail="Age-related staining and a worn edge after time away from routine visits." afterLabel="A familiar smile, refreshed" afterDetail="A gentle clean and restrained refinement that respects age, texture and identity." caseNote="Preventive care + edge refinement" /><WhyChooseStory kind="areas" /><HubProcess kind="areas" /><HubReviews kind="areas" /><HubFaq kind="areas" /><HubFooter eyebrow="Two locations. One place to begin." title="Choose the office that fits your day. We’ll connect the rest." /></main></body>
 </html>

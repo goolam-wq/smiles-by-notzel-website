@@ -8,6 +8,7 @@ import DistinctCoverageReviews from '../components/DistinctCoverageReviews.astro
 import DistinctTeamPricing from '../components/DistinctTeamPricing.astro';
 import DistinctLocationsFooter from '../components/DistinctLocationsFooter.astro';
 import WhyChooseStory from '../components/WhyChooseStory.astro';
+import BeforeAfterStory from '../components/BeforeAfterStory.astro';
 import '../styles/global.css';
 ---
 
@@ -22,11 +23,27 @@ import '../styles/global.css';
     <title>Smiles by Noetzel | Ashland Dental &amp; Wellness Center</title>
   </head>
   <body>
-    <Navbar />
+    <Navbar mediaImage="/images/generated/unique/nav-home-welcome.webp" mediaAlt="A patient being welcomed into the practice" />
     <main>
       <Hero />
       <Manifesto />
       <Services />
+      <BeforeAfterStory
+        id="before-after-home"
+        tone="dark"
+        number="01"
+        eyebrow="Real results · whole-person care"
+        title="Subtle change."
+        emphasis="Still you."
+        intro="The difference is visible because the planning stays personal—cleaner tone, balanced detail and no borrowed version of somebody else’s smile."
+        image="/images/generated/before-after-home-v1.webp"
+        imageAlt="Before and after view of a woman receiving a natural complete-health smile refinement"
+        beforeLabel="Starting point"
+        beforeDetail="Everyday staining and uneven brightness across a familiar, healthy expression."
+        afterLabel="Connected result"
+        afterDetail="Cleaner tone, natural texture and the same unmistakable expression."
+        caseNote="Complete-health planning"
+      />
       <LavaProcessReveal />
       <DistinctCoverageReviews />
       <WhyChooseStory kind="home" />

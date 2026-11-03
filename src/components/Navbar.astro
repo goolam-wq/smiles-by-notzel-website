@@ -1,6 +1,16 @@
 ---
 import Logo from './Logo.astro';
 
+interface Props {
+  mediaImage?: string;
+  mediaAlt?: string;
+}
+
+const {
+  mediaImage = '/images/generated/unique/nav-home-welcome.webp',
+  mediaAlt = 'A patient being welcomed into the practice'
+} = Astro.props;
+
 const serviceGroups = [
   ['01', 'Complete Health & Airway', 'complete-health-airway'],
   ['02', 'Cosmetic Dentistry', 'cosmetic-dentistry'],
@@ -55,7 +65,7 @@ const serviceAreas = [
             ))}
           </div>
           <div class="mega-visual">
-            <img src="/images/consultation-video-cover-v1.png" alt="A comfortable dental consultation" />
+            <img src={mediaImage} alt={mediaAlt} />
             <div>
               <span>Complete care</span>
               <strong>One connected experience</strong>

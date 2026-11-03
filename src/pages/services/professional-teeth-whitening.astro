@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore professional teeth whitening at Smiles by Noetzel, including the process, candidacy, pricing, patient experience and availability in Chicago Heights and Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Professional Teeth Whitening | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-whitening.webp" mediaAlt="A patient reviewing a professional whitening plan" />
+    <main>
+      <TreatmentDetail />
+      <BeforeAfterStory id="before-after-professional-whitening" tone="light" reverse number="06" eyebrow="Whitening case · shade by shade" title="Brighter by design." emphasis="Natural by result."
+        intro="Professional whitening is calibrated against the person, not the brightest square on a chart. The endpoint stays believable in skin tone, age and daylight."
+        image="/images/generated/before-after-professional-whitening-v1.webp" imageAlt="Before and after professional teeth whitening view showing a naturally brighter calibrated shade"
+        beforeLabel="Warm starting shade" beforeDetail="Coffee and tea pigments created a warmer, uneven surface tone across the visible smile."
+        afterLabel="Professionally calibrated" afterDetail="A brighter, even shade that keeps translucency, texture and a natural relationship to the face."
+        caseNote="Professional whitening" />
+      <HubFooter eyebrow="Ready for a brighter result?" title="Begin with a shade plan made around you." />
+    </main>
+  </body>
+</html>

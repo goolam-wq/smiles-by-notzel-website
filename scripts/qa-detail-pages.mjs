@@ -5,6 +5,7 @@ const base = 'http://localhost:4321';
 const routes = [
   ['chicago', '/service-areas/chicago-heights/?qa=detail-matrix'],
   ['cosmetic', '/services/cosmetic-dentistry/?qa=detail-matrix'],
+  ['whitening', '/services/professional-teeth-whitening/?qa=detail-matrix'],
 ];
 const viewports = [
   ['desktop', 1440, 900],
