@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore dental bonding at Smiles by Noetzel, including candidacy, process, pricing and tooth-specific cosmetic planning in Chicago Heights and Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Dental Bonding | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-dental-bonding.webp" mediaAlt="A patient reviewing a dental bonding plan with her dentist" />
+    <main>
+      <TreatmentDetail kind="dental-bonding" />
+      <BeforeAfterStory id="before-after-dental-bonding" tone="light" reverse number="06" eyebrow="Dental bonding case · one refined detail" title="Small repair." emphasis="Complete-smile context."
+        intro="Dental bonding is planned tooth by tooth, while shade, shape, bite and the surrounding teeth remain connected to the complete visible smile."
+        image="/images/generated/before-after-dental-bonding-v1.webp" imageAlt="Before and after dental bonding planning view showing a refined tooth within the complete smile"
+        beforeLabel="The detail before repair" beforeDetail="A selected chip, edge, space or proportion concern interrupted the visible balance."
+        afterLabel="Composite, blended" afterDetail="Shade, shape and finish were refined to sit naturally beside the surrounding teeth."
+        caseNote="Dental bonding · tooth-specific repair" />
+      <HubFooter eyebrow="Ready to explore dental bonding?" title="Begin with a tooth-specific consultation." />
+    </main>
+  </body>
+</html>

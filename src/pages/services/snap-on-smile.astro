@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore Snap-on Smile at Smiles by Noetzel, a removable full-arch cosmetic option with candidacy and fit determined after examination." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Snap-on Smile | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-snap-on-smile.webp" mediaAlt="A patient discussing a removable full-arch Snap-on Smile option with her dentist" />
+    <main>
+      <TreatmentDetail kind="snap-on-smile" />
+      <BeforeAfterStory id="before-after-snap-on-smile" tone="light" reverse number="06" eyebrow="Removable full-arch case · individual fit" title="Planned as one arch." emphasis="Reviewed as your smile."
+        intro="Snap-on Smile is a removable full-arch cosmetic option. The teeth, gums, bite, available space and existing dental work are examined before candidacy, design or fit is confirmed."
+        image="/images/generated/before-after-snap-on-smile-v1.webp" imageAlt="Before and after planning view for a removable Snap-on Smile full-arch appliance"
+        beforeLabel="Before the fit assessment" beforeDetail="The complete arch, bite and available space still needed to be evaluated together."
+        afterLabel="A coordinated removable option" afterDetail="Arch form, shade and visible proportions were planned within the confirmed clinical fit."
+        caseNote="Snap-on Smile · removable full arch" />
+      <HubFooter eyebrow="Ready to explore a removable option?" title="Begin with a candidacy and fit assessment." />
+    </main>
+  </body>
+</html>

@@ -10,6 +10,8 @@ const routes = [
   '/services/professional-teeth-whitening/',
   '/services/porcelain-veneers-laminates/',
   '/services/lumineers/',
+  '/services/snap-on-smile/',
+  '/services/dental-bonding/',
   '/services/implants-oral-surgery/',
   '/services/orthodontic-dentistry/',
   '/services/pediatric-developmental/',

@@ -21,6 +21,8 @@ const routes = [
   ['whitening', '/services/professional-teeth-whitening/', '#before-after-professional-whitening'],
   ['porcelain-veneers-laminates', '/services/porcelain-veneers-laminates/', '#before-after-porcelain-veneers-laminates'],
   ['lumineers', '/services/lumineers/', '#before-after-lumineers'],
+  ['snap-on-smile', '/services/snap-on-smile/', '#before-after-snap-on-smile'],
+  ['dental-bonding', '/services/dental-bonding/', '#before-after-dental-bonding'],
 ];
 const viewports = [
   ['desktop', 1440, 900],

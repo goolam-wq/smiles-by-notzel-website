@@ -1,13 +1,25 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
 const isVeneers = kind === 'porcelain-veneers-laminates';
 const isLumineers = kind === 'lumineers';
+const isSnapOn = kind === 'snap-on-smile';
+const isBonding = kind === 'dental-bonding';
 
-const processSteps = isLumineers ? [
+const processSteps = isBonding ? [
+  ['01', 'Listen', 'We begin with the chip, spacing, edge or proportion you want to refine and the character you want to keep.'],
+  ['02', 'Evaluate', 'The tooth, bite, enamel, neighboring teeth and wider smile are examined before bonding is recommended.'],
+  ['03', 'Shape', 'Tooth-colored composite is selected, placed and shaped according to the agreed clinical plan.'],
+  ['04', 'Refine', 'The restoration is finished, polished and reviewed in the bite and complete visible smile.'],
+] : isSnapOn ? [
+  ['01', 'Listen', 'We begin with what you want to change, when you hope to wear the removable appliance and what should still feel recognizably yours.'],
+  ['02', 'Evaluate', 'The teeth, gums, bite, available space and existing dental work are examined to determine whether this removable option is appropriate.'],
+  ['03', 'Plan', 'The full-arch shape, proportion and shade are planned around the complete visible smile and the clinical findings.'],
+  ['04', 'Fit', 'The appliance is checked for seating, appearance and comfort, with instructions for placement, removal and care.'],
+] : isLumineers ? [
   ['01', 'Listen', 'We begin with the change you want, the character you want to keep and the moments when your smile matters most.'],
   ['02', 'Evaluate', 'The visible teeth, enamel, bite, existing dental work and wider smile are reviewed before any option is recommended.'],
   ['03', 'Design', 'Shape, shade and proportion are planned tooth by tooth, with the final scope confirmed after consultation and examination.'],
@@ -24,7 +36,19 @@ const processSteps = isLumineers ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isLumineers ? [
+const faqs = isBonding ? [
+  ['How much does dental bonding cost?', 'The customer-facing treatment price is $450 per tooth. A 12-month planning example is $38 per month, and the yearly amount is $450 per tooth. Final scope and tooth count are confirmed after examination.'],
+  ['What can dental bonding address?', 'Bonding may be considered for selected chips, small gaps, uneven edges or proportion concerns. The examination determines whether composite bonding or another restorative or cosmetic path is appropriate.'],
+  ['Is dental bonding permanent?', 'Bonding is a placed composite restoration, but it is not guaranteed for life. Longevity depends on the tooth, bite, habits, care and the work being asked of the restoration.'],
+  ['Will bonding match the surrounding teeth?', 'Shade, translucency, shape and surface finish are considered beside the neighboring teeth. Existing dental work and the wider cosmetic plan are also reviewed.'],
+  ['Is dental bonding available at both offices?', 'Consultations can be coordinated through Chicago Heights and Mokena. Call the preferred office to confirm the recommended visit and current appointment availability.'],
+] : isSnapOn ? [
+  ['How much does Snap-on Smile cost?', 'The customer-facing treatment price is $2,500 per arch. A 24-month planning example is $105 per month, and the yearly amount is $2,500 per arch. Final candidacy, fit and scope are confirmed after examination.'],
+  ['Is Snap-on Smile permanent?', 'No. It is a removable full-arch cosmetic option. It is not a permanent crown, bridge or implant restoration, and it does not replace care needed for active dental disease.'],
+  ['Is everyone eligible for Snap-on Smile?', 'No. The teeth, gums, bite, available space and existing dental work must be examined before the team can determine whether this option is appropriate.'],
+  ['How is the appliance planned?', 'The team considers the complete visible smile, arch form, shade, bite and clinical findings before confirming the design and fit.'],
+  ['Is Snap-on Smile available at both offices?', 'Consultations can be coordinated through Chicago Heights and Mokena. Call the preferred office to confirm the recommended visit and current appointment availability.'],
+] : isLumineers ? [
   ['How much do Lumineers cost?', 'The customer-facing treatment price is $1,600 per tooth. A 24-month planning example is $67 per month, and the yearly amount is $1,600 per tooth. Final scope and tooth count are confirmed after consultation and examination.'],
   ['Are Lumineers right for every cosmetic concern?', 'No single option suits every tooth or smile. Enamel, bite, position, existing dental work and the change you want are reviewed before the team recommends an appropriate path.'],
   ['How many teeth need Lumineers?', 'There is no automatic number. The visible smile, the concern being addressed and how the selected teeth relate to the surrounding teeth determine the recommended scope.'],
@@ -44,7 +68,17 @@ const faqs = isLumineers ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isLumineers ? [
+const relatedServices = isBonding ? [
+  ['Cosmetic Dentistry', 'Explore the complete category', '/services/cosmetic-dentistry/'],
+  ['Porcelain veneers & laminates', 'Compare a porcelain refinement path', '/services/porcelain-veneers-laminates/'],
+  ['Professional teeth whitening', 'Coordinate the wider shade plan', '/services/professional-teeth-whitening/'],
+  ['Tooth contouring', 'Explore selected edge refinement', '/services/cosmetic-dentistry/#cosmetic-options'],
+] : isSnapOn ? [
+  ['Cosmetic Dentistry', 'Explore the complete category', '/services/cosmetic-dentistry/'],
+  ['Porcelain veneers & laminates', 'Explore a fixed porcelain pathway', '/services/porcelain-veneers-laminates/'],
+  ['Lumineers', 'Compare another selected cosmetic option', '/services/lumineers/'],
+  ['Complete smile makeover', 'Connect several cosmetic priorities', '/services/cosmetic-dentistry/#cosmetic-options'],
+] : isLumineers ? [
   ['Cosmetic Dentistry', 'Explore the complete category', '/services/cosmetic-dentistry/'],
   ['Porcelain veneers & laminates', 'Compare another porcelain pathway', '/services/porcelain-veneers-laminates/'],
   ['Professional teeth whitening', 'Coordinate the wider shade plan', '/services/professional-teeth-whitening/'],
@@ -61,7 +95,113 @@ const relatedServices = isLumineers ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isLumineers ? {
+const content = isBonding ? {
+  heroClass: 'is-bonding',
+  heroImages: [
+    ['/images/generated/dental-bonding-hero-v1.webp', 'A patient and dentist discussing a small chip and dental bonding plan', 'START WITH THE DETAIL'],
+    ['/images/generated/dental-bonding-hero-detail-v1.webp', 'A close dental bonding shade and shape planning view', 'MATCH THE TOOTH'],
+    ['/images/generated/dental-bonding-hero-result-v1.webp', 'A patient viewing a refined dental bonding result in the mirror', 'REVIEW THE WHOLE SMILE'],
+  ],
+  heroAria: ['Explore the dental bonding consultation', 'Explore composite shade and shape planning', 'Explore the refined complete smile'],
+  kicker: 'Cosmetic Dentistry · Treatment 05',
+  title: ['Small detail.', 'Whole-smile balance.'],
+  intro: 'Dental bonding planned around the tooth, bite and surrounding smile, with candidacy and final scope confirmed after examination.',
+  heroRail: ['Read the detail', 'Shape the repair', 'Review the smile'],
+  ledgerLabel: 'Dental bonding', ledgerFixed: '$450 / tooth', ledgerMonthly: '$38 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['Bonding is not just a patch.', 'It is a', 'measured repair.'],
+  storyImage: '/images/generated/dental-bonding-process-v1.webp',
+  storyAlt: 'A dentist reviewing composite shade and shape for a dental bonding repair',
+  storyRangeLabel: 'Compare the starting detail with the planned dental bonding refinement',
+  storyNote: 'Read the tooth, bite and neighboring smile first.',
+  storyLead: 'We plan the repair in context. A small change to one edge, space or proportion can shift how the complete smile reads.',
+  storySteps: [
+    ['01', 'Read the detail', 'The chip, space, edge or proportion concern is examined closely.'],
+    ['02', 'Respect the bite', 'Tooth position, enamel, neighboring teeth and bite define the appropriate plan.'],
+    ['03', 'Blend the repair', 'Shade, translucency, shape and finish are judged in the complete visible smile.'],
+  ],
+  storyNotes: ['Read the tooth, bite and neighboring smile first.', 'Respect enamel, position and the forces of the bite.', 'Blend shade, shape and finish into the complete visible smile.'],
+  processTitle: ['Built in small layers.', 'Read as one tooth.'],
+  expectTitle: ['Precisely placed.', 'Never isolated.'],
+  expectCopy: 'Dental bonding may address selected chips, small spaces, uneven edges or proportion concerns. The team reviews the tooth, enamel, bite, neighboring teeth and wider cosmetic plan before confirming whether bonding is appropriate.',
+  metrics: [['1', 'tooth-specific bonding plan'], ['4', 'details aligned: shade, shape, enamel, bite'], ['2', 'connected office locations']],
+  pricingId: 'dental-bonding-pricing',
+  pricingTitle: ['One selected tooth.', 'Three ways to plan.'],
+  pricingIntro: 'The same dental bonding treatment shown as a fixed, monthly and yearly customer-facing amount.',
+  prices: [['FIXED · 01', '$450', 'per tooth'], ['MONTHLY · 02', '$38', 'per month · 12 months'], ['YEARLY · 03', '$450', 'annual amount per tooth']],
+  whyTitle: ['Conservative in scale.', 'Complete in context.'],
+  whyIntro: 'We do not treat composite as a generic patch. Tooth condition, bite, neighboring teeth, shade and the wider smile shape every recommendation and repair.',
+  whyImage: '/images/generated/dental-bonding-result-v1.webp',
+  whyAlt: 'A patient and dentist reviewing a natural dental bonding result together',
+  whyPanels: [
+    ['01', 'Candidacy before composite', 'The tooth, enamel, bite and existing dental work define whether bonding is appropriate.'],
+    ['02', 'Layer-by-layer control', 'Shade, translucency and form are built and refined according to the clinical plan.'],
+    ['03', 'The complete smile test', 'The finished restoration is reviewed beside the neighboring teeth and in the bite.'],
+  ],
+  whyFoot: 'ONE REFINED DETAIL · THREE CONTEXT CHECKS',
+  proofTitle: ['The repair explained.', 'The next step clear.'],
+  proofText: 'A patient described the practice team as thoughtful and reassuring, with the treatment recommendation explained clearly before care began.',
+  proofFooter: 'GENERAL PRACTICE PATIENT EXPERIENCE · PARAPHRASED',
+  proofTags: ['Clear explanation', 'Tooth-specific planning', 'Connected care'],
+  faqTitle: ['Before you', 'repair.'],
+  relatedTitle: ['One refined detail.', 'Many connected paths.'],
+  relatedAria: 'Related dental bonding and cosmetic services',
+  currentPath: 'Dental bonding',
+  locationsAria: 'Dental bonding consultation locations',
+} : isSnapOn ? {
+  heroClass: 'is-snap-on',
+  heroImages: [
+    ['/images/generated/snap-on-smile-hero-v1.webp', 'A patient and dentist discussing a removable Snap-on Smile full-arch option', 'START WITH THE ARCH'],
+    ['/images/generated/snap-on-smile-hero-detail-v1.webp', 'A detailed Snap-on Smile appliance fit and shade planning view', 'PLAN THE FIT'],
+    ['/images/generated/snap-on-smile-hero-result-v1.webp', 'A patient viewing a fitted Snap-on Smile appliance in the mirror', 'REVIEW THE WHOLE SMILE'],
+  ],
+  heroAria: ['Explore the Snap-on Smile consultation', 'Explore full-arch fit and appearance planning', 'Explore the complete removable smile option'],
+  kicker: 'Cosmetic Dentistry · Treatment 04',
+  title: ['One arch.', 'Carefully fitted.'],
+  intro: 'Snap-on Smile is a removable full-arch cosmetic option, with candidacy, design and fit determined only after examination.',
+  heroRail: ['Assess candidacy', 'Plan the arch', 'Review the fit'],
+  ledgerLabel: 'Snap-on Smile', ledgerFixed: '$2,500 / arch', ledgerMonthly: '$105 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['A removable smile is not a shortcut.', 'It is a', 'planned option.'],
+  storyImage: '/images/generated/snap-on-smile-process-v1.webp',
+  storyAlt: 'A dentist reviewing the fit and appearance of a removable full-arch Snap-on Smile appliance',
+  storyRangeLabel: 'Compare the starting smile with the planned removable full-arch option',
+  storyNote: 'Assess the foundation before planning the arch.',
+  storyLead: 'We consider the complete arch, not only the visible surface. The fit begins with the teeth, gums, bite and space underneath.',
+  storySteps: [
+    ['01', 'Assess candidacy', 'Teeth, gums, bite, space and existing dental work are examined first.'],
+    ['02', 'Plan the full arch', 'Shade, proportion and arch form are considered as one removable appliance.'],
+    ['03', 'Review the fit', 'Seating, comfort and appearance are checked in the complete visible smile.'],
+  ],
+  storyNotes: ['Assess the foundation before planning the arch.', 'Plan shade, proportion and arch form as one removable appliance.', 'Review seating, comfort and appearance in the complete smile.'],
+  processTitle: ['Planned as one arch.', 'Checked in real life.'],
+  expectTitle: ['Removable by design.', 'Individual by necessity.'],
+  expectCopy: 'Snap-on Smile is a removable cosmetic appliance, not a permanent crown, bridge or implant restoration. The team examines oral health, bite, available space and existing dental work before confirming whether it is an appropriate option.',
+  metrics: [['1', 'removable full-arch appliance'], ['5', 'details reviewed: teeth, gums, bite, space, existing work'], ['2', 'connected office locations']],
+  pricingId: 'snap-on-smile-pricing',
+  pricingTitle: ['One removable arch.', 'Three ways to plan.'],
+  pricingIntro: 'The same Snap-on Smile appliance shown as a fixed, monthly and yearly customer-facing amount.',
+  prices: [['FIXED · 01', '$2,500', 'per arch'], ['MONTHLY · 02', '$105', 'per month · 24 months'], ['YEARLY · 03', '$2,500', 'annual amount per arch']],
+  whyTitle: ['Removable.', 'Never generic.'],
+  whyIntro: 'We do not treat a full-arch appliance as one-size-fits-all. Candidacy, arch form, shade, bite and seating are considered before the team recommends or fits this option.',
+  whyImage: '/images/generated/snap-on-smile-result-v1.webp',
+  whyAlt: 'A patient and dentist reviewing the fit and appearance of a removable Snap-on Smile appliance',
+  whyPanels: [
+    ['01', 'Candidacy before design', 'The teeth, gums, bite and available space determine whether this option can be considered.'],
+    ['02', 'One connected arch', 'Shade, proportion and arch form are planned as a complete removable appliance.'],
+    ['03', 'Fit before finish', 'Seating, comfort and appearance are reviewed together before the plan is finalized.'],
+  ],
+  whyFoot: 'ONE REMOVABLE ARCH · THREE FIT CHECKS',
+  proofTitle: ['Questions answered.', 'Next step understood.'],
+  proofText: 'A patient described the practice team as patient and thorough, with the recommendation explained clearly before care moved forward.',
+  proofFooter: 'GENERAL PRACTICE PATIENT EXPERIENCE · PARAPHRASED',
+  proofTags: ['Clear explanation', 'Individual assessment', 'Connected care'],
+  faqTitle: ['Before you', 'consider it.'],
+  relatedTitle: ['One removable option.', 'Many connected paths.'],
+  relatedAria: 'Related Snap-on Smile and cosmetic services',
+  currentPath: 'Snap-on Smile',
+  locationsAria: 'Snap-on Smile consultation locations',
+} : isLumineers ? {
   heroClass: 'is-lumineers',
   heroImages: [
     ['/images/generated/lumineers-hero-v1.webp', 'A patient and dentist discussing Lumineers within her complete visible smile', 'BEGIN WITH THE PERSON'],
@@ -592,6 +732,24 @@ const content = isLumineers ? {
   .whitening-hero.is-lumineers .hero-fold--two>img{object-position:52% center}
   .whitening-hero.is-lumineers .hero-fold--three>img{object-position:60% center}
   .whitening-hero.is-lumineers .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.93) 36%,rgba(4,24,20,.46) 54%,transparent 72%)}
+  .whitening-hero.is-snap-on .hero-folds__scan{display:none}
+  .whitening-hero.is-snap-on .hero-fold{border:0;box-shadow:0 2.2rem 6rem rgba(0,0,0,.3)}
+  .whitening-hero.is-snap-on .hero-fold--one{clip-path:inset(0 0 0 0 round 8rem 1rem 8rem 1rem)}
+  .whitening-hero.is-snap-on .hero-fold--two{clip-path:inset(0 0 0 0 round 1rem 8rem 1rem 8rem)}
+  .whitening-hero.is-snap-on .hero-fold--three{clip-path:inset(0 0 0 0 round 8rem 1rem 8rem 1rem)}
+  .whitening-hero.is-snap-on .hero-fold--one>img{object-position:46% center}
+  .whitening-hero.is-snap-on .hero-fold--two>img{object-position:50% center}
+  .whitening-hero.is-snap-on .hero-fold--three>img{object-position:62% center}
+  .whitening-hero.is-snap-on .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 38%,rgba(4,24,20,.5) 56%,transparent 74%)}
+  .whitening-hero.is-bonding .hero-folds__scan{display:none}
+  .whitening-hero.is-bonding .hero-fold{border:0;box-shadow:0 2.2rem 6rem rgba(0,0,0,.3)}
+  .whitening-hero.is-bonding .hero-fold--one{clip-path:inset(0 0 8% 0 round 8rem 8rem .75rem .75rem)}
+  .whitening-hero.is-bonding .hero-fold--two{clip-path:inset(8% 0 0 0 round .75rem .75rem 8rem 8rem)}
+  .whitening-hero.is-bonding .hero-fold--three{clip-path:inset(0 0 8% 0 round 8rem 8rem .75rem .75rem)}
+  .whitening-hero.is-bonding .hero-fold--one>img{object-position:45% center}
+  .whitening-hero.is-bonding .hero-fold--two>img{object-position:52% center}
+  .whitening-hero.is-bonding .hero-fold--three>img{object-position:60% center}
+  .whitening-hero.is-bonding .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 36%,rgba(4,24,20,.48) 54%,transparent 72%)}
 
   @media(min-width:721px) and (max-width:1100px){
     .whitening-hero{height:245svh}
@@ -624,6 +782,12 @@ const content = isLumineers ? {
     .whitening-hero.is-lumineers .hero-fold--one,.whitening-hero.is-lumineers .hero-fold--three{clip-path:inset(0 0 0 0 round .5rem 5rem .5rem 5rem)}
     .whitening-hero.is-lumineers .hero-fold--two{clip-path:inset(0 0 0 0 round 5rem .5rem 5rem .5rem)}
     .whitening-hero.is-lumineers .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.22) 60%,rgba(4,24,20,.76) 100%)}
+    .whitening-hero.is-snap-on .hero-fold--one,.whitening-hero.is-snap-on .hero-fold--three{clip-path:inset(0 0 0 0 round 5rem .5rem 5rem .5rem)}
+    .whitening-hero.is-snap-on .hero-fold--two{clip-path:inset(0 0 0 0 round .5rem 5rem .5rem 5rem)}
+    .whitening-hero.is-snap-on .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.24) 60%,rgba(4,24,20,.78) 100%)}
+    .whitening-hero.is-bonding .hero-fold--one,.whitening-hero.is-bonding .hero-fold--three{clip-path:inset(0 0 5% 0 round 5rem 5rem .5rem .5rem)}
+    .whitening-hero.is-bonding .hero-fold--two{clip-path:inset(5% 0 0 0 round .5rem .5rem 5rem 5rem)}
+    .whitening-hero.is-bonding .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.22) 60%,rgba(4,24,20,.76) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
