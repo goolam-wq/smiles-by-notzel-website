@@ -9,6 +9,7 @@ const routes = [
   '/service-areas/chicago-heights/',
   '/services/professional-teeth-whitening/',
   '/services/porcelain-veneers-laminates/',
+  '/services/lumineers/',
   '/services/restorative-reconstructive/',
   '/services/wellness-offering/',
 ];

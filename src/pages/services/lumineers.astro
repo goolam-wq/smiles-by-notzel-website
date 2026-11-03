@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore Lumineers at Smiles by Noetzel, including consultation, planning, process, pricing and connected care in Chicago Heights and Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Lumineers | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-lumineers.webp" mediaAlt="A patient reviewing a Lumineers smile plan with her dentist" />
+    <main>
+      <TreatmentDetail kind="lumineers" />
+      <BeforeAfterStory id="before-after-lumineers" tone="light" reverse number="06" eyebrow="Lumineers case · complete smile context" title="Refined tooth by tooth." emphasis="Read as one smile."
+        intro="Lumineers planning connects every selected tooth to the surrounding enamel, visible proportions and the complete smile. Final scope and suitability are confirmed after consultation and examination."
+        image="/images/generated/before-after-lumineers-v1.webp" imageAlt="Before and after Lumineers planning view showing a refined complete smile"
+        beforeLabel="Details out of balance" beforeDetail="The selected visible teeth differed in edge position, proportion and shade."
+        afterLabel="Refinement, connected" afterDetail="The selected restorations were planned to sit naturally within the surrounding visible smile."
+        caseNote="Lumineers · individual planning" />
+      <HubFooter eyebrow="Ready to explore Lumineers?" title="Begin with a consultation built around your smile." />
+    </main>
+  </body>
+</html>

@@ -1,12 +1,18 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
 const isVeneers = kind === 'porcelain-veneers-laminates';
+const isLumineers = kind === 'lumineers';
 
-const processSteps = isVeneers ? [
+const processSteps = isLumineers ? [
+  ['01', 'Listen', 'We begin with the change you want, the character you want to keep and the moments when your smile matters most.'],
+  ['02', 'Evaluate', 'The visible teeth, enamel, bite, existing dental work and wider smile are reviewed before any option is recommended.'],
+  ['03', 'Design', 'Shape, shade and proportion are planned tooth by tooth, with the final scope confirmed after consultation and examination.'],
+  ['04', 'Place', 'Each selected restoration is checked in the complete smile, placed according to the clinical plan and reviewed for fit and comfort.'],
+] : isVeneers ? [
   ['01', 'Listen', 'We begin with what you want to refine, what must remain recognizably yours and how the result should feel in everyday life.'],
   ['02', 'Plan', 'The visible teeth, bite, enamel and existing dental work are reviewed before shape, proportion and shade are mapped.'],
   ['03', 'Prepare', 'The selected teeth are prepared according to the agreed clinical plan, and the planned forms are translated into carefully made porcelain restorations.'],
@@ -18,7 +24,13 @@ const processSteps = isVeneers ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isVeneers ? [
+const faqs = isLumineers ? [
+  ['How much do Lumineers cost?', 'The customer-facing treatment price is $1,600 per tooth. A 24-month planning example is $67 per month, and the yearly amount is $1,600 per tooth. Final scope and tooth count are confirmed after consultation and examination.'],
+  ['Are Lumineers right for every cosmetic concern?', 'No single option suits every tooth or smile. Enamel, bite, position, existing dental work and the change you want are reviewed before the team recommends an appropriate path.'],
+  ['How many teeth need Lumineers?', 'There is no automatic number. The visible smile, the concern being addressed and how the selected teeth relate to the surrounding teeth determine the recommended scope.'],
+  ['What will the planning conversation include?', 'The team reviews shape, shade, proportion, bite and the surrounding teeth so the selected restorations can be considered in the complete visible smile.'],
+  ['Are Lumineers available at both offices?', 'Consultations can be coordinated through Chicago Heights and Mokena. Call the preferred office to confirm the recommended visit and current appointment availability.'],
+] : isVeneers ? [
   ['How much do porcelain veneers and laminates cost?', 'The customer-facing treatment price is $1,500 per tooth. A 24-month planning example is $63 per month, and the yearly amount is $1,500 per tooth. Final scope and tooth count are confirmed after a consultation and examination.'],
   ['Are veneers the same as crowns?', 'No. Veneers and laminates are planned primarily for the visible surfaces of selected teeth, while crowns cover more of the tooth. The examination determines which approach fits the tooth and the wider smile plan.'],
   ['Will porcelain veneers look natural?', 'The plan considers shade, translucency, proportion, neighboring teeth and facial context. The goal is a refined result that still looks like it belongs to you.'],
@@ -32,7 +44,12 @@ const faqs = isVeneers ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isVeneers ? [
+const relatedServices = isLumineers ? [
+  ['Cosmetic Dentistry', 'Explore the complete category', '/services/cosmetic-dentistry/'],
+  ['Porcelain veneers & laminates', 'Compare another porcelain pathway', '/services/porcelain-veneers-laminates/'],
+  ['Professional teeth whitening', 'Coordinate the wider shade plan', '/services/professional-teeth-whitening/'],
+  ['Complete smile makeover', 'Connect several cosmetic priorities', '/services/cosmetic-dentistry/#cosmetic-options'],
+] : isVeneers ? [
   ['Cosmetic Dentistry', 'Explore the complete category', '/services/cosmetic-dentistry/'],
   ['Professional teeth whitening', 'Coordinate shade before porcelain planning', '/services/professional-teeth-whitening/'],
   ['Dental crown', 'Restore a tooth that needs fuller coverage', '/services/restorative-reconstructive/#restorative-options'],
@@ -44,7 +61,60 @@ const relatedServices = isVeneers ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isVeneers ? {
+const content = isLumineers ? {
+  heroClass: 'is-lumineers',
+  heroImages: [
+    ['/images/generated/lumineers-hero-v1.webp', 'A patient and dentist discussing Lumineers within her complete visible smile', 'BEGIN WITH THE PERSON'],
+    ['/images/generated/lumineers-hero-detail-v1.webp', 'A detailed Lumineers shape and shade planning view', 'PLAN EACH DETAIL'],
+    ['/images/generated/lumineers-hero-result-v1.webp', 'A patient viewing a refined Lumineers result in the mirror', 'SEE THE WHOLE SMILE'],
+  ],
+  heroAria: ['Explore the Lumineers planning conversation', 'Explore how Lumineers shape, shade and proportion are planned', 'Explore the complete refined smile'],
+  kicker: 'Cosmetic Dentistry · Treatment 03',
+  title: ['Considered.', 'Still yours.'],
+  intro: 'Lumineers planned around your enamel, bite and complete visible smile—with the final tooth count and approach confirmed after consultation and examination.',
+  heroRail: ['Start with you', 'Plan each detail', 'Review the whole smile'],
+  ledgerLabel: 'Lumineers', ledgerFixed: '$1,600 / tooth', ledgerMonthly: '$67 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['Refinement is not disguise.', 'It is a', 'considered edit.'],
+  storyImage: '/images/generated/lumineers-process-v1.webp',
+  storyAlt: 'A dentist and patient reviewing Lumineers shape and shade together',
+  storyRangeLabel: 'Compare the starting smile with the planned Lumineers refinement',
+  storyNote: 'Read the whole smile before selecting one tooth.',
+  storyLead: 'We plan the visible smile as one composition. Every selected tooth must still belong beside the teeth around it.',
+  storySteps: [
+    ['01', 'Read the whole smile', 'Edges, spacing, shade and proportion are considered together.'],
+    ['02', 'Review the foundation', 'Enamel, bite and existing dental work shape the clinical recommendation.'],
+    ['03', 'Plan the refinement', 'The selected forms are considered in the context of your face and complete smile.'],
+  ],
+  storyNotes: ['Read the whole smile before selecting one tooth.', 'Review enamel, bite and existing dental work before planning.', 'Refine every selected tooth in the context of the complete smile.'],
+  processTitle: ['Planned tooth by tooth.', 'Seen as one smile.'],
+  expectTitle: ['Carefully considered.', 'Never automatic.'],
+  expectCopy: 'Lumineers are one cosmetic option, not an automatic answer. The team reviews enamel, bite, existing restorations, tooth position and the complete visible smile before confirming whether this path and tooth count fit your goals.',
+  metrics: [['1', 'personal smile plan'], ['5', 'details reviewed: enamel, bite, shade, proportion, existing work'], ['2', 'connected office locations']],
+  pricingId: 'lumineers-pricing',
+  pricingTitle: ['One selected tooth.', 'Three ways to plan.'],
+  pricingIntro: 'The same Lumineers treatment shown as a fixed, monthly and yearly customer-facing amount.',
+  prices: [['FIXED · 01', '$1,600', 'per tooth'], ['MONTHLY · 02', '$67', 'per month · 24 months'], ['YEARLY · 03', '$1,600', 'annual amount per tooth']],
+  whyTitle: ['Personal.', 'Never preset.'],
+  whyIntro: 'We do not begin with a stock smile. We connect the health of the tooth, the surrounding teeth and your wider goals before shaping a recommendation.',
+  whyImage: '/images/generated/lumineers-result-v1.webp',
+  whyAlt: 'A patient and dentist reviewing a refined Lumineers result together',
+  whyPanels: [
+    ['01', 'Suitability before selection', 'Enamel, bite and existing dental work define whether this option fits the clinical picture.'],
+    ['02', 'Detail in context', 'Shape, shade and proportion are considered beside the surrounding teeth.'],
+    ['03', 'One connected result', 'The finish is reviewed in the complete visible smile—not as an isolated tooth.'],
+  ],
+  whyFoot: 'ONE CONNECTED RESULT · THREE PLANNING CHECKS',
+  proofTitle: ['Clarity in the plan.', 'Confidence in the next step.'],
+  proofText: 'A patient described the practice team as attentive and reassuring, with questions answered clearly before moving forward with care.',
+  proofFooter: 'GENERAL PRACTICE PATIENT EXPERIENCE · PARAPHRASED',
+  proofTags: ['Clear communication', 'Individual planning', 'Connected care'],
+  faqTitle: ['Before you', 'choose.'],
+  relatedTitle: ['One cosmetic option.', 'Many connected paths.'],
+  relatedAria: 'Related Lumineers and cosmetic services',
+  currentPath: 'Lumineers',
+  locationsAria: 'Lumineers consultation locations',
+} : isVeneers ? {
   heroClass: 'is-veneers',
   heroImages: [
     ['/images/generated/porcelain-veneers-laminates-hero-v1.webp', 'A patient and dentist planning porcelain veneers around her natural smile', 'PLAN THE PROPORTION'],
@@ -182,7 +252,7 @@ const content = isVeneers ? {
         </div>
       </div>
 
-      <div class="hero-cinema__rail" aria-label={isVeneers ? 'Porcelain veneer planning sequence' : 'Whitening planning sequence'}>
+      <div class="hero-cinema__rail" aria-label={`${content.ledgerLabel} planning sequence`}>
         <div data-hero-phase class="is-active"><b>01</b><span>{content.heroRail[0]}</span></div>
         <div data-hero-phase><b>02</b><span>{content.heroRail[1]}</span></div>
         <div data-hero-phase><b>03</b><span>{content.heroRail[2]}</span></div>
@@ -513,6 +583,15 @@ const content = isVeneers ? {
   .whitening-hero.is-veneers .hero-fold--two>img{object-position:52% center}
   .whitening-hero.is-veneers .hero-fold--three>img{object-position:58% center}
   .whitening-hero.is-veneers .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 34%,rgba(4,24,20,.52) 48%,transparent 66%)}
+  .whitening-hero.is-lumineers .hero-folds__scan{display:none}
+  .whitening-hero.is-lumineers .hero-fold{border:0;box-shadow:0 2.2rem 6rem rgba(0,0,0,.3)}
+  .whitening-hero.is-lumineers .hero-fold--one{clip-path:inset(0 0 0 0 round 1rem 9rem 1rem 9rem)}
+  .whitening-hero.is-lumineers .hero-fold--two{clip-path:inset(0 0 0 0 round 9rem 1rem 9rem 1rem)}
+  .whitening-hero.is-lumineers .hero-fold--three{clip-path:inset(0 0 0 0 round 1rem 9rem 1rem 9rem)}
+  .whitening-hero.is-lumineers .hero-fold--one>img{object-position:43% center}
+  .whitening-hero.is-lumineers .hero-fold--two>img{object-position:52% center}
+  .whitening-hero.is-lumineers .hero-fold--three>img{object-position:60% center}
+  .whitening-hero.is-lumineers .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.93) 36%,rgba(4,24,20,.46) 54%,transparent 72%)}
 
   @media(min-width:721px) and (max-width:1100px){
     .whitening-hero{height:245svh}
@@ -542,6 +621,9 @@ const content = isVeneers ? {
     .whitening-hero.is-veneers .hero-fold--one,.whitening-hero.is-veneers .hero-fold--three{clip-path:inset(0 0 5% 0 round 6rem 6rem .5rem .5rem)}
     .whitening-hero.is-veneers .hero-fold--two{clip-path:inset(5% 0 0 0 round .5rem .5rem 6rem 6rem)}
     .whitening-hero.is-veneers .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.24) 58%,rgba(4,24,20,.76) 100%)}
+    .whitening-hero.is-lumineers .hero-fold--one,.whitening-hero.is-lumineers .hero-fold--three{clip-path:inset(0 0 0 0 round .5rem 5rem .5rem 5rem)}
+    .whitening-hero.is-lumineers .hero-fold--two{clip-path:inset(0 0 0 0 round 5rem .5rem 5rem .5rem)}
+    .whitening-hero.is-lumineers .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.22) 60%,rgba(4,24,20,.76) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */

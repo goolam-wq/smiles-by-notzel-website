@@ -20,6 +20,7 @@ const routes = [
   ['chicago-heights', '/service-areas/chicago-heights/', '#before-after-chicago-heights'],
   ['whitening', '/services/professional-teeth-whitening/', '#before-after-professional-whitening'],
   ['porcelain-veneers-laminates', '/services/porcelain-veneers-laminates/', '#before-after-porcelain-veneers-laminates'],
+  ['lumineers', '/services/lumineers/', '#before-after-lumineers'],
 ];
 const viewports = [
   ['desktop', 1440, 900],
