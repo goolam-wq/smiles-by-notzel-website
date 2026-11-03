@@ -8,6 +8,7 @@ const routes = [
   '/services/cosmetic-dentistry/',
   '/service-areas/chicago-heights/',
   '/services/professional-teeth-whitening/',
+  '/services/implants-oral-surgery/',
 ];
 const browser = await chromium.launch({ headless: true, executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe' });
 const uses = [];

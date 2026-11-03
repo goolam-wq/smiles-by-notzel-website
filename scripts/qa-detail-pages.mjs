@@ -7,6 +7,7 @@ const routes = [
   ['cosmetic', '/services/cosmetic-dentistry/?qa=detail-matrix'],
   ['complete-health-airway', '/services/complete-health-airway/?qa=detail-matrix'],
   ['emergency-comfort', '/services/emergency-comfort/?qa=detail-matrix'],
+  ['implants-oral-surgery', '/services/implants-oral-surgery/?qa=detail-matrix'],
   ['whitening', '/services/professional-teeth-whitening/?qa=detail-matrix'],
 ];
 const routeFilter = process.argv[2];

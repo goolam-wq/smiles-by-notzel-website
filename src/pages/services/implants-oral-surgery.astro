@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore implant and oral-surgery care at Smiles by Noetzel, from single-tooth implants and grafting to full-arch solutions and extractions." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Implants &amp; Oral Surgery | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-implants-oral-surgery.webp" mediaAlt="An oral surgeon and care coordinator reviewing an implant model" />
+    <main>
+      <DetailExperience kind="implants-oral-surgery" />
+      <BeforeAfterStory id="before-after-implants-oral-surgery" tone="dark" reverse number="04" eyebrow="Implant story · foundation to finish" title="Restored." emphasis="Still recognizably you."
+        intro="Implant care is most credible when the change is functional, proportionate and connected to the person—not presented as a dramatic makeover."
+        image="/images/generated/before-after-implants-oral-surgery-v1.webp" imageAlt="Illustrative before and after implant restoration showing the same patient before treatment and after a healed single-tooth result"
+        beforeLabel="Before the connected plan" beforeDetail="A missing tooth affected function, confidence and the way the patient used that side of the smile."
+        afterLabel="After the healed restoration" afterDetail="A carefully planned implant and crown restored the missing space without changing the character of the wider smile."
+        caseNote="Single-tooth implant + healed restoration" />
+      <HubFooter eyebrow="Ready to understand the full pathway?" title="Start with the foundation. We’ll map the finish with you." />
+    </main>
+  </body>
+</html>
