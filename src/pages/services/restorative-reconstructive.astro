@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore restorative and reconstructive dentistry, from tooth-colored fillings and crowns to dentures, bridges and full-mouth reconstruction at Smiles by Noetzel." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Restorative & Reconstructive Dentistry | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-restorative-reconstructive.webp" mediaAlt="A dentist and patient reviewing a natural restorative result" />
+    <main>
+      <DetailExperience kind="restorative-reconstructive" />
+      <BeforeAfterStory id="before-after-restorative-reconstructive" tone="light" number="10" eyebrow="Restorative story · function returned" title="A damaged tooth." emphasis="A connected repair."
+        intro="Restorative care should make the problem, the repair and the long-term plan easy to understand. This case follows the same patient from a compromised tooth to a natural-looking result designed to work with the wider bite."
+        image="/images/generated/before-after-restorative-reconstructive-v1.webp" imageAlt="The same restorative patient before treatment with a damaged tooth and after treatment with a natural-looking repair"
+        beforeLabel="Before restorative planning" beforeDetail="A damaged tooth affected comfort, strength and confidence in everyday function."
+        afterLabel="After connected repair" afterDetail="A carefully sequenced restoration returned support and a natural appearance while respecting the surrounding bite."
+        caseNote="Restorative assessment + connected repair" />
+      <HubFooter eyebrow="Ready to rebuild with a clear plan?" title="Start with a restorative conversation that connects comfort, function and every next step." />
+    </main>
+  </body>
+</html>

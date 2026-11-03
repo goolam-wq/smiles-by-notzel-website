@@ -15,6 +15,7 @@ const routes = [
   ['periodontal-dentistry', '/services/periodontal-dentistry/', '#before-after-periodontal-dentistry'],
   ['preventive-diagnostic', '/services/preventive-diagnostic/', '#before-after-preventive-diagnostic'],
   ['recode-cognitive-health', '/services/recode-cognitive-health/', '#before-after-recode-cognitive-health'],
+  ['restorative-reconstructive', '/services/restorative-reconstructive/', '#before-after-restorative-reconstructive'],
   ['chicago-heights', '/service-areas/chicago-heights/', '#before-after-chicago-heights'],
   ['whitening', '/services/professional-teeth-whitening/', '#before-after-professional-whitening'],
 ];

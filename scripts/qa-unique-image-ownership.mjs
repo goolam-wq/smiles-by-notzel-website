@@ -8,11 +8,12 @@ const routes = [
   '/services/cosmetic-dentistry/',
   '/service-areas/chicago-heights/',
   '/services/professional-teeth-whitening/',
+  '/services/restorative-reconstructive/',
 ];
 
 const viewports = {
   desktop: { width: 1440, height: 900 },
-  tablet: { width: 1024, height: 1366 },
+  tablet: { width: 1032, height: 1376 },
   phone: { width: 440, height: 956 },
 };
 

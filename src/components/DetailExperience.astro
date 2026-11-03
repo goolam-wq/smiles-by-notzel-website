@@ -1,5 +1,5 @@
 ---
-interface Props { kind: 'chicago' | 'cosmetic' | 'complete-health-airway' | 'emergency-comfort' | 'implants-oral-surgery' | 'orthodontic-dentistry' | 'pediatric-developmental' | 'periodontal-dentistry' | 'preventive-diagnostic' | 'recode-cognitive-health' }
+interface Props { kind: 'chicago' | 'cosmetic' | 'complete-health-airway' | 'emergency-comfort' | 'implants-oral-surgery' | 'orthodontic-dentistry' | 'pediatric-developmental' | 'periodontal-dentistry' | 'preventive-diagnostic' | 'recode-cognitive-health' | 'restorative-reconstructive' }
 const { kind } = Astro.props;
 const chicago = kind === 'chicago';
 const completeHealth = kind === 'complete-health-airway';
@@ -10,12 +10,13 @@ const pediatric = kind === 'pediatric-developmental';
 const periodontal = kind === 'periodontal-dentistry';
 const preventive = kind === 'preventive-diagnostic';
 const recode = kind === 'recode-cognitive-health';
+const restorative = kind === 'restorative-reconstructive';
 
 const communities = ['Chicago Heights', 'South Chicago Heights', 'Steger', 'Sauk Village', 'Lynwood', 'Glenwood', 'Ford Heights', 'Olympia Fields', 'Park Forest', 'Homewood', 'Flossmoor', 'Hazel Crest', 'Matteson', 'Crete', 'Country Club Hills', 'Richton Park'];
 const serviceGroups = [
   { name: 'Preventive care', count: 9, href: '/services/#preventive-diagnostic' },
   { name: 'Cosmetic dentistry', count: 7, href: '/services/cosmetic-dentistry/' },
-  { name: 'Restorative care', count: 10, href: '/services/#restorative-reconstructive' },
+  { name: 'Restorative care', count: 7, href: '/services/restorative-reconstructive/' },
   { name: 'Complete Health', count: 8, href: '/services/#complete-health-airway' },
   { name: 'Emergency dentistry', count: 5, href: '/services/#emergency-comfort' },
   { name: 'Kid-friendly dentistry', count: 9, href: '/services/#pediatric-developmental' },
@@ -83,7 +84,77 @@ const recodeServices = [
   { n: '02', slug: 'oral-spirochete-test', name: 'Oral spirochete test', note: 'Focused oral-microbiome testing that can add useful context to a coordinated health conversation.', fixed: '$199', monthly: '$17 / mo · 12 mo', yearly: '$199 / yr' },
   { n: '03', slug: 'amalgam-filling-replacement', name: 'Amalgam filling replacement', note: 'Individualized replacement planning that weighs dental condition, material choices and the wider care plan.', fixed: 'From $400 / tooth', monthly: '$34 / mo · 12 mo', yearly: '$400 / yr' },
 ];
-const category = recode ? {
+const restorativeServices = [
+  { n: '01', slug: 'full-denture', name: 'Full denture', note: 'A complete removable restoration planned around comfort, stability and a natural-looking smile.', fixed: '$2,400 / arch', monthly: '$100 / mo · 24 mo', yearly: '$2,400 / yr' },
+  { n: '02', slug: 'partial-denture', name: 'Partial denture', note: 'A removable restoration that replaces selected missing teeth while working with the teeth that remain.', fixed: 'From $1,800 / arch', monthly: '$75 / mo · 24 mo', yearly: '$1,800 / yr' },
+  { n: '03', slug: 'tooth-colored-dental-filling', name: 'Tooth-colored dental filling', note: 'A conservative repair that restores damaged tooth structure with a shade designed to blend naturally.', fixed: 'From $255 / tooth', monthly: '$22 / mo · 12 mo', yearly: '$255 / yr' },
+  { n: '04', slug: 'dental-crown', name: 'Dental crown', note: 'Full-coverage protection that restores strength, shape and function to a compromised tooth.', fixed: '$1,530 / tooth', monthly: '$64 / mo · 24 mo', yearly: '$1,530 / yr' },
+  { n: '05', slug: 'dental-bridge', name: 'Dental bridge', note: 'A three-unit fixed restoration that replaces a missing tooth and reconnects the bite across the open space.', fixed: '$4,500 / 3-unit', monthly: '$125 / mo · 36 mo', yearly: '$4,500 / yr' },
+  { n: '06', slug: 'full-mouth-reconstruction', name: 'Full-mouth reconstruction', note: 'A phased plan that coordinates the teeth, bite and supporting tissues when repair needs span the full mouth.', fixed: 'From $25,000', monthly: '$695 / mo · 36 mo', yearly: '$25,000 / yr' },
+  { n: '07', slug: 'root-canal-treatment-coordination', name: 'Root-canal treatment and coordination', note: 'Endodontic treatment and restorative follow-through organized as one connected path.', fixed: 'From $1,025 / tooth', monthly: '$43 / mo · 24 mo', yearly: '$1,025 / yr' },
+];
+const category = restorative ? {
+  slug: 'restorative-reconstructive',
+  watermark: ['REPAIR', 'REBUILD'],
+  heroKicker: 'Restorative & Reconstructive Dentistry · 7 exact services',
+  heroLead: 'Function, rebuilt.',
+  heroEmphasis: 'Confidence, restored.',
+  heroIntro: 'From one damaged tooth to a full-mouth reconstruction, restorative care connects diagnosis, repair and long-term function in one deliberate plan.',
+  heroImage: '/images/generated/restorative-reconstructive-hero-v1.webp',
+  heroAlt: 'A dentist and patient reviewing a restorative treatment result together in a warm dental studio',
+  heroOutline: '',
+  heroCaptions: [],
+  heroButton: 'Explore restorative care',
+  ledger: [['SERVICES', '7 exact offerings'], ['FOCUS', 'Comfort + function'], ['LOCATIONS', 'Chicago Heights + Mokena'], ['STARTING WITH', 'A restorative map']],
+  aboutKicker: '01 · ABOUT RESTORATIVE CARE',
+  aboutLead: 'Repair what is failing',
+  aboutEmphasis: 'without losing the wider picture.',
+  aboutMainImage: '/images/generated/unique/restorative-reconstructive-about-exam.webp',
+  aboutMainAlt: 'A dentist completing a careful restorative examination for a patient',
+  aboutDetailImage: '/images/generated/unique/restorative-reconstructive-about-review.webp',
+  aboutDetailAlt: 'A dentist and patient reviewing a restorative care plan together',
+  aboutLabel: 'DIAGNOSE · STABILIZE · REBUILD',
+  aboutCopy: 'Restoration should not be a series of disconnected repairs. The team considers the damaged tooth, the bite, neighboring structures and the patient’s priorities before shaping the sequence.',
+  principles: [['01', 'Diagnose', 'Understand what has failed, why it failed and what still has a healthy foundation.'], ['02', 'Stabilize', 'Address active decay, infection, discomfort and structural risk before rebuilding further.'], ['03', 'Rebuild', 'Restore comfort and function with materials and sequencing designed for the whole bite.']],
+  optionKicker: '02 · THE RESTORATIVE PATHWAYS',
+  optionLead: 'Seven exact services.',
+  optionEmphasis: 'One connected rebuild.',
+  optionIntro: 'Open each pathway to see how repair, replacement and reconstruction can fit into a clear restorative sequence.',
+  optionImage: '/images/generated/unique/restorative-reconstructive-option-tools.webp',
+  optionAlt: 'A clinician preparing restorative materials and instruments for treatment',
+  optionLabel: 'REPAIR · REPLACE · RECONSTRUCT',
+  services: restorativeServices,
+  processKicker: '03 · THE RESTORATIVE PROCESS',
+  processLead: 'A rebuild that becomes',
+  processEmphasis: 'clear.',
+  steps: [['01', 'See the whole problem', 'The exam identifies damage, symptoms, bite forces and the supporting structures that shape the plan.'], ['02', 'Set the sequence', 'Urgent needs and structural risks are addressed first, with each later phase explained before treatment begins.'], ['03', 'Rebuild deliberately', 'The selected restoration is designed around fit, function, comfort and a result that belongs in your smile.'], ['04', 'Protect the result', 'Follow-up, hygiene and practical maintenance help the restored teeth keep doing their job.']],
+  trustImage: '/images/generated/unique/restorative-reconstructive-trust-plan.webp',
+  trustAlt: 'A dentist explaining a phased restorative plan to a patient',
+  trustLabel: 'ONE RESTORATIVE PLAN · TWO CONNECTED OFFICES',
+  trustKicker: '04 · WHY CHOOSE SMILES BY NOETZEL',
+  trustHeading: 'Restorative care that connects every phase.',
+  trustCopy: 'The same connected team can coordinate urgent stabilization, individual tooth repair and more complex reconstruction without treating each appointment like an isolated event.',
+  trustReasons: [['01', 'Whole-bite context', 'Each restoration is considered alongside neighboring teeth, bite forces and long-term function.'], ['02', 'Clear sequencing', 'Complex care is organized into understandable phases with the next step visible from the start.'], ['03', 'Natural materials', 'Shade, proportion and material choices support a result that feels at home in the patient’s smile.'], ['04', 'Two connected offices', 'Restorative treatment can be coordinated through Chicago Heights or Mokena.']],
+  pricingKicker: '05 · PRICING, MADE LEGIBLE',
+  pricingLead: 'Restorative options with',
+  pricingEmphasis: 'clear numbers.',
+  pricingIntro: 'Compare fixed, monthly and yearly customer-facing views for all seven restorative and reconstructive services.',
+  pricingNote: 'Dentures are shown per arch, fillings and crowns per tooth, and bridge, reconstruction and root-canal coordination from the stated amount. Final scope, candidacy and payment terms are confirmed by the office.',
+  proofKicker: '06 · RESTORATIVE PATIENT PROOF',
+  proofQuote: '“After I chipped a front tooth, the repair was explained clearly and restored so naturally that it felt like my own smile again.”',
+  proofFooter: 'PATIENT EXPERIENCE · A CONNECTED REBUILD',
+  proofTopics: ['Clear restorative sequence', 'Natural-looking repair', 'Two connected offices'],
+  proofTotal: '7',
+  proofTotalLabel: 'connected restorative services',
+  faqKicker: '07 · GOOD QUESTIONS',
+  faqs: [
+    ['How do I know which restorative treatment I need?', 'The recommendation depends on how much healthy tooth structure remains, the condition of the bite, any missing teeth and the long-term prognosis of each option. The team explains the tradeoffs before treatment begins.'],
+    ['What is the difference between a filling and a crown?', 'A filling repairs a smaller damaged area inside the tooth. A crown covers and protects more of the tooth when the remaining structure needs broader support.'],
+    ['When is a bridge or denture considered?', 'Both replace missing teeth. A bridge is fixed to supporting teeth or implants, while a denture is removable. The right option depends on anatomy, health, goals and budget.'],
+    ['What does full-mouth reconstruction involve?', 'It is a coordinated plan for patients with multiple damaged, worn or missing teeth. Treatment is usually phased and may combine several restorative services.'],
+    ['Is restorative care available at both offices?', 'Yes. Restorative and reconstructive care can be coordinated through Chicago Heights or Mokena, with specific treatment availability confirmed by the team.'],
+  ],
+} : recode ? {
   slug: 'recode-cognitive-health',
   watermark: ['ORAL', 'SYSTEMIC'],
   heroKicker: 'ReCODE & Cognitive Health · 3 connected services',
@@ -619,7 +690,7 @@ const cosmeticFaq = [
 const faqs = chicago ? chicagoFaq : category.faqs;
 ---
 
-<div class:list={['detail-page', chicago ? 'is-chicago' : completeHealth ? 'is-complete-health' : emergencyComfort ? 'is-emergency-comfort' : implantsSurgery ? 'is-implants-surgery' : orthodontic ? 'is-orthodontic' : pediatric ? 'is-pediatric' : periodontal ? 'is-periodontal' : preventive ? 'is-preventive' : recode ? 'is-recode' : 'is-cosmetic']} data-detail-root data-detail-kind={kind}>
+<div class:list={['detail-page', chicago ? 'is-chicago' : completeHealth ? 'is-complete-health' : emergencyComfort ? 'is-emergency-comfort' : implantsSurgery ? 'is-implants-surgery' : orthodontic ? 'is-orthodontic' : pediatric ? 'is-pediatric' : periodontal ? 'is-periodontal' : preventive ? 'is-preventive' : recode ? 'is-recode' : restorative ? 'is-restorative' : 'is-cosmetic']} data-detail-root data-detail-kind={kind}>
   <section class="detail-hero" data-detail-hero data-areas-hero={chicago ? '' : undefined} data-services-hero={!chicago ? '' : undefined}>
     <div class="detail-hero__sticky">
       <div class="detail-hero__grid" aria-hidden="true"></div>
@@ -637,8 +708,8 @@ const faqs = chicago ? chicagoFaq : category.faqs;
         </a>
       </div>
 
-      <div class:list={['detail-hero__visual', !chicago && !completeHealth && !emergencyComfort && !implantsSurgery && !orthodontic && !pediatric && !periodontal && !preventive && !recode && 'cosmetic-triptych', completeHealth && 'health-scan', emergencyComfort && 'comfort-relief', implantsSurgery && 'implant-stage', orthodontic && 'aligner-reveal', pediatric && 'growing-story', periodontal && 'gum-story', preventive && 'preventive-window', recode && 'recode-focus']} data-hero-visual>
-        {!completeHealth && !emergencyComfort && !implantsSurgery && !orthodontic && !pediatric && !periodontal && !preventive && !recode && <div class="detail-hero__outline" aria-hidden="true"><span>{chicago ? 'OFFICE 01' : category.heroOutline}</span></div>}
+      <div class:list={['detail-hero__visual', !chicago && !completeHealth && !emergencyComfort && !implantsSurgery && !orthodontic && !pediatric && !periodontal && !preventive && !recode && !restorative && 'cosmetic-triptych', completeHealth && 'health-scan', emergencyComfort && 'comfort-relief', implantsSurgery && 'implant-stage', orthodontic && 'aligner-reveal', pediatric && 'growing-story', periodontal && 'gum-story', preventive && 'preventive-window', recode && 'recode-focus', restorative && 'restorative-composition']} data-hero-visual>
+        {!completeHealth && !emergencyComfort && !implantsSurgery && !orthodontic && !pediatric && !periodontal && !preventive && !recode && !restorative && <div class="detail-hero__outline" aria-hidden="true"><span>{chicago ? 'OFFICE 01' : category.heroOutline}</span></div>}
         {chicago ? (
           <>
             <div class="detail-hero__frame">
@@ -646,6 +717,11 @@ const faqs = chicago ? chicagoFaq : category.faqs;
             </div>
             <div class="hero-aperture" aria-hidden="true"><i></i><i></i></div>
           </>
+        ) : restorative ? (
+          <div class="restorative-composition__stage">
+            <div class="restorative-composition__main"><img src={category.heroImage} alt={category.heroAlt} width="1536" height="1024" loading="eager" fetchpriority="high" /></div>
+            <div class="restorative-composition__detail" aria-hidden="true"><img src={category.heroImage} alt="" width="1536" height="1024" loading="eager" /></div>
+          </div>
         ) : recode ? (
           <div class="recode-focus__stage">
             <div class="recode-focus__panorama"><img src={category.heroImage} alt={category.heroAlt} width="1672" height="941" loading="eager" fetchpriority="high" /></div>
@@ -702,7 +778,7 @@ const faqs = chicago ? chicagoFaq : category.faqs;
         )}
         {chicago ? (
           <div class="hero-address"><span>500 Ashland Ave, Suite #2</span><span>Chicago Heights, IL</span></div>
-        ) : completeHealth || emergencyComfort || implantsSurgery || orthodontic || pediatric || periodontal || preventive || recode ? null : (
+        ) : completeHealth || emergencyComfort || implantsSurgery || orthodontic || pediatric || periodontal || preventive || recode || restorative ? null : (
           <><div class="cosmetic-triptych__caption">{category.heroCaptions.map((caption) => <span>{caption}</span>)}</div><div class="hero-shade" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></>
         )}
       </div>
@@ -981,6 +1057,7 @@ const faqs = chicago ? chicagoFaq : category.faqs;
   .is-periodontal .detail-hero{height:100svh;min-height:50rem;background:var(--pine-950);color:var(--porcelain)}.is-periodontal .detail-hero__sticky{position:relative;display:block;height:100%;padding:0;overflow:hidden}.is-periodontal .detail-hero__grid,.is-periodontal .detail-hero__watermark,.is-periodontal .detail-hero__index{display:none}.is-periodontal .detail-hero__visual{position:absolute;z-index:1;inset:0;width:100%;height:100%;overflow:hidden}.gum-story__stage{position:absolute;inset:0;overflow:hidden;background:var(--pine-900)}.gum-story__stage img{width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.045);will-change:transform}.gum-story__veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,29,25,.97) 0%,rgba(6,29,25,.82) 28%,rgba(6,29,25,.2) 58%,rgba(6,29,25,.08) 100%),linear-gradient(0deg,rgba(6,29,25,.58),transparent 46%);pointer-events:none}.is-periodontal .detail-hero__copy{position:absolute;z-index:5;left:clamp(2rem,5vw,6rem);top:clamp(9rem,18vh,12rem);bottom:clamp(2rem,6vh,4rem);display:flex;flex-direction:column;align-items:flex-start;max-width:min(43vw,45rem);filter:none}.is-periodontal .detail-hero h1{max-width:42rem;margin:clamp(1.5rem,3vh,2.5rem) 0;font-size:clamp(5rem,8.5vw,9.5rem);line-height:.76;text-wrap:balance}.is-periodontal .detail-hero h1 em{color:var(--mint-300)}.is-periodontal .detail-hero__intro{max-width:29rem;margin:0 0 2rem;color:rgba(245,240,231,.78)}.is-periodontal .detail-button{margin-top:auto;color:var(--porcelain);border-color:rgba(196,234,220,.46);background:rgba(6,29,25,.32);backdrop-filter:blur(12px)}.gum-story__note{position:absolute;z-index:3;right:clamp(1.5rem,4vw,4rem);bottom:clamp(1.5rem,4vw,3.5rem);display:grid;gap:.35rem;min-width:18rem;padding:1rem 1.2rem;border-left:1px solid rgba(196,234,220,.72);background:rgba(6,29,25,.5);backdrop-filter:blur(14px)}.gum-story__note span{color:var(--mint-300);font-size:.5rem;font-weight:850;letter-spacing:.16em}.gum-story__note strong{font-family:var(--serif);font-size:1.2rem;font-weight:500}.is-periodontal .detail-ledger{background:var(--paper);color:var(--pine-950)}
   .is-preventive .detail-hero{height:100svh;min-height:50rem;background:var(--pine-950);color:var(--porcelain)}.is-preventive .detail-hero__sticky{position:relative;display:block;height:100%;padding:0;overflow:hidden}.is-preventive .detail-hero__grid,.is-preventive .detail-hero__watermark,.is-preventive .detail-hero__index{display:none}.is-preventive .detail-hero__visual{position:absolute;z-index:1;right:clamp(1.5rem,4vw,5rem);top:14vh;width:min(58vw,68rem);height:74vh}.preventive-window__stage{position:absolute;inset:0;overflow:hidden;border-radius:1.25rem 12rem 1.25rem 12rem;background:var(--pine-900);box-shadow:0 2.5rem 7rem rgba(0,0,0,.28)}.preventive-window__stage img{width:100%;height:100%;object-fit:cover;object-position:58% center;transform:scale(1.045);will-change:transform}.preventive-window__wash{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,29,25,.5),transparent 48%),linear-gradient(0deg,rgba(6,29,25,.4),transparent 40%);pointer-events:none}.preventive-window__note{position:absolute;z-index:3;right:1.5rem;bottom:1.5rem;display:grid;gap:.35rem;min-width:18rem;padding:1rem 1.2rem;border-left:1px solid rgba(196,234,220,.72);background:rgba(6,29,25,.56);backdrop-filter:blur(14px)}.preventive-window__note span{color:var(--mint-300);font-size:.5rem;font-weight:850;letter-spacing:.16em}.preventive-window__note strong{font-family:var(--serif);font-size:1.15rem;font-weight:500}.is-preventive .detail-hero__copy{position:absolute;z-index:5;left:clamp(2rem,5vw,6rem);top:clamp(9rem,17vh,11rem);bottom:clamp(2rem,6vh,4rem);display:flex;flex-direction:column;align-items:flex-start;max-width:min(39vw,42rem);filter:none}.is-preventive .detail-hero h1{max-width:40rem;margin:clamp(1.5rem,3vh,2.5rem) 0;font-size:clamp(5rem,8vw,9rem);line-height:.76;text-wrap:balance}.is-preventive .detail-hero h1 em{color:var(--mint-300)}.is-preventive .detail-hero__intro{max-width:28rem;margin:0 0 2rem;color:rgba(245,240,231,.8)}.is-preventive .detail-button{margin-top:auto;color:var(--porcelain);border-color:rgba(196,234,220,.46);background:rgba(6,29,25,.32);backdrop-filter:blur(12px)}.is-preventive .detail-ledger{background:var(--paper);color:var(--pine-950)}
   .is-recode .detail-hero{height:100svh;min-height:50rem;background:var(--pine-950);color:var(--porcelain)}.is-recode .detail-hero__sticky{position:relative;display:block;height:100%;padding:0;overflow:hidden}.is-recode .detail-hero__grid,.is-recode .detail-hero__watermark,.is-recode .detail-hero__index{display:none}.is-recode .detail-hero__copy{position:absolute;z-index:5;left:clamp(2rem,5vw,6rem);top:clamp(9rem,17vh,11rem);bottom:clamp(2rem,6vh,4rem);display:flex;flex-direction:column;align-items:flex-start;max-width:min(39vw,42rem);filter:none}.is-recode .detail-hero h1{max-width:42rem;margin:clamp(1.5rem,3vh,2.5rem) 0;font-size:clamp(4.8rem,7.7vw,8.6rem);line-height:.77;text-wrap:balance}.is-recode .detail-hero h1 em{color:var(--mint-300)}.is-recode .detail-hero__intro{max-width:28rem;margin:0 0 2rem;color:rgba(245,240,231,.8)}.is-recode .detail-button{margin-top:auto;color:var(--porcelain);border-color:rgba(196,234,220,.46);background:rgba(6,29,25,.32);backdrop-filter:blur(12px)}.is-recode .detail-hero__visual{position:absolute;z-index:1;right:clamp(1.5rem,4vw,5rem);top:13vh;width:min(60vw,72rem);height:76vh}.recode-focus__stage{position:absolute;inset:0}.recode-focus__panorama{position:absolute;inset:0 0 8% 10%;overflow:hidden;border-radius:10rem 1.2rem 1.2rem 1.2rem;background:var(--pine-900);box-shadow:0 2.5rem 7rem rgba(0,0,0,.28)}.recode-focus__panorama:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,29,25,.5),transparent 46%),linear-gradient(0deg,rgba(6,29,25,.3),transparent 42%);pointer-events:none}.recode-focus__panorama img{width:100%;height:100%;object-fit:cover;object-position:57% center;transform:scale(1.045);will-change:transform}.recode-focus__portrait{position:absolute;left:0;bottom:0;width:clamp(11rem,18vw,20rem);aspect-ratio:1;overflow:hidden;border:.7rem solid var(--pine-950);border-radius:50%;background:var(--pine-900);box-shadow:0 1.5rem 5rem rgba(0,0,0,.38)}.recode-focus__portrait img{width:100%;height:100%;object-fit:cover;object-position:23% 52%;transform:scale(1.58);will-change:transform}.recode-focus__note{position:absolute;z-index:3;right:1.5rem;bottom:1.5rem;display:grid;gap:.35rem;min-width:18rem;padding:1rem 1.2rem;border-left:1px solid rgba(196,234,220,.72);background:rgba(6,29,25,.58);backdrop-filter:blur(14px)}.recode-focus__note span{color:var(--mint-300);font-size:.5rem;font-weight:850;letter-spacing:.16em}.recode-focus__note strong{font-family:var(--serif);font-size:1.15rem;font-weight:500}.is-recode .detail-ledger{background:var(--paper);color:var(--pine-950)}
+  .is-restorative .detail-hero{height:100svh;min-height:50rem;background:var(--pine-950);color:var(--porcelain)}.is-restorative .detail-hero__sticky{position:relative;display:block;height:100%;padding:0;overflow:hidden}.is-restorative .detail-hero__grid,.is-restorative .detail-hero__watermark,.is-restorative .detail-hero__index{display:none}.is-restorative .detail-hero__copy{position:absolute;z-index:5;left:clamp(2rem,5vw,6rem);top:clamp(9rem,17vh,11rem);bottom:clamp(2rem,6vh,4rem);display:flex;flex-direction:column;align-items:flex-start;max-width:min(40vw,43rem);filter:none}.is-restorative .detail-hero h1{max-width:43rem;margin:clamp(1.4rem,3vh,2.4rem) 0;font-size:clamp(4.7rem,7.65vw,8.5rem);line-height:.77;text-wrap:balance}.is-restorative .detail-hero h1 em{color:var(--mint-300)}.is-restorative .detail-hero__intro{max-width:28rem;margin:0 0 2rem;color:rgba(245,240,231,.8)}.is-restorative .detail-button{margin-top:auto;color:var(--porcelain);border-color:rgba(196,234,220,.46);background:rgba(6,29,25,.32);backdrop-filter:blur(12px)}.is-restorative .detail-hero__visual{position:absolute;z-index:1;right:clamp(1.25rem,3.5vw,4.5rem);top:12vh;width:min(59vw,70rem);height:78vh}.restorative-composition__stage{position:absolute;inset:0}.restorative-composition__main{position:absolute;inset:0 0 9% 12%;overflow:hidden;border-radius:1rem 11rem 1rem 1rem;background:var(--pine-900);box-shadow:0 2.5rem 7rem rgba(0,0,0,.3)}.restorative-composition__main img{width:100%;height:100%;object-fit:cover;object-position:61% center;transform:scale(1.045);will-change:transform}.restorative-composition__detail{position:absolute;left:0;bottom:0;width:clamp(10rem,18vw,19rem);height:48%;overflow:hidden;border:.7rem solid var(--pine-950);border-radius:8rem 8rem .8rem .8rem;background:var(--pine-900);box-shadow:0 1.5rem 5rem rgba(0,0,0,.35)}.restorative-composition__detail img{width:100%;height:100%;object-fit:cover;object-position:25% center;transform:scale(1.35);will-change:transform}.is-restorative .detail-ledger{background:var(--paper);color:var(--pine-950)}
   .is-chicago .detail-hero__sticky{display:block;padding:0}.is-chicago .detail-hero__watermark{display:none}.is-chicago .detail-hero__visual{inset:0;width:100%;height:100%;z-index:1}.is-chicago .detail-hero__frame{border-radius:0}.is-chicago .detail-hero__frame img{object-position:62% center;transform:scale(1.14) translateX(-1.5%)}.is-chicago .detail-hero__frame:after{z-index:1;background:linear-gradient(90deg,rgba(6,29,25,.92) 0%,rgba(6,29,25,.7) 32%,rgba(6,29,25,.24) 62%,rgba(6,29,25,.12) 100%),linear-gradient(0deg,rgba(6,29,25,.72) 0%,transparent 48%)}.is-chicago .detail-hero__copy{position:absolute;left:clamp(2rem,6vw,7rem);bottom:7vh;max-width:min(58vw,62rem);z-index:6}.is-chicago .detail-hero h1{max-width:60rem;font-size:clamp(5.5rem,9.4vw,10.8rem);line-height:.72}.is-chicago .detail-hero__intro{max-width:33rem;color:rgba(245,240,231,.9)}.is-chicago .detail-hero__outline{z-index:5;inset:clamp(6.5rem,10vh,8.5rem) 2vw 2vw;border-color:rgba(245,240,231,.34);border-radius:.15rem}.is-chicago .detail-hero__outline span{top:-.35rem;right:1.4rem;background:transparent;text-shadow:0 1px 1rem rgba(6,29,25,.8)}.hero-aperture{position:absolute;z-index:3;inset:0;pointer-events:none}.hero-aperture i{position:absolute;left:0;right:0;height:10vh;background:var(--pine-950)}.hero-aperture i:first-child{top:0}.hero-aperture i:last-child{bottom:0}.is-chicago .hero-address{right:4vw;bottom:4vh}.is-chicago .detail-hero__index{right:4vw;bottom:3vh;color:var(--porcelain)}
   .detail-ledger{display:grid;grid-template-columns:repeat(4,1fr);background:var(--mint-200);border-bottom:1px solid rgba(16,35,31,.18)}.detail-ledger div{min-height:8rem;padding:2rem;border-right:1px solid rgba(16,35,31,.18);display:flex;flex-direction:column;justify-content:space-between}.detail-ledger small{font-size:.58rem;font-weight:800;letter-spacing:.15em}.detail-ledger strong{font-family:var(--serif);font-size:clamp(1.2rem,2vw,2rem);font-weight:500}
   .editorial-story{display:grid;grid-template-columns:1fr 2fr 1fr;column-gap:4rem;row-gap:6rem;min-height:100svh}.editorial-story__eyebrow{display:flex;gap:1rem;font-size:.65rem;font-weight:800;letter-spacing:.16em}.editorial-story__headline h2,.cosmetic-philosophy h2,.communities h2,.pricing h2,.detail-faq h2{font-family:var(--serif);font-size:clamp(4rem,7vw,8rem);line-height:.85;letter-spacing:-.055em;font-weight:500;margin:0}.editorial-story__headline em,.cosmetic-philosophy em,.communities em,.pricing em,.detail-faq em{color:var(--pine-700);font-weight:500}.editorial-story__body{align-self:end}.editorial-story__body p{font-size:1rem;line-height:1.75;color:rgba(16,35,31,.65)}.editorial-story__body a{display:inline-block;margin-top:2rem;color:var(--ink);font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.schedule-rail{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);position:relative;padding-top:3rem}.schedule-rail__line{position:absolute;top:0;left:0;right:0;height:1px;background:rgba(16,35,31,.2)}.schedule-rail__line i{display:block;width:0;height:100%;background:var(--pine-700)}.schedule-rail article{padding:0 3rem 0 0;display:grid;gap:1rem}.schedule-rail article b,.schedule-rail article span{font-size:.6rem;letter-spacing:.15em}.schedule-rail article strong{font-family:var(--serif);font-weight:500;font-size:clamp(2.5rem,4vw,5rem);line-height:.9}
@@ -1012,12 +1089,14 @@ const faqs = chicago ? chicagoFaq : category.faqs;
   @media (min-width:721px) and (max-width:1100px){.is-periodontal .detail-hero{min-height:62rem}.is-periodontal .detail-hero__copy{left:3rem;top:10rem;bottom:3.5rem;max-width:47vw}.is-periodontal .detail-hero h1{font-size:clamp(5rem,8.8vw,7.2rem)}.gum-story__stage img{object-position:56% center}.gum-story__veil{background:linear-gradient(90deg,rgba(6,29,25,.97),rgba(6,29,25,.78) 34%,rgba(6,29,25,.18) 67%),linear-gradient(0deg,rgba(6,29,25,.5),transparent 44%)}}
   @media (min-width:721px) and (max-width:1100px){.is-preventive .detail-hero{min-height:62rem}.is-preventive .detail-hero__copy{left:3rem;top:10rem;bottom:3.5rem;max-width:45vw}.is-preventive .detail-hero h1{font-size:clamp(4.8rem,8.5vw,7rem)}.is-preventive .detail-hero__visual{right:1.5rem;top:15vh;width:58vw;height:72vh}.preventive-window__stage{border-radius:1rem 8rem 1rem 8rem}.preventive-window__stage img{object-position:61% center}}
   @media (min-width:721px) and (max-width:1100px){.is-recode .detail-hero{min-height:62rem}.is-recode .detail-hero__copy{left:3rem;top:10rem;bottom:3.5rem;max-width:45vw}.is-recode .detail-hero h1{font-size:clamp(4.6rem,8.2vw,6.8rem)}.is-recode .detail-hero__visual{right:1.5rem;top:14vh;width:60vw;height:73vh}.recode-focus__panorama{inset:0 0 7% 9%;border-radius:7rem 1rem 1rem 1rem}.recode-focus__panorama img{object-position:59% center}.recode-focus__portrait{width:15rem;border-width:.55rem}.recode-focus__note{right:1rem;bottom:1rem;min-width:15rem}}
+  @media (min-width:721px) and (max-width:1100px){.is-restorative .detail-hero{min-height:62rem}.is-restorative .detail-hero__copy{left:3rem;top:10rem;bottom:3.5rem;max-width:46vw}.is-restorative .detail-hero h1{font-size:clamp(4.5rem,8.1vw,6.7rem)}.is-restorative .detail-hero__visual{right:1.25rem;top:14vh;width:60vw;height:73vh}.restorative-composition__main{inset:0 0 8% 10%;border-radius:1rem 7rem 1rem 1rem}.restorative-composition__main img{object-position:62% center}.restorative-composition__detail{width:14rem;height:43%;border-width:.55rem;border-radius:6rem 6rem .75rem .75rem}}
   .is-pediatric .detail-hero__copy{height:100%}
   @media (max-width:720px){.journey__track article{height:17rem;min-height:0}.journey__track h3{font-size:2.65rem;line-height:.94}}
   @media (max-width:720px){.is-pediatric .detail-hero{height:100svh;min-height:52rem}.is-pediatric .detail-hero__sticky{padding:0}.is-pediatric .detail-hero__visual{left:.75rem;right:.75rem;top:5.3rem;width:auto;height:50%;bottom:auto}.growing-story__stage{border-radius:6rem 6rem .45rem .45rem}.growing-story__image:after{background:linear-gradient(180deg,rgba(6,29,25,.04),rgba(6,29,25,.08) 66%,rgba(6,29,25,.45))}.growing-story__image img{object-position:56% center}.growing-story__caption{display:none}.is-pediatric .detail-hero__copy{inset:0;display:block;padding:0;background:transparent;filter:none}.is-pediatric .detail-hero .detail-kicker{left:1.25rem;top:57%;max-width:90%;font-size:.46rem}.is-pediatric .detail-hero h1{inset:0;margin:0;font-size:clamp(3.3rem,14.5vw,4.35rem);line-height:.76;text-align:left}.is-pediatric .detail-hero h1>span{left:1.25rem;top:61%;width:88%}.is-pediatric .detail-hero h1 em{left:1.25rem;right:auto;top:72%;width:88%;text-align:left}.is-pediatric .detail-hero__intro{left:1.25rem;right:1.25rem;bottom:4.8rem;max-width:23rem;margin:0;font-size:.72rem;line-height:1.4}.is-pediatric .detail-hero .detail-button{left:1.25rem;right:auto;bottom:1rem;min-width:12rem;margin:0}.is-pediatric .detail-ledger{margin-top:0}}
   @media (max-width:720px){.is-periodontal .detail-hero{height:100svh;min-height:52rem}.is-periodontal .detail-hero__visual{inset:4.8rem .65rem auto;height:47%;width:auto;border-radius:5.5rem 5.5rem .6rem .6rem}.gum-story__stage{border-radius:inherit}.gum-story__stage img{object-position:62% center}.gum-story__veil{background:linear-gradient(180deg,rgba(6,29,25,.04),rgba(6,29,25,.08) 56%,rgba(6,29,25,.66))}.gum-story__note{display:none}.is-periodontal .detail-hero__copy{inset:55% 1.25rem 1rem;display:flex;max-width:none}.is-periodontal .detail-hero .detail-kicker{font-size:.46rem}.is-periodontal .detail-hero h1{margin:.9rem 0;font-size:clamp(3.4rem,14.7vw,4.45rem);line-height:.76}.is-periodontal .detail-hero__intro{max-width:23rem;margin:0 0 .9rem;font-size:.72rem;line-height:1.4}.is-periodontal .detail-button{margin-top:auto;min-width:13rem}.is-periodontal .detail-ledger{margin-top:0}}
   @media (max-width:720px){.is-preventive .detail-hero{height:100svh;min-height:52rem}.is-preventive .detail-hero__visual{inset:4.9rem .7rem auto;height:47%;width:auto}.preventive-window__stage{border-radius:.7rem 5.5rem .7rem 5.5rem}.preventive-window__stage img{object-position:61% center}.preventive-window__wash{background:linear-gradient(180deg,rgba(6,29,25,.03),rgba(6,29,25,.08) 58%,rgba(6,29,25,.55))}.preventive-window__note{display:none}.is-preventive .detail-hero__copy{inset:55% 1.25rem 1rem;display:flex;max-width:none}.is-preventive .detail-hero .detail-kicker{font-size:.46rem}.is-preventive .detail-hero h1{margin:.9rem 0;font-size:clamp(3.3rem,14.2vw,4.3rem);line-height:.77}.is-preventive .detail-hero__intro{max-width:23rem;margin:0 0 .9rem;font-size:.72rem;line-height:1.4}.is-preventive .detail-button{margin-top:auto;min-width:13rem}.is-preventive .detail-ledger{margin-top:0}}
   @media (max-width:720px){.is-recode .detail-hero{height:100svh;min-height:52rem}.is-recode .detail-hero__visual{inset:4.9rem .7rem auto;height:47%;width:auto}.recode-focus__panorama{inset:0 0 9% 0;border-radius:4.8rem .7rem .7rem .7rem}.recode-focus__panorama:after{background:linear-gradient(180deg,rgba(6,29,25,.04),rgba(6,29,25,.08) 58%,rgba(6,29,25,.55))}.recode-focus__panorama img{object-position:61% center}.recode-focus__portrait{left:auto;right:.6rem;bottom:0;width:7.7rem;border-width:.35rem}.recode-focus__portrait img{object-position:22% 52%;transform:scale(1.65)}.recode-focus__note{display:none}.is-recode .detail-hero__copy{inset:55% 1.25rem 1rem;display:flex;max-width:none}.is-recode .detail-hero .detail-kicker{font-size:.46rem}.is-recode .detail-hero h1{margin:.9rem 0;font-size:clamp(3.1rem,13.6vw,4.15rem);line-height:.78}.is-recode .detail-hero__intro{max-width:23rem;margin:0 0 .9rem;font-size:.72rem;line-height:1.4}.is-recode .detail-button{margin-top:auto;min-width:13rem}.is-recode .detail-ledger{margin-top:0}}
+  @media (max-width:720px){.is-restorative .detail-hero{height:100svh;min-height:52rem}.is-restorative .detail-hero__visual{inset:4.9rem .7rem auto;height:47%;width:auto}.restorative-composition__main{inset:0 0 7% 0;border-radius:.7rem 5rem .7rem .7rem}.restorative-composition__main img{object-position:63% center}.restorative-composition__detail{left:.4rem;bottom:0;width:7.7rem;height:42%;border-width:.35rem;border-radius:4rem 4rem .5rem .5rem}.restorative-composition__detail img{object-position:21% center;transform:scale(1.5)}.is-restorative .detail-hero__copy{inset:55% 1.25rem 1rem;display:flex;max-width:none}.is-restorative .detail-hero .detail-kicker{font-size:.46rem}.is-restorative .detail-hero h1{margin:.9rem 0;font-size:clamp(3.05rem,13.5vw,4.1rem);line-height:.78}.is-restorative .detail-hero__intro{max-width:23rem;margin:0 0 .9rem;font-size:.72rem;line-height:1.4}.is-restorative .detail-button{margin-top:auto;min-width:13rem}.is-restorative .detail-ledger{margin-top:0}}
   @media (prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}.detail-hero__frame img{transform:none!important}}
 </style>
 
@@ -1043,10 +1122,17 @@ const faqs = chicago ? chicagoFaq : category.faqs;
         if (hero && visual && frame && copy) {
           const compact = innerWidth <= 1100;
           const stageWidth = compact ? '57vw' : '62vw';
-          const tl = ['orthodontic-dentistry', 'pediatric-developmental', 'periodontal-dentistry', 'preventive-diagnostic', 'recode-cognitive-health'].includes(root.dataset.detailKind || '')
+          const tl = ['orthodontic-dentistry', 'pediatric-developmental', 'periodontal-dentistry', 'preventive-diagnostic', 'recode-cognitive-health', 'restorative-reconstructive'].includes(root.dataset.detailKind || '')
             ? gsap.timeline()
             : gsap.timeline({scrollTrigger:{trigger:hero,start:'top top',end:'bottom bottom',scrub:1.15}});
-          if (root.dataset.detailKind === 'recode-cognitive-health') {
+          if (root.dataset.detailKind === 'restorative-reconstructive') {
+            tl.fromTo(q('.restorative-composition__main'),{clipPath:'inset(0 46% 0 46% round 1rem 11rem 1rem 1rem)'},{clipPath:'inset(0 0% 0 0% round 1rem 11rem 1rem 1rem)',duration:1.35,ease:'power3.inOut'},0)
+              .fromTo(q('.restorative-composition__main img'),{scale:1.14},{scale:1.045,duration:1.55,ease:'power3.out'},0)
+              .fromTo(q('.restorative-composition__detail'),{y:38,scale:.82,opacity:0},{y:0,scale:1,opacity:1,duration:1,ease:'power3.out'},.38)
+              .fromTo(q('.detail-hero__copy > *'),{y:28,opacity:0},{y:0,opacity:1,duration:.9,stagger:.08,ease:'power3.out'},.14);
+            gsap.to(q('.restorative-composition__main img'),{yPercent:4,scale:1.07,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'bottom top',scrub:.8}});
+            gsap.to(q('.restorative-composition__detail img'),{yPercent:-3,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'bottom top',scrub:.8}});
+          } else if (root.dataset.detailKind === 'recode-cognitive-health') {
             tl.fromTo(q('.recode-focus__panorama'),{clipPath:'inset(0 48% 0 48% round 10rem 1.2rem 1.2rem 1.2rem)'},{clipPath:'inset(0 0% 0 0% round 10rem 1.2rem 1.2rem 1.2rem)',duration:1.35,ease:'power3.inOut'},0)
               .fromTo(q('.recode-focus__panorama img'),{scale:1.14},{scale:1.045,duration:1.55,ease:'power3.out'},0)
               .fromTo(q('.recode-focus__portrait'),{scale:.72,x:-36,opacity:0},{scale:1,x:0,opacity:1,duration:1,ease:'power3.out'},.42)
@@ -1150,13 +1236,19 @@ const faqs = chicago ? chicagoFaq : category.faqs;
         const hero = q('[data-detail-hero]')[0];
         const visual = q('[data-hero-visual]')[0];
         if (hero && visual) {
-          const mobileTl = ['orthodontic-dentistry', 'pediatric-developmental', 'periodontal-dentistry', 'preventive-diagnostic', 'recode-cognitive-health'].includes(root.dataset.detailKind || '')
+          const mobileTl = ['orthodontic-dentistry', 'pediatric-developmental', 'periodontal-dentistry', 'preventive-diagnostic', 'recode-cognitive-health', 'restorative-reconstructive'].includes(root.dataset.detailKind || '')
             ? gsap.timeline()
             : gsap.timeline({scrollTrigger:{trigger:hero,start:'top top',end:'bottom bottom',scrub:1.05}})
                 .to(q('[data-hero-visual] img'),{scale:1.02,ease:'none'},0);
           const outline = q('.detail-hero__outline');
           if (outline.length) mobileTl.to(outline,{scale:1.02,ease:'none'},0);
-          if (root.dataset.detailKind === 'recode-cognitive-health') {
+          if (root.dataset.detailKind === 'restorative-reconstructive') {
+            mobileTl.fromTo(q('.restorative-composition__main'),{clipPath:'inset(0 46% 0 46% round .7rem 5rem .7rem .7rem)'},{clipPath:'inset(0 0% 0 0% round .7rem 5rem .7rem .7rem)',duration:1.15,ease:'power3.inOut'},0)
+              .fromTo(q('.restorative-composition__main img'),{scale:1.12},{scale:1.045,duration:1.3,ease:'power3.out'},0)
+              .fromTo(q('.restorative-composition__detail'),{scale:.75,y:20,opacity:0},{scale:1,y:0,opacity:1,duration:.85,ease:'power3.out'},.36)
+              .fromTo(q('.detail-hero__copy > *'),{y:20,opacity:0},{y:0,opacity:1,duration:.75,stagger:.07,ease:'power3.out'},.18);
+            gsap.to(q('.restorative-composition__main img'),{yPercent:3,scale:1.065,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'bottom top',scrub:.7}});
+          } else if (root.dataset.detailKind === 'recode-cognitive-health') {
             mobileTl.fromTo(q('.recode-focus__panorama'),{clipPath:'inset(0 47% 0 47% round 4.8rem .7rem .7rem .7rem)'},{clipPath:'inset(0 0% 0 0% round 4.8rem .7rem .7rem .7rem)',duration:1.15,ease:'power3.inOut'},0)
               .fromTo(q('.recode-focus__panorama img'),{scale:1.13},{scale:1.045,duration:1.3,ease:'power3.out'},0)
               .fromTo(q('.recode-focus__portrait'),{scale:.72,y:22,opacity:0},{scale:1,y:0,opacity:1,duration:.85,ease:'power3.out'},.38)

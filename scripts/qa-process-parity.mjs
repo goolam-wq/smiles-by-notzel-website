@@ -11,6 +11,7 @@ const routes = [
   ['periodontal', '/services/periodontal-dentistry/'],
   ['preventive', '/services/preventive-diagnostic/'],
   ['recode', '/services/recode-cognitive-health/'],
+  ['restorative', '/services/restorative-reconstructive/'],
 ];
 const viewports = [
   ['desktop', 1440, 900],
