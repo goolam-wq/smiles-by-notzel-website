@@ -5,12 +5,17 @@ const chicago = kind === 'chicago';
 
 const communities = ['Chicago Heights', 'South Chicago Heights', 'Steger', 'Sauk Village', 'Lynwood', 'Glenwood', 'Ford Heights', 'Olympia Fields', 'Park Forest', 'Homewood', 'Flossmoor', 'Hazel Crest', 'Matteson', 'Crete', 'Country Club Hills', 'Richton Park'];
 const serviceGroups = [
-  { name: 'Preventive care', count: 9 },
-  { name: 'Cosmetic dentistry', count: 7 },
-  { name: 'Restorative care', count: 10 },
-  { name: 'Complete Health', count: 8 },
-  { name: 'Emergency dentistry', count: 5 },
-  { name: 'Kid-friendly dentistry', count: 9 },
+  { name: 'Preventive care', count: 9, href: '/services/#preventive-diagnostic' },
+  { name: 'Cosmetic dentistry', count: 7, href: '/services/cosmetic-dentistry/' },
+  { name: 'Restorative care', count: 10, href: '/services/#restorative-reconstructive' },
+  { name: 'Complete Health', count: 8, href: '/services/#complete-health-airway' },
+  { name: 'Emergency dentistry', count: 5, href: '/services/#emergency-comfort' },
+  { name: 'Kid-friendly dentistry', count: 9, href: '/services/#pediatric-developmental' },
+];
+const relatedAreaLinks = [
+  { name: 'Mokena office', detail: '19160 88th Avenue', href: '/service-areas/#mokena' },
+  { name: 'All nearby communities', detail: '26 connected communities', href: '/service-areas/#community-map' },
+  { name: 'Service + location map', detail: 'Compare care by office', href: '/service-areas/#coverage' },
 ];
 const cosmeticServices = [
   { n: '01', slug: 'professional-teeth-whitening', name: 'Professional teeth whitening', note: 'A brighter result planned around your natural shade.', fixed: '$550', monthly: '$46 / mo · 12 mo', yearly: '$550 / yr' },
@@ -144,12 +149,12 @@ const faqs = chicago ? chicagoFaq : cosmeticFaq;
             </div>
             <div class="care-spectrum__lanes">
               {serviceGroups.map((group, i) => (
-                <div class="care-spectrum__lane" data-care-lane>
+                <a class="care-spectrum__lane" href={group.href} data-care-lane aria-label={`Explore ${group.name}`}>
                   <span>{String(i + 1).padStart(2, '0')}</span>
                   <strong>{group.name}</strong>
                   <small>{group.count} services</small>
                   <i aria-hidden="true"><b></b></i>
-                </div>
+                </a>
               ))}
             </div>
             <div class="care-spectrum__footer">
@@ -289,6 +294,34 @@ const faqs = chicago ? chicagoFaq : cosmeticFaq;
     </section>
   )}
 
+  {chicago && (
+    <section class="related-paths section-shell" id="related-care" data-reveal-section>
+      <header class="related-paths__head">
+        <p class="detail-kicker"><span></span>07 · KEEP EXPLORING</p>
+        <h2>Related care.<br /><em>Connected places.</em></h2>
+        <p>Move from this office to the service or location detail you need next—without losing the wider care story.</p>
+      </header>
+      <div class="related-paths__grid">
+        <article>
+          <div class="related-paths__label"><span>01</span><strong>Related services</strong></div>
+          <nav aria-label="Related services">
+            {serviceGroups.map((group) => (
+              <a href={group.href}><span>{group.name}</span><small>{group.count} services</small><b aria-hidden="true">↗</b></a>
+            ))}
+          </nav>
+        </article>
+        <article>
+          <div class="related-paths__label"><span>02</span><strong>Related service areas</strong></div>
+          <nav aria-label="Related service areas">
+            {relatedAreaLinks.map((area) => (
+              <a href={area.href}><span>{area.name}</span><small>{area.detail}</small><b aria-hidden="true">↗</b></a>
+            ))}
+          </nav>
+        </article>
+      </div>
+    </section>
+  )}
+
   {!chicago && (
     <section class="pricing section-shell" id="cosmetic-pricing" data-reveal-section>
       <div class="pricing__head">
@@ -308,7 +341,7 @@ const faqs = chicago ? chicagoFaq : cosmeticFaq;
 
   <section class="patient-proof" data-proof>
     <div class="patient-proof__top">
-      <div><p class="detail-kicker light"><span></span>{chicago ? '07 · CHICAGO HEIGHTS PATIENT REVIEWS' : '06 · COSMETIC PATIENT REVIEW'}</p><h2 class="proof-heading">Real patients.<br /><em>Real perspective.</em></h2></div>
+      <div><p class="detail-kicker light"><span></span>{chicago ? '08 · CHICAGO HEIGHTS PATIENT REVIEWS' : '06 · COSMETIC PATIENT REVIEW'}</p><h2 class="proof-heading">Real patients.<br /><em>Real perspective.</em></h2></div>
       <div class="proof-score"><strong>4.9</strong><span>Google rating<br />Chicago Heights</span></div>
     </div>
     <div class="patient-proof__stage">
@@ -326,7 +359,7 @@ const faqs = chicago ? chicagoFaq : cosmeticFaq;
   </section>
 
   <section class="detail-faq section-shell" data-reveal-section>
-    <div class="detail-faq__head"><p class="detail-kicker"><span></span>{chicago ? '08 · GOOD QUESTIONS' : '07 · GOOD QUESTIONS'}</p><h2>Before you<br /><em>begin.</em></h2></div>
+    <div class="detail-faq__head"><p class="detail-kicker"><span></span>{chicago ? '09 · GOOD QUESTIONS' : '07 · GOOD QUESTIONS'}</p><h2>Before you<br /><em>begin.</em></h2></div>
     <div class="detail-faq__list">
       {faqs.map((faq, i) => (
         <details open={i === 0}>
@@ -362,6 +395,10 @@ const faqs = chicago ? chicagoFaq : cosmeticFaq;
   .editorial-story{display:block;min-height:0}.editorial-story__headline{margin:4rem 0 2rem}.editorial-story__body{margin-left:25%}.schedule-rail{margin-top:5rem;display:block;padding-left:2rem}.schedule-rail__line{left:0;top:0;bottom:0;width:1px;height:auto}.schedule-rail__line i{height:0;width:100%}.schedule-rail article{margin-bottom:3rem;padding:0}.schedule-rail article strong{font-size:3rem}.care-atlas{height:auto;padding:5rem 1.25rem}.care-atlas__sticky{position:relative;height:auto;display:flex;flex-direction:column;padding:0;gap:4rem;overflow:visible}.care-spectrum{width:100%;max-width:none}.care-spectrum__header{min-height:7rem}.care-spectrum__header>strong{font-size:4.6rem}.care-spectrum__lane{grid-template-columns:2rem minmax(0,1fr) auto;gap:.75rem;min-height:4.5rem}.care-spectrum__lane>strong{font-size:1.55rem}.care-spectrum__lane>small{font-size:.48rem}.care-spectrum__lane>i{left:2.75rem}.care-spectrum__footer{gap:.65rem;font-size:.48rem}.communities{display:block}.communities__head{position:relative;top:auto;margin-bottom:4rem}.community-list div{grid-template-columns:2rem 1fr 1rem}.community-list strong{font-size:1.8rem}
   .cosmetic-triptych__panels{grid-template-columns:.72fr 1.2fr .72fr;gap:.35rem}.cosmetic-slice{border-radius:7rem 7rem .5rem .5rem}.cosmetic-triptych__caption{display:none}.about-cosmetic{display:block}.about-cosmetic__head{display:block}.about-cosmetic__head h2{font-size:3.8rem;margin:2rem 0 0}.about-cosmetic__media{min-height:66svh;margin-top:3rem}.about-cosmetic__image.main-image{width:82%;height:78%;border-radius:8rem 8rem .5rem .5rem}.about-cosmetic__image.detail-image{width:46%;height:42%;border-width:5px}.about-cosmetic__principles{margin-top:4rem}.about-cosmetic__principles>p{font-size:2rem}.option-index{padding:5rem 1.25rem}.option-index>header{display:block;margin-bottom:4rem}.option-index>header h2{margin:2rem 0}.option-index__layout{display:block}.option-index__visual{position:relative;top:auto;height:52svh;margin-bottom:3rem;border-radius:8rem 8rem .5rem .5rem}.option-index summary{grid-template-columns:2rem 1fr 1rem;padding:1.4rem 0}.option-index summary strong{font-size:1.65rem}.option-body{padding-left:2rem}.journey{height:auto;padding:5rem 1.25rem}.journey__sticky{position:relative;height:auto;padding:0;display:block;overflow:visible}.journey h2{font-size:3.8rem;margin-bottom:3rem}.journey__track{width:auto;display:grid}.journey__track article{width:auto;min-height:17rem}.journey__progress{display:none}.trust-story{display:block;min-height:0}.trust-story__image{position:relative;top:auto;height:62svh}.trust-story__content{padding:5rem 1.25rem}.trust-story h2{font-size:3.8rem}.trust-story__reasons{margin-top:3rem}.pricing__head{display:block;margin-bottom:4rem}.pricing__head h2{margin:2rem 0}.pricing__table{overflow:hidden}.pricing__labels{display:none}.pricing__row{grid-template-columns:1fr 1fr;gap:.7rem;padding:1.4rem 0}.pricing__row strong{grid-column:1/-1;font-size:1.5rem}.pricing__row span{font-size:.68rem}.pricing__row span:before{display:block;font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(16,35,31,.55);margin-bottom:.25rem}.pricing__row span:nth-child(2):before{content:'FIXED'}.pricing__row span:nth-child(3):before{content:'MONTHLY'}.pricing__row span:nth-child(4):before{content:'YEARLY'}
   .patient-proof{min-height:0;padding:5rem 1.25rem 7rem}.patient-proof__top{display:block}.proof-heading{font-size:3.6rem}.proof-score{margin-top:3rem}.proof-score strong{font-size:4rem}.patient-proof__stage{display:block;min-height:0;margin-top:5rem}.patient-proof blockquote p{font-size:3.3rem}.proof-topics{margin-top:4rem}.proof-total{font-size:10rem;bottom:-1rem}.detail-faq{display:block}.detail-faq__head{position:relative;top:auto;margin-bottom:4rem}.detail-faq summary{grid-template-columns:2rem 1fr 1rem;padding:1.4rem 0}.detail-faq summary strong{font-size:1.5rem}.detail-faq details p{padding-left:2rem}.detail-faq h2{font-size:4rem}}
+  .care-spectrum__lane{color:inherit;text-decoration:none;transition:padding .25s,color .25s}.care-spectrum__lane:hover,.care-spectrum__lane:focus-visible{padding-left:.65rem;color:var(--mint-300)}
+  .related-paths{background:var(--paper)}.related-paths__head{display:grid;grid-template-columns:1fr 2fr 1fr;gap:3rem;align-items:end;margin-bottom:5rem}.related-paths__head .detail-kicker{grid-column:1/-1}.related-paths__head h2{grid-column:1/3;margin:0;font:500 clamp(4rem,7vw,8rem)/.85 var(--serif);letter-spacing:-.055em}.related-paths__head h2 em{color:var(--pine-700);font-weight:500}.related-paths__head>p:last-child{margin:0;color:rgba(16,35,31,.65);line-height:1.7}.related-paths__grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(16,35,31,.25);border-bottom:1px solid rgba(16,35,31,.25)}.related-paths__grid article{display:grid;grid-template-columns:minmax(9rem,.48fr) 1fr;gap:2rem;padding:2rem 0}.related-paths__grid article:first-child{padding-right:3rem;border-right:1px solid rgba(16,35,31,.2)}.related-paths__grid article:last-child{padding-left:3rem}.related-paths__label{display:flex;gap:1rem;align-items:baseline}.related-paths__label span{font-size:.58rem;font-weight:800;color:var(--pine-700)}.related-paths__label strong{font:500 clamp(1.5rem,2vw,2.1rem)/1 var(--serif)}.related-paths nav{border-top:1px solid rgba(16,35,31,.2)}.related-paths nav a{display:grid;grid-template-columns:1fr auto 1rem;gap:1rem;align-items:center;padding:1rem 0;border-bottom:1px solid rgba(16,35,31,.16);color:var(--ink);text-decoration:none;transition:padding .25s,color .25s}.related-paths nav a:hover,.related-paths nav a:focus-visible{padding-left:.6rem;color:var(--pine-700)}.related-paths nav a span{font-family:var(--serif);font-size:clamp(1.25rem,1.7vw,1.8rem)}.related-paths nav a small{color:rgba(16,35,31,.55);font-size:.58rem;text-align:right;text-transform:uppercase;letter-spacing:.08em}.related-paths nav a b{font-weight:500}
+  @media (max-width:1100px){.related-paths__head{grid-template-columns:1fr 1.5fr}.related-paths__head h2{grid-column:1/-1}.related-paths__head>p:last-child{grid-column:2}.related-paths__grid article{grid-template-columns:1fr;padding-top:1.5rem}.related-paths__grid article:first-child{padding-right:2rem}.related-paths__grid article:last-child{padding-left:2rem}}
+  @media (max-width:720px){.related-paths__head{display:block;margin-bottom:3.5rem}.related-paths__head h2{margin:2rem 0;font-size:3.8rem}.related-paths__grid{display:block}.related-paths__grid article{display:block;padding:2rem 0}.related-paths__grid article:first-child{padding-right:0;border-right:0;border-bottom:1px solid rgba(16,35,31,.2)}.related-paths__grid article:last-child{padding-left:0}.related-paths__label{margin-bottom:1.5rem}.related-paths nav a{grid-template-columns:1fr 1rem}.related-paths nav a small{display:none}}
   @media (prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}.detail-hero__frame img{transform:none!important}}
 </style>
 
