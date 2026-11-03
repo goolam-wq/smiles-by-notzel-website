@@ -19,6 +19,7 @@ const routes = [
   ['wellness-offering', '/services/wellness-offering/', '#before-after-wellness-offering'],
   ['chicago-heights', '/service-areas/chicago-heights/', '#before-after-chicago-heights'],
   ['whitening', '/services/professional-teeth-whitening/', '#before-after-professional-whitening'],
+  ['porcelain-veneers-laminates', '/services/porcelain-veneers-laminates/', '#before-after-porcelain-veneers-laminates'],
 ];
 const viewports = [
   ['desktop', 1440, 900],

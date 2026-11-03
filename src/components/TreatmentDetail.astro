@@ -1,12 +1,30 @@
 ---
-const processSteps = [
+interface Props {
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates';
+}
+
+const { kind = 'professional-teeth-whitening' } = Astro.props;
+const isVeneers = kind === 'porcelain-veneers-laminates';
+
+const processSteps = isVeneers ? [
+  ['01', 'Listen', 'We begin with what you want to refine, what must remain recognizably yours and how the result should feel in everyday life.'],
+  ['02', 'Plan', 'The visible teeth, bite, enamel and existing dental work are reviewed before shape, proportion and shade are mapped.'],
+  ['03', 'Prepare', 'The selected teeth are prepared according to the agreed clinical plan, and the planned forms are translated into carefully made porcelain restorations.'],
+  ['04', 'Place', 'Each restoration is checked in the complete smile, bonded into place and reviewed for comfort, fit and a natural finish.'],
+] : [
   ['01', 'Listen', 'We start with what you want to change, what you want to keep and when you would like to see the result.'],
   ['02', 'Record', 'Your starting shade, enamel condition, restorations and sensitivity history are reviewed before treatment.'],
   ['03', 'Brighten', 'The gums are protected and the professional whitening material is applied in carefully monitored cycles.'],
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = [
+const faqs = isVeneers ? [
+  ['How much do porcelain veneers and laminates cost?', 'The customer-facing treatment price is $1,500 per tooth. A 24-month planning example is $63 per month, and the yearly amount is $1,500 per tooth. Final scope and tooth count are confirmed after a consultation and examination.'],
+  ['Are veneers the same as crowns?', 'No. Veneers and laminates are planned primarily for the visible surfaces of selected teeth, while crowns cover more of the tooth. The examination determines which approach fits the tooth and the wider smile plan.'],
+  ['Will porcelain veneers look natural?', 'The plan considers shade, translucency, proportion, neighboring teeth and facial context. The goal is a refined result that still looks like it belongs to you.'],
+  ['How many teeth need veneers?', 'There is no automatic number. The visible smile, the concern being addressed and how the selected teeth relate to the surrounding teeth determine the recommended scope.'],
+  ['Are porcelain veneers available at both offices?', 'Consultations can be coordinated through Chicago Heights and Mokena. Call the preferred office to confirm the recommended visit and current appointment availability.'],
+] : [
   ['How much does professional teeth whitening cost?', 'The customer-facing treatment price is $550. A 12-month planning example is $46 per month, and the yearly treatment amount is $550. Final recommendations are confirmed after your examination.'],
   ['Will professional whitening make my teeth sensitive?', 'Temporary sensitivity can happen. Your starting sensitivity, enamel and existing dental work are reviewed first so the team can adjust the plan and explain aftercare.'],
   ['How white will my teeth become?', 'Results depend on your natural shade and the type of discoloration. The goal is a noticeably brighter result that still looks believable for you—not an artificial white.'],
@@ -14,79 +32,190 @@ const faqs = [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = [
+const relatedServices = isVeneers ? [
+  ['Cosmetic Dentistry', 'Explore the complete category', '/services/cosmetic-dentistry/'],
+  ['Professional teeth whitening', 'Coordinate shade before porcelain planning', '/services/professional-teeth-whitening/'],
+  ['Dental crown', 'Restore a tooth that needs fuller coverage', '/services/restorative-reconstructive/#restorative-options'],
+  ['Complete smile makeover', 'Connect several cosmetic priorities', '/services/cosmetic-dentistry/#cosmetic-options'],
+] : [
   ['Cosmetic Dentistry', 'Explore the complete category', '/services/cosmetic-dentistry/'],
   ['Porcelain veneers & laminates', 'Shape, shade and proportion', '/services/cosmetic-dentistry/#cosmetic-options'],
   ['Dental bonding', 'Conservative edge and spacing refinement', '/services/cosmetic-dentistry/#cosmetic-options'],
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
+
+const content = isVeneers ? {
+  heroClass: 'is-veneers',
+  heroImages: [
+    ['/images/generated/porcelain-veneers-laminates-hero-v1.webp', 'A patient and dentist planning porcelain veneers around her natural smile', 'PLAN THE PROPORTION'],
+    ['/images/generated/porcelain-veneers-laminates-hero-detail-v1.webp', 'A detailed porcelain veneer shade and shape review', 'REFINE EACH DETAIL'],
+    ['/images/generated/porcelain-veneers-laminates-hero-result-v1.webp', 'A patient viewing a natural porcelain veneer result', 'SEE THE WHOLE SMILE'],
+  ],
+  heroAria: ['Explore the porcelain veneer planning conversation', 'Explore how shape, shade and proportion are refined', 'Explore the natural final smile'],
+  kicker: 'Cosmetic Dentistry · Treatment 02',
+  title: ['Porcelain.', 'Still you.'],
+  intro: 'Porcelain veneers and laminates planned around the shape, proportion and color of the smile you already recognize as your own.',
+  heroRail: ['Plan the smile', 'Refine each tooth', 'See the whole result'],
+  ledgerLabel: 'Porcelain veneers', ledgerFixed: '$1,500 / tooth', ledgerMonthly: '$63 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['A veneer is not a mask.', 'It is a', 'measured layer.'],
+  storyImage: '/images/generated/porcelain-veneers-laminates-process-v1.webp',
+  storyAlt: 'A dentist reviewing porcelain veneer shape and shade with a patient',
+  storyRangeLabel: 'Compare the starting smile with the porcelain veneer plan',
+  storyNote: 'Read the complete smile before refining one tooth.',
+  storyLead: 'We read the visible smile as a composition. Each selected tooth changes the balance—not your identity.',
+  storySteps: [
+    ['01', 'Read the whole smile', 'Edges, spacing, shade and proportion are considered together.'],
+    ['02', 'Respect what belongs', 'Healthy enamel, facial character and neighboring teeth set the boundaries.'],
+    ['03', 'Refine the proportion', 'The target is a more harmonious smile that remains recognizably yours.'],
+  ],
+  storyNotes: ['Read the complete smile before refining one tooth.', 'Protect healthy enamel and respect the neighboring teeth.', 'Refine proportion in the context of the whole visible smile.'],
+  processTitle: ['Measured in millimeters.', 'Felt as harmony.'],
+  expectTitle: ['Precisely refined.', 'Never overdesigned.'],
+  expectCopy: 'Porcelain planning is not only about choosing a lighter shade. The team considers enamel, bite, existing restorations, tooth position and the complete visible smile before recommending the number and design of restorations.',
+  metrics: [['1', 'personal smile plan'], ['4', 'details aligned: shape, shade, proportion, bite'], ['2', 'connected office locations']],
+  pricingId: 'porcelain-veneers-pricing',
+  pricingTitle: ['One selected tooth.', 'Three ways to plan.'],
+  pricingIntro: 'The same porcelain veneer treatment shown as a fixed, monthly and yearly customer-facing amount.',
+  prices: [['FIXED · 01', '$1,500', 'per tooth'], ['MONTHLY · 02', '$63', 'per month · 24 months'], ['YEARLY · 03', '$1,500', 'annual amount per tooth']],
+  whyTitle: ['Refined.', 'Never generic.'],
+  whyIntro: 'We do not design a copy-and-paste smile. We connect health, proportion, shade and facial context so every selected tooth belongs in the complete result.',
+  whyImage: '/images/generated/porcelain-veneers-laminates-result-v1.webp',
+  whyAlt: 'A patient and dentist reviewing the natural result of porcelain veneer care',
+  whyPanels: [
+    ['01', 'Health before design', 'Enamel, gums, bite and existing dental work define the appropriate starting point.'],
+    ['02', 'Tooth-by-tooth precision', 'Shape, shade and translucency are planned in relation to the neighboring teeth.'],
+    ['03', 'A result that belongs to you', 'The finish is judged in the context of your face and complete visible smile.'],
+  ],
+  whyFoot: 'ONE CONNECTED RESULT · THREE DESIGN CHECKS',
+  proofTitle: ['Seen in the smile.', 'Felt in the confidence.'],
+  proofText: 'A patient described the practice team as clear, reassuring and attentive throughout a dental visit, with questions answered before the next step.',
+  proofFooter: 'GENERAL PRACTICE PATIENT EXPERIENCE · PARAPHRASED',
+  proofTags: ['Clear communication', 'Thoughtful planning', 'Connected care'],
+  faqTitle: ['Before you', 'refine.'],
+  relatedTitle: ['One porcelain plan.', 'Many connected paths.'],
+  relatedAria: 'Related porcelain veneer services',
+  currentPath: 'Porcelain veneers',
+  locationsAria: 'Porcelain veneer consultation locations',
+} : {
+  heroClass: '',
+  heroImages: [
+    ['/images/generated/professional-whitening-hero-v1.webp', 'A dentist and patient discussing a professional whitening shade plan', 'READ THE STAIN'],
+    ['/images/generated/professional-whitening-hero-shade-detail-v2.webp', 'A close view of professional shade calibration during whitening planning', 'PROTECT THE ENAMEL'],
+    ['/images/generated/professional-whitening-hero-result-v2.webp', 'A patient viewing her naturally brighter whitening result', 'REVEAL YOUR SHADE'],
+  ],
+  heroAria: ['Explore how the team reads the starting stain', 'Explore how the team protects enamel and calibrates shade', 'Explore the natural final shade'],
+  kicker: 'Cosmetic Dentistry · Treatment 01',
+  title: ['Brighter.', 'Still entirely yours.'],
+  intro: 'Professional teeth whitening planned around your starting shade, sensitivity and the smile you already recognize as your own.',
+  heroRail: ['See the stain', 'Protect the enamel', 'Set your shade'],
+  ledgerLabel: 'Professional whitening', ledgerFixed: '$550', ledgerMonthly: '$46 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['Whitening is not a color.', 'It is a', 'calibration.'],
+  storyImage: '/images/generated/professional-whitening-process-v1.webp',
+  storyAlt: "A dentist recording a patient's starting shade before whitening",
+  storyRangeLabel: 'Compare the recorded shade with the calibrated result',
+  storyNote: 'Read the stain before choosing the shade.',
+  storyLead: 'We read the visible smile in layers. Each pass changes the plan—not your identity.',
+  storySteps: [
+    ['01', 'Read the stain', 'Coffee, tea, wine and everyday pigments respond differently.'],
+    ['02', 'Respect what stays', 'Enamel, sensitivity and existing dental work set the safe boundaries.'],
+    ['03', 'Calibrate the result', 'The target is brighter in the context of your skin tone and whole smile.'],
+  ],
+  storyNotes: ['Read the stain before choosing the shade.', 'Protect enamel and respect existing dental work.', 'Calibrate brightness to the whole visible smile.'],
+  processTitle: ['Measured in shades.', 'Felt as confidence.'],
+  expectTitle: ['Noticeably brighter.', 'Never disconnected.'],
+  expectCopy: 'Some stains respond quickly; others need a different strategy. Existing fillings, crowns and veneers will not whiten with natural enamel, so the team looks at the whole visible smile before recommending the next step.',
+  metrics: [['1', 'personal starting shade'], ['3', 'details checked: enamel, restorations, sensitivity'], ['2', 'connected office locations']],
+  pricingId: 'whitening-pricing',
+  pricingTitle: ['One treatment.', 'Three ways to plan.'],
+  pricingIntro: 'The same professional whitening treatment shown as a fixed, monthly and yearly customer-facing amount.',
+  prices: [['FIXED · 01', '$550', 'Professional whitening treatment'], ['MONTHLY · 02', '$46', 'per month · 12 months'], ['YEARLY · 03', '$550', 'annual treatment amount']],
+  whyTitle: ['Bright.', 'Never borrowed.'],
+  whyIntro: 'We do not chase the whitest swatch. We protect the tissue, control every cycle and stop at the shade that still looks unmistakably yours.',
+  whyImage: '/images/generated/professional-whitening-result-v1.webp',
+  whyAlt: 'A patient sharing a naturally brighter smile with her dentist after treatment',
+  whyPanels: [
+    ['01', 'Health before brightness', 'Enamel, sensitivity, gums and existing dental work define the safe starting point.'],
+    ['02', 'Controlled application', 'Professional material is applied in monitored cycles—not left to guesswork.'],
+    ['03', 'A shade that belongs to you', 'The finish is judged beside your skin tone, restorations and complete visible smile.'],
+  ],
+  whyFoot: 'ONE CONTROLLED RESULT · THREE CLINICAL CHECKS',
+  proofTitle: ['Seen in the mirror.', 'Felt in the moment.'],
+  proofText: '“The staining was removed and the result was dramatically whiter. I was thrilled with how clean and bright my teeth looked.”',
+  proofFooter: 'CYNTHIA K. · COSMETIC DENTISTRY REVIEW',
+  proofTags: ['Stain removal', 'Professional whitening', 'Natural-looking result'],
+  faqTitle: ['Before you', 'brighten.'],
+  relatedTitle: ['One brightening step.', 'Many connected paths.'],
+  relatedAria: 'Related cosmetic services',
+  currentPath: 'Professional whitening',
+  locationsAria: 'Professional whitening locations',
+};
 ---
 
-<div class="treatment-page" data-treatment-root>
-  <section class="whitening-hero" data-treatment-hero>
+<div class="treatment-page" data-treatment-root data-route-name={content.currentPath} data-story-notes={JSON.stringify(content.storyNotes)} data-result-labels={JSON.stringify(content.whyPanels.map((panel) => panel[1]))}>
+  <section class:list={['whitening-hero', content.heroClass]} data-treatment-hero>
     <div class="whitening-hero__sticky hero-cinema">
       <div class="hero-folds__scene" data-hero-visual>
-        <figure class="hero-fold hero-fold--one" data-hero-fold tabindex="0" role="button" aria-label="Explore how the team reads the starting stain">
-          <img src="/images/generated/professional-whitening-hero-v1.webp" alt="A dentist and patient discussing a professional whitening shade plan" width="1536" height="1024" loading="eager" fetchpriority="high" />
-          <figcaption><b>01</b><span>READ THE STAIN</span></figcaption>
+        <figure class="hero-fold hero-fold--one" data-hero-fold tabindex="0" role="button" aria-label={content.heroAria[0]}>
+          <img src={content.heroImages[0][0]} alt={content.heroImages[0][1]} width="1536" height="1024" loading="eager" fetchpriority="high" />
+          <figcaption><b>01</b><span>{content.heroImages[0][2]}</span></figcaption>
         </figure>
-        <figure class="hero-fold hero-fold--two" data-hero-fold tabindex="0" role="button" aria-label="Explore how the team protects enamel and calibrates shade">
-          <img src="/images/generated/professional-whitening-hero-shade-detail-v2.webp" alt="A close view of professional shade calibration during whitening planning" width="1024" height="1536" loading="eager" />
-          <figcaption><b>02</b><span>PROTECT THE ENAMEL</span></figcaption>
+        <figure class="hero-fold hero-fold--two" data-hero-fold tabindex="0" role="button" aria-label={content.heroAria[1]}>
+          <img src={content.heroImages[1][0]} alt={content.heroImages[1][1]} width="1024" height="1536" loading="eager" />
+          <figcaption><b>02</b><span>{content.heroImages[1][2]}</span></figcaption>
         </figure>
-        <figure class="hero-fold hero-fold--three" data-hero-fold tabindex="0" role="button" aria-label="Explore the natural final shade">
-          <img src="/images/generated/professional-whitening-hero-result-v2.webp" alt="A patient viewing her naturally brighter whitening result" width="1536" height="1024" loading="eager" />
-          <figcaption><b>03</b><span>REVEAL YOUR SHADE</span></figcaption>
+        <figure class="hero-fold hero-fold--three" data-hero-fold tabindex="0" role="button" aria-label={content.heroAria[2]}>
+          <img src={content.heroImages[2][0]} alt={content.heroImages[2][1]} width="1536" height="1024" loading="eager" />
+          <figcaption><b>03</b><span>{content.heroImages[2][2]}</span></figcaption>
         </figure>
         <div class="hero-folds__scan" data-fold-scan aria-hidden="true"><span></span></div>
       </div>
       <div class="hero-cinema__matte" aria-hidden="true"></div>
       <div class="whitening-hero__copy hero-cinema__copy" data-hero-copy>
-        <p class="treatment-kicker light"><span></span>Cosmetic Dentistry · Treatment 01</p>
-        <h1>Brighter.<br /><em>Still entirely yours.</em></h1>
-        <p>Professional teeth whitening planned around your starting shade, sensitivity and the smile you already recognize as your own.</p>
+        <p class="treatment-kicker light"><span></span>{content.kicker}</p>
+        <h1>{content.title[0]}<br /><em>{content.title[1]}</em></h1>
+        <p>{content.intro}</p>
         <div class="hero-actions">
           <a href="#whitening-process"><span>See the process</span><b aria-hidden="true">↓</b></a>
           <a href="tel:+17087551333">Call (708) 755-1333 ↗</a>
         </div>
       </div>
 
-      <div class="hero-cinema__rail" aria-label="Whitening planning sequence">
-        <div data-hero-phase class="is-active"><b>01</b><span>See the stain</span></div>
-        <div data-hero-phase><b>02</b><span>Protect the enamel</span></div>
-        <div data-hero-phase><b>03</b><span>Set your shade</span></div>
+      <div class="hero-cinema__rail" aria-label={isVeneers ? 'Porcelain veneer planning sequence' : 'Whitening planning sequence'}>
+        <div data-hero-phase class="is-active"><b>01</b><span>{content.heroRail[0]}</span></div>
+        <div data-hero-phase><b>02</b><span>{content.heroRail[1]}</span></div>
+        <div data-hero-phase><b>03</b><span>{content.heroRail[2]}</span></div>
       </div>
       <div class="hero-folds__edition" aria-hidden="true"><span>SMILES BY NOETZEL</span><b data-hero-edition>01 / 03</b></div>
       <div class="hero-cinema__progress" aria-hidden="true"><i data-hero-progress></i></div>
     </div>
   </section>
 
-  <section class="treatment-ledger" aria-label="Professional whitening key details">
-    <div><small>TREATMENT</small><strong>Professional whitening</strong></div>
-    <div><small>FIXED</small><strong>$550</strong></div>
-    <div><small>MONTHLY</small><strong>$46 / month</strong></div>
+  <section class="treatment-ledger" aria-label={`${content.ledgerLabel} key details`}>
+    <div><small>TREATMENT</small><strong>{content.ledgerLabel}</strong></div>
+    <div><small>FIXED</small><strong>{content.ledgerFixed}</strong></div>
+    <div><small>MONTHLY</small><strong>{content.ledgerMonthly}</strong></div>
     <div><small>AVAILABLE</small><strong>Both offices</strong></div>
   </section>
 
   <section class="whitening-story" id="treatment-fit" data-story-stage>
     <div class="whitening-story__sticky story-diagnostic section-shell">
       <header class="story-diagnostic__head">
-        <p class="treatment-kicker"><span></span>01 · WHAT CHANGES</p>
-        <h2>Whitening is not a color.<br />It is a <em>calibration.</em></h2>
+        <p class="treatment-kicker"><span></span>{content.storyKicker}</p>
+        <h2>{content.storyTitle[0]}<br />{content.storyTitle[1]} <em>{content.storyTitle[2]}</em></h2>
       </header>
       <div class="story-diagnostic__visual" data-treatment-media>
-        <img class="story-diagnostic__base" src="/images/generated/professional-whitening-process-v1.webp" alt="A dentist recording a patient's starting shade before whitening" width="1536" height="1024" loading="lazy" />
-        <div class="story-diagnostic__reveal" data-story-reveal aria-hidden="true"><img src="/images/generated/professional-whitening-process-v1.webp" alt="" width="1536" height="1024" loading="lazy" /></div>
+        <img class="story-diagnostic__base" src={content.storyImage} alt={content.storyAlt} width="1536" height="1024" loading="lazy" />
+        <div class="story-diagnostic__reveal" data-story-reveal aria-hidden="true"><img src={content.storyImage} alt="" width="1536" height="1024" loading="lazy" /></div>
         <span class="story-diagnostic__divider" data-story-divider aria-hidden="true"><i></i><b>COMPARE</b></span>
-        <input class="story-diagnostic__range" data-story-range type="range" min="12" max="88" value="24" aria-label="Compare the recorded shade with the calibrated result" />
-        <div class="story-diagnostic__caption"><b data-story-count>01</b><span data-story-note>Read the stain before choosing the shade.</span></div>
+        <input class="story-diagnostic__range" data-story-range type="range" min="12" max="88" value="24" aria-label={content.storyRangeLabel} />
+        <div class="story-diagnostic__caption"><b data-story-count>01</b><span data-story-note>{content.storyNote}</span></div>
       </div>
       <div class="story-diagnostic__copy">
-        <p>We read the visible smile in layers. Each pass changes the plan—not your identity.</p>
-        <div class="story-diagnostic__steps" aria-label="Whitening calibration stages">
-          <article data-fit-point class="is-active" role="button" tabindex="0" aria-pressed="true" aria-label="Show step one: Read the stain"><b>01</b><strong>Read the stain</strong><p>Coffee, tea, wine and everyday pigments respond differently.</p></article>
-          <article data-fit-point role="button" tabindex="0" aria-pressed="false" aria-label="Show step two: Respect what stays"><b>02</b><strong>Respect what stays</strong><p>Enamel, sensitivity and existing dental work set the safe boundaries.</p></article>
-          <article data-fit-point role="button" tabindex="0" aria-pressed="false" aria-label="Show step three: Calibrate the result"><b>03</b><strong>Calibrate the result</strong><p>The target is brighter in the context of your skin tone and whole smile.</p></article>
+        <p>{content.storyLead}</p>
+        <div class="story-diagnostic__steps" aria-label={isVeneers ? 'Porcelain veneer planning stages' : 'Whitening calibration stages'}>
+          {content.storySteps.map((step, index) => <article data-fit-point class:list={{ 'is-active': index === 0 }} role="button" tabindex="0" aria-pressed={index === 0 ? 'true' : 'false'} aria-label={`Show step ${index + 1}: ${step[1]}`}><b>{step[0]}</b><strong>{step[1]}</strong><p>{step[2]}</p></article>)}
         </div>
       </div>
     </div>
@@ -96,7 +225,7 @@ const relatedServices = [
     <div class="whitening-process__sticky">
       <header>
         <p class="treatment-kicker light"><span></span>02 · THE PROCESS</p>
-        <h2>Measured in shades.<br /><em>Felt as confidence.</em></h2>
+        <h2>{content.processTitle[0]}<br /><em>{content.processTitle[1]}</em></h2>
       </header>
       <div class="process-track" data-process-track>
         {processSteps.map((step) => (
@@ -117,30 +246,26 @@ const relatedServices = [
       <div class="expectation__number" aria-hidden="true">03</div>
       <div class="expectation__head">
         <p class="treatment-kicker"><span></span>03 · WHAT TO EXPECT</p>
-        <h2><span data-expect-line>Noticeably brighter.</span><br /><em data-expect-line>Never disconnected.</em></h2>
+        <h2><span data-expect-line>{content.expectTitle[0]}</span><br /><em data-expect-line>{content.expectTitle[1]}</em></h2>
       </div>
       <div class="expectation__body">
-        <p data-expect-copy>Some stains respond quickly; others need a different strategy. Existing fillings, crowns and veneers will not whiten with natural enamel, so the team looks at the whole visible smile before recommending the next step.</p>
+        <p data-expect-copy>{content.expectCopy}</p>
         <div class="expectation__metrics">
-          <article><strong>1</strong><span>personal starting shade</span></article>
-          <article><strong>3</strong><span>details checked: enamel, restorations, sensitivity</span></article>
-          <article><strong>2</strong><span>connected office locations</span></article>
+          {content.metrics.map((metric) => <article><strong>{metric[0]}</strong><span>{metric[1]}</span></article>)}
         </div>
       </div>
     </div>
   </section>
 
-  <section class="pricing-focus" id="whitening-pricing" data-pricing-stage>
+  <section class="pricing-focus" id={content.pricingId} data-pricing-stage>
     <div class="pricing-focus__sticky section-shell">
       <header>
         <p class="treatment-kicker"><span></span>04 · PRICING, MADE LEGIBLE</p>
-        <h2>One treatment.<br /><em>Three ways to plan.</em></h2>
-        <p>The same professional whitening treatment shown as a fixed, monthly and yearly customer-facing amount.</p>
+        <h2>{content.pricingTitle[0]}<br /><em>{content.pricingTitle[1]}</em></h2>
+        <p>{content.pricingIntro}</p>
       </header>
       <div class="pricing-focus__cards" data-pricing-track>
-        <article><span>FIXED · 01</span><strong>$550</strong><p>Professional whitening treatment</p></article>
-        <article class="featured"><span>MONTHLY · 02</span><strong>$46</strong><p>per month · 12 months</p></article>
-        <article><span>YEARLY · 03</span><strong>$550</strong><p>annual treatment amount</p></article>
+        {content.prices.map((price, index) => <article class:list={{ featured: index === 1 }}><span>{price[0]}</span><strong>{price[1]}</strong><p>{price[2]}</p></article>)}
       </div>
       <div class="pricing-progress" aria-hidden="true"><i></i><span>SCROLL TO COMPARE</span></div>
       <p class="pricing-note">Monthly examples show the stated treatment amount divided across the listed term. Eligibility, final treatment scope and payment terms are confirmed by the office.</p>
@@ -151,29 +276,21 @@ const relatedServices = [
     <div class="result-evidence section-shell">
       <header class="result-evidence__head">
         <p class="treatment-kicker light"><span></span>05 · WHY SMILES BY NOETZEL</p>
-        <h2>Bright.<br /><em>Never borrowed.</em></h2>
-        <p>We do not chase the whitest swatch. We protect the tissue, control every cycle and stop at the shade that still looks unmistakably yours.</p>
+        <h2>{content.whyTitle[0]}<br /><em>{content.whyTitle[1]}</em></h2>
+        <p>{content.whyIntro}</p>
       </header>
       <div class="result-evidence__stage">
         <figure class="result-evidence__visual" data-result-visual>
-          <img src="/images/generated/professional-whitening-result-v1.webp" alt="A patient sharing a naturally brighter smile with her dentist after treatment" width="1536" height="1024" loading="lazy" />
+          <img src={content.whyImage} alt={content.whyAlt} width="1536" height="1024" loading="lazy" />
           <span class="result-evidence__beam" data-result-beam aria-hidden="true"></span>
-          <figcaption><b data-result-index>01 / 03</b><span data-result-caption>Health before brightness</span></figcaption>
+          <figcaption><b data-result-index>01 / 03</b><span data-result-caption>{content.whyPanels[0][1]}</span></figcaption>
         </figure>
         <div class="result-evidence__panels" aria-label="Why choose Smiles by Noetzel">
-          <button type="button" class="result-evidence__panel is-active" data-result-panel aria-pressed="true">
-            <span>01</span><strong>Health before brightness</strong><p>Enamel, sensitivity, gums and existing dental work define the safe starting point.</p><i>↗</i>
-          </button>
-          <button type="button" class="result-evidence__panel" data-result-panel aria-pressed="false">
-            <span>02</span><strong>Controlled application</strong><p>Professional material is applied in monitored cycles—not left to guesswork.</p><i>↗</i>
-          </button>
-          <button type="button" class="result-evidence__panel" data-result-panel aria-pressed="false">
-            <span>03</span><strong>A shade that belongs to you</strong><p>The finish is judged beside your skin tone, restorations and complete visible smile.</p><i>↗</i>
-          </button>
+          {content.whyPanels.map((panel, index) => <button type="button" class:list={['result-evidence__panel', { 'is-active': index === 0 }]} data-result-panel aria-pressed={index === 0 ? 'true' : 'false'}><span>{panel[0]}</span><strong>{panel[1]}</strong><p>{panel[2]}</p><i>↗</i></button>)}
         </div>
       </div>
       <div class="result-evidence__foot">
-        <span>ONE CONTROLLED RESULT · THREE CLINICAL CHECKS</span>
+        <span>{content.whyFoot}</span>
         <a href="#related-care">See how care connects <b>↓</b></a>
       </div>
     </div>
@@ -182,19 +299,19 @@ const relatedServices = [
   <section class="treatment-proof" id="patient-proof" data-proof>
     <div class="treatment-proof__sticky">
       <div class="treatment-proof__top">
-        <div><p class="treatment-kicker light"><span></span>06 · PATIENT PROOF</p><h2>Seen in the mirror.<br /><em>Felt in the moment.</em></h2></div>
+        <div><p class="treatment-kicker light"><span></span>06 · PATIENT PROOF</p><h2>{content.proofTitle[0]}<br /><em>{content.proofTitle[1]}</em></h2></div>
         <div class="proof-score"><strong>4.9</strong><span>Google rating<br />Chicago Heights</span></div>
       </div>
       <blockquote data-proof-quote>
-        <p>“The staining was removed and the result was dramatically whiter. I was thrilled with how clean and bright my teeth looked.”</p>
-        <footer>CYNTHIA K. · COSMETIC DENTISTRY REVIEW</footer>
+        <p>{content.proofText}</p>
+        <footer>{content.proofFooter}</footer>
       </blockquote>
-      <div class="proof-tags"><span>Stain removal</span><span>Professional whitening</span><span>Natural-looking result</span></div>
+      <div class="proof-tags">{content.proofTags.map((tag) => <span>{tag}</span>)}</div>
     </div>
   </section>
 
   <section class="treatment-faq section-shell" data-reveal>
-    <header><p class="treatment-kicker"><span></span>07 · GOOD QUESTIONS</p><h2>Before you<br /><em>brighten.</em></h2></header>
+    <header><p class="treatment-kicker"><span></span>07 · GOOD QUESTIONS</p><h2>{content.faqTitle[0]}<br /><em>{content.faqTitle[1]}</em></h2></header>
     <div class="treatment-faq__list">
       {faqs.map((faq, index) => (
         <details open={index === 0}>
@@ -209,23 +326,23 @@ const relatedServices = [
     <div class="related-treatment__sticky related-route section-shell">
       <header class="related-route__head">
         <p class="treatment-kicker"><span></span>08 · KEEP EXPLORING</p>
-        <h2>One brightening step.<br /><em>Many connected paths.</em></h2>
+        <h2>{content.relatedTitle[0]}<br /><em>{content.relatedTitle[1]}</em></h2>
       </header>
       <div class="related-route__map">
         <div class="related-route__services">
           <span>RELATED SERVICES</span>
-          <nav aria-label="Related cosmetic services">
+          <nav aria-label={content.relatedAria}>
             {relatedServices.map((service, index) => <a href={service[2]} data-related-link data-route-label={service[0]}><b>{String(index + 1).padStart(2, '0')}</b><span><strong>{service[0]}</strong><small>{service[1]}</small></span><i>↗</i></a>)}
           </nav>
         </div>
         <div class="related-route__core" aria-live="polite">
           <span>CURRENT CARE PATH</span>
-          <strong data-route-current>Professional whitening</strong>
+          <strong data-route-current>{content.currentPath}</strong>
           <i data-route-line></i>
         </div>
         <div class="related-route__locations">
           <span>AVAILABLE LOCATIONS</span>
-          <nav aria-label="Professional whitening locations">
+          <nav aria-label={content.locationsAria}>
             <a href="/service-areas/chicago-heights/" data-related-link data-route-label="Chicago Heights"><b>01</b><span><strong>Chicago Heights</strong><small>500 Ashland Ave, Suite #2</small></span><i>↗</i></a>
             <a href="/service-areas/#mokena" data-related-link data-route-label="Mokena"><b>02</b><span><strong>Mokena</strong><small>19160 88th Avenue</small></span><i>↗</i></a>
             <a href="/service-areas/#community-map" data-related-link data-route-label="All service areas"><b>03</b><span><strong>All service areas</strong><small>26 connected communities</small></span><i>↗</i></a>
@@ -385,6 +502,18 @@ const relatedServices = [
   .hero-folds__edition:before{content:"";width:1px;height:4rem;background:rgba(196,234,220,.35)}
   .hero-folds__edition b{color:var(--mint-300)}
 
+  /* The veneer hero keeps the shared interaction contract but reads as a
+     porcelain composition rather than a whitening scan. */
+  .whitening-hero.is-veneers .hero-folds__scan{display:none}
+  .whitening-hero.is-veneers .hero-fold{border:0;box-shadow:0 2.2rem 6rem rgba(0,0,0,.3)}
+  .whitening-hero.is-veneers .hero-fold--one{clip-path:inset(0 0 7% 0 round 10rem 10rem .65rem .65rem)}
+  .whitening-hero.is-veneers .hero-fold--two{clip-path:inset(7% 0 0 0 round .65rem .65rem 10rem 10rem)}
+  .whitening-hero.is-veneers .hero-fold--three{clip-path:inset(0 0 7% 0 round 10rem 10rem .65rem .65rem)}
+  .whitening-hero.is-veneers .hero-fold--one>img{object-position:46% center}
+  .whitening-hero.is-veneers .hero-fold--two>img{object-position:52% center}
+  .whitening-hero.is-veneers .hero-fold--three>img{object-position:58% center}
+  .whitening-hero.is-veneers .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 34%,rgba(4,24,20,.52) 48%,transparent 66%)}
+
   @media(min-width:721px) and (max-width:1100px){
     .whitening-hero{height:245svh}
     .hero-fold--one{left:48vw;width:40vw}.hero-fold--two{left:89vw}.hero-fold--three{left:95vw}
@@ -410,6 +539,9 @@ const relatedServices = [
     .hero-cinema__copy>p:last-of-type{max-width:20rem;font-size:.72rem;line-height:1.5}
     .hero-cinema__rail{bottom:1.15rem}
     .hero-folds__edition{display:none}
+    .whitening-hero.is-veneers .hero-fold--one,.whitening-hero.is-veneers .hero-fold--three{clip-path:inset(0 0 5% 0 round 6rem 6rem .5rem .5rem)}
+    .whitening-hero.is-veneers .hero-fold--two{clip-path:inset(5% 0 0 0 round .5rem .5rem 6rem 6rem)}
+    .whitening-hero.is-veneers .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.24) 58%,rgba(4,24,20,.76) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
@@ -612,7 +744,7 @@ const relatedServices = [
       const storyRange = q('[data-story-range]')[0] as HTMLInputElement;
       const fitPoints = q('[data-fit-point]');
       if (story && storyRange && fitPoints.length) {
-        const storyNotes = ['Read the stain before choosing the shade.','Protect enamel and respect existing dental work.','Calibrate brightness to the whole visible smile.'];
+        const storyNotes = JSON.parse(root.dataset.storyNotes || '[]');
         const storyValues = [24,50,82];
         const storyCount = q('[data-story-count]')[0];
         const storyNote = q('[data-story-note]')[0];
@@ -682,7 +814,7 @@ const relatedServices = [
         const resultBeam = q('[data-result-beam]')[0];
         const resultIndex = q('[data-result-index]')[0];
         const resultCaption = q('[data-result-caption]')[0];
-        const resultLabels = ['Health before brightness','Controlled application','A shade that belongs to you'];
+        const resultLabels = JSON.parse(root.dataset.resultLabels || '[]');
         const activateResult = (index:number) => {
           resultPanels.forEach((panel,panelIndex)=>{
             const active=panelIndex===index;
@@ -755,7 +887,7 @@ const relatedServices = [
       q('[data-route-label]').forEach((link)=>{
         const label = link.getAttribute('data-route-label');
         const show = () => { if (routeCurrent && label) routeCurrent.textContent = label; };
-        const reset = () => { if (routeCurrent) routeCurrent.textContent = 'Professional whitening'; };
+        const reset = () => { if (routeCurrent) routeCurrent.textContent = root.dataset.routeName || 'Professional whitening'; };
         link.addEventListener('mouseenter',show);
         link.addEventListener('focus',show);
         link.addEventListener('mouseleave',reset);

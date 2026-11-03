@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore porcelain veneers and laminates at Smiles by Noetzel, including planning, process, pricing, patient experience and connected care in Chicago Heights and Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Porcelain Veneers & Laminates | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-porcelain-veneers-laminates.webp" mediaAlt="A patient reviewing a porcelain veneer plan with her dentist" />
+    <main>
+      <TreatmentDetail kind="porcelain-veneers-laminates" />
+      <BeforeAfterStory id="before-after-porcelain-veneers-laminates" tone="light" reverse number="06" eyebrow="Porcelain case · tooth by tooth" title="Refined in detail." emphasis="Natural as a whole."
+        intro="Porcelain veneers and laminates are planned in the context of the complete visible smile. Shape, proportion, shade and translucency stay connected to the person—not an isolated ideal."
+        image="/images/generated/before-after-porcelain-veneers-laminates-v1.webp" imageAlt="Before and after porcelain veneer planning view showing a natural refined smile"
+        beforeLabel="Uneven visible balance" beforeDetail="Shape, edge position and shade varied across the selected visible teeth."
+        afterLabel="Porcelain, coordinated" afterDetail="A tooth-by-tooth refinement designed to sit naturally within the complete smile."
+        caseNote="Porcelain veneers & laminates" />
+      <HubFooter eyebrow="Ready to explore porcelain?" title="Begin with a smile plan built around you." />
+    </main>
+  </body>
+</html>
