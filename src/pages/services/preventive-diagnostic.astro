@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore preventive and diagnostic dentistry, including exams, cleanings, digital X-rays, fluoride, sealants and custom guards at Smiles by Noetzel." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Preventive & Diagnostic Dentistry | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-preventive-diagnostic.webp" mediaAlt="A dental hygienist preparing instruments for a preventive appointment" />
+    <main>
+      <DetailExperience kind="preventive-diagnostic" />
+      <BeforeAfterStory id="before-after-preventive-diagnostic" tone="light" number="04" eyebrow="Preventive story · a healthier baseline" title="Cleaner surfaces." emphasis="The same natural smile."
+        intro="Preventive progress should be easy to recognize without looking artificial. This case shows the same patient before a professional cleaning and after surface buildup and staining were removed."
+        image="/images/generated/before-after-preventive-diagnostic-v1.webp" imageAlt="The same preventive-care patient before a cleaning with visible plaque and staining and after a professional cleaning with healthier natural teeth"
+        beforeLabel="Before professional cleaning" beforeDetail="Visible plaque and surface staining made the smile harder to maintain and created a less healthy baseline."
+        afterLabel="After preventive cleaning" afterDetail="Professional removal of buildup and staining revealed a cleaner, healthier version of the same natural smile."
+        caseNote="Professional cleaning + preventive guidance" />
+      <HubFooter eyebrow="Ready for a clearer baseline?" title="Start with a preventive visit that makes the next step easy to understand." />
+    </main>
+  </body>
+</html>

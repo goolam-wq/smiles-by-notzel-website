@@ -13,6 +13,7 @@ const routes = [
   ['orthodontic-dentistry', '/services/orthodontic-dentistry/', '#before-after-orthodontic-dentistry'],
   ['pediatric-developmental', '/services/pediatric-developmental/', '#before-after-pediatric-developmental'],
   ['periodontal-dentistry', '/services/periodontal-dentistry/', '#before-after-periodontal-dentistry'],
+  ['preventive-diagnostic', '/services/preventive-diagnostic/', '#before-after-preventive-diagnostic'],
   ['chicago-heights', '/service-areas/chicago-heights/', '#before-after-chicago-heights'],
   ['whitening', '/services/professional-teeth-whitening/', '#before-after-professional-whitening'],
 ];

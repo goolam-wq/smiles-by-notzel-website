@@ -57,7 +57,7 @@ const serviceAreas = [
           </div>
           <div class="service-links">
             {serviceGroups.map(([number, label, slug]) => (
-              <a href={['cosmetic-dentistry', 'complete-health-airway', 'emergency-comfort', 'implants-oral-surgery', 'orthodontic-dentistry', 'pediatric-developmental', 'periodontal-dentistry'].includes(slug) ? `/services/${slug}/` : `/services/#${slug}`}>
+              <a href={['cosmetic-dentistry', 'complete-health-airway', 'emergency-comfort', 'implants-oral-surgery', 'orthodontic-dentistry', 'pediatric-developmental', 'periodontal-dentistry', 'preventive-diagnostic'].includes(slug) ? `/services/${slug}/` : `/services/#${slug}`}>
                 <span>{number}</span>
                 <strong>{label}</strong>
                 <i>↗</i>

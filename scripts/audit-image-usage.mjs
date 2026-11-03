@@ -12,6 +12,7 @@ const routes = [
   '/services/orthodontic-dentistry/',
   '/services/pediatric-developmental/',
   '/services/periodontal-dentistry/',
+  '/services/preventive-diagnostic/',
 ];
 const browser = await chromium.launch({ headless: true, executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe' });
 const uses = [];

@@ -9,6 +9,7 @@ const routes = [
   ['orthodontic', '/services/orthodontic-dentistry/'],
   ['pediatric', '/services/pediatric-developmental/'],
   ['periodontal', '/services/periodontal-dentistry/'],
+  ['preventive', '/services/preventive-diagnostic/'],
 ];
 const viewports = [
   ['desktop', 1440, 900],
