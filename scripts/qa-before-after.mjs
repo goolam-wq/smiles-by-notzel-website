@@ -10,6 +10,7 @@ const routes = [
   ['complete-health-airway', '/services/complete-health-airway/', '#before-after-complete-health-airway'],
   ['emergency-comfort', '/services/emergency-comfort/', '#before-after-emergency-comfort'],
   ['implants-oral-surgery', '/services/implants-oral-surgery/', '#before-after-implants-oral-surgery'],
+  ['orthodontic-dentistry', '/services/orthodontic-dentistry/', '#before-after-orthodontic-dentistry'],
   ['chicago-heights', '/service-areas/chicago-heights/', '#before-after-chicago-heights'],
   ['whitening', '/services/professional-teeth-whitening/', '#before-after-professional-whitening'],
 ];

@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore Invisalign clear-aligner treatment for teens and adults at Smiles by Noetzel, with transparent pricing and coordinated care in Chicago Heights and Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Orthodontic Dentistry &amp; Invisalign | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-orthodontic-dentistry.webp" mediaAlt="A teen and parent reviewing a clear aligner with their clinician" />
+    <main>
+      <DetailExperience kind="orthodontic-dentistry" />
+      <BeforeAfterStory id="before-after-orthodontic-dentistry" tone="dark" number="04" eyebrow="Alignment story · measured change" title="Aligned." emphasis="Still entirely you."
+        intro="The most credible orthodontic result does not replace the smile. It resolves crowding and proportion while keeping the expression, texture and character that were already yours."
+        image="/images/generated/before-after-orthodontic-dentistry-v1.webp" imageAlt="The same clear-aligner patient before treatment with mild crowding and after treatment with naturally aligned teeth"
+        beforeLabel="Before clear alignment" beforeDetail="Mild front-tooth crowding made the smile feel less settled and the bite harder to keep clean."
+        afterLabel="After the planned sequence" afterDetail="Measured clear-aligner movement created a naturally balanced result without changing the person behind the smile."
+        caseNote="Invisalign clear-aligner treatment" />
+      <HubFooter eyebrow="Ready to see the sequence clearly?" title="Start with your bite. We’ll map the movement around your life." />
+    </main>
+  </body>
+</html>
