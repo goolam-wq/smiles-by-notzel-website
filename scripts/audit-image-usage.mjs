@@ -15,6 +15,7 @@ const routes = [
   '/services/preventive-diagnostic/',
   '/services/recode-cognitive-health/',
   '/services/restorative-reconstructive/',
+  '/services/wellness-offering/',
 ];
 const browser = await chromium.launch({ headless: true, executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe' });
 const uses = [];

@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore the non-clinical Juice Plus wellness program, customer-facing plan options and wellness-coordinator support at Smiles by Noetzel." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Wellness Offering | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-wellness-offering.webp" mediaAlt="A patient having a calm wellness-program conversation with the practice team" />
+    <main>
+      <DetailExperience kind="wellness-offering" />
+      <BeforeAfterStory id="before-after-wellness-offering" tone="light" number="11" eyebrow="Planning story · a clearer routine" title="Program questions." emphasis="A plan you can compare."
+        intro="This non-clinical planning story shows the same person before the Juice Plus subscription details were organized and after the fixed, monthly and yearly views were placed into one clear routine. It does not claim a health or treatment outcome."
+        image="/images/generated/before-after-wellness-offering-v1.webp" imageAlt="The same person before organizing a wellness subscription and after reviewing a clearly arranged non-clinical program plan"
+        beforeLabel="Before the program review" beforeDetail="Product-range access, coordinator support and subscription choices had not yet been organized into one clear view."
+        afterLabel="After a clear comparison" afterDetail="The same non-clinical offering was organized into fixed, monthly and yearly views with the support options made visible."
+        caseNote="Program comparison only · not a clinical outcome" />
+      <HubFooter eyebrow="Want the program details in one conversation?" title="Connect with Nadia for Juice Plus information in either office or remotely." />
+    </main>
+  </body>
+</html>

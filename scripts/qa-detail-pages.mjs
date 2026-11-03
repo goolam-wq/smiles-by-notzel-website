@@ -14,6 +14,7 @@ const routes = [
   ['preventive-diagnostic', '/services/preventive-diagnostic/?qa=detail-matrix'],
   ['recode-cognitive-health', '/services/recode-cognitive-health/?qa=detail-matrix'],
   ['restorative-reconstructive', '/services/restorative-reconstructive/?qa=detail-matrix'],
+  ['wellness-offering', '/services/wellness-offering/?qa=detail-matrix'],
   ['whitening', '/services/professional-teeth-whitening/?qa=detail-matrix'],
 ];
 const routeFilter = process.argv[2];

@@ -12,6 +12,7 @@ const routes = [
   ['preventive', '/services/preventive-diagnostic/'],
   ['recode', '/services/recode-cognitive-health/'],
   ['restorative', '/services/restorative-reconstructive/'],
+  ['wellness', '/services/wellness-offering/'],
 ];
 const viewports = [
   ['desktop', 1440, 900],
