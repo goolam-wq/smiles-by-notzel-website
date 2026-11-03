@@ -7,6 +7,7 @@ const routes = [
   ['services', '/services/', '#before-after-services'],
   ['service-areas', '/service-areas/', '#before-after-service-areas'],
   ['cosmetic', '/services/cosmetic-dentistry/', '#before-after-cosmetic'],
+  ['complete-health-airway', '/services/complete-health-airway/', '#before-after-complete-health-airway'],
   ['chicago-heights', '/service-areas/chicago-heights/', '#before-after-chicago-heights'],
   ['whitening', '/services/professional-teeth-whitening/', '#before-after-professional-whitening'],
 ];
@@ -26,11 +27,17 @@ for (const [routeName, route, selector] of routes) {
     const errors = [];
     page.on('console', (msg) => { if (msg.type() === 'error') errors.push(`console: ${msg.text()}`); });
     page.on('pageerror', (error) => errors.push(`page: ${error.message}`));
-    await page.goto(`${base}${route}?qa=before-after-matrix`, { waitUntil: 'networkidle' });
+    await page.goto(`${base}${route}?qa=before-after-matrix`, { waitUntil: 'domcontentloaded' });
     const section = page.locator(selector);
     if (await section.count() !== 1) errors.push(`section count ${await section.count()}`);
     else {
       await section.scrollIntoViewIfNeeded();
+      const media = section.locator('.before-after__image img').first();
+      await media.waitFor({ state: 'visible' });
+      await media.evaluate((image) => image.complete || new Promise((resolve) => {
+        image.addEventListener('load', resolve, { once: true });
+        image.addEventListener('error', resolve, { once: true });
+      }));
       await page.waitForTimeout(400);
       await page.screenshot({ path: `${out}/${routeName}-${viewportName}-section.png`, fullPage: false });
       const sectionBox = await section.boundingBox();
@@ -48,10 +55,17 @@ for (const [routeName, route, selector] of routes) {
         const r = el.getBoundingClientRect();
         const visual = el.querySelector('.before-after__visual')?.getBoundingClientRect();
         const details = el.querySelector('.before-after__details')?.getBoundingClientRect();
+        const media = el.querySelector('.before-after__image img');
+        const mediaStyle = media ? getComputedStyle(media) : null;
         return {
           section: { left: r.left, right: r.right, height: r.height },
           visual: visual && { left: visual.left, right: visual.right, top: visual.top, bottom: visual.bottom },
           details: details && { left: details.left, right: details.right, top: details.top, bottom: details.bottom },
+          media: media && {
+            naturalWidth: media.naturalWidth,
+            naturalHeight: media.naturalHeight,
+            objectFit: mediaStyle?.objectFit,
+          },
           scrollWidth: document.documentElement.scrollWidth,
           clientWidth: document.documentElement.clientWidth,
         };
@@ -61,6 +75,8 @@ for (const [routeName, route, selector] of routes) {
         const box = geometry[key];
         if (!box || box.right < 0 || box.left > width || box.bottom < 0 || box.top > height) errors.push(`${key} outside viewport`);
       }
+      if (!geometry.media?.naturalWidth || !geometry.media?.naturalHeight) errors.push('comparison image failed to load');
+      if (geometry.media?.objectFit !== 'cover') errors.push(`comparison image can distort: object-fit ${geometry.media?.objectFit ?? 'missing'}`);
       const sectionTop = await section.evaluate((el) => el.getBoundingClientRect().top + scrollY);
       for (const [state, y] of [['entry', sectionTop - height * .72], ['middle', sectionTop + Math.max(0, sectionBox.height * .45 - height * .5)], ['exit', sectionTop + sectionBox.height - height * .3]]) {
         await page.evaluate((target) => scrollTo(0, target), y);

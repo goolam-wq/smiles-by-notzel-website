@@ -5,8 +5,12 @@ const base = 'http://localhost:4321';
 const routes = [
   ['chicago', '/service-areas/chicago-heights/?qa=detail-matrix'],
   ['cosmetic', '/services/cosmetic-dentistry/?qa=detail-matrix'],
+  ['complete-health-airway', '/services/complete-health-airway/?qa=detail-matrix'],
   ['whitening', '/services/professional-teeth-whitening/?qa=detail-matrix'],
 ];
+const routeFilter = process.argv[2];
+const activeRoutes = routeFilter ? routes.filter(([name]) => name === routeFilter) : routes;
+if (!activeRoutes.length) throw new Error(`Unknown route filter: ${routeFilter}`);
 const viewports = [
   ['desktop', 1440, 900],
   ['tablet', 1032, 1376],
@@ -17,7 +21,7 @@ await mkdir(out, { recursive: true });
 const browser = await chromium.launch({ headless: true, executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe' });
 const report = [];
 
-for (const [routeName, route] of routes) {
+for (const [routeName, route] of activeRoutes) {
   for (const [viewportName, width, height] of viewports) {
     const page = await browser.newPage({ viewport: { width, height }, deviceScaleFactor: 1 });
     const errors = [];
@@ -41,7 +45,7 @@ for (const [routeName, route] of routes) {
     let index = 0;
     for (let y = 0; y <= pageMetrics.height - height; y += Math.max(360, Math.floor(height * .55))) {
       await page.evaluate((target) => window.scrollTo({ top: target, behavior: 'auto' }), y);
-      await page.waitForTimeout(70);
+      await page.waitForTimeout(240);
       const issue = await page.evaluate(() => {
         const viewport = innerHeight;
         const visible = [...document.querySelectorAll('main section, main footer')].filter((el) => {

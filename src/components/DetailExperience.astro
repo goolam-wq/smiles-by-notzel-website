@@ -1,7 +1,8 @@
 ---
-interface Props { kind: 'chicago' | 'cosmetic' }
+interface Props { kind: 'chicago' | 'cosmetic' | 'complete-health-airway' }
 const { kind } = Astro.props;
 const chicago = kind === 'chicago';
+const completeHealth = kind === 'complete-health-airway';
 
 const communities = ['Chicago Heights', 'South Chicago Heights', 'Steger', 'Sauk Village', 'Lynwood', 'Glenwood', 'Ford Heights', 'Olympia Fields', 'Park Forest', 'Homewood', 'Flossmoor', 'Hazel Crest', 'Matteson', 'Crete', 'Country Club Hills', 'Richton Park'];
 const serviceGroups = [
@@ -26,6 +27,95 @@ const cosmeticServices = [
   { n: '06', slug: 'tooth-contouring', name: 'Tooth contouring', note: 'Small, precise adjustments that bring the smile into balance.', fixed: '$150 / tooth', monthly: '$13 / mo · 12 mo', yearly: '$150 / yr' },
   { n: '07', slug: 'complete-smile-makeover', name: 'Complete smile makeover', note: 'A coordinated plan combining the right treatments for you.', fixed: 'From $12,000', monthly: '$334 / mo · 36 mo', yearly: '$12,000 / yr' },
 ];
+const completeHealthServices = [
+  { n: '01', slug: 'oral-cancer-screening', name: 'Oral-cancer screening', note: 'A focused soft-tissue screening that adds a wider health signal to your routine visit.', fixed: '$150', monthly: '$13 / mo · 12 mo', yearly: '$150 / yr' },
+  { n: '02', slug: 'airway-sleep-screening', name: 'Airway and sleep screening', note: 'Breathing, sleep and oral findings are considered together before the next step is planned.', fixed: '$195', monthly: '$17 / mo · 12 mo', yearly: '$195 / yr' },
+  { n: '03', slug: 'artery-health-screening', name: 'Artery-health screening', note: 'A simple screening adds cardiovascular context to the complete-health conversation.', fixed: '$150', monthly: '$13 / mo · 12 mo', yearly: '$150 / yr' },
+  { n: '04', slug: 'prosomnus-sleep-apnea-appliance', name: 'ProSomnus sleep-apnea appliance', note: 'A custom oral appliance pathway for selected patients who need airway support while they sleep.', fixed: '$5,750', monthly: '$160 / mo · 36 mo', yearly: '$5,750 / yr' },
+];
+const category = kind === 'complete-health-airway' ? {
+  slug: 'complete-health-airway',
+  watermark: ['COMPLETE', 'HEALTH'],
+  heroKicker: 'Complete Health & Airway · 4 connected signals',
+  heroTitle: 'Look beyond the smile.',
+  heroLead: 'Look beyond',
+  heroEmphasis: 'the smile.',
+  heroIntro: 'Oral health, airway, sleep and vascular signals are read together—so the plan can support more than one appointment.',
+  heroImage: '/images/generated/complete-health-airway-hero-v1.webp',
+  heroAlt: 'A dentist and patient reviewing an airway and whole-health scan together',
+  heroOutline: 'SCAN 01',
+  heroCaptions: ['AIRWAY', 'SLEEP', 'SYSTEM'],
+  heroButton: 'Explore the signals',
+  ledger: [['SIGNALS', '4 connected services'], ['APPROACH', 'Read the wider story'], ['LOCATIONS', 'Chicago Heights + Mokena'], ['STARTING WITH', 'Your health patterns']],
+  aboutKicker: '01 · ABOUT COMPLETE HEALTH',
+  aboutLead: 'The mouth can reveal',
+  aboutEmphasis: 'what the body is asking for.',
+  aboutMainImage: '/images/generated/unique/complete-health-airway-about-oral-screening.webp',
+  aboutMainAlt: 'A dentist completing a careful oral-cancer screening',
+  aboutDetailImage: '/images/generated/unique/complete-health-airway-about-artery-screening.webp',
+  aboutDetailAlt: 'A clinician completing a simple artery-health screening with a patient',
+  aboutLabel: 'ORAL HEALTH IS WHOLE HEALTH',
+  aboutCopy: 'Complete-health dentistry connects findings that are easy to separate: soft tissue, breathing, sleep, circulation and the way you feel day to day. The goal is not more treatment. It is a clearer picture.',
+  principles: [['01', 'Detect', 'Notice signals early instead of waiting for them to become louder.'], ['02', 'Connect', 'Read oral findings alongside sleep, airway and wider health patterns.'], ['03', 'Support', 'Build a practical next step around the person—not only the symptom.']],
+  optionKicker: '02 · THE CONNECTED SIGNALS',
+  optionLead: 'Four signals.',
+  optionEmphasis: 'One wider view.',
+  optionIntro: 'Open a signal to see how it fits into the complete-health picture.',
+  optionImage: '/images/generated/unique/complete-health-airway-option-index.webp',
+  optionAlt: 'A dentist explaining an airway scan and sleep-apnea appliance to a patient',
+  optionLabel: 'READ TOGETHER · PLANNED WITH YOU',
+  services: completeHealthServices,
+  processKicker: '03 · THE COMPLETE-HEALTH PROCESS',
+  processLead: 'A wider view that becomes',
+  processEmphasis: 'clear.',
+  steps: [['01', 'Listen', 'We begin with sleep, breathing, energy, health history and what you have noticed.'], ['02', 'Screen', 'Focused oral, airway and artery-health signals bring the wider picture into view.'], ['03', 'Connect', 'Findings are organized into a plan you can understand, including referral when appropriate.'], ['04', 'Support', 'Treatment and follow-up stay coordinated across one familiar care team.']],
+  trustImage: '/images/generated/unique/complete-health-airway-trust-whole-health.webp',
+  trustAlt: 'A patient and connected dental team discussing a whole-health care plan',
+  trustLabel: 'ONE HEALTH STORY · TWO CONNECTED OFFICES',
+  trustKicker: '04 · WHY CHOOSE SMILES BY NOETZEL',
+  trustHeading: 'More than a dental checklist.',
+  trustCopy: 'The team connects oral health with the patterns that affect sleep, breathing and daily wellbeing—then makes the next step understandable.',
+  trustReasons: [['01', 'Signals read together', 'Oral, airway, sleep and artery-health findings share one conversation.'], ['02', 'Clear scope', 'Four focused services make the wider view practical, not overwhelming.'], ['03', 'Transparent pricing', 'Fixed, monthly and yearly views are visible before you begin.'], ['04', 'Two connected offices', 'Complete-health screening is available in Chicago Heights and Mokena.']],
+  pricingKicker: '05 · PRICING, MADE LEGIBLE',
+  pricingLead: 'A clear view of',
+  pricingEmphasis: 'the next step.',
+  pricingIntro: 'Compare fixed, monthly and yearly views for each complete-health service. Final recommendations follow your screening.',
+  pricingNote: 'Monthly examples show the stated service amount divided across the listed term. Eligibility, appliance candidacy and final terms are confirmed by the office.',
+  proofKicker: '06 · COMPLETE-HEALTH PATIENT PROOF',
+  proofQuote: '“They listen to the whole story and explain what they see in a way that makes the next step feel manageable.”',
+  proofFooter: 'PATIENT EXPERIENCE · COMPLETE-HEALTH CARE',
+  proofTopics: ['Whole-health conversation', 'Airway · sleep · oral signals', 'Two connected offices'],
+  proofTotal: '4',
+  proofTotalLabel: 'connected health signals',
+  faqKicker: '07 · GOOD QUESTIONS',
+  faqs: [
+    ['What does complete-health dentistry mean?', 'It means oral findings are considered alongside patterns such as breathing, sleep and wider health signals before a next step is recommended.'],
+    ['Are these screenings available at both offices?', 'Yes. Complete-health screening is available in Chicago Heights and Mokena. Appointment availability can vary by service.'],
+    ['Does an airway screening diagnose sleep apnea?', 'No. It identifies relevant signs and helps the team explain whether a medical sleep evaluation or another next step may be appropriate.'],
+    ['How much does a complete-health screening cost?', 'The fixed, monthly and yearly examples for all four services are shown on this page. The office confirms final recommendations and terms.'],
+    ['Who may be a candidate for a ProSomnus appliance?', 'Candidacy depends on your diagnosis, anatomy and care plan. The dental team coordinates the appropriate evaluation before an appliance is recommended.'],
+  ],
+} : {
+  slug: 'cosmetic-dentistry',
+  watermark: ['COSMETIC', 'STORY'],
+  heroKicker: 'Cosmetic dentistry · 7 possibilities',
+  heroLead: 'Designed to look', heroEmphasis: 'like you.',
+  heroIntro: 'Thoughtful cosmetic care begins by understanding what you want to keep, what you want to change and what should still feel unmistakably yours.',
+  heroImage: '/images/generated/cosmetic-smile-planning-v1.webp', heroAlt: 'A dentist and patient planning a natural-looking cosmetic smile', heroOutline: 'PLAN 01', heroCaptions: ['SHAPE', 'SHADE', 'PROPORTION'], heroButton: 'Explore your options',
+  ledger: [['OPTIONS', '7 exact services'], ['APPROACH', 'Plan before procedure'], ['LOCATIONS', 'Chicago Heights + Mokena'], ['STARTING WITH', 'Your goals']],
+  aboutKicker: '01 · ABOUT COSMETIC CARE', aboutLead: 'The best cosmetic work', aboutEmphasis: 'still looks like you.', aboutMainImage: '/images/generated/unique/cosmetic-about-conversation.webp', aboutMainAlt: 'A dentist listening during a cosmetic-care conversation', aboutDetailImage: '/images/generated/unique/cosmetic-about-shade-detail.webp', aboutDetailAlt: 'A clinician comparing natural tooth shades with a patient', aboutLabel: 'DESIGN IS A CONVERSATION', aboutCopy: 'Good cosmetic dentistry does not announce itself. It begins with health, then brings shade, shape and proportion into a balance that belongs to your face—not somebody else’s.', principles: [['01', 'Preserve', 'Keep the character that already feels like you.'], ['02', 'Balance', 'Plan every change in relation to the whole smile.'], ['03', 'Refine', 'Choose the smallest meaningful step before adding more.']],
+  optionKicker: '02 · THE POSSIBILITIES', optionLead: 'Seven ways to refine', optionEmphasis: 'one expression.', optionIntro: 'Select an option to see how it fits into the larger plan.', optionImage: '/images/generated/unique/cosmetic-option-index.webp', optionAlt: 'A patient comparing cosmetic treatment options with a dentist', optionLabel: 'PLANNED WITH YOU · NOT FOR YOU', services: cosmeticServices,
+  processKicker: '03 · THE COSMETIC PROCESS', processLead: 'A plan that becomes', processEmphasis: 'clear.', steps: [['01', 'Listen', 'We begin with what you notice, what you want and what you do not want to lose.'], ['02', 'Assess', 'Health, bite, shade, shape and proportion are reviewed before a treatment is chosen.'], ['03', 'Plan', 'Options, timeline and pricing are put into a sequence you can understand.'], ['04', 'Refine', 'Every detail is adjusted toward a result that feels natural in motion and at rest.']],
+  trustImage: '/images/generated/unique/cosmetic-trust-natural-design.webp', trustAlt: 'A dentist and patient reviewing a natural cosmetic design together', trustLabel: 'ONE PLAN · TWO CONNECTED OFFICES', trustKicker: '04 · WHY CHOOSE SMILES BY NOETZEL', trustHeading: 'More than a cosmetic menu.', trustCopy: 'Your smile is considered inside your complete-health story, with clear options and pricing before treatment begins.', trustReasons: [['01', 'Health before aesthetics', 'Cosmetic decisions begin with a stable, healthy foundation.'], ['02', 'Seven paths, one plan', 'Options are coordinated instead of sold as isolated procedures.'], ['03', 'Pricing you can compare', 'Fixed, monthly and yearly views are visible before you begin.'], ['04', 'Two connected offices', 'Cosmetic care is available in Chicago Heights and Mokena.']],
+  pricingKicker: '05 · PRICING, MADE LEGIBLE', pricingLead: 'A clear view of', pricingEmphasis: 'the investment.', pricingIntro: 'Use fixed, monthly and yearly views to compare possibilities. Final recommendations follow your consultation.', pricingNote: 'Monthly examples show the stated service amount divided across the listed term. Eligibility and final terms are confirmed by the office. Complete smile makeover pricing varies with the selected procedures.',
+  proofKicker: '06 · COSMETIC PATIENT REVIEW', proofQuote: '“The staining was removed and the result was dramatically whiter. I was thrilled with how clean and bright my teeth looked.”', proofFooter: 'CYNTHIA K. · PATIENT REVIEW', proofTopics: ['Natural-looking planning', 'Shade · shape · proportion', 'Both office locations'], proofTotal: '7', proofTotalLabel: 'cosmetic possibilities', faqKicker: '07 · GOOD QUESTIONS', faqs: [
+    ['How do I know which cosmetic treatment fits my smile?', 'A consultation begins with your goals, timeline, oral health and budget. The team then explains which options make sense and why.'],
+    ['Is cosmetic dentistry available at both offices?', 'Yes. Cosmetic services are available in Chicago Heights and Mokena. Appointment availability can vary by treatment.'],
+    ['How much does a cosmetic consultation cost?', 'Treatment pricing is shown on this page. Call the team to confirm consultation details and the plan recommended for you.'],
+    ['Will my result look natural?', 'The planning process considers tooth shape, shade, proportion and your facial features so the result feels like you—not a template.'],
+    ['Can cosmetic work be financed monthly?', 'Monthly examples are included for each service. Final terms and eligibility are confirmed with the office.'],
+  ],
+};
 const chicagoPricing = [
   { name: 'Professional dental cleaning', fixed: '$125 / visit', monthly: '$21 / mo · 12 mo', yearly: '$250 / yr' },
   { name: 'Routine or comprehensive exam', fixed: '$125 / visit', monthly: '$11 / mo · 12 mo', yearly: '$125 / yr' },
@@ -48,29 +138,29 @@ const cosmeticFaq = [
   ['Will my result look natural?', 'The planning process considers tooth shape, shade, proportion and your facial features so the result feels like you—not a template.'],
   ['Can cosmetic work be financed monthly?', 'Monthly examples are included for each service. Final terms and eligibility are confirmed with the office.'],
 ];
-const faqs = chicago ? chicagoFaq : cosmeticFaq;
+const faqs = chicago ? chicagoFaq : category.faqs;
 ---
 
-<div class:list={['detail-page', chicago ? 'is-chicago' : 'is-cosmetic']} data-detail-root data-detail-kind={kind}>
+<div class:list={['detail-page', chicago ? 'is-chicago' : completeHealth ? 'is-complete-health' : 'is-cosmetic']} data-detail-root data-detail-kind={kind}>
   <section class="detail-hero" data-detail-hero data-areas-hero={chicago ? '' : undefined} data-services-hero={!chicago ? '' : undefined}>
     <div class="detail-hero__sticky">
       <div class="detail-hero__grid" aria-hidden="true"></div>
-      <div class="detail-hero__watermark" aria-hidden="true"><span>{chicago ? 'CHICAGO' : 'COSMETIC'}</span><em>{chicago ? 'HEIGHTS' : 'STORY'}</em></div>
+      <div class="detail-hero__watermark" aria-hidden="true"><span>{chicago ? 'CHICAGO' : category.watermark[0]}</span><em>{chicago ? 'HEIGHTS' : category.watermark[1]}</em></div>
       <div class="detail-hero__copy">
-        <p class="detail-kicker"><span></span>{chicago ? 'Chicago Heights · Office 01' : 'Cosmetic dentistry · 7 possibilities'}</p>
+        <p class="detail-kicker"><span></span>{chicago ? 'Chicago Heights · Office 01' : category.heroKicker}</p>
         {chicago ? (
           <h1>Care that keeps<br /><em>pace with life.</em></h1>
         ) : (
-          <h1>Designed to look<br /><em>like you.</em></h1>
+          <h1>{category.heroLead}<br /><em>{category.heroEmphasis}</em></h1>
         )}
-        <p class="detail-hero__intro">{chicago ? 'Extended weekday hours, complete-health thinking and one connected team—right here on Ashland Avenue.' : 'Thoughtful cosmetic care begins by understanding what you want to keep, what you want to change and what should still feel unmistakably yours.'}</p>
-        <a class="detail-button" href={chicago ? 'tel:+17087551333' : '#cosmetic-options'}>
-          <span>{chicago ? 'Call Chicago Heights' : 'Explore your options'}</span><b aria-hidden="true">↓</b>
+        <p class="detail-hero__intro">{chicago ? 'Extended weekday hours, complete-health thinking and one connected team—right here on Ashland Avenue.' : category.heroIntro}</p>
+        <a class="detail-button" href={chicago ? 'tel:+17087551333' : `#${category.slug}-options`}>
+          <span>{chicago ? 'Call Chicago Heights' : category.heroButton}</span><b aria-hidden="true">↓</b>
         </a>
       </div>
 
-      <div class:list={['detail-hero__visual', !chicago && 'cosmetic-triptych']} data-hero-visual>
-        <div class="detail-hero__outline" aria-hidden="true"><span>{chicago ? 'OFFICE 01' : 'PLAN 01'}</span></div>
+      <div class:list={['detail-hero__visual', !chicago && !completeHealth && 'cosmetic-triptych', completeHealth && 'health-scan']} data-hero-visual>
+        {!completeHealth && <div class="detail-hero__outline" aria-hidden="true"><span>{chicago ? 'OFFICE 01' : category.heroOutline}</span></div>}
         {chicago ? (
           <>
             <div class="detail-hero__frame">
@@ -78,17 +168,25 @@ const faqs = chicago ? chicagoFaq : cosmeticFaq;
             </div>
             <div class="hero-aperture" aria-hidden="true"><i></i><i></i></div>
           </>
+        ) : completeHealth ? (
+          <div class="health-scan__panels">
+            <div class="health-scan__main"><img src={category.heroImage} alt={category.heroAlt} width="1536" height="1024" loading="eager" fetchpriority="high" /></div>
+            <div class="health-scan__rail" aria-hidden="true">
+              <div class="health-scan__detail airway"><img src={category.heroImage} alt="" width="1536" height="1024" loading="eager" /></div>
+              <div class="health-scan__detail system"><img src={category.heroImage} alt="" width="1536" height="1024" loading="eager" /></div>
+            </div>
+          </div>
         ) : (
           <div class="cosmetic-triptych__panels">
-            <div class="cosmetic-slice slice-a"><img src="/images/generated/cosmetic-smile-planning-v1.webp" alt="A dentist and patient planning a natural-looking cosmetic smile" width="1536" height="1024" loading="eager" fetchpriority="high" /></div>
-            <div class="cosmetic-slice slice-b" aria-hidden="true"><img src="/images/generated/cosmetic-smile-planning-v1.webp" alt="" width="1536" height="1024" loading="eager" /></div>
-            <div class="cosmetic-slice slice-c" aria-hidden="true"><img src="/images/generated/cosmetic-smile-planning-v1.webp" alt="" width="1536" height="1024" loading="eager" /></div>
+            <div class="cosmetic-slice slice-a"><img src={category.heroImage} alt={category.heroAlt} width="1536" height="1024" loading="eager" fetchpriority="high" /></div>
+            <div class="cosmetic-slice slice-b" aria-hidden="true"><img src={category.heroImage} alt="" width="1536" height="1024" loading="eager" /></div>
+            <div class="cosmetic-slice slice-c" aria-hidden="true"><img src={category.heroImage} alt="" width="1536" height="1024" loading="eager" /></div>
           </div>
         )}
         {chicago ? (
           <div class="hero-address"><span>500 Ashland Ave, Suite #2</span><span>Chicago Heights, IL</span></div>
-        ) : (
-          <><div class="cosmetic-triptych__caption"><span>SHAPE</span><span>SHADE</span><span>PROPORTION</span></div><div class="hero-shade" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></>
+        ) : completeHealth ? null : (
+          <><div class="cosmetic-triptych__caption">{category.heroCaptions.map((caption) => <span>{caption}</span>)}</div><div class="hero-shade" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></>
         )}
       </div>
 
@@ -105,12 +203,7 @@ const faqs = chicago ? chicagoFaq : cosmeticFaq;
         <div><small>CALL</small><strong>(708) 755-1333</strong></div>
       </>
     ) : (
-      <>
-        <div><small>OPTIONS</small><strong>7 exact services</strong></div>
-        <div><small>APPROACH</small><strong>Plan before procedure</strong></div>
-        <div><small>LOCATIONS</small><strong>Chicago Heights + Mokena</strong></div>
-        <div><small>STARTING WITH</small><strong>Your goals</strong></div>
-      </>
+      <>{category.ledger.map((item) => <div><small>{item[0]}</small><strong>{item[1]}</strong></div>)}</>
     )}
   </section>
 
@@ -179,41 +272,39 @@ const faqs = chicago ? chicagoFaq : cosmeticFaq;
     <>
       <section class="about-cosmetic section-shell" data-reveal-section data-image-reveal>
         <header class="about-cosmetic__head">
-          <p class="detail-kicker"><span></span>01 · ABOUT COSMETIC CARE</p>
-          <h2>The best cosmetic work<br />still looks <em>like you.</em></h2>
+          <p class="detail-kicker"><span></span>{category.aboutKicker}</p>
+          <h2>{category.aboutLead}<br /><em>{category.aboutEmphasis}</em></h2>
         </header>
         <div class="about-cosmetic__media">
-          <div class="about-cosmetic__image main-image"><img src="/images/generated/unique/cosmetic-about-conversation.webp" alt="A dentist listening during a cosmetic-care conversation" width="1536" height="1024" loading="lazy" /></div>
-          <div class="about-cosmetic__image detail-image"><img src="/images/generated/unique/cosmetic-about-shade-detail.webp" alt="A clinician comparing natural tooth shades with a patient" width="1536" height="1024" loading="lazy" /></div>
-          <span aria-hidden="true">DESIGN IS A CONVERSATION</span>
+          <div class="about-cosmetic__image main-image"><img src={category.aboutMainImage} alt={category.aboutMainAlt} width="1536" height="1024" loading="lazy" /></div>
+          <div class="about-cosmetic__image detail-image"><img src={category.aboutDetailImage} alt={category.aboutDetailAlt} width="1536" height="1024" loading="lazy" /></div>
+          <span aria-hidden="true">{category.aboutLabel}</span>
         </div>
         <div class="about-cosmetic__principles">
-          <p>Good cosmetic dentistry does not announce itself. It begins with health, then brings shade, shape and proportion into a balance that belongs to your face—not somebody else’s.</p>
-          <div><b>01</b><strong>Preserve</strong><span>Keep the character that already feels like you.</span></div>
-          <div><b>02</b><strong>Balance</strong><span>Plan every change in relation to the whole smile.</span></div>
-          <div><b>03</b><strong>Refine</strong><span>Choose the smallest meaningful step before adding more.</span></div>
+          <p>{category.aboutCopy}</p>
+          {category.principles.map((principle) => <div><b>{principle[0]}</b><strong>{principle[1]}</strong><span>{principle[2]}</span></div>)}
         </div>
       </section>
 
-      <section class="option-index" id="cosmetic-options" data-option-index>
+      <section class="option-index" id={`${category.slug}-options`} data-option-index>
         <header>
-          <p class="detail-kicker light"><span></span>02 · THE POSSIBILITIES</p>
-          <h2>Seven ways to refine<br /><em>one expression.</em></h2>
-          <p>Select an option to see how it fits into the larger plan.</p>
+          <p class="detail-kicker light"><span></span>{category.optionKicker}</p>
+          <h2>{category.optionLead}<br /><em>{category.optionEmphasis}</em></h2>
+          <p>{category.optionIntro}</p>
         </header>
         <div class="option-index__layout">
           <div class="option-index__visual">
-            <img src="/images/generated/unique/cosmetic-option-index.webp" alt="A patient comparing cosmetic treatment options with a dentist" width="1536" height="1024" loading="lazy" />
-            <span>PLANNED WITH YOU · NOT FOR YOU</span>
+            <img src={category.optionImage} alt={category.optionAlt} width="1536" height="1024" loading="lazy" />
+            <span>{category.optionLabel}</span>
           </div>
           <div class="option-index__list">
-            {cosmeticServices.map((service, i) => (
+            {category.services.map((service, i) => (
               <details open={i === 0} data-option>
                 <summary><span>{service.n}</span><strong>{service.name}</strong><b>+</b></summary>
                 <div class="option-body">
                   <p>{service.note}</p>
                   <div class="option-body__links">
-                    <a href="#cosmetic-pricing">See pricing ↓</a>
+                    <a href={`#${category.slug}-pricing`}>See pricing ↓</a>
                     <a href={`/services/${service.slug}/`} aria-label={`Learn more about ${service.name}`}>Learn more →</a>
                   </div>
                 </div>
@@ -228,8 +319,8 @@ const faqs = chicago ? chicagoFaq : cosmeticFaq;
   <section class="journey" data-journey>
     <div class="journey__sticky">
       <header>
-        <p class="detail-kicker"><span></span>{chicago ? '04 · THE COMPLETE-HEALTH PROCESS' : '03 · THE COSMETIC PROCESS'}</p>
-        <h2>{chicago ? <>Care that becomes <em>clear.</em></> : <>A plan that becomes <em>clear.</em></>}</h2>
+        <p class="detail-kicker"><span></span>{chicago ? '04 · THE COMPLETE-HEALTH PROCESS' : category.processKicker}</p>
+        <h2>{chicago ? <>Care that becomes <em>clear.</em></> : <>{category.processLead} <em>{category.processEmphasis}</em></>}</h2>
       </header>
       <div class="journey__track">
         {(chicago ? [
@@ -237,12 +328,7 @@ const faqs = chicago ? chicagoFaq : cosmeticFaq;
           ['02', 'See', 'Exams, imaging and complete-health screening bring the full picture into focus.'],
           ['03', 'Plan', 'Options, timing and pricing are organized into a path you can understand.'],
           ['04', 'Connect', 'Treatment and follow-up stay coordinated with one familiar Chicago Heights team.'],
-        ] : [
-          ['01', 'Listen', 'We begin with what you notice, what you want and what you do not want to lose.'],
-          ['02', 'Assess', 'Health, bite, shade, shape and proportion are reviewed before a treatment is chosen.'],
-          ['03', 'Plan', 'Options, timeline and pricing are put into a sequence you can understand.'],
-          ['04', 'Refine', 'Every detail is adjusted toward a result that feels natural in motion and at rest.'],
-        ]).map((step) => (
+        ] : category.steps).map((step) => (
           <article data-journey-card>
             <span>{step[0]}</span><h3>{step[1]}</h3><p>{step[2]}</p><i aria-hidden="true"></i>
           </article>
@@ -254,25 +340,20 @@ const faqs = chicago ? chicagoFaq : cosmeticFaq;
 
   <section class:list={['trust-story', chicago ? 'trust-chicago' : 'trust-cosmetic']} data-trust-story data-reveal-section>
     <div class="trust-story__image" data-trust-image>
-      <img src={chicago ? '/images/generated/unique/chicago-trust-local-family.webp' : '/images/generated/unique/cosmetic-trust-natural-design.webp'} alt={chicago ? 'A local family speaking with the Chicago Heights care team' : 'A dentist and patient reviewing a natural cosmetic design together'} width="1536" height="1024" loading="lazy" />
-      <span>{chicago ? '500 ASHLAND AVE · CHICAGO HEIGHTS' : 'ONE PLAN · TWO CONNECTED OFFICES'}</span>
+      <img src={chicago ? '/images/generated/unique/chicago-trust-local-family.webp' : category.trustImage} alt={chicago ? 'A local family speaking with the Chicago Heights care team' : category.trustAlt} width="1536" height="1024" loading="lazy" />
+      <span>{chicago ? '500 ASHLAND AVE · CHICAGO HEIGHTS' : category.trustLabel}</span>
     </div>
     <div class="trust-story__content">
-      <p class="detail-kicker light"><span></span>{chicago ? '05 · WHY CHOOSE THIS OFFICE' : '04 · WHY CHOOSE SMILES BY NOETZEL'}</p>
-      <h2>{chicago ? 'More than a convenient address.' : 'More than a cosmetic menu.'}</h2>
-      <p>{chicago ? 'The difference is not a single technology or appointment. It is the way access, experience and the wider health story work together.' : 'Your smile is considered inside your complete-health story, with clear options and pricing before treatment begins.'}</p>
+      <p class="detail-kicker light"><span></span>{chicago ? '05 · WHY CHOOSE THIS OFFICE' : category.trustKicker}</p>
+      <h2>{chicago ? 'More than a convenient address.' : category.trustHeading}</h2>
+      <p>{chicago ? 'The difference is not a single technology or appointment. It is the way access, experience and the wider health story work together.' : category.trustCopy}</p>
       <div class="trust-story__reasons">
         {(chicago ? [
           ['01', 'Hours that make room', 'Early mornings, evenings and Saturday availability.'],
           ['02', '48 connected services', 'Prevention, comfort, restoration and advanced care in one network.'],
           ['03', 'Complete-health thinking', 'The team looks beyond one tooth and one appointment.'],
           ['04', 'Patient-backed care', 'A 4.9 Google rating from 258 Chicago Heights reviews.'],
-        ] : [
-          ['01', 'Health before aesthetics', 'Cosmetic decisions begin with a stable, healthy foundation.'],
-          ['02', 'Seven paths, one plan', 'Options are coordinated instead of sold as isolated procedures.'],
-          ['03', 'Pricing you can compare', 'Fixed, monthly and yearly views are visible before you begin.'],
-          ['04', 'Two connected offices', 'Cosmetic care is available in Chicago Heights and Mokena.'],
-        ]).map((reason) => <article><b>{reason[0]}</b><strong>{reason[1]}</strong><p>{reason[2]}</p></article>)}
+        ] : category.trustReasons).map((reason) => <article><b>{reason[0]}</b><strong>{reason[1]}</strong><p>{reason[2]}</p></article>)}
       </div>
     </div>
   </section>
@@ -323,43 +404,41 @@ const faqs = chicago ? chicagoFaq : cosmeticFaq;
   )}
 
   {!chicago && (
-    <section class="pricing section-shell" id="cosmetic-pricing" data-reveal-section>
+    <section class="pricing section-shell" id={`${category.slug}-pricing`} data-reveal-section>
       <div class="pricing__head">
-        <p class="detail-kicker"><span></span>05 · PRICING, MADE LEGIBLE</p>
-        <h2>A clear view of<br /><em>the investment.</em></h2>
-        <p>Use fixed, monthly and yearly views to compare possibilities. Final recommendations follow your consultation.</p>
+        <p class="detail-kicker"><span></span>{category.pricingKicker}</p>
+        <h2>{category.pricingLead}<br /><em>{category.pricingEmphasis}</em></h2>
+        <p>{category.pricingIntro}</p>
       </div>
-      <div class="pricing__table" role="table" aria-label="Cosmetic dentistry pricing">
+      <div class="pricing__table" role="table" aria-label={`${category.heroKicker} pricing`}>
         <div class="pricing__row pricing__labels" role="row"><span>Service</span><span>Fixed</span><span>Monthly</span><span>Yearly</span></div>
-        {cosmeticServices.map((service) => (
+        {category.services.map((service) => (
           <div class="pricing__row" role="row"><strong>{service.name}</strong><span>{service.fixed}</span><span>{service.monthly}</span><span>{service.yearly}</span></div>
         ))}
       </div>
-      <p class="pricing__note">Monthly examples show the stated service amount divided across the listed term. Eligibility and final terms are confirmed by the office. Complete smile makeover pricing varies with the selected procedures.</p>
+      <p class="pricing__note">{category.pricingNote}</p>
     </section>
   )}
 
   <section class="patient-proof" data-proof>
     <div class="patient-proof__top">
-      <div><p class="detail-kicker light"><span></span>{chicago ? '08 · CHICAGO HEIGHTS PATIENT REVIEWS' : '06 · COSMETIC PATIENT REVIEW'}</p><h2 class="proof-heading">Real patients.<br /><em>Real perspective.</em></h2></div>
+      <div><p class="detail-kicker light"><span></span>{chicago ? '08 · CHICAGO HEIGHTS PATIENT REVIEWS' : category.proofKicker}</p><h2 class="proof-heading">Real patients.<br /><em>Real perspective.</em></h2></div>
       <div class="proof-score"><strong>4.9</strong><span>Google rating<br />Chicago Heights</span></div>
     </div>
     <div class="patient-proof__stage">
       <blockquote data-proof-quote>
-        <p>{chicago ? '“The staff work together like a well-oiled machine—friendly, efficient and attentive without making the visit feel rushed.”' : '“The staining was removed and the result was dramatically whiter. I was thrilled with how clean and bright my teeth looked.”'}</p>
-        <footer>{chicago ? 'KEANNA BENSON · PATIENT REVIEW' : 'CYNTHIA K. · PATIENT REVIEW'}</footer>
+        <p>{chicago ? '“The staff work together like a well-oiled machine—friendly, efficient and attentive without making the visit feel rushed.”' : category.proofQuote}</p>
+        <footer>{chicago ? 'KEANNA BENSON · PATIENT REVIEW' : category.proofFooter}</footer>
       </blockquote>
       <div class="proof-topics">
-        <span>{chicago ? 'Friendly staff · 76 mentions' : 'Natural-looking planning'}</span>
-        <span>{chicago ? 'Caring staff · 35 mentions' : 'Shade · shape · proportion'}</span>
-        <span>{chicago ? 'Clear explanations · 9 mentions' : 'Both office locations'}</span>
+        {(chicago ? ['Friendly staff · 76 mentions', 'Caring staff · 35 mentions', 'Clear explanations · 9 mentions'] : category.proofTopics).map((topic) => <span>{topic}</span>)}
       </div>
     </div>
-    <p class="proof-total">{chicago ? '258' : '7'}<small>{chicago ? 'total Google reviews' : 'cosmetic possibilities'}</small></p>
+    <p class="proof-total">{chicago ? '258' : category.proofTotal}<small>{chicago ? 'total Google reviews' : category.proofTotalLabel}</small></p>
   </section>
 
   <section class="detail-faq section-shell" data-reveal-section>
-    <div class="detail-faq__head"><p class="detail-kicker"><span></span>{chicago ? '09 · GOOD QUESTIONS' : '07 · GOOD QUESTIONS'}</p><h2>Before you<br /><em>begin.</em></h2></div>
+    <div class="detail-faq__head"><p class="detail-kicker"><span></span>{chicago ? '09 · GOOD QUESTIONS' : category.faqKicker}</p><h2>Before you<br /><em>begin.</em></h2></div>
     <div class="detail-faq__list">
       {faqs.map((faq, i) => (
         <details open={i === 0}>
@@ -376,6 +455,7 @@ const faqs = chicago ? chicagoFaq : cosmeticFaq;
   .detail-kicker{display:flex;align-items:center;gap:.7rem;margin:0;font-size:.7rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}.detail-kicker span{width:1.8rem;height:1px;background:currentColor}.detail-kicker.light{color:var(--mint-300)}
   .detail-hero{height:220svh;background:var(--pine-950);color:var(--porcelain);position:relative;isolation:isolate}.detail-hero__sticky{height:100svh;position:sticky;top:0;overflow:hidden;display:grid;grid-template-columns:minmax(18rem,40%) 1fr;align-items:center;padding:7.5rem clamp(1.25rem,6vw,7rem) 3rem}.detail-hero__grid{position:absolute;inset:0;background-image:linear-gradient(to right,rgba(196,234,220,.09) 1px,transparent 1px);background-size:25% 100%;pointer-events:none}.detail-hero__watermark{position:absolute;z-index:0;left:-1.5vw;bottom:-1.5vw;display:grid;font-family:var(--serif);font-size:clamp(8rem,17vw,19rem);font-weight:500;line-height:.58;letter-spacing:-.075em;color:rgba(196,234,220,.045);pointer-events:none;white-space:nowrap}.detail-hero__watermark em{margin-left:16vw;font-weight:500}.detail-hero__copy{z-index:4;position:relative;max-width:min(38vw,35rem);filter:drop-shadow(0 1.2rem 2.6rem rgba(6,29,25,.3));will-change:transform}.detail-hero h1{font-family:var(--serif);font-size:clamp(4.4rem,8.1vw,9.2rem);font-weight:500;line-height:.76;letter-spacing:-.06em;margin:2rem 0}.detail-hero h1 em{font-weight:500;color:var(--mint-300)}.detail-hero__intro{max-width:29rem;font-size:clamp(.95rem,1.15vw,1.15rem);line-height:1.7;color:rgba(245,240,231,.82);margin:0 0 2rem}.detail-button{display:inline-flex;align-items:center;justify-content:space-between;gap:2rem;border:1px solid rgba(196,234,220,.38);border-radius:999px;padding:.45rem .45rem .45rem 1.25rem;min-width:14rem;color:var(--porcelain);font-size:.72rem;font-weight:800;letter-spacing:.09em;text-decoration:none;text-transform:uppercase;background:rgba(6,29,25,.24);backdrop-filter:blur(10px)}.detail-button b{display:grid;place-items:center;width:2.8rem;height:2.8rem;border-radius:50%;background:var(--mint-300);color:var(--pine-950)}.detail-hero__visual{position:absolute;right:clamp(1.25rem,4vw,5rem);top:15vh;width:min(54vw,60rem);height:70vh;z-index:2;will-change:width,height,top,right}.detail-hero__outline{position:absolute;z-index:5;inset:-.85rem;border:1px solid rgba(196,234,220,.28);border-radius:inherit;pointer-events:none;transform-origin:center}.detail-hero__outline span{position:absolute;right:1.2rem;top:-.35rem;padding:0 .65rem;background:var(--pine-950);font:800 .5rem var(--sans);letter-spacing:.16em;color:var(--mint-300)}.detail-hero__frame{position:absolute;inset:0;overflow:hidden;will-change:border-radius}.detail-hero__frame img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);will-change:transform}.is-chicago .detail-hero__frame{border-radius:48% 48% 1.2rem 1.2rem}.is-cosmetic .detail-hero__frame{border-radius:16rem 16rem 1rem 1rem;clip-path:inset(0 0 0 0 round 16rem 16rem 1rem 1rem)}.is-chicago .detail-hero__frame:after,.is-cosmetic .detail-hero__frame:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,29,25,.44),transparent 38%)}.hero-depth-slice{position:absolute;z-index:4;overflow:hidden;border:1px solid rgba(196,234,220,.4);box-shadow:0 2rem 5rem rgba(0,0,0,.3);opacity:0;pointer-events:none}.hero-depth-slice img{width:100%;height:100%;object-fit:cover;transform:scale(1.12)}.hero-depth-slice.depth-a{left:-3.5vw;top:16%;width:8vw;height:48%;border-radius:5rem 5rem .7rem .7rem}.hero-depth-slice.depth-a img{object-position:19% center}.hero-depth-slice.depth-b{right:-2.5vw;bottom:10%;width:10vw;height:37%;border-radius:.7rem 5rem 5rem .7rem}.hero-depth-slice.depth-b img{object-position:82% center}.hero-address{position:absolute;z-index:6;right:-1rem;bottom:2rem;display:grid;gap:.25rem;padding:1rem 1.4rem;background:rgba(245,240,231,.92);backdrop-filter:blur(12px);color:var(--pine-950);font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.hero-shade{position:absolute;z-index:6;right:-1rem;bottom:2rem;display:flex;gap:.3rem;padding:.6rem;background:rgba(245,240,231,.9);border-radius:999px}.hero-shade i{width:1.6rem;height:2.3rem;border-radius:50% 50% .45rem .45rem;background:#fff}.hero-shade i:nth-child(2){background:#f4eee2}.hero-shade i:nth-child(3){background:#eadcc9}.hero-shade i:nth-child(4){background:#e0cbb2}.hero-shade i:nth-child(5){background:#d5bea5}.detail-hero__index{position:absolute;z-index:4;right:2rem;bottom:2rem;display:flex;align-items:center;gap:1rem;font-size:.58rem;font-weight:800;letter-spacing:.18em}.detail-hero__index i{width:6rem;height:1px;background:rgba(245,240,231,.35)}
   .cosmetic-triptych__panels{height:100%;display:grid;grid-template-columns:.78fr 1.12fr .78fr;gap:.8rem}.cosmetic-slice{position:relative;overflow:hidden;border-radius:12rem 12rem .75rem .75rem;background:var(--pine-800)}.cosmetic-slice img{width:100%;height:100%;object-fit:cover;transform:scale(1.08)}.slice-a img{object-position:24% center}.slice-b img{object-position:55% center}.slice-c img{object-position:84% center}.cosmetic-triptych__panels:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,29,25,.6),transparent 38%);pointer-events:none}.cosmetic-triptych__caption{position:absolute;left:0;bottom:-2rem;display:flex;gap:2rem;font-size:.55rem;font-weight:800;letter-spacing:.16em;color:var(--mint-300)}.cosmetic-triptych .hero-shade{bottom:1rem}
+  .is-complete-health .detail-hero__grid,.is-complete-health .detail-hero__index{display:none}.health-scan{border-radius:1.2rem}.health-scan__panels{position:absolute;inset:0;display:grid;grid-template-columns:1.72fr .76fr;gap:.75rem;overflow:hidden;border-radius:1.2rem;background:rgba(196,234,220,.05)}.health-scan__main,.health-scan__detail{position:relative;overflow:hidden}.health-scan__main{border-radius:1.2rem 7rem 1.2rem 1.2rem}.health-scan__main:after,.health-scan__detail:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,29,25,.08),rgba(6,29,25,.28));pointer-events:none}.health-scan__main img,.health-scan__detail img{width:100%;height:100%;object-fit:cover;transform:scale(1.08)}.health-scan__main img{object-position:53% center}.health-scan__rail{display:grid;grid-template-rows:1.15fr .85fr;gap:.75rem}.health-scan__detail.airway{border-radius:7rem 1.2rem 1.2rem 1.2rem}.health-scan__detail.airway img{object-position:73% center}.health-scan__detail.system{border-radius:1.2rem 1.2rem 7rem 1.2rem}.health-scan__detail.system img{object-position:27% center}
   .is-chicago .detail-hero__sticky{display:block;padding:0}.is-chicago .detail-hero__watermark{display:none}.is-chicago .detail-hero__visual{inset:0;width:100%;height:100%;z-index:1}.is-chicago .detail-hero__frame{border-radius:0}.is-chicago .detail-hero__frame img{object-position:62% center;transform:scale(1.14) translateX(-1.5%)}.is-chicago .detail-hero__frame:after{z-index:1;background:linear-gradient(90deg,rgba(6,29,25,.92) 0%,rgba(6,29,25,.7) 32%,rgba(6,29,25,.24) 62%,rgba(6,29,25,.12) 100%),linear-gradient(0deg,rgba(6,29,25,.72) 0%,transparent 48%)}.is-chicago .detail-hero__copy{position:absolute;left:clamp(2rem,6vw,7rem);bottom:7vh;max-width:min(58vw,62rem);z-index:6}.is-chicago .detail-hero h1{max-width:60rem;font-size:clamp(5.5rem,9.4vw,10.8rem);line-height:.72}.is-chicago .detail-hero__intro{max-width:33rem;color:rgba(245,240,231,.9)}.is-chicago .detail-hero__outline{z-index:5;inset:clamp(6.5rem,10vh,8.5rem) 2vw 2vw;border-color:rgba(245,240,231,.34);border-radius:.15rem}.is-chicago .detail-hero__outline span{top:-.35rem;right:1.4rem;background:transparent;text-shadow:0 1px 1rem rgba(6,29,25,.8)}.hero-aperture{position:absolute;z-index:3;inset:0;pointer-events:none}.hero-aperture i{position:absolute;left:0;right:0;height:10vh;background:var(--pine-950)}.hero-aperture i:first-child{top:0}.hero-aperture i:last-child{bottom:0}.is-chicago .hero-address{right:4vw;bottom:4vh}.is-chicago .detail-hero__index{right:4vw;bottom:3vh;color:var(--porcelain)}
   .detail-ledger{display:grid;grid-template-columns:repeat(4,1fr);background:var(--mint-200);border-bottom:1px solid rgba(16,35,31,.18)}.detail-ledger div{min-height:8rem;padding:2rem;border-right:1px solid rgba(16,35,31,.18);display:flex;flex-direction:column;justify-content:space-between}.detail-ledger small{font-size:.58rem;font-weight:800;letter-spacing:.15em}.detail-ledger strong{font-family:var(--serif);font-size:clamp(1.2rem,2vw,2rem);font-weight:500}
   .editorial-story{display:grid;grid-template-columns:1fr 2fr 1fr;column-gap:4rem;row-gap:6rem;min-height:100svh}.editorial-story__eyebrow{display:flex;gap:1rem;font-size:.65rem;font-weight:800;letter-spacing:.16em}.editorial-story__headline h2,.cosmetic-philosophy h2,.communities h2,.pricing h2,.detail-faq h2{font-family:var(--serif);font-size:clamp(4rem,7vw,8rem);line-height:.85;letter-spacing:-.055em;font-weight:500;margin:0}.editorial-story__headline em,.cosmetic-philosophy em,.communities em,.pricing em,.detail-faq em{color:var(--pine-700);font-weight:500}.editorial-story__body{align-self:end}.editorial-story__body p{font-size:1rem;line-height:1.75;color:rgba(16,35,31,.65)}.editorial-story__body a{display:inline-block;margin-top:2rem;color:var(--ink);font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.schedule-rail{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);position:relative;padding-top:3rem}.schedule-rail__line{position:absolute;top:0;left:0;right:0;height:1px;background:rgba(16,35,31,.2)}.schedule-rail__line i{display:block;width:0;height:100%;background:var(--pine-700)}.schedule-rail article{padding:0 3rem 0 0;display:grid;gap:1rem}.schedule-rail article b,.schedule-rail article span{font-size:.6rem;letter-spacing:.15em}.schedule-rail article strong{font-family:var(--serif);font-weight:500;font-size:clamp(2.5rem,4vw,5rem);line-height:.9}
@@ -389,11 +469,13 @@ const faqs = chicago ? chicagoFaq : cosmeticFaq;
   .patient-proof{min-height:110svh;background:var(--pine-950);color:var(--porcelain);padding:clamp(6rem,10vw,10rem) clamp(1.25rem,6vw,7rem);position:relative;overflow:hidden}.patient-proof__top{display:flex;justify-content:space-between;align-items:start}.proof-heading{font-family:var(--serif);font-size:clamp(3.2rem,5vw,6.4rem);line-height:.85;letter-spacing:-.05em;font-weight:500;margin:2rem 0 0}.proof-heading em{color:var(--mint-300);font-weight:500}.proof-score{display:flex;align-items:center;gap:1rem}.proof-score strong{font-family:var(--serif);font-size:5rem;font-weight:500}.proof-score span{font-size:.65rem;line-height:1.5;text-transform:uppercase;letter-spacing:.1em}.patient-proof__stage{display:grid;grid-template-columns:2fr 1fr;gap:8vw;align-items:end;min-height:55vh}.patient-proof blockquote{margin:0}.patient-proof blockquote p{font-family:var(--serif);font-size:clamp(3rem,6vw,7.2rem);line-height:.9;letter-spacing:-.045em;margin:0}.patient-proof blockquote footer{margin-top:2rem;font-size:.58rem;font-weight:800;letter-spacing:.15em;color:var(--mint-300)}.proof-topics{display:grid}.proof-topics span{padding:1rem 0;border-top:1px solid rgba(196,234,220,.2);font-size:.65rem;text-transform:uppercase;letter-spacing:.08em}.proof-total{position:absolute;right:-1rem;bottom:-4rem;margin:0;font-family:var(--serif);font-size:clamp(11rem,25vw,28rem);line-height:.7;color:rgba(196,234,220,.055);display:flex;align-items:flex-start}.proof-total small{font:700 .5rem var(--sans);letter-spacing:.14em;text-transform:uppercase;margin-top:2rem}
   .detail-faq{display:grid;grid-template-columns:.75fr 1.25fr;gap:8vw}.detail-faq__head{position:sticky;top:8rem;align-self:start}.detail-faq__head h2{margin-top:2rem}.detail-faq__list{border-top:1px solid rgba(16,35,31,.2)}.detail-faq details{border-bottom:1px solid rgba(16,35,31,.2)}.detail-faq summary{list-style:none;display:grid;grid-template-columns:3rem 1fr 2rem;gap:1rem;align-items:center;padding:1.8rem 0;cursor:pointer}.detail-faq summary::-webkit-details-marker{display:none}.detail-faq summary span{font-size:.58rem;font-weight:800}.detail-faq summary strong{font-family:var(--serif);font-size:clamp(1.5rem,2.4vw,2.6rem);font-weight:500}.detail-faq summary b{font-size:1.4rem;font-weight:400;transition:transform .3s}.detail-faq details[open] summary b{transform:rotate(45deg)}.detail-faq details p{padding:0 3rem 2rem;max-width:45rem;line-height:1.7;color:rgba(16,35,31,.65)}
   @media (max-width:1100px){.detail-hero__sticky{grid-template-columns:42% 58%;padding:7rem 2rem 3rem}.detail-hero__visual{top:15vh;width:56vw;height:70vh;right:1.25rem}.detail-hero__copy{align-self:center;padding:2rem 0 0;max-width:40vw}.detail-hero h1{font-size:clamp(4.1rem,8vw,6.2rem)}.detail-hero__intro{max-width:23rem}.detail-hero__watermark{font-size:17vw}.hero-depth-slice.depth-a{left:-2vw;width:7vw}.hero-depth-slice.depth-b{right:-1vw;width:8vw}.editorial-story{grid-template-columns:.6fr 1.4fr;column-gap:2rem}.editorial-story__body{grid-column:2}.about-cosmetic__head{grid-template-columns:.55fr 1.45fr}.about-cosmetic__media{min-height:64vh}.about-cosmetic__principles{margin-top:5rem}.care-atlas__sticky{grid-template-columns:.7fr 1.3fr;gap:3rem}.care-spectrum__lane{min-height:4.8rem}.care-spectrum__lane>strong{font-size:clamp(1.5rem,2.4vw,2.15rem)}.option-index>header,.pricing__head{grid-template-columns:1fr 1.5fr}.option-index>header h2,.pricing__head h2{grid-column:1/-1}.option-index>header>p:last-child,.pricing__head>p:last-child{grid-column:2}.journey__track article{width:52vw}.communities{grid-template-columns:.8fr 1.2fr;gap:4vw}.trust-story{grid-template-columns:.82fr 1.18fr}.trust-story__content{padding:7rem 3.5rem}.trust-story h2{font-size:clamp(3.7rem,6vw,5.8rem)}}
-  @media (min-width:721px) and (max-width:1100px){.care-atlas{height:185svh}.care-atlas__sticky{padding:7rem 3.8rem 3rem}.care-atlas h2{font-size:clamp(4.4rem,8vw,6.7rem)}.journey{height:185svh}.journey__sticky{padding:7rem 3.8rem 3rem;grid-template-rows:auto auto auto;align-content:center;gap:3.5rem}.journey h2{font-size:clamp(3.5rem,6vw,4.5rem);line-height:.86;max-width:52rem;margin:1.2rem 0 0}.journey__track{align-self:auto}.journey__track article{width:56vw;min-height:19rem}.patient-proof{min-height:auto;padding:7rem 3.8rem}.patient-proof__stage{min-height:0;margin-top:5rem;align-items:start}.patient-proof blockquote p{font-size:clamp(3.5rem,6vw,5.5rem)}}
+  @media (min-width:721px) and (max-width:1100px){.care-atlas{height:185svh}.care-atlas__sticky{padding:7rem 3.8rem 3rem}.care-atlas h2{font-size:clamp(4.4rem,8vw,6.7rem)}.journey{height:135svh}.journey__sticky{padding:7rem 3.8rem 3rem;grid-template-rows:auto auto auto;align-content:space-between;gap:2rem}.journey h2{font-size:clamp(3.5rem,6vw,4.5rem);line-height:.86;max-width:52rem;margin:1.2rem 0 0}.journey__track{align-self:auto}.journey__track article{width:56vw;min-height:58svh}.patient-proof{min-height:auto;padding:7rem 3.8rem}.patient-proof__stage{min-height:0;margin-top:5rem;align-items:start}.patient-proof blockquote p{font-size:clamp(3.5rem,6vw,5.5rem)}}
+  @media (min-width:721px) and (max-width:1100px){.health-scan__panels{grid-template-columns:1.45fr .82fr}.health-scan__main{border-radius:1rem 5rem 1rem 1rem}.health-scan__detail.airway{border-radius:5rem 1rem 1rem 1rem}.health-scan__detail.system{border-radius:1rem 1rem 5rem 1rem}}
   @media (min-width:721px) and (max-width:900px){.detail-hero{height:220svh}}
   @media (max-width:720px){.section-shell{padding:5rem 1.25rem}.detail-hero{height:190svh}.detail-hero__sticky{display:block;padding:0 1rem 1rem}.detail-hero__grid{background-size:50% 100%}.detail-hero__watermark{left:-1rem;bottom:2rem;font-size:29vw;color:rgba(196,234,220,.035)}.detail-hero__watermark em{margin-left:24vw}.detail-hero__copy{position:absolute;left:1.25rem;right:1.25rem;top:7.5rem;padding:0;z-index:7;max-width:none;filter:drop-shadow(0 1rem 2rem rgba(6,29,25,.35))}.detail-hero h1{font-size:clamp(3.5rem,17vw,5.4rem);line-height:.8;margin:1.3rem 0}.detail-hero__intro{font-size:.84rem;line-height:1.55;max-width:18rem}.detail-button{min-width:12rem;padding-left:1rem}.detail-hero__visual{top:auto;left:1rem;right:1rem;bottom:1rem;width:auto;height:46svh}.detail-hero__outline{inset:-.35rem}.is-chicago .detail-hero__frame,.is-cosmetic .detail-hero__frame{border-radius:8rem 8rem .65rem .65rem}.is-chicago .detail-hero__frame:after,.is-cosmetic .detail-hero__frame:after{background:linear-gradient(180deg,rgba(6,29,25,.2),transparent 50%)}.detail-hero__frame img{object-position:center}.hero-depth-slice{display:none}.hero-address{right:.6rem;bottom:.6rem;font-size:.52rem;padding:.65rem}.hero-shade{right:.5rem;bottom:.5rem}.detail-hero__index{display:none}.is-chicago .detail-hero__sticky{padding:0}.is-chicago .detail-hero__copy{top:8rem;bottom:auto;left:1.25rem;right:1.25rem;max-width:none}.is-chicago .detail-hero h1{font-size:clamp(3.8rem,17.5vw,5.5rem);max-width:24rem}.is-chicago .detail-hero__visual{inset:0;width:100%;height:100%}.is-chicago .detail-hero__frame{border-radius:0}.is-chicago .detail-hero__frame img{object-position:66% center}.is-chicago .detail-hero__frame:after{background:linear-gradient(180deg,rgba(6,29,25,.88) 0%,rgba(6,29,25,.36) 56%,rgba(6,29,25,.68) 100%),linear-gradient(90deg,rgba(6,29,25,.45),transparent 72%)}.is-chicago .detail-hero__outline{inset:5.2rem .65rem .65rem}.is-chicago .hero-address{right:1rem;bottom:1rem}.hero-aperture i{height:6vh}.detail-ledger{grid-template-columns:1fr 1fr}.detail-ledger div{min-height:6.5rem;padding:1.25rem}.detail-ledger div:nth-child(2){border-right:0}.detail-ledger strong{font-size:1.25rem}
   .editorial-story{display:block;min-height:0}.editorial-story__headline{margin:4rem 0 2rem}.editorial-story__body{margin-left:25%}.schedule-rail{margin-top:5rem;display:block;padding-left:2rem}.schedule-rail__line{left:0;top:0;bottom:0;width:1px;height:auto}.schedule-rail__line i{height:0;width:100%}.schedule-rail article{margin-bottom:3rem;padding:0}.schedule-rail article strong{font-size:3rem}.care-atlas{height:auto;padding:5rem 1.25rem}.care-atlas__sticky{position:relative;height:auto;display:flex;flex-direction:column;padding:0;gap:4rem;overflow:visible}.care-spectrum{width:100%;max-width:none}.care-spectrum__header{min-height:7rem}.care-spectrum__header>strong{font-size:4.6rem}.care-spectrum__lane{grid-template-columns:2rem minmax(0,1fr) auto;gap:.75rem;min-height:4.5rem}.care-spectrum__lane>strong{font-size:1.55rem}.care-spectrum__lane>small{font-size:.48rem}.care-spectrum__lane>i{left:2.75rem}.care-spectrum__footer{gap:.65rem;font-size:.48rem}.communities{display:block}.communities__head{position:relative;top:auto;margin-bottom:4rem}.community-list div{grid-template-columns:2rem 1fr 1rem}.community-list strong{font-size:1.8rem}
   .cosmetic-triptych__panels{grid-template-columns:.72fr 1.2fr .72fr;gap:.35rem}.cosmetic-slice{border-radius:7rem 7rem .5rem .5rem}.cosmetic-triptych__caption{display:none}.about-cosmetic{display:block}.about-cosmetic__head{display:block}.about-cosmetic__head h2{font-size:3.8rem;margin:2rem 0 0}.about-cosmetic__media{min-height:66svh;margin-top:3rem}.about-cosmetic__image.main-image{width:82%;height:78%;border-radius:8rem 8rem .5rem .5rem}.about-cosmetic__image.detail-image{width:46%;height:42%;border-width:5px}.about-cosmetic__principles{margin-top:4rem}.about-cosmetic__principles>p{font-size:2rem}.option-index{padding:5rem 1.25rem}.option-index>header{display:block;margin-bottom:4rem}.option-index>header h2{margin:2rem 0}.option-index__layout{display:block}.option-index__visual{position:relative;top:auto;height:52svh;margin-bottom:3rem;border-radius:8rem 8rem .5rem .5rem}.option-index summary{grid-template-columns:2rem 1fr 1rem;padding:1.4rem 0}.option-index summary strong{font-size:1.65rem}.option-body{padding-left:2rem}.journey{height:auto;padding:5rem 1.25rem}.journey__sticky{position:relative;height:auto;padding:0;display:block;overflow:visible}.journey h2{font-size:3.8rem;margin-bottom:3rem}.journey__track{width:auto;display:grid}.journey__track article{width:auto;min-height:17rem}.journey__progress{display:none}.trust-story{display:block;min-height:0}.trust-story__image{position:relative;top:auto;height:62svh}.trust-story__content{padding:5rem 1.25rem}.trust-story h2{font-size:3.8rem}.trust-story__reasons{margin-top:3rem}.pricing__head{display:block;margin-bottom:4rem}.pricing__head h2{margin:2rem 0}.pricing__table{overflow:hidden}.pricing__labels{display:none}.pricing__row{grid-template-columns:1fr 1fr;gap:.7rem;padding:1.4rem 0}.pricing__row strong{grid-column:1/-1;font-size:1.5rem}.pricing__row span{font-size:.68rem}.pricing__row span:before{display:block;font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(16,35,31,.55);margin-bottom:.25rem}.pricing__row span:nth-child(2):before{content:'FIXED'}.pricing__row span:nth-child(3):before{content:'MONTHLY'}.pricing__row span:nth-child(4):before{content:'YEARLY'}
+  .health-scan{border-radius:.7rem}.health-scan__panels{grid-template-columns:1.35fr .8fr;gap:.3rem;border-radius:.7rem}.health-scan__main{border-radius:.7rem 3.5rem .7rem .7rem}.health-scan__rail{gap:.3rem}.health-scan__detail.airway{border-radius:3.5rem .7rem .7rem .7rem}.health-scan__detail.system{border-radius:.7rem .7rem 3.5rem .7rem}.health-scan__main img{object-position:49% center}.health-scan__detail.airway img{object-position:77% center}.health-scan__detail.system img{object-position:24% center}
   .patient-proof{min-height:0;padding:5rem 1.25rem 7rem}.patient-proof__top{display:block}.proof-heading{font-size:3.6rem}.proof-score{margin-top:3rem}.proof-score strong{font-size:4rem}.patient-proof__stage{display:block;min-height:0;margin-top:5rem}.patient-proof blockquote p{font-size:3.3rem}.proof-topics{margin-top:4rem}.proof-total{font-size:10rem;bottom:-1rem}.detail-faq{display:block}.detail-faq__head{position:relative;top:auto;margin-bottom:4rem}.detail-faq summary{grid-template-columns:2rem 1fr 1rem;padding:1.4rem 0}.detail-faq summary strong{font-size:1.5rem}.detail-faq details p{padding-left:2rem}.detail-faq h2{font-size:4rem}}
   .care-spectrum__lane{color:inherit;text-decoration:none;transition:padding .25s,color .25s}.care-spectrum__lane:hover,.care-spectrum__lane:focus-visible{padding-left:.65rem;color:var(--mint-300)}
   .related-paths{background:var(--paper)}.related-paths__head{display:grid;grid-template-columns:1fr 2fr 1fr;gap:3rem;align-items:end;margin-bottom:5rem}.related-paths__head .detail-kicker{grid-column:1/-1}.related-paths__head h2{grid-column:1/3;margin:0;font:500 clamp(4rem,7vw,8rem)/.85 var(--serif);letter-spacing:-.055em}.related-paths__head h2 em{color:var(--pine-700);font-weight:500}.related-paths__head>p:last-child{margin:0;color:rgba(16,35,31,.65);line-height:1.7}.related-paths__grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(16,35,31,.25);border-bottom:1px solid rgba(16,35,31,.25)}.related-paths__grid article{display:grid;grid-template-columns:minmax(9rem,.48fr) 1fr;gap:2rem;padding:2rem 0}.related-paths__grid article:first-child{padding-right:3rem;border-right:1px solid rgba(16,35,31,.2)}.related-paths__grid article:last-child{padding-left:3rem}.related-paths__label{display:flex;gap:1rem;align-items:baseline}.related-paths__label span{font-size:.58rem;font-weight:800;color:var(--pine-700)}.related-paths__label strong{font:500 clamp(1.5rem,2vw,2.1rem)/1 var(--serif)}.related-paths nav{border-top:1px solid rgba(16,35,31,.2)}.related-paths nav a{display:grid;grid-template-columns:1fr auto 1rem;gap:1rem;align-items:center;padding:1rem 0;border-bottom:1px solid rgba(16,35,31,.16);color:var(--ink);text-decoration:none;transition:padding .25s,color .25s}.related-paths nav a:hover,.related-paths nav a:focus-visible{padding-left:.6rem;color:var(--pine-700)}.related-paths nav a span{font-family:var(--serif);font-size:clamp(1.25rem,1.7vw,1.8rem)}.related-paths nav a small{color:rgba(16,35,31,.55);font-size:.58rem;text-align:right;text-transform:uppercase;letter-spacing:.08em}.related-paths nav a b{font-weight:500}
@@ -425,7 +507,18 @@ const faqs = chicago ? chicagoFaq : cosmeticFaq;
           const compact = innerWidth <= 1100;
           const stageWidth = compact ? '57vw' : '62vw';
           const tl = gsap.timeline({scrollTrigger:{trigger:hero,start:'top top',end:'bottom bottom',scrub:1.15}});
-          if (root.dataset.detailKind === 'cosmetic') {
+          if (root.dataset.detailKind === 'complete-health-airway') {
+            tl.to(visual,{width:stageWidth,height:compact?'78vh':'86vh',right:compact?'.8rem':'1vw',top:compact?'11vh':'7vh',ease:'none'},0)
+              .to(q('.health-scan__panels'),{gridTemplateColumns:'1.35fr 1fr',gap:'.35rem',ease:'none'},0)
+              .to(q('.health-scan__main img'),{scale:1.01,xPercent:-2,ease:'none'},0)
+              .to(q('.health-scan__detail.airway'),{yPercent:-5,ease:'none'},0)
+              .to(q('.health-scan__detail.system'),{yPercent:5,ease:'none'},0)
+              .to(q('.health-scan__detail img'),{scale:1.02,ease:'none'},0)
+              .to(copy,{yPercent:-3,opacity:1,ease:'none'},0)
+              .to(q('.detail-hero__outline'),{scale:1.025,ease:'none'},0)
+              .to(q('.detail-hero__watermark'),{xPercent:-9,yPercent:-5,ease:'none'},0)
+              .to(q('.detail-hero__index'),{opacity:.78,ease:'none'},0);
+          } else if (root.dataset.detailKind !== 'chicago') {
             tl.to(visual,{width:stageWidth,height:compact?'78vh':'86vh',right:compact?'.8rem':'1vw',top:compact?'11vh':'7vh',ease:'none'},0)
               .to(q('.cosmetic-triptych__panels'),{gridTemplateColumns:'.58fr 1.58fr .62fr',gap:'.3rem',ease:'none'},0)
               .to(q('.cosmetic-slice'),{borderRadius:'3.5rem 3.5rem .75rem .75rem',ease:'none'},0)
@@ -473,7 +566,14 @@ const faqs = chicago ? chicagoFaq : cosmeticFaq;
           const mobileTl = gsap.timeline({scrollTrigger:{trigger:hero,start:'top top',end:'bottom bottom',scrub:1.05}})
             .to(q('[data-hero-visual] img'),{scale:1.02,ease:'none'},0)
             .to(q('.detail-hero__outline'),{scale:1.02,ease:'none'},0);
-          if (root.dataset.detailKind === 'cosmetic') {
+          if (root.dataset.detailKind === 'complete-health-airway') {
+            mobileTl.to(visual,{height:'52svh',left:'.5rem',right:'.5rem',bottom:'.5rem',ease:'none'},0)
+              .to(q('.detail-hero__watermark'),{xPercent:-12,yPercent:-4,ease:'none'},0)
+              .to(q('.health-scan__panels'),{gridTemplateColumns:'1.3fr .9fr',gap:'.2rem',ease:'none'},0)
+              .to(q('.health-scan__main img'),{xPercent:-2,ease:'none'},0)
+              .to(q('.health-scan__detail.airway'),{yPercent:-3,ease:'none'},0)
+              .to(q('.health-scan__detail.system'),{yPercent:3,ease:'none'},0);
+          } else if (root.dataset.detailKind !== 'chicago') {
             mobileTl.to(visual,{height:'52svh',left:'.5rem',right:'.5rem',bottom:'.5rem',ease:'none'},0)
               .to(q('.detail-hero__watermark'),{xPercent:-12,yPercent:-4,ease:'none'},0)
               .to(q('.cosmetic-triptych__panels'),{gridTemplateColumns:'.6fr 1.5fr .62fr',gap:'.2rem',ease:'none'},0)

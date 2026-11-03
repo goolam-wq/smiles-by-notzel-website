@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore complete-health and airway dentistry at Smiles by Noetzel, including oral-cancer, airway, sleep and artery-health screening." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Complete Health &amp; Airway | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-complete-health-airway.webp" mediaAlt="A patient learning how airway health connects to oral health" />
+    <main>
+      <DetailExperience kind="complete-health-airway" />
+      <BeforeAfterStory id="before-after-complete-health-airway" tone="light" number="04" eyebrow="Complete-health case · airway support" title="Rested." emphasis="Still yourself."
+        intro="The complete-health view connects everyday oral findings with sleep, breathing and how a patient feels during the day. The visible change is often quieter than the lived one."
+        image="/images/generated/before-after-complete-health-airway-v1.webp" imageAlt="Illustrative before and after complete-health airway support showing a tired patient and a more rested follow-up"
+        beforeLabel="Before the wider view" beforeDetail="Restless sleep, daytime fatigue and mouth-breathing patterns shaped the starting conversation."
+        afterLabel="A supported routine" afterDetail="Screening and coordinated appliance care created a clearer, more sustainable airway-support plan."
+        caseNote="Airway screening + appliance care" />
+      <HubFooter eyebrow="Ready to connect the whole picture?" title="Begin with the signals your smile, sleep and health share." />
+    </main>
+  </body>
+</html>
