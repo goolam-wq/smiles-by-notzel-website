@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore deep cleaning, gum-disease treatment and Perio Protect therapy at Smiles by Noetzel in Chicago Heights and Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Periodontal Dentistry | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-periodontal-dentistry.webp" mediaAlt="A hygienist welcoming a periodontal-care patient into the treatment room" />
+    <main>
+      <DetailExperience kind="periodontal-dentistry" />
+      <BeforeAfterStory id="before-after-periodontal-dentistry" tone="light" number="04" eyebrow="Gum-health story · foundation restored" title="Healthier gums." emphasis="The same natural smile."
+        intro="Periodontal progress should look believable and feel measurable. This case shows the same patient before deep cleaning and after the gumline has had time to heal."
+        image="/images/generated/before-after-periodontal-dentistry-v1.webp" imageAlt="The same periodontal patient before deep cleaning with mild gum inflammation and after healing with a healthier gumline"
+        beforeLabel="Before periodontal therapy" beforeDetail="Inflammation and visible buildup at the gumline signaled active disease that needed treatment below the surface."
+        afterLabel="After cleaning and healing" afterDetail="Thorough periodontal therapy and consistent home care created a cleaner, calmer gumline without changing the patient’s natural smile."
+        caseNote="Deep cleaning + periodontal maintenance" />
+      <HubFooter eyebrow="Ready to protect the foundation?" title="Start with a clear gum-health assessment. We’ll connect the next step." />
+    </main>
+  </body>
+</html>

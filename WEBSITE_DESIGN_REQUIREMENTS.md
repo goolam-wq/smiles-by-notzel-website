@@ -116,3 +116,13 @@
 - Provide reduced-motion behavior for visitors who request it.
 - Maintain semantic structure, keyboard access, readable contrast, and usable controls throughout the immersive experience.
 - Homepage implementation and asset production remain pending until the design/content direction is approved.
+
+## Service Category Template Lock — Mandatory
+
+- Cosmetic Dentistry is the canonical template for every remaining service-category page.
+- Outside the hero section, the section order, component markup, layout, sizing, spacing, animation, scroll behavior, and desktop/tablet/phone responsive behavior must remain identical to the canonical template.
+- Category pages may replace only their own copy, service data, pricing, review/FAQ content, links, and unique section imagery.
+- The hero is the only section allowed to use a category-specific layout and animation treatment.
+- Do not add category-specific layout CSS, alternate section compositions, reversed shared sections, new animation choreography, or one-off responsive overrides outside the hero.
+- Process and before/after sections must use the shared canonical components without per-page structural or visual variants.
+- A category page is not complete until template-parity, before/after, full-page responsive, unique-image, and build checks pass on desktop, tablet, and phone.

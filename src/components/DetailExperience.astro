@@ -1,5 +1,5 @@
 ---
-interface Props { kind: 'chicago' | 'cosmetic' | 'complete-health-airway' | 'emergency-comfort' | 'implants-oral-surgery' | 'orthodontic-dentistry' | 'pediatric-developmental' }
+interface Props { kind: 'chicago' | 'cosmetic' | 'complete-health-airway' | 'emergency-comfort' | 'implants-oral-surgery' | 'orthodontic-dentistry' | 'pediatric-developmental' | 'periodontal-dentistry' }
 const { kind } = Astro.props;
 const chicago = kind === 'chicago';
 const completeHealth = kind === 'complete-health-airway';
@@ -7,6 +7,7 @@ const emergencyComfort = kind === 'emergency-comfort';
 const implantsSurgery = kind === 'implants-oral-surgery';
 const orthodontic = kind === 'orthodontic-dentistry';
 const pediatric = kind === 'pediatric-developmental';
+const periodontal = kind === 'periodontal-dentistry';
 
 const communities = ['Chicago Heights', 'South Chicago Heights', 'Steger', 'Sauk Village', 'Lynwood', 'Glenwood', 'Ford Heights', 'Olympia Fields', 'Park Forest', 'Homewood', 'Flossmoor', 'Hazel Crest', 'Matteson', 'Crete', 'Country Club Hills', 'Richton Park'];
 const serviceGroups = [
@@ -60,7 +61,72 @@ const pediatricServices = [
   { n: '02', slug: 'pediatric-cleaning-exam', name: 'Pediatric cleaning and exam', note: 'Age-aware preventive care that keeps growing teeth, gums and habits moving in the right direction.', fixed: '$150', monthly: '$25 / mo · 12 mo', yearly: '$300 / yr' },
   { n: '03', slug: 'healthystart-system', name: 'HealthyStart System treatment', note: 'A guided appliance program that connects oral development, breathing and sleep as a child grows.', fixed: '$3,500', monthly: '$98 / mo · 36 mo', yearly: '$3,500 / yr' },
 ];
-const category = pediatric ? {
+const periodontalServices = [
+  { n: '01', slug: 'gum-disease-deep-cleaning', name: 'Gum-disease treatment & deep cleaning', note: 'Focused periodontal therapy that removes buildup below the gumline and creates a healthier foundation.', fixed: '$350 / quadrant', monthly: '$111 / mo · 12 mo', yearly: '$1,330 / yr' },
+  { n: '02', slug: 'perio-protect', name: 'Perio Protect tray therapy', note: 'A custom upper-and-lower tray system that supports selected patients between office visits.', fixed: '$1,200', monthly: '$50 / mo · 24 mo', yearly: '$1,200 / yr' },
+];
+const category = periodontal ? {
+  slug: 'periodontal-dentistry',
+  watermark: ['HEALTHY', 'FOUNDATION'],
+  heroKicker: 'Periodontal Dentistry · 2 connected therapies',
+  heroLead: 'Care begins',
+  heroEmphasis: 'at the gumline.',
+  heroIntro: 'Healthy gums are not a background detail. Assessment, deep cleaning and selected at-home support work together to protect the foundation of every smile.',
+  heroImage: '/images/generated/periodontal-dentistry-hero-v1.webp',
+  heroAlt: 'A hygienist explaining periodontal findings to a patient in a calm treatment room',
+  heroOutline: '',
+  heroCaptions: [],
+  heroButton: 'Explore gum health care',
+  ledger: [['THERAPIES', '2 exact services'], ['FOCUS', 'The foundation of the smile'], ['LOCATIONS', 'Chicago Heights + Mokena'], ['STARTING WITH', 'A clear gum-health assessment']],
+  aboutKicker: '01 · ABOUT PERIODONTAL CARE',
+  aboutLead: 'Quiet signs deserve',
+  aboutEmphasis: 'a clear response.',
+  aboutMainImage: '/images/generated/unique/periodontal-dentistry-about-assessment.webp',
+  aboutMainAlt: 'A hygienist completing a careful periodontal assessment',
+  aboutDetailImage: '/images/generated/unique/periodontal-dentistry-about-plan.webp',
+  aboutDetailAlt: 'A dentist reviewing a gum-health chart with a patient',
+  aboutLabel: 'MEASURE · CLEAN · SUPPORT · MAINTAIN',
+  aboutCopy: 'Bleeding, tenderness, recession and bone changes can develop gradually. Periodontal care makes those signals visible, treats the active problem and gives the patient a practical maintenance rhythm.',
+  principles: [['01', 'Measure', 'Understand pocket depth, inflammation, buildup and the areas that need focused attention.'], ['02', 'Treat', 'Remove disease-causing deposits below the gumline with care planned around comfort.'], ['03', 'Maintain', 'Connect office therapy with home support and a follow-up interval that protects progress.']],
+  optionKicker: '02 · THE GUM-HEALTH PATHWAYS',
+  optionLead: 'Two connected therapies.',
+  optionEmphasis: 'One healthier foundation.',
+  optionIntro: 'Open each pathway to see how active periodontal treatment and selected at-home support can work together.',
+  optionImage: '/images/generated/unique/periodontal-dentistry-option-therapy.webp',
+  optionAlt: 'A hygienist preparing instruments for periodontal therapy',
+  optionLabel: 'TREAT ACTIVE DISEASE · SUPPORT THE RESULT',
+  services: periodontalServices,
+  processKicker: '03 · THE PERIODONTAL PROCESS',
+  processLead: 'Gum health becomes',
+  processEmphasis: 'clear.',
+  steps: [['01', 'Measure', 'Pocket depth, bleeding, recession and buildup bring the gum-health picture into focus.'], ['02', 'Treat', 'Deep cleaning removes disease-causing deposits below the gumline, one planned area at a time.'], ['03', 'Support', 'Home care and selected tray therapy can reinforce healing between appointments.'], ['04', 'Maintain', 'Follow-up measurements and a tailored maintenance rhythm help protect the result.']],
+  trustImage: '/images/generated/unique/periodontal-dentistry-trust-team.webp',
+  trustAlt: 'A couple discussing a connected periodontal care plan with their dental team',
+  trustLabel: 'ONE FOUNDATION · TWO CONNECTED OFFICES',
+  trustKicker: '04 · WHY CHOOSE SMILES BY NOETZEL',
+  trustHeading: 'Gum health stays connected to the whole care story.',
+  trustCopy: 'Periodontal findings are considered alongside prevention, restorative needs and complete-health signals, so treatment does not become an isolated procedure.',
+  trustReasons: [['01', 'Clear measurements', 'Pocket depth and inflammation are translated into a plan the patient can understand.'], ['02', 'Treatment with context', 'Deep cleaning is coordinated with the rest of the mouth instead of treated as a separate event.'], ['03', 'Support between visits', 'Home care and selected tray therapy can reinforce the work completed in office.'], ['04', 'Two connected offices', 'Periodontal care can be coordinated in Chicago Heights or Mokena.']],
+  pricingKicker: '05 · PRICING, MADE LEGIBLE',
+  pricingLead: 'Protect the foundation with',
+  pricingEmphasis: 'clear numbers.',
+  pricingIntro: 'Compare fixed, monthly and yearly customer-facing views for both periodontal pathways.',
+  pricingNote: 'Deep cleaning is shown per quadrant; the yearly view represents a full-mouth annual treatment amount. Perio Protect pricing includes the upper-and-lower tray system; medication and refills are separate. Eligibility and final terms are confirmed by the office.',
+  proofKicker: '06 · PERIODONTAL PATIENT PROOF',
+  proofQuote: '“They explained the measurements, showed me where the inflammation was and gave me a plan I could actually follow between visits.”',
+  proofFooter: 'PATIENT EXPERIENCE · GUM HEALTH',
+  proofTopics: ['Clear periodontal measurements', 'Comfort-aware deep cleaning', 'Support between visits'],
+  proofTotal: '2',
+  proofTotalLabel: 'connected gum-health therapies',
+  faqKicker: '07 · GOOD QUESTIONS',
+  faqs: [
+    ['What are signs of gum disease?', 'Bleeding while brushing, persistent bad breath, tenderness, recession, swelling or loose teeth can be signs. Some changes are quiet, which is why measurements during an exam matter.'],
+    ['What is a deep cleaning?', 'Deep cleaning removes buildup from below the gumline and smooths root surfaces in the areas affected by periodontal disease. Treatment may be divided by quadrant for comfort and thoroughness.'],
+    ['Does periodontal treatment hurt?', 'The team plans local comfort support around the areas being treated. Tenderness afterward can vary, and the office explains what to expect before treatment begins.'],
+    ['What is Perio Protect?', 'Perio Protect uses custom upper-and-lower trays to deliver prescribed medication below the gumline for selected patients. It supports, but does not replace, professional periodontal care.'],
+    ['How often will I need periodontal maintenance?', 'The interval depends on your measurements, response to therapy and risk. The dentist or hygienist recommends a maintenance rhythm after treatment and follow-up evaluation.'],
+  ],
+} : pediatric ? {
   slug: 'pediatric-developmental',
   watermark: ['GROW', 'WITH CARE'],
   heroKicker: 'Pediatric & Developmental Dentistry · 3 growing-smile pathways',
@@ -413,7 +479,7 @@ const cosmeticFaq = [
 const faqs = chicago ? chicagoFaq : category.faqs;
 ---
 
-<div class:list={['detail-page', chicago ? 'is-chicago' : completeHealth ? 'is-complete-health' : emergencyComfort ? 'is-emergency-comfort' : implantsSurgery ? 'is-implants-surgery' : orthodontic ? 'is-orthodontic' : pediatric ? 'is-pediatric' : 'is-cosmetic']} data-detail-root data-detail-kind={kind}>
+<div class:list={['detail-page', chicago ? 'is-chicago' : completeHealth ? 'is-complete-health' : emergencyComfort ? 'is-emergency-comfort' : implantsSurgery ? 'is-implants-surgery' : orthodontic ? 'is-orthodontic' : pediatric ? 'is-pediatric' : periodontal ? 'is-periodontal' : 'is-cosmetic']} data-detail-root data-detail-kind={kind}>
   <section class="detail-hero" data-detail-hero data-areas-hero={chicago ? '' : undefined} data-services-hero={!chicago ? '' : undefined}>
     <div class="detail-hero__sticky">
       <div class="detail-hero__grid" aria-hidden="true"></div>
@@ -431,8 +497,8 @@ const faqs = chicago ? chicagoFaq : category.faqs;
         </a>
       </div>
 
-      <div class:list={['detail-hero__visual', !chicago && !completeHealth && !emergencyComfort && !implantsSurgery && !orthodontic && !pediatric && 'cosmetic-triptych', completeHealth && 'health-scan', emergencyComfort && 'comfort-relief', implantsSurgery && 'implant-stage', orthodontic && 'aligner-reveal', pediatric && 'growing-story']} data-hero-visual>
-        {!completeHealth && !emergencyComfort && !implantsSurgery && !orthodontic && !pediatric && <div class="detail-hero__outline" aria-hidden="true"><span>{chicago ? 'OFFICE 01' : category.heroOutline}</span></div>}
+      <div class:list={['detail-hero__visual', !chicago && !completeHealth && !emergencyComfort && !implantsSurgery && !orthodontic && !pediatric && !periodontal && 'cosmetic-triptych', completeHealth && 'health-scan', emergencyComfort && 'comfort-relief', implantsSurgery && 'implant-stage', orthodontic && 'aligner-reveal', pediatric && 'growing-story', periodontal && 'gum-story']} data-hero-visual>
+        {!completeHealth && !emergencyComfort && !implantsSurgery && !orthodontic && !pediatric && !periodontal && <div class="detail-hero__outline" aria-hidden="true"><span>{chicago ? 'OFFICE 01' : category.heroOutline}</span></div>}
         {chicago ? (
           <>
             <div class="detail-hero__frame">
@@ -440,6 +506,12 @@ const faqs = chicago ? chicagoFaq : category.faqs;
             </div>
             <div class="hero-aperture" aria-hidden="true"><i></i><i></i></div>
           </>
+        ) : periodontal ? (
+          <div class="gum-story__stage">
+            <img src={category.heroImage} alt={category.heroAlt} width="1536" height="1024" loading="eager" fetchpriority="high" />
+            <div class="gum-story__veil" aria-hidden="true"></div>
+            <div class="gum-story__note" aria-hidden="true"><span>MEASURED WITH CARE</span><strong>Foundation first</strong></div>
+          </div>
         ) : pediatric ? (
           <div class="growing-story__stage">
             <div class="growing-story__image"><img src={category.heroImage} alt={category.heroAlt} width="1536" height="1024" loading="eager" fetchpriority="high" /></div>
@@ -478,7 +550,7 @@ const faqs = chicago ? chicagoFaq : category.faqs;
         )}
         {chicago ? (
           <div class="hero-address"><span>500 Ashland Ave, Suite #2</span><span>Chicago Heights, IL</span></div>
-        ) : completeHealth || emergencyComfort || implantsSurgery || orthodontic || pediatric ? null : (
+        ) : completeHealth || emergencyComfort || implantsSurgery || orthodontic || pediatric || periodontal ? null : (
           <><div class="cosmetic-triptych__caption">{category.heroCaptions.map((caption) => <span>{caption}</span>)}</div><div class="hero-shade" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></>
         )}
       </div>
@@ -754,6 +826,7 @@ const faqs = chicago ? chicagoFaq : category.faqs;
   .is-orthodontic .detail-hero{height:100svh;min-height:48rem}.is-orthodontic .detail-hero__sticky{position:relative;display:block;height:100%;padding:0;overflow:hidden}.is-orthodontic .detail-hero__watermark{display:none}.is-orthodontic .detail-hero__copy{position:absolute;z-index:5;left:clamp(2rem,6vw,7rem);top:clamp(9rem,18vh,12rem);bottom:clamp(3rem,7vh,5rem);display:flex;flex-direction:column;align-items:flex-start;max-width:min(47vw,47rem);filter:none}.is-orthodontic .detail-hero h1{max-width:45rem;margin:clamp(1.4rem,3vh,2.5rem) 0;font-size:clamp(5rem,8.2vw,9rem);line-height:.75;text-wrap:balance}.is-orthodontic .detail-hero__intro{max-width:30rem;margin:0 0 2rem;color:rgba(245,240,231,.84)}.is-orthodontic .detail-button{margin-top:auto}.is-orthodontic .detail-hero__visual{z-index:2;inset:0 0 0 auto;width:68vw;height:100%;clip-path:polygon(22% 0,100% 0,100% 100%,0 100%);will-change:clip-path,transform}.aligner-reveal__stage,.aligner-reveal__panorama{position:absolute;inset:0}.aligner-reveal__panorama{overflow:hidden;background:var(--pine-800)}.aligner-reveal__panorama:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,29,25,.92) 0%,rgba(6,29,25,.48) 24%,rgba(6,29,25,.06) 55%,rgba(6,29,25,.16) 100%),linear-gradient(0deg,rgba(6,29,25,.45),transparent 38%);pointer-events:none}.aligner-reveal__panorama img{width:100%;height:100%;object-fit:cover;object-position:54% center;transform:scale(1.055);will-change:transform}.aligner-reveal__note{position:absolute;z-index:3;right:clamp(1.5rem,4vw,4rem);bottom:clamp(1.5rem,4vw,4rem);display:grid;gap:.4rem;min-width:18rem;padding:1.15rem 1.3rem;border-left:1px solid rgba(196,234,220,.7);background:rgba(6,29,25,.52);backdrop-filter:blur(14px)}.aligner-reveal__note span{color:var(--mint-300);font-size:.5rem;font-weight:800;letter-spacing:.16em}.aligner-reveal__note strong{font-family:var(--serif);font-size:1.2rem;font-weight:500}
   .is-emergency-comfort .about-cosmetic{padding-bottom:clamp(3.5rem,5vw,5rem)}
   .is-pediatric .detail-hero{height:100svh;min-height:50rem;background:var(--pine-950);color:var(--porcelain)}.is-pediatric .detail-hero__sticky{position:relative;display:block;height:100%;padding:0;overflow:hidden}.is-pediatric .detail-hero__visual{position:absolute;z-index:1;left:29vw;right:auto;top:11vh;width:42vw;height:83vh}.growing-story__stage,.growing-story__image{position:absolute;inset:0;overflow:hidden}.growing-story__stage{border-radius:14rem 14rem .8rem .8rem}.growing-story__image:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,29,25,.05),rgba(6,29,25,.02) 62%,rgba(6,29,25,.48));pointer-events:none}.growing-story__image img{width:100%;height:100%;object-fit:cover;object-position:54% center;transform:scale(1.045);will-change:transform}.is-pediatric .detail-hero__copy{position:absolute;z-index:5;inset:0;max-width:none;display:block;filter:none;pointer-events:none}.is-pediatric .detail-hero .detail-kicker{position:absolute;left:clamp(1.5rem,5vw,6rem);top:17vh;max-width:20vw;color:var(--mint-300)}.is-pediatric .detail-hero h1{position:absolute;inset:0;margin:0;font-size:clamp(5.4rem,8.6vw,9.8rem);line-height:.72;letter-spacing:-.065em}.is-pediatric .detail-hero h1 br{display:none}.is-pediatric .detail-hero h1>span{position:absolute;left:clamp(1.5rem,4vw,5rem);top:29vh;width:27vw}.is-pediatric .detail-hero h1 em{position:absolute;right:clamp(1.5rem,4vw,5rem);top:39vh;width:27vw;color:var(--mint-300);text-align:right}.is-pediatric .detail-hero__intro{position:absolute;left:clamp(1.5rem,5vw,6rem);bottom:9vh;max-width:21vw;margin:0;color:rgba(245,240,231,.72)}.is-pediatric .detail-hero .detail-button{position:absolute;right:clamp(1.5rem,5vw,6rem);bottom:9vh;color:var(--porcelain);background:rgba(6,29,25,.38);border-color:rgba(196,234,220,.45);pointer-events:auto}.growing-story__caption{position:absolute;z-index:3;left:50%;bottom:1.25rem;transform:translateX(-50%);display:flex;align-items:center;gap:.8rem;color:var(--porcelain);font-size:.54rem;font-weight:800;letter-spacing:.16em;text-shadow:0 .2rem 1rem rgba(6,29,25,.55);white-space:nowrap}.growing-story__caption i{display:block;width:3rem;height:1px;background:currentColor}.is-pediatric .detail-ledger{background:var(--paper);color:var(--pine-950)}
+  .is-periodontal .detail-hero{height:100svh;min-height:50rem;background:var(--pine-950);color:var(--porcelain)}.is-periodontal .detail-hero__sticky{position:relative;display:block;height:100%;padding:0;overflow:hidden}.is-periodontal .detail-hero__grid,.is-periodontal .detail-hero__watermark,.is-periodontal .detail-hero__index{display:none}.is-periodontal .detail-hero__visual{position:absolute;z-index:1;inset:0;width:100%;height:100%;overflow:hidden}.gum-story__stage{position:absolute;inset:0;overflow:hidden;background:var(--pine-900)}.gum-story__stage img{width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.045);will-change:transform}.gum-story__veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,29,25,.97) 0%,rgba(6,29,25,.82) 28%,rgba(6,29,25,.2) 58%,rgba(6,29,25,.08) 100%),linear-gradient(0deg,rgba(6,29,25,.58),transparent 46%);pointer-events:none}.is-periodontal .detail-hero__copy{position:absolute;z-index:5;left:clamp(2rem,5vw,6rem);top:clamp(9rem,18vh,12rem);bottom:clamp(2rem,6vh,4rem);display:flex;flex-direction:column;align-items:flex-start;max-width:min(43vw,45rem);filter:none}.is-periodontal .detail-hero h1{max-width:42rem;margin:clamp(1.5rem,3vh,2.5rem) 0;font-size:clamp(5rem,8.5vw,9.5rem);line-height:.76;text-wrap:balance}.is-periodontal .detail-hero h1 em{color:var(--mint-300)}.is-periodontal .detail-hero__intro{max-width:29rem;margin:0 0 2rem;color:rgba(245,240,231,.78)}.is-periodontal .detail-button{margin-top:auto;color:var(--porcelain);border-color:rgba(196,234,220,.46);background:rgba(6,29,25,.32);backdrop-filter:blur(12px)}.gum-story__note{position:absolute;z-index:3;right:clamp(1.5rem,4vw,4rem);bottom:clamp(1.5rem,4vw,3.5rem);display:grid;gap:.35rem;min-width:18rem;padding:1rem 1.2rem;border-left:1px solid rgba(196,234,220,.72);background:rgba(6,29,25,.5);backdrop-filter:blur(14px)}.gum-story__note span{color:var(--mint-300);font-size:.5rem;font-weight:850;letter-spacing:.16em}.gum-story__note strong{font-family:var(--serif);font-size:1.2rem;font-weight:500}.is-periodontal .detail-ledger{background:var(--paper);color:var(--pine-950)}
   .is-chicago .detail-hero__sticky{display:block;padding:0}.is-chicago .detail-hero__watermark{display:none}.is-chicago .detail-hero__visual{inset:0;width:100%;height:100%;z-index:1}.is-chicago .detail-hero__frame{border-radius:0}.is-chicago .detail-hero__frame img{object-position:62% center;transform:scale(1.14) translateX(-1.5%)}.is-chicago .detail-hero__frame:after{z-index:1;background:linear-gradient(90deg,rgba(6,29,25,.92) 0%,rgba(6,29,25,.7) 32%,rgba(6,29,25,.24) 62%,rgba(6,29,25,.12) 100%),linear-gradient(0deg,rgba(6,29,25,.72) 0%,transparent 48%)}.is-chicago .detail-hero__copy{position:absolute;left:clamp(2rem,6vw,7rem);bottom:7vh;max-width:min(58vw,62rem);z-index:6}.is-chicago .detail-hero h1{max-width:60rem;font-size:clamp(5.5rem,9.4vw,10.8rem);line-height:.72}.is-chicago .detail-hero__intro{max-width:33rem;color:rgba(245,240,231,.9)}.is-chicago .detail-hero__outline{z-index:5;inset:clamp(6.5rem,10vh,8.5rem) 2vw 2vw;border-color:rgba(245,240,231,.34);border-radius:.15rem}.is-chicago .detail-hero__outline span{top:-.35rem;right:1.4rem;background:transparent;text-shadow:0 1px 1rem rgba(6,29,25,.8)}.hero-aperture{position:absolute;z-index:3;inset:0;pointer-events:none}.hero-aperture i{position:absolute;left:0;right:0;height:10vh;background:var(--pine-950)}.hero-aperture i:first-child{top:0}.hero-aperture i:last-child{bottom:0}.is-chicago .hero-address{right:4vw;bottom:4vh}.is-chicago .detail-hero__index{right:4vw;bottom:3vh;color:var(--porcelain)}
   .detail-ledger{display:grid;grid-template-columns:repeat(4,1fr);background:var(--mint-200);border-bottom:1px solid rgba(16,35,31,.18)}.detail-ledger div{min-height:8rem;padding:2rem;border-right:1px solid rgba(16,35,31,.18);display:flex;flex-direction:column;justify-content:space-between}.detail-ledger small{font-size:.58rem;font-weight:800;letter-spacing:.15em}.detail-ledger strong{font-family:var(--serif);font-size:clamp(1.2rem,2vw,2rem);font-weight:500}
   .editorial-story{display:grid;grid-template-columns:1fr 2fr 1fr;column-gap:4rem;row-gap:6rem;min-height:100svh}.editorial-story__eyebrow{display:flex;gap:1rem;font-size:.65rem;font-weight:800;letter-spacing:.16em}.editorial-story__headline h2,.cosmetic-philosophy h2,.communities h2,.pricing h2,.detail-faq h2{font-family:var(--serif);font-size:clamp(4rem,7vw,8rem);line-height:.85;letter-spacing:-.055em;font-weight:500;margin:0}.editorial-story__headline em,.cosmetic-philosophy em,.communities em,.pricing em,.detail-faq em{color:var(--pine-700);font-weight:500}.editorial-story__body{align-self:end}.editorial-story__body p{font-size:1rem;line-height:1.75;color:rgba(16,35,31,.65)}.editorial-story__body a{display:inline-block;margin-top:2rem;color:var(--ink);font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.schedule-rail{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);position:relative;padding-top:3rem}.schedule-rail__line{position:absolute;top:0;left:0;right:0;height:1px;background:rgba(16,35,31,.2)}.schedule-rail__line i{display:block;width:0;height:100%;background:var(--pine-700)}.schedule-rail article{padding:0 3rem 0 0;display:grid;gap:1rem}.schedule-rail article b,.schedule-rail article span{font-size:.6rem;letter-spacing:.15em}.schedule-rail article strong{font-family:var(--serif);font-weight:500;font-size:clamp(2.5rem,4vw,5rem);line-height:.9}
@@ -782,9 +855,11 @@ const faqs = chicago ? chicagoFaq : category.faqs;
   @media (max-width:1100px){.related-paths__head{grid-template-columns:1fr 1.5fr}.related-paths__head h2{grid-column:1/-1}.related-paths__head>p:last-child{grid-column:2}.related-paths__grid article{grid-template-columns:1fr;padding-top:1.5rem}.related-paths__grid article:first-child{padding-right:2rem}.related-paths__grid article:last-child{padding-left:2rem}}
   @media (max-width:720px){.related-paths__head{display:block;margin-bottom:3.5rem}.related-paths__head h2{margin:2rem 0;font-size:3.8rem}.related-paths__grid{display:block}.related-paths__grid article{display:block;padding:2rem 0}.related-paths__grid article:first-child{padding-right:0;border-right:0;border-bottom:1px solid rgba(16,35,31,.2)}.related-paths__grid article:last-child{padding-left:0}.related-paths__label{margin-bottom:1.5rem}.related-paths nav a{grid-template-columns:1fr 1rem}.related-paths nav a small{display:none}}
   @media (min-width:721px) and (max-width:1100px){.is-pediatric .detail-hero{min-height:62rem}.is-pediatric .detail-hero__visual{left:27vw;top:10rem;width:46vw;height:calc(100% - 13rem)}.is-pediatric .detail-hero__copy{inset:0;display:block;padding:0}.is-pediatric .detail-hero .detail-kicker{left:3rem;top:11rem;max-width:25vw}.is-pediatric .detail-hero h1{font-size:clamp(4.8rem,8.8vw,7rem)}.is-pediatric .detail-hero h1>span{left:3rem;top:31vh;width:29vw}.is-pediatric .detail-hero h1 em{right:3rem;top:44vh;width:29vw}.is-pediatric .detail-hero__intro{left:3rem;bottom:5rem;max-width:24vw;font-size:.82rem}.is-pediatric .detail-hero .detail-button{right:3rem;bottom:5rem}.growing-story__image img{object-position:56% center}}
+  @media (min-width:721px) and (max-width:1100px){.is-periodontal .detail-hero{min-height:62rem}.is-periodontal .detail-hero__copy{left:3rem;top:10rem;bottom:3.5rem;max-width:47vw}.is-periodontal .detail-hero h1{font-size:clamp(5rem,8.8vw,7.2rem)}.gum-story__stage img{object-position:56% center}.gum-story__veil{background:linear-gradient(90deg,rgba(6,29,25,.97),rgba(6,29,25,.78) 34%,rgba(6,29,25,.18) 67%),linear-gradient(0deg,rgba(6,29,25,.5),transparent 44%)}}
   .is-pediatric .detail-hero__copy{height:100%}
   @media (max-width:720px){.journey__track article{height:17rem;min-height:0}.journey__track h3{font-size:2.65rem;line-height:.94}}
   @media (max-width:720px){.is-pediatric .detail-hero{height:100svh;min-height:52rem}.is-pediatric .detail-hero__sticky{padding:0}.is-pediatric .detail-hero__visual{left:.75rem;right:.75rem;top:5.3rem;width:auto;height:50%;bottom:auto}.growing-story__stage{border-radius:6rem 6rem .45rem .45rem}.growing-story__image:after{background:linear-gradient(180deg,rgba(6,29,25,.04),rgba(6,29,25,.08) 66%,rgba(6,29,25,.45))}.growing-story__image img{object-position:56% center}.growing-story__caption{display:none}.is-pediatric .detail-hero__copy{inset:0;display:block;padding:0;background:transparent;filter:none}.is-pediatric .detail-hero .detail-kicker{left:1.25rem;top:57%;max-width:90%;font-size:.46rem}.is-pediatric .detail-hero h1{inset:0;margin:0;font-size:clamp(3.3rem,14.5vw,4.35rem);line-height:.76;text-align:left}.is-pediatric .detail-hero h1>span{left:1.25rem;top:61%;width:88%}.is-pediatric .detail-hero h1 em{left:1.25rem;right:auto;top:72%;width:88%;text-align:left}.is-pediatric .detail-hero__intro{left:1.25rem;right:1.25rem;bottom:4.8rem;max-width:23rem;margin:0;font-size:.72rem;line-height:1.4}.is-pediatric .detail-hero .detail-button{left:1.25rem;right:auto;bottom:1rem;min-width:12rem;margin:0}.is-pediatric .detail-ledger{margin-top:0}}
+  @media (max-width:720px){.is-periodontal .detail-hero{height:100svh;min-height:52rem}.is-periodontal .detail-hero__visual{inset:4.8rem .65rem auto;height:47%;width:auto;border-radius:5.5rem 5.5rem .6rem .6rem}.gum-story__stage{border-radius:inherit}.gum-story__stage img{object-position:62% center}.gum-story__veil{background:linear-gradient(180deg,rgba(6,29,25,.04),rgba(6,29,25,.08) 56%,rgba(6,29,25,.66))}.gum-story__note{display:none}.is-periodontal .detail-hero__copy{inset:55% 1.25rem 1rem;display:flex;max-width:none}.is-periodontal .detail-hero .detail-kicker{font-size:.46rem}.is-periodontal .detail-hero h1{margin:.9rem 0;font-size:clamp(3.4rem,14.7vw,4.45rem);line-height:.76}.is-periodontal .detail-hero__intro{max-width:23rem;margin:0 0 .9rem;font-size:.72rem;line-height:1.4}.is-periodontal .detail-button{margin-top:auto;min-width:13rem}.is-periodontal .detail-ledger{margin-top:0}}
   @media (prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}.detail-hero__frame img{transform:none!important}}
 </style>
 
@@ -810,10 +885,16 @@ const faqs = chicago ? chicagoFaq : category.faqs;
         if (hero && visual && frame && copy) {
           const compact = innerWidth <= 1100;
           const stageWidth = compact ? '57vw' : '62vw';
-          const tl = ['orthodontic-dentistry', 'pediatric-developmental'].includes(root.dataset.detailKind || '')
+          const tl = ['orthodontic-dentistry', 'pediatric-developmental', 'periodontal-dentistry'].includes(root.dataset.detailKind || '')
             ? gsap.timeline()
             : gsap.timeline({scrollTrigger:{trigger:hero,start:'top top',end:'bottom bottom',scrub:1.15}});
-          if (root.dataset.detailKind === 'pediatric-developmental') {
+          if (root.dataset.detailKind === 'periodontal-dentistry') {
+            tl.fromTo(q('.gum-story__stage img'),{scale:1.13},{scale:1.045,duration:1.55,ease:'power3.out'},0)
+              .fromTo(q('.gum-story__veil'),{opacity:.3},{opacity:1,duration:1.1,ease:'power2.out'},0)
+              .fromTo(q('.detail-hero__copy > *'),{y:30,opacity:0},{y:0,opacity:1,duration:.9,stagger:.09,ease:'power3.out'},.12)
+              .fromTo(q('.gum-story__note'),{x:24,opacity:0},{x:0,opacity:1,duration:.8,ease:'power3.out'},.72);
+            gsap.to(q('.gum-story__stage img'),{yPercent:4,scale:1.07,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'bottom top',scrub:.8}});
+          } else if (root.dataset.detailKind === 'pediatric-developmental') {
             tl.fromTo(visual,{clipPath:'inset(0 47% 0 47% round 14rem 14rem .8rem .8rem)'},{clipPath:'inset(0 0% 0 0% round 14rem 14rem .8rem .8rem)',duration:1.35,ease:'power3.inOut'},0)
               .fromTo(q('.growing-story__image img'),{scale:1.13},{scale:1.045,duration:1.5,ease:'power3.out'},0)
               .fromTo(q('.detail-hero__copy'),{y:54,opacity:0},{y:0,opacity:1,duration:1.05,ease:'power3.out'},.16)
@@ -897,13 +978,18 @@ const faqs = chicago ? chicagoFaq : category.faqs;
         const hero = q('[data-detail-hero]')[0];
         const visual = q('[data-hero-visual]')[0];
         if (hero && visual) {
-          const mobileTl = ['orthodontic-dentistry', 'pediatric-developmental'].includes(root.dataset.detailKind || '')
+          const mobileTl = ['orthodontic-dentistry', 'pediatric-developmental', 'periodontal-dentistry'].includes(root.dataset.detailKind || '')
             ? gsap.timeline()
             : gsap.timeline({scrollTrigger:{trigger:hero,start:'top top',end:'bottom bottom',scrub:1.05}})
                 .to(q('[data-hero-visual] img'),{scale:1.02,ease:'none'},0);
           const outline = q('.detail-hero__outline');
           if (outline.length) mobileTl.to(outline,{scale:1.02,ease:'none'},0);
-          if (root.dataset.detailKind === 'pediatric-developmental') {
+          if (root.dataset.detailKind === 'periodontal-dentistry') {
+            mobileTl.fromTo(visual,{clipPath:'inset(0 45% 0 45% round 5.5rem 5.5rem .6rem .6rem)'},{clipPath:'inset(0 0% 0 0% round 5.5rem 5.5rem .6rem .6rem)',duration:1.15,ease:'power3.inOut'},0)
+              .fromTo(q('.gum-story__stage img'),{scale:1.12},{scale:1.045,duration:1.3,ease:'power3.out'},0)
+              .fromTo(q('.detail-hero__copy > *'),{y:20,opacity:0},{y:0,opacity:1,duration:.75,stagger:.07,ease:'power3.out'},.18);
+            gsap.to(q('.gum-story__stage img'),{yPercent:3,scale:1.065,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'bottom top',scrub:.7}});
+          } else if (root.dataset.detailKind === 'pediatric-developmental') {
             mobileTl.fromTo(visual,{clipPath:'inset(0 46% 0 46% round 6rem 6rem .45rem .45rem)'},{clipPath:'inset(0 0% 0 0% round 6rem 6rem .45rem .45rem)',duration:1.15,ease:'power3.inOut'},0)
               .fromTo(q('.growing-story__image img'),{scale:1.12},{scale:1.045,duration:1.3,ease:'power3.out'},0)
               .fromTo(q('.detail-hero__copy'),{y:34,opacity:0},{y:0,opacity:1,duration:.9,ease:'power3.out'},.12)
