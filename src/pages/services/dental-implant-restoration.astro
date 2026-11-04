@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore crown and abutment restoration for an existing dental implant at Smiles by Noetzel, with pricing and both Illinois offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Dental Implant Restoration | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-dental-implant-restoration.webp" mediaAlt="A dentist and patient reviewing a crown and abutment for an existing implant" />
+    <main>
+      <TreatmentDetail kind="dental-implant-restoration" />
+      <BeforeAfterStory id="before-after-dental-implant-restoration" tone="dark" reverse number="06" eyebrow="Illustrative planning visualization · existing implant restoration" title="From an existing foundation." emphasis="To a connected tooth."
+        intro="This simulated planning visualization explains how an existing implant may move from compatibility assessment to a crown-and-abutment restoration concept. It is not an actual patient outcome and does not guarantee compatibility or a specific result."
+        image="/images/generated/before-after-dental-implant-restoration-v1.webp" imageAlt="Illustrative simulated comparison of an existing implant and a planned crown-and-abutment restoration"
+        beforeLabel="Before compatibility review" beforeDetail="The implant, connection, tissue, restorative space and bite still need to be evaluated."
+        afterLabel="Illustrative restored-tooth concept" afterDetail="The simulated view represents a crown-and-abutment concept after compatibility and scope are confirmed—not an actual patient result."
+        caseNote="Illustrative simulated example · not an actual patient case · treatment and results vary" />
+      <HubFooter eyebrow="Want to complete an existing implant?" title="Begin with the foundation, the connection and the tooth above it." />
+    </main>
+  </body>
+</html>

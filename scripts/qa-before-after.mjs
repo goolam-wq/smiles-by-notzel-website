@@ -32,6 +32,7 @@ const routes = [
   ['implant-supported-bridge', '/services/implant-supported-bridge/', '#before-after-implant-supported-bridge'],
   ['all-on-4-implant-solution', '/services/all-on-4-implant-solution/', '#before-after-all-on-4-implant-solution'],
   ['bone-grafting', '/services/bone-grafting/', '#before-after-bone-grafting'],
+  ['dental-implant-restoration', '/services/dental-implant-restoration/', '#before-after-dental-implant-restoration'],
 ];
 const viewports = [
   ['desktop', 1440, 900],

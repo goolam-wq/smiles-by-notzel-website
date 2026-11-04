@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -17,8 +17,14 @@ const isSingleToothImplant = kind === 'single-tooth-dental-implant';
 const isImplantBridge = kind === 'implant-supported-bridge';
 const isAllOn4 = kind === 'all-on-4-implant-solution';
 const isBoneGrafting = kind === 'bone-grafting';
+const isImplantRestoration = kind === 'dental-implant-restoration';
 
-const processSteps = isBoneGrafting ? [
+const processSteps = isImplantRestoration ? [
+  ['01', 'Assess', 'The existing implant, surrounding tissue, bite, restorative space and available records are evaluated before a new restoration is recommended.'],
+  ['02', 'Plan', 'The abutment and crown plan is coordinated around implant compatibility, function, neighboring teeth and the complete smile.'],
+  ['03', 'Create', 'The confirmed restorative records guide fabrication of the planned abutment and crown for the existing implant.'],
+  ['04', 'Restore', 'The restoration is fitted and reviewed for seating, bite, hygiene access and appearance according to the clinical plan.'],
+] : isBoneGrafting ? [
   ['01', 'Assess', 'The site, oral health, available bone, medical history and future restorative goal are evaluated before grafting is recommended.'],
   ['02', 'Plan', 'Imaging and the intended future treatment guide the grafting approach, material discussion and sequence for the individual site.'],
   ['03', 'Develop', 'The planned site-development procedure is completed according to the confirmed clinical plan, without promising a measured amount of bone gain.'],
@@ -90,7 +96,13 @@ const processSteps = isBoneGrafting ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isBoneGrafting ? [
+const faqs = isImplantRestoration ? [
+  ['How much does a dental implant restoration cost?', 'The customer-facing treatment price is $1,900 for a crown and abutment on an existing implant. The $80 monthly view is an approximate rounded 24-month financing illustration ($1,920 total), and the yearly treatment amount is $1,900. Final compatibility, scope, eligibility and payment terms are confirmed after evaluation.'],
+  ['Does this price include placement of a new dental implant?', 'No. This service is for a crown and abutment restoration on an existing implant. New implant placement, surgery, grafting or other treatment is not represented as included in the listed amount.'],
+  ['Can every existing implant receive a new restoration?', 'Not automatically. Implant condition, component compatibility, surrounding tissue, restorative space and bite must be evaluated before the team confirms an appropriate restoration.'],
+  ['Is a new crown guaranteed to solve every implant concern?', 'No. A restoration addresses the restorative component, but the existing implant and surrounding structures must first be assessed. Other care or referral may be needed depending on the findings.'],
+  ['Is dental implant restoration available at both offices?', 'Evaluations can begin through Chicago Heights or Mokena. Call the preferred office to confirm the recommended visit and current restorative availability.'],
+] : isBoneGrafting ? [
   ['How much does bone grafting cost?', 'The customer-facing treatment price is $500 per site. The $42 monthly view is an approximate rounded 12-month financing illustration ($504 total), and the yearly amount is $500 per site. Final scope, material, eligibility and payment terms are confirmed after examination and imaging.'],
   ['Does bone grafting guarantee that I can receive an implant?', 'No. Grafting is site development, not a guarantee of implant candidacy or a particular outcome. Healing, available support, oral health and other individual factors are reassessed before any later implant recommendation.'],
   ['What graft material is included?', 'No specific material or additional procedure is promised by the listed price. The site, clinical goal and individual circumstances determine the recommended approach, material discussion and final scope.'],
@@ -176,7 +188,13 @@ const faqs = isBoneGrafting ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isBoneGrafting ? [
+const relatedServices = isImplantRestoration ? [
+  ['Implants & Oral Surgery', 'Explore the complete category', '/services/implants-oral-surgery/'],
+  ['Single-tooth dental implant', 'Explore a complete one-tooth implant pathway', '/services/single-tooth-dental-implant/'],
+  ['Implant-supported bridge', 'Explore a connected multi-tooth pathway', '/services/implant-supported-bridge/'],
+  ['All-on-4 implant solution', 'Explore a full-arch pathway', '/services/all-on-4-implant-solution/'],
+  ['Restorative & Reconstructive', 'Explore connected crown and bridge options', '/services/restorative-reconstructive/'],
+] : isBoneGrafting ? [
   ['Implants & Oral Surgery', 'Explore the complete category', '/services/implants-oral-surgery/'],
   ['Single-tooth dental implant', 'Explore a one-tooth replacement pathway', '/services/single-tooth-dental-implant/'],
   ['Implant-supported bridge', 'Explore a connected multi-tooth pathway', '/services/implant-supported-bridge/'],
@@ -256,7 +274,61 @@ const relatedServices = isBoneGrafting ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isBoneGrafting ? {
+const content = isImplantRestoration ? {
+  heroClass: 'is-implant-restoration',
+  heroImages: [
+    ['/images/generated/dental-implant-restoration-hero-v1.webp', 'A patient and dentist discussing restoration of an existing dental implant', 'BEGIN WITH THE IMPLANT'],
+    ['/images/generated/dental-implant-restoration-hero-detail-v1.webp', 'A dentist reviewing abutment and crown compatibility for an existing implant', 'PLAN THE CONNECTION'],
+    ['/images/generated/dental-implant-restoration-hero-result-v1.webp', 'A patient and dentist reviewing a completed implant crown concept', 'RESTORE THE TOOTH'],
+  ],
+  heroAria: ['Explore the implant restoration evaluation', 'Explore abutment and crown planning', 'Explore the restored-tooth review'],
+  kicker: 'Implants & Oral Surgery · Treatment 05',
+  title: ['The implant is present.', 'Complete the tooth.'],
+  intro: 'A crown and abutment restoration for an existing implant, planned around component compatibility, bite, hygiene access and the complete smile.',
+  heroRail: ['Begin with the implant', 'Plan the connection', 'Restore the tooth'],
+  ledgerLabel: 'Dental implant restoration', ledgerFixed: '$1,900', ledgerMonthly: '$80 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['An implant is not yet a tooth.', 'The restoration', 'completes the connection.'],
+  storyImage: '/images/generated/dental-implant-restoration-process-v1.webp',
+  storyAlt: 'A dentist evaluating an existing implant for an abutment and crown restoration',
+  storyRangeLabel: 'Compare the existing implant assessment with the planned crown and abutment pathway',
+  storyNote: 'Confirm implant condition and compatibility before planning the restoration.',
+  storyLead: 'We plan the crown and connection together. The existing implant and its components establish the foundation; bite, neighboring teeth and hygiene access shape the restoration above it.',
+  storySteps: [
+    ['01', 'Read the foundation', 'The existing implant, surrounding tissue, records and component compatibility establish the starting point.'],
+    ['02', 'Plan the connection', 'The abutment and crown are considered together in the bite and available restorative space.'],
+    ['03', 'Review the restored tooth', 'Seating, function, hygiene access and appearance are checked before the restoration is completed.'],
+  ],
+  storyNotes: ['Confirm implant condition and compatibility before planning the restoration.', 'Coordinate abutment, crown, bite and surrounding teeth as one plan.', 'Review seating, function and care access at completion.'],
+  processTitle: ['Existing foundation.', 'A newly connected tooth.'],
+  expectTitle: ['Restorative in scope.', 'Compatibility-led in planning.'],
+  expectCopy: 'Dental implant restoration is intended for a crown and abutment on an existing implant. The implant, connection, surrounding tissue, bite and available space must be evaluated first; new implant placement or a guaranteed restorative outcome is not included or promised.',
+  metrics: [['1', 'existing implant foundation'], ['2', 'connected components: abutment and crown'], ['2', 'connected office locations']],
+  pricingId: 'dental-implant-restoration-pricing',
+  pricingTitle: ['One restored tooth.', 'Three planning views.'],
+  pricingIntro: 'The same crown-and-abutment restoration shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$1,900', 'crown + abutment on existing implant'], ['MONTHLY · 02', '$80', 'per month · 24 months'], ['YEARLY · 03', '$1,900', 'annual treatment amount']],
+  pricingNote: 'The $80 monthly view is an approximate rounded financing illustration ($1,920 total across 24 months), not an exact division of $1,900. The yearly amount is a treatment view, not a subscription. New implant placement, surgery, grafting and other treatment are not represented as included; compatibility, final scope, eligibility and terms are confirmed by the office.',
+  whyTitle: ['Compatibility first.', 'Restoration in context.'],
+  whyIntro: 'We do not treat every existing implant as automatically ready for a new crown. Implant condition, component compatibility, tissue, restorative space, bite and neighboring teeth stay connected from evaluation through completion.',
+  whyImage: '/images/generated/dental-implant-restoration-result-v1.webp',
+  whyAlt: 'A dentist and patient reviewing a crown and abutment restoration for an existing implant',
+  whyPanels: [
+    ['01', 'Foundation before finish', 'The existing implant and surrounding structures are evaluated before the crown is planned.'],
+    ['02', 'Connection-specific planning', 'Abutment compatibility and restorative space shape the final crown pathway.'],
+    ['03', 'Function and care access', 'The completed restoration is reviewed in the bite and for practical hygiene access.'],
+  ],
+  whyFoot: 'ONE EXISTING IMPLANT · TWO CONNECTED RESTORATIVE COMPONENTS',
+  proofTitle: ['The connection explained.', 'The next step clear.'],
+  proofText: 'Patients frequently mention thoughtful explanations, attentive care and clear next steps—general-practice feedback that supports how implant-restoration decisions are discussed.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Compatibility review', 'Connected restoration', 'Clear next step'],
+  faqTitle: ['Before you restore', 'the implant.'],
+  relatedTitle: ['One existing implant.', 'Several connected paths.'],
+  relatedAria: 'Related implant and restorative services',
+  currentPath: 'Dental implant restoration',
+  locationsAria: 'Dental implant restoration evaluation locations',
+} : isBoneGrafting ? {
   heroClass: 'is-bone-grafting',
   heroImages: [
     ['/images/generated/bone-grafting-hero-v1.webp', 'A patient and implant dentist discussing site development before future care', 'BEGIN WITH THE SITE'],
@@ -1477,6 +1549,15 @@ const content = isBoneGrafting ? {
   .whitening-hero.is-bone-grafting .hero-fold--two>img{object-position:51% center}
   .whitening-hero.is-bone-grafting .hero-fold--three>img{object-position:61% center}
   .whitening-hero.is-bone-grafting .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.46) 55%,transparent 74%)}
+  .whitening-hero.is-implant-restoration .hero-folds__scan{display:none}
+  .whitening-hero.is-implant-restoration .hero-fold{border:0;box-shadow:0 2.2rem 6rem rgba(0,0,0,.33)}
+  .whitening-hero.is-implant-restoration .hero-fold--one{clip-path:inset(6% 0 6% 0 round 10rem 1.5rem 10rem 1.5rem)}
+  .whitening-hero.is-implant-restoration .hero-fold--two{clip-path:inset(0 0 0 0 round 1.5rem 10rem 1.5rem 10rem)}
+  .whitening-hero.is-implant-restoration .hero-fold--three{clip-path:inset(6% 0 6% 0 round 10rem 1.5rem 10rem 1.5rem)}
+  .whitening-hero.is-implant-restoration .hero-fold--one>img{object-position:42% center}
+  .whitening-hero.is-implant-restoration .hero-fold--two>img{object-position:51% center}
+  .whitening-hero.is-implant-restoration .hero-fold--three>img{object-position:61% center}
+  .whitening-hero.is-implant-restoration .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.46) 55%,transparent 74%)}
 
   @media(min-width:721px) and (max-width:1100px){
     .whitening-hero{height:245svh}
@@ -1549,6 +1630,9 @@ const content = isBoneGrafting ? {
     .whitening-hero.is-bone-grafting .hero-fold--two{clip-path:inset(3% 0 3% 0 round 1rem 5rem 1rem 5rem)}
     .whitening-hero.is-bone-grafting .hero-fold--three{clip-path:inset(0 0 6% 0 round 1rem 1rem 5rem 1rem)}
     .whitening-hero.is-bone-grafting .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.21) 60%,rgba(4,24,20,.78) 100%)}
+    .whitening-hero.is-implant-restoration .hero-fold--one,.whitening-hero.is-implant-restoration .hero-fold--three{clip-path:inset(4% 0 4% 0 round 6rem 1rem 6rem 1rem)}
+    .whitening-hero.is-implant-restoration .hero-fold--two{clip-path:inset(0 0 0 0 round 1rem 6rem 1rem 6rem)}
+    .whitening-hero.is-implant-restoration .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.21) 60%,rgba(4,24,20,.78) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
