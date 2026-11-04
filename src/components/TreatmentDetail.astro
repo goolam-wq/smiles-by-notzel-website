@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement' | 'tooth-colored-dental-filling' | 'dental-crown' | 'dental-bridge';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement' | 'tooth-colored-dental-filling' | 'dental-crown' | 'dental-bridge' | 'full-mouth-reconstruction';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -42,8 +42,14 @@ const isAmalgamReplacement = kind === 'amalgam-filling-replacement';
 const isToothColoredFilling = kind === 'tooth-colored-dental-filling';
 const isDentalCrown = kind === 'dental-crown';
 const isDentalBridge = kind === 'dental-bridge';
+const isFullMouthReconstruction = kind === 'full-mouth-reconstruction';
 
-const processSteps = isDentalBridge ? [
+const processSteps = isFullMouthReconstruction ? [
+  ['01', 'Listen & diagnose', 'The team reviews concerns, history, teeth, gums, bite, existing work and missing or worn structure before defining the restorative problem.'],
+  ['02', 'Map the sequence', 'Priorities, alternatives, preliminary needs and the order of care are coordinated into a phased plan rather than assumed as one universal package.'],
+  ['03', 'Restore in phases', 'Confirmed procedures are completed in the planned sequence, with each stage reviewed before the next restorative phase begins.'],
+  ['04', 'Review & maintain', 'Function, comfort, hygiene access and the completed restorative relationships are reviewed with an individualized maintenance plan.'],
+] : isDentalBridge ? [
   ['01', 'Evaluate & compare', 'The gap, adjacent teeth, gums, bite and goals are evaluated while a conventional bridge is compared with an implant, partial denture and other appropriate options.'],
   ['02', 'Design', 'The support teeth, connected three-unit span, material, contact, shade, appearance and hygiene access are planned for the individual case.'],
   ['03', 'Prepare & fabricate', 'Confirmed abutment teeth are prepared and records captured; a provisional may be used when required while the bridge is fabricated.'],
@@ -240,7 +246,14 @@ const processSteps = isDentalBridge ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isDentalBridge ? [
+const faqs = isFullMouthReconstruction ? [
+  ['How much does full-mouth reconstruction cost?', 'The customer-facing price starts at $25,000. The $695 monthly view is an approximate rounded 36-month illustration ($25,020 total), which is $20 above the $25,000 starting fixed and yearly views. Final procedures, phases, eligibility and payment terms are office-confirmed.'],
+  ['What can a full-mouth reconstruction include?', 'It may coordinate several restorative services when needs span multiple teeth or the full mouth. Exact procedures, materials, preliminary treatment and phases depend on examination and the individualized plan.'],
+  ['Is every treatment completed at once?', 'Not necessarily. Care is commonly sequenced in phases according to health, urgency, function, healing, budget and the confirmed restorative plan. No fixed timeline or visit count is promised.'],
+  ['Does full-mouth reconstruction guarantee a new bite or permanent result?', 'No. Function, comfort, appearance and longevity vary with clinical conditions, procedures, healing, habits and maintenance. No permanent or exact outcome is guaranteed.'],
+  ['Are implants, extractions or specialist care automatically included?', 'No automatic inclusions are stated. Surgery, implants, endodontic care, periodontal therapy, sedation, specialist services and other treatment are separate unless the office confirms them in the written plan.'],
+  ['Is reconstruction planning available at both offices?', 'Yes. Evaluation and coordinated restorative planning are available through Chicago Heights and Mokena, subject to appointment availability and individual scope.'],
+] : isDentalBridge ? [
   ['How much does a dental bridge cost?', 'The customer-facing price is $4,500 for a three-unit case. The $125 monthly view totals exactly $4,500 across 36 months. The $4,500 yearly view is a complete-treatment-case basis, not a subscription. Final scope, eligibility and payment terms are office-confirmed.'],
   ['What does a three-unit dental bridge replace?', 'A conventional three-unit bridge generally uses two supporting units connected to one replacement unit for a single missing-tooth space. The gap and support teeth must be evaluated before that design is confirmed.'],
   ['Do the adjacent teeth need preparation?', 'A conventional bridge commonly relies on prepared adjacent support teeth, but the exact design and suitability are confirmed only after evaluation. No universal preparation amount or candidacy is promised.'],
@@ -480,7 +493,15 @@ const faqs = isDentalBridge ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isDentalBridge ? [
+const relatedServices = isFullMouthReconstruction ? [
+  ['Restorative & Reconstructive', 'Explore the complete restorative category', '/services/restorative-reconstructive/'],
+  ['Dental crown', 'Explore individual full-coverage restoration', '/services/dental-crown/'],
+  ['Dental bridge', 'Explore a connected tooth-replacement pathway', '/services/dental-bridge/'],
+  ['Tooth-colored dental filling', 'Explore a direct restorative pathway', '/services/tooth-colored-dental-filling/'],
+  ['Single-tooth dental implant', 'Explore a single-space implant pathway', '/services/single-tooth-dental-implant/'],
+  ['Partial denture', 'Explore a removable replacement pathway', '/services/partial-denture/'],
+  ['Root-canal treatment & coordination', 'Connect deeper tooth care to the restorative sequence', '/services/root-canal-treatment-coordination/'],
+] : isDentalBridge ? [
   ['Restorative & Reconstructive', 'Explore the complete restorative category', '/services/restorative-reconstructive/'],
   ['Dental crown', 'Explore individual full-coverage restoration', '/services/dental-crown/'],
   ['Single-tooth dental implant', 'Compare an implant-supported single-space pathway', '/services/single-tooth-dental-implant/'],
@@ -714,7 +735,62 @@ const relatedServices = isDentalBridge ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isDentalBridge ? {
+const content = isFullMouthReconstruction ? {
+  heroClass: 'is-full-mouth-reconstruction',
+  heroImages: [
+    ['/images/generated/full-mouth-reconstruction-hero-v1.webp', 'A clinician reviewing the complete mouth before a full-mouth reconstruction plan', 'MAP THE WHOLE MOUTH'],
+    ['/images/generated/full-mouth-reconstruction-hero-detail-v1.webp', 'A restorative team sequencing priorities across a connected treatment plan', 'SEQUENCE THE PRIORITIES'],
+    ['/images/generated/full-mouth-reconstruction-hero-result-v1.webp', 'A phased restorative plan being reviewed after coordinated delivery', 'RESTORE IN PLANNED PHASES'],
+  ],
+  heroAria: ['Explore complete-mouth assessment', 'Explore priority and sequence planning', 'Explore phased restorative delivery'],
+  kicker: 'Restorative & Reconstructive · Service 06',
+  title: ['Rebuild the sequence,', 'not just the teeth.'],
+  intro: 'A coordinated restorative pathway when needs span multiple teeth or the full mouth. Oral health, remaining structure, support tissues, bite, symptoms and alternatives determine the scope and order of care.',
+  heroRail: ['Map the whole mouth', 'Sequence the priorities', 'Restore in planned phases'],
+  ledgerLabel: 'Full-mouth reconstruction', ledgerFixed: 'From $25,000 / case', ledgerMonthly: '$695 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['The procedures are multiple.', 'The plan should feel', 'connected.'],
+  storyImage: '/images/generated/full-mouth-reconstruction-process-v1.webp',
+  storyAlt: 'A restorative team mapping connected priorities for a phased full-mouth reconstruction plan',
+  storyRangeLabel: 'Compare scattered restorative needs with one coordinated, phased plan',
+  storyNote: 'Start with the map before assigning the procedures.',
+  storyLead: 'Full-mouth reconstruction begins with the complete condition—not a predetermined package. Teeth, gums, support, bite, prior work and symptoms are mapped so priorities and alternatives can be sequenced responsibly.',
+  storySteps: [
+    ['01', 'Map the whole mouth', 'Current findings, symptoms, support tissues, bite and existing work are reviewed as one connected picture.'],
+    ['02', 'Set the priorities', 'Urgent, foundational and elective needs are separated before a treatment order is confirmed.'],
+    ['03', 'Deliver in phases', 'The confirmed restorative sequence is carried out and reviewed by phase, with maintenance kept visible.'],
+  ],
+  storyNotes: ['Map every confirmed finding in one record.', 'Sequence health and foundation before final restoration.', 'Deliver, review and maintain each connected phase.'],
+  processTitle: ['Map the whole mouth.', 'Restore in sequence.'],
+  expectTitle: ['Multiple needs.', 'One connected plan.'],
+  expectCopy: 'The final treatment may involve several restorative pathways, but no procedure package, material, timeline, visit count or outcome is automatic. Recommendations and sequence are confirmed only after examination and consultation.',
+  metrics: [['1', 'connected full-mouth plan'], ['4', 'stages: map, prioritize, sequence, deliver'], ['2', 'connected office locations']],
+  pricingId: 'full-mouth-reconstruction-pricing',
+  pricingTitle: ['One complete case.', 'Three planning views.'],
+  pricingIntro: 'The starting complete-treatment case amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', 'From $25,000', 'complete-treatment case'], ['MONTHLY · 02', '$695', 'per month · 36 months'], ['YEARLY · 03', 'From $25,000', 'complete-treatment case basis']],
+  pricingNote: 'The $695 monthly view is an approximate rounded financing illustration ($25,020 total across 36 months), which is $20 above the $25,000 starting amount. The yearly view is a complete-treatment case basis, not a subscription. Final procedures, sequence, total, eligibility and terms are office-confirmed.',
+  whyTitle: ['Each phase belongs to', 'the same whole.'],
+  whyIntro: 'The team keeps diagnosis, priorities, alternatives, bite and maintenance connected so each individual procedure serves the confirmed full-mouth plan.',
+  whyImage: '/images/generated/full-mouth-reconstruction-result-v1.webp',
+  whyAlt: 'A clinician reviewing a phased full-mouth reconstruction plan in the complete oral context',
+  whyPanels: [
+    ['01', 'The map comes first', 'Confirmed findings and symptoms establish the complete starting picture before procedures are assigned.'],
+    ['02', 'Priorities stay visible', 'Urgent and foundational needs are sequenced before elective or final restorative stages.'],
+    ['03', 'Alternatives remain open', 'Repair, replacement and monitoring paths are compared without assuming one universal package.'],
+    ['04', 'Maintenance is part of the plan', 'Review and home-care needs are coordinated with each completed phase and final restoration.'],
+  ],
+  whyFoot: 'ONE CONNECTED PLAN · FOUR PHASES · TWO OFFICES',
+  proofTitle: ['The whole picture explained.', 'The sequence made clearer.'],
+  proofText: 'Patients frequently mention clear explanations, coordinated care and thoughtful restorative planning—general-practice themes that support a connected full-mouth conversation without promising an individual outcome.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Complete map first', 'Priorities sequenced', 'Maintenance connected'],
+  faqTitle: ['Before a', 'full-mouth reconstruction.'],
+  relatedTitle: ['One complete plan.', 'Several connected paths.'],
+  relatedAria: 'Related restorative, implant and endodontic services',
+  currentPath: 'Full-mouth reconstruction',
+  locationsAria: 'Full-mouth reconstruction locations',
+} : isDentalBridge ? {
   heroClass: 'is-dental-bridge',
   heroImages: [
     ['/images/generated/dental-bridge-hero-v1.webp', 'A dentist evaluating a single missing-tooth gap and adjacent support teeth', 'EVALUATE GAP AND SUPPORTS'],
@@ -3529,6 +3605,18 @@ const content = isDentalBridge ? {
   .whitening-hero.is-dental-bridge .hero-cinema__copy{top:16vh;width:min(44vw,45rem);transform:none}
   .whitening-hero.is-dental-bridge .hero-cinema__copy h1{font-size:clamp(4rem,5.6vw,6.3rem);line-height:.81;margin:1.25rem 0 1.5rem}
   .whitening-hero.is-dental-bridge .hero-cinema__copy h1 em{display:block;margin-left:clamp(2rem,4vw,4rem)}
+  .whitening-hero.is-full-mouth-reconstruction .hero-folds__scan{display:none}
+  .whitening-hero.is-full-mouth-reconstruction .hero-fold{border:0;overflow:hidden;box-shadow:0 2.5rem 6.4rem rgba(0,0,0,.36);transform-origin:center}
+  .whitening-hero.is-full-mouth-reconstruction .hero-fold--one{translate:10% -17%;scale:.7 .58;clip-path:inset(0 round 1rem 6rem 1rem 6rem)}
+  .whitening-hero.is-full-mouth-reconstruction .hero-fold--two{translate:-3% 1%;scale:.94 .84;clip-path:inset(0 round 1.25rem)}
+  .whitening-hero.is-full-mouth-reconstruction .hero-fold--three{translate:-13% 17%;scale:1.08 .9;clip-path:inset(0 round 6rem 1rem 6rem 1rem)}
+  .whitening-hero.is-full-mouth-reconstruction .hero-fold--one>img{object-position:43% center}
+  .whitening-hero.is-full-mouth-reconstruction .hero-fold--two>img{object-position:54% center}
+  .whitening-hero.is-full-mouth-reconstruction .hero-fold--three>img{object-position:65% center}
+  .whitening-hero.is-full-mouth-reconstruction .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 35%,rgba(4,24,20,.38) 63%,transparent 83%)}
+  .whitening-hero.is-full-mouth-reconstruction .hero-cinema__copy{top:15vh;width:min(46vw,48rem);transform:none}
+  .whitening-hero.is-full-mouth-reconstruction .hero-cinema__copy h1{font-size:clamp(3.7rem,5.1vw,5.9rem);line-height:.83;margin:1.25rem 0 1.5rem}
+  .whitening-hero.is-full-mouth-reconstruction .hero-cinema__copy h1 em{display:block;margin-left:clamp(2rem,4.3vw,4.25rem)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -3723,6 +3811,13 @@ const content = isDentalBridge ? {
     .whitening-hero.is-dental-bridge .hero-cinema__copy{top:7.1rem}
     .whitening-hero.is-dental-bridge .hero-cinema__copy h1{font-size:clamp(2.9rem,12.5vw,3.9rem);line-height:.83}
     .whitening-hero.is-dental-bridge .hero-cinema__copy h1 em{margin-left:1.1rem}
+    .whitening-hero.is-full-mouth-reconstruction .hero-fold--one{translate:4% -9%;scale:.76 .66;clip-path:inset(0 round .8rem 4rem .8rem 4rem)}
+    .whitening-hero.is-full-mouth-reconstruction .hero-fold--two{translate:-1% 1%;scale:1 .9;clip-path:inset(0 round .9rem)}
+    .whitening-hero.is-full-mouth-reconstruction .hero-fold--three{translate:-5% 11%;scale:.94 .8;clip-path:inset(0 round 4rem .8rem 4rem .8rem)}
+    .whitening-hero.is-full-mouth-reconstruction .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.89) 31%,rgba(4,24,20,.16) 63%,rgba(4,24,20,.84) 100%)}
+    .whitening-hero.is-full-mouth-reconstruction .hero-cinema__copy{top:7.15rem}
+    .whitening-hero.is-full-mouth-reconstruction .hero-cinema__copy h1{font-size:clamp(2.55rem,11.1vw,3.55rem);line-height:.85}
+    .whitening-hero.is-full-mouth-reconstruction .hero-cinema__copy h1 em{margin-left:1.15rem}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
@@ -3869,6 +3964,7 @@ const content = isDentalBridge ? {
         const isToothColoredHero = hero.classList.contains('is-tooth-colored-filling');
         const isDentalCrownHero = hero.classList.contains('is-dental-crown');
         const isDentalBridgeHero = hero.classList.contains('is-dental-bridge');
+        const isFullMouthHero = hero.classList.contains('is-full-mouth-reconstruction');
         const phases = q('[data-hero-phase]');
         const edition = q('[data-hero-edition]')[0];
         const scan = q('[data-fold-scan]')[0];
@@ -3909,6 +4005,8 @@ const content = isDentalBridge ? {
               ? {opacity:0,xPercent:[-24,0,24][index],yPercent:[-8,15,-12][index]}
               : isDentalCrownHero
                 ? {opacity:0,yPercent:[26,-20,26][index]}
+                : isFullMouthHero
+                  ? {opacity:0,xPercent:24,yPercent:[-24,0,24][index]}
                 : isDentalBridgeHero
                   ? {opacity:0,xPercent:[-28,0,28][index],yPercent:[0,22,0][index]}
               : {}),
@@ -3927,12 +4025,14 @@ const content = isDentalBridge ? {
               ? {opacity:1,xPercent:0,yPercent:0}
               : isDentalCrownHero
                 ? {opacity:1,yPercent:0}
+                : isFullMouthHero
+                  ? {opacity:1,xPercent:0,yPercent:0}
                 : isDentalBridgeHero
                   ? {opacity:1,xPercent:0,yPercent:0}
               : {}),
-          duration:isAmalgamHero ? 1.55 : isToothColoredHero ? 1.45 : isDentalCrownHero ? 1.6 : isDentalBridgeHero ? 1.5 : 1.35,
-          ease:isAmalgamHero ? 'expo.inOut' : isToothColoredHero ? 'power4.out' : isDentalCrownHero ? 'expo.out' : isDentalBridgeHero ? 'power4.inOut' : 'power3.inOut',
-        },index*(isAmalgamHero ? .12 : isToothColoredHero ? .16 : isDentalCrownHero ? .14 : isDentalBridgeHero ? .13 : .08)));
+          duration:isAmalgamHero ? 1.55 : isToothColoredHero ? 1.45 : isDentalCrownHero ? 1.6 : isDentalBridgeHero ? 1.5 : isFullMouthHero ? 1.55 : 1.35,
+          ease:isAmalgamHero ? 'expo.inOut' : isToothColoredHero ? 'power4.out' : isDentalCrownHero ? 'expo.out' : isDentalBridgeHero ? 'power4.inOut' : isFullMouthHero ? 'power4.out' : 'power3.inOut',
+        },index*(isAmalgamHero ? .12 : isToothColoredHero ? .16 : isDentalCrownHero ? .14 : isDentalBridgeHero ? .13 : isFullMouthHero ? .14 : .08)));
         intro.to(q('[data-hero-fold] img'),{scale:1.015,duration:1.2},0)
           .to(scan,{left:mobile?'100vw':'99vw',duration:1.4},0)
           .to(progress,{width:'100%',duration:1.35},0)

@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore phased full-mouth reconstruction at Smiles by Noetzel, including complete-mouth assessment, connected sequencing, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Full-Mouth Reconstruction | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-full-mouth-reconstruction.webp" mediaAlt="A restorative team coordinating a complete-mouth treatment sequence" />
+    <main>
+      <TreatmentDetail kind="full-mouth-reconstruction" />
+      <BeforeAfterStory id="before-after-full-mouth-reconstruction" tone="light" number="10" eyebrow="Illustrative restorative pathway · full-mouth reconstruction" title="From scattered needs." emphasis="To one connected sequence."
+        intro="This illustrative pathway shows how multiple confirmed restorative priorities may be organized into a phased plan. It is not an actual patient case, procedure package, timeline, function, lifespan or outcome guarantee."
+        image="/images/generated/before-after-full-mouth-reconstruction-v1.webp" imageAlt="Illustrative comparison of uncoordinated restorative needs and a phased full-mouth treatment plan"
+        beforeLabel="Before complete mapping" beforeDetail="Individual concerns may be visible, but foundations, priorities, alternatives, bite and treatment order have not yet been confirmed."
+        afterLabel="Illustrative phased plan" afterDetail="The simulated view represents a connected restorative sequence—not promised procedures, timing, materials, function, longevity or outcome."
+        caseNote="Illustrative planning pathway · not an actual patient case · procedures, sequence and outcome vary" />
+      <HubFooter eyebrow="Ready to rebuild the sequence—not just the teeth?" title="Start with the map and request a full-mouth reconstruction consultation." />
+    </main>
+  </body>
+</html>
