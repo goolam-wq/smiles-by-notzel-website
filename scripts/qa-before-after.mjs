@@ -39,6 +39,7 @@ const routes = [
   ['invisalign-clear-aligners', '/services/invisalign-clear-aligners/', '#before-after-invisalign-clear-aligners'],
   ['first-dental-visit', '/services/first-dental-visit/', '#before-after-first-dental-visit'],
   ['pediatric-cleaning-exam', '/services/pediatric-cleaning-exam/', '#before-after-pediatric-cleaning-exam'],
+  ['healthystart-system', '/services/healthystart-system/', '#before-after-healthystart-system'],
 ];
 const viewports = [
   ['desktop', 1440, 900],

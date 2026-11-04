@@ -28,6 +28,7 @@ const routes = [
   '/services/invisalign-clear-aligners/',
   '/services/first-dental-visit/',
   '/services/pediatric-cleaning-exam/',
+  '/services/healthystart-system/',
   '/services/implants-oral-surgery/',
   '/services/orthodontic-dentistry/',
   '/services/pediatric-developmental/',

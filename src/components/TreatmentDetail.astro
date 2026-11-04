@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -24,8 +24,14 @@ const isWisdomTooth = kind === 'wisdom-tooth-removal';
 const isInvisalign = kind === 'invisalign-clear-aligners';
 const isFirstDentalVisit = kind === 'first-dental-visit';
 const isPediatricCleaningExam = kind === 'pediatric-cleaning-exam';
+const isHealthyStart = kind === 'healthystart-system';
 
-const processSteps = isPediatricCleaningExam ? [
+const processSteps = isHealthyStart ? [
+  ['01', 'Assess', 'Oral development, breathing and sleep context, dental findings, medical history and relevant outside evaluations are reviewed before candidacy is considered.'],
+  ['02', 'Plan', 'The team explains the confirmed appliance pathway, realistic goals, responsibilities and any pediatric, ENT or sleep evaluation that remains important.'],
+  ['03', 'Fit & guide', 'When appropriate, the appliance is fitted and the family receives individualized instructions without applying a universal wear schedule or duration.'],
+  ['04', 'Monitor', 'Progress, fit, comfort, development and the wider care context are reviewed so the next step can be adjusted to the individual pathway.'],
+] : isPediatricCleaningExam ? [
   ['01', 'Review', 'The child’s health history, development, home-care routine, current concerns and previous dental experiences are reviewed with the caregiver.'],
   ['02', 'Examine', 'Teeth, gums, bite and development are assessed at an age-appropriate pace, with additional diagnostics recommended only when clinically appropriate.'],
   ['03', 'Clean', 'When suitable for the visit, plaque and buildup are removed according to the child’s needs and current cooperation without promising a universal procedure.'],
@@ -132,7 +138,13 @@ const processSteps = isPediatricCleaningExam ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isPediatricCleaningExam ? [
+const faqs = isHealthyStart ? [
+  ['How much does the HealthyStart System treatment cost?', 'The customer-facing complete-program price is $3,500. The $98 monthly view is an approximate rounded 36-month illustration ($3,528 total), and the yearly view is $3,500 on a complete-program basis. Final candidacy, pathway, eligibility and payment terms are confirmed after evaluation.'],
+  ['Does HealthyStart diagnose or treat sleep apnea?', 'No. This dental appliance program is not presented as a diagnosis or treatment for sleep apnea or another disease, and it does not replace pediatric, ENT, sleep-medicine or other medical evaluation when indicated.'],
+  ['Is every child eligible, and is there a standard wear schedule?', 'No. Candidacy, appliance pathway, wear guidance and duration depend on the individual evaluation, development, clinical findings and wider care context. There is no universal schedule or eligibility promise.'],
+  ['Will the program enlarge the airway, cure a condition or avoid braces, extractions or surgery?', 'No. The program does not promise airway enlargement, cure, specific growth or alignment, or avoidance of future braces, extractions, surgery or other treatment. Recommendations and monitoring remain individualized.'],
+  ['Is HealthyStart available at both offices?', 'HealthyStart appointments can begin through Chicago Heights or Mokena by appointment. Call the preferred office to confirm scheduling and the recommended evaluation pathway.'],
+] : isPediatricCleaningExam ? [
   ['How much does a pediatric cleaning and exam cost?', 'The customer-facing price is $150 per visit. The monthly planning view is $25 for 12 months, totaling $300, and the yearly view is $300 based on two $150 visits. The yearly amount is not an unlimited-care package or a universal visit schedule.'],
   ['Are X-rays, fluoride or sealants automatically included?', 'No. Imaging, fluoride, sealants or other preventive treatment are not represented as automatic parts of every visit. The clinician recommends them only when appropriate for the child’s age, findings and individual needs.'],
   ['Does every child receive the same cleaning and exam?', 'No. History, development, oral health, current concerns and the child’s response shape what is appropriate and what can be completed during the visit.'],
@@ -260,7 +272,13 @@ const faqs = isPediatricCleaningExam ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isPediatricCleaningExam ? [
+const relatedServices = isHealthyStart ? [
+  ['Pediatric & Developmental Dentistry', 'Explore the complete category', '/services/pediatric-developmental/'],
+  ['First dental visit', 'Begin with a child-paced introduction', '/services/first-dental-visit/'],
+  ['Pediatric cleaning & exam', 'Connect ongoing preventive review', '/services/pediatric-cleaning-exam/'],
+  ['Complete Health & Airway', 'Explore the wider oral and airway conversation', '/services/complete-health-airway/'],
+  ['Orthodontic Dentistry', 'Connect future alignment evaluation when appropriate', '/services/orthodontic-dentistry/'],
+] : isPediatricCleaningExam ? [
   ['Pediatric & Developmental Dentistry', 'Explore the complete category', '/services/pediatric-developmental/'],
   ['First dental visit', 'Begin with a child-paced introduction', '/services/first-dental-visit/'],
   ['Preventive & Diagnostic Dentistry', 'Connect ongoing examinations and prevention', '/services/preventive-diagnostic/'],
@@ -383,7 +401,61 @@ const relatedServices = isPediatricCleaningExam ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isPediatricCleaningExam ? {
+const content = isHealthyStart ? {
+  heroClass: 'is-healthystart-system',
+  heroImages: [
+    ['/images/generated/healthystart-system-hero-v1.webp', 'A child and caregiver discussing oral development and breathing context with the dental team', 'BEGIN WITH THE WHOLE CONTEXT'],
+    ['/images/generated/healthystart-system-hero-detail-v1.webp', 'A clinician reviewing a HealthyStart appliance pathway with a family', 'MAP THE PATHWAY'],
+    ['/images/generated/healthystart-system-hero-result-v1.webp', 'A child and caregiver receiving HealthyStart monitoring guidance', 'MONITOR THE PROGRAM'],
+  ],
+  heroAria: ['Explore the oral development, breathing and sleep context review', 'Explore the individualized appliance pathway', 'Explore monitoring and coordinated guidance'],
+  kicker: 'Pediatric & Developmental · Program 03',
+  title: ['Growth does not happen in separate systems.', 'Neither should the conversation.'],
+  intro: 'A guided appliance program considering oral development, breathing and sleep context after candidacy and the appropriate pathway are confirmed.',
+  heroRail: ['Begin with the whole context', 'Map the pathway', 'Monitor the program'],
+  ledgerLabel: 'HealthyStart System treatment', ledgerFixed: '$3,500 / program', ledgerMonthly: '$98 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['The appliance is one part of the conversation.', 'Development stays', 'connected.'],
+  storyImage: '/images/generated/healthystart-system-process-v1.webp',
+  storyAlt: 'A clinician reviewing oral development and an individualized HealthyStart appliance pathway',
+  storyRangeLabel: 'Compare the starting developmental context with an evaluated, guided and monitored appliance pathway',
+  storyNote: 'Confirm candidacy and the wider care context before fitting an appliance.',
+  storyLead: 'We consider oral development, breathing and sleep context without turning a dental appliance into a medical diagnosis or cure. The pathway stays connected to pediatric, ENT, sleep or other evaluation whenever those perspectives are appropriate.',
+  storySteps: [
+    ['01', 'Read the context', 'Oral development, breathing and sleep context, dental findings and medical history establish the starting point.'],
+    ['02', 'Confirm the pathway', 'Candidacy, appliance selection and individualized guidance are explained before the program begins.'],
+    ['03', 'Monitor and coordinate', 'Fit, comfort, development and the wider care context are reviewed over time.'],
+  ],
+  storyNotes: ['Confirm candidacy and the wider care context before fitting an appliance.', 'Explain an individualized pathway rather than a universal wear schedule.', 'Keep dental monitoring connected to appropriate medical evaluation.'],
+  processTitle: ['One guided program.', 'Several connected conversations.'],
+  expectTitle: ['Development-aware in scope.', 'Careful about boundaries.'],
+  expectCopy: 'HealthyStart is presented as a guided dental appliance program that considers oral development, breathing and sleep context. It does not diagnose or treat sleep apnea or disease, replace pediatric, ENT or sleep evaluation, or guarantee airway enlargement, cure, growth, alignment or avoidance of future treatment.',
+  metrics: [['1', 'complete guided appliance program'], ['4', 'stages: assess, plan, fit, monitor'], ['2', 'appointment-based office locations']],
+  pricingId: 'healthystart-system-pricing',
+  pricingTitle: ['One complete program.', 'Three planning views.'],
+  pricingIntro: 'The same HealthyStart complete-program amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$3,500', 'complete program'], ['MONTHLY · 02', '$98', 'per month · 36 months'], ['YEARLY · 03', '$3,500', 'complete-program amount']],
+  pricingNote: 'The $98 monthly view is an approximate rounded illustration ($3,528 total across 36 months), not an exact division of $3,500. The yearly amount is a complete-program treatment view, not a recurring membership. Final candidacy, pathway, wear guidance, eligibility and payment terms are confirmed by the office.',
+  whyTitle: ['Development considered.', 'Boundaries kept clear.'],
+  whyIntro: 'The team can discuss oral development, breathing and sleep context while keeping the dental program within its proper scope. Medical symptoms and diagnoses remain connected to the appropriate pediatric, ENT, sleep or other clinician.',
+  whyImage: '/images/generated/healthystart-system-result-v1.webp',
+  whyAlt: 'A family receiving HealthyStart monitoring and coordinated care guidance',
+  whyPanels: [
+    ['01', 'Candidacy before appliance', 'Development, dental findings and the wider health context are evaluated before a pathway is confirmed.'],
+    ['02', 'Individual guidance', 'Wear and duration are prescribed for the child rather than presented as a universal program.'],
+    ['03', 'Medical boundaries respected', 'The dental program does not replace pediatric, ENT, sleep-medicine or other evaluation when needed.'],
+  ],
+  whyFoot: 'ONE COMPLETE PROGRAM · FOUR CONNECTED STAGES',
+  proofTitle: ['The pathway explained.', 'The boundaries understood.'],
+  proofText: 'Families frequently mention thoughtful explanations, attentive care and clear next steps—general-practice themes that support how development-focused appliance conversations are approached.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Development-aware assessment', 'Individual appliance guidance', 'Coordinated care boundaries'],
+  faqTitle: ['Before you begin the', 'HealthyStart pathway.'],
+  relatedTitle: ['One guided program.', 'Several connected paths.'],
+  relatedAria: 'Related pediatric, airway and orthodontic services',
+  currentPath: 'HealthyStart System treatment',
+  locationsAria: 'HealthyStart System appointment locations',
+} : isPediatricCleaningExam ? {
   heroClass: 'is-pediatric-cleaning-exam',
   heroImages: [
     ['/images/generated/pediatric-cleaning-exam-hero-v1.webp', 'A child and caregiver speaking with the dental team before a pediatric examination', 'BEGIN WITH THE ROUTINE'],
@@ -2045,10 +2117,21 @@ const content = isPediatricCleaningExam ? {
   .whitening-hero.is-pediatric-cleaning-exam .hero-fold--two>img{object-position:51% center}
   .whitening-hero.is-pediatric-cleaning-exam .hero-fold--three>img{object-position:59% center}
   .whitening-hero.is-pediatric-cleaning-exam .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 35%,rgba(4,24,20,.4) 56%,transparent 76%)}
+  .whitening-hero.is-healthystart-system .hero-folds__scan{display:none}
+  .whitening-hero.is-healthystart-system .hero-fold{border:0;box-shadow:0 2.25rem 5.75rem rgba(0,0,0,.31);overflow:hidden}
+  .whitening-hero.is-healthystart-system .hero-fold--one{clip-path:inset(4% 2% 4% 2% round 12rem 12rem 2rem 2rem)}
+  .whitening-hero.is-healthystart-system .hero-fold--two{clip-path:inset(2% 2% 7% 2% round 2rem 2rem 12rem 12rem)}
+  .whitening-hero.is-healthystart-system .hero-fold--three{clip-path:inset(7% 2% 2% 2% round 12rem 12rem 2rem 2rem)}
+  .whitening-hero.is-healthystart-system .hero-fold--one>img{object-position:42% center}
+  .whitening-hero.is-healthystart-system .hero-fold--two>img{object-position:52% center}
+  .whitening-hero.is-healthystart-system .hero-fold--three>img{object-position:60% center}
+  .whitening-hero.is-healthystart-system .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.4) 57%,transparent 77%)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
     .whitening-hero.is-wisdom-tooth .hero-cinema__copy h1{font-size:clamp(4.15rem,5.7vw,6.5rem)}
+    .whitening-hero.is-healthystart-system .hero-cinema__copy{top:8.75rem;width:min(47vw,46rem);transform:none}
+    .whitening-hero.is-healthystart-system .hero-cinema__copy h1{font-size:clamp(3.75rem,4.55vw,4.75rem);line-height:.83;margin:1.1rem 0 1.35rem}
   }
 
   @media(min-width:721px) and (max-width:1100px){
@@ -2056,6 +2139,8 @@ const content = isPediatricCleaningExam ? {
     .hero-fold--one{left:48vw;width:40vw}.hero-fold--two{left:89vw}.hero-fold--three{left:95vw}
     .hero-folds__scan{left:48vw}
     .hero-cinema__copy{left:3.8rem;width:42vw}.hero-cinema__copy h1{font-size:clamp(4.5rem,7.7vw,6.4rem)}.whitening-hero.is-wisdom-tooth .hero-cinema__copy h1{font-size:clamp(3.45rem,5.55vw,4.7rem)}
+    .whitening-hero.is-healthystart-system .hero-cinema__copy{top:8.25rem;width:48vw;transform:none}
+    .whitening-hero.is-healthystart-system .hero-cinema__copy h1{font-size:clamp(3.2rem,5vw,4rem);line-height:.84;margin:1.05rem 0 1.25rem}
     .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 35%,rgba(4,24,20,.62) 47%,transparent 62%)}
   }
 
@@ -2073,6 +2158,8 @@ const content = isPediatricCleaningExam ? {
     .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 31%,rgba(4,24,20,.28) 54%,rgba(4,24,20,.15) 76%,rgba(4,24,20,.82) 100%)}
     .hero-cinema__copy{left:1.25rem;right:1.25rem;top:6.7rem;width:auto;transform:none}
     .hero-cinema__copy h1{font-size:clamp(3.35rem,14.6vw,4.55rem);margin:1rem 0;line-height:.78}.whitening-hero.is-wisdom-tooth .hero-cinema__copy h1{font-size:clamp(3.05rem,13vw,4.05rem)}
+    .whitening-hero.is-healthystart-system .hero-cinema__copy{top:6.35rem}
+    .whitening-hero.is-healthystart-system .hero-cinema__copy h1{font-size:clamp(2.55rem,11.2vw,3.25rem);line-height:.84;margin:.8rem 0 1rem}
     .hero-cinema__copy>p:last-of-type{max-width:20rem;font-size:.72rem;line-height:1.5}
     .hero-cinema__rail{bottom:1.15rem}
     .hero-folds__edition{display:none}
@@ -2149,6 +2236,10 @@ const content = isPediatricCleaningExam ? {
     .whitening-hero.is-pediatric-cleaning-exam .hero-fold--two{clip-path:inset(6% 1% 2% 1% round 1rem 1rem 5rem 5rem)}
     .whitening-hero.is-pediatric-cleaning-exam .hero-fold--three{clip-path:inset(2% 1% 6% 1% round 5rem 5rem 1rem 1rem)}
     .whitening-hero.is-pediatric-cleaning-exam .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.18) 60%,rgba(4,24,20,.77) 100%)}
+    .whitening-hero.is-healthystart-system .hero-fold--one{clip-path:inset(3% 1% 3% 1% round 7rem 7rem 1rem 1rem)}
+    .whitening-hero.is-healthystart-system .hero-fold--two{clip-path:inset(1% 1% 5% 1% round 1rem 1rem 7rem 7rem)}
+    .whitening-hero.is-healthystart-system .hero-fold--three{clip-path:inset(5% 1% 1% 1% round 7rem 7rem 1rem 1rem)}
+    .whitening-hero.is-healthystart-system .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.18) 60%,rgba(4,24,20,.78) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */

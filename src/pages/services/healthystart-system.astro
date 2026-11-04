@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore HealthyStart System treatment at Smiles by Noetzel, including candidacy, oral-development context, appliance guidance, monitoring, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>HealthyStart System Treatment | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-healthystart-system.webp" mediaAlt="A family discussing oral development and a HealthyStart appliance pathway with the dental team" />
+    <main>
+      <TreatmentDetail kind="healthystart-system" />
+      <BeforeAfterStory id="before-after-healthystart-system" tone="light" reverse number="06" eyebrow="Illustrative program pathway · development context" title="From separate observations." emphasis="To one guided conversation."
+        intro="This illustrative program pathway shows how oral development, breathing and sleep context may move from assessment to an individualized appliance and monitoring conversation. It is not an actual patient outcome and does not diagnose or treat sleep apnea or disease, replace medical evaluation, or guarantee growth, alignment, airway change or avoidance of future treatment."
+        image="/images/generated/before-after-healthystart-system-v1.webp" imageAlt="Illustrative comparison of separate developmental observations and a guided HealthyStart appliance pathway"
+        beforeLabel="Before pathway confirmation" beforeDetail="Oral development, breathing and sleep context, dental findings, candidacy and relevant outside evaluations still need review."
+        afterLabel="Illustrative guided pathway" afterDetail="The simulated view represents assessment, individualized appliance guidance and monitoring—not an actual or guaranteed clinical or medical outcome."
+        caseNote="Illustrative simulated example · not an actual patient case · candidacy and response vary" />
+      <HubFooter eyebrow="Ready to connect the developmental conversation?" title="Begin with candidacy, clear boundaries and an individualized pathway." />
+    </main>
+  </body>
+</html>
