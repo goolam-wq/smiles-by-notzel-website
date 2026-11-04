@@ -51,6 +51,7 @@ const routes = [
   ['custom-sports-mouthguard', '/services/custom-sports-mouthguard/', '#before-after-custom-sports-mouthguard'],
   ['custom-night-guard', '/services/custom-night-guard/', '#before-after-custom-night-guard'],
   ['laser-dentistry', '/services/laser-dentistry/', '#before-after-laser-dentistry'],
+  ['oral-spirochete-test', '/services/oral-spirochete-test/', '#before-after-oral-spirochete-test'],
 ];
 const viewports = [
   ['desktop', 1440, 900],

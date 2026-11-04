@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore oral spirochete testing at Smiles by Noetzel, including contextual interpretation, scope boundaries, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Oral Spirochete Test | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-oral-spirochete-test.webp" mediaAlt="A clinician explaining an oral spirochete test result within the wider dental context" />
+    <main>
+      <TreatmentDetail kind="oral-spirochete-test" />
+      <BeforeAfterStory id="before-after-oral-spirochete-test" tone="light" reverse number="06" eyebrow="Illustrative informational pathway · oral spirochete test" title="From an informational question." emphasis="To a result placed in context."
+        intro="This illustrative pathway shows how a defined oral-health question may move through sample collection and contextual review. It is not an actual patient case, physical transformation, diagnosis, causation finding, prediction or treatment result."
+        image="/images/generated/before-after-oral-spirochete-test-v1.webp" imageAlt="Illustrative comparison of an oral-health question before testing and a microbial signal reviewed in clinical context"
+        beforeLabel="Before contextual testing" beforeDetail="The clinical question, test limitations and relationship to current oral findings have not yet been clarified."
+        afterLabel="Illustrative contextual result" afterDetail="The simulated view represents one informational signal reviewed with dental findings—not a gum, cognitive or systemic diagnosis or automatic treatment decision."
+        caseNote="Illustrative informational pathway · not an actual diagnosis, causation finding or treatment result · interpretation varies" />
+      <HubFooter eyebrow="Ready to put the signal in context?" title="Begin with the question—not the conclusion." />
+    </main>
+  </body>
+</html>

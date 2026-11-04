@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -36,8 +36,14 @@ const isGumScreening = kind === 'gum-disease-screening';
 const isSportsMouthguard = kind === 'custom-sports-mouthguard';
 const isNightGuard = kind === 'custom-night-guard';
 const isLaserDentistry = kind === 'laser-dentistry';
+const isSpirocheteTest = kind === 'oral-spirochete-test';
 
-const processSteps = isLaserDentistry ? [
+const processSteps = isSpirocheteTest ? [
+  ['01', 'Frame', 'The clinician clarifies the oral-health question, relevant history and what the test can and cannot contribute before any sample is collected.'],
+  ['02', 'Collect', 'A sample is collected according to the current office or laboratory protocol without claiming a specific method unless the team confirms it.'],
+  ['03', 'Review', 'The available result is reviewed as one signal alongside examination findings, periodontal measurements, symptoms and other relevant information.'],
+  ['04', 'Coordinate', 'The team explains uncertainty, possible dental next steps and when medical or specialist coordination may be appropriate without assuming a diagnosis or medication.'],
+] : isLaserDentistry ? [
   ['01', 'Evaluate', 'The clinician diagnoses the condition, confirms the underlying procedure and reviews the relevant history, findings and treatment goals first.'],
   ['02', 'Select', 'Laser technology is selected only when appropriate for the specific procedural step, with conventional alternatives and limitations explained.'],
   ['03', 'Apply', 'The selected technology is used within the confirmed procedure and consent—not as a standalone diagnosis or universal replacement for other instruments.'],
@@ -204,7 +210,13 @@ const processSteps = isLaserDentistry ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isLaserDentistry ? [
+const faqs = isSpirocheteTest ? [
+  ['How much does an oral spirochete test cost?', 'The customer-facing price is $199 per test. The $17 monthly view is an approximate rounded 12-month illustration ($204 total), which is $5 above the $199 fixed and yearly views. Final scope, eligibility and payment terms are confirmed by the office.'],
+  ['Does this test diagnose gum disease, cognitive disease or systemic disease?', 'No. The result is not presented as a diagnosis of periodontal, cognitive, neurologic, cardiovascular, systemic or other disease. It must be interpreted with clinical findings and appropriate dental or medical evaluation.'],
+  ['Can the result prove causation or predict a future condition?', 'No. The presence, absence or level of an oral microbial signal does not by itself prove causation, predict a future condition or establish that an oral finding caused a wider health concern.'],
+  ['Does a result automatically mean I need antibiotics?', 'No. No medication, antibiotic or treatment is automatic. Any recommendation depends on the complete clinical context, diagnosis, risks, current guidance and clinician judgment.'],
+  ['How is the sample collected?', 'The exact collection and laboratory method are not stated unless confirmed by the office. The team explains the current protocol, limitations and timing before collection.'],
+] : isLaserDentistry ? [
   ['How much does laser dentistry cost?', 'The customer-facing price is $250 as a treatment add-on. The $21 monthly view is an approximate rounded 12-month illustration ($252 total), which is $2 above the $250 fixed and yearly views. The underlying procedure and any separate services are not included unless the office confirms them.'],
   ['Is laser dentistry a standalone treatment?', 'No. Laser technology may be selected as an add-on within certain procedures after diagnosis, evaluation and consent. The underlying procedure and clinical reason lead the plan.'],
   ['Is a laser always better than conventional instruments?', 'No. The appropriate tool depends on the procedure, tissue, diagnosis, access, alternatives and clinician judgment. Laser technology is not universally better and does not replace every drill, scalpel or conventional instrument.'],
@@ -405,7 +417,13 @@ const faqs = isLaserDentistry ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isLaserDentistry ? [
+const relatedServices = isSpirocheteTest ? [
+  ['ReCODE & Cognitive Health', 'Explore the complete category and its scope', '/services/recode-cognitive-health/'],
+  ['ReCODE 2.0 dental program', 'Explore the coordinated annual dental program', '/services/recode-2-0-dental-program/'],
+  ['Gum-disease screening', 'Connect the result to measured periodontal findings', '/services/gum-disease-screening/'],
+  ['Periodontal Dentistry', 'Explore the complete gum-health category', '/services/periodontal-dentistry/'],
+  ['Routine comprehensive exam', 'Connect testing to a wider oral examination', '/services/routine-comprehensive-exam/'],
+] : isLaserDentistry ? [
   ['Preventive & Diagnostic Dentistry', 'Explore the complete preventive category', '/services/preventive-diagnostic/'],
   ['Periodontal Dentistry', 'Connect technology selection to periodontal care when appropriate', '/services/periodontal-dentistry/'],
   ['Gum-disease screening', 'Begin with measured gum-health findings', '/services/gum-disease-screening/'],
@@ -600,7 +618,62 @@ const relatedServices = isLaserDentistry ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isLaserDentistry ? {
+const content = isSpirocheteTest ? {
+  heroClass: 'is-spirochete-test',
+  heroImages: [
+    ['/images/generated/oral-spirochete-test-hero-v1.webp', 'A clinician clarifying the oral-health question before an oral spirochete test', 'CLARIFY THE QUESTION'],
+    ['/images/generated/oral-spirochete-test-hero-detail-v1.webp', 'A clinician collecting an oral sample according to the confirmed protocol', 'COLLECT THE SAMPLE'],
+    ['/images/generated/oral-spirochete-test-hero-result-v1.webp', 'A dentist reviewing an oral spirochete test result in clinical context', 'PLACE THE RESULT IN CONTEXT'],
+  ],
+  heroAria: ['Explore the clinical question and test boundaries', 'Explore oral sample collection', 'Explore contextual result review'],
+  kicker: 'ReCODE & Cognitive Health · ReCODE 02',
+  title: ['A small sample.', 'Context—not a conclusion.'],
+  intro: 'An oral microbial signal reviewed alongside examination and periodontal findings. It informs a conversation; it does not diagnose gum, cognitive or systemic disease or prove causation.',
+  heroRail: ['Clarify the question', 'Collect the sample', 'Place the result in context'],
+  ledgerLabel: 'Oral spirochete test', ledgerFixed: '$199 / test', ledgerMonthly: '$17 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['The result is a signal—', 'not a', 'verdict.'],
+  storyImage: '/images/generated/oral-spirochete-test-process-v1.webp',
+  storyAlt: 'A clinician collecting and reviewing an oral sample within a wider dental evaluation',
+  storyRangeLabel: 'Compare an informational question with a test result placed in clinical context',
+  storyNote: 'Frame the question and limitations before collecting the sample.',
+  storyLead: 'We begin with the reason for testing and the limits of what one result can say. The available signal is reviewed alongside examination, periodontal measurements, symptoms and other relevant information before any dental next step or outside coordination is considered.',
+  storySteps: [
+    ['01', 'Frame the question', 'History, clinical findings and the purpose of testing establish what information is being sought.'],
+    ['02', 'Collect and review', 'The sample follows the confirmed protocol, and the result is treated as one source of information.'],
+    ['03', 'Coordinate context', 'Uncertainty, dental next steps and any appropriate medical or specialist coordination are explained.'],
+  ],
+  storyNotes: ['Define the question before testing.', 'Treat the result as one signal, not a diagnosis.', 'Keep dental and medical roles clearly separated.'],
+  processTitle: ['Collect the signal.', 'Protect the context.'],
+  expectTitle: ['Information in hand.', 'Boundaries intact.'],
+  expectCopy: 'An oral spirochete test can add one microbial signal to the oral-health discussion. It does not diagnose disease, prove causation, predict a future condition or automatically determine antibiotics, medication or treatment.',
+  metrics: [['1', 'contextual oral test'], ['4', 'stages: frame, collect, review, coordinate'], ['2', 'connected office locations']],
+  pricingId: 'oral-spirochete-test-pricing',
+  pricingTitle: ['One contextual test.', 'Three planning views.'],
+  pricingIntro: 'The oral spirochete test amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$199', 'per test'], ['MONTHLY · 02', '$17', 'per month · 12 months'], ['YEARLY · 03', '$199', 'annual treatment basis']],
+  pricingNote: 'The $17 monthly view is an approximate rounded illustration ($204 total across 12 months), which is $5 above the $199 fixed and yearly views. The yearly amount is shown on an annual-treatment basis; it is not repeated or unlimited testing and does not include a wider program. Final scope, eligibility and payment terms are office-confirmed.',
+  whyTitle: ['Signals organized.', 'Boundaries protected.'],
+  whyIntro: 'The value of a test depends on how carefully the result is placed beside clinical findings and uncertainty. The team explains what the signal can contribute and what it cannot establish.',
+  whyImage: '/images/generated/oral-spirochete-test-result-v1.webp',
+  whyAlt: 'A dentist explaining an oral test result, uncertainty and appropriate next steps without making a systemic diagnosis',
+  whyPanels: [
+    ['01', 'Question before collection', 'The reason for testing and its limitations are clarified before the sample is taken.'],
+    ['02', 'Result in dental context', 'The signal is reviewed with examination findings and periodontal measurements rather than in isolation.'],
+    ['03', 'No automatic conclusion', 'No gum, cognitive or systemic diagnosis, causation claim, prediction or automatic medication follows from the result alone.'],
+    ['04', 'Coordination when appropriate', 'Dental next steps and any outside evaluation remain separated and clearly explained.'],
+  ],
+  whyFoot: 'ONE CONTEXTUAL TEST · FOUR CONNECTED STAGES',
+  proofTitle: ['The signal explained.', 'The conclusion restrained.'],
+  proofText: 'Patients frequently mention thorough explanations, careful coordination and clear boundaries—general-practice themes that support responsible test interpretation.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Question-led testing', 'Contextual interpretation', 'Clear scope boundaries'],
+  faqTitle: ['Before an oral', 'spirochete test.'],
+  relatedTitle: ['One informational signal.', 'Several connected paths.'],
+  relatedAria: 'Related ReCODE, periodontal and examination services',
+  currentPath: 'Oral spirochete test',
+  locationsAria: 'Oral spirochete test locations',
+} : isLaserDentistry ? {
   heroClass: 'is-laser-dentistry',
   heroImages: [
     ['/images/generated/laser-dentistry-hero-v1.webp', 'A dentist identifying the underlying procedure before considering laser technology', 'IDENTIFY THE PROCEDURE'],
@@ -3019,6 +3092,15 @@ const content = isLaserDentistry ? {
   .whitening-hero.is-laser-dentistry .hero-fold--two>img{object-position:52% center}
   .whitening-hero.is-laser-dentistry .hero-fold--three>img{object-position:61% center}
   .whitening-hero.is-laser-dentistry .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 35%,rgba(4,24,20,.37) 60%,transparent 80%)}
+  .whitening-hero.is-spirochete-test .hero-folds__scan{display:none}
+  .whitening-hero.is-spirochete-test .hero-fold{border:0;box-shadow:0 2.25rem 5.8rem rgba(0,0,0,.31);overflow:hidden}
+  .whitening-hero.is-spirochete-test .hero-fold--one{clip-path:inset(5% 2% 3% 3% round 8rem 2rem 8rem 2rem)}
+  .whitening-hero.is-spirochete-test .hero-fold--two{clip-path:inset(3% 3% 5% 2% round 2rem 8rem 2rem 8rem)}
+  .whitening-hero.is-spirochete-test .hero-fold--three{clip-path:inset(6% 2% 2% 3% round 8rem 2rem 8rem 2rem)}
+  .whitening-hero.is-spirochete-test .hero-fold--one>img{object-position:44% center}
+  .whitening-hero.is-spirochete-test .hero-fold--two>img{object-position:53% center}
+  .whitening-hero.is-spirochete-test .hero-fold--three>img{object-position:60% center}
+  .whitening-hero.is-spirochete-test .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.39) 60%,transparent 80%)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -3177,6 +3259,10 @@ const content = isLaserDentistry ? {
     .whitening-hero.is-laser-dentistry .hero-fold--two{clip-path:inset(6% 1% 3% 2% round 4rem 1rem 4rem 1rem)}
     .whitening-hero.is-laser-dentistry .hero-fold--three{clip-path:inset(4% 2% 4% 1% round 1rem 4rem 1rem 4rem)}
     .whitening-hero.is-laser-dentistry .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 31%,rgba(4,24,20,.17) 59%,rgba(4,24,20,.8) 100%)}
+    .whitening-hero.is-spirochete-test .hero-fold--one{clip-path:inset(5% 1% 3% 2% round 4rem 1rem 4rem 1rem)}
+    .whitening-hero.is-spirochete-test .hero-fold--two{clip-path:inset(3% 2% 5% 1% round 1rem 4rem 1rem 4rem)}
+    .whitening-hero.is-spirochete-test .hero-fold--three{clip-path:inset(5% 1% 2% 2% round 4rem 1rem 4rem 1rem)}
+    .whitening-hero.is-spirochete-test .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.18) 60%,rgba(4,24,20,.79) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
