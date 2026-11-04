@@ -27,6 +27,7 @@ const routes = [
   '/services/wisdom-tooth-removal/',
   '/services/invisalign-clear-aligners/',
   '/services/first-dental-visit/',
+  '/services/pediatric-cleaning-exam/',
   '/services/implants-oral-surgery/',
   '/services/orthodontic-dentistry/',
   '/services/pediatric-developmental/',

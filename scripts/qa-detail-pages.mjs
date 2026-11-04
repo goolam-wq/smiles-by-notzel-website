@@ -35,6 +35,7 @@ const routes = [
   ['wisdom-tooth-removal', '/services/wisdom-tooth-removal/?qa=detail-matrix'],
   ['invisalign-clear-aligners', '/services/invisalign-clear-aligners/?qa=detail-matrix'],
   ['first-dental-visit', '/services/first-dental-visit/?qa=detail-matrix'],
+  ['pediatric-cleaning-exam', '/services/pediatric-cleaning-exam/?qa=detail-matrix'],
 ];
 const routeFilter = process.argv[2];
 const activeRoutes = routeFilter ? routes.filter(([name]) => name === routeFilter) : routes;

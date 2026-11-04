@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -23,8 +23,14 @@ const isSurgicalExtraction = kind === 'surgical-tooth-extraction';
 const isWisdomTooth = kind === 'wisdom-tooth-removal';
 const isInvisalign = kind === 'invisalign-clear-aligners';
 const isFirstDentalVisit = kind === 'first-dental-visit';
+const isPediatricCleaningExam = kind === 'pediatric-cleaning-exam';
 
-const processSteps = isFirstDentalVisit ? [
+const processSteps = isPediatricCleaningExam ? [
+  ['01', 'Review', 'The child’s health history, development, home-care routine, current concerns and previous dental experiences are reviewed with the caregiver.'],
+  ['02', 'Examine', 'Teeth, gums, bite and development are assessed at an age-appropriate pace, with additional diagnostics recommended only when clinically appropriate.'],
+  ['03', 'Clean', 'When suitable for the visit, plaque and buildup are removed according to the child’s needs and current cooperation without promising a universal procedure.'],
+  ['04', 'Guide', 'The caregiver receives practical home-care guidance, findings and a recommended follow-up plan based on the individual examination.'],
+] : isFirstDentalVisit ? [
   ['01', 'Welcome', 'The child and caregiver are welcomed at a pace that supports an unhurried introduction to the office and team.'],
   ['02', 'Familiarize', 'The visit is explained in age-appropriate language, with time to meet the room, chair and simple instruments before assessment.'],
   ['03', 'Assess', 'History, development, teeth, gums and the child’s current comfort guide an age-appropriate examination when clinically suitable.'],
@@ -126,7 +132,13 @@ const processSteps = isFirstDentalVisit ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isFirstDentalVisit ? [
+const faqs = isPediatricCleaningExam ? [
+  ['How much does a pediatric cleaning and exam cost?', 'The customer-facing price is $150 per visit. The monthly planning view is $25 for 12 months, totaling $300, and the yearly view is $300 based on two $150 visits. The yearly amount is not an unlimited-care package or a universal visit schedule.'],
+  ['Are X-rays, fluoride or sealants automatically included?', 'No. Imaging, fluoride, sealants or other preventive treatment are not represented as automatic parts of every visit. The clinician recommends them only when appropriate for the child’s age, findings and individual needs.'],
+  ['Does every child receive the same cleaning and exam?', 'No. History, development, oral health, current concerns and the child’s response shape what is appropriate and what can be completed during the visit.'],
+  ['Can you guarantee a cavity-free, pain-free, fear-free or fully cooperative visit?', 'No. No specific clinical or emotional outcome is guaranteed. The team uses age-appropriate communication and a child-paced approach while explaining what can safely and appropriately be completed.'],
+  ['Is pediatric cleaning and examination available at both offices?', 'Appointments can begin through Chicago Heights or Mokena. Call the preferred office to confirm scheduling and the recommended visit type.'],
+] : isFirstDentalVisit ? [
   ['How much does a first dental visit cost?', 'The customer-facing visit price is $150. The $13 monthly view is an approximate rounded 12-month planning illustration ($156 total), and the yearly amount is $150 on a single-visit basis. Final scope, eligibility and payment terms are confirmed by the office.'],
   ['What happens during a child’s first visit?', 'The visit is paced around introduction, history and an age-appropriate assessment. What can be completed depends on the child’s comfort, development and clinical needs that day.'],
   ['Are cleaning, X-rays or fluoride automatically included?', 'No. Cleaning, imaging, fluoride or other treatment are not represented as automatic parts of every first visit. The clinician recommends only what is appropriate after the child is assessed.'],
@@ -248,7 +260,13 @@ const faqs = isFirstDentalVisit ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isFirstDentalVisit ? [
+const relatedServices = isPediatricCleaningExam ? [
+  ['Pediatric & Developmental Dentistry', 'Explore the complete category', '/services/pediatric-developmental/'],
+  ['First dental visit', 'Begin with a child-paced introduction', '/services/first-dental-visit/'],
+  ['Preventive & Diagnostic Dentistry', 'Connect ongoing examinations and prevention', '/services/preventive-diagnostic/'],
+  ['HealthyStart', 'Explore development-focused planning', '/services/pediatric-developmental/#pediatric-options'],
+  ['Emergency Comfort', 'Know where to begin for an urgent concern', '/services/emergency-comfort/'],
+] : isFirstDentalVisit ? [
   ['Pediatric & Developmental Dentistry', 'Explore the complete category', '/services/pediatric-developmental/'],
   ['Preventive & Diagnostic Dentistry', 'Connect ongoing examinations and prevention', '/services/preventive-diagnostic/'],
   ['Kid-Friendly Dentistry', 'Explore care shaped for children and families', '/services/pediatric-developmental/#pediatric-options'],
@@ -365,7 +383,61 @@ const relatedServices = isFirstDentalVisit ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isFirstDentalVisit ? {
+const content = isPediatricCleaningExam ? {
+  heroClass: 'is-pediatric-cleaning-exam',
+  heroImages: [
+    ['/images/generated/pediatric-cleaning-exam-hero-v1.webp', 'A child and caregiver speaking with the dental team before a pediatric examination', 'BEGIN WITH THE ROUTINE'],
+    ['/images/generated/pediatric-cleaning-exam-hero-detail-v1.webp', 'A clinician completing an age-appropriate pediatric dental examination', 'READ WHAT IS PRESENT'],
+    ['/images/generated/pediatric-cleaning-exam-hero-result-v1.webp', 'A child and caregiver receiving practical home-care guidance', 'GUIDE WHAT COMES NEXT'],
+  ],
+  heroAria: ['Explore the history and routine review', 'Explore the age-appropriate examination', 'Explore the caregiver guidance'],
+  kicker: 'Pediatric & Developmental · Kid-Friendly · Visit 02',
+  title: ['A cleaner visit.', 'A clearer growing picture.'],
+  intro: 'A pediatric cleaning and examination that connects history, development, oral health and practical home care—at an age-appropriate pace.',
+  heroRail: ['Begin with the routine', 'Read what is present', 'Guide what comes next'],
+  ledgerLabel: 'Pediatric cleaning & exam', ledgerFixed: '$150 / visit', ledgerMonthly: '$25 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['A pediatric checkup is more than cleaning.', 'It is a', 'growing health picture.'],
+  storyImage: '/images/generated/pediatric-cleaning-exam-process-v1.webp',
+  storyAlt: 'A clinician completing an age-appropriate cleaning and examination for a child',
+  storyRangeLabel: 'Compare the starting oral-health routine with an examined, cleaned and clearly guided pediatric care plan',
+  storyNote: 'Review development and oral health before deciding what the visit needs.',
+  storyLead: 'We connect the child’s history, development, teeth, gums, bite and home-care routine before recommending what should happen next. Cleaning is completed when suitable; X-rays, fluoride, sealants and other treatment are not automatic.',
+  storySteps: [
+    ['01', 'Review the routine', 'History, current concerns, development and home care establish the context for the visit.'],
+    ['02', 'Examine and clean', 'The team assesses oral health and completes an appropriate cleaning when suitable for the child and visit.'],
+    ['03', 'Guide the next step', 'Findings and practical home care shape the recommended follow-up plan.'],
+  ],
+  storyNotes: ['Review development and oral health before deciding what the visit needs.', 'Complete only the diagnostics and preventive care that are appropriate.', 'Turn findings into practical caregiver guidance.'],
+  processTitle: ['Review the whole routine.', 'Guide the next visit.'],
+  expectTitle: ['Preventive in purpose.', 'Individual in scope.'],
+  expectCopy: 'A pediatric cleaning and exam can connect history, development, oral health, an age-appropriate examination and a suitable cleaning. Imaging, fluoride, sealants or treatment are recommended only when appropriate, and no cavity-free, pain-free, fear-free or cooperation outcome is guaranteed.',
+  metrics: [['1', 'pediatric cleaning and examination visit'], ['4', 'stages: review, examine, clean, guide'], ['2', 'connected office locations']],
+  pricingId: 'pediatric-cleaning-exam-pricing',
+  pricingTitle: ['One preventive visit.', 'Three planning views.'],
+  pricingIntro: 'The pediatric cleaning and exam amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$150', 'per visit'], ['MONTHLY · 02', '$25', 'per month · 12 months'], ['YEARLY · 03', '$300', 'based on two visits']],
+  pricingNote: 'The monthly view totals exactly $300 across 12 months. The yearly amount is based on two $150 visits and is not a subscription, unlimited-care package or universal schedule. Final visit frequency, scope, eligibility and payment terms are confirmed by the office.',
+  whyTitle: ['Prevention observed.', 'Guidance made practical.'],
+  whyIntro: 'The visit connects what the caregiver sees at home with what the clinician observes in the mouth. Development, current oral health and the child’s response guide both the appointment and the follow-up recommendation.',
+  whyImage: '/images/generated/pediatric-cleaning-exam-result-v1.webp',
+  whyAlt: 'A child and caregiver receiving home-care guidance after a pediatric cleaning and examination',
+  whyPanels: [
+    ['01', 'History before habit advice', 'Development, previous experiences and the current routine help the team make guidance relevant.'],
+    ['02', 'Diagnostics when appropriate', 'X-rays, fluoride, sealants and other care are recommended according to need rather than included automatically.'],
+    ['03', 'Caregiver-ready next steps', 'Findings become clear home-care actions and an individualized follow-up plan.'],
+  ],
+  whyFoot: 'ONE PREVENTIVE VISIT · FOUR CONNECTED STAGES',
+  proofTitle: ['The child considered.', 'The caregiver included.'],
+  proofText: 'Families frequently mention patient communication, clear explanations and attentive care—general-practice themes that support how pediatric examinations and home-care conversations are approached.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Age-appropriate examination', 'Individual preventive scope', 'Practical home-care guidance'],
+  faqTitle: ['Before the next', 'pediatric checkup.'],
+  relatedTitle: ['One preventive visit.', 'Several connected paths.'],
+  relatedAria: 'Related pediatric, preventive and family dental services',
+  currentPath: 'Pediatric cleaning & exam',
+  locationsAria: 'Pediatric cleaning and examination locations',
+} : isFirstDentalVisit ? {
   heroClass: 'is-first-dental-visit',
   heroImages: [
     ['/images/generated/first-dental-visit-hero-v1.webp', 'A child and caregiver receiving a calm welcome at the dental office', 'BEGIN WITH WELCOME'],
@@ -1964,6 +2036,15 @@ const content = isFirstDentalVisit ? {
   .whitening-hero.is-first-dental-visit .hero-fold--two>img{object-position:52% center}
   .whitening-hero.is-first-dental-visit .hero-fold--three>img{object-position:58% center}
   .whitening-hero.is-first-dental-visit .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 36%,rgba(4,24,20,.38) 56%,transparent 76%)}
+  .whitening-hero.is-pediatric-cleaning-exam .hero-folds__scan{display:none}
+  .whitening-hero.is-pediatric-cleaning-exam .hero-fold{border:0;border-radius:7rem 7rem 2rem 2rem;box-shadow:0 2rem 5rem rgba(0,0,0,.3);overflow:hidden}
+  .whitening-hero.is-pediatric-cleaning-exam .hero-fold--one{clip-path:inset(3% 1% 8% 1% round 9rem 9rem 2rem 2rem)}
+  .whitening-hero.is-pediatric-cleaning-exam .hero-fold--two{clip-path:inset(8% 1% 3% 1% round 2rem 2rem 9rem 9rem)}
+  .whitening-hero.is-pediatric-cleaning-exam .hero-fold--three{clip-path:inset(3% 1% 8% 1% round 9rem 9rem 2rem 2rem)}
+  .whitening-hero.is-pediatric-cleaning-exam .hero-fold--one>img{object-position:43% center}
+  .whitening-hero.is-pediatric-cleaning-exam .hero-fold--two>img{object-position:51% center}
+  .whitening-hero.is-pediatric-cleaning-exam .hero-fold--three>img{object-position:59% center}
+  .whitening-hero.is-pediatric-cleaning-exam .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 35%,rgba(4,24,20,.4) 56%,transparent 76%)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -2063,6 +2144,11 @@ const content = isFirstDentalVisit ? {
     .whitening-hero.is-first-dental-visit .hero-fold--two{clip-path:ellipse(70% 60% at 48% 50%)}
     .whitening-hero.is-first-dental-visit .hero-fold--three{clip-path:ellipse(74% 54% at 48% 50%)}
     .whitening-hero.is-first-dental-visit .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.16) 60%,rgba(4,24,20,.76) 100%)}
+    .whitening-hero.is-pediatric-cleaning-exam .hero-fold{border-radius:4.5rem 4.5rem 1rem 1rem}
+    .whitening-hero.is-pediatric-cleaning-exam .hero-fold--one{clip-path:inset(2% 1% 6% 1% round 5rem 5rem 1rem 1rem)}
+    .whitening-hero.is-pediatric-cleaning-exam .hero-fold--two{clip-path:inset(6% 1% 2% 1% round 1rem 1rem 5rem 5rem)}
+    .whitening-hero.is-pediatric-cleaning-exam .hero-fold--three{clip-path:inset(2% 1% 6% 1% round 5rem 5rem 1rem 1rem)}
+    .whitening-hero.is-pediatric-cleaning-exam .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.18) 60%,rgba(4,24,20,.77) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */

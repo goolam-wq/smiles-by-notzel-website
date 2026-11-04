@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore pediatric cleaning and examination at Smiles by Noetzel, including review, age-appropriate examination, cleaning, caregiver guidance, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Pediatric Cleaning & Exam | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-pediatric-cleaning-exam.webp" mediaAlt="A child and caregiver discussing a pediatric cleaning and examination with the dental team" />
+    <main>
+      <TreatmentDetail kind="pediatric-cleaning-exam" />
+      <BeforeAfterStory id="before-after-pediatric-cleaning-exam" tone="light" reverse number="06" eyebrow="Illustrative preventive pathway · pediatric visit" title="From an unreviewed routine." emphasis="To a clearer growing picture."
+        intro="This illustrative preventive pathway shows how a child’s history and home-care routine may move through examination, an appropriate cleaning and caregiver guidance. It is not an actual patient outcome and does not guarantee a cavity-free, pain-free, fear-free or fully cooperative visit."
+        image="/images/generated/before-after-pediatric-cleaning-exam-v1.webp" imageAlt="Illustrative comparison of a pediatric oral-health routine before review and after an age-appropriate cleaning and examination pathway"
+        beforeLabel="Before the preventive review" beforeDetail="Development, current oral health, home-care routine and the appropriate scope of the visit have not yet been assessed."
+        afterLabel="Illustrative guidance pathway" afterDetail="The simulated view represents examination, an appropriate cleaning and practical caregiver guidance—not an actual or guaranteed clinical outcome."
+        caseNote="Illustrative simulated example · not an actual patient case · visit scope and outcomes vary" />
+      <HubFooter eyebrow="Ready for the next preventive visit?" title="Connect the child’s routine, growth and practical next step." />
+    </main>
+  </body>
+</html>
