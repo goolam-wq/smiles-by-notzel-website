@@ -43,6 +43,7 @@ const routes = [
   ['gum-disease-deep-cleaning', '/services/gum-disease-deep-cleaning/', '#before-after-gum-disease-deep-cleaning'],
   ['perio-protect', '/services/perio-protect/', '#before-after-perio-protect'],
   ['professional-dental-cleaning', '/services/professional-dental-cleaning/', '#before-after-professional-dental-cleaning'],
+  ['routine-comprehensive-exam', '/services/routine-comprehensive-exam/', '#before-after-routine-comprehensive-exam'],
 ];
 const viewports = [
   ['desktop', 1440, 900],

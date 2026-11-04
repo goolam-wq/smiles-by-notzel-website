@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -28,8 +28,14 @@ const isHealthyStart = kind === 'healthystart-system';
 const isDeepCleaning = kind === 'gum-disease-deep-cleaning';
 const isPerioProtect = kind === 'perio-protect';
 const isProfessionalCleaning = kind === 'professional-dental-cleaning';
+const isComprehensiveExam = kind === 'routine-comprehensive-exam';
 
-const processSteps = isProfessionalCleaning ? [
+const processSteps = isComprehensiveExam ? [
+  ['01', 'Listen', 'Current concerns, health history, previous dental experiences and the patient’s priorities are reviewed before the examination begins.'],
+  ['02', 'Examine', 'Teeth, gums, bite, existing dental work and other relevant oral findings are assessed within the confirmed visit scope.'],
+  ['03', 'Clarify', 'Findings are explained in practical language, including uncertainty, recommended diagnostics and what still needs confirmation.'],
+  ['04', 'Prioritize', 'The patient and team organize immediate concerns, preventive needs and longer-term options into a clear next-step plan.'],
+] : isProfessionalCleaning ? [
   ['01', 'Review', 'Current concerns, health history, home-care routine and previous cleaning experience are reviewed before the visit scope is confirmed.'],
   ['02', 'Assess', 'Teeth, gums and visible buildup are checked to confirm whether a routine cleaning is appropriate or periodontal evaluation is needed.'],
   ['03', 'Clean', 'Plaque, surface buildup and stain are removed according to the confirmed routine-cleaning plan, with comfort and clinical findings considered throughout.'],
@@ -156,7 +162,13 @@ const processSteps = isProfessionalCleaning ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isProfessionalCleaning ? [
+const faqs = isComprehensiveExam ? [
+  ['How much does a routine comprehensive exam cost?', 'The customer-facing exam price is $125 per visit. The $11 monthly view is an approximate rounded 12-month illustration ($132 total), and the yearly exam-basis amount is $125. Final scope, eligibility and payment terms are confirmed by the office.'],
+  ['Does the comprehensive exam guarantee a diagnosis?', 'No. An examination gathers and interprets clinical findings, but no specific diagnosis or absence of disease is guaranteed. Additional records, imaging, testing or referral may be recommended before a conclusion is confirmed.'],
+  ['Are X-rays, cleaning, fluoride or treatment included?', 'Not automatically. Imaging, professional cleaning, fluoride and treatment are separate unless the office confirms that they are part of the scheduled visit or plan.'],
+  ['What is reviewed during the examination?', 'The scope can include current concerns, health history, teeth, gums, bite and existing dental work. The clinician confirms what is appropriate and whether additional diagnostics are needed.'],
+  ['Is a routine comprehensive exam available at both offices?', 'Comprehensive examinations can begin through Chicago Heights or Mokena. Call the preferred office to confirm scheduling and the recommended appointment type.'],
+] : isProfessionalCleaning ? [
   ['How much does a professional dental cleaning cost?', 'The customer-facing price is $125 per routine-cleaning visit. The $21 monthly view is an approximate rounded 12-month illustration ($252 total) based on two visits, and the yearly view is $250 for two visits. Final visit frequency, scope, eligibility and payment terms are confirmed by the office.'],
   ['Is a routine cleaning the same as periodontal deep cleaning?', 'No. A routine professional cleaning addresses appropriate plaque, surface buildup and stain for patients whose gum findings support that pathway. Periodontal disease or below-gumline buildup may require a different evaluation and therapy plan.'],
   ['Are an exam, X-rays or fluoride automatically included?', 'No. Examination, imaging, fluoride and other preventive or diagnostic services are not represented as automatic parts of the listed cleaning price. The office confirms the recommended scope.'],
@@ -308,7 +320,13 @@ const faqs = isProfessionalCleaning ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isProfessionalCleaning ? [
+const relatedServices = isComprehensiveExam ? [
+  ['Preventive & Diagnostic Dentistry', 'Explore the complete category', '/services/preventive-diagnostic/'],
+  ['Professional dental cleaning', 'Connect an appropriate routine-cleaning visit', '/services/professional-dental-cleaning/'],
+  ['Gum-disease deep cleaning', 'Explore periodontal therapy when findings require it', '/services/gum-disease-deep-cleaning/'],
+  ['Complete Health & Airway', 'Explore the wider oral-health conversation', '/services/complete-health-airway/'],
+  ['Restorative & Reconstructive Dentistry', 'Connect findings to a restorative pathway when needed', '/services/restorative-reconstructive/'],
+] : isProfessionalCleaning ? [
   ['Preventive & Diagnostic Dentistry', 'Explore the complete category', '/services/preventive-diagnostic/'],
   ['Gum-disease deep cleaning', 'Compare periodontal therapy when routine cleaning is not appropriate', '/services/gum-disease-deep-cleaning/'],
   ['Periodontal Dentistry', 'Connect gum-health evaluation and maintenance', '/services/periodontal-dentistry/'],
@@ -455,7 +473,61 @@ const relatedServices = isProfessionalCleaning ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isProfessionalCleaning ? {
+const content = isComprehensiveExam ? {
+  heroClass: 'is-comprehensive-exam',
+  heroImages: [
+    ['/images/generated/routine-comprehensive-exam-hero-v1.webp', 'A patient explaining dental concerns and priorities before a comprehensive examination', 'BEGIN WITH WHAT MATTERS'],
+    ['/images/generated/routine-comprehensive-exam-hero-detail-v1.webp', 'A clinician completing a routine comprehensive oral examination', 'READ THE WHOLE PICTURE'],
+    ['/images/generated/routine-comprehensive-exam-hero-result-v1.webp', 'A clinician explaining findings and prioritized next steps to a patient', 'TURN FINDINGS INTO PRIORITIES'],
+  ],
+  heroAria: ['Explore the patient history and concerns', 'Explore the comprehensive oral examination', 'Explore findings and prioritized next steps'],
+  kicker: 'Preventive & Diagnostic · Visit 02',
+  title: ['More than a quick look.', 'A clearer order of care.'],
+  intro: 'A routine comprehensive examination that connects concerns, history and oral findings before clarifying what matters now, what needs confirmation and what can wait.',
+  heroRail: ['Begin with what matters', 'Read the whole picture', 'Turn findings into priorities'],
+  ledgerLabel: 'Routine comprehensive exam', ledgerFixed: '$125 / visit', ledgerMonthly: '$11 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['Information becomes useful when it is connected.', 'Findings need', 'context and priority.'],
+  storyImage: '/images/generated/routine-comprehensive-exam-process-v1.webp',
+  storyAlt: 'A clinician completing a comprehensive examination and reviewing findings with a patient',
+  storyRangeLabel: 'Compare separate concerns and unknown findings with a comprehensive examination and prioritized next-step plan',
+  storyNote: 'Listen before examining, then explain what is known and what still needs confirmation.',
+  storyLead: 'We connect the patient’s concerns and history with teeth, gums, bite and existing dental work. Findings are explained with their limits, and additional imaging, testing or referral is recommended when the examination alone cannot confirm the answer.',
+  storySteps: [
+    ['01', 'Listen for context', 'Current concerns, health history and priorities establish what the examination needs to address.'],
+    ['02', 'Examine the whole picture', 'Teeth, gums, bite and existing dental work are assessed within the confirmed visit scope.'],
+    ['03', 'Clarify and prioritize', 'Known findings, remaining uncertainty and recommended next steps are organized into a practical sequence.'],
+  ],
+  storyNotes: ['Listen before examining, then explain what is known and what still needs confirmation.', 'Assess teeth, gums, bite and existing work within the visit scope.', 'Organize findings into immediate, preventive and longer-term priorities.'],
+  processTitle: ['Listen fully.', 'Prioritize clearly.'],
+  expectTitle: ['Comprehensive in view.', 'Careful about certainty.'],
+  expectCopy: 'A comprehensive exam connects history, concerns and oral findings. It does not guarantee a diagnosis or absence of disease, and X-rays, cleaning, fluoride and treatment are separate unless the office confirms otherwise.',
+  metrics: [['1', 'routine comprehensive examination'], ['4', 'stages: listen, examine, clarify, prioritize'], ['2', 'connected office locations']],
+  pricingId: 'routine-comprehensive-exam-pricing',
+  pricingTitle: ['One comprehensive visit.', 'Three planning views.'],
+  pricingIntro: 'The routine comprehensive examination amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$125', 'per examination visit'], ['MONTHLY · 02', '$11', 'per month · 12 months'], ['YEARLY · 03', '$125', 'annual exam basis']],
+  pricingNote: 'The $11 monthly view is an approximate rounded illustration ($132 total across 12 months), not an exact division of $125. The yearly amount is an annual exam-basis view, not a subscription or unlimited-care package. X-rays, cleaning, fluoride and treatment are separate unless confirmed by the office. Final scope, eligibility and payment terms are office-confirmed.',
+  whyTitle: ['Findings connected.', 'Next steps put in order.'],
+  whyIntro: 'A comprehensive examination should leave the patient with more than a list. The team explains what was observed, what remains uncertain and how immediate concerns, prevention and future options fit together.',
+  whyImage: '/images/generated/routine-comprehensive-exam-result-v1.webp',
+  whyAlt: 'A patient receiving a clear explanation of comprehensive examination findings and priorities',
+  whyPanels: [
+    ['01', 'Concerns before conclusions', 'History and priorities help the clinician focus the examination and interpret findings in context.'],
+    ['02', 'Uncertainty stated clearly', 'Additional imaging, testing or referral is recommended when the examination alone cannot confirm an answer.'],
+    ['03', 'Priorities made practical', 'Immediate, preventive and longer-term needs are organized into understandable next steps.'],
+  ],
+  whyFoot: 'ONE COMPREHENSIVE VISIT · FOUR CONNECTED STAGES',
+  proofTitle: ['The findings explained.', 'The next step prioritized.'],
+  proofText: 'Patients frequently mention thorough examinations, clear explanations and thoughtful treatment planning—general-practice themes that support how comprehensive findings are discussed.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Whole-picture examination', 'Clear diagnostic boundaries', 'Prioritized next steps'],
+  faqTitle: ['Before the next', 'comprehensive exam.'],
+  relatedTitle: ['One diagnostic visit.', 'Several connected paths.'],
+  relatedAria: 'Related preventive, periodontal and restorative services',
+  currentPath: 'Routine comprehensive exam',
+  locationsAria: 'Routine comprehensive-exam locations',
+} : isProfessionalCleaning ? {
   heroClass: 'is-professional-cleaning',
   heroImages: [
     ['/images/generated/professional-dental-cleaning-hero-v1.webp', 'A patient and clinician reviewing the scope of a routine dental cleaning', 'BEGIN WITH THE RIGHT VISIT'],
@@ -2369,6 +2441,15 @@ const content = isProfessionalCleaning ? {
   .whitening-hero.is-professional-cleaning .hero-fold--two>img{object-position:52% center}
   .whitening-hero.is-professional-cleaning .hero-fold--three>img{object-position:60% center}
   .whitening-hero.is-professional-cleaning .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 36%,rgba(4,24,20,.39) 57%,transparent 77%)}
+  .whitening-hero.is-comprehensive-exam .hero-folds__scan{display:none}
+  .whitening-hero.is-comprehensive-exam .hero-fold{border:0;box-shadow:0 2.2rem 5.75rem rgba(0,0,0,.31);overflow:hidden}
+  .whitening-hero.is-comprehensive-exam .hero-fold--one{clip-path:inset(6% 2% 3% 2% round 3rem 9rem 3rem 9rem)}
+  .whitening-hero.is-comprehensive-exam .hero-fold--two{clip-path:inset(3% 2% 6% 2% round 9rem 3rem 9rem 3rem)}
+  .whitening-hero.is-comprehensive-exam .hero-fold--three{clip-path:inset(6% 2% 3% 2% round 3rem 9rem 3rem 9rem)}
+  .whitening-hero.is-comprehensive-exam .hero-fold--one>img{object-position:42% center}
+  .whitening-hero.is-comprehensive-exam .hero-fold--two>img{object-position:52% center}
+  .whitening-hero.is-comprehensive-exam .hero-fold--three>img{object-position:60% center}
+  .whitening-hero.is-comprehensive-exam .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.4) 57%,transparent 77%)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -2495,6 +2576,10 @@ const content = isProfessionalCleaning ? {
     .whitening-hero.is-professional-cleaning .hero-fold--two{clip-path:inset(5% 1% 3% 1% round 2rem 2rem 6rem 2rem)}
     .whitening-hero.is-professional-cleaning .hero-fold--three{clip-path:inset(3% 1% 5% 1% round 2rem 6rem 2rem 2rem)}
     .whitening-hero.is-professional-cleaning .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.17) 60%,rgba(4,24,20,.77) 100%)}
+    .whitening-hero.is-comprehensive-exam .hero-fold--one{clip-path:inset(5% 1% 2% 1% round 2rem 6rem 2rem 6rem)}
+    .whitening-hero.is-comprehensive-exam .hero-fold--two{clip-path:inset(2% 1% 5% 1% round 6rem 2rem 6rem 2rem)}
+    .whitening-hero.is-comprehensive-exam .hero-fold--three{clip-path:inset(5% 1% 2% 1% round 2rem 6rem 2rem 6rem)}
+    .whitening-hero.is-comprehensive-exam .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.18) 60%,rgba(4,24,20,.78) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */

@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore a routine comprehensive exam at Smiles by Noetzel, including concerns, history, oral findings, priorities, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Routine Comprehensive Exam | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-routine-comprehensive-exam.webp" mediaAlt="A patient and clinician reviewing comprehensive examination findings and priorities" />
+    <main>
+      <TreatmentDetail kind="routine-comprehensive-exam" />
+      <BeforeAfterStory id="before-after-routine-comprehensive-exam" tone="light" reverse number="06" eyebrow="Illustrative diagnostic pathway · comprehensive exam" title="From separate concerns." emphasis="To a prioritized next-step plan."
+        intro="This illustrative diagnostic pathway shows how concerns and history may move through examination, clarification and prioritization. It is not an actual patient outcome and does not guarantee a diagnosis, absence of disease or a specific treatment recommendation."
+        image="/images/generated/before-after-routine-comprehensive-exam-v1.webp" imageAlt="Illustrative comparison of separate dental concerns before examination and a clarified, prioritized care pathway"
+        beforeLabel="Before comprehensive examination" beforeDetail="Concerns, history, oral findings and the need for additional diagnostics have not yet been connected."
+        afterLabel="Illustrative priority map" afterDetail="The simulated view represents explained findings and prioritized next steps—not an actual or guaranteed diagnosis or treatment plan."
+        caseNote="Illustrative simulated example · not an actual patient case · findings and recommendations vary" />
+      <HubFooter eyebrow="Ready to put the findings in order?" title="Begin with listening, a comprehensive examination and clear priorities." />
+    </main>
+  </body>
+</html>

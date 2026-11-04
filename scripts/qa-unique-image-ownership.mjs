@@ -32,6 +32,7 @@ const routes = [
   '/services/gum-disease-deep-cleaning/',
   '/services/perio-protect/',
   '/services/professional-dental-cleaning/',
+  '/services/routine-comprehensive-exam/',
   '/services/restorative-reconstructive/',
   '/services/wellness-offering/',
 ];
