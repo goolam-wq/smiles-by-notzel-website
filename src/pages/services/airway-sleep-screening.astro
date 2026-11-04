@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore dental airway and sleep screening at Smiles by Noetzel, including contextual oral findings, clear medical boundaries, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Airway & Sleep Screening | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-airway-sleep-screening.webp" mediaAlt="A clinician discussing sleep and breathing context during dental airway screening" />
+    <main>
+      <TreatmentDetail kind="airway-sleep-screening" />
+      <BeforeAfterStory id="before-after-airway-sleep-screening" tone="light" number="10" eyebrow="Illustrative screening pathway · airway and sleep" title="From a disconnected pattern." emphasis="To a coordinated next step."
+        intro="This illustrative pathway shows how sleep and breathing context may be considered with oral findings. It is not an actual patient case, sleep-apnea diagnosis, medical test, appliance candidacy decision or promised outcome."
+        image="/images/generated/before-after-airway-sleep-screening-v1.webp" imageAlt="Illustrative comparison of disconnected sleep concerns and a coordinated dental airway screening pathway"
+        beforeLabel="Before contextual screening" beforeDetail="Sleep or breathing concerns may be present, but dental findings, medical boundaries and the appropriate next step have not yet been organized."
+        afterLabel="Illustrative coordinated pathway" afterDetail="The simulated view represents contextual screening and referral guidance—not diagnosis, sleep-study result, CPAP advice or guaranteed appliance candidacy."
+        caseNote="Illustrative airway-screening pathway · not an actual patient case · screening is not medical diagnosis" />
+      <HubFooter eyebrow="Ready to notice the breathing story before choosing treatment?" title="Connect the pattern and request an airway and sleep screening." />
+    </main>
+  </body>
+</html>
