@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -32,8 +32,14 @@ const isComprehensiveExam = kind === 'routine-comprehensive-exam';
 const isDigitalXrays = kind === 'digital-dental-x-rays';
 const isFluorideTreatment = kind === 'fluoride-treatment';
 const isDentalSealants = kind === 'dental-sealants';
+const isGumScreening = kind === 'gum-disease-screening';
 
-const processSteps = isDentalSealants ? [
+const processSteps = isGumScreening ? [
+  ['01', 'Review', 'The clinician reviews current concerns, health history, home care, previous periodontal findings and relevant risk factors.'],
+  ['02', 'Measure', 'Gum tissues, bleeding, recession, pocket depths and other clinically relevant findings are assessed within the confirmed screening scope.'],
+  ['03', 'Evaluate', 'Measurements and visual findings are considered with the history, including uncertainty and anything that still needs confirmation.'],
+  ['04', 'Explain', 'The team explains whether routine prevention, further diagnostics, periodontal therapy, maintenance or referral should be considered next.'],
+] : isDentalSealants ? [
   ['01', 'Review', 'The clinician reviews the tooth surfaces, grooves, eruption, existing restorations and cavity-risk context before recommending a sealant.'],
   ['02', 'Select', 'Only the teeth and grooves that are clinically appropriate are selected; sealants are not assumed for every tooth or every patient.'],
   ['03', 'Prepare & place', 'The selected surface is cleaned and prepared, then the sealant material is placed according to the confirmed clinical plan.'],
@@ -180,7 +186,13 @@ const processSteps = isDentalSealants ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isDentalSealants ? [
+const faqs = isGumScreening ? [
+  ['How much does gum-disease screening and evaluation cost?', 'The customer-facing price is $125 per evaluation. The $11 monthly view is an approximate rounded 12-month illustration ($132 total), which is $7 above the $125 fixed and yearly views. Final scope, eligibility and payment terms are confirmed by the office.'],
+  ['Does the screening guarantee a diagnosis or prove that my gums are healthy?', 'No. Screening and evaluation organize measurements and visible findings, but no specific diagnosis, absence of disease or future stability is guaranteed. Additional imaging, testing or referral may be recommended.'],
+  ['Is a gum screening the same as a routine cleaning or deep cleaning?', 'No. Screening evaluates gum-health findings and risk. Routine cleaning, periodontal deep cleaning, maintenance and other treatment are separate services unless the office confirms the scheduled scope.'],
+  ['What may be measured during the evaluation?', 'The confirmed scope may include gum appearance, bleeding, recession, pocket depths and other relevant findings. What is appropriate depends on history, symptoms and the individual clinical situation.'],
+  ['Is gum-disease screening available at both offices?', 'Evaluations can begin through Chicago Heights or Mokena. Call the preferred office to confirm scheduling and the recommended appointment type.'],
+] : isDentalSealants ? [
   ['How much does a dental sealant cost?', 'The customer-facing price is $75 per tooth. The $7 monthly view is an approximate rounded 12-month illustration ($84 total), which is $9 above the $75 fixed and yearly views. Final tooth selection, eligibility, scope and payment terms are confirmed by the office.'],
   ['Do dental sealants guarantee that a tooth will not get a cavity?', 'No. A sealant may help protect selected deep grooves, but it does not guarantee cavity prevention and does not replace examination, brushing, flossing, diet considerations or other recommended preventive care.'],
   ['Can every tooth receive a sealant?', 'No. Tooth anatomy, eruption, existing decay or restorations, moisture control and the individual cavity-risk context affect whether a sealant is appropriate. The clinician confirms the selected teeth after examination.'],
@@ -357,7 +369,13 @@ const faqs = isDentalSealants ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isDentalSealants ? [
+const relatedServices = isGumScreening ? [
+  ['Periodontal Dentistry', 'Explore the complete gum-health category', '/services/periodontal-dentistry/'],
+  ['Gum-disease deep cleaning', 'Connect findings to periodontal therapy when indicated', '/services/gum-disease-deep-cleaning/'],
+  ['Perio Protect', 'Explore an adjunctive tray pathway when clinically appropriate', '/services/perio-protect/'],
+  ['Professional dental cleaning', 'Compare an appropriate routine-cleaning pathway', '/services/professional-dental-cleaning/'],
+  ['Routine comprehensive exam', 'Connect gum findings to a wider oral examination', '/services/routine-comprehensive-exam/'],
+] : isDentalSealants ? [
   ['Preventive & Diagnostic Dentistry', 'Explore the complete preventive category', '/services/preventive-diagnostic/'],
   ['Routine comprehensive exam', 'Connect tooth selection to current clinical findings', '/services/routine-comprehensive-exam/'],
   ['Professional dental cleaning', 'Explore a separate routine-cleaning visit', '/services/professional-dental-cleaning/'],
@@ -528,7 +546,61 @@ const relatedServices = isDentalSealants ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isDentalSealants ? {
+const content = isGumScreening ? {
+  heroClass: 'is-gum-screening',
+  heroImages: [
+    ['/images/generated/gum-disease-screening-hero-v1.webp', 'A clinician listening to a patient before a gum-disease screening and evaluation', 'BEGIN WITH THE HISTORY'],
+    ['/images/generated/gum-disease-screening-hero-detail-v1.webp', 'A clinician assessing periodontal measurements during a gum-health evaluation', 'MEASURE WHAT IS PRESENT'],
+    ['/images/generated/gum-disease-screening-hero-result-v1.webp', 'A dentist explaining gum-health findings and possible next steps to a patient', 'EXPLAIN THE NEXT STEP'],
+  ],
+  heroAria: ['Explore gum-health history and concerns', 'Explore periodontal measurement and evaluation', 'Explore explained findings and next steps'],
+  kicker: 'Periodontal Dentistry · Evaluation 01',
+  title: ['Measure the foundation.', 'Then decide what it needs.'],
+  intro: 'A gum-health screening and evaluation that connects measurements, visible findings, history and risk without treating screening as a guaranteed diagnosis or a substitute for therapy.',
+  heroRail: ['Begin with the history', 'Measure current findings', 'Explain the next step'],
+  ledgerLabel: 'Gum-disease screening', ledgerFixed: '$125 / evaluation', ledgerMonthly: '$11 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['Gum health becomes clearer when findings are measured.', 'Numbers and context stay', 'connected.'],
+  storyImage: '/images/generated/gum-disease-screening-process-v1.webp',
+  storyAlt: 'A clinician measuring and documenting gum-health findings during a periodontal evaluation',
+  storyRangeLabel: 'Compare unorganized gum concerns with measured findings and an explained next-step pathway',
+  storyNote: 'Measure current findings before choosing the care path.',
+  storyLead: 'We connect symptoms, history, home care and relevant risk factors with the current gum measurements. The clinician explains what the available findings suggest, what remains uncertain and whether routine prevention, further diagnostics or periodontal care should be considered.',
+  storySteps: [
+    ['01', 'Review the context', 'Concerns, history, home care and previous periodontal findings establish the starting point.'],
+    ['02', 'Measure current findings', 'Gum tissues, bleeding, recession and pocket depths are assessed within the confirmed scope.'],
+    ['03', 'Explain the path', 'The team connects findings to realistic priorities, uncertainty and appropriate next steps.'],
+  ],
+  storyNotes: ['Begin with history and current concerns.', 'Measure clinically relevant gum findings.', 'Explain uncertainty and the next appropriate pathway.'],
+  processTitle: ['Measure carefully.', 'Explain clearly.'],
+  expectTitle: ['More than a glance.', 'Less than a guarantee.'],
+  expectCopy: 'Gum-disease screening organizes history, visible findings and periodontal measurements so the next step is easier to understand. It does not guarantee a diagnosis or absence of disease, and cleaning, imaging, therapy, maintenance and referral remain separate unless confirmed. ',
+  metrics: [['1', 'focused gum-health evaluation'], ['4', 'stages: review, measure, evaluate, explain'], ['2', 'connected office locations']],
+  pricingId: 'gum-disease-screening-pricing',
+  pricingTitle: ['One focused evaluation.', 'Three planning views.'],
+  pricingIntro: 'The gum-disease screening amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$125', 'per evaluation'], ['MONTHLY · 02', '$11', 'per month · 12 months'], ['YEARLY · 03', '$125', 'annual treatment basis']],
+  pricingNote: 'The $11 monthly view is an approximate rounded illustration ($132 total across 12 months), which is $7 above the $125 fixed and yearly views. The yearly amount is shown on an annual-treatment basis; it is not unlimited screening or treatment. Final scope, eligibility and payment terms are office-confirmed.',
+  whyTitle: ['The measurements visible.', 'The meaning explained.'],
+  whyIntro: 'A useful gum evaluation does more than list numbers. The team connects measurements to symptoms, history and visible findings, then explains what is known, what remains uncertain and what should happen next.',
+  whyImage: '/images/generated/gum-disease-screening-result-v1.webp',
+  whyAlt: 'A clinician explaining periodontal measurements, uncertainty and possible next steps to a patient',
+  whyPanels: [
+    ['01', 'Context before conclusions', 'Symptoms, history, home care and prior findings shape how current measurements are understood.'],
+    ['02', 'Measurements with meaning', 'Bleeding, recession, pocket depths and other findings are explained rather than presented as unexplained data.'],
+    ['03', 'A realistic next step', 'Routine prevention, additional diagnostics, periodontal therapy, maintenance or referral is considered according to the individual findings.'],
+  ],
+  whyFoot: 'ONE FOCUSED EVALUATION · FOUR CONNECTED STAGES',
+  proofTitle: ['The measurements understood.', 'The next step organized.'],
+  proofText: 'Patients frequently mention thorough evaluations, clear explanations and practical next steps—general-practice themes that support how gum-health findings are discussed.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Measured findings', 'Explained uncertainty', 'Prioritized next step'],
+  faqTitle: ['Before a gum-health', 'evaluation.'],
+  relatedTitle: ['One focused screening.', 'Several connected paths.'],
+  relatedAria: 'Related periodontal, preventive and examination services',
+  currentPath: 'Gum-disease screening',
+  locationsAria: 'Gum-disease screening locations',
+} : isDentalSealants ? {
   heroClass: 'is-dental-sealants',
   heroImages: [
     ['/images/generated/dental-sealants-hero-v1.webp', 'A dentist reviewing tooth grooves and preventive priorities before recommending dental sealants', 'REVIEW THE TOOTH SURFACE'],
@@ -2694,6 +2766,15 @@ const content = isDentalSealants ? {
   .whitening-hero.is-dental-sealants .hero-fold--two>img{object-position:52% center}
   .whitening-hero.is-dental-sealants .hero-fold--three>img{object-position:58% center}
   .whitening-hero.is-dental-sealants .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 35%,rgba(4,24,20,.38) 59%,transparent 79%)}
+  .whitening-hero.is-gum-screening .hero-folds__scan{display:none}
+  .whitening-hero.is-gum-screening .hero-fold{border:0;box-shadow:0 2.3rem 5.9rem rgba(0,0,0,.31);overflow:hidden}
+  .whitening-hero.is-gum-screening .hero-fold--one{clip-path:inset(3% 2% 7% 3% round 2rem 2rem 8rem 2rem)}
+  .whitening-hero.is-gum-screening .hero-fold--two{clip-path:inset(7% 3% 3% 2% round 8rem 2rem 2rem 2rem)}
+  .whitening-hero.is-gum-screening .hero-fold--three{clip-path:inset(4% 2% 5% 3% round 2rem 8rem 2rem 2rem)}
+  .whitening-hero.is-gum-screening .hero-fold--one>img{object-position:43% center}
+  .whitening-hero.is-gum-screening .hero-fold--two>img{object-position:53% center}
+  .whitening-hero.is-gum-screening .hero-fold--three>img{object-position:59% center}
+  .whitening-hero.is-gum-screening .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.4) 60%,transparent 80%)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -2836,6 +2917,10 @@ const content = isDentalSealants ? {
     .whitening-hero.is-dental-sealants .hero-fold--two{clip-path:inset(2% 2% 6% 1% round 1rem 4rem 1rem 4rem)}
     .whitening-hero.is-dental-sealants .hero-fold--three{clip-path:inset(4% 1% 3% 2% round 4rem 1rem 4rem 1rem)}
     .whitening-hero.is-dental-sealants .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.18) 60%,rgba(4,24,20,.78) 100%)}
+    .whitening-hero.is-gum-screening .hero-fold--one{clip-path:inset(3% 1% 6% 2% round 1rem 1rem 4rem 1rem)}
+    .whitening-hero.is-gum-screening .hero-fold--two{clip-path:inset(6% 2% 3% 1% round 4rem 1rem 1rem 1rem)}
+    .whitening-hero.is-gum-screening .hero-fold--three{clip-path:inset(4% 1% 4% 2% round 1rem 4rem 1rem 1rem)}
+    .whitening-hero.is-gum-screening .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.19) 60%,rgba(4,24,20,.79) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */

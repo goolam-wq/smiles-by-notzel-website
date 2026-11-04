@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore gum-disease screening and evaluation at Smiles by Noetzel, including periodontal measurements, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Gum Disease Screening & Evaluation | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-gum-disease-screening.webp" mediaAlt="A clinician explaining gum-health measurements and evaluation findings to a patient" />
+    <main>
+      <TreatmentDetail kind="gum-disease-screening" />
+      <BeforeAfterStory id="before-after-gum-disease-screening" tone="light" reverse number="06" eyebrow="Illustrative evaluation pathway · gum health" title="From uncertain gum concerns." emphasis="To measured findings and an explained plan."
+        intro="This illustrative pathway shows how history and gum concerns may move through periodontal measurements, evaluation and an explained next step. It is not an actual patient case, a physical transformation, a guaranteed diagnosis or a treatment result."
+        image="/images/generated/before-after-gum-disease-screening-v1.webp" imageAlt="Illustrative comparison of uncertain gum-health concerns before evaluation and measured findings connected to a care pathway"
+        beforeLabel="Before gum-health evaluation" beforeDetail="Symptoms, history, measurements and the need for further diagnostics or care have not yet been connected."
+        afterLabel="Illustrative measured pathway" afterDetail="The simulated view represents organized findings, stated uncertainty and possible next steps—not a guaranteed diagnosis or result."
+        caseNote="Illustrative evaluation pathway · not an actual patient case, diagnosis or treatment result · findings vary" />
+      <HubFooter eyebrow="Ready to understand the foundation?" title="Begin with current measurements, explained uncertainty and a practical next step." />
+    </main>
+  </body>
+</html>

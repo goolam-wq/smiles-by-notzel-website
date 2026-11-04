@@ -36,6 +36,7 @@ const routes = [
   '/services/digital-dental-x-rays/',
   '/services/fluoride-treatment/',
   '/services/dental-sealants/',
+  '/services/gum-disease-screening/',
   '/services/implants-oral-surgery/',
   '/services/orthodontic-dentistry/',
   '/services/pediatric-developmental/',

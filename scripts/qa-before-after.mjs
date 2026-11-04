@@ -47,6 +47,7 @@ const routes = [
   ['digital-dental-x-rays', '/services/digital-dental-x-rays/', '#before-after-digital-dental-x-rays'],
   ['fluoride-treatment', '/services/fluoride-treatment/', '#before-after-fluoride-treatment'],
   ['dental-sealants', '/services/dental-sealants/', '#before-after-dental-sealants'],
+  ['gum-disease-screening', '/services/gum-disease-screening/', '#before-after-gum-disease-screening'],
 ];
 const viewports = [
   ['desktop', 1440, 900],
