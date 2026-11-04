@@ -6,6 +6,7 @@ const routes = [
   ['chicago', '/service-areas/chicago-heights/?qa=detail-matrix'],
   ['mokena', '/service-areas/mokena/?qa=detail-matrix'],
   ['south-chicago-heights', '/service-areas/south-chicago-heights/?qa=detail-matrix'],
+  ['steger', '/service-areas/steger/?qa=detail-matrix'],
   ['cosmetic', '/services/cosmetic-dentistry/?qa=detail-matrix'],
   ['complete-health-airway', '/services/complete-health-airway/?qa=detail-matrix'],
   ['emergency-comfort', '/services/emergency-comfort/?qa=detail-matrix'],

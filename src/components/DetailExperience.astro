@@ -1,10 +1,11 @@
 ---
-interface Props { kind: 'chicago' | 'mokena' | 'south-chicago-heights' | 'cosmetic' | 'complete-health-airway' | 'emergency-comfort' | 'implants-oral-surgery' | 'orthodontic-dentistry' | 'pediatric-developmental' | 'periodontal-dentistry' | 'preventive-diagnostic' | 'recode-cognitive-health' | 'restorative-reconstructive' | 'wellness-offering' }
+interface Props { kind: 'chicago' | 'mokena' | 'south-chicago-heights' | 'steger' | 'cosmetic' | 'complete-health-airway' | 'emergency-comfort' | 'implants-oral-surgery' | 'orthodontic-dentistry' | 'pediatric-developmental' | 'periodontal-dentistry' | 'preventive-diagnostic' | 'recode-cognitive-health' | 'restorative-reconstructive' | 'wellness-offering' }
 const { kind } = Astro.props;
 const chicago = kind === 'chicago';
 const mokena = kind === 'mokena';
 const southChicagoHeights = kind === 'south-chicago-heights';
-const locationPage = chicago || mokena || southChicagoHeights;
+const steger = kind === 'steger';
+const locationPage = chicago || mokena || southChicagoHeights || steger;
 const completeHealth = kind === 'complete-health-airway';
 const emergencyComfort = kind === 'emergency-comfort';
 const implantsSurgery = kind === 'implants-oral-surgery';
@@ -759,7 +760,52 @@ const mokenaFaq = [
   ['Can my whole family visit this office?', 'Yes. The Mokena office provides preventive, restorative, cosmetic, kid-friendly and complete-health care.'],
   ['Do you serve communities outside Mokena?', 'Yes. This office supports Mokena and nine nearby communities listed on this page.'],
 ];
-const location = southChicagoHeights ? {
+const location = steger ? {
+  slug: 'steger',
+  className: 'is-chicago',
+  officeNumber: '01',
+  name: 'Steger',
+  phone: '(708) 755-1333',
+  phoneHref: 'tel:+17087551333',
+  addressLine: '500 Ashland Ave, Suite #2',
+  cityLine: 'Chicago Heights, IL 60411',
+  mapHref: 'https://maps.app.goo.gl/htHhNrnhbbu2WNR17',
+  heroKicker: 'Steger · Near Office 01',
+  heroLead: 'A shorter drive.',
+  heroEmphasis: 'A longer view of health.',
+  heroIntro: 'Connected dentistry, extended hours and one familiar team serving Steger from nearby Ashland Avenue.',
+  heroImage: '/images/generated/unique/steger/steger-hero-arrival.webp',
+  heroAlt: 'A Steger patient being welcomed at the nearby Smiles by Noetzel reception desk',
+  ledger: [['NEAREST OFFICE', 'Chicago Heights'], ['COMMUNITIES', '16 connected'], ['PATIENT PROOF', '4.9 from 258 reviews'], ['CALL', '(708) 755-1333']],
+  aboutKicker: '01 · ABOUT STEGER',
+  aboutLead: 'Care nearby',
+  aboutEmphasis: 'with the whole story intact.',
+  aboutCopy: 'Steger patients can use the nearby Chicago Heights office for extended hours, familiar faces and complete-health care that keeps each visit connected to the next.',
+  schedule: [['01', 'MON — THU', '7:30 AM', '— 7:00 PM'], ['02', 'FRIDAY', '7:30 AM', '— 12:00 PM'], ['03', 'SATURDAY', '8:00 AM', '— 12:00 PM']],
+  atlasCopy: 'From routine prevention to restorative or advanced care, one nearby team can connect the details instead of making each appointment begin from zero.',
+  communityCountWord: 'Sixteen',
+  communityCopy: 'Steger is part of a connected south-suburban care area supported by the Chicago Heights office and its wider service network.',
+  journeyLast: 'Treatment and follow-up stay coordinated with one nearby Chicago Heights team.',
+  trustImage: '/images/generated/unique/steger/steger-trust-family.webp',
+  trustAlt: 'A Steger family speaking with a familiar dental hygienist',
+  trustLabel: 'STEGER · NEAR OFFICE 01',
+  trustCopy: 'Nearby care feels more useful when the team can see beyond one tooth, explain the choices clearly and keep the next step connected to everyday life.',
+  trustReasons: [['01', 'A practical route', 'The Ashland Avenue office is nearby for Steger patients.'], ['02', '48 connected services', 'Prevention, comfort, restoration and advanced care in one network.'], ['03', 'Extended access', 'Early mornings, evenings and Saturday availability.'], ['04', 'Patient-backed care', 'A 4.9 Google rating from 258 local reviews.']],
+  pricingIntro: 'Compare a focused set of common services available to Steger patients in fixed, monthly and yearly customer-facing views.',
+  reviewKicker: '08 · STEGER PATIENT PROOF',
+  reviewScore: '4.9',
+  reviewQuote: '“They took time to explain the plan, kept the visit calm and made the next step easy to understand.”',
+  reviewFooter: 'LOCAL PATIENT · VERIFIED REVIEW',
+  reviewTopics: ['Clear explanations · often noted', 'Calm visits · patient mentioned', 'Helpful scheduling · locally connected'],
+  reviewTotal: '258',
+  faqs: [
+    ['Which office serves Steger?', 'The Chicago Heights office at 500 Ashland Avenue, Suite #2 is the nearest Smiles by Noetzel location.'],
+    ['Do you offer evening appointments for Steger patients?', 'Yes. The Chicago Heights office is open until 7:00 PM Monday through Thursday.'],
+    ['Are Saturday appointments available?', 'Yes. Saturday hours are available from 8:00 AM to 12:00 PM. Please call ahead to confirm availability.'],
+    ['Can my family receive care at the same office?', 'Yes. The nearby team provides preventive, restorative, cosmetic, kid-friendly and complete-health care.'],
+    ['What should I do with a dental emergency?', 'Call (708) 755-1333 so the team can understand what happened and guide the next step.'],
+  ],
+} : southChicagoHeights ? {
   slug: 'south-chicago-heights',
   className: 'is-chicago',
   officeNumber: '01',
@@ -1397,7 +1443,7 @@ const faqs = locationPage ? location.faqs : category.faqs;
               .to(copy,{yPercent:-3,opacity:1,ease:'none'},0)
               .to(q('.detail-hero__watermark'),{xPercent:-9,yPercent:-5,ease:'none'},0)
               .to(q('.detail-hero__index'),{opacity:.78,ease:'none'},0);
-          } else if (!['chicago','mokena'].includes(root.dataset.detailKind || '')) {
+          } else if (!['chicago','mokena','south-chicago-heights','steger'].includes(root.dataset.detailKind || '')) {
             tl.to(visual,{width:stageWidth,height:compact?'78vh':'86vh',right:compact?'.8rem':'1vw',top:compact?'11vh':'7vh',ease:'none'},0)
               .to(q('.cosmetic-triptych__panels'),{gridTemplateColumns:'.58fr 1.58fr .62fr',gap:'.3rem',ease:'none'},0)
               .to(q('.cosmetic-slice'),{borderRadius:'3.5rem 3.5rem .75rem .75rem',ease:'none'},0)
@@ -1504,7 +1550,7 @@ const faqs = locationPage ? location.faqs : category.faqs;
               .to(q('.health-scan__main img'),{xPercent:-2,ease:'none'},0)
               .to(q('.health-scan__detail.airway'),{yPercent:-3,ease:'none'},0)
               .to(q('.health-scan__detail.system'),{yPercent:3,ease:'none'},0);
-          } else if (!['chicago','mokena'].includes(root.dataset.detailKind || '')) {
+          } else if (!['chicago','mokena','south-chicago-heights','steger'].includes(root.dataset.detailKind || '')) {
             mobileTl.to(visual,{height:'52svh',left:'.5rem',right:'.5rem',bottom:'.5rem',ease:'none'},0)
               .to(q('.detail-hero__watermark'),{xPercent:-12,yPercent:-4,ease:'none'},0)
               .to(q('.cosmetic-triptych__panels'),{gridTemplateColumns:'.6fr 1.5fr .62fr',gap:'.2rem',ease:'none'},0)

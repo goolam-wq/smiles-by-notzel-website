@@ -20,6 +20,7 @@ const routes = [
   ['chicago-heights', '/service-areas/chicago-heights/', '#before-after-chicago-heights'],
   ['mokena', '/service-areas/mokena/', '#before-after-mokena'],
   ['south-chicago-heights', '/service-areas/south-chicago-heights/', '#before-after-south-chicago-heights'],
+  ['steger', '/service-areas/steger/', '#before-after-steger'],
   ['whitening', '/services/professional-teeth-whitening/', '#before-after-professional-whitening'],
   ['porcelain-veneers-laminates', '/services/porcelain-veneers-laminates/', '#before-after-porcelain-veneers-laminates'],
   ['lumineers', '/services/lumineers/', '#before-after-lumineers'],
