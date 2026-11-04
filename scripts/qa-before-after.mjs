@@ -50,6 +50,7 @@ const routes = [
   ['gum-disease-screening', '/services/gum-disease-screening/', '#before-after-gum-disease-screening'],
   ['custom-sports-mouthguard', '/services/custom-sports-mouthguard/', '#before-after-custom-sports-mouthguard'],
   ['custom-night-guard', '/services/custom-night-guard/', '#before-after-custom-night-guard'],
+  ['laser-dentistry', '/services/laser-dentistry/', '#before-after-laser-dentistry'],
 ];
 const viewports = [
   ['desktop', 1440, 900],

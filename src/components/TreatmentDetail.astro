@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -35,8 +35,14 @@ const isDentalSealants = kind === 'dental-sealants';
 const isGumScreening = kind === 'gum-disease-screening';
 const isSportsMouthguard = kind === 'custom-sports-mouthguard';
 const isNightGuard = kind === 'custom-night-guard';
+const isLaserDentistry = kind === 'laser-dentistry';
 
-const processSteps = isNightGuard ? [
+const processSteps = isLaserDentistry ? [
+  ['01', 'Evaluate', 'The clinician diagnoses the condition, confirms the underlying procedure and reviews the relevant history, findings and treatment goals first.'],
+  ['02', 'Select', 'Laser technology is selected only when appropriate for the specific procedural step, with conventional alternatives and limitations explained.'],
+  ['03', 'Apply', 'The selected technology is used within the confirmed procedure and consent—not as a standalone diagnosis or universal replacement for other instruments.'],
+  ['04', 'Review', 'The clinician reviews the completed procedure, individualized aftercare and follow-up without promising a painless visit, faster healing or instant recovery.'],
+] : isNightGuard ? [
   ['01', 'Review', 'The clinician reviews pressure concerns, symptoms, dental history, teeth, bite, restorations and existing wear before confirming the pathway.'],
   ['02', 'Evaluate & capture', 'The current dental condition and bite are evaluated, and appropriate records are captured for the planned appliance when suitable.'],
   ['03', 'Fabricate', 'The night guard is made to the confirmed design and current records rather than treated as a universal or same-day appliance.'],
@@ -198,7 +204,13 @@ const processSteps = isNightGuard ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isNightGuard ? [
+const faqs = isLaserDentistry ? [
+  ['How much does laser dentistry cost?', 'The customer-facing price is $250 as a treatment add-on. The $21 monthly view is an approximate rounded 12-month illustration ($252 total), which is $2 above the $250 fixed and yearly views. The underlying procedure and any separate services are not included unless the office confirms them.'],
+  ['Is laser dentistry a standalone treatment?', 'No. Laser technology may be selected as an add-on within certain procedures after diagnosis, evaluation and consent. The underlying procedure and clinical reason lead the plan.'],
+  ['Is a laser always better than conventional instruments?', 'No. The appropriate tool depends on the procedure, tissue, diagnosis, access, alternatives and clinician judgment. Laser technology is not universally better and does not replace every drill, scalpel or conventional instrument.'],
+  ['Is laser dentistry guaranteed to be painless or anesthesia-free?', 'No. No procedure is guaranteed painless, bloodless, anesthesia-free or free of swelling, bleeding, infection or recovery needs. Comfort planning and anesthesia decisions remain individualized.'],
+  ['Does laser technology sterilize the area, cure gum disease or guarantee faster healing?', 'No. No claim is made that it sterilizes or eliminates bacteria, cures gum disease, prevents infection, guarantees faster healing or produces an instant recovery. Outcomes and follow-up depend on the underlying procedure and individual response.'],
+] : isNightGuard ? [
   ['How much does a custom night guard cost?', 'The customer-facing price is $450 per appliance. The $38 monthly view is an approximate rounded 12-month illustration ($456 total), which is $6 above the $450 fixed and yearly views. Final eligibility, scope and payment terms are confirmed by the office.'],
   ['Will a night guard stop grinding or cure TMJ pain, headaches or sleep apnea?', 'No. A night guard is not presented as a cure for grinding, TMJ disorders, headaches, sleep apnea or another medical condition. Symptoms may have different causes and may require dental or medical evaluation.'],
   ['Does a night guard prevent every crack or tooth problem?', 'No. An appliance may be considered within a protective plan, but it cannot guarantee prevention of cracks, wear, discomfort or future dental treatment. Monitoring remains important.'],
@@ -393,7 +405,13 @@ const faqs = isNightGuard ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isNightGuard ? [
+const relatedServices = isLaserDentistry ? [
+  ['Preventive & Diagnostic Dentistry', 'Explore the complete preventive category', '/services/preventive-diagnostic/'],
+  ['Periodontal Dentistry', 'Connect technology selection to periodontal care when appropriate', '/services/periodontal-dentistry/'],
+  ['Gum-disease screening', 'Begin with measured gum-health findings', '/services/gum-disease-screening/'],
+  ['Gum-disease deep cleaning', 'Explore periodontal therapy when indicated', '/services/gum-disease-deep-cleaning/'],
+  ['Routine comprehensive exam', 'Connect technology decisions to a wider oral examination', '/services/routine-comprehensive-exam/'],
+] : isNightGuard ? [
   ['Preventive & Diagnostic Dentistry', 'Explore the complete preventive category', '/services/preventive-diagnostic/'],
   ['Custom sports mouthguard', 'Explore a separate appliance for athletic use', '/services/custom-sports-mouthguard/'],
   ['Routine comprehensive exam', 'Connect appliance planning to current oral findings', '/services/routine-comprehensive-exam/'],
@@ -582,7 +600,62 @@ const relatedServices = isNightGuard ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isNightGuard ? {
+const content = isLaserDentistry ? {
+  heroClass: 'is-laser-dentistry',
+  heroImages: [
+    ['/images/generated/laser-dentistry-hero-v1.webp', 'A dentist identifying the underlying procedure before considering laser technology', 'IDENTIFY THE PROCEDURE'],
+    ['/images/generated/laser-dentistry-hero-detail-v1.webp', 'A clinician confirming when laser technology is appropriate within a dental procedure', 'CONFIRM THE INDICATION'],
+    ['/images/generated/laser-dentistry-hero-result-v1.webp', 'A clinician reviewing a procedure in which selected laser technology was used', 'USE THE SELECTED TECHNOLOGY'],
+  ],
+  heroAria: ['Explore procedure-first evaluation', 'Explore laser indication and alternatives', 'Explore selected technology within the care plan'],
+  kicker: 'Preventive & Diagnostic · Service 09',
+  title: ['Precision belongs', 'inside a plan.'],
+  intro: 'Laser technology may be selected as an add-on in certain procedures when appropriate. Diagnosis and the underlying procedure come first; the laser is a tool, not the plan.',
+  heroRail: ['Identify the procedure', 'Confirm the indication', 'Use the selected technology'],
+  ledgerLabel: 'Laser dentistry add-on', ledgerFixed: '$250 / add-on', ledgerMonthly: '$21 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['The tool becomes specific', 'when the reason', 'is clear.'],
+  storyImage: '/images/generated/laser-dentistry-process-v1.webp',
+  storyAlt: 'A clinician using selected laser technology within a confirmed dental procedure',
+  storyRangeLabel: 'Compare an undefined technology request with a procedure-led selection pathway',
+  storyNote: 'Identify the underlying procedure before selecting the technology.',
+  storyLead: 'We begin with the diagnosis, findings and underlying procedure. The clinician explains whether laser technology fits a specific step, what conventional alternatives remain available and what the procedure—not the device—requires for consent, comfort and follow-up.',
+  storySteps: [
+    ['01', 'Procedure before device', 'Diagnosis and the confirmed underlying procedure establish the clinical reason.'],
+    ['02', 'Select the appropriate tool', 'Laser technology is chosen only when its role fits the specific procedural step and alternatives.'],
+    ['03', 'Review the procedure', 'Aftercare and follow-up remain specific to the completed treatment rather than the device alone.'],
+  ],
+  storyNotes: ['Diagnose and confirm the underlying procedure first.', 'Keep conventional alternatives visible.', 'Base aftercare on the completed procedure.'],
+  processTitle: ['The procedure leads.', 'The technology follows.'],
+  expectTitle: ['Selected as an add-on.', 'Never the whole plan.'],
+  expectCopy: 'Laser technology can be selected within certain procedures, but it does not replace diagnosis, informed consent, the underlying treatment or every conventional instrument. No painless, bloodless, anesthesia-free, faster-healing or instant-recovery result is guaranteed.',
+  metrics: [['1', 'selected treatment add-on'], ['4', 'stages: evaluate, select, apply, review'], ['2', 'connected office locations']],
+  pricingId: 'laser-dentistry-pricing',
+  pricingTitle: ['One selected add-on.', 'Three planning views.'],
+  pricingIntro: 'The laser dentistry add-on shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$250', 'treatment add-on'], ['MONTHLY · 02', '$21', 'per month · 12 months'], ['YEARLY · 03', '$250', 'annual add-on basis']],
+  pricingNote: 'The $21 monthly view is an approximate rounded illustration ($252 total across 12 months), which is $2 above the $250 fixed and yearly views. The yearly amount is shown on an annual add-on basis; it is not a subscription, unlimited technology use or the underlying procedure. Final indication, procedure, eligibility and payment terms are office-confirmed.',
+  whyTitle: ['The procedure leads.', 'The technology follows.'],
+  whyIntro: 'The clinician identifies the clinical reason, explains the underlying procedure and keeps alternatives visible before choosing any device. Technology remains accountable to the plan rather than becoming the plan itself.',
+  whyImage: '/images/generated/laser-dentistry-result-v1.webp',
+  whyAlt: 'A clinician explaining why selected laser technology fits one step of a larger dental procedure',
+  whyPanels: [
+    ['01', 'Procedure before device', 'Diagnosis, consent and the underlying treatment establish whether laser technology has an appropriate role.'],
+    ['02', 'Alternatives stay visible', 'Conventional instruments and other pathways remain part of the discussion rather than being universally replaced.'],
+    ['03', 'Comfort without guarantees', 'Comfort planning is individualized without promising painless, bloodless or anesthesia-free care.'],
+    ['04', 'Follow-up stays specific', 'Aftercare and review follow the actual procedure, tissue and individual response.'],
+  ],
+  whyFoot: 'ONE SELECTED ADD-ON · FOUR CONNECTED STAGES',
+  proofTitle: ['The reason clear.', 'The tool kept in context.'],
+  proofText: 'Patients frequently mention careful explanations, thoughtful technology use and clear follow-up—general-practice themes that support procedure-first care.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Procedure-led selection', 'Visible alternatives', 'Specific follow-up'],
+  faqTitle: ['Before laser', 'technology is selected.'],
+  relatedTitle: ['One selected add-on.', 'Several connected paths.'],
+  relatedAria: 'Related preventive and periodontal services',
+  currentPath: 'Laser dentistry',
+  locationsAria: 'Laser dentistry locations',
+} : isNightGuard ? {
   heroClass: 'is-night-guard',
   heroImages: [
     ['/images/generated/custom-night-guard-hero-v1.webp', 'A patient discussing nighttime pressure and tooth-wear concerns before a custom night guard is planned', 'BEGIN WITH THE PRESSURE CONCERN'],
@@ -2937,6 +3010,15 @@ const content = isNightGuard ? {
   .whitening-hero.is-night-guard .hero-fold--two>img{object-position:52% center}
   .whitening-hero.is-night-guard .hero-fold--three>img{object-position:60% center}
   .whitening-hero.is-night-guard .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.4) 60%,transparent 80%)}
+  .whitening-hero.is-laser-dentistry .hero-folds__scan{display:none}
+  .whitening-hero.is-laser-dentistry .hero-fold{border:0;box-shadow:0 2.3rem 5.9rem rgba(0,0,0,.32);overflow:hidden}
+  .whitening-hero.is-laser-dentistry .hero-fold--one{clip-path:inset(3% 4% 7% 1% round 2rem 8rem 2rem 8rem)}
+  .whitening-hero.is-laser-dentistry .hero-fold--two{clip-path:inset(7% 1% 3% 4% round 8rem 2rem 8rem 2rem)}
+  .whitening-hero.is-laser-dentistry .hero-fold--three{clip-path:inset(4% 4% 5% 1% round 2rem 8rem 2rem 8rem)}
+  .whitening-hero.is-laser-dentistry .hero-fold--one>img{object-position:43% center}
+  .whitening-hero.is-laser-dentistry .hero-fold--two>img{object-position:52% center}
+  .whitening-hero.is-laser-dentistry .hero-fold--three>img{object-position:61% center}
+  .whitening-hero.is-laser-dentistry .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 35%,rgba(4,24,20,.37) 60%,transparent 80%)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -3091,6 +3173,10 @@ const content = isNightGuard ? {
     .whitening-hero.is-night-guard .hero-fold--two{clip-path:inset(2% 1% 6% 2% round 1rem 4rem 4rem 1rem)}
     .whitening-hero.is-night-guard .hero-fold--three{clip-path:inset(4% 2% 3% 1% round 4rem 1rem 1rem 4rem)}
     .whitening-hero.is-night-guard .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.18) 60%,rgba(4,24,20,.79) 100%)}
+    .whitening-hero.is-laser-dentistry .hero-fold--one{clip-path:inset(3% 2% 6% 1% round 1rem 4rem 1rem 4rem)}
+    .whitening-hero.is-laser-dentistry .hero-fold--two{clip-path:inset(6% 1% 3% 2% round 4rem 1rem 4rem 1rem)}
+    .whitening-hero.is-laser-dentistry .hero-fold--three{clip-path:inset(4% 2% 4% 1% round 1rem 4rem 1rem 4rem)}
+    .whitening-hero.is-laser-dentistry .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 31%,rgba(4,24,20,.17) 59%,rgba(4,24,20,.8) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */

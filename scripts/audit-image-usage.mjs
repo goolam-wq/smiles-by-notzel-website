@@ -39,6 +39,7 @@ const routes = [
   '/services/gum-disease-screening/',
   '/services/custom-sports-mouthguard/',
   '/services/custom-night-guard/',
+  '/services/laser-dentistry/',
   '/services/implants-oral-surgery/',
   '/services/orthodontic-dentistry/',
   '/services/pediatric-developmental/',

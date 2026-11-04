@@ -47,6 +47,7 @@ const routes = [
   ['gum-disease-screening', '/services/gum-disease-screening/?qa=detail-matrix'],
   ['custom-sports-mouthguard', '/services/custom-sports-mouthguard/?qa=detail-matrix'],
   ['custom-night-guard', '/services/custom-night-guard/?qa=detail-matrix'],
+  ['laser-dentistry', '/services/laser-dentistry/?qa=detail-matrix'],
 ];
 const routeFilter = process.argv[2];
 const activeRoutes = routeFilter ? routes.filter(([name]) => name === routeFilter) : routes;

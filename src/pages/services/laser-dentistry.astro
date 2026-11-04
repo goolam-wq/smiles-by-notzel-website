@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore laser dentistry as a selected treatment add-on at Smiles by Noetzel, including procedure-first planning, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Laser Dentistry | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-laser-dentistry.webp" mediaAlt="A clinician explaining the selected role of laser technology within a dental procedure" />
+    <main>
+      <TreatmentDetail kind="laser-dentistry" />
+      <BeforeAfterStory id="before-after-laser-dentistry" tone="light" reverse number="06" eyebrow="Illustrative technology-selection pathway · laser dentistry" title="From a device-first question." emphasis="To a procedure-led technology choice."
+        intro="This illustrative pathway shows how diagnosis and an underlying procedure may lead to selection of laser technology for a specific step. It is not an actual healing result, treatment outcome or guarantee that laser technology is appropriate or superior."
+        image="/images/generated/before-after-laser-dentistry-v1.webp" imageAlt="Illustrative comparison of an undefined laser request and a procedure-led selection of laser technology within a dental plan"
+        beforeLabel="Before procedure evaluation" beforeDetail="The diagnosis, underlying procedure, alternatives and role of the technology have not yet been confirmed."
+        afterLabel="Illustrative selected pathway" afterDetail="The simulated view represents a clinician-selected add-on within a procedure—not proof of faster healing, less discomfort or a superior result."
+        caseNote="Illustrative technology-selection pathway · not an actual healing or treatment result · indications vary" />
+      <HubFooter eyebrow="Ready to ask where precision fits?" title="Ask where precision fits—not whether every procedure needs it." />
+    </main>
+  </body>
+</html>
