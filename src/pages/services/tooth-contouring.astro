@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore tooth contouring at Smiles by Noetzel, including candidacy, process, pricing and precise enamel-edge planning in Chicago Heights and Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Tooth Contouring | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-tooth-contouring.webp" mediaAlt="A patient reviewing a tooth contouring plan with her dentist" />
+    <main>
+      <TreatmentDetail kind="tooth-contouring" />
+      <BeforeAfterStory id="before-after-tooth-contouring" tone="light" reverse number="06" eyebrow="Illustrative planning view · subtle edge refinement" title="Measured in fractions." emphasis="Read as balance."
+        intro="Tooth contouring is planned around enamel thickness, tooth position, bite and the surrounding smile. Candidacy and final scope are confirmed after examination."
+        image="/images/generated/before-after-tooth-contouring-v1.webp" imageAlt="Illustrative split comparison showing a simulated tooth-contouring planning concept within the complete smile"
+        beforeLabel="Starting view" beforeDetail="A selected point, curve or uneven edge may interrupt the visible balance."
+        afterLabel="Illustrative planning view" afterDetail="This illustrative planning view shows how a restrained edge adjustment may be reviewed beside neighboring teeth and in the bite."
+        caseNote="Illustrative example · results vary by patient" />
+      <HubFooter eyebrow="Ready to explore tooth contouring?" title="Begin with a precise candidacy assessment." />
+    </main>
+  </body>
+</html>

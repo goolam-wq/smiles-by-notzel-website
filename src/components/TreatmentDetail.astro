@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -8,8 +8,14 @@ const isVeneers = kind === 'porcelain-veneers-laminates';
 const isLumineers = kind === 'lumineers';
 const isSnapOn = kind === 'snap-on-smile';
 const isBonding = kind === 'dental-bonding';
+const isContouring = kind === 'tooth-contouring';
 
-const processSteps = isBonding ? [
+const processSteps = isContouring ? [
+  ['01', 'Listen', 'We begin with the edge, point or proportion you notice and the character you want to preserve.'],
+  ['02', 'Evaluate', 'Enamel thickness, tooth position, bite, neighboring teeth and existing dental work are examined before contouring is recommended.'],
+  ['03', 'Map', 'The selected adjustment is marked and reviewed in the context of the complete visible smile.'],
+  ['04', 'Refine', 'A limited amount of enamel is reshaped according to the clinical plan, then the surface is finished and reviewed.'],
+] : isBonding ? [
   ['01', 'Listen', 'We begin with the chip, spacing, edge or proportion you want to refine and the character you want to keep.'],
   ['02', 'Evaluate', 'The tooth, bite, enamel, neighboring teeth and wider smile are examined before bonding is recommended.'],
   ['03', 'Shape', 'Tooth-colored composite is selected, placed and shaped according to the agreed clinical plan.'],
@@ -36,7 +42,13 @@ const processSteps = isBonding ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isBonding ? [
+const faqs = isContouring ? [
+  ['How much does tooth contouring cost?', 'The customer-facing treatment price is $150 per tooth. The $13 monthly view is a rounded 12-month planning display; it is not an exact division of $150. The yearly amount is $150 per tooth. Final candidacy, scope and payment terms are confirmed after examination.'],
+  ['What can tooth contouring address?', 'Contouring may be considered for selected uneven edges, small points or minor proportion concerns. Enamel thickness, tooth position and bite determine whether it is appropriate.'],
+  ['Is tooth contouring reversible?', 'Contouring removes a limited amount of enamel, so the change itself is not reversible. The team evaluates the tooth carefully and confirms the clinical plan before any reshaping.'],
+  ['Is contouring the same as bonding?', 'No. Contouring reshapes selected enamel, while bonding adds tooth-colored composite. Depending on the tooth and goal, one approach, the other or a coordinated plan may be recommended.'],
+  ['Is tooth contouring available at both offices?', 'Yes. Tooth contouring is available at Chicago Heights and Mokena; appointment times vary, so call the preferred office to schedule.'],
+] : isBonding ? [
   ['How much does dental bonding cost?', 'The customer-facing treatment price is $450 per tooth. A 12-month planning example is $38 per month, and the yearly amount is $450 per tooth. Final scope and tooth count are confirmed after examination.'],
   ['What can dental bonding address?', 'Bonding may be considered for selected chips, small gaps, uneven edges or proportion concerns. The examination determines whether composite bonding or another restorative or cosmetic path is appropriate.'],
   ['Is dental bonding permanent?', 'Bonding is a placed composite restoration, but it is not guaranteed for life. Longevity depends on the tooth, bite, habits, care and the work being asked of the restoration.'],
@@ -68,7 +80,12 @@ const faqs = isBonding ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isBonding ? [
+const relatedServices = isContouring ? [
+  ['Cosmetic Dentistry', 'Explore the complete category', '/services/cosmetic-dentistry/'],
+  ['Dental bonding', 'Compare a composite refinement path', '/services/dental-bonding/'],
+  ['Porcelain veneers & laminates', 'Explore a porcelain refinement path', '/services/porcelain-veneers-laminates/'],
+  ['Professional teeth whitening', 'Coordinate the wider shade plan', '/services/professional-teeth-whitening/'],
+] : isBonding ? [
   ['Cosmetic Dentistry', 'Explore the complete category', '/services/cosmetic-dentistry/'],
   ['Porcelain veneers & laminates', 'Compare a porcelain refinement path', '/services/porcelain-veneers-laminates/'],
   ['Professional teeth whitening', 'Coordinate the wider shade plan', '/services/professional-teeth-whitening/'],
@@ -95,7 +112,60 @@ const relatedServices = isBonding ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isBonding ? {
+const content = isContouring ? {
+  heroClass: 'is-contouring',
+  heroImages: [
+    ['/images/generated/tooth-contouring-hero-v1.webp', 'A patient and dentist discussing a small tooth-edge contouring concern', 'READ THE EDGE'],
+    ['/images/generated/tooth-contouring-hero-detail-v1.webp', 'A detailed tooth contouring planning view focused on enamel edges', 'MAP THE CHANGE'],
+    ['/images/generated/tooth-contouring-hero-result-v1.webp', 'A patient viewing a subtly refined tooth contouring result', 'REVIEW THE BALANCE'],
+  ],
+  heroAria: ['Explore the tooth contouring consultation', 'Explore enamel edge and proportion planning', 'Explore the subtly refined complete smile'],
+  kicker: 'Cosmetic Dentistry · Treatment 06',
+  title: ['Less removed.', 'More balanced.'],
+  intro: 'Tooth contouring for selected edges and small proportion concerns, with enamel, bite and candidacy confirmed after examination.',
+  heroRail: ['Read the edge', 'Map the change', 'Review the balance'],
+  ledgerLabel: 'Tooth contouring', ledgerFixed: '$150 / tooth', ledgerMonthly: '$13 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['A small adjustment is still a decision.', 'It begins with', 'restraint.'],
+  storyImage: '/images/generated/tooth-contouring-process-v1.webp',
+  storyAlt: 'A dentist reviewing enamel edges and bite before tooth contouring',
+  storyRangeLabel: 'Compare the starting tooth edge with the planned contouring refinement',
+  storyNote: 'Read the enamel and bite before changing the edge.',
+  storyLead: 'We plan contouring in fractions, but judge it in the whole smile. The right adjustment depends on the enamel, bite and neighboring teeth.',
+  storySteps: [
+    ['01', 'Read the edge', 'The selected point, curve or uneven edge is examined closely.'],
+    ['02', 'Protect the foundation', 'Enamel thickness, tooth position and bite define the safe boundary.'],
+    ['03', 'Balance the smile', 'The proposed contour is reviewed beside the neighboring teeth and complete smile.'],
+  ],
+  storyNotes: ['Read the enamel and bite before changing the edge.', 'Protect the foundation by defining a precise clinical boundary.', 'Review the selected contour in the complete visible smile.'],
+  processTitle: ['Measured in fractions.', 'Seen as balance.'],
+  expectTitle: ['Subtle by design.', 'Specific by necessity.'],
+  expectCopy: 'Tooth contouring may suit selected uneven edges, small points or minor proportion concerns. Because enamel is being reshaped, the team evaluates thickness, tooth position, bite and neighboring teeth before confirming candidacy and scope.',
+  metrics: [['1', 'tooth-specific contour plan'], ['4', 'details reviewed: enamel, edge, position, bite'], ['2', 'connected office locations']],
+  pricingId: 'tooth-contouring-pricing',
+  pricingTitle: ['One selected tooth.', 'Three ways to plan.'],
+  pricingIntro: 'The same tooth contouring treatment shown as a fixed, rounded monthly planning view and yearly customer-facing amount.',
+  prices: [['FIXED · 01', '$150', 'per tooth'], ['MONTHLY · 02', '$13', 'per month · 12 months'], ['YEARLY · 03', '$150', 'annual amount per tooth']],
+  whyTitle: ['Precise.', 'Never casual.'],
+  whyIntro: 'We do not reshape enamel by eye alone. Tooth position, thickness, bite, neighboring edges and the wider smile establish the boundary before any adjustment is made.',
+  whyImage: '/images/generated/tooth-contouring-result-v1.webp',
+  whyAlt: 'A patient and dentist reviewing a subtle tooth contouring result together',
+  whyPanels: [
+    ['01', 'Candidacy before contour', 'Enamel thickness, tooth position and bite determine whether reshaping is appropriate.'],
+    ['02', 'A mapped boundary', 'The selected edge and intended change are reviewed before enamel is adjusted.'],
+    ['03', 'The complete smile test', 'The finish is judged beside neighboring teeth and in the bite.'],
+  ],
+  whyFoot: 'ONE PRECISE ADJUSTMENT · THREE CONTEXT CHECKS',
+  proofTitle: ['Small change explained.', 'Next step understood.'],
+  proofText: 'Patients frequently mention clear explanations and caring staff—general-practice feedback that supports how recommendations and next steps are discussed.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Clear explanation', 'Conservative planning', 'Connected care'],
+  faqTitle: ['Before you', 'reshape.'],
+  relatedTitle: ['One subtle adjustment.', 'Many connected paths.'],
+  relatedAria: 'Related tooth contouring and cosmetic services',
+  currentPath: 'Tooth contouring',
+  locationsAria: 'Tooth contouring consultation locations',
+} : isBonding ? {
   heroClass: 'is-bonding',
   heroImages: [
     ['/images/generated/dental-bonding-hero-v1.webp', 'A patient and dentist discussing a small chip and dental bonding plan', 'START WITH THE DETAIL'],
@@ -478,7 +548,7 @@ const content = isBonding ? {
         {content.prices.map((price, index) => <article class:list={{ featured: index === 1 }}><span>{price[0]}</span><strong>{price[1]}</strong><p>{price[2]}</p></article>)}
       </div>
       <div class="pricing-progress" aria-hidden="true"><i></i><span>SCROLL TO COMPARE</span></div>
-      <p class="pricing-note">Monthly examples show the stated treatment amount divided across the listed term. Eligibility, final treatment scope and payment terms are confirmed by the office.</p>
+      <p class="pricing-note">{isContouring ? 'The $13 monthly view is a rounded 12-month planning display rather than an exact division of $150. Eligibility, final treatment scope and payment terms are confirmed by the office.' : 'Monthly examples show the stated treatment amount divided across the listed term. Eligibility, final treatment scope and payment terms are confirmed by the office.'}</p>
     </div>
   </section>
 
@@ -750,6 +820,15 @@ const content = isBonding ? {
   .whitening-hero.is-bonding .hero-fold--two>img{object-position:52% center}
   .whitening-hero.is-bonding .hero-fold--three>img{object-position:60% center}
   .whitening-hero.is-bonding .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 36%,rgba(4,24,20,.48) 54%,transparent 72%)}
+  .whitening-hero.is-contouring .hero-folds__scan{display:none}
+  .whitening-hero.is-contouring .hero-fold{border:0;box-shadow:0 2.2rem 6rem rgba(0,0,0,.3)}
+  .whitening-hero.is-contouring .hero-fold--one{clip-path:ellipse(72% 54% at 54% 50%)}
+  .whitening-hero.is-contouring .hero-fold--two{clip-path:ellipse(58% 72% at 50% 50%)}
+  .whitening-hero.is-contouring .hero-fold--three{clip-path:ellipse(72% 54% at 46% 50%)}
+  .whitening-hero.is-contouring .hero-fold--one>img{object-position:45% center}
+  .whitening-hero.is-contouring .hero-fold--two>img{object-position:52% center}
+  .whitening-hero.is-contouring .hero-fold--three>img{object-position:60% center}
+  .whitening-hero.is-contouring .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 36%,rgba(4,24,20,.46) 54%,transparent 72%)}
 
   @media(min-width:721px) and (max-width:1100px){
     .whitening-hero{height:245svh}
@@ -788,6 +867,9 @@ const content = isBonding ? {
     .whitening-hero.is-bonding .hero-fold--one,.whitening-hero.is-bonding .hero-fold--three{clip-path:inset(0 0 5% 0 round 5rem 5rem .5rem .5rem)}
     .whitening-hero.is-bonding .hero-fold--two{clip-path:inset(5% 0 0 0 round .5rem .5rem 5rem 5rem)}
     .whitening-hero.is-bonding .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.22) 60%,rgba(4,24,20,.76) 100%)}
+    .whitening-hero.is-contouring .hero-fold--one,.whitening-hero.is-contouring .hero-fold--three{clip-path:ellipse(72% 54% at 50% 50%)}
+    .whitening-hero.is-contouring .hero-fold--two{clip-path:ellipse(58% 72% at 50% 50%)}
+    .whitening-hero.is-contouring .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.22) 60%,rgba(4,24,20,.76) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */

@@ -23,6 +23,7 @@ const routes = [
   ['lumineers', '/services/lumineers/', '#before-after-lumineers'],
   ['snap-on-smile', '/services/snap-on-smile/', '#before-after-snap-on-smile'],
   ['dental-bonding', '/services/dental-bonding/', '#before-after-dental-bonding'],
+  ['tooth-contouring', '/services/tooth-contouring/', '#before-after-tooth-contouring'],
 ];
 const viewports = [
   ['desktop', 1440, 900],
