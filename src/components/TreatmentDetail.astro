@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement' | 'tooth-colored-dental-filling';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -39,8 +39,14 @@ const isLaserDentistry = kind === 'laser-dentistry';
 const isSpirocheteTest = kind === 'oral-spirochete-test';
 const isRecodeProgram = kind === 'recode-2-0-dental-program';
 const isAmalgamReplacement = kind === 'amalgam-filling-replacement';
+const isToothColoredFilling = kind === 'tooth-colored-dental-filling';
 
-const processSteps = isAmalgamReplacement ? [
+const processSteps = isToothColoredFilling ? [
+  ['01', 'Evaluate', 'The clinician examines the damaged or decayed area, symptoms, remaining tooth structure, bite and relevant history before confirming that a direct filling is appropriate.'],
+  ['02', 'Prepare the indicated area', 'Only the clinically indicated area is prepared according to the restorative plan while sound tooth structure is respected where possible.'],
+  ['03', 'Place & shape', 'A tooth-colored material is selected, placed and shaped for the individual tooth without promising an invisible, perfect or permanent result.'],
+  ['04', 'Finish & check', 'The restoration is finished and polished, then shape, contact and bite are checked before individualized home-care guidance is explained.'],
+] : isAmalgamReplacement ? [
   ['01', 'Assess', 'The clinician examines the tooth, existing restoration, symptoms, remaining structure and relevant history before discussing whether replacement is appropriate.'],
   ['02', 'Compare', 'Keeping and monitoring the restoration is compared with replacement, including risks, benefits, alternatives and any diagnostics still needed.'],
   ['03', 'Replace', 'When a clinical reason is confirmed, the existing filling is removed and the tooth is prepared according to the individualized restorative plan.'],
@@ -222,7 +228,14 @@ const processSteps = isAmalgamReplacement ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isAmalgamReplacement ? [
+const faqs = isToothColoredFilling ? [
+  ['How much does a tooth-colored dental filling cost?', 'The customer-facing price starts at $255 per tooth. The $22 monthly view is an approximate rounded 12-month illustration ($264 total), which is $9 above the $255 starting fixed and yearly views. Final scope, eligibility and payment terms are confirmed after evaluation.'],
+  ['What is a tooth-colored dental filling?', 'It is a direct restorative material selected to repair an appropriate damaged area and coordinate with the tooth shade. Material, shade and technique depend on the tooth and clinical plan.'],
+  ['Can every damaged tooth be repaired with a filling?', 'No. Remaining tooth structure, location, bite, crack extent, decay and other findings determine whether a direct filling, crown, root-canal pathway or another treatment should be considered.'],
+  ['Will the filling be invisible or last permanently?', 'No exact shade match, invisible margin or lifetime is guaranteed. Appearance and longevity depend on the tooth, material, bite, habits, home care and future clinical conditions.'],
+  ['Will a tooth-colored filling make the tooth cavity-proof?', 'No. A restoration repairs the confirmed area but does not make the tooth immune to new decay, wear, fracture or future treatment. Ongoing home care and review remain important.'],
+  ['Are examination and X-rays included in the starting price?', 'No automatic inclusion is stated. Examination, digital X-rays, additional diagnostics, crowns, root-canal treatment and other services are separate unless the office confirms them in the scheduled scope.'],
+] : isAmalgamReplacement ? [
   ['How much does amalgam filling replacement cost?', 'The customer-facing price starts at $400 per tooth. The $34 monthly view is an approximate rounded 12-month illustration ($408 total), which is $8 above the $400 starting fixed and yearly views. Final scope, restoration choice, eligibility and payment terms are confirmed after evaluation.'],
   ['Should every amalgam filling be replaced?', 'No. Replacement is not recommended solely because a restoration is amalgam. The tooth condition, symptoms, restoration integrity, remaining structure, risks, alternatives and patient priorities guide the decision.'],
   ['Does replacement detox the body or improve cognitive or systemic health?', 'No. No detoxification, cognitive, neurologic, cardiovascular, systemic or other medical benefit is claimed. Dental treatment does not replace medical evaluation or treatment.'],
@@ -441,7 +454,14 @@ const faqs = isAmalgamReplacement ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isAmalgamReplacement ? [
+const relatedServices = isToothColoredFilling ? [
+  ['Restorative & Reconstructive', 'Explore the complete restorative category', '/services/restorative-reconstructive/'],
+  ['Routine comprehensive exam', 'Connect the repair to the complete oral picture', '/services/routine-comprehensive-exam/'],
+  ['Digital dental X-rays', 'Explore clinically indicated diagnostic imaging', '/services/digital-dental-x-rays/'],
+  ['Dental crown', 'Explore broader coverage when a filling is not enough', '/services/dental-crown/'],
+  ['Root-canal treatment & coordination', 'Explore the pathway when deeper tooth involvement is confirmed', '/services/root-canal-treatment-coordination/'],
+  ['Amalgam filling replacement', 'Compare a separate replacement pathway when indicated', '/services/amalgam-filling-replacement/'],
+] : isAmalgamReplacement ? [
   ['ReCODE & Cognitive Health', 'Explore the complete category and dental scope', '/services/recode-cognitive-health/'],
   ['Tooth-colored dental filling', 'Explore a direct-restoration pathway when appropriate', '/services/tooth-colored-dental-filling/'],
   ['Dental crown', 'Explore greater coverage when the tooth needs it', '/services/dental-crown/'],
@@ -654,7 +674,62 @@ const relatedServices = isAmalgamReplacement ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isAmalgamReplacement ? {
+const content = isToothColoredFilling ? {
+  heroClass: 'is-tooth-colored-filling',
+  heroImages: [
+    ['/images/generated/tooth-colored-dental-filling-hero-v1.webp', 'A dentist assessing a tooth before planning a tooth-colored dental filling', 'MAP THE DAMAGE'],
+    ['/images/generated/tooth-colored-dental-filling-hero-detail-v1.webp', 'A clinician selecting restorative material and shade for an individual tooth', 'MATCH THE SHADE'],
+    ['/images/generated/tooth-colored-dental-filling-hero-result-v1.webp', 'A tooth-colored dental filling being reviewed in the complete bite', 'REBUILD CONSERVATIVELY'],
+  ],
+  heroAria: ['Explore tooth assessment', 'Explore material and shade planning', 'Explore the finished restorative review'],
+  kicker: 'Restorative & Reconstructive · Service 03',
+  title: ['Repair what needs repair.', 'Keep the tooth looking like itself.'],
+  intro: 'Selected damaged or decayed structure is restored with material and shade designed to blend. The examination may instead support monitoring, a crown or root-canal evaluation.',
+  heroRail: ['Define the extent', 'Restore the selected area', 'Shape and check the bite'],
+  ledgerLabel: 'Tooth-colored dental filling', ledgerFixed: 'From $255 / tooth', ledgerMonthly: '$22 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['The repair should follow', 'the tooth—not', 'hide the reason.'],
+  storyImage: '/images/generated/tooth-colored-dental-filling-process-v1.webp',
+  storyAlt: 'A dentist planning a conservative tooth-colored filling around the remaining tooth structure',
+  storyRangeLabel: 'Compare an unconfirmed damaged area with a tooth-led direct restoration plan',
+  storyNote: 'Confirm the tooth can be predictably restored with a direct filling before treatment begins.',
+  storyLead: 'We begin with the damaged area, remaining structure and complete bite. A direct filling is considered alongside broader restorative options, then shade and form are planned around the individual tooth rather than treated as a universal repair.',
+  storySteps: [
+    ['01', 'Map the damage', 'Symptoms, visible findings, remaining structure and relevant diagnostics define what needs repair.'],
+    ['02', 'Confirm the pathway', 'A direct filling is compared with monitoring, a crown, root-canal coordination or another appropriate option.'],
+    ['03', 'Rebuild the tooth', 'The selected material is shaped and finished for the confirmed area, contact and bite.'],
+  ],
+  storyNotes: ['Begin with the damaged area and remaining structure.', 'Confirm a direct filling is the appropriate path.', 'Restore the tooth in the context of the complete bite.'],
+  processTitle: ['Repair the need.', 'Respect the tooth.'],
+  expectTitle: ['Direct restoration.', 'Individual tooth plan.'],
+  expectCopy: 'A tooth-colored filling can repair an appropriate area with material selected to coordinate with the tooth. It is not guaranteed invisible, permanent or suitable for every damaged tooth; the examination determines whether a direct restoration provides enough support.',
+  metrics: [['1', 'tooth-specific direct restoration'], ['4', 'stages: assess, prepare, restore, review'], ['2', 'connected office locations']],
+  pricingId: 'tooth-colored-dental-filling-pricing',
+  pricingTitle: ['One direct repair.', 'Three planning views.'],
+  pricingIntro: 'The starting tooth-colored filling amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', 'From $255', 'per tooth'], ['MONTHLY · 02', '$22', 'per month · 12 months'], ['YEARLY · 03', 'From $255', 'per year · per tooth']],
+  pricingNote: 'The $22 monthly view is an approximate rounded illustration ($264 total across 12 months), which is $9 above the $255 starting fixed and yearly views. Final tooth condition, diagnostics, restoration size, material, eligibility and payment terms are office-confirmed.',
+  whyTitle: ['Natural shade.', 'Clinically honest scope.'],
+  whyIntro: 'The team confirms whether a direct filling provides enough support, respects sound structure, keeps wider restorative choices visible and reviews shape, contact and bite.',
+  whyImage: '/images/generated/tooth-colored-dental-filling-result-v1.webp',
+  whyAlt: 'A dentist reviewing the finished tooth-colored filling with a patient',
+  whyPanels: [
+    ['01', 'Extent before material', 'The damaged or decayed area and remaining structure define the repair before material is selected.'],
+    ['02', 'Sound structure respected', 'Preparation stays connected to the clinically indicated area and the support the tooth still has.'],
+    ['03', 'Shape, contact & bite checked', 'Contour and neighboring contact are reviewed alongside the visible shade and finish.'],
+    ['04', 'Limits explained', 'Blending, longevity and future care are discussed without promising an invisible or cavity-proof tooth.'],
+  ],
+  whyFoot: 'ONE DIRECT RESTORATION · FOUR CONNECTED STAGES',
+  proofTitle: ['The need clarified.', 'The repair contextualized.'],
+  proofText: 'Patients frequently mention careful explanations, natural-looking restorative work and practical next steps—general-practice themes that support a tooth-specific filling conversation.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Tooth structure first', 'Natural shade planning', 'Bite-aware review'],
+  faqTitle: ['Before a tooth-colored', 'dental filling.'],
+  relatedTitle: ['One direct repair.', 'Several connected paths.'],
+  relatedAria: 'Related restorative and examination services',
+  currentPath: 'Tooth-colored dental filling',
+  locationsAria: 'Tooth-colored dental filling locations',
+} : isAmalgamReplacement ? {
   heroClass: 'is-amalgam-replacement',
   heroImages: [
     ['/images/generated/amalgam-filling-replacement-hero-v1.webp', 'A dentist examining a tooth and existing amalgam restoration before discussing replacement', 'READ THE TOOTH'],
@@ -3268,6 +3343,18 @@ const content = isAmalgamReplacement ? {
   .whitening-hero.is-amalgam-replacement .hero-cinema__copy{top:13vh;width:min(43vw,45rem);transform:none}
   .whitening-hero.is-amalgam-replacement .hero-cinema__copy h1{font-size:clamp(4.8rem,7vw,7.8rem);line-height:.8;margin:1.25rem 0 1.7rem}
   .whitening-hero.is-amalgam-replacement .hero-cinema__copy h1 em{display:block;margin-left:clamp(2.5rem,5vw,5.5rem)}
+  .whitening-hero.is-tooth-colored-filling .hero-folds__scan{display:none}
+  .whitening-hero.is-tooth-colored-filling .hero-fold{border:0;box-shadow:0 2.4rem 6rem rgba(0,0,0,.34);overflow:hidden;transform-origin:center}
+  .whitening-hero.is-tooth-colored-filling .hero-fold--one{translate:0 -11%;scale:.84 .78;clip-path:inset(0 round 7rem 1rem 7rem 1rem)}
+  .whitening-hero.is-tooth-colored-filling .hero-fold--two{translate:-10% 3%;scale:1.05 .96;clip-path:inset(0 round 1.2rem)}
+  .whitening-hero.is-tooth-colored-filling .hero-fold--three{translate:0 16%;scale:.82 .76;clip-path:inset(0 round 1rem 7rem 1rem 7rem)}
+  .whitening-hero.is-tooth-colored-filling .hero-fold--one>img{object-position:42% center}
+  .whitening-hero.is-tooth-colored-filling .hero-fold--two>img{object-position:54% center}
+  .whitening-hero.is-tooth-colored-filling .hero-fold--three>img{object-position:67% center}
+  .whitening-hero.is-tooth-colored-filling .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 32%,rgba(4,24,20,.44) 59%,transparent 80%)}
+  .whitening-hero.is-tooth-colored-filling .hero-cinema__copy{top:15vh;width:min(46vw,48rem);transform:none}
+  .whitening-hero.is-tooth-colored-filling .hero-cinema__copy h1{font-size:clamp(3.8rem,5.5vw,6.2rem);line-height:.82;margin:1.25rem 0 1.45rem}
+  .whitening-hero.is-tooth-colored-filling .hero-cinema__copy h1 em{display:block;margin-left:clamp(1.75rem,4vw,4rem)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -3441,6 +3528,13 @@ const content = isAmalgamReplacement ? {
     .whitening-hero.is-amalgam-replacement .hero-cinema__copy{top:7.25rem}
     .whitening-hero.is-amalgam-replacement .hero-cinema__copy h1{font-size:clamp(3.25rem,14vw,4.35rem);line-height:.82}
     .whitening-hero.is-amalgam-replacement .hero-cinema__copy h1 em{margin-left:1.6rem}
+    .whitening-hero.is-tooth-colored-filling .hero-fold--one{translate:-5% -5%;scale:.88 .83;clip-path:inset(0 round 4rem .8rem 4rem .8rem)}
+    .whitening-hero.is-tooth-colored-filling .hero-fold--two{translate:-3% 4%;scale:1.03 .95;clip-path:inset(0 round .9rem)}
+    .whitening-hero.is-tooth-colored-filling .hero-fold--three{translate:5% 11%;scale:.88 .82;clip-path:inset(0 round .8rem 4rem .8rem 4rem)}
+    .whitening-hero.is-tooth-colored-filling .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.87) 31%,rgba(4,24,20,.16) 64%,rgba(4,24,20,.8) 100%)}
+    .whitening-hero.is-tooth-colored-filling .hero-cinema__copy{top:7.15rem}
+    .whitening-hero.is-tooth-colored-filling .hero-cinema__copy h1{font-size:clamp(2.7rem,11.9vw,3.7rem);line-height:.84}
+    .whitening-hero.is-tooth-colored-filling .hero-cinema__copy h1 em{margin-left:1.15rem}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
@@ -3584,6 +3678,7 @@ const content = isAmalgamReplacement ? {
       const heroFolds = q('[data-hero-fold]') as HTMLElement[];
       if (hero && heroFolds.length === 3) {
         const isAmalgamHero = hero.classList.contains('is-amalgam-replacement');
+        const isToothColoredHero = hero.classList.contains('is-tooth-colored-filling');
         const phases = q('[data-hero-phase]');
         const edition = q('[data-hero-edition]')[0];
         const scan = q('[data-fold-scan]')[0];
@@ -3618,7 +3713,11 @@ const content = isAmalgamReplacement ? {
           : [{left:tablet?'48vw':'47vw',top:'12vh',width:tablet?'40vw':'42vw',height:'76vh'},{left:'89vw',top:'16vh',width:'5vw',height:'68vh'},{left:'95vw',top:'20vh',width:'4vw',height:'60vh'}];
         heroFolds.forEach((fold,index)=>gsap.set(fold,{
           ...collapsed[index],
-          ...(isAmalgamHero ? {opacity:0,yPercent:index===1 ? 16 : -14} : {}),
+          ...(isAmalgamHero
+            ? {opacity:0,yPercent:index===1 ? 16 : -14}
+            : isToothColoredHero
+              ? {opacity:0,xPercent:[-24,0,24][index],yPercent:[-8,15,-12][index]}
+              : {}),
         }));
         if (progress) gsap.set(progress,{width:0});
         if (copy) gsap.set(copy,{opacity:.55});
@@ -3628,10 +3727,14 @@ const content = isAmalgamReplacement ? {
           top,
           width:restingWidth[index],
           height,
-          ...(isAmalgamHero ? {opacity:1,yPercent:0} : {}),
-          duration:isAmalgamHero ? 1.55 : 1.35,
-          ease:isAmalgamHero ? 'expo.inOut' : 'power3.inOut',
-        },index*(isAmalgamHero ? .12 : .08)));
+          ...(isAmalgamHero
+            ? {opacity:1,yPercent:0}
+            : isToothColoredHero
+              ? {opacity:1,xPercent:0,yPercent:0}
+              : {}),
+          duration:isAmalgamHero ? 1.55 : isToothColoredHero ? 1.45 : 1.35,
+          ease:isAmalgamHero ? 'expo.inOut' : isToothColoredHero ? 'power4.out' : 'power3.inOut',
+        },index*(isAmalgamHero ? .12 : isToothColoredHero ? .16 : .08)));
         intro.to(q('[data-hero-fold] img'),{scale:1.015,duration:1.2},0)
           .to(scan,{left:mobile?'100vw':'99vw',duration:1.4},0)
           .to(progress,{width:'100%',duration:1.35},0)

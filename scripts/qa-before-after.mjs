@@ -54,7 +54,15 @@ const routes = [
   ['oral-spirochete-test', '/services/oral-spirochete-test/', '#before-after-oral-spirochete-test'],
   ['recode-2-0-dental-program', '/services/recode-2-0-dental-program/', '#before-after-recode-2-0-dental-program'],
   ['amalgam-filling-replacement', '/services/amalgam-filling-replacement/', '#before-after-amalgam-filling-replacement'],
+  ['tooth-colored-dental-filling', '/services/tooth-colored-dental-filling/', '#before-after-tooth-colored-dental-filling'],
 ];
+const requestedRoute = process.argv[2];
+const selectedRoutes = requestedRoute
+  ? routes.filter(([routeName]) => routeName === requestedRoute)
+  : routes;
+if (requestedRoute && selectedRoutes.length === 0) {
+  throw new Error(`Unknown before/after QA route: ${requestedRoute}`);
+}
 const viewports = [
   ['desktop', 1440, 900],
   ['tablet', 1032, 1376],
@@ -65,7 +73,7 @@ await mkdir(out, { recursive: true });
 const browser = await chromium.launch({ headless: true, executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe' });
 const report = [];
 
-for (const [routeName, route, selector] of routes) {
+for (const [routeName, route, selector] of selectedRoutes) {
   for (const [viewportName, width, height] of viewports) {
     const page = await browser.newPage({ viewport: { width, height }, deviceScaleFactor: 1 });
     const errors = [];

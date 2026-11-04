@@ -43,6 +43,7 @@ const routes = [
   '/services/oral-spirochete-test/',
   '/services/recode-2-0-dental-program/',
   '/services/amalgam-filling-replacement/',
+  '/services/tooth-colored-dental-filling/',
   '/services/restorative-reconstructive/',
   '/services/wellness-offering/',
 ];

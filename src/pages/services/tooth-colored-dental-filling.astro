@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore tooth-colored dental fillings at Smiles by Noetzel, including tooth-specific assessment, direct restoration planning, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Tooth-Colored Dental Filling | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-tooth-colored-dental-filling.webp" mediaAlt="A clinician reviewing a tooth-specific direct restoration plan" />
+    <main>
+      <TreatmentDetail kind="tooth-colored-dental-filling" />
+      <BeforeAfterStory id="before-after-tooth-colored-dental-filling" tone="light" number="08" eyebrow="Illustrative restorative pathway · tooth-colored dental filling" title="From an unconfirmed damaged area." emphasis="To a tooth-led direct repair."
+        intro="This illustrative pathway shows how the extent of damage, remaining structure and bite may guide a tooth-colored filling. It is not an actual patient case, guaranteed shade match, promised lifespan or assured outcome."
+        image="/images/generated/before-after-tooth-colored-dental-filling-v1.webp" imageAlt="Illustrative comparison of an unconfirmed damaged tooth area and a planned tooth-colored direct restoration"
+        beforeLabel="Before evaluation" beforeDetail="The affected area is visible, but its extent, remaining support and the right restorative pathway have not yet been confirmed."
+        afterLabel="Illustrative direct repair" afterDetail="The simulated view represents a filling planned for the confirmed area, shape, contact and bite—not an invisible, permanent or cavity-proof result."
+        caseNote="Illustrative restorative pathway · not an actual patient case · candidacy and results vary" />
+      <HubFooter eyebrow="Ready to repair what needs repair?" title="Begin with the tooth, confirm the appropriate scope and keep every restorative option visible." />
+    </main>
+  </body>
+</html>
