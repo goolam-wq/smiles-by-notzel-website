@@ -41,6 +41,7 @@ const routes = [
   '/services/custom-night-guard/',
   '/services/laser-dentistry/',
   '/services/oral-spirochete-test/',
+  '/services/recode-2-0-dental-program/',
   '/services/restorative-reconstructive/',
   '/services/wellness-offering/',
 ];

@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -37,8 +37,14 @@ const isSportsMouthguard = kind === 'custom-sports-mouthguard';
 const isNightGuard = kind === 'custom-night-guard';
 const isLaserDentistry = kind === 'laser-dentistry';
 const isSpirocheteTest = kind === 'oral-spirochete-test';
+const isRecodeProgram = kind === 'recode-2-0-dental-program';
 
-const processSteps = isSpirocheteTest ? [
+const processSteps = isRecodeProgram ? [
+  ['01', 'Listen', 'The team begins with dental concerns, health context, outside care and the reason a coordinated dental baseline is being considered.'],
+  ['02', 'Assess', 'Oral findings and relevant records are reviewed within the confirmed dental scope; exact inclusions depend on the office-confirmed program plan.'],
+  ['03', 'Connect', 'Dental findings are organized into a baseline and explained alongside the wider care context without making cognitive or medical diagnoses or outcome claims.'],
+  ['04', 'Coordinate', 'The dental role, appropriate follow-up and any communication with outside clinicians are kept clearly scoped and appointment-based.'],
+] : isSpirocheteTest ? [
   ['01', 'Frame', 'The clinician clarifies the oral-health question, relevant history and what the test can and cannot contribute before any sample is collected.'],
   ['02', 'Collect', 'A sample is collected according to the current office or laboratory protocol without claiming a specific method unless the team confirms it.'],
   ['03', 'Review', 'The available result is reviewed as one signal alongside examination findings, periodontal measurements, symptoms and other relevant information.'],
@@ -210,7 +216,13 @@ const processSteps = isSpirocheteTest ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isSpirocheteTest ? [
+const faqs = isRecodeProgram ? [
+  ['How much does the ReCODE 2.0 dental program cost?', 'The customer-facing annual program price is $1,599. The $134 monthly view is an approximate rounded 12-month illustration ($1,608 total), which is $9 above the $1,599 fixed and yearly views. Final inclusions, eligibility, appointment timing and payment terms are office-confirmed.'],
+  ['What is included in the annual program?', 'Exact services, records, appointments and coordination are not assumed here. The office confirms the current program scope and what is separate before enrollment.'],
+  ['Does the dental program diagnose or treat cognitive disease?', 'No. The program does not diagnose, treat, prevent, reverse or predict cognitive, neurologic or other medical disease. Dental findings remain within a clearly limited dental role.'],
+  ['Who provides the ReCODE 2.0 dental perspective?', 'Dr. Ilenne Noetzel is certified in ReCODE 2.0. That training informs a coordinated dental perspective without replacing medical diagnosis, treatment or the patient’s outside clinical team.'],
+  ['Is the program available at both offices?', 'Appointment-based program coordination can begin through Chicago Heights or Mokena. Call the preferred office to confirm current availability, scope and scheduling.'],
+] : isSpirocheteTest ? [
   ['How much does an oral spirochete test cost?', 'The customer-facing price is $199 per test. The $17 monthly view is an approximate rounded 12-month illustration ($204 total), which is $5 above the $199 fixed and yearly views. Final scope, eligibility and payment terms are confirmed by the office.'],
   ['Does this test diagnose gum disease, cognitive disease or systemic disease?', 'No. The result is not presented as a diagnosis of periodontal, cognitive, neurologic, cardiovascular, systemic or other disease. It must be interpreted with clinical findings and appropriate dental or medical evaluation.'],
   ['Can the result prove causation or predict a future condition?', 'No. The presence, absence or level of an oral microbial signal does not by itself prove causation, predict a future condition or establish that an oral finding caused a wider health concern.'],
@@ -417,7 +429,13 @@ const faqs = isSpirocheteTest ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isSpirocheteTest ? [
+const relatedServices = isRecodeProgram ? [
+  ['ReCODE & Cognitive Health', 'Explore the complete category and dental scope', '/services/recode-cognitive-health/'],
+  ['Oral spirochete test', 'Explore one contextual oral microbial signal', '/services/oral-spirochete-test/'],
+  ['Amalgam filling replacement', 'Explore a separate restorative pathway when appropriate', '/services/amalgam-filling-replacement/'],
+  ['Complete Health & Airway', 'Connect dental findings to a wider health conversation', '/services/complete-health-airway/'],
+  ['Routine comprehensive exam', 'Connect the baseline to a wider oral examination', '/services/routine-comprehensive-exam/'],
+] : isSpirocheteTest ? [
   ['ReCODE & Cognitive Health', 'Explore the complete category and its scope', '/services/recode-cognitive-health/'],
   ['ReCODE 2.0 dental program', 'Explore the coordinated annual dental program', '/services/recode-2-0-dental-program/'],
   ['Gum-disease screening', 'Connect the result to measured periodontal findings', '/services/gum-disease-screening/'],
@@ -618,7 +636,62 @@ const relatedServices = isSpirocheteTest ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isSpirocheteTest ? {
+const content = isRecodeProgram ? {
+  heroClass: 'is-recode-program',
+  heroImages: [
+    ['/images/generated/recode-2-0-dental-program-hero-v1.webp', 'Dr. Ilenne Noetzel listening to a patient before establishing a coordinated dental baseline', 'LISTEN'],
+    ['/images/generated/recode-2-0-dental-program-hero-detail-v1.webp', 'A clinician reviewing dental findings and records for a ReCODE 2.0 dental baseline', 'ESTABLISH THE BASELINE'],
+    ['/images/generated/recode-2-0-dental-program-hero-result-v1.webp', 'A dentist coordinating a clearly limited dental role with the patient', 'COORDINATE THE DENTAL ROLE'],
+  ],
+  heroAria: ['Explore listening and dental context', 'Explore the coordinated dental baseline', 'Explore the clearly limited dental role'],
+  kicker: 'ReCODE & Cognitive Health · Annual Program 01',
+  title: ['Dental findings, coordinated—', 'not overstated.'],
+  intro: 'An appointment-based annual dental program that organizes oral findings and coordination within a clearly limited dental role. It does not promise cognitive or medical outcomes.',
+  heroRail: ['Listen', 'Establish the baseline', 'Coordinate the dental role'],
+  ledgerLabel: 'ReCODE 2.0 dental program', ledgerFixed: '$1,599 / year', ledgerMonthly: '$134 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['A baseline becomes useful', 'when dental findings are', 'organized.'],
+  storyImage: '/images/generated/recode-2-0-dental-program-process-v1.webp',
+  storyAlt: 'A clinician organizing dental findings and records within the ReCODE 2.0 dental program',
+  storyRangeLabel: 'Compare scattered dental questions with an organized baseline and coordinated dental role',
+  storyNote: 'Build the dental baseline without overstating what it can mean medically.',
+  storyLead: 'We begin by listening to the dental questions and wider care context. Oral findings and relevant records are organized into a baseline, explained within dental scope and coordinated when appropriate—without turning them into a cognitive diagnosis or promised medical result.',
+  storySteps: [
+    ['01', 'Listen to the context', 'Dental concerns, outside care and the reason for coordination establish the starting point.'],
+    ['02', 'Establish the baseline', 'Office-confirmed dental findings and records are organized without assuming unconfirmed program inclusions.'],
+    ['03', 'Coordinate the dental role', 'Follow-up and outside communication remain clearly scoped to dental findings and responsibilities.'],
+  ],
+  storyNotes: ['Begin with the dental questions and wider context.', 'Organize the office-confirmed dental baseline.', 'Keep medical and cognitive roles clearly separated.'],
+  processTitle: ['Organize the baseline.', 'Protect the scope.'],
+  expectTitle: ['A certified perspective.', 'A clearly limited dental role.'],
+  expectCopy: 'Dr. Ilenne Noetzel is certified in ReCODE 2.0. The annual dental program organizes dental findings and coordination but does not diagnose, treat, prevent, reverse or predict cognitive or other medical disease, and exact inclusions require office confirmation.',
+  metrics: [['1', 'appointment-based annual program'], ['4', 'stages: listen, assess, connect, coordinate'], ['2', 'connected office locations']],
+  pricingId: 'recode-2-0-dental-program-pricing',
+  pricingTitle: ['One annual program.', 'Three planning views.'],
+  pricingIntro: 'The ReCODE 2.0 dental program shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$1,599', 'annual program'], ['MONTHLY · 02', '$134', 'per month · 12 months'], ['YEARLY · 03', '$1,599', 'per year']],
+  pricingNote: 'The $134 monthly view is an approximate rounded illustration ($1,608 total across 12 months), which is $9 above the $1,599 fixed and yearly views. Exact services, records, appointments and coordination are not assumed; current inclusions, eligibility, scheduling and payment terms are office-confirmed.',
+  whyTitle: ['A certified perspective.', 'A clearly limited dental role.'],
+  whyIntro: 'Dr. Ilenne Noetzel’s ReCODE 2.0 certification informs how dental findings may be organized and communicated. The program keeps dental responsibilities visible without replacing the patient’s medical team or promising cognitive outcomes.',
+  whyImage: '/images/generated/recode-2-0-dental-program-result-v1.webp',
+  whyAlt: 'Dr. Ilenne Noetzel explaining an organized dental baseline and the limits of the dental role',
+  whyPanels: [
+    ['01', 'Dental baseline first', 'Office-confirmed oral findings and records are organized before any coordination is discussed.'],
+    ['02', 'Certified perspective', 'Dr. Ilenne Noetzel is certified in ReCODE 2.0 and applies that perspective within dental scope.'],
+    ['03', 'No cognitive outcome claim', 'The program does not diagnose, treat, prevent, reverse or predict cognitive or medical disease.'],
+    ['04', 'Coordination stays accountable', 'Dental follow-up and outside communication remain appointment-based and clearly separated from medical care.'],
+  ],
+  whyFoot: 'ONE ANNUAL PROGRAM · FOUR CONNECTED STAGES',
+  proofTitle: ['The baseline organized.', 'The dental role clear.'],
+  proofText: 'Patients frequently mention thorough explanations, thoughtful coordination and clearly organized next steps—general-practice themes that support a careful dental baseline.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Organized dental baseline', 'Certified perspective', 'Clear scope boundaries'],
+  faqTitle: ['Before the ReCODE 2.0', 'dental program.'],
+  relatedTitle: ['One annual dental program.', 'Several connected paths.'],
+  relatedAria: 'Related ReCODE, restorative and examination services',
+  currentPath: 'ReCODE 2.0 dental program',
+  locationsAria: 'ReCODE 2.0 dental program locations',
+} : isSpirocheteTest ? {
   heroClass: 'is-spirochete-test',
   heroImages: [
     ['/images/generated/oral-spirochete-test-hero-v1.webp', 'A clinician clarifying the oral-health question before an oral spirochete test', 'CLARIFY THE QUESTION'],
@@ -3101,6 +3174,15 @@ const content = isSpirocheteTest ? {
   .whitening-hero.is-spirochete-test .hero-fold--two>img{object-position:53% center}
   .whitening-hero.is-spirochete-test .hero-fold--three>img{object-position:60% center}
   .whitening-hero.is-spirochete-test .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.39) 60%,transparent 80%)}
+  .whitening-hero.is-recode-program .hero-folds__scan{display:none}
+  .whitening-hero.is-recode-program .hero-fold{border:0;box-shadow:0 2.4rem 6.2rem rgba(0,0,0,.34);overflow:hidden}
+  .whitening-hero.is-recode-program .hero-fold--one{clip-path:inset(1% 4% 1% 4% round 48% 48% 1.5rem 1.5rem)}
+  .whitening-hero.is-recode-program .hero-fold--two{clip-path:inset(1% 4% 1% 4% round 1.5rem 1.5rem 48% 48%)}
+  .whitening-hero.is-recode-program .hero-fold--three{clip-path:inset(4% 3% 4% 3% round 999px)}
+  .whitening-hero.is-recode-program .hero-fold--one>img{object-position:42% center}
+  .whitening-hero.is-recode-program .hero-fold--two>img{object-position:53% center}
+  .whitening-hero.is-recode-program .hero-fold--three>img{object-position:63% center}
+  .whitening-hero.is-recode-program .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 34%,rgba(4,24,20,.34) 62%,transparent 82%)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -3263,6 +3345,10 @@ const content = isSpirocheteTest ? {
     .whitening-hero.is-spirochete-test .hero-fold--two{clip-path:inset(3% 2% 5% 1% round 1rem 4rem 1rem 4rem)}
     .whitening-hero.is-spirochete-test .hero-fold--three{clip-path:inset(5% 1% 2% 2% round 4rem 1rem 4rem 1rem)}
     .whitening-hero.is-spirochete-test .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.18) 60%,rgba(4,24,20,.79) 100%)}
+    .whitening-hero.is-recode-program .hero-fold--one{clip-path:inset(1% 3% 1% 3% round 45% 45% 1rem 1rem)}
+    .whitening-hero.is-recode-program .hero-fold--two{clip-path:inset(1% 3% 1% 3% round 1rem 1rem 45% 45%)}
+    .whitening-hero.is-recode-program .hero-fold--three{clip-path:inset(4% 2% 4% 2% round 999px)}
+    .whitening-hero.is-recode-program .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.89) 30%,rgba(4,24,20,.15) 61%,rgba(4,24,20,.81) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
