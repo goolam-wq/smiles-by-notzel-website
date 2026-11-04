@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -20,8 +20,14 @@ const isBoneGrafting = kind === 'bone-grafting';
 const isImplantRestoration = kind === 'dental-implant-restoration';
 const isSimpleExtraction = kind === 'simple-tooth-extraction';
 const isSurgicalExtraction = kind === 'surgical-tooth-extraction';
+const isWisdomTooth = kind === 'wisdom-tooth-removal';
 
-const processSteps = isSurgicalExtraction ? [
+const processSteps = isWisdomTooth ? [
+  ['01', 'Assess', 'The third molar, eruption, position, roots, surrounding structures, symptoms and medical history are evaluated with relevant imaging.'],
+  ['02', 'Plan', 'The team explains whether observation, straightforward removal or a surgical pathway is appropriate for the individual wisdom tooth.'],
+  ['03', 'Remove', 'When removal is recommended, the wisdom tooth is treated according to its confirmed position, anatomy and clinical plan.'],
+  ['04', 'Recover', 'The team explains site care, warning signs and appropriate follow-up for the planned removal pathway.'],
+] : isSurgicalExtraction ? [
   ['01', 'Assess', 'The tooth, surrounding structures, symptoms, medical history and imaging are reviewed to understand why a surgical pathway may be required.'],
   ['02', 'Compare', 'Restorative alternatives, extraction complexity, comfort planning and practical next steps are explained before consent.'],
   ['03', 'Remove', 'When surgical removal is clinically appropriate, the tooth is removed according to the confirmed plan and individual anatomy.'],
@@ -108,7 +114,13 @@ const processSteps = isSurgicalExtraction ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isSurgicalExtraction ? [
+const faqs = isWisdomTooth ? [
+  ['How much does wisdom-tooth removal cost?', 'The customer-facing treatment price is $550 per tooth. The $46 monthly view is an approximate rounded 12-month financing illustration ($552 total), and the yearly treatment amount is $550 per tooth. Final complexity, scope, eligibility and payment terms are confirmed after evaluation.'],
+  ['Does every wisdom tooth need to be removed?', 'No. Position, eruption, symptoms, hygiene access, neighboring structures and other clinical findings determine whether observation or removal is appropriate.'],
+  ['Will the removal be simple or surgical?', 'That depends on eruption, position, root form, surrounding anatomy and access. Examination and imaging help the clinician determine whether a straightforward or surgical pathway is appropriate.'],
+  ['Is wisdom-tooth removal guaranteed to be painless or complication-free?', 'No. No removal can be promised as painless or free of complications. The team reviews comfort planning, medical history, procedure expectations, site-care instructions and warning signs.'],
+  ['Is wisdom-tooth assessment available at both offices?', 'Evaluations can begin through Chicago Heights or Mokena. Call the preferred office to confirm the recommended visit and current removal availability.'],
+] : isSurgicalExtraction ? [
   ['How much does a surgical tooth extraction cost?', 'The customer-facing treatment price is $400 per tooth. The $34 monthly view is an approximate rounded 12-month financing illustration ($408 total), and the yearly treatment amount is $400 per tooth. Final complexity, scope, eligibility and payment terms are confirmed after evaluation.'],
   ['Why might an extraction need to be surgical?', 'Tooth position, remaining tooth structure, root form, surrounding bone or access may make a straightforward removal inappropriate. Examination and imaging help the clinician classify the required pathway.'],
   ['Will alternatives be discussed first?', 'Yes. When a tooth may be restorable, the team explains the findings and relevant alternatives before surgical extraction is confirmed. The recommendation depends on the individual tooth and wider care plan.'],
@@ -212,7 +224,14 @@ const faqs = isSurgicalExtraction ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isSurgicalExtraction ? [
+const relatedServices = isWisdomTooth ? [
+  ['Implants & Oral Surgery', 'Explore the complete category', '/services/implants-oral-surgery/'],
+  ['Simple tooth extraction', 'Explore a straightforward removal pathway', '/services/simple-tooth-extraction/'],
+  ['Surgical tooth extraction', 'Explore a more complex removal pathway', '/services/surgical-tooth-extraction/'],
+  ['Digital dental X-rays', 'Explore focused diagnostic imaging', '/services/digital-dental-x-rays/'],
+  ['Same-day emergency dental care', 'Explore prompt assessment for urgent concerns', '/services/same-day-emergency-dental-care/'],
+  ['Emergency & Comfort Dentistry', 'Explore connected comfort options', '/services/emergency-comfort/'],
+] : isSurgicalExtraction ? [
   ['Implants & Oral Surgery', 'Explore the complete category', '/services/implants-oral-surgery/'],
   ['Simple tooth extraction', 'Compare a straightforward removal pathway', '/services/simple-tooth-extraction/'],
   ['Wisdom-tooth removal', 'Explore third-molar evaluation and care', '/services/wisdom-tooth-removal/'],
@@ -310,7 +329,61 @@ const relatedServices = isSurgicalExtraction ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isSurgicalExtraction ? {
+const content = isWisdomTooth ? {
+  heroClass: 'is-wisdom-tooth',
+  heroImages: [
+    ['/images/generated/wisdom-tooth-removal-hero-v1.webp', 'A patient and dentist discussing a wisdom-tooth concern', 'BEGIN WITH THE THIRD MOLAR'],
+    ['/images/generated/wisdom-tooth-removal-hero-detail-v1.webp', 'A dentist reviewing third-molar imaging and anatomy', 'MAP THE POSITION'],
+    ['/images/generated/wisdom-tooth-removal-hero-result-v1.webp', 'A dentist explaining recovery after wisdom-tooth removal', 'PLAN THE RECOVERY'],
+  ],
+  heroAria: ['Explore the wisdom-tooth assessment', 'Explore eruption, position and anatomy planning', 'Explore the recovery conversation'],
+  kicker: 'Implants & Oral Surgery · Treatment 08',
+  title: ['Not every wisdom tooth needs removal.', 'Every decision needs context.'],
+  intro: 'Third-molar assessment that connects symptoms, eruption, position, roots and surrounding anatomy before observation, simple removal or surgical care is recommended.',
+  heroRail: ['Begin with the third molar', 'Map the position', 'Plan the recovery'],
+  ledgerLabel: 'Wisdom-tooth removal', ledgerFixed: '$550 / tooth', ledgerMonthly: '$46 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['A third molar is not an automatic extraction.', 'It is an', 'individual decision.'],
+  storyImage: '/images/generated/wisdom-tooth-removal-process-v1.webp',
+  storyAlt: 'A dentist reviewing wisdom-tooth position and surrounding anatomy before treatment',
+  storyRangeLabel: 'Compare the starting wisdom-tooth concern with the assessed observation or removal pathway',
+  storyNote: 'Understand eruption, position and anatomy before choosing the path.',
+  storyLead: 'We begin with what the wisdom tooth is doing—not simply that it exists. Examination and imaging connect eruption, roots, symptoms, hygiene access and surrounding structures to the appropriate next step.',
+  storySteps: [
+    ['01', 'Read the third molar', 'Eruption, position, roots, symptoms and neighboring anatomy establish the clinical starting point.'],
+    ['02', 'Choose the path', 'Observation, straightforward removal or surgical treatment is considered according to the individual findings.'],
+    ['03', 'Plan the recovery', 'Comfort, site care, warning signs and appropriate follow-up are explained for the confirmed pathway.'],
+  ],
+  storyNotes: ['Understand eruption, position and anatomy before choosing the path.', 'Distinguish observation, simple removal and surgical care after imaging.', 'Connect recovery and follow-up to the confirmed treatment plan.'],
+  processTitle: ['Third-molar specific.', 'Decision-led from the start.'],
+  expectTitle: ['One wisdom tooth.', 'Several possible paths.'],
+  expectCopy: 'Not every wisdom tooth needs removal. Examination and imaging determine whether observation, a straightforward extraction or a surgical pathway is appropriate. Comfort, uncomplicated healing or a specific outcome cannot be guaranteed.',
+  metrics: [['1', 'third-molar-specific assessment'], ['3', 'paths: observe, simple, surgical'], ['2', 'connected office locations']],
+  pricingId: 'wisdom-tooth-removal-pricing',
+  pricingTitle: ['One wisdom tooth.', 'Three planning views.'],
+  pricingIntro: 'The same wisdom-tooth removal per-tooth amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$550', 'per wisdom tooth'], ['MONTHLY · 02', '$46', 'per month · 12 months'], ['YEARLY · 03', '$550', 'per wisdom tooth']],
+  pricingNote: 'The $46 monthly view is an approximate rounded financing illustration ($552 total across 12 months), not an exact division of $550. The yearly amount is a per-tooth treatment view, not a subscription. Imaging, additional procedures, sedation and other treatment are not represented as included; final complexity, scope, eligibility and terms are confirmed by the office.',
+  whyTitle: ['Position understood.', 'Treatment individualized.'],
+  whyIntro: 'We do not recommend removal by age or tooth name alone. Eruption, position, roots, symptoms, hygiene access, medical history and surrounding anatomy stay connected from assessment through follow-up.',
+  whyImage: '/images/generated/wisdom-tooth-removal-result-v1.webp',
+  whyAlt: 'A dentist and patient reviewing recovery after wisdom-tooth removal',
+  whyPanels: [
+    ['01', 'Observation remains an option', 'A wisdom tooth that does not need removal is not treated automatically.'],
+    ['02', 'Imaging guides complexity', 'Position, roots and surrounding anatomy help define a simple or surgical pathway.'],
+    ['03', 'Recovery stays connected', 'Site-care instructions, warning signs and appropriate follow-up are explained clearly.'],
+  ],
+  whyFoot: 'ONE THIRD MOLAR · THREE POSSIBLE PATHS',
+  proofTitle: ['The position understood.', 'The next step clear.'],
+  proofText: 'Patients frequently mention thoughtful explanations, attentive care and clear next steps—general-practice feedback that supports how wisdom-tooth decisions and follow-up are discussed.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Third-molar assessment', 'Path-specific planning', 'Connected aftercare'],
+  faqTitle: ['Before you decide', 'about the third molar.'],
+  relatedTitle: ['One wisdom tooth.', 'Several connected paths.'],
+  relatedAria: 'Related extraction, diagnostic, emergency and comfort services',
+  currentPath: 'Wisdom-tooth removal',
+  locationsAria: 'Wisdom-tooth evaluation locations',
+} : isSurgicalExtraction ? {
   heroClass: 'is-surgical-extraction',
   heroImages: [
     ['/images/generated/surgical-tooth-extraction-hero-v1.webp', 'A patient and dentist discussing a tooth that may require surgical removal', 'BEGIN WITH THE COMPLEXITY'],
@@ -1720,13 +1793,26 @@ const content = isSurgicalExtraction ? {
   .whitening-hero.is-surgical-extraction .hero-fold--two>img{object-position:51% center}
   .whitening-hero.is-surgical-extraction .hero-fold--three>img{object-position:61% center}
   .whitening-hero.is-surgical-extraction .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.47) 55%,transparent 74%)}
+  .whitening-hero.is-wisdom-tooth .hero-folds__scan{display:none}
+  .whitening-hero.is-wisdom-tooth .hero-fold{border:0;box-shadow:0 2.2rem 6rem rgba(0,0,0,.33)}
+  .whitening-hero.is-wisdom-tooth .hero-fold--one{clip-path:inset(4% 0 8% 0 round 9rem 2rem 4rem 2rem)}
+  .whitening-hero.is-wisdom-tooth .hero-fold--two{clip-path:inset(8% 0 4% 0 round 2rem 9rem 2rem 4rem)}
+  .whitening-hero.is-wisdom-tooth .hero-fold--three{clip-path:inset(4% 0 8% 0 round 4rem 2rem 9rem 2rem)}
+  .whitening-hero.is-wisdom-tooth .hero-fold--one>img{object-position:42% center}
+  .whitening-hero.is-wisdom-tooth .hero-fold--two>img{object-position:51% center}
+  .whitening-hero.is-wisdom-tooth .hero-fold--three>img{object-position:61% center}
+  .whitening-hero.is-wisdom-tooth .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.46) 55%,transparent 74%)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
+
+  @media(min-width:1101px){
+    .whitening-hero.is-wisdom-tooth .hero-cinema__copy h1{font-size:clamp(4.15rem,5.7vw,6.5rem)}
+  }
 
   @media(min-width:721px) and (max-width:1100px){
     .whitening-hero{height:245svh}
     .hero-fold--one{left:48vw;width:40vw}.hero-fold--two{left:89vw}.hero-fold--three{left:95vw}
     .hero-folds__scan{left:48vw}
-    .hero-cinema__copy{left:3.8rem;width:42vw}.hero-cinema__copy h1{font-size:clamp(4.5rem,7.7vw,6.4rem)}
+    .hero-cinema__copy{left:3.8rem;width:42vw}.hero-cinema__copy h1{font-size:clamp(4.5rem,7.7vw,6.4rem)}.whitening-hero.is-wisdom-tooth .hero-cinema__copy h1{font-size:clamp(3.45rem,5.55vw,4.7rem)}
     .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 35%,rgba(4,24,20,.62) 47%,transparent 62%)}
   }
 
@@ -1743,7 +1829,7 @@ const content = isSurgicalExtraction ? {
     .hero-folds__scan span{display:none}
     .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 31%,rgba(4,24,20,.28) 54%,rgba(4,24,20,.15) 76%,rgba(4,24,20,.82) 100%)}
     .hero-cinema__copy{left:1.25rem;right:1.25rem;top:6.7rem;width:auto;transform:none}
-    .hero-cinema__copy h1{font-size:clamp(3.35rem,14.6vw,4.55rem);margin:1rem 0;line-height:.78}
+    .hero-cinema__copy h1{font-size:clamp(3.35rem,14.6vw,4.55rem);margin:1rem 0;line-height:.78}.whitening-hero.is-wisdom-tooth .hero-cinema__copy h1{font-size:clamp(3.05rem,13vw,4.05rem)}
     .hero-cinema__copy>p:last-of-type{max-width:20rem;font-size:.72rem;line-height:1.5}
     .hero-cinema__rail{bottom:1.15rem}
     .hero-folds__edition{display:none}
@@ -1804,6 +1890,10 @@ const content = isSurgicalExtraction ? {
     .whitening-hero.is-surgical-extraction .hero-fold--two{clip-path:inset(0 0 5% 0 round .75rem 5rem 3rem .75rem)}
     .whitening-hero.is-surgical-extraction .hero-fold--three{clip-path:inset(5% 0 0 0 round 3rem .75rem 5rem .75rem)}
     .whitening-hero.is-surgical-extraction .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.22) 60%,rgba(4,24,20,.79) 100%)}
+    .whitening-hero.is-wisdom-tooth .hero-fold--one{clip-path:inset(3% 0 6% 0 round 5rem 1rem 3rem 1rem)}
+    .whitening-hero.is-wisdom-tooth .hero-fold--two{clip-path:inset(6% 0 3% 0 round 1rem 5rem 1rem 3rem)}
+    .whitening-hero.is-wisdom-tooth .hero-fold--three{clip-path:inset(3% 0 6% 0 round 3rem 1rem 5rem 1rem)}
+    .whitening-hero.is-wisdom-tooth .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.21) 60%,rgba(4,24,20,.78) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */

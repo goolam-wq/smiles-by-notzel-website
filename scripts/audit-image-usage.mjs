@@ -24,6 +24,7 @@ const routes = [
   '/services/dental-implant-restoration/',
   '/services/simple-tooth-extraction/',
   '/services/surgical-tooth-extraction/',
+  '/services/wisdom-tooth-removal/',
   '/services/implants-oral-surgery/',
   '/services/orthodontic-dentistry/',
   '/services/pediatric-developmental/',

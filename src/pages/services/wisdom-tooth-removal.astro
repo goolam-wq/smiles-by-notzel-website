@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore wisdom-tooth assessment and removal at Smiles by Noetzel, including observation, simple and surgical pathways, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Wisdom-Tooth Removal | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-wisdom-tooth-removal.webp" mediaAlt="A dentist and patient reviewing a wisdom-tooth assessment" />
+    <main>
+      <TreatmentDetail kind="wisdom-tooth-removal" />
+      <BeforeAfterStory id="before-after-wisdom-tooth-removal" tone="dark" reverse number="06" eyebrow="Illustrative non-clinical planning visualization · third molar" title="From an uncertain third molar." emphasis="To an assessed path."
+        intro="This simulated planning visualization explains how a wisdom-tooth concern may move from examination and imaging to observation, straightforward removal or surgical care. It is not an actual patient outcome and does not guarantee comfort, healing or absence of complications."
+        image="/images/generated/before-after-wisdom-tooth-removal-v1.webp" imageAlt="Illustrative simulated comparison of a wisdom-tooth concern and an assessed third-molar pathway"
+        beforeLabel="Before third-molar assessment" beforeDetail="Eruption, position, roots, symptoms and surrounding anatomy still need to be evaluated."
+        afterLabel="Illustrative assessed-path view" afterDetail="The simulated view represents an observation or removal pathway after clinical assessment—not an actual patient result."
+        caseNote="Illustrative simulated example · not an actual patient case · treatment and healing vary" />
+      <HubFooter eyebrow="Want clarity about a wisdom tooth?" title="Begin with the position, the symptoms and the path that fits." />
+    </main>
+  </body>
+</html>

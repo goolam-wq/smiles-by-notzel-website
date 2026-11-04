@@ -35,6 +35,7 @@ const routes = [
   ['dental-implant-restoration', '/services/dental-implant-restoration/', '#before-after-dental-implant-restoration'],
   ['simple-tooth-extraction', '/services/simple-tooth-extraction/', '#before-after-simple-tooth-extraction'],
   ['surgical-tooth-extraction', '/services/surgical-tooth-extraction/', '#before-after-surgical-tooth-extraction'],
+  ['wisdom-tooth-removal', '/services/wisdom-tooth-removal/', '#before-after-wisdom-tooth-removal'],
 ];
 const viewports = [
   ['desktop', 1440, 900],
