@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -21,8 +21,14 @@ const isImplantRestoration = kind === 'dental-implant-restoration';
 const isSimpleExtraction = kind === 'simple-tooth-extraction';
 const isSurgicalExtraction = kind === 'surgical-tooth-extraction';
 const isWisdomTooth = kind === 'wisdom-tooth-removal';
+const isInvisalign = kind === 'invisalign-clear-aligners';
 
-const processSteps = isWisdomTooth ? [
+const processSteps = isInvisalign ? [
+  ['01', 'Assess', 'Teeth, bite, gums, existing dental work and treatment goals are evaluated before clear-aligner candidacy is confirmed.'],
+  ['02', 'Record & plan', 'Digital records support a case-specific movement plan, sequence and aligner prescription after the clinical evaluation.'],
+  ['03', 'Align', 'The patient follows the confirmed wear and change schedule while the teeth respond to the planned series of aligners.'],
+  ['04', 'Monitor & retain', 'Progress is reviewed during treatment, and the retention plan is explained after active alignment is complete.'],
+] : isWisdomTooth ? [
   ['01', 'Assess', 'The third molar, eruption, position, roots, surrounding structures, symptoms and medical history are evaluated with relevant imaging.'],
   ['02', 'Plan', 'The team explains whether observation, straightforward removal or a surgical pathway is appropriate for the individual wisdom tooth.'],
   ['03', 'Remove', 'When removal is recommended, the wisdom tooth is treated according to its confirmed position, anatomy and clinical plan.'],
@@ -114,7 +120,13 @@ const processSteps = isWisdomTooth ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isWisdomTooth ? [
+const faqs = isInvisalign ? [
+  ['How much does Invisalign clear-aligner treatment cost?', 'The customer-facing complete-case price is $5,495. The $153 monthly view is an approximate rounded 36-month financing illustration ($5,508 total), and the yearly amount is $5,495 on a complete-case basis. Final eligibility, scope and payment terms are confirmed after evaluation.'],
+  ['Is everyone eligible for Invisalign treatment?', 'No. Teeth, bite, gums, existing dental work, growth considerations and the movement required must be evaluated before clear-aligner candidacy is confirmed.'],
+  ['How often do aligners need to be worn or changed?', 'Wear and change schedules are prescribed for the individual case. The clinician explains the confirmed plan and monitors progress rather than applying a universal schedule here.'],
+  ['Are results guaranteed?', 'No. Tooth movement and treatment response vary, and no specific result or timeline is guaranteed. Following the prescribed wear, monitoring and retention plan remains important.'],
+  ['Is Invisalign treatment available at both offices?', 'Evaluations can begin through Chicago Heights or Mokena. Call the preferred office to confirm the recommended visit and current clear-aligner availability.'],
+] : isWisdomTooth ? [
   ['How much does wisdom-tooth removal cost?', 'The customer-facing treatment price is $550 per tooth. The $46 monthly view is an approximate rounded 12-month financing illustration ($552 total), and the yearly treatment amount is $550 per tooth. Final complexity, scope, eligibility and payment terms are confirmed after evaluation.'],
   ['Does every wisdom tooth need to be removed?', 'No. Position, eruption, symptoms, hygiene access, neighboring structures and other clinical findings determine whether observation or removal is appropriate.'],
   ['Will the removal be simple or surgical?', 'That depends on eruption, position, root form, surrounding anatomy and access. Examination and imaging help the clinician determine whether a straightforward or surgical pathway is appropriate.'],
@@ -224,7 +236,13 @@ const faqs = isWisdomTooth ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isWisdomTooth ? [
+const relatedServices = isInvisalign ? [
+  ['Orthodontic Dentistry', 'Explore the complete category', '/services/orthodontic-dentistry/'],
+  ['Preventive & Diagnostic', 'Connect examination and imaging', '/services/preventive-diagnostic/'],
+  ['Professional teeth whitening', 'Explore post-alignment shade planning', '/services/professional-teeth-whitening/'],
+  ['Dental bonding', 'Explore selected edge and proportion refinement', '/services/dental-bonding/'],
+  ['Complete smile makeover', 'Explore a coordinated multi-treatment plan', '/services/complete-smile-makeover/'],
+] : isWisdomTooth ? [
   ['Implants & Oral Surgery', 'Explore the complete category', '/services/implants-oral-surgery/'],
   ['Simple tooth extraction', 'Explore a straightforward removal pathway', '/services/simple-tooth-extraction/'],
   ['Surgical tooth extraction', 'Explore a more complex removal pathway', '/services/surgical-tooth-extraction/'],
@@ -329,7 +347,61 @@ const relatedServices = isWisdomTooth ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isWisdomTooth ? {
+const content = isInvisalign ? {
+  heroClass: 'is-invisalign',
+  heroImages: [
+    ['/images/generated/invisalign-clear-aligners-hero-v1.webp', 'A patient and clinician discussing Invisalign clear-aligner goals', 'BEGIN WITH THE BITE'],
+    ['/images/generated/invisalign-clear-aligners-hero-detail-v1.webp', 'A clinician reviewing digital records and a clear-aligner plan', 'MAP THE MOVEMENT'],
+    ['/images/generated/invisalign-clear-aligners-hero-result-v1.webp', 'A patient and clinician reviewing clear-aligner progress', 'MONITOR THE CHANGE'],
+  ],
+  heroAria: ['Explore the Invisalign assessment', 'Explore digital movement planning', 'Explore progress and retention review'],
+  kicker: 'Orthodontic Dentistry · Treatment 01',
+  title: ['Clear in appearance.', 'Specific in movement.'],
+  intro: 'An Invisalign clear-aligner plan shaped around the bite, teeth, daily routine and movement required—with eligibility confirmed after evaluation.',
+  heroRail: ['Begin with the bite', 'Map the movement', 'Monitor the change'],
+  ledgerLabel: 'Invisalign clear aligners', ledgerFixed: '$5,495 / case', ledgerMonthly: '$153 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['Clear aligners are not a generic tray.', 'They are a', 'planned movement sequence.'],
+  storyImage: '/images/generated/invisalign-clear-aligners-process-v1.webp',
+  storyAlt: 'A clinician reviewing digital records and Invisalign movement planning',
+  storyRangeLabel: 'Compare the starting bite and alignment with the planned clear-aligner sequence',
+  storyNote: 'Assess the bite and tissues before mapping tooth movement.',
+  storyLead: 'We plan movement in context. Teeth, gums, bite, existing dental work and daily routine shape whether clear aligners fit the case and how monitoring and retention should be coordinated.',
+  storySteps: [
+    ['01', 'Read the bite', 'Alignment, bite, gums, existing dental work and movement goals establish the clinical starting point.'],
+    ['02', 'Map the sequence', 'Digital records support a case-specific series rather than a universal movement or wear schedule.'],
+    ['03', 'Monitor and retain', 'Progress checks and the retention conversation remain connected to the active alignment plan.'],
+  ],
+  storyNotes: ['Assess the bite and tissues before mapping tooth movement.', 'Create a case-specific sequence from digital records and clinical findings.', 'Connect active movement, progress checks and retention.'],
+  processTitle: ['Mapped in stages.', 'Monitored as one case.'],
+  expectTitle: ['Removable in format.', 'Clinical in planning.'],
+  expectCopy: 'Invisalign treatment depends on clear-aligner candidacy, the movement required and following the prescribed wear, monitoring and retention plan. Teeth, bite, gums and existing dental work are evaluated first; no specific timeline or result is guaranteed.',
+  metrics: [['1', 'complete clear-aligner case'], ['4', 'stages: assess, plan, align, retain'], ['2', 'connected office locations']],
+  pricingId: 'invisalign-clear-aligners-pricing',
+  pricingTitle: ['One complete case.', 'Three planning views.'],
+  pricingIntro: 'The same Invisalign complete-case amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$5,495', 'complete clear-aligner case'], ['MONTHLY · 02', '$153', 'per month · 36 months'], ['YEARLY · 03', '$5,495', 'complete-case amount']],
+  pricingNote: 'The $153 monthly view is an approximate rounded financing illustration ($5,508 total across 36 months), not an exact division of $5,495. The yearly amount is a complete-case treatment view, not a subscription. Eligibility, final scope, records, monitoring, retention and payment terms are confirmed by the office.',
+  whyTitle: ['Movement planned.', 'Progress connected.'],
+  whyIntro: 'We do not treat clear aligners as a visual accessory. Bite, gums, tooth movement, existing work, daily routine, monitoring and retention stay connected from assessment through the end of active treatment.',
+  whyImage: '/images/generated/invisalign-clear-aligners-result-v1.webp',
+  whyAlt: 'A clinician and patient reviewing Invisalign clear-aligner progress',
+  whyPanels: [
+    ['01', 'Candidacy before trays', 'Teeth, bite, gums and treatment needs are evaluated before clear aligners are prescribed.'],
+    ['02', 'Case-specific movement', 'Digital records and clinical findings shape the sequence rather than a generic plan.'],
+    ['03', 'Retention stays connected', 'Monitoring and the post-alignment retention plan are part of the complete case conversation.'],
+  ],
+  whyFoot: 'ONE COMPLETE CASE · FOUR CONNECTED STAGES',
+  proofTitle: ['The movement explained.', 'The routine understood.'],
+  proofText: 'Patients frequently mention thoughtful explanations, attentive care and clear next steps—general-practice feedback that supports how orthodontic plans, routines and monitoring are discussed.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Case-specific planning', 'Progress monitoring', 'Connected retention'],
+  faqTitle: ['Before you begin', 'clear alignment.'],
+  relatedTitle: ['One alignment plan.', 'Several connected paths.'],
+  relatedAria: 'Related orthodontic, preventive and cosmetic services',
+  currentPath: 'Invisalign clear aligners',
+  locationsAria: 'Invisalign clear-aligner consultation locations',
+} : isWisdomTooth ? {
   heroClass: 'is-wisdom-tooth',
   heroImages: [
     ['/images/generated/wisdom-tooth-removal-hero-v1.webp', 'A patient and dentist discussing a wisdom-tooth concern', 'BEGIN WITH THE THIRD MOLAR'],
@@ -1802,6 +1874,15 @@ const content = isWisdomTooth ? {
   .whitening-hero.is-wisdom-tooth .hero-fold--two>img{object-position:51% center}
   .whitening-hero.is-wisdom-tooth .hero-fold--three>img{object-position:61% center}
   .whitening-hero.is-wisdom-tooth .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.46) 55%,transparent 74%)}
+  .whitening-hero.is-invisalign .hero-folds__scan{display:none}
+  .whitening-hero.is-invisalign .hero-fold{border:0;box-shadow:0 2.2rem 6rem rgba(0,0,0,.32)}
+  .whitening-hero.is-invisalign .hero-fold--one{clip-path:inset(6% 0 6% 0 round 12rem 2rem 12rem 2rem)}
+  .whitening-hero.is-invisalign .hero-fold--two{clip-path:inset(2% 0 2% 0 round 2rem 12rem 2rem 12rem)}
+  .whitening-hero.is-invisalign .hero-fold--three{clip-path:inset(6% 0 6% 0 round 12rem 2rem 12rem 2rem)}
+  .whitening-hero.is-invisalign .hero-fold--one>img{object-position:42% center}
+  .whitening-hero.is-invisalign .hero-fold--two>img{object-position:51% center}
+  .whitening-hero.is-invisalign .hero-fold--three>img{object-position:61% center}
+  .whitening-hero.is-invisalign .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.44) 55%,transparent 74%)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -1894,6 +1975,9 @@ const content = isWisdomTooth ? {
     .whitening-hero.is-wisdom-tooth .hero-fold--two{clip-path:inset(6% 0 3% 0 round 1rem 5rem 1rem 3rem)}
     .whitening-hero.is-wisdom-tooth .hero-fold--three{clip-path:inset(3% 0 6% 0 round 3rem 1rem 5rem 1rem)}
     .whitening-hero.is-wisdom-tooth .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.21) 60%,rgba(4,24,20,.78) 100%)}
+    .whitening-hero.is-invisalign .hero-fold--one,.whitening-hero.is-invisalign .hero-fold--three{clip-path:inset(4% 0 4% 0 round 7rem 1rem 7rem 1rem)}
+    .whitening-hero.is-invisalign .hero-fold--two{clip-path:inset(1% 0 1% 0 round 1rem 7rem 1rem 7rem)}
+    .whitening-hero.is-invisalign .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.19) 60%,rgba(4,24,20,.77) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */

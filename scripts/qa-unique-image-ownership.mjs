@@ -25,6 +25,7 @@ const routes = [
   '/services/simple-tooth-extraction/',
   '/services/surgical-tooth-extraction/',
   '/services/wisdom-tooth-removal/',
+  '/services/invisalign-clear-aligners/',
   '/services/restorative-reconstructive/',
   '/services/wellness-offering/',
 ];

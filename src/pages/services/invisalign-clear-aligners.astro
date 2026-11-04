@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore Invisalign clear-aligner treatment at Smiles by Noetzel, including candidacy, planning, monitoring, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Invisalign Clear Aligners | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-invisalign-clear-aligners.webp" mediaAlt="A patient and clinician reviewing an Invisalign clear-aligner plan" />
+    <main>
+      <TreatmentDetail kind="invisalign-clear-aligners" />
+      <BeforeAfterStory id="before-after-invisalign-clear-aligners" tone="light" reverse number="06" eyebrow="Illustrative planning visualization · clear alignment" title="From a bite and alignment concern." emphasis="To a mapped movement plan."
+        intro="This simulated planning visualization explains how an alignment concern may move from evaluation and digital records to a monitored clear-aligner and retention pathway. It is not an actual patient outcome and does not guarantee eligibility, timing or a specific result."
+        image="/images/generated/before-after-invisalign-clear-aligners-v1.webp" imageAlt="Illustrative simulated comparison of an alignment concern and an Invisalign clear-aligner planning concept"
+        beforeLabel="Before clear-aligner assessment" beforeDetail="Teeth, bite, gums, existing dental work and the movement required still need to be evaluated."
+        afterLabel="Illustrative alignment concept" afterDetail="The simulated view represents a digitally planned movement and retention pathway—not an actual patient result."
+        caseNote="Illustrative simulated example · not an actual patient case · treatment and results vary" />
+      <HubFooter eyebrow="Want to understand clear alignment?" title="Begin with the bite, the movement and the routine between." />
+    </main>
+  </body>
+</html>
