@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore nitrous oxide sedation at Smiles by Noetzel, including candidacy, monitored comfort support and customer-facing pricing in Chicago Heights and Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Nitrous Oxide Sedation | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-nitrous-oxide-sedation.webp" mediaAlt="A patient discussing nitrous oxide comfort support with the dental team" />
+    <main>
+      <TreatmentDetail kind="nitrous-oxide-sedation" />
+      <BeforeAfterStory id="before-after-nitrous-oxide-sedation" tone="light" reverse number="06" eyebrow="Illustrative care-journey visualization · comfort support" title="From anticipating the visit." emphasis="To a supported plan."
+        intro="This simulated care-journey visualization explains how a comfort concern may move from candidacy review to monitored nitrous oxide support. It is not an actual patient outcome, and individual responses vary."
+        image="/images/generated/before-after-nitrous-oxide-sedation-v1.webp" imageAlt="Illustrative simulated comparison showing a dental comfort concern and monitored nitrous oxide support"
+        beforeLabel="Before the comfort review" beforeDetail="Past experience, the planned procedure and individual concerns begin the conversation."
+        afterLabel="Illustrative supported view" afterDetail="The simulated view represents responsive monitoring and a coordinated comfort plan—not a guaranteed emotional or clinical outcome."
+        caseNote="Illustrative simulated example · not an actual patient case · responses vary" />
+      <HubFooter eyebrow="Want to discuss comfort support for a dental visit?" title="Begin with the person, the procedure and the plan." />
+    </main>
+  </body>
+</html>

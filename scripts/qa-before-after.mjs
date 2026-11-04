@@ -26,6 +26,7 @@ const routes = [
   ['tooth-contouring', '/services/tooth-contouring/', '#before-after-tooth-contouring'],
   ['complete-smile-makeover', '/services/complete-smile-makeover/', '#before-after-complete-smile-makeover'],
   ['same-day-emergency-dental-care', '/services/same-day-emergency-dental-care/', '#before-after-same-day-emergency-dental-care'],
+  ['nitrous-oxide-sedation', '/services/nitrous-oxide-sedation/', '#before-after-nitrous-oxide-sedation'],
 ];
 const viewports = [
   ['desktop', 1440, 900],

@@ -15,6 +15,7 @@ const routes = [
   '/services/tooth-contouring/',
   '/services/complete-smile-makeover/',
   '/services/same-day-emergency-dental-care/',
+  '/services/nitrous-oxide-sedation/',
   '/services/implants-oral-surgery/',
   '/services/orthodontic-dentistry/',
   '/services/pediatric-developmental/',

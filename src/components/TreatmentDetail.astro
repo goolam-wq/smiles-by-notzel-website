@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -11,8 +11,14 @@ const isBonding = kind === 'dental-bonding';
 const isContouring = kind === 'tooth-contouring';
 const isMakeover = kind === 'complete-smile-makeover';
 const isSameDayEmergency = kind === 'same-day-emergency-dental-care';
+const isNitrous = kind === 'nitrous-oxide-sedation';
 
-const processSteps = isSameDayEmergency ? [
+const processSteps = isNitrous ? [
+  ['01', 'Listen', 'We begin with what makes treatment difficult, what has helped before and what the planned dental visit may involve.'],
+  ['02', 'Review', 'Medical history, candidacy, the procedure and relevant instructions are reviewed before nitrous oxide is recommended.'],
+  ['03', 'Support', 'The comfort option is administered and monitored while the patient remains responsive to the dental team.'],
+  ['04', 'Reassess', 'The team checks comfort and response throughout the visit, then explains the appropriate post-visit guidance.'],
+] : isSameDayEmergency ? [
   ['01', 'Call', 'Tell the team what happened, when it started and the symptoms you are experiencing so the right visit can be coordinated.'],
   ['02', 'Assess', 'The team reviews urgency, relevant history and immediate concerns before confirming the practical appointment window.'],
   ['03', 'Examine', 'The affected area, surrounding teeth and bite are evaluated to identify the problem and the safe options available that day.'],
@@ -54,7 +60,13 @@ const processSteps = isSameDayEmergency ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isSameDayEmergency ? [
+const faqs = isNitrous ? [
+  ['How much does nitrous oxide sedation cost?', 'The customer-facing visit add-on price is $112. The $10 monthly view is a rounded 12-month planning display, and the yearly amount is $112. Candidacy, final treatment scope and payment terms are confirmed by the office.'],
+  ['Will I be asleep during nitrous oxide sedation?', 'Nitrous oxide is presented here as a comfort option for selected patients who remain responsive to the dental team. The team explains what to expect for the planned visit before care begins.'],
+  ['Is nitrous oxide appropriate for everyone?', 'No. Medical history, the planned procedure and individual circumstances are reviewed before the team recommends this option. Another comfort path may be more appropriate for some patients.'],
+  ['Does nitrous oxide guarantee an anxiety-free visit?', 'No. Responses vary, and no specific emotional or clinical outcome is guaranteed. The team monitors comfort and response and adjusts the care plan according to the visit.'],
+  ['Is nitrous oxide sedation available at both offices?', 'Yes. Nitrous oxide sedation is listed at Chicago Heights and Mokena. Call the preferred office to discuss the planned visit and confirm current availability.'],
+] : isSameDayEmergency ? [
   ['How much does a same-day emergency dental visit cost?', 'The customer-facing starting visit price is $250. The $21 monthly view is a rounded 12-month planning display, and the yearly amount is $250. Final treatment depends on the examination, recommended care and what can safely be completed.'],
   ['Is definitive treatment guaranteed on the same day?', 'No. The service is designed to provide prompt assessment and a practical next step. Same-day availability and the care that can be completed depend on capacity, the diagnosis, clinical safety and the treatment required.'],
   ['When should I seek emergency medical help instead?', 'Trouble breathing or swallowing, uncontrolled bleeding or major facial trauma requires emergency medical help rather than waiting for a dental appointment. For other urgent dental concerns, call the office so the team can assess the situation and guide the next step.'],
@@ -104,7 +116,12 @@ const faqs = isSameDayEmergency ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isSameDayEmergency ? [
+const relatedServices = isNitrous ? [
+  ['Emergency & Comfort Dentistry', 'Explore the complete category', '/services/emergency-comfort/'],
+  ['Same-day emergency dental care', 'Explore prompt assessment and next-step planning', '/services/same-day-emergency-dental-care/'],
+  ['Virtual-reality anxiety reduction', 'Explore another comfort-support option', '/services/virtual-reality-anxiety-reduction/'],
+  ['Pediatric & Developmental', 'Explore connected child-friendly care', '/services/pediatric-developmental/'],
+] : isSameDayEmergency ? [
   ['Emergency & Comfort Dentistry', 'Explore the complete category', '/services/emergency-comfort/'],
   ['Nitrous oxide sedation', 'Explore an available comfort-support option', '/services/nitrous-oxide-sedation/'],
   ['Virtual-reality anxiety reduction', 'Explore another comfort-support option', '/services/virtual-reality-anxiety-reduction/'],
@@ -150,7 +167,61 @@ const relatedServices = isSameDayEmergency ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isSameDayEmergency ? {
+const content = isNitrous ? {
+  heroClass: 'is-nitrous',
+  heroImages: [
+    ['/images/generated/nitrous-oxide-sedation-hero-v1.webp', 'A patient discussing dental comfort concerns with the care team', 'BEGIN WITH THE CONVERSATION'],
+    ['/images/generated/nitrous-oxide-sedation-hero-detail-v1.webp', 'A patient receiving monitored nitrous oxide comfort support', 'STAY RESPONSIVE'],
+    ['/images/generated/nitrous-oxide-sedation-hero-result-v1.webp', 'A dentist checking in with a supported patient during the visit', 'REVIEW THE RESPONSE'],
+  ],
+  heroAria: ['Explore the nitrous oxide comfort conversation', 'Explore monitored nitrous oxide support', 'Explore the team response check'],
+  kicker: 'Emergency & Comfort Dentistry · Treatment 02',
+  title: ['Stay present.', 'Feel supported.'],
+  intro: 'Nitrous oxide comfort support for selected patients, planned around medical history, the procedure and how you respond during the visit.',
+  heroRail: ['Begin with the conversation', 'Stay responsive', 'Review the response'],
+  ledgerLabel: 'Nitrous oxide sedation', ledgerFixed: '$112 add-on', ledgerMonthly: '$10 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['Comfort is not disconnection.', 'It is', 'supported presence.'],
+  storyImage: '/images/generated/nitrous-oxide-sedation-process-v1.webp',
+  storyAlt: 'A dental team monitoring a patient receiving nitrous oxide comfort support',
+  storyRangeLabel: 'Compare the starting visit concern with the supported and monitored care view',
+  storyNote: 'Understand the concern before choosing the support.',
+  storyLead: 'We plan comfort around the person and the procedure. The conversation, health review and real-time response shape whether nitrous oxide belongs in the visit.',
+  storySteps: [
+    ['01', 'Name the concern', 'Past experiences, current worries and the planned procedure begin the comfort conversation.'],
+    ['02', 'Confirm candidacy', 'Medical history and individual circumstances are reviewed before this option is recommended.'],
+    ['03', 'Monitor the response', 'The patient remains responsive while the team checks comfort and response throughout the visit.'],
+  ],
+  storyNotes: ['Understand the concern before choosing the support.', 'Confirm candidacy in the context of health history and the planned procedure.', 'Monitor comfort and response throughout the dental visit.'],
+  processTitle: ['Gentle in approach.', 'Attentive throughout.'],
+  expectTitle: ['Responsive by design.', 'Individual by necessity.'],
+  expectCopy: 'Nitrous oxide is a comfort option for selected patients, not a universal requirement or a guaranteed anxiety-free experience. Medical history, the planned procedure and individual response guide the recommendation and monitoring plan.',
+  metrics: [['1', 'individual comfort conversation'], ['3', 'checks: candidacy, procedure, response'], ['2', 'connected office locations']],
+  pricingId: 'nitrous-oxide-sedation-pricing',
+  pricingTitle: ['One visit add-on.', 'Three planning views.'],
+  pricingIntro: 'The same nitrous oxide visit add-on shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$112', 'visit add-on'], ['MONTHLY · 02', '$10', 'per month · 12 months'], ['YEARLY · 03', '$112', 'annual treatment amount']],
+  pricingNote: 'The $10 monthly view is a rounded 12-month planning display ($120 total), not an exact division of the $112 visit add-on. The yearly amount is an annual treatment view, not a subscription or unlimited-visit plan. Candidacy, final treatment scope, eligibility and payment terms are confirmed by the office.',
+  whyTitle: ['Supportive.', 'Never automatic.'],
+  whyIntro: 'We do not add sedation by default. The recommendation connects your comfort needs, medical history, the planned procedure and the way you respond during care.',
+  whyImage: '/images/generated/nitrous-oxide-sedation-result-v1.webp',
+  whyAlt: 'A dentist checking a patient’s comfort and response during nitrous oxide support',
+  whyPanels: [
+    ['01', 'Candidacy before comfort', 'Medical history, the planned procedure and individual circumstances are reviewed first.'],
+    ['02', 'Responsive support', 'The patient remains able to respond while the team monitors the visit.'],
+    ['03', 'A connected care plan', 'Comfort support is coordinated with the dental treatment rather than treated as a separate experience.'],
+  ],
+  whyFoot: 'ONE SUPPORTED VISIT · THREE COMFORT CHECKS',
+  proofTitle: ['The concern respected.', 'The visit supported.'],
+  proofText: 'Patients frequently mention caring staff, patience and clear explanations—general-practice feedback that supports how comfort concerns and visit expectations are discussed.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Caring communication', 'Responsive monitoring', 'Connected comfort plan'],
+  faqTitle: ['Before you choose', 'comfort support.'],
+  relatedTitle: ['One supported visit.', 'Several connected paths.'],
+  relatedAria: 'Related comfort, emergency and pediatric services',
+  currentPath: 'Nitrous oxide sedation',
+  locationsAria: 'Nitrous oxide sedation locations',
+} : isSameDayEmergency ? {
   heroClass: 'is-same-day-emergency',
   heroImages: [
     ['/images/generated/same-day-emergency-dental-care-hero-v1.webp', 'A patient calling a dental team about an urgent tooth concern', 'CALL WITH THE CONCERN'],
@@ -993,6 +1064,15 @@ const content = isSameDayEmergency ? {
   .whitening-hero.is-same-day-emergency .hero-fold--two>img{object-position:52% center}
   .whitening-hero.is-same-day-emergency .hero-fold--three>img{object-position:62% center}
   .whitening-hero.is-same-day-emergency .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.48) 55%,transparent 74%)}
+  .whitening-hero.is-nitrous .hero-folds__scan{display:none}
+  .whitening-hero.is-nitrous .hero-fold{border:0;box-shadow:0 2.2rem 6rem rgba(0,0,0,.3)}
+  .whitening-hero.is-nitrous .hero-fold--one{clip-path:inset(0 0 0 0 round 12rem 12rem 2rem 2rem)}
+  .whitening-hero.is-nitrous .hero-fold--two{clip-path:inset(0 0 0 0 round 12rem)}
+  .whitening-hero.is-nitrous .hero-fold--three{clip-path:inset(0 0 0 0 round 2rem 2rem 12rem 12rem)}
+  .whitening-hero.is-nitrous .hero-fold--one>img{object-position:44% center}
+  .whitening-hero.is-nitrous .hero-fold--two>img{object-position:52% center}
+  .whitening-hero.is-nitrous .hero-fold--three>img{object-position:60% center}
+  .whitening-hero.is-nitrous .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 36%,rgba(4,24,20,.45) 55%,transparent 74%)}
 
   @media(min-width:721px) and (max-width:1100px){
     .whitening-hero{height:245svh}
@@ -1042,6 +1122,10 @@ const content = isSameDayEmergency ? {
     .whitening-hero.is-same-day-emergency .hero-fold--two{clip-path:inset(0 0 0 0 round .75rem 6rem .75rem .75rem)}
     .whitening-hero.is-same-day-emergency .hero-fold--three{clip-path:inset(0 0 0 0 round .75rem .75rem 6rem 6rem)}
     .whitening-hero.is-same-day-emergency .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.23) 60%,rgba(4,24,20,.79) 100%)}
+    .whitening-hero.is-nitrous .hero-fold--one{clip-path:inset(0 0 0 0 round 7rem 7rem 1rem 1rem)}
+    .whitening-hero.is-nitrous .hero-fold--two{clip-path:inset(0 0 0 0 round 7rem)}
+    .whitening-hero.is-nitrous .hero-fold--three{clip-path:inset(0 0 0 0 round 1rem 1rem 7rem 7rem)}
+    .whitening-hero.is-nitrous .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.2) 60%,rgba(4,24,20,.77) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
