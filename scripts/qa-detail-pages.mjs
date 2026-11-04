@@ -58,6 +58,7 @@ const routes = [
   ['root-canal-treatment-coordination', '/services/root-canal-treatment-coordination/?qa=detail-matrix'],
   ['full-denture', '/services/full-denture/?qa=detail-matrix'],
   ['partial-denture', '/services/partial-denture/?qa=detail-matrix'],
+  ['oral-cancer-screening', '/services/oral-cancer-screening/?qa=detail-matrix'],
 ];
 const routeFilter = process.argv[2];
 const activeRoutes = routeFilter ? routes.filter(([name]) => name === routeFilter) : routes;

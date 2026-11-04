@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore focused oral-cancer screening at Smiles by Noetzel, including soft-tissue review, clear screening boundaries, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Oral-Cancer Screening | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-oral-cancer-screening.webp" mediaAlt="A dentist completing a careful oral soft-tissue screening" />
+    <main>
+      <TreatmentDetail kind="oral-cancer-screening" />
+      <BeforeAfterStory id="before-after-oral-cancer-screening" tone="light" number="10" eyebrow="Illustrative screening pathway · oral cancer" title="From an unreviewed change." emphasis="To a documented next step."
+        intro="This illustrative pathway shows how history, tissue examination and documentation can guide monitoring or referral. It is not an actual patient case, cancer diagnosis, detection guarantee, biopsy result or promised medical outcome."
+        image="/images/generated/before-after-oral-cancer-screening-v1.webp" imageAlt="Illustrative comparison of an unreviewed oral concern and a documented soft-tissue screening pathway"
+        beforeLabel="Before focused screening" beforeDetail="A concern may be noticed, but context, systematic tissue review and the appropriate next step have not yet been established."
+        afterLabel="Illustrative documented pathway" afterDetail="The simulated view represents screening and next-step guidance—not diagnosis, exclusion of disease, pathology result or guaranteed detection."
+        caseNote="Illustrative screening pathway · not an actual patient case · screening is not diagnosis" />
+      <HubFooter eyebrow="Ready for a careful look beyond the teeth?" title="Review the context and request an oral-cancer screening." />
+    </main>
+  </body>
+</html>

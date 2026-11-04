@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement' | 'tooth-colored-dental-filling' | 'dental-crown' | 'dental-bridge' | 'full-mouth-reconstruction' | 'root-canal-treatment-coordination' | 'full-denture' | 'partial-denture';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement' | 'tooth-colored-dental-filling' | 'dental-crown' | 'dental-bridge' | 'full-mouth-reconstruction' | 'root-canal-treatment-coordination' | 'full-denture' | 'partial-denture' | 'oral-cancer-screening';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -46,8 +46,14 @@ const isFullMouthReconstruction = kind === 'full-mouth-reconstruction';
 const isRootCanalCoordination = kind === 'root-canal-treatment-coordination';
 const isFullDenture = kind === 'full-denture';
 const isPartialDenture = kind === 'partial-denture';
+const isOralCancerScreening = kind === 'oral-cancer-screening';
 
-const processSteps = isPartialDenture ? [
+const processSteps = isOralCancerScreening ? [
+  ['01', 'Review', 'Current concerns, oral changes, health history and relevant risk context are reviewed before the focused screening begins.'],
+  ['02', 'Inspect & palpate', 'Visible oral soft tissues and appropriate oral or neck structures are assessed systematically within the confirmed screening scope.'],
+  ['03', 'Document findings', 'Relevant observations are recorded without presenting a screening finding as a diagnosis.'],
+  ['04', 'Recheck or refer', 'The clinician explains what remains uncertain and whether monitoring, referral or further evaluation should be considered.'],
+] : isPartialDenture ? [
   ['01', 'Assess', 'Missing spaces, remaining teeth, gums, support, bite, health history and alternatives are evaluated before a removable pathway is confirmed.'],
   ['02', 'Design', 'The replacement teeth, supporting framework, retention, appearance and bite are planned around the individual arch and teeth that remain.'],
   ['03', 'Try & deliver', 'When required, tooth position, appearance and bite are reviewed before the partial denture is completed and delivered.'],
@@ -264,7 +270,15 @@ const processSteps = isPartialDenture ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isPartialDenture ? [
+const faqs = isOralCancerScreening ? [
+  ['How much does oral-cancer screening cost?', 'The customer-facing price is $150. The $13 monthly view is an approximate rounded 12-month illustration ($156 total), which is $6 above the $150 fixed and yearly views. The yearly view is an annual treatment amount, not a subscription or unlimited screening plan.'],
+  ['Does screening diagnose oral cancer?', 'No. Screening looks for findings that may require monitoring or further evaluation. It does not confirm or rule out cancer, and diagnosis may require referral, testing or biopsy by an appropriate clinician.'],
+  ['What does the screening include?', 'The confirmed visit includes a focused history and soft-tissue screening. Exact techniques and any adjunctive device are not assumed unless the office confirms them.'],
+  ['What happens if something unusual is found?', 'The clinician explains the finding and may recommend documentation, monitoring, referral or additional evaluation. An unusual finding does not by itself establish a diagnosis.'],
+  ['Are examination, imaging or biopsy included?', 'No automatic inclusion is stated. A comprehensive exam, imaging, laboratory testing, biopsy, specialist consultation and treatment are separate unless the office confirms them.'],
+  ['When should I seek urgent medical care?', 'Trouble breathing or swallowing, uncontrolled bleeding, major facial or neck swelling, or another severe or rapidly worsening symptom needs urgent medical evaluation rather than waiting for a routine dental screening. Call emergency services when appropriate.'],
+  ['Is screening available at both offices?', 'Yes. Oral-cancer screening is available through Chicago Heights and Mokena, subject to appointment availability and the confirmed visit scope.'],
+] : isPartialDenture ? [
   ['How much does a partial denture cost?', 'The customer-facing price starts at $1,800 per arch. The $75 monthly view totals exactly $1,800 across 24 months. The yearly view is a $1,800 annual treatment amount per arch, not a subscription or replacement plan. Final design, scope, eligibility and terms are office-confirmed.'],
   ['Is a partial denture removable?', 'Yes. A conventional partial denture is removable and replaces selected missing teeth while working with the teeth and tissues that remain.'],
   ['How does a partial denture stay in place?', 'Retention and support depend on the individual design, remaining teeth, tissues, framework and bite. No universal attachment type or stability is promised before evaluation.'],
@@ -532,7 +546,15 @@ const faqs = isPartialDenture ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isPartialDenture ? [
+const relatedServices = isOralCancerScreening ? [
+  ['Complete Health & Airway', 'Explore the complete category', '/services/complete-health-airway/'],
+  ['Routine comprehensive exam', 'Connect screening to the complete oral picture', '/services/routine-comprehensive-exam/'],
+  ['Professional dental cleaning', 'Explore a separate routine-cleaning visit', '/services/professional-dental-cleaning/'],
+  ['Gum-disease screening', 'Connect soft-tissue screening to measured gum findings', '/services/gum-disease-screening/'],
+  ['Airway and sleep screening', 'Explore a separate airway-focused evaluation', '/services/airway-sleep-screening/'],
+  ['Artery-health screening', 'Explore a separate screening pathway', '/services/artery-health-screening/'],
+  ['Oral spirochete test', 'Explore a separate contextual oral microbial signal', '/services/oral-spirochete-test/'],
+] : isPartialDenture ? [
   ['Restorative & Reconstructive', 'Explore the complete restorative category', '/services/restorative-reconstructive/'],
   ['Full denture', 'Compare a complete removable arch pathway', '/services/full-denture/'],
   ['Dental bridge', 'Compare a fixed tooth-supported replacement', '/services/dental-bridge/'],
@@ -798,7 +820,62 @@ const relatedServices = isPartialDenture ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isPartialDenture ? {
+const content = isOralCancerScreening ? {
+  heroClass: 'is-oral-cancer-screening',
+  heroImages: [
+    ['/images/generated/oral-cancer-screening-hero-v1.webp', 'A clinician reviewing oral-health history before a focused soft-tissue screening', 'REVIEW THE HISTORY'],
+    ['/images/generated/oral-cancer-screening-hero-detail-v1.webp', 'A dentist carefully examining the lips, mouth, tongue and oral tissues', 'EXAMINE THE TISSUES'],
+    ['/images/generated/oral-cancer-screening-hero-result-v1.webp', 'A clinician documenting screening findings and explaining the appropriate next step', 'DOCUMENT THE NEXT STEP'],
+  ],
+  heroAria: ['Explore screening history and context', 'Explore focused oral soft-tissue examination', 'Explore documentation and next-step planning'],
+  kicker: 'Complete Health & Airway · Service 01',
+  title: ['A careful look', 'beyond the teeth.'],
+  intro: 'A focused screening of the lips, mouth, tongue and oral tissues that adds a wider health signal to the visit. Screening can identify findings that need attention, but it does not diagnose or rule out cancer.',
+  heroRail: ['Review the history', 'Examine the tissues', 'Document the next step'],
+  ledgerLabel: 'Oral-cancer screening', ledgerFixed: '$150 / screening', ledgerMonthly: '$13 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['The finding may be small.', 'The next step should be', 'clear.'],
+  storyImage: '/images/generated/oral-cancer-screening-process-v1.webp',
+  storyAlt: 'A dentist completing a careful oral-cancer screening and documenting observations',
+  storyRangeLabel: 'Compare an unreviewed oral change with a documented screening and appropriate next step',
+  storyNote: 'A screening observation is a signal—not a diagnosis.',
+  storyLead: 'The screening begins with context and a systematic soft-tissue examination. Findings are documented and explained with clear boundaries around uncertainty, monitoring, referral and diagnostic evaluation.',
+  storySteps: [
+    ['01', 'Review the context', 'Current concerns, oral changes, history and relevant risks establish the reason for the focused screening.'],
+    ['02', 'Examine and document', 'Visible tissues and appropriate structures are assessed systematically, with relevant observations recorded.'],
+    ['03', 'Clarify the next step', 'Normal uncertainty, monitoring, referral and further evaluation are explained without turning screening into diagnosis.'],
+  ],
+  storyNotes: ['Begin with history and the reason for screening.', 'Inspect, palpate and document within the confirmed scope.', 'Recheck or refer when a finding needs further evaluation.'],
+  processTitle: ['Look carefully.', 'Keep the boundary clear.'],
+  expectTitle: ['A focused screening.', 'Not a diagnosis.'],
+  expectCopy: 'Screening does not guarantee detection, exclude disease or replace diagnostic evaluation. Biopsy, pathology, specialist consultation, imaging and treatment are separate unless specifically confirmed.',
+  metrics: [['1', 'focused soft-tissue screening'], ['4', 'stages: review, inspect, document, guide'], ['2', 'connected office locations']],
+  pricingId: 'oral-cancer-screening-pricing',
+  pricingTitle: ['One focused screening.', 'Three planning views.'],
+  pricingIntro: 'The oral-cancer screening amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$150', 'per screening'], ['MONTHLY · 02', '$13', 'per month · 12 months'], ['YEARLY · 03', '$150', 'annual treatment amount']],
+  pricingNote: 'The $13 monthly view is an approximate rounded illustration ($156 total across 12 months), which is $6 above the $150 fixed and yearly views. The yearly amount is an annual treatment amount, not a membership or unlimited screening plan. Eligibility, visit scope and terms are office-confirmed.',
+  whyTitle: ['A wider health signal.', 'A clearly limited scope.'],
+  whyIntro: 'The team connects history, systematic tissue examination, documentation and next-step guidance while keeping screening separate from diagnosis and pathology.',
+  whyImage: '/images/generated/oral-cancer-screening-result-v1.webp',
+  whyAlt: 'A dentist documenting oral soft-tissue screening findings and explaining next steps',
+  whyPanels: [
+    ['01', 'Context before conclusion', 'History and current changes establish the screening question without presuming a diagnosis.'],
+    ['02', 'Systematic tissue review', 'Lips, mouth, tongue and relevant oral tissues are examined within the confirmed screening scope.'],
+    ['03', 'Findings documented', 'Relevant observations are recorded so monitoring or referral can be coordinated when appropriate.'],
+    ['04', 'Boundaries stay visible', 'Screening does not replace biopsy, pathology, specialist diagnosis or urgent medical evaluation.'],
+  ],
+  whyFoot: 'ONE FOCUSED SCREENING · FOUR STAGES · TWO OFFICES',
+  proofTitle: ['The tissues reviewed.', 'The next step explained.'],
+  proofText: 'Patients frequently mention thorough examinations, clear explanations and thoughtful follow-up—general-practice themes that support a careful screening conversation without implying diagnostic certainty.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Systematic review', 'Clear boundaries', 'Next step documented'],
+  faqTitle: ['Before an', 'oral-cancer screening.'],
+  relatedTitle: ['One focused screening.', 'Several connected health paths.'],
+  relatedAria: 'Related preventive, gum, airway and health-screening services',
+  currentPath: 'Oral-cancer screening',
+  locationsAria: 'Oral-cancer screening locations',
+} : isPartialDenture ? {
   heroClass: 'is-partial-denture',
   heroImages: [
     ['/images/generated/partial-denture-hero-v1.webp', 'A clinician evaluating missing spaces and the teeth that remain', 'MAP THE SPACES'],
@@ -3881,6 +3958,18 @@ const content = isPartialDenture ? {
   .whitening-hero.is-partial-denture .hero-cinema__copy{top:15vh;width:min(46vw,48rem);transform:none}
   .whitening-hero.is-partial-denture .hero-cinema__copy h1{font-size:clamp(3.7rem,5.2vw,6rem);line-height:.83;margin:1.25rem 0 1.5rem}
   .whitening-hero.is-partial-denture .hero-cinema__copy h1 em{display:block;margin-left:clamp(1.75rem,4vw,4rem)}
+  .whitening-hero.is-oral-cancer-screening .hero-folds__scan{display:none}
+  .whitening-hero.is-oral-cancer-screening .hero-fold{border:0;overflow:hidden;box-shadow:0 2.5rem 6.2rem rgba(0,0,0,.36);transform-origin:center}
+  .whitening-hero.is-oral-cancer-screening .hero-fold--one{translate:8% 11%;scale:.68 .7;clip-path:inset(0 round 999px)}
+  .whitening-hero.is-oral-cancer-screening .hero-fold--two{translate:-3% -3%;scale:1.16 1.02;clip-path:inset(0 round 50%)}
+  .whitening-hero.is-oral-cancer-screening .hero-fold--three{translate:-12% 11%;scale:.68 .7;clip-path:inset(0 round 999px)}
+  .whitening-hero.is-oral-cancer-screening .hero-fold--one>img{object-position:43% center}
+  .whitening-hero.is-oral-cancer-screening .hero-fold--two>img{object-position:54% center}
+  .whitening-hero.is-oral-cancer-screening .hero-fold--three>img{object-position:66% center}
+  .whitening-hero.is-oral-cancer-screening .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 35%,rgba(4,24,20,.4) 63%,transparent 83%)}
+  .whitening-hero.is-oral-cancer-screening .hero-cinema__copy{top:15vh;width:min(45vw,47rem);transform:none}
+  .whitening-hero.is-oral-cancer-screening .hero-cinema__copy h1{font-size:clamp(3.9rem,5.4vw,6.2rem);line-height:.82;margin:1.25rem 0 1.5rem}
+  .whitening-hero.is-oral-cancer-screening .hero-cinema__copy h1 em{display:block;margin-left:clamp(1.75rem,4vw,4rem)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -4103,6 +4192,13 @@ const content = isPartialDenture ? {
     .whitening-hero.is-partial-denture .hero-cinema__copy{top:7.15rem}
     .whitening-hero.is-partial-denture .hero-cinema__copy h1{font-size:clamp(2.6rem,11.3vw,3.6rem);line-height:.85}
     .whitening-hero.is-partial-denture .hero-cinema__copy h1 em{margin-left:1.05rem}
+    .whitening-hero.is-oral-cancer-screening .hero-fold--one{translate:2% 10%;scale:.7 .74;clip-path:inset(0 round 999px)}
+    .whitening-hero.is-oral-cancer-screening .hero-fold--two{translate:-1% -2%;scale:1.06 .98;clip-path:inset(0 round 50%)}
+    .whitening-hero.is-oral-cancer-screening .hero-fold--three{translate:-3% 10%;scale:.7 .74;clip-path:inset(0 round 999px)}
+    .whitening-hero.is-oral-cancer-screening .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.17) 64%,rgba(4,24,20,.84) 100%)}
+    .whitening-hero.is-oral-cancer-screening .hero-cinema__copy{top:7.15rem}
+    .whitening-hero.is-oral-cancer-screening .hero-cinema__copy h1{font-size:clamp(2.75rem,11.8vw,3.75rem);line-height:.84}
+    .whitening-hero.is-oral-cancer-screening .hero-cinema__copy h1 em{margin-left:1.05rem}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
@@ -4253,6 +4349,7 @@ const content = isPartialDenture ? {
         const isRootCanalHero = hero.classList.contains('is-root-canal-coordination');
         const isFullDentureHero = hero.classList.contains('is-full-denture');
         const isPartialDentureHero = hero.classList.contains('is-partial-denture');
+        const isOralCancerHero = hero.classList.contains('is-oral-cancer-screening');
         const phases = q('[data-hero-phase]');
         const edition = q('[data-hero-edition]')[0];
         const scan = q('[data-fold-scan]')[0];
@@ -4301,6 +4398,8 @@ const content = isPartialDenture ? {
                   ? {opacity:0,yPercent:[-24,24,24][index],scale:[.9,.82,.82][index]}
                 : isPartialDentureHero
                   ? {opacity:0,xPercent:[24,0,-24][index],yPercent:[-20,0,20][index]}
+                : isOralCancerHero
+                  ? {opacity:0,scale:[.72,.6,.72][index],yPercent:[18,-18,18][index]}
                 : isDentalBridgeHero
                   ? {opacity:0,xPercent:[-28,0,28][index],yPercent:[0,22,0][index]}
               : {}),
@@ -4327,12 +4426,14 @@ const content = isPartialDenture ? {
                   ? {opacity:1,yPercent:0,scale:1}
                 : isPartialDentureHero
                   ? {opacity:1,xPercent:0,yPercent:0}
+                : isOralCancerHero
+                  ? {opacity:1,scale:1,yPercent:0}
                 : isDentalBridgeHero
                   ? {opacity:1,xPercent:0,yPercent:0}
               : {}),
-          duration:isAmalgamHero ? 1.55 : isToothColoredHero ? 1.45 : isDentalCrownHero ? 1.6 : isDentalBridgeHero ? 1.5 : isFullMouthHero ? 1.55 : isRootCanalHero ? 1.5 : isFullDentureHero ? 1.55 : isPartialDentureHero ? 1.5 : 1.35,
-          ease:isAmalgamHero ? 'expo.inOut' : isToothColoredHero ? 'power4.out' : isDentalCrownHero ? 'expo.out' : isDentalBridgeHero ? 'power4.inOut' : isFullMouthHero ? 'power4.out' : isRootCanalHero ? 'expo.out' : isFullDentureHero ? 'power4.out' : isPartialDentureHero ? 'expo.out' : 'power3.inOut',
-        },index*(isAmalgamHero ? .12 : isToothColoredHero ? .16 : isDentalCrownHero ? .14 : isDentalBridgeHero ? .13 : isFullMouthHero ? .14 : isRootCanalHero ? .15 : isFullDentureHero ? .14 : isPartialDentureHero ? .15 : .08)));
+          duration:isAmalgamHero ? 1.55 : isToothColoredHero ? 1.45 : isDentalCrownHero ? 1.6 : isDentalBridgeHero ? 1.5 : isFullMouthHero ? 1.55 : isRootCanalHero ? 1.5 : isFullDentureHero ? 1.55 : isPartialDentureHero ? 1.5 : isOralCancerHero ? 1.55 : 1.35,
+          ease:isAmalgamHero ? 'expo.inOut' : isToothColoredHero ? 'power4.out' : isDentalCrownHero ? 'expo.out' : isDentalBridgeHero ? 'power4.inOut' : isFullMouthHero ? 'power4.out' : isRootCanalHero ? 'expo.out' : isFullDentureHero ? 'power4.out' : isPartialDentureHero ? 'expo.out' : isOralCancerHero ? 'power4.out' : 'power3.inOut',
+        },index*(isAmalgamHero ? .12 : isToothColoredHero ? .16 : isDentalCrownHero ? .14 : isDentalBridgeHero ? .13 : isFullMouthHero ? .14 : isRootCanalHero ? .15 : isFullDentureHero ? .14 : isPartialDentureHero ? .15 : isOralCancerHero ? .14 : .08)));
         intro.to(q('[data-hero-fold] img'),{scale:1.015,duration:1.2},0)
           .to(scan,{left:mobile?'100vw':'99vw',duration:1.4},0)
           .to(progress,{width:'100%',duration:1.35},0)

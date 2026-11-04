@@ -50,6 +50,7 @@ const routes = [
   '/services/root-canal-treatment-coordination/',
   '/services/full-denture/',
   '/services/partial-denture/',
+  '/services/oral-cancer-screening/',
   '/services/implants-oral-surgery/',
   '/services/orthodontic-dentistry/',
   '/services/pediatric-developmental/',
