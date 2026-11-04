@@ -49,6 +49,7 @@ const routes = [
   '/services/full-mouth-reconstruction/',
   '/services/root-canal-treatment-coordination/',
   '/services/full-denture/',
+  '/services/partial-denture/',
   '/services/restorative-reconstructive/',
   '/services/wellness-offering/',
 ];

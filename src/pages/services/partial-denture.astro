@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore partial-denture care at Smiles by Noetzel, including missing-space assessment, removable design, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Partial Denture | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-partial-denture.webp" mediaAlt="A clinician planning a removable partial denture around missing spaces and remaining teeth" />
+    <main>
+      <TreatmentDetail kind="partial-denture" />
+      <BeforeAfterStory id="before-after-partial-denture" tone="light" number="10" eyebrow="Illustrative restorative pathway · partial denture" title="From separate missing spaces." emphasis="To one support-led removable plan."
+        intro="This illustrative pathway shows how missing spaces, remaining teeth, support, bite and hygiene may guide a partial-denture design. It is not an actual patient case, attachment promise, stability guarantee, adaptation timeline or exact outcome."
+        image="/images/generated/before-after-partial-denture-v1.webp" imageAlt="Illustrative comparison of missing-tooth spaces and a planned removable partial denture"
+        beforeLabel="Before support mapping" beforeDetail="Missing spaces are visible, but remaining-tooth health, alternatives, framework, retention and bite have not yet been confirmed."
+        afterLabel="Illustrative removable plan" afterDetail="The simulated view represents a support-led partial-denture design—not promised clasps, stability, comfort, chewing function, longevity or outcome."
+        caseNote="Illustrative partial-denture pathway · not an actual patient case · design, fit and adaptation vary" />
+      <HubFooter eyebrow="Ready to replace what is missing while protecting what remains?" title="Map the spaces and request a partial-denture evaluation." />
+    </main>
+  </body>
+</html>
