@@ -37,6 +37,7 @@ const routes = [
   '/services/fluoride-treatment/',
   '/services/dental-sealants/',
   '/services/gum-disease-screening/',
+  '/services/custom-sports-mouthguard/',
   '/services/implants-oral-surgery/',
   '/services/orthodontic-dentistry/',
   '/services/pediatric-developmental/',

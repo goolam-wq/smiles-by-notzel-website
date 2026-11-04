@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore custom sports mouthguards at Smiles by Noetzel, including individualized fit, realistic protection limits, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Custom Sports Mouthguard | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-custom-sports-mouthguard.webp" mediaAlt="An athlete reviewing a custom sports mouthguard and individualized wear guidance" />
+    <main>
+      <TreatmentDetail kind="custom-sports-mouthguard" />
+      <BeforeAfterStory id="before-after-custom-sports-mouthguard" tone="light" reverse number="06" eyebrow="Illustrative fit pathway · sports mouthguard" title="From an uncertain generic fit." emphasis="To a clinically fitted appliance and wear plan."
+        intro="This illustrative pathway shows how sport demands and current dental records may lead to a custom appliance, fit check and wear guidance. It is not an actual injury-prevention result and does not guarantee protection from dental injury, facial injury or concussion."
+        image="/images/generated/before-after-custom-sports-mouthguard-v1.webp" imageAlt="Illustrative comparison of an uncertain generic mouthguard fit and a clinically fitted custom sports appliance with wear guidance"
+        beforeLabel="Before custom records" beforeDetail="Sport demands, current teeth, bite and braces or appliance compatibility have not yet been reviewed together."
+        afterLabel="Illustrative fitted pathway" afterDetail="The simulated view represents a custom appliance and individualized wear plan—not a guarantee against injury or concussion."
+        caseNote="Illustrative fit pathway · not an actual injury-prevention result · protection and lifespan vary" />
+      <HubFooter eyebrow="Ready for a fit built around you?" title="Begin with the sport, current dental records and realistic protection guidance." />
+    </main>
+  </body>
+</html>

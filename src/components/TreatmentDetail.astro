@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -33,8 +33,14 @@ const isDigitalXrays = kind === 'digital-dental-x-rays';
 const isFluorideTreatment = kind === 'fluoride-treatment';
 const isDentalSealants = kind === 'dental-sealants';
 const isGumScreening = kind === 'gum-disease-screening';
+const isSportsMouthguard = kind === 'custom-sports-mouthguard';
 
-const processSteps = isGumScreening ? [
+const processSteps = isSportsMouthguard ? [
+  ['01', 'Review', 'The clinician reviews the sport, age, dental history, current teeth, bite, restorations and braces or appliances before confirming the pathway.'],
+  ['02', 'Capture', 'When appropriate, records of the teeth and bite are captured for the planned custom appliance; examination or imaging is separate unless confirmed.'],
+  ['03', 'Fabricate', 'The mouthguard is made to the confirmed design and current dental records rather than treated as a universal or same-day fit.'],
+  ['04', 'Fit & guide', 'Fit is checked and the patient receives individualized wear, cleaning, storage and replacement guidance without a universal lifespan promise.'],
+] : isGumScreening ? [
   ['01', 'Review', 'The clinician reviews current concerns, health history, home care, previous periodontal findings and relevant risk factors.'],
   ['02', 'Measure', 'Gum tissues, bleeding, recession, pocket depths and other clinically relevant findings are assessed within the confirmed screening scope.'],
   ['03', 'Evaluate', 'Measurements and visual findings are considered with the history, including uncertainty and anything that still needs confirmation.'],
@@ -186,7 +192,13 @@ const processSteps = isGumScreening ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isGumScreening ? [
+const faqs = isSportsMouthguard ? [
+  ['How much does a custom sports mouthguard cost?', 'The customer-facing price is $450 per appliance. The $38 monthly view is an approximate rounded 12-month illustration ($456 total), which is $6 above the $450 fixed and yearly views. Final eligibility, scope and payment terms are confirmed by the office.'],
+  ['Does a custom mouthguard guarantee protection from dental injury or concussion?', 'No. No mouthguard can guarantee prevention of dental injury, facial injury or concussion. The appliance is one protective measure used alongside appropriate sport rules, equipment, coaching and medical guidance.'],
+  ['Can the mouthguard be worn with braces?', 'Compatibility with braces, aligners or other appliances is not universal. The clinician reviews the current dental and orthodontic situation before confirming whether this pathway is appropriate.'],
+  ['How long will the mouthguard last?', 'There is no universal lifespan. Growth, dental changes, orthodontic treatment, wear, damage, fit and sport demands affect when review or replacement may be needed.'],
+  ['Are the exam, X-rays, replacements or injury treatment included?', 'No. Examination, imaging, replacement appliances and treatment of an injury are separate unless the office specifically confirms them as part of the scheduled scope.'],
+] : isGumScreening ? [
   ['How much does gum-disease screening and evaluation cost?', 'The customer-facing price is $125 per evaluation. The $11 monthly view is an approximate rounded 12-month illustration ($132 total), which is $7 above the $125 fixed and yearly views. Final scope, eligibility and payment terms are confirmed by the office.'],
   ['Does the screening guarantee a diagnosis or prove that my gums are healthy?', 'No. Screening and evaluation organize measurements and visible findings, but no specific diagnosis, absence of disease or future stability is guaranteed. Additional imaging, testing or referral may be recommended.'],
   ['Is a gum screening the same as a routine cleaning or deep cleaning?', 'No. Screening evaluates gum-health findings and risk. Routine cleaning, periodontal deep cleaning, maintenance and other treatment are separate services unless the office confirms the scheduled scope.'],
@@ -369,7 +381,13 @@ const faqs = isGumScreening ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isGumScreening ? [
+const relatedServices = isSportsMouthguard ? [
+  ['Preventive & Diagnostic Dentistry', 'Explore the complete preventive category', '/services/preventive-diagnostic/'],
+  ['Custom night guard', 'Explore a separate appliance pathway for nighttime wear', '/services/custom-night-guard/'],
+  ['Routine comprehensive exam', 'Connect appliance planning to current oral findings', '/services/routine-comprehensive-exam/'],
+  ['Dental sealants', 'Explore another individualized preventive option', '/services/dental-sealants/'],
+  ['Pediatric cleaning & exam', 'Connect growing smiles to age-appropriate prevention', '/services/pediatric-cleaning-exam/'],
+] : isGumScreening ? [
   ['Periodontal Dentistry', 'Explore the complete gum-health category', '/services/periodontal-dentistry/'],
   ['Gum-disease deep cleaning', 'Connect findings to periodontal therapy when indicated', '/services/gum-disease-deep-cleaning/'],
   ['Perio Protect', 'Explore an adjunctive tray pathway when clinically appropriate', '/services/perio-protect/'],
@@ -546,7 +564,61 @@ const relatedServices = isGumScreening ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isGumScreening ? {
+const content = isSportsMouthguard ? {
+  heroClass: 'is-sports-mouthguard',
+  heroImages: [
+    ['/images/generated/custom-sports-mouthguard-hero-v1.webp', 'An athlete discussing sport demands and dental protection before a custom mouthguard is planned', 'BEGIN WITH HOW YOU PLAY'],
+    ['/images/generated/custom-sports-mouthguard-hero-detail-v1.webp', 'A clinician capturing dental records for a custom sports mouthguard', 'CAPTURE THE CURRENT FIT'],
+    ['/images/generated/custom-sports-mouthguard-hero-result-v1.webp', 'An athlete reviewing the fit and wear guidance for a custom sports mouthguard', 'FIT AND GUIDE'],
+  ],
+  heroAria: ['Explore sport and dental review', 'Explore custom mouthguard records and fabrication', 'Explore appliance fit and wear guidance'],
+  kicker: 'Preventive & Diagnostic · Protection 07',
+  title: ['Built for the way you play.', 'Fitted for the smile you already have.'],
+  intro: 'A custom sports mouthguard planned around the current teeth, bite and sport context—without promising universal fit or guaranteed protection from injury or concussion.',
+  heroRail: ['Begin with how you play', 'Capture the current fit', 'Fit and guide'],
+  ledgerLabel: 'Custom sports mouthguard', ledgerFixed: '$450 / appliance', ledgerMonthly: '$38 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['Protection works best when the fit starts with you.', 'Sport and smile stay', 'connected.'],
+  storyImage: '/images/generated/custom-sports-mouthguard-process-v1.webp',
+  storyAlt: 'A clinician capturing dental records and planning a custom sports mouthguard',
+  storyRangeLabel: 'Compare an uncertain generic fit with a clinically fitted custom appliance and wear plan',
+  storyNote: 'Review the sport and current teeth before planning the appliance.',
+  storyLead: 'We begin with the sport, current teeth, bite and any restorations or orthodontic appliances. The team captures the appropriate records, confirms the custom design, checks the fit and explains wear and replacement factors without promising that injury or concussion can be prevented.',
+  storySteps: [
+    ['01', 'Review the context', 'Sport demands, age, teeth, bite, restorations and braces or appliances shape the plan.'],
+    ['02', 'Build from current records', 'The confirmed dental records support a custom appliance rather than a universal fit.'],
+    ['03', 'Check and guide', 'Fit, wear, care, storage and replacement factors are explained for the individual athlete.'],
+  ],
+  storyNotes: ['Begin with the sport and current dental condition.', 'Fabricate from confirmed current records.', 'Review fit and replacement needs over time.'],
+  processTitle: ['Capture the fit.', 'Guide the wear.'],
+  expectTitle: ['Custom in fit.', 'Realistic in protection.'],
+  expectCopy: 'A custom sports mouthguard is one protective measure, not a guarantee against dental injury, facial injury or concussion. Braces compatibility, fabrication timing, wear instructions and lifespan depend on the individual dental and sport context.',
+  metrics: [['1', 'custom appliance'], ['4', 'stages: review, capture, fabricate, fit'], ['2', 'connected office locations']],
+  pricingId: 'custom-sports-mouthguard-pricing',
+  pricingTitle: ['One custom appliance.', 'Three planning views.'],
+  pricingIntro: 'The custom sports mouthguard amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$450', 'per appliance'], ['MONTHLY · 02', '$38', 'per month · 12 months'], ['YEARLY · 03', '$450', 'annual treatment basis']],
+  pricingNote: 'The $38 monthly view is an approximate rounded illustration ($456 total across 12 months), which is $6 above the $450 fixed and yearly views. The yearly amount is shown on an annual-treatment basis; it is not a subscription and does not include unlimited appliances or replacement. Examination, X-rays, replacements and injury treatment are separate unless office-confirmed.',
+  whyTitle: ['The current smile recorded.', 'The wear plan explained.'],
+  whyIntro: 'A custom fit starts with current dental records and a clear understanding of the sport. The team checks the completed appliance and explains what can change its fit, care needs and replacement timing.',
+  whyImage: '/images/generated/custom-sports-mouthguard-result-v1.webp',
+  whyAlt: 'A clinician checking a custom sports mouthguard and explaining individualized wear guidance',
+  whyPanels: [
+    ['01', 'Sport and smile reviewed', 'Sport demands, growth, dental work, bite and orthodontic appliances are considered before the pathway is confirmed.'],
+    ['02', 'Fit built from records', 'The appliance is fabricated from confirmed current records rather than a universal shape or same-day assumption.'],
+    ['03', 'Protection without a guarantee', 'Fit and wear are reviewed while injury and concussion prevention remain explicitly unguaranteed.'],
+  ],
+  whyFoot: 'ONE CUSTOM APPLIANCE · FOUR CONNECTED STAGES',
+  proofTitle: ['The fit checked.', 'The limits understood.'],
+  proofText: 'Patients frequently mention careful explanations, thoughtful planning and clear follow-up—general-practice themes that support how custom appliance care is discussed.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Current dental records', 'Custom fit check', 'Realistic protection limits'],
+  faqTitle: ['Before a custom', 'sports mouthguard.'],
+  relatedTitle: ['One custom appliance.', 'Several connected paths.'],
+  relatedAria: 'Related preventive, appliance and pediatric services',
+  currentPath: 'Custom sports mouthguard',
+  locationsAria: 'Custom sports mouthguard locations',
+} : isGumScreening ? {
   heroClass: 'is-gum-screening',
   heroImages: [
     ['/images/generated/gum-disease-screening-hero-v1.webp', 'A clinician listening to a patient before a gum-disease screening and evaluation', 'BEGIN WITH THE HISTORY'],
@@ -2775,6 +2847,15 @@ const content = isGumScreening ? {
   .whitening-hero.is-gum-screening .hero-fold--two>img{object-position:53% center}
   .whitening-hero.is-gum-screening .hero-fold--three>img{object-position:59% center}
   .whitening-hero.is-gum-screening .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.4) 60%,transparent 80%)}
+  .whitening-hero.is-sports-mouthguard .hero-folds__scan{display:none}
+  .whitening-hero.is-sports-mouthguard .hero-fold{border:0;box-shadow:0 2.35rem 6rem rgba(0,0,0,.32);overflow:hidden}
+  .whitening-hero.is-sports-mouthguard .hero-fold--one{clip-path:inset(2% 3% 8% 2% round 2rem 8rem 2rem 2rem)}
+  .whitening-hero.is-sports-mouthguard .hero-fold--two{clip-path:inset(8% 2% 2% 3% round 2rem 2rem 8rem 2rem)}
+  .whitening-hero.is-sports-mouthguard .hero-fold--three{clip-path:inset(4% 3% 5% 2% round 8rem 2rem 2rem 2rem)}
+  .whitening-hero.is-sports-mouthguard .hero-fold--one>img{object-position:41% center}
+  .whitening-hero.is-sports-mouthguard .hero-fold--two>img{object-position:51% center}
+  .whitening-hero.is-sports-mouthguard .hero-fold--three>img{object-position:62% center}
+  .whitening-hero.is-sports-mouthguard .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 35%,rgba(4,24,20,.39) 60%,transparent 80%)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -2921,6 +3002,10 @@ const content = isGumScreening ? {
     .whitening-hero.is-gum-screening .hero-fold--two{clip-path:inset(6% 2% 3% 1% round 4rem 1rem 1rem 1rem)}
     .whitening-hero.is-gum-screening .hero-fold--three{clip-path:inset(4% 1% 4% 2% round 1rem 4rem 1rem 1rem)}
     .whitening-hero.is-gum-screening .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.19) 60%,rgba(4,24,20,.79) 100%)}
+    .whitening-hero.is-sports-mouthguard .hero-fold--one{clip-path:inset(2% 2% 7% 1% round 1rem 4rem 1rem 1rem)}
+    .whitening-hero.is-sports-mouthguard .hero-fold--two{clip-path:inset(7% 1% 2% 2% round 1rem 1rem 4rem 1rem)}
+    .whitening-hero.is-sports-mouthguard .hero-fold--three{clip-path:inset(4% 2% 4% 1% round 4rem 1rem 1rem 1rem)}
+    .whitening-hero.is-sports-mouthguard .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 31%,rgba(4,24,20,.17) 59%,rgba(4,24,20,.79) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
