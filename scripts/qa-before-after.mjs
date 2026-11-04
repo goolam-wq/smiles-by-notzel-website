@@ -29,6 +29,7 @@ const routes = [
   ['nitrous-oxide-sedation', '/services/nitrous-oxide-sedation/', '#before-after-nitrous-oxide-sedation'],
   ['virtual-reality-anxiety-reduction', '/services/virtual-reality-anxiety-reduction/', '#before-after-virtual-reality-anxiety-reduction'],
   ['single-tooth-dental-implant', '/services/single-tooth-dental-implant/', '#before-after-single-tooth-dental-implant'],
+  ['implant-supported-bridge', '/services/implant-supported-bridge/', '#before-after-implant-supported-bridge'],
 ];
 const viewports = [
   ['desktop', 1440, 900],

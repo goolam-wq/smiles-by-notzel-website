@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -14,8 +14,14 @@ const isSameDayEmergency = kind === 'same-day-emergency-dental-care';
 const isNitrous = kind === 'nitrous-oxide-sedation';
 const isVirtualReality = kind === 'virtual-reality-anxiety-reduction';
 const isSingleToothImplant = kind === 'single-tooth-dental-implant';
+const isImplantBridge = kind === 'implant-supported-bridge';
 
-const processSteps = isSingleToothImplant ? [
+const processSteps = isImplantBridge ? [
+  ['01', 'Assess', 'The missing-tooth span, gums, bite, neighboring teeth and available bone are evaluated before an implant-supported bridge is recommended.'],
+  ['02', 'Plan', 'Imaging and the final bridge design guide implant positions, the surgical sequence and whether site development may be needed.'],
+  ['03', 'Place', 'The supporting implants are placed according to the confirmed clinical plan, with healing and follow-up coordinated around each site.'],
+  ['04', 'Restore', 'When the foundation is ready, the connected bridge is fitted and reviewed for function, hygiene access and the complete smile.'],
+] : isSingleToothImplant ? [
   ['01', 'Assess', 'The missing-tooth space, gums, bite, neighboring teeth and available bone are evaluated before an implant pathway is recommended.'],
   ['02', 'Plan', 'Imaging and restorative goals guide implant position, the surgical sequence and whether site development may be needed.'],
   ['03', 'Place', 'The implant is placed according to the confirmed clinical plan, with healing and follow-up coordinated around the individual site.'],
@@ -72,7 +78,13 @@ const processSteps = isSingleToothImplant ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isSingleToothImplant ? [
+const faqs = isImplantBridge ? [
+  ['How much does an implant-supported bridge cost?', 'The customer-facing starting treatment price is $7,500. The $209 monthly view is a rounded 36-month planning display ($7,524 total), and the yearly treatment amount is $7,500. Final scope, number of implants, site preparation, eligibility and payment terms are confirmed after examination and imaging.'],
+  ['Is everyone eligible for an implant-supported bridge?', 'No. Oral health, available bone, the missing-tooth span, bite, medical history and individual circumstances must be reviewed first. Additional treatment or another replacement path may be more appropriate.'],
+  ['How many implants support the bridge?', 'There is no universal number. The span being replaced, anatomy, restorative design and clinical findings determine the recommended foundation after imaging and consultation.'],
+  ['How long does the treatment take?', 'Timing varies with extractions, site development, healing, implant integration and the final restoration. The team explains the expected stages after the sites are evaluated.'],
+  ['Is implant-supported bridge care available at both offices?', 'Consultations can begin through Chicago Heights or Mokena. Call the preferred office to confirm the recommended visit and current surgical and restorative availability.'],
+] : isSingleToothImplant ? [
   ['How much does a single-tooth dental implant cost?', 'The customer-facing treatment price is $4,500 for the planned implant, abutment and crown pathway. A 36-month planning example is $125 per month, and the yearly treatment amount is $4,500. Final scope, candidacy, sequencing, eligibility and payment terms are confirmed after examination and imaging.'],
   ['Is everyone eligible for a dental implant?', 'No. Oral health, available bone, the missing-tooth site, bite, medical history and other individual considerations must be reviewed before an implant is recommended. Additional treatment or another replacement path may be more appropriate.'],
   ['Is bone grafting always required?', 'No. Site development is recommended only when the clinical evaluation and imaging show that the planned implant site needs additional support.'],
@@ -140,7 +152,13 @@ const faqs = isSingleToothImplant ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isSingleToothImplant ? [
+const relatedServices = isImplantBridge ? [
+  ['Implants & Oral Surgery', 'Explore the complete category', '/services/implants-oral-surgery/'],
+  ['Single-tooth dental implant', 'Compare a one-tooth replacement path', '/services/single-tooth-dental-implant/'],
+  ['Bone grafting', 'Explore site-development planning when needed', '/services/bone-grafting/'],
+  ['Dental implant restoration', 'Explore restoration of an existing implant', '/services/dental-implant-restoration/'],
+  ['Restorative & Reconstructive', 'Compare connected bridge and replacement options', '/services/restorative-reconstructive/'],
+] : isSingleToothImplant ? [
   ['Implants & Oral Surgery', 'Explore the complete category', '/services/implants-oral-surgery/'],
   ['Implant-supported bridge', 'Explore a connected multi-tooth replacement path', '/services/implant-supported-bridge/'],
   ['Bone grafting', 'Explore site-development planning when needed', '/services/bone-grafting/'],
@@ -202,7 +220,61 @@ const relatedServices = isSingleToothImplant ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isSingleToothImplant ? {
+const content = isImplantBridge ? {
+  heroClass: 'is-implant-bridge',
+  heroImages: [
+    ['/images/generated/implant-supported-bridge-hero-v1.webp', 'A patient and implant dentist discussing an adjacent missing-tooth span', 'BEGIN WITH THE SPAN'],
+    ['/images/generated/implant-supported-bridge-hero-detail-v1.webp', 'An implant dentist reviewing site and bridge planning', 'PLAN THE SUPPORT'],
+    ['/images/generated/implant-supported-bridge-hero-result-v1.webp', 'A patient and dentist reviewing an implant-supported bridge concept', 'CONNECT THE RESTORATION'],
+  ],
+  heroAria: ['Explore the implant-supported bridge consultation', 'Explore site and bridge planning', 'Explore the connected restoration review'],
+  kicker: 'Implants & Oral Surgery · Treatment 02',
+  title: ['Several missing teeth.', 'One connected restoration.'],
+  intro: 'An implant-supported bridge pathway that connects the missing-tooth span, surgical foundation and final restoration—with candidacy and sequence confirmed after examination and imaging.',
+  heroRail: ['Begin with the span', 'Plan the support', 'Connect the restoration'],
+  ledgerLabel: 'Implant-supported bridge', ledgerFixed: 'From $7,500', ledgerMonthly: '$209 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['A bridge is more than the visible teeth.', 'It is a', 'planned foundation.'],
+  storyImage: '/images/generated/implant-supported-bridge-process-v1.webp',
+  storyAlt: 'An implant dentist reviewing an adjacent missing-tooth span and bridge plan',
+  storyRangeLabel: 'Compare the missing-tooth span with the planned implant-supported bridge sequence',
+  storyNote: 'Design the connected restoration before confirming its support.',
+  storyLead: 'We plan the bridge and foundation together. The missing span, bite and restorative design establish what the final restoration must do; the sites and imaging define the appropriate support.',
+  storySteps: [
+    ['01', 'Read the span', 'The missing teeth, gums, bite, neighboring structures and available bone establish the clinical starting point.'],
+    ['02', 'Plan the support', 'Imaging and the final bridge design guide implant positions and the treatment sequence without assuming a universal implant count.'],
+    ['03', 'Connect the bridge', 'The final restoration is fitted and reviewed in function, hygiene access and the wider smile when the foundation is ready.'],
+  ],
+  storyNotes: ['Design the connected restoration before confirming its support.', 'Confirm site readiness, foundation and sequence after clinical imaging.', 'Review the final bridge in function, hygiene access and the complete smile.'],
+  processTitle: ['Connected in design.', 'Specific in support.'],
+  expectTitle: ['One missing span.', 'Several coordinated stages.'],
+  expectCopy: 'An implant-supported bridge may involve evaluation, site preparation, implant placement, healing and final restoration. The exact foundation, stages and timing depend on anatomy, oral health, healing and the confirmed plan; candidacy, implant count or a specific result cannot be guaranteed before assessment.',
+  metrics: [['1', 'connected missing-tooth span'], ['3', 'checks: foundation, function, hygiene access'], ['2', 'connected office locations']],
+  pricingId: 'implant-supported-bridge-pricing',
+  pricingTitle: ['One starting case.', 'Three planning views.'],
+  pricingIntro: 'The implant-supported bridge starting case shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$7,500', 'starting complete case'], ['MONTHLY · 02', '$209', 'per month · 36 months'], ['YEARLY · 03', '$7,500', 'starting complete-case amount']],
+  pricingNote: 'Starting price; final scope depends on the examination, imaging, sites, restorative design and recommended treatment. The $209 monthly view is an approximate rounded financing illustration ($7,524 total across 36 months), not an exact division of the $7,500 starting price. The yearly amount is a complete-case treatment view, not a subscription. Eligibility, schedule and terms are confirmed by the office.',
+  whyTitle: ['Restoration-led.', 'Foundation-specific.'],
+  whyIntro: 'We do not assume the bridge design, implant count or site preparation before evaluation. The missing span, final function, hygiene access, anatomy and available foundation stay connected from consultation through restoration.',
+  whyImage: '/images/generated/implant-supported-bridge-result-v1.webp',
+  whyAlt: 'A dentist and patient reviewing an implant-supported bridge plan',
+  whyPanels: [
+    ['01', 'Final bridge in view', 'The connected restoration and function help guide the surgical plan from the beginning.'],
+    ['02', 'Candidacy before placement', 'Oral health, anatomy, imaging and individual considerations determine whether the pathway is appropriate.'],
+    ['03', 'Hygiene stays in the plan', 'The final restoration is considered in function and in how it can be cared for over time.'],
+  ],
+  whyFoot: 'ONE CONNECTED SPAN · THREE FOUNDATION CHECKS',
+  proofTitle: ['The sequence explained.', 'The support understood.'],
+  proofText: 'Patients frequently mention thoughtful explanations, attentive care and clear next steps—general-practice feedback that supports how multi-stage implant and restorative planning is discussed.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Restoration-led planning', 'Clear sequencing', 'Connected follow-up'],
+  faqTitle: ['Before you connect', 'the span.'],
+  relatedTitle: ['One missing span.', 'Several connected paths.'],
+  relatedAria: 'Related implant, surgical and restorative services',
+  currentPath: 'Implant-supported bridge',
+  locationsAria: 'Implant-supported bridge consultation locations',
+} : isSingleToothImplant ? {
   heroClass: 'is-single-tooth-implant',
   heroImages: [
     ['/images/generated/single-tooth-dental-implant-hero-v1.webp', 'A patient and implant dentist discussing one missing-tooth space', 'BEGIN WITH THE SPACE'],
@@ -1234,6 +1306,15 @@ const content = isSingleToothImplant ? {
   .whitening-hero.is-single-tooth-implant .hero-fold--two>img{object-position:51% center}
   .whitening-hero.is-single-tooth-implant .hero-fold--three>img{object-position:60% center}
   .whitening-hero.is-single-tooth-implant .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.46) 55%,transparent 74%)}
+  .whitening-hero.is-implant-bridge .hero-folds__scan{display:none}
+  .whitening-hero.is-implant-bridge .hero-fold{border:0;box-shadow:0 2.2rem 6rem rgba(0,0,0,.33)}
+  .whitening-hero.is-implant-bridge .hero-fold--one{clip-path:inset(5% 0 5% 0 round 8rem 1rem 1rem 8rem)}
+  .whitening-hero.is-implant-bridge .hero-fold--two{clip-path:inset(0 0 0 0 round 1rem)}
+  .whitening-hero.is-implant-bridge .hero-fold--three{clip-path:inset(5% 0 5% 0 round 1rem 8rem 8rem 1rem)}
+  .whitening-hero.is-implant-bridge .hero-fold--one>img{object-position:42% center}
+  .whitening-hero.is-implant-bridge .hero-fold--two>img{object-position:51% center}
+  .whitening-hero.is-implant-bridge .hero-fold--three>img{object-position:61% center}
+  .whitening-hero.is-implant-bridge .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.47) 55%,transparent 74%)}
 
   @media(min-width:721px) and (max-width:1100px){
     .whitening-hero{height:245svh}
@@ -1294,6 +1375,10 @@ const content = isSingleToothImplant ? {
     .whitening-hero.is-single-tooth-implant .hero-fold--two{clip-path:inset(3% 0 3% 0 round 6rem 1rem 6rem 1rem)}
     .whitening-hero.is-single-tooth-implant .hero-fold--three{clip-path:inset(7% 0 0 0 round 1rem 6rem 1rem 6rem)}
     .whitening-hero.is-single-tooth-implant .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.21) 60%,rgba(4,24,20,.78) 100%)}
+    .whitening-hero.is-implant-bridge .hero-fold--one{clip-path:inset(4% 0 4% 0 round 5rem .75rem .75rem 5rem)}
+    .whitening-hero.is-implant-bridge .hero-fold--two{clip-path:inset(0 0 0 0 round .75rem)}
+    .whitening-hero.is-implant-bridge .hero-fold--three{clip-path:inset(4% 0 4% 0 round .75rem 5rem 5rem .75rem)}
+    .whitening-hero.is-implant-bridge .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.22) 60%,rgba(4,24,20,.79) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */

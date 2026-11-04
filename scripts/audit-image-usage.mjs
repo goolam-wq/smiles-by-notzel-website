@@ -18,6 +18,7 @@ const routes = [
   '/services/nitrous-oxide-sedation/',
   '/services/virtual-reality-anxiety-reduction/',
   '/services/single-tooth-dental-implant/',
+  '/services/implant-supported-bridge/',
   '/services/implants-oral-surgery/',
   '/services/orthodontic-dentistry/',
   '/services/pediatric-developmental/',

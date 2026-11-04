@@ -26,6 +26,7 @@ const routes = [
   ['nitrous-oxide-sedation', '/services/nitrous-oxide-sedation/?qa=detail-matrix'],
   ['virtual-reality-anxiety-reduction', '/services/virtual-reality-anxiety-reduction/?qa=detail-matrix'],
   ['single-tooth-dental-implant', '/services/single-tooth-dental-implant/?qa=detail-matrix'],
+  ['implant-supported-bridge', '/services/implant-supported-bridge/?qa=detail-matrix'],
 ];
 const routeFilter = process.argv[2];
 const activeRoutes = routeFilter ? routes.filter(([name]) => name === routeFilter) : routes;
