@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -13,8 +13,14 @@ const isMakeover = kind === 'complete-smile-makeover';
 const isSameDayEmergency = kind === 'same-day-emergency-dental-care';
 const isNitrous = kind === 'nitrous-oxide-sedation';
 const isVirtualReality = kind === 'virtual-reality-anxiety-reduction';
+const isSingleToothImplant = kind === 'single-tooth-dental-implant';
 
-const processSteps = isVirtualReality ? [
+const processSteps = isSingleToothImplant ? [
+  ['01', 'Assess', 'The missing-tooth space, gums, bite, neighboring teeth and available bone are evaluated before an implant pathway is recommended.'],
+  ['02', 'Plan', 'Imaging and restorative goals guide implant position, the surgical sequence and whether site development may be needed.'],
+  ['03', 'Place', 'The implant is placed according to the confirmed clinical plan, with healing and follow-up coordinated around the individual site.'],
+  ['04', 'Restore', 'After the site is ready, the abutment and crown are planned, placed and reviewed in the bite and complete smile.'],
+] : isVirtualReality ? [
   ['01', 'Listen', 'We begin with the sights, sounds or moments that make dental care difficult and what kind of distraction feels comfortable.'],
   ['02', 'Review', 'The planned procedure, headset fit, individual tolerance and relevant health considerations are reviewed before use.'],
   ['03', 'Focus', 'The headset provides a visual and audio focal point while the dental team stays connected and the patient remains able to communicate.'],
@@ -66,7 +72,13 @@ const processSteps = isVirtualReality ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isVirtualReality ? [
+const faqs = isSingleToothImplant ? [
+  ['How much does a single-tooth dental implant cost?', 'The customer-facing treatment price is $4,500 for the planned implant, abutment and crown pathway. A 36-month planning example is $125 per month, and the yearly treatment amount is $4,500. Final scope, candidacy, sequencing, eligibility and payment terms are confirmed after examination and imaging.'],
+  ['Is everyone eligible for a dental implant?', 'No. Oral health, available bone, the missing-tooth site, bite, medical history and other individual considerations must be reviewed before an implant is recommended. Additional treatment or another replacement path may be more appropriate.'],
+  ['Is bone grafting always required?', 'No. Site development is recommended only when the clinical evaluation and imaging show that the planned implant site needs additional support.'],
+  ['How long does a single-tooth implant take?', 'There is no universal timeline. Extraction needs, site preparation, healing, implant integration and restorative stages can change the sequence. The team explains the expected stages after the site is evaluated.'],
+  ['Is single-tooth implant care available at both offices?', 'Consultations can begin through Chicago Heights or Mokena. Call the preferred office to confirm the recommended visit and current surgical and restorative availability.'],
+] : isVirtualReality ? [
   ['How much does virtual-reality anxiety reduction cost?', 'The customer-facing visit add-on price is $75. The $7 monthly view is a rounded 12-month planning display, and the yearly amount is $75. Candidacy, final treatment scope and payment terms are confirmed by the office.'],
   ['How can virtual reality support a dental visit?', 'The headset can give some patients an alternate visual and audio focus so clinical sights and sounds feel less immediate. It is a comfort and distraction option, not a guaranteed anxiety treatment.'],
   ['Is virtual reality appropriate for everyone?', 'No. The planned procedure, headset fit, individual tolerance and relevant health considerations are reviewed first. The headset can be paused or removed if it causes discomfort.'],
@@ -128,7 +140,13 @@ const faqs = isVirtualReality ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isVirtualReality ? [
+const relatedServices = isSingleToothImplant ? [
+  ['Implants & Oral Surgery', 'Explore the complete category', '/services/implants-oral-surgery/'],
+  ['Implant-supported bridge', 'Explore a connected multi-tooth replacement path', '/services/implant-supported-bridge/'],
+  ['Bone grafting', 'Explore site-development planning when needed', '/services/bone-grafting/'],
+  ['Dental implant restoration', 'Explore restoration of an existing implant', '/services/dental-implant-restoration/'],
+  ['Restorative & Reconstructive', 'Compare connected tooth-replacement options', '/services/restorative-reconstructive/'],
+] : isVirtualReality ? [
   ['Emergency & Comfort Dentistry', 'Explore the complete category', '/services/emergency-comfort/'],
   ['Nitrous oxide sedation', 'Explore another monitored comfort option', '/services/nitrous-oxide-sedation/'],
   ['Same-day emergency dental care', 'Explore prompt assessment and next-step planning', '/services/same-day-emergency-dental-care/'],
@@ -184,7 +202,61 @@ const relatedServices = isVirtualReality ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isVirtualReality ? {
+const content = isSingleToothImplant ? {
+  heroClass: 'is-single-tooth-implant',
+  heroImages: [
+    ['/images/generated/single-tooth-dental-implant-hero-v1.webp', 'A patient and implant dentist discussing one missing-tooth space', 'BEGIN WITH THE SPACE'],
+    ['/images/generated/single-tooth-dental-implant-hero-detail-v1.webp', 'An implant dentist reviewing the site and restorative position', 'PLAN THE FOUNDATION'],
+    ['/images/generated/single-tooth-dental-implant-hero-result-v1.webp', 'A patient and dentist reviewing a single-tooth implant restoration', 'RESTORE THE WHOLE'],
+  ],
+  heroAria: ['Explore the single-tooth implant consultation', 'Explore site and restorative planning', 'Explore the connected implant restoration review'],
+  kicker: 'Implants & Oral Surgery · Treatment 01',
+  title: ['One missing tooth.', 'A connected replacement plan.'],
+  intro: 'A single-tooth implant pathway that connects the site, surgical foundation, abutment and crown—with candidacy and sequence confirmed after examination and imaging.',
+  heroRail: ['Begin with the space', 'Plan the foundation', 'Restore the whole'],
+  ledgerLabel: 'Single-tooth dental implant', ledgerFixed: '$4,500', ledgerMonthly: '$125 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['Replacing one tooth is not one step.', 'It is a', 'connected sequence.'],
+  storyImage: '/images/generated/single-tooth-dental-implant-process-v1.webp',
+  storyAlt: 'An implant dentist reviewing a single missing-tooth site and restorative plan',
+  storyRangeLabel: 'Compare the missing-tooth space with the planned implant and restoration sequence',
+  storyNote: 'Plan the final restoration before placing the foundation.',
+  storyLead: 'We plan from the final tooth backward. The crown, bite and neighboring teeth help define the restorative position; the site and imaging determine what the foundation may require.',
+  storySteps: [
+    ['01', 'Read the site', 'The space, gums, bite, neighboring teeth and available bone establish the clinical starting point.'],
+    ['02', 'Plan the position', 'Imaging and the final restorative goal guide the implant position and treatment sequence.'],
+    ['03', 'Connect the restoration', 'The abutment and crown are reviewed in the bite and complete smile when the site is ready.'],
+  ],
+  storyNotes: ['Plan the final restoration before placing the foundation.', 'Confirm site readiness, sequence and any additional treatment after imaging.', 'Review the completed restoration in function and the wider smile.'],
+  processTitle: ['Foundation first.', 'Restoration always in view.'],
+  expectTitle: ['One space.', 'Several coordinated stages.'],
+  expectCopy: 'A single-tooth implant may involve evaluation, site preparation, implant placement, healing and final restoration. The exact stages and timing depend on oral health, anatomy, healing and the confirmed clinical plan; candidacy or a specific result cannot be guaranteed before assessment.',
+  metrics: [['1', 'missing-tooth space'], ['3', 'connected parts: implant, abutment, crown'], ['2', 'connected office locations']],
+  pricingId: 'single-tooth-dental-implant-pricing',
+  pricingTitle: ['One implant pathway.', 'Three planning views.'],
+  pricingIntro: 'The same single-tooth dental implant pathway shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$4,500', 'implant, abutment and crown pathway'], ['MONTHLY · 02', '$125', 'per month · 36 months'], ['YEARLY · 03', '$4,500', 'annual treatment amount']],
+  pricingNote: 'Final scope depends on the examination, imaging, site readiness and recommended treatment. The monthly example totals $4,500 across 36 months. The yearly amount is an annual treatment view, not a subscription or unlimited-care plan. Candidacy, sequence, eligibility and payment terms are confirmed by the office.',
+  whyTitle: ['Restoration-led.', 'Site-specific.'],
+  whyIntro: 'We do not plan the implant as an isolated component. The final tooth position, bite, neighboring structures and available foundation stay connected from the first evaluation through the restoration.',
+  whyImage: '/images/generated/single-tooth-dental-implant-result-v1.webp',
+  whyAlt: 'A dentist and patient reviewing the planned single-tooth implant restoration',
+  whyPanels: [
+    ['01', 'Final tooth in view', 'Crown position, proportion and function help guide the surgical plan from the beginning.'],
+    ['02', 'Candidacy before placement', 'Oral health, anatomy, imaging and individual considerations determine whether the pathway is appropriate.'],
+    ['03', 'One connected sequence', 'Surgical and restorative stages are coordinated around the same missing-tooth goal.'],
+  ],
+  whyFoot: 'ONE MISSING TOOTH · THREE CONNECTED COMPONENTS',
+  proofTitle: ['The steps explained.', 'The plan connected.'],
+  proofText: 'Patients frequently mention thoughtful explanations, attentive care and clear next steps—general-practice feedback that supports how multi-stage implant planning is discussed.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Restoration-led planning', 'Clear sequencing', 'Connected follow-up'],
+  faqTitle: ['Before you replace', 'one tooth.'],
+  relatedTitle: ['One missing tooth.', 'Several connected paths.'],
+  relatedAria: 'Related implant, surgical and restorative services',
+  currentPath: 'Single-tooth dental implant',
+  locationsAria: 'Single-tooth dental implant consultation locations',
+} : isVirtualReality ? {
   heroClass: 'is-virtual-reality',
   heroImages: [
     ['/images/generated/virtual-reality-dental-anxiety-therapy-hero-v1.webp', 'A patient discussing dental anxiety triggers and virtual-reality support', 'BEGIN WITH THE TRIGGER'],
@@ -1153,6 +1225,15 @@ const content = isVirtualReality ? {
   .whitening-hero.is-virtual-reality .hero-fold--two>img{object-position:50% center}
   .whitening-hero.is-virtual-reality .hero-fold--three>img{object-position:61% center}
   .whitening-hero.is-virtual-reality .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 35%,rgba(4,24,20,.43) 55%,transparent 74%)}
+  .whitening-hero.is-single-tooth-implant .hero-folds__scan{display:none}
+  .whitening-hero.is-single-tooth-implant .hero-fold{border:0;box-shadow:0 2.2rem 6rem rgba(0,0,0,.33)}
+  .whitening-hero.is-single-tooth-implant .hero-fold--one{clip-path:inset(0 0 10% 0 round 2rem 10rem 2rem 10rem)}
+  .whitening-hero.is-single-tooth-implant .hero-fold--two{clip-path:inset(5% 0 5% 0 round 10rem 2rem 10rem 2rem)}
+  .whitening-hero.is-single-tooth-implant .hero-fold--three{clip-path:inset(10% 0 0 0 round 2rem 10rem 2rem 10rem)}
+  .whitening-hero.is-single-tooth-implant .hero-fold--one>img{object-position:42% center}
+  .whitening-hero.is-single-tooth-implant .hero-fold--two>img{object-position:51% center}
+  .whitening-hero.is-single-tooth-implant .hero-fold--three>img{object-position:60% center}
+  .whitening-hero.is-single-tooth-implant .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.46) 55%,transparent 74%)}
 
   @media(min-width:721px) and (max-width:1100px){
     .whitening-hero{height:245svh}
@@ -1209,6 +1290,10 @@ const content = isVirtualReality ? {
     .whitening-hero.is-virtual-reality .hero-fold--one,.whitening-hero.is-virtual-reality .hero-fold--three{clip-path:inset(5% 0 5% 0 round 5rem 1rem 5rem 1rem)}
     .whitening-hero.is-virtual-reality .hero-fold--two{clip-path:inset(0 0 0 0 round 1rem 5rem 1rem 5rem)}
     .whitening-hero.is-virtual-reality .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.19) 60%,rgba(4,24,20,.77) 100%)}
+    .whitening-hero.is-single-tooth-implant .hero-fold--one{clip-path:inset(0 0 7% 0 round 1rem 6rem 1rem 6rem)}
+    .whitening-hero.is-single-tooth-implant .hero-fold--two{clip-path:inset(3% 0 3% 0 round 6rem 1rem 6rem 1rem)}
+    .whitening-hero.is-single-tooth-implant .hero-fold--three{clip-path:inset(7% 0 0 0 round 1rem 6rem 1rem 6rem)}
+    .whitening-hero.is-single-tooth-implant .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.21) 60%,rgba(4,24,20,.78) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */

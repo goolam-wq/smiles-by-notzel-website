@@ -28,6 +28,7 @@ const routes = [
   ['same-day-emergency-dental-care', '/services/same-day-emergency-dental-care/', '#before-after-same-day-emergency-dental-care'],
   ['nitrous-oxide-sedation', '/services/nitrous-oxide-sedation/', '#before-after-nitrous-oxide-sedation'],
   ['virtual-reality-anxiety-reduction', '/services/virtual-reality-anxiety-reduction/', '#before-after-virtual-reality-anxiety-reduction'],
+  ['single-tooth-dental-implant', '/services/single-tooth-dental-implant/', '#before-after-single-tooth-dental-implant'],
 ];
 const viewports = [
   ['desktop', 1440, 900],

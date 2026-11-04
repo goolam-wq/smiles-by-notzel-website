@@ -17,6 +17,7 @@ const routes = [
   '/services/same-day-emergency-dental-care/',
   '/services/nitrous-oxide-sedation/',
   '/services/virtual-reality-anxiety-reduction/',
+  '/services/single-tooth-dental-implant/',
   '/services/restorative-reconstructive/',
   '/services/wellness-offering/',
 ];
