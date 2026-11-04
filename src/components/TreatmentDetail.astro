@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -30,8 +30,14 @@ const isPerioProtect = kind === 'perio-protect';
 const isProfessionalCleaning = kind === 'professional-dental-cleaning';
 const isComprehensiveExam = kind === 'routine-comprehensive-exam';
 const isDigitalXrays = kind === 'digital-dental-x-rays';
+const isFluorideTreatment = kind === 'fluoride-treatment';
 
-const processSteps = isDigitalXrays ? [
+const processSteps = isFluorideTreatment ? [
+  ['01', 'Review', 'The clinician reviews oral findings, cavity-risk factors, age, history and relevant health considerations before recommending fluoride treatment.'],
+  ['02', 'Prepare', 'The teeth are readied for the confirmed application, and the visit scope is explained without assuming a universal product or schedule.'],
+  ['03', 'Apply', 'Professional fluoride is applied according to the individualized clinical recommendation and current office protocol.'],
+  ['04', 'Guide', 'The team explains individualized follow-up and product-specific eating, drinking and brushing guidance. Instructions depend on the fluoride product, so no universal wait time is assumed.'],
+] : isDigitalXrays ? [
   ['01', 'Confirm', 'The clinician confirms that dental imaging is clinically indicated and which views are relevant to the examination or treatment question.'],
   ['02', 'Position', 'The patient and sensor are positioned for the selected views, with relevant history and individual considerations reviewed before capture.'],
   ['03', 'Capture', 'The prescribed digital dental images are acquired, and additional or repeat views are taken only when clinically needed.'],
@@ -168,7 +174,14 @@ const processSteps = isDigitalXrays ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isDigitalXrays ? [
+const faqs = isFluorideTreatment ? [
+  ['How much does fluoride treatment cost?', 'The customer-facing price is $48 per treatment. The monthly planning view is $8 for 12 months ($96 total), representing two $48 treatments in a year, and the yearly view is $96 for up to two treatments. Final frequency, eligibility, scope and payment terms are confirmed by the office.'],
+  ['Does fluoride treatment guarantee that I will not get cavities?', 'No. Professional fluoride can be one part of an individualized preventive plan, but it does not guarantee cavity prevention or replace examination, home care, diet considerations or recommended treatment.'],
+  ['Does fluoride regenerate enamel or whiten teeth?', 'No enamel-regeneration or whitening claim is made. The clinician explains the preventive purpose of the recommended application and what it can realistically support.'],
+  ['Does everyone need fluoride treatment on the same schedule?', 'No. Frequency is individualized according to clinical findings, age, cavity-risk factors, history and the wider preventive plan. The yearly view represents up to two treatments, not a universal schedule.'],
+  ['How long should I wait before eating, drinking or brushing?', 'There is no universal wait time stated here. Eating, drinking and brushing guidance depends on the fluoride product used, so follow the specific instructions provided by the office after the application.'],
+  ['Can fluoride treatment be used during pregnancy?', 'No blanket pregnancy recommendation is made here. Tell the dental team if you are pregnant or may be pregnant so the clinician can assess the individual situation and confirm what is appropriate.'],
+] : isDigitalXrays ? [
   ['How much does a digital dental X-ray series cost?', 'The customer-facing price is $150 per series. The $13 monthly view is an approximate rounded 12-month illustration ($156 total), which is $6 above the $150 fixed and yearly views. Final views, scope, eligibility and payment terms are confirmed by the office.'],
   ['Are digital dental X-rays taken at every visit?', 'No. Imaging is taken only when clinically indicated. The examination question, symptoms, dental history, age, previous images and treatment needs help determine whether images and which views are appropriate.'],
   ['Are digital dental X-rays radiation-free or zero-risk?', 'No. Digital dental imaging is not radiation-free or zero-risk. The clinician weighs the clinical need and selects appropriate views; no universal safety claim or guaranteed diagnosis is made.'],
@@ -332,7 +345,13 @@ const faqs = isDigitalXrays ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isDigitalXrays ? [
+const relatedServices = isFluorideTreatment ? [
+  ['Dental sealants', 'Explore another individualized preventive option', '/services/dental-sealants/'],
+  ['Routine comprehensive exam', 'Connect fluoride recommendations to current clinical findings', '/services/routine-comprehensive-exam/'],
+  ['Professional dental cleaning', 'Explore a separate routine-cleaning visit', '/services/professional-dental-cleaning/'],
+  ['Pediatric cleaning & exam', 'Connect age-appropriate pediatric prevention', '/services/pediatric-cleaning-exam/'],
+  ['Digital dental X-rays', 'Explore clinically indicated diagnostic imaging', '/services/digital-dental-x-rays/'],
+] : isDigitalXrays ? [
   ['Routine comprehensive exam', 'Connect images to a complete clinical examination', '/services/routine-comprehensive-exam/'],
   ['Professional dental cleaning', 'Connect an appropriate preventive cleaning visit', '/services/professional-dental-cleaning/'],
   ['Periodontal Dentistry', 'Explore gum-health evaluation and screening', '/services/periodontal-dentistry/'],
@@ -491,7 +510,61 @@ const relatedServices = isDigitalXrays ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isDigitalXrays ? {
+const content = isFluorideTreatment ? {
+  heroClass: 'is-fluoride-treatment',
+  heroImages: [
+    ['/images/generated/fluoride-treatment-hero-v1.webp', 'A dentist reviewing preventive priorities before recommending fluoride treatment', 'REVIEW THE PREVENTIVE CONTEXT'],
+    ['/images/generated/fluoride-treatment-hero-detail-v1.webp', 'A clinician preparing for a professional fluoride application', 'PREPARE THE APPLICATION'],
+    ['/images/generated/fluoride-treatment-hero-result-v1.webp', 'A patient receiving individualized guidance after professional fluoride treatment', 'GUIDE THE NEXT STEP'],
+  ],
+  heroAria: ['Explore the preventive review', 'Explore professional fluoride application', 'Explore individualized follow-up guidance'],
+  kicker: 'Preventive & Diagnostic · Prevention 04',
+  title: ['A small preventive step.', 'Chosen for a specific need.'],
+  intro: 'Professional fluoride treatment considered within the examination, cavity-risk context and individualized preventive plan—not as a universal schedule or a promise. ',
+  heroRail: ['Review the preventive context', 'Apply the confirmed treatment', 'Guide the next step'],
+  ledgerLabel: 'Professional fluoride treatment', ledgerFixed: '$48 / treatment', ledgerMonthly: '$8 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['Prevention is not one-size-fits-all.', 'The recommendation stays', 'connected to the findings.'],
+  storyImage: '/images/generated/fluoride-treatment-process-v1.webp',
+  storyAlt: 'A clinician reviewing preventive findings and preparing an individualized fluoride application',
+  storyRangeLabel: 'Compare a general preventive question with a clinically guided fluoride-treatment pathway',
+  storyNote: 'Review the findings before choosing the preventive step.',
+  storyLead: 'We begin with current findings, history and cavity-risk factors. When professional fluoride is appropriate, the team confirms the application, explains its realistic preventive role and keeps the follow-up individualized. No cavity-free result or universal frequency is promised.',
+  storySteps: [
+    ['01', 'Review the need', 'Clinical findings, history, age and cavity-risk factors help determine whether fluoride treatment is appropriate.'],
+    ['02', 'Apply with purpose', 'The confirmed treatment is completed according to the individual recommendation and office protocol.'],
+    ['03', 'Keep prevention connected', 'Follow-up guidance stays connected to examination, home care and the wider preventive plan.'],
+  ],
+  storyNotes: ['Confirm the preventive need before treatment.', 'Apply the individualized clinical recommendation.', 'Connect follow-up to the wider preventive plan.'],
+  processTitle: ['Review the need.', 'Guide the prevention.'],
+  expectTitle: ['Small in scale.', 'Specific in purpose.'],
+  expectCopy: 'Professional fluoride treatment may support an individualized preventive plan. Depending on the product, a coating, taste or texture may be temporarily noticeable, and eating, drinking and brushing guidance follows the office’s product-specific instructions rather than a universal wait time. It does not guarantee cavity prevention, regenerate enamel, whiten teeth or replace examination and home care.',
+  metrics: [['1', 'clinically guided treatment'], ['4', 'stages: review, prepare, apply, guide'], ['2', 'connected office locations']],
+  pricingId: 'fluoride-treatment-pricing',
+  pricingTitle: ['One preventive treatment.', 'Three planning views.'],
+  pricingIntro: 'The professional fluoride amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$48', 'per treatment'], ['MONTHLY · 02', '$8', 'per month · 12 months'], ['YEARLY · 03', '$96', 'up to 2 treatments']],
+  pricingNote: 'The $8 monthly view totals $96 across 12 months and represents two $48 treatments in a year. The yearly view is $96 for up to two treatments; it is not an unlimited plan or a universal treatment schedule. Final frequency, scope, eligibility and payment terms are office-confirmed.',
+  whyTitle: ['The recommendation explained.', 'The schedule individualized.'],
+  whyIntro: 'Fluoride treatment is considered within the wider preventive picture. The team explains why it is being recommended, what role it may play and how future frequency depends on the individual findings. ',
+  whyImage: '/images/generated/fluoride-treatment-result-v1.webp',
+  whyAlt: 'A clinician explaining individualized preventive guidance after a professional fluoride treatment',
+  whyPanels: [
+    ['01', 'Findings before frequency', 'Age, history, oral findings and cavity-risk factors shape the recommendation rather than a universal schedule.'],
+    ['02', 'Realistic preventive role', 'The application supports an individualized plan without promising cavity prevention, enamel regeneration or whitening.'],
+    ['03', 'Guidance stays individual', 'Follow-up and pregnancy-related considerations are confirmed for the specific patient and visit.'],
+  ],
+  whyFoot: 'ONE PREVENTIVE TREATMENT · FOUR CONNECTED STAGES',
+  proofTitle: ['The reason understood.', 'The next step clear.'],
+  proofText: 'Patients frequently mention careful explanations, thoughtful prevention and clear next steps—general-practice themes that support how preventive recommendations are discussed.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Individual recommendation', 'Realistic preventive role', 'Clear follow-up guidance'],
+  faqTitle: ['Before professional', 'fluoride treatment.'],
+  relatedTitle: ['One preventive step.', 'Several connected paths.'],
+  relatedAria: 'Related preventive, examination and pediatric services',
+  currentPath: 'Fluoride treatment',
+  locationsAria: 'Fluoride treatment locations',
+} : isDigitalXrays ? {
   heroClass: 'is-digital-xrays',
   heroImages: [
     ['/images/generated/digital-dental-x-rays-hero-v1.webp', 'A dentist confirming the clinical need for digital dental images with a patient', 'BEGIN WITH THE CLINICAL QUESTION'],
@@ -2531,6 +2604,15 @@ const content = isDigitalXrays ? {
   .whitening-hero.is-digital-xrays .hero-fold--two>img{object-position:52% center}
   .whitening-hero.is-digital-xrays .hero-fold--three>img{object-position:60% center}
   .whitening-hero.is-digital-xrays .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.42) 57%,transparent 77%)}
+  .whitening-hero.is-fluoride-treatment .hero-folds__scan{display:none}
+  .whitening-hero.is-fluoride-treatment .hero-fold{border:0;box-shadow:0 2.1rem 5.4rem rgba(0,0,0,.28);overflow:hidden}
+  .whitening-hero.is-fluoride-treatment .hero-fold--one{clip-path:inset(2% 4% 8% 1% round 2rem 7rem 2rem 7rem)}
+  .whitening-hero.is-fluoride-treatment .hero-fold--two{clip-path:inset(7% 1% 2% 4% round 7rem 2rem 7rem 2rem)}
+  .whitening-hero.is-fluoride-treatment .hero-fold--three{clip-path:inset(4% 3% 5% 2% round 2rem 7rem 2rem 7rem)}
+  .whitening-hero.is-fluoride-treatment .hero-fold--one>img{object-position:46% center}
+  .whitening-hero.is-fluoride-treatment .hero-fold--two>img{object-position:54% center}
+  .whitening-hero.is-fluoride-treatment .hero-fold--three>img{object-position:61% center}
+  .whitening-hero.is-fluoride-treatment .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.93) 34%,rgba(4,24,20,.36) 60%,transparent 80%)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -2665,6 +2747,10 @@ const content = isDigitalXrays ? {
     .whitening-hero.is-digital-xrays .hero-fold--two{clip-path:inset(1% 1% 6% 1% round 1rem 4rem 4rem 1rem)}
     .whitening-hero.is-digital-xrays .hero-fold--three{clip-path:inset(6% 1% 1% 1% round 4rem 1rem 1rem 4rem)}
     .whitening-hero.is-digital-xrays .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.19) 60%,rgba(4,24,20,.78) 100%)}
+    .whitening-hero.is-fluoride-treatment .hero-fold--one{clip-path:inset(2% 2% 6% 1% round 1rem 4rem 1rem 4rem)}
+    .whitening-hero.is-fluoride-treatment .hero-fold--two{clip-path:inset(6% 1% 2% 2% round 4rem 1rem 4rem 1rem)}
+    .whitening-hero.is-fluoride-treatment .hero-fold--three{clip-path:inset(3% 2% 4% 1% round 1rem 4rem 1rem 4rem)}
+    .whitening-hero.is-fluoride-treatment .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 31%,rgba(4,24,20,.18) 60%,rgba(4,24,20,.79) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */

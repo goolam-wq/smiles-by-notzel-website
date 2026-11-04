@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore professional fluoride treatment at Smiles by Noetzel, including individualized preventive guidance, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Fluoride Treatment | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-fluoride-treatment.webp" mediaAlt="A clinician discussing individualized fluoride treatment within a preventive dental plan" />
+    <main>
+      <TreatmentDetail kind="fluoride-treatment" />
+      <BeforeAfterStory id="before-after-fluoride-treatment" tone="light" reverse number="06" eyebrow="Illustrative preventive pathway · fluoride treatment" title="From a general prevention question." emphasis="To an individualized recommendation."
+        intro="This illustrative pathway shows how findings and cavity-risk context may lead to a professional fluoride recommendation and follow-up guidance. It is not an actual patient outcome, a physical transformation or a guarantee of cavity prevention."
+        image="/images/generated/before-after-fluoride-treatment-v1.webp" imageAlt="Illustrative comparison of a general prevention question before assessment and an individualized fluoride-treatment pathway"
+        beforeLabel="Before preventive review" beforeDetail="Current findings, history, cavity-risk factors and the appropriate preventive step have not yet been connected."
+        afterLabel="Illustrative guided pathway" afterDetail="The simulated view represents an individualized recommendation, application and follow-up—not enamel regeneration, whitening or a guaranteed outcome."
+        caseNote="Illustrative preventive pathway · not an actual patient case or physical transformation · recommendations vary" />
+      <HubFooter eyebrow="Ready to make prevention more specific?" title="Begin with current findings, an individualized recommendation and clear follow-up." />
+    </main>
+  </body>
+</html>

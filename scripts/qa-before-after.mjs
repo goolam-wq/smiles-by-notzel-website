@@ -45,6 +45,7 @@ const routes = [
   ['professional-dental-cleaning', '/services/professional-dental-cleaning/', '#before-after-professional-dental-cleaning'],
   ['routine-comprehensive-exam', '/services/routine-comprehensive-exam/', '#before-after-routine-comprehensive-exam'],
   ['digital-dental-x-rays', '/services/digital-dental-x-rays/', '#before-after-digital-dental-x-rays'],
+  ['fluoride-treatment', '/services/fluoride-treatment/', '#before-after-fluoride-treatment'],
 ];
 const viewports = [
   ['desktop', 1440, 900],
