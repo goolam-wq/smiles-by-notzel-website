@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -9,8 +9,14 @@ const isLumineers = kind === 'lumineers';
 const isSnapOn = kind === 'snap-on-smile';
 const isBonding = kind === 'dental-bonding';
 const isContouring = kind === 'tooth-contouring';
+const isMakeover = kind === 'complete-smile-makeover';
 
-const processSteps = isContouring ? [
+const processSteps = isMakeover ? [
+  ['01', 'Listen', 'We begin with what you notice, what you want to preserve and which changes matter most in everyday life.'],
+  ['02', 'Evaluate', 'Teeth, gums, bite, existing dental work and the wider smile are examined before individual options are coordinated.'],
+  ['03', 'Sequence', 'Recommended treatments are placed in a deliberate order so health, function, shade and shape support one connected plan.'],
+  ['04', 'Review', 'Each completed stage is reviewed in the bite and complete smile before the plan moves forward.'],
+] : isContouring ? [
   ['01', 'Listen', 'We begin with the edge, point or proportion you notice and the character you want to preserve.'],
   ['02', 'Evaluate', 'Enamel thickness, tooth position, bite, neighboring teeth and existing dental work are examined before contouring is recommended.'],
   ['03', 'Map', 'The selected adjustment is marked and reviewed in the context of the complete visible smile.'],
@@ -42,7 +48,13 @@ const processSteps = isContouring ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isContouring ? [
+const faqs = isMakeover ? [
+  ['How much does a complete smile makeover cost?', 'The customer-facing starting price is $12,000. The $334 monthly view is a rounded 36-month planning display ($12,024 total), not an exact division of $12,000. The yearly view is the $12,000 starting complete-treatment case amount, not a recurring annual package. Final scope, sequence, total, eligibility and payment terms are confirmed after examination and consultation.'],
+  ['What can a complete smile makeover include?', 'A coordinated plan may connect appropriate cosmetic and restorative services. The exact combination depends on oral health, existing dental work, the bite and the changes you want to explore.'],
+  ['Does every smile makeover use the same treatments?', 'No. The plan is individualized. Some goals may involve one type of care, while others may require several treatments arranged in a clinically appropriate sequence.'],
+  ['How long does a complete smile makeover take?', 'There is no universal timeline. The recommended treatments, healing or laboratory stages, and the order of care determine the schedule after the plan is confirmed.'],
+  ['Are smile makeover consultations available at both offices?', 'Consultations can be coordinated through Chicago Heights and Mokena. Call the preferred office to confirm the recommended visit and current appointment availability.'],
+] : isContouring ? [
   ['How much does tooth contouring cost?', 'The customer-facing treatment price is $150 per tooth. The $13 monthly view is a rounded 12-month planning display; it is not an exact division of $150. The yearly amount is $150 per tooth. Final candidacy, scope and payment terms are confirmed after examination.'],
   ['What can tooth contouring address?', 'Contouring may be considered for selected uneven edges, small points or minor proportion concerns. Enamel thickness, tooth position and bite determine whether it is appropriate.'],
   ['Is tooth contouring reversible?', 'Contouring removes a limited amount of enamel, so the change itself is not reversible. The team evaluates the tooth carefully and confirms the clinical plan before any reshaping.'],
@@ -80,7 +92,15 @@ const faqs = isContouring ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isContouring ? [
+const relatedServices = isMakeover ? [
+  ['Cosmetic Dentistry', 'Explore the complete category', '/services/cosmetic-dentistry/'],
+  ['Professional teeth whitening', 'Explore coordinated shade planning', '/services/professional-teeth-whitening/'],
+  ['Porcelain veneers & laminates', 'Explore shape and proportion planning', '/services/porcelain-veneers-laminates/'],
+  ['Lumineers', 'Compare another selected cosmetic pathway', '/services/lumineers/'],
+  ['Snap-on Smile', 'Explore a removable full-arch option', '/services/snap-on-smile/'],
+  ['Dental bonding', 'Explore a conservative composite pathway', '/services/dental-bonding/'],
+  ['Tooth contouring', 'Explore precise edge refinement', '/services/tooth-contouring/'],
+] : isContouring ? [
   ['Cosmetic Dentistry', 'Explore the complete category', '/services/cosmetic-dentistry/'],
   ['Dental bonding', 'Compare a composite refinement path', '/services/dental-bonding/'],
   ['Porcelain veneers & laminates', 'Explore a porcelain refinement path', '/services/porcelain-veneers-laminates/'],
@@ -112,7 +132,61 @@ const relatedServices = isContouring ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isContouring ? {
+const content = isMakeover ? {
+  heroClass: 'is-makeover',
+  heroImages: [
+    ['/images/generated/complete-smile-makeover-hero-v1.webp', 'A patient and dentist discussing priorities for a complete smile makeover', 'BEGIN WITH THE WHOLE'],
+    ['/images/generated/complete-smile-makeover-hero-detail-v1.webp', 'A detailed planning conversation coordinating several smile makeover options', 'CONNECT THE PLAN'],
+    ['/images/generated/complete-smile-makeover-hero-result-v1.webp', 'A patient reviewing the complete smile in the mirror', 'REVIEW THE COMPLETE SMILE'],
+  ],
+  heroAria: ['Explore the complete smile makeover consultation', 'Explore the coordinated treatment plan', 'Explore the complete smile review'],
+  kicker: 'Cosmetic Dentistry · Treatment 07',
+  title: ['Many details.', 'One connected smile.'],
+  intro: 'A complete smile makeover coordinates the right treatments around oral health, function and the changes that matter to you.',
+  heroRail: ['Read the whole', 'Connect the sequence', 'Review the smile'],
+  ledgerLabel: 'Complete smile makeover', ledgerFixed: 'From $12,000', ledgerMonthly: '$334 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['A makeover is not a list of treatments.', 'It is a', 'connected plan.'],
+  storyImage: '/images/generated/complete-smile-makeover-process-v1.webp',
+  storyAlt: 'A dentist and patient coordinating the stages of a complete smile makeover',
+  storyRangeLabel: 'Compare the starting smile with the coordinated complete-smile planning view',
+  storyNote: 'Read health, function and appearance as one picture.',
+  storyLead: 'We plan the complete smile in layers. Oral health and function establish the foundation; shade, shape and proportion are coordinated around it.',
+  storySteps: [
+    ['01', 'Read the foundation', 'Teeth, gums, bite and existing dental work are reviewed before cosmetic priorities are sequenced.'],
+    ['02', 'Connect the treatments', 'Each recommended service is considered beside the stages that come before and after it.'],
+    ['03', 'Review the whole smile', 'Shade, shape, proportion and function are judged together—not as isolated details.'],
+  ],
+  storyNotes: ['Read health, function and appearance as one picture.', 'Connect the appropriate treatments in a deliberate clinical sequence.', 'Review every completed stage in the bite and complete smile.'],
+  processTitle: ['Planned in layers.', 'Experienced as one smile.'],
+  expectTitle: ['Comprehensive in view.', 'Personal in scope.'],
+  expectCopy: 'A complete smile makeover may coordinate several cosmetic or restorative services, but it does not prescribe a standard package. The team examines oral health, bite, existing dental work and your priorities before confirming the appropriate scope and sequence.',
+  metrics: [['1', 'connected treatment roadmap'], ['4', 'dimensions aligned: health, function, shade, shape'], ['2', 'connected office locations']],
+  pricingId: 'complete-smile-makeover-pricing',
+  pricingTitle: ['One connected plan.', 'Three ways to view it.'],
+  pricingIntro: 'The complete smile makeover starting amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$12,000', 'starting complete-treatment case'], ['MONTHLY · 02', '$334', 'per month · 36 months'], ['YEARLY · 03', '$12,000', 'starting complete-treatment case']],
+  pricingNote: 'Starting price; final treatment depends on selected procedures. The $334 monthly view is a rounded 36-month planning display ($12,024 total), not an exact division of the $12,000 starting price. Eligibility, final scope, sequence and payment terms are confirmed after consultation.',
+  whyTitle: ['Several possibilities.', 'One clinical sequence.'],
+  whyIntro: 'We do not stack cosmetic treatments without context. Health, function, existing dental work and the complete visible smile guide which services belong in the plan and when they happen.',
+  whyImage: '/images/generated/complete-smile-makeover-result-v1.webp',
+  whyAlt: 'A patient and dentist reviewing a complete smile makeover plan together',
+  whyPanels: [
+    ['01', 'Foundation before finish', 'Teeth, gums, bite and existing dental work establish the clinical starting point.'],
+    ['02', 'One coordinated sequence', 'Appropriate treatments are ordered so each stage supports the next.'],
+    ['03', 'The complete smile test', 'Every detail is reviewed in function, proportion and the wider visible smile.'],
+  ],
+  whyFoot: 'ONE CONNECTED ROADMAP · THREE CONTEXT CHECKS',
+  proofTitle: ['The plan connected.', 'The next step clear.'],
+  proofText: 'Patients frequently mention thoughtful explanations and a caring team—general-practice feedback that supports how multi-step recommendations and next steps are discussed.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Connected planning', 'Clear explanation', 'Whole-smile context'],
+  faqTitle: ['Before you', 'coordinate.'],
+  relatedTitle: ['One complete plan.', 'Several connected paths.'],
+  relatedAria: 'Related complete smile makeover and cosmetic services',
+  currentPath: 'Complete smile makeover',
+  locationsAria: 'Complete smile makeover consultation locations',
+} : isContouring ? {
   heroClass: 'is-contouring',
   heroImages: [
     ['/images/generated/tooth-contouring-hero-v1.webp', 'A patient and dentist discussing a small tooth-edge contouring concern', 'READ THE EDGE'],
@@ -548,7 +622,7 @@ const content = isContouring ? {
         {content.prices.map((price, index) => <article class:list={{ featured: index === 1 }}><span>{price[0]}</span><strong>{price[1]}</strong><p>{price[2]}</p></article>)}
       </div>
       <div class="pricing-progress" aria-hidden="true"><i></i><span>SCROLL TO COMPARE</span></div>
-      <p class="pricing-note">{isContouring ? 'The $13 monthly view is a rounded 12-month planning display rather than an exact division of $150. Eligibility, final treatment scope and payment terms are confirmed by the office.' : 'Monthly examples show the stated treatment amount divided across the listed term. Eligibility, final treatment scope and payment terms are confirmed by the office.'}</p>
+      <p class="pricing-note">{'pricingNote' in content ? content.pricingNote : (isContouring ? 'The $13 monthly view is a rounded 12-month planning display rather than an exact division of $150. Eligibility, final treatment scope and payment terms are confirmed by the office.' : 'Monthly examples show the stated treatment amount divided across the listed term. Eligibility, final treatment scope and payment terms are confirmed by the office.')}</p>
     </div>
   </section>
 
@@ -829,6 +903,15 @@ const content = isContouring ? {
   .whitening-hero.is-contouring .hero-fold--two>img{object-position:52% center}
   .whitening-hero.is-contouring .hero-fold--three>img{object-position:60% center}
   .whitening-hero.is-contouring .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 36%,rgba(4,24,20,.46) 54%,transparent 72%)}
+  .whitening-hero.is-makeover .hero-folds__scan{display:none}
+  .whitening-hero.is-makeover .hero-fold{border:0;box-shadow:0 2.2rem 6rem rgba(0,0,0,.32)}
+  .whitening-hero.is-makeover .hero-fold--one{clip-path:inset(0 0 0 0 round 2rem 10rem 2rem 10rem)}
+  .whitening-hero.is-makeover .hero-fold--two{clip-path:inset(0 0 0 0 round 10rem 10rem 2rem 2rem)}
+  .whitening-hero.is-makeover .hero-fold--three{clip-path:inset(0 0 0 0 round 10rem 2rem 10rem 2rem)}
+  .whitening-hero.is-makeover .hero-fold--one>img{object-position:44% center}
+  .whitening-hero.is-makeover .hero-fold--two>img{object-position:50% center}
+  .whitening-hero.is-makeover .hero-fold--three>img{object-position:61% center}
+  .whitening-hero.is-makeover .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 35%,rgba(4,24,20,.44) 54%,transparent 73%)}
 
   @media(min-width:721px) and (max-width:1100px){
     .whitening-hero{height:245svh}
@@ -870,6 +953,10 @@ const content = isContouring ? {
     .whitening-hero.is-contouring .hero-fold--one,.whitening-hero.is-contouring .hero-fold--three{clip-path:ellipse(72% 54% at 50% 50%)}
     .whitening-hero.is-contouring .hero-fold--two{clip-path:ellipse(58% 72% at 50% 50%)}
     .whitening-hero.is-contouring .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.22) 60%,rgba(4,24,20,.76) 100%)}
+    .whitening-hero.is-makeover .hero-fold--one{clip-path:inset(0 0 0 0 round 1rem 6rem 1rem 6rem)}
+    .whitening-hero.is-makeover .hero-fold--two{clip-path:inset(0 0 0 0 round 6rem 6rem 1rem 1rem)}
+    .whitening-hero.is-makeover .hero-fold--three{clip-path:inset(0 0 0 0 round 6rem 1rem 6rem 1rem)}
+    .whitening-hero.is-makeover .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.2) 60%,rgba(4,24,20,.77) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */

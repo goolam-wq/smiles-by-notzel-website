@@ -24,6 +24,7 @@ const routes = [
   ['snap-on-smile', '/services/snap-on-smile/', '#before-after-snap-on-smile'],
   ['dental-bonding', '/services/dental-bonding/', '#before-after-dental-bonding'],
   ['tooth-contouring', '/services/tooth-contouring/', '#before-after-tooth-contouring'],
+  ['complete-smile-makeover', '/services/complete-smile-makeover/', '#before-after-complete-smile-makeover'],
 ];
 const viewports = [
   ['desktop', 1440, 900],

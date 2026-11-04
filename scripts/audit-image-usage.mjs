@@ -13,6 +13,7 @@ const routes = [
   '/services/snap-on-smile/',
   '/services/dental-bonding/',
   '/services/tooth-contouring/',
+  '/services/complete-smile-makeover/',
   '/services/implants-oral-surgery/',
   '/services/orthodontic-dentistry/',
   '/services/pediatric-developmental/',

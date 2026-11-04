@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore complete smile makeover planning at Smiles by Noetzel, including coordinated treatment sequencing, pricing and consultations in Chicago Heights and Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Complete Smile Makeover | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-complete-smile-makeover.webp" mediaAlt="A patient and dentist reviewing a complete smile makeover plan" />
+    <main>
+      <TreatmentDetail kind="complete-smile-makeover" />
+      <BeforeAfterStory id="before-after-complete-smile-makeover" tone="light" reverse number="07" eyebrow="Illustrative planning visualization · coordinated complete-smile plan" title="Several priorities." emphasis="One connected direction."
+        intro="This simulated planning visualization shows how health, function, shade, shape and proportion may be considered together. It is not an actual patient outcome, and recommended procedures are confirmed after consultation."
+        image="/images/generated/before-after-complete-smile-makeover-v1.webp" imageAlt="Illustrative simulated comparison used to explain coordinated complete smile makeover planning"
+        beforeLabel="Starting planning view" beforeDetail="Individual concerns may initially read as separate decisions without a connected clinical sequence."
+        afterLabel="Illustrative coordinated view" afterDetail="The simulated view demonstrates how selected procedures may be sequenced and reviewed in the complete smile."
+        caseNote="Illustrative simulated example · not an actual patient case · results vary" />
+      <HubFooter eyebrow="Ready to explore a complete smile makeover?" title="Begin with one connected consultation." />
+    </main>
+  </body>
+</html>
