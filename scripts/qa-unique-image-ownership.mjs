@@ -33,6 +33,7 @@ const routes = [
   '/services/perio-protect/',
   '/services/professional-dental-cleaning/',
   '/services/routine-comprehensive-exam/',
+  '/services/digital-dental-x-rays/',
   '/services/restorative-reconstructive/',
   '/services/wellness-offering/',
 ];

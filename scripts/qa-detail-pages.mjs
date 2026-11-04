@@ -41,6 +41,7 @@ const routes = [
   ['perio-protect', '/services/perio-protect/?qa=detail-matrix'],
   ['professional-dental-cleaning', '/services/professional-dental-cleaning/?qa=detail-matrix'],
   ['routine-comprehensive-exam', '/services/routine-comprehensive-exam/?qa=detail-matrix'],
+  ['digital-dental-x-rays', '/services/digital-dental-x-rays/?qa=detail-matrix'],
 ];
 const routeFilter = process.argv[2];
 const activeRoutes = routeFilter ? routes.filter(([name]) => name === routeFilter) : routes;

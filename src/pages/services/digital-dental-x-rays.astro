@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore clinically indicated digital dental X-rays at Smiles by Noetzel, including the imaging pathway, limits, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Digital Dental X-rays | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-digital-dental-x-rays.webp" mediaAlt="A clinician discussing clinically indicated digital dental imaging with a patient" />
+    <main>
+      <TreatmentDetail kind="digital-dental-x-rays" />
+      <BeforeAfterStory id="before-after-digital-dental-x-rays" tone="light" reverse number="06" eyebrow="Illustrative diagnostic pathway · digital dental X-rays" title="From an unanswered clinical question." emphasis="To an interpreted imaging pathway."
+        intro="This illustrative diagnostic pathway shows how a clinically indicated question may move through selected image capture and interpretation alongside an examination. It is not a physical transformation, an actual patient case or a guaranteed diagnosis."
+        image="/images/generated/before-after-digital-dental-x-rays-v1.webp" imageAlt="Illustrative comparison of an unanswered clinical question before digital dental imaging and an interpreted diagnostic pathway"
+        beforeLabel="Before indicated imaging" beforeDetail="The clinical question and need for selected views have not yet been confirmed in context."
+        afterLabel="Illustrative interpreted pathway" afterDetail="The simulated view represents captured images interpreted with examination findings, limitations and possible next steps—not a guaranteed diagnosis."
+        caseNote="Illustrative diagnostic pathway · not a physical transformation or actual patient case · findings vary" />
+      <HubFooter eyebrow="Ready for a clearer clinical question?" title="Begin with an examination, clinically indicated images and an explained interpretation." />
+    </main>
+  </body>
+</html>

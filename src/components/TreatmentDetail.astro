@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -29,8 +29,14 @@ const isDeepCleaning = kind === 'gum-disease-deep-cleaning';
 const isPerioProtect = kind === 'perio-protect';
 const isProfessionalCleaning = kind === 'professional-dental-cleaning';
 const isComprehensiveExam = kind === 'routine-comprehensive-exam';
+const isDigitalXrays = kind === 'digital-dental-x-rays';
 
-const processSteps = isComprehensiveExam ? [
+const processSteps = isDigitalXrays ? [
+  ['01', 'Confirm', 'The clinician confirms that dental imaging is clinically indicated and which views are relevant to the examination or treatment question.'],
+  ['02', 'Position', 'The patient and sensor are positioned for the selected views, with relevant history and individual considerations reviewed before capture.'],
+  ['03', 'Capture', 'The prescribed digital dental images are acquired, and additional or repeat views are taken only when clinically needed.'],
+  ['04', 'Interpret', 'The dentist reviews the available images with the examination findings and explains what is seen, what remains uncertain and what comes next.'],
+] : isComprehensiveExam ? [
   ['01', 'Listen', 'Current concerns, health history, previous dental experiences and the patient’s priorities are reviewed before the examination begins.'],
   ['02', 'Examine', 'Teeth, gums, bite, existing dental work and other relevant oral findings are assessed within the confirmed visit scope.'],
   ['03', 'Clarify', 'Findings are explained in practical language, including uncertainty, recommended diagnostics and what still needs confirmation.'],
@@ -162,7 +168,13 @@ const processSteps = isComprehensiveExam ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isComprehensiveExam ? [
+const faqs = isDigitalXrays ? [
+  ['How much does a digital dental X-ray series cost?', 'The customer-facing price is $150 per series. The $13 monthly view is an approximate rounded 12-month illustration ($156 total), which is $6 above the $150 fixed and yearly views. Final views, scope, eligibility and payment terms are confirmed by the office.'],
+  ['Are digital dental X-rays taken at every visit?', 'No. Imaging is taken only when clinically indicated. The examination question, symptoms, dental history, age, previous images and treatment needs help determine whether images and which views are appropriate.'],
+  ['Are digital dental X-rays radiation-free or zero-risk?', 'No. Digital dental imaging is not radiation-free or zero-risk. The clinician weighs the clinical need and selects appropriate views; no universal safety claim or guaranteed diagnosis is made.'],
+  ['Are X-rays guaranteed safe during pregnancy?', 'No blanket pregnancy-safety claim is made here. Tell the dental team if you are pregnant or may be pregnant so the clinician can assess clinical need, timing and appropriate precautions for the individual situation.'],
+  ['What is separate from the listed X-ray series?', 'Examination, cleaning, treatment, specialist interpretation, CBCT or other imaging, and repeat or additional views are separate unless the office confirms they are included in the scheduled scope.'],
+] : isComprehensiveExam ? [
   ['How much does a routine comprehensive exam cost?', 'The customer-facing exam price is $125 per visit. The $11 monthly view is an approximate rounded 12-month illustration ($132 total), and the yearly exam-basis amount is $125. Final scope, eligibility and payment terms are confirmed by the office.'],
   ['Does the comprehensive exam guarantee a diagnosis?', 'No. An examination gathers and interprets clinical findings, but no specific diagnosis or absence of disease is guaranteed. Additional records, imaging, testing or referral may be recommended before a conclusion is confirmed.'],
   ['Are X-rays, cleaning, fluoride or treatment included?', 'Not automatically. Imaging, professional cleaning, fluoride and treatment are separate unless the office confirms that they are part of the scheduled visit or plan.'],
@@ -320,7 +332,13 @@ const faqs = isComprehensiveExam ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isComprehensiveExam ? [
+const relatedServices = isDigitalXrays ? [
+  ['Routine comprehensive exam', 'Connect images to a complete clinical examination', '/services/routine-comprehensive-exam/'],
+  ['Professional dental cleaning', 'Connect an appropriate preventive cleaning visit', '/services/professional-dental-cleaning/'],
+  ['Periodontal Dentistry', 'Explore gum-health evaluation and screening', '/services/periodontal-dentistry/'],
+  ['Preventive & Diagnostic Dentistry', 'Explore oral cancer screening and the complete category', '/services/preventive-diagnostic/'],
+  ['Emergency Comfort', 'Connect urgent concerns to the appropriate assessment', '/services/emergency-comfort/'],
+] : isComprehensiveExam ? [
   ['Preventive & Diagnostic Dentistry', 'Explore the complete category', '/services/preventive-diagnostic/'],
   ['Professional dental cleaning', 'Connect an appropriate routine-cleaning visit', '/services/professional-dental-cleaning/'],
   ['Gum-disease deep cleaning', 'Explore periodontal therapy when findings require it', '/services/gum-disease-deep-cleaning/'],
@@ -473,7 +491,61 @@ const relatedServices = isComprehensiveExam ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isComprehensiveExam ? {
+const content = isDigitalXrays ? {
+  heroClass: 'is-digital-xrays',
+  heroImages: [
+    ['/images/generated/digital-dental-x-rays-hero-v1.webp', 'A dentist confirming the clinical need for digital dental images with a patient', 'BEGIN WITH THE CLINICAL QUESTION'],
+    ['/images/generated/digital-dental-x-rays-hero-detail-v1.webp', 'A clinician positioning a patient for clinically indicated digital dental X-rays', 'CAPTURE THE INDICATED VIEWS'],
+    ['/images/generated/digital-dental-x-rays-hero-result-v1.webp', 'A dentist interpreting digital dental images alongside examination findings', 'INTERPRET IN CONTEXT'],
+  ],
+  heroAria: ['Explore the clinical indication for imaging', 'Explore selected digital dental image capture', 'Explore interpretation with examination findings'],
+  kicker: 'Preventive & Diagnostic · Imaging 03',
+  title: ['Images answer a question.', 'They do not replace the exam.'],
+  intro: 'Clinically indicated digital dental imaging that connects the right views with examination findings, careful interpretation and a clear next step.',
+  heroRail: ['Begin with the clinical question', 'Capture the indicated views', 'Interpret in context'],
+  ledgerLabel: 'Digital dental X-ray series', ledgerFixed: '$150 / series', ledgerMonthly: '$13 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['An image is most useful when the question is clear.', 'Capture and interpretation stay', 'connected.'],
+  storyImage: '/images/generated/digital-dental-x-rays-process-v1.webp',
+  storyAlt: 'A clinician capturing and reviewing clinically indicated digital dental images',
+  storyRangeLabel: 'Compare an unanswered clinical question with selected dental images interpreted alongside examination findings',
+  storyNote: 'Confirm the clinical indication before selecting the views.',
+  storyLead: 'We begin with the examination question rather than taking images by default. The dentist selects clinically relevant views, reviews them alongside oral findings and explains what the available images can—and cannot—confirm.',
+  storySteps: [
+    ['01', 'Confirm the question', 'Symptoms, history, prior images and examination needs establish whether imaging is indicated.'],
+    ['02', 'Capture selected views', 'The prescribed images are acquired, with additional or repeat views taken only when clinically needed.'],
+    ['03', 'Interpret with context', 'The dentist connects the images to clinical findings and explains uncertainty and next steps.'],
+  ],
+  storyNotes: ['Confirm the clinical indication before selecting the views.', 'Capture only the views needed for the examination or treatment question.', 'Interpret images alongside clinical findings rather than in isolation.'],
+  processTitle: ['Indicate carefully.', 'Interpret in context.'],
+  expectTitle: ['Digital in format.', 'Clinical in purpose.'],
+  expectCopy: 'Digital dental X-rays are used when clinically indicated and are interpreted with examination findings. They are not radiation-free or zero-risk, do not guarantee a diagnosis and require individualized consideration when pregnancy is possible.',
+  metrics: [['1', 'clinically indicated image series'], ['4', 'stages: confirm, position, capture, interpret'], ['2', 'connected office locations']],
+  pricingId: 'digital-dental-x-rays-pricing',
+  pricingTitle: ['One indicated series.', 'Three planning views.'],
+  pricingIntro: 'The digital dental X-ray series amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$150', 'per indicated series'], ['MONTHLY · 02', '$13', 'per month · 12 months'], ['YEARLY · 03', '$150', 'annual series basis']],
+  pricingNote: 'The $13 monthly view is an approximate rounded illustration ($156 total across 12 months), which is $6 above the $150 fixed and yearly views. The yearly amount is an annual series-basis view, not a subscription. Exam, cleaning, treatment, specialist interpretation, CBCT or other imaging, and repeat or additional views are separate unless office-confirmed.',
+  whyTitle: ['The right views captured.', 'The limits explained.'],
+  whyIntro: 'Imaging supports diagnosis and planning only when the clinical question, selected views and examination findings stay connected. The team explains what is visible, what remains uncertain and whether more information is needed.',
+  whyImage: '/images/generated/digital-dental-x-rays-result-v1.webp',
+  whyAlt: 'A dentist reviewing digital dental images and explaining findings and limitations to a patient',
+  whyPanels: [
+    ['01', 'Clinical indication first', 'Images are selected according to symptoms, history, previous records and the examination question.'],
+    ['02', 'Views matched to need', 'The prescribed series and any additional views depend on the individual clinical situation.'],
+    ['03', 'Interpretation with boundaries', 'The dentist connects images to oral findings and states when more testing, imaging or referral is needed.'],
+  ],
+  whyFoot: 'ONE INDICATED SERIES · FOUR CONNECTED STAGES',
+  proofTitle: ['The images explained.', 'The uncertainty stated.'],
+  proofText: 'Patients frequently mention thorough explanations, careful evaluation and clear next steps—general-practice themes that support how diagnostic images are reviewed.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Clinically indicated views', 'Contextual interpretation', 'Clear diagnostic boundaries'],
+  faqTitle: ['Before digital', 'dental imaging.'],
+  relatedTitle: ['One imaging series.', 'Several connected paths.'],
+  relatedAria: 'Related examination, preventive and periodontal services',
+  currentPath: 'Digital dental X-rays',
+  locationsAria: 'Digital dental X-ray locations',
+} : isComprehensiveExam ? {
   heroClass: 'is-comprehensive-exam',
   heroImages: [
     ['/images/generated/routine-comprehensive-exam-hero-v1.webp', 'A patient explaining dental concerns and priorities before a comprehensive examination', 'BEGIN WITH WHAT MATTERS'],
@@ -2450,6 +2522,15 @@ const content = isComprehensiveExam ? {
   .whitening-hero.is-comprehensive-exam .hero-fold--two>img{object-position:52% center}
   .whitening-hero.is-comprehensive-exam .hero-fold--three>img{object-position:60% center}
   .whitening-hero.is-comprehensive-exam .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.4) 57%,transparent 77%)}
+  .whitening-hero.is-digital-xrays .hero-folds__scan{display:none}
+  .whitening-hero.is-digital-xrays .hero-fold{border:0;box-shadow:0 2.25rem 5.75rem rgba(0,0,0,.32);overflow:hidden}
+  .whitening-hero.is-digital-xrays .hero-fold--one{clip-path:inset(5% 2% 5% 2% round 6rem 2rem 2rem 6rem)}
+  .whitening-hero.is-digital-xrays .hero-fold--two{clip-path:inset(2% 2% 8% 2% round 2rem 6rem 6rem 2rem)}
+  .whitening-hero.is-digital-xrays .hero-fold--three{clip-path:inset(8% 2% 2% 2% round 6rem 2rem 2rem 6rem)}
+  .whitening-hero.is-digital-xrays .hero-fold--one>img{object-position:42% center}
+  .whitening-hero.is-digital-xrays .hero-fold--two>img{object-position:52% center}
+  .whitening-hero.is-digital-xrays .hero-fold--three>img{object-position:60% center}
+  .whitening-hero.is-digital-xrays .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.42) 57%,transparent 77%)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -2580,6 +2661,10 @@ const content = isComprehensiveExam ? {
     .whitening-hero.is-comprehensive-exam .hero-fold--two{clip-path:inset(2% 1% 5% 1% round 6rem 2rem 6rem 2rem)}
     .whitening-hero.is-comprehensive-exam .hero-fold--three{clip-path:inset(5% 1% 2% 1% round 2rem 6rem 2rem 6rem)}
     .whitening-hero.is-comprehensive-exam .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.18) 60%,rgba(4,24,20,.78) 100%)}
+    .whitening-hero.is-digital-xrays .hero-fold--one{clip-path:inset(4% 1% 4% 1% round 4rem 1rem 1rem 4rem)}
+    .whitening-hero.is-digital-xrays .hero-fold--two{clip-path:inset(1% 1% 6% 1% round 1rem 4rem 4rem 1rem)}
+    .whitening-hero.is-digital-xrays .hero-fold--three{clip-path:inset(6% 1% 1% 1% round 4rem 1rem 1rem 4rem)}
+    .whitening-hero.is-digital-xrays .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.19) 60%,rgba(4,24,20,.78) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
