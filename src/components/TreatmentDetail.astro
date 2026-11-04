@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement' | 'tooth-colored-dental-filling' | 'dental-crown' | 'dental-bridge' | 'full-mouth-reconstruction' | 'root-canal-treatment-coordination' | 'full-denture' | 'partial-denture' | 'oral-cancer-screening' | 'airway-sleep-screening' | 'artery-health-screening' | 'prosomnus-sleep-apnea-appliance';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement' | 'tooth-colored-dental-filling' | 'dental-crown' | 'dental-bridge' | 'full-mouth-reconstruction' | 'root-canal-treatment-coordination' | 'full-denture' | 'partial-denture' | 'oral-cancer-screening' | 'airway-sleep-screening' | 'artery-health-screening' | 'prosomnus-sleep-apnea-appliance' | 'juice-plus-wellness-program';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -50,8 +50,14 @@ const isOralCancerScreening = kind === 'oral-cancer-screening';
 const isAirwaySleepScreening = kind === 'airway-sleep-screening';
 const isArteryHealthScreening = kind === 'artery-health-screening';
 const isProSomnus = kind === 'prosomnus-sleep-apnea-appliance';
+const isJuicePlus = kind === 'juice-plus-wellness-program';
 
-const processSteps = isProSomnus ? [
+const processSteps = isJuicePlus ? [
+  ['01', 'Clarify the goal', 'The conversation begins with the everyday wellness-support goal and a clear reminder that the program is non-clinical.'],
+  ['02', 'Review products & terms', 'The available product range, selected package, billing basis, subscription terms and office-confirmed details are reviewed before enrollment.'],
+  ['03', 'Enroll in the confirmed pathway', 'Enrollment follows the chosen product and billing arrangement without implying medical, nutrition-therapy or dental treatment.'],
+  ['04', 'Use coordinator support', 'A wellness coordinator remains available for program and product-support questions in office or remotely within the non-clinical scope.'],
+] : isProSomnus ? [
   ['01', 'Confirm diagnosis', 'The pathway begins with an appropriate medical sleep diagnosis and the relevant prescribing or coordinating clinician—not dental screening alone.'],
   ['02', 'Evaluate dental fit', 'Teeth, gums, bite, jaw comfort, oral health and medical context are reviewed before appliance candidacy is confirmed.'],
   ['03', 'Fabricate & deliver', 'When appropriate, records guide a custom ProSomnus appliance that is fitted and delivered with individualized instructions.'],
@@ -288,7 +294,14 @@ const processSteps = isProSomnus ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isProSomnus ? [
+const faqs = isJuicePlus ? [
+  ['What is the Juice Plus wellness program?', 'It is an optional non-clinical product subscription with access to the available product range and support from a wellness coordinator. It is separate from dental or medical treatment.'],
+  ['What does the $72 fixed view mean?', 'The source lists a $72 fixed view but does not define its product, package or billing interval. Confirm the selected product, package, quantity, billing basis and current terms with the wellness coordinator before enrollment. It must not be read as the annual price.'],
+  ['How does monthly pricing work?', 'The customer-facing monthly view is $65 per month for 12 months, totaling exactly $780. The selected product or package and current subscription terms are confirmed before enrollment.'],
+  ['What does the yearly view include?', 'The yearly view is $780 for the annual product-subscription basis. Product selection, quantities, shipping, renewals, cancellation terms and other details require office confirmation.'],
+  ['Does Juice Plus diagnose, treat or prevent health conditions?', 'No. This non-clinical wellness offering does not diagnose, treat, cure or prevent disease and does not replace medical care, dental care, prescribed treatment or advice from a qualified nutrition professional.'],
+  ['Where is coordinator support available?', 'Program support can be coordinated through Chicago Heights, Mokena or remotely. Current availability and the appropriate contact method are confirmed by the office.'],
+] : isProSomnus ? [
   ['How much does the ProSomnus appliance program cost?', 'The customer-facing complete appliance program price is $5,750. The $160 monthly view is an approximate rounded 36-month illustration ($5,760 total), which is $10 above the fixed amount. The yearly view is a $5,750 treatment-program basis, not a subscription, unlimited service or automatic replacement plan.'],
   ['Do I need a sleep-apnea diagnosis first?', 'Yes. This dental appliance pathway follows appropriate medical diagnosis and coordination. A dental screening alone does not diagnose sleep apnea or establish appliance candidacy.'],
   ['Does an oral appliance replace CPAP for everyone?', 'No. It is not a universal substitute for CPAP or other medical therapy. Treatment selection and any change to medical care must be coordinated with the appropriate sleep clinician.'],
@@ -587,7 +600,12 @@ const faqs = isProSomnus ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isProSomnus ? [
+const relatedServices = isJuicePlus ? [
+  ['Wellness Offering', 'Explore the non-clinical wellness category', '/services/wellness-offering/'],
+  ['Complete Health & Airway', 'Explore separate clinical screening services', '/services/complete-health-airway/'],
+  ['Routine comprehensive exam', 'Explore a separate clinical dental examination', '/services/routine-comprehensive-exam/'],
+  ['Professional dental cleaning', 'Explore a separate routine dental-cleaning visit', '/services/professional-dental-cleaning/'],
+] : isProSomnus ? [
   ['Complete Health & Airway', 'Explore the complete category', '/services/complete-health-airway/'],
   ['Airway and sleep screening', 'Begin with contextual dental screening when appropriate', '/services/airway-sleep-screening/'],
   ['Routine comprehensive exam', 'Connect appliance candidacy to current oral findings', '/services/routine-comprehensive-exam/'],
@@ -884,7 +902,62 @@ const relatedServices = isProSomnus ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isProSomnus ? {
+const content = isJuicePlus ? {
+  heroClass: 'is-juice-plus',
+  heroImages: [
+    ['/images/generated/juice-plus-wellness-program-hero-v1.webp', 'A wellness coordinator discussing an everyday non-clinical product subscription', 'CLARIFY THE GOAL'],
+    ['/images/generated/juice-plus-wellness-program-hero-detail-v1.webp', 'The Juice Plus product range and subscription terms being reviewed clearly', 'REVIEW PRODUCTS AND TERMS'],
+    ['/images/generated/juice-plus-wellness-program-hero-result-v1.webp', 'A wellness coordinator providing ongoing non-clinical program support', 'STAY CONNECTED'],
+  ],
+  heroAria: ['Explore the wellness-support goal', 'Explore products and subscription terms', 'Explore coordinator support'],
+  kicker: 'Wellness Offering · Program 01',
+  title: ['Make the subscription clear', 'before making it routine.'],
+  intro: 'An optional non-clinical Juice Plus product subscription with access to the available product range and support from a wellness coordinator—in either office or remotely.',
+  heroRail: ['Clarify the goal', 'Review products and terms', 'Use coordinator support'],
+  ledgerLabel: 'Juice Plus wellness program', ledgerFixed: '$72 / confirm basis', ledgerMonthly: '$65 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['The product is optional.', 'The terms should be', 'easy to understand.'],
+  storyImage: '/images/generated/juice-plus-wellness-program-process-v1.webp',
+  storyAlt: 'A wellness coordinator reviewing Juice Plus products, package choices and subscription terms',
+  storyRangeLabel: 'Compare an unclear product subscription with confirmed package, billing and support details',
+  storyNote: 'Clarify the product and terms before building a routine.',
+  storyLead: 'The program is kept simple and clearly non-clinical: identify the everyday support goal, review available products and exact subscription terms, then use the wellness coordinator for program questions.',
+  storySteps: [
+    ['01', 'Clarify the everyday goal', 'The coordinator begins with what kind of non-clinical product support the person is exploring.'],
+    ['02', 'Confirm products and billing', 'Package, quantity, price basis, term, renewal and other current details are reviewed before enrollment.'],
+    ['03', 'Keep support available', 'Coordinator access continues in office or remotely without turning the program into medical or nutrition therapy.'],
+  ],
+  storyNotes: ['Begin with the everyday wellness-support goal.', 'Confirm product, package, billing and terms.', 'Use coordinator support within the non-clinical scope.'],
+  processTitle: ['Clarify the subscription.', 'Keep the scope non-clinical.'],
+  expectTitle: ['Product access and support.', 'Not medical treatment.'],
+  expectCopy: 'This program does not diagnose, treat, cure or prevent disease and does not replace medical, dental or qualified nutrition care. Product experience, use and individual outcomes are not guaranteed.',
+  metrics: [['1', 'optional non-clinical program'], ['4', 'stages: clarify, review, enroll, support'], ['3', 'access paths: Chicago Heights, Mokena, remote']],
+  pricingId: 'juice-plus-wellness-program-pricing',
+  pricingTitle: ['One optional subscription.', 'Three customer-facing views.'],
+  pricingIntro: 'The Juice Plus wellness program shown as fixed, monthly and yearly customer-facing views with explicit source limits.',
+  prices: [['FIXED · 01', '$72', 'confirm product, package & billing basis'], ['MONTHLY · 02', '$65', 'per month · 12 months'], ['YEARLY · 03', '$780', 'annual product-subscription basis']],
+  pricingNote: 'The $65 monthly view totals exactly $780 across 12 months. The yearly view is the $780 annual product-subscription basis. The source does not define what product, package or billing interval the $72 fixed view represents, so it is not presented as annual pricing. Product selection, quantities, shipping, renewal, cancellation and current terms require confirmation.',
+  whyTitle: ['The routine stays simple.', 'The boundaries stay clear.'],
+  whyIntro: 'The coordinator makes product, package, billing and support details easier to understand while keeping the optional program separate from clinical dental, medical or nutrition treatment.',
+  whyImage: '/images/generated/juice-plus-wellness-program-result-v1.webp',
+  whyAlt: 'A wellness coordinator helping a participant understand a Juice Plus product subscription',
+  whyPanels: [
+    ['01', 'Non-clinical by design', 'The program offers product access and coordinator support, not diagnosis or treatment.'],
+    ['02', 'Terms before routine', 'Product, package, quantity, price basis and subscription terms are confirmed before enrollment.'],
+    ['03', 'Office or remote access', 'Support can be coordinated through either office or remotely, subject to current availability.'],
+    ['04', 'Clinical care remains separate', 'Dental, medical and qualified nutrition advice continue through the appropriate clinicians.'],
+  ],
+  whyFoot: 'ONE OPTIONAL PROGRAM · FOUR STAGES · THREE ACCESS PATHS',
+  proofTitle: ['The terms clarified.', 'The support made accessible.'],
+  proofText: 'General-practice feedback frequently mentions helpful coordination and clear communication. Those themes describe the support experience—not a Juice Plus-specific health or treatment outcome.',
+  proofFooter: 'GENERAL PRACTICE SUPPORT THEMES · NOT PRODUCT-OUTCOME PROOF',
+  proofTags: ['Product terms clarified', 'Non-clinical scope', 'Coordinator access'],
+  faqTitle: ['Before the', 'Juice Plus wellness program.'],
+  relatedTitle: ['One optional program.', 'Clinical care stays separate.'],
+  relatedAria: 'Related wellness and separate clinical dental services',
+  currentPath: 'Juice Plus wellness program',
+  locationsAria: 'Juice Plus wellness program access',
+} : isProSomnus ? {
   heroClass: 'is-prosomnus',
   heroImages: [
     ['/images/generated/prosomnus-sleep-apnea-appliance-hero-v1.webp', 'A dentist reviewing an established sleep-apnea diagnosis and care plan', 'CONFIRM THE DIAGNOSIS'],
@@ -4235,6 +4308,18 @@ const content = isProSomnus ? {
   .whitening-hero.is-prosomnus .hero-cinema__copy{top:15vh;width:min(47vw,49rem);transform:none}
   .whitening-hero.is-prosomnus .hero-cinema__copy h1{font-size:clamp(3.35rem,4.65vw,5.35rem);line-height:.85;margin:1.25rem 0 1.5rem}
   .whitening-hero.is-prosomnus .hero-cinema__copy h1 em{display:block;margin-left:clamp(1.5rem,3.5vw,3.5rem)}
+  .whitening-hero.is-juice-plus .hero-folds__scan{display:none}
+  .whitening-hero.is-juice-plus .hero-fold{border:0;overflow:hidden;box-shadow:0 2.5rem 6rem rgba(0,0,0,.34);transform-origin:center}
+  .whitening-hero.is-juice-plus .hero-fold--one{translate:8% -15%;scale:1.08 .62;clip-path:inset(0 round 5rem 1rem 1rem 5rem)}
+  .whitening-hero.is-juice-plus .hero-fold--two{translate:-2% 17%;scale:.72 .62;clip-path:inset(0 round 999px)}
+  .whitening-hero.is-juice-plus .hero-fold--three{translate:-13% 0;scale:.88 1.08;clip-path:inset(0 round 1rem 5rem 5rem 1rem)}
+  .whitening-hero.is-juice-plus .hero-fold--one>img{object-position:46% center}
+  .whitening-hero.is-juice-plus .hero-fold--two>img{object-position:52% center}
+  .whitening-hero.is-juice-plus .hero-fold--three>img{object-position:62% center}
+  .whitening-hero.is-juice-plus .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 35%,rgba(4,24,20,.38) 63%,transparent 83%)}
+  .whitening-hero.is-juice-plus .hero-cinema__copy{top:15vh;width:min(47vw,49rem);transform:none}
+  .whitening-hero.is-juice-plus .hero-cinema__copy h1{font-size:clamp(3.35rem,4.6vw,5.3rem);line-height:.85;margin:1.25rem 0 1.5rem}
+  .whitening-hero.is-juice-plus .hero-cinema__copy h1 em{display:block;margin-left:clamp(1.5rem,3.5vw,3.5rem)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -4485,6 +4570,13 @@ const content = isProSomnus ? {
     .whitening-hero.is-prosomnus .hero-cinema__copy{top:7.15rem}
     .whitening-hero.is-prosomnus .hero-cinema__copy h1{font-size:clamp(2.3rem,9.9vw,3.2rem);line-height:.87}
     .whitening-hero.is-prosomnus .hero-cinema__copy h1 em{margin-left:.85rem}
+    .whitening-hero.is-juice-plus .hero-fold--one{translate:3% -10%;scale:1.02 .68;clip-path:inset(0 round 4rem .8rem .8rem 4rem)}
+    .whitening-hero.is-juice-plus .hero-fold--two{translate:-1% 13%;scale:.72 .66;clip-path:inset(0 round 999px)}
+    .whitening-hero.is-juice-plus .hero-fold--three{translate:-4% 1%;scale:.86 1;clip-path:inset(0 round .8rem 4rem 4rem .8rem)}
+    .whitening-hero.is-juice-plus .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.16) 64%,rgba(4,24,20,.83) 100%)}
+    .whitening-hero.is-juice-plus .hero-cinema__copy{top:7.15rem}
+    .whitening-hero.is-juice-plus .hero-cinema__copy h1{font-size:clamp(2.45rem,10.4vw,3.35rem);line-height:.86}
+    .whitening-hero.is-juice-plus .hero-cinema__copy h1 em{margin-left:.9rem}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
@@ -4639,6 +4731,7 @@ const content = isProSomnus ? {
         const isAirwaySleepHero = hero.classList.contains('is-airway-sleep-screening');
         const isArteryHealthHero = hero.classList.contains('is-artery-health-screening');
         const isProSomnusHero = hero.classList.contains('is-prosomnus');
+        const isJuicePlusHero = hero.classList.contains('is-juice-plus');
         const phases = q('[data-hero-phase]');
         const edition = q('[data-hero-edition]')[0];
         const scan = q('[data-fold-scan]')[0];
@@ -4695,6 +4788,8 @@ const content = isProSomnus ? {
                   ? {opacity:0,xPercent:[20,-20,22][index],yPercent:[-18,20,0][index]}
                 : isProSomnusHero
                   ? {opacity:0,xPercent:[22,0,-22][index],yPercent:[-18,0,18][index],scale:.82}
+                : isJuicePlusHero
+                  ? {opacity:0,xPercent:[18,0,-20][index],yPercent:[-18,20,0][index]}
                 : isDentalBridgeHero
                   ? {opacity:0,xPercent:[-28,0,28][index],yPercent:[0,22,0][index]}
               : {}),
@@ -4729,12 +4824,14 @@ const content = isProSomnus ? {
                   ? {opacity:1,xPercent:0,yPercent:0}
                 : isProSomnusHero
                   ? {opacity:1,xPercent:0,yPercent:0,scale:1}
+                : isJuicePlusHero
+                  ? {opacity:1,xPercent:0,yPercent:0}
                 : isDentalBridgeHero
                   ? {opacity:1,xPercent:0,yPercent:0}
               : {}),
-          duration:isAmalgamHero ? 1.55 : isToothColoredHero ? 1.45 : isDentalCrownHero ? 1.6 : isDentalBridgeHero ? 1.5 : isFullMouthHero ? 1.55 : isRootCanalHero ? 1.5 : isFullDentureHero ? 1.55 : isPartialDentureHero ? 1.5 : isOralCancerHero ? 1.55 : isAirwaySleepHero ? 1.5 : isArteryHealthHero ? 1.55 : isProSomnusHero ? 1.55 : 1.35,
-          ease:isAmalgamHero ? 'expo.inOut' : isToothColoredHero ? 'power4.out' : isDentalCrownHero ? 'expo.out' : isDentalBridgeHero ? 'power4.inOut' : isFullMouthHero ? 'power4.out' : isRootCanalHero ? 'expo.out' : isFullDentureHero ? 'power4.out' : isPartialDentureHero ? 'expo.out' : isOralCancerHero ? 'power4.out' : isAirwaySleepHero ? 'expo.out' : isArteryHealthHero ? 'power4.out' : isProSomnusHero ? 'expo.out' : 'power3.inOut',
-        },index*(isAmalgamHero ? .12 : isToothColoredHero ? .16 : isDentalCrownHero ? .14 : isDentalBridgeHero ? .13 : isFullMouthHero ? .14 : isRootCanalHero ? .15 : isFullDentureHero ? .14 : isPartialDentureHero ? .15 : isOralCancerHero ? .14 : isAirwaySleepHero ? .15 : isArteryHealthHero ? .14 : isProSomnusHero ? .15 : .08)));
+          duration:isAmalgamHero ? 1.55 : isToothColoredHero ? 1.45 : isDentalCrownHero ? 1.6 : isDentalBridgeHero ? 1.5 : isFullMouthHero ? 1.55 : isRootCanalHero ? 1.5 : isFullDentureHero ? 1.55 : isPartialDentureHero ? 1.5 : isOralCancerHero ? 1.55 : isAirwaySleepHero ? 1.5 : isArteryHealthHero ? 1.55 : isProSomnusHero ? 1.55 : isJuicePlusHero ? 1.5 : 1.35,
+          ease:isAmalgamHero ? 'expo.inOut' : isToothColoredHero ? 'power4.out' : isDentalCrownHero ? 'expo.out' : isDentalBridgeHero ? 'power4.inOut' : isFullMouthHero ? 'power4.out' : isRootCanalHero ? 'expo.out' : isFullDentureHero ? 'power4.out' : isPartialDentureHero ? 'expo.out' : isOralCancerHero ? 'power4.out' : isAirwaySleepHero ? 'expo.out' : isArteryHealthHero ? 'power4.out' : isProSomnusHero ? 'expo.out' : isJuicePlusHero ? 'power4.out' : 'power3.inOut',
+        },index*(isAmalgamHero ? .12 : isToothColoredHero ? .16 : isDentalCrownHero ? .14 : isDentalBridgeHero ? .13 : isFullMouthHero ? .14 : isRootCanalHero ? .15 : isFullDentureHero ? .14 : isPartialDentureHero ? .15 : isOralCancerHero ? .14 : isAirwaySleepHero ? .15 : isArteryHealthHero ? .14 : isProSomnusHero ? .15 : isJuicePlusHero ? .14 : .08)));
         intro.to(q('[data-hero-fold] img'),{scale:1.015,duration:1.2},0)
           .to(scan,{left:mobile?'100vw':'99vw',duration:1.4},0)
           .to(progress,{width:'100%',duration:1.35},0)

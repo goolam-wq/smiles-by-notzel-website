@@ -65,6 +65,7 @@ const routes = [
   ['airway-sleep-screening', '/services/airway-sleep-screening/', '#before-after-airway-sleep-screening'],
   ['artery-health-screening', '/services/artery-health-screening/', '#before-after-artery-health-screening'],
   ['prosomnus-sleep-apnea-appliance', '/services/prosomnus-sleep-apnea-appliance/', '#before-after-prosomnus-sleep-apnea-appliance'],
+  ['juice-plus-wellness-program', '/services/juice-plus-wellness-program/', '#before-after-juice-plus-wellness-program'],
 ];
 const requestedRoute = process.argv[2];
 const selectedRoutes = requestedRoute

@@ -62,6 +62,7 @@ const routes = [
   ['airway-sleep-screening', '/services/airway-sleep-screening/?qa=detail-matrix'],
   ['artery-health-screening', '/services/artery-health-screening/?qa=detail-matrix'],
   ['prosomnus-sleep-apnea-appliance', '/services/prosomnus-sleep-apnea-appliance/?qa=detail-matrix'],
+  ['juice-plus-wellness-program', '/services/juice-plus-wellness-program/?qa=detail-matrix'],
 ];
 const routeFilter = process.argv[2];
 const activeRoutes = routeFilter ? routes.filter(([name]) => name === routeFilter) : routes;

@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore the optional non-clinical Juice Plus wellness program at Smiles by Noetzel, including product-subscription terms, coordinator support and office or remote access." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Juice Plus Wellness Program | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-juice-plus-wellness-program.webp" mediaAlt="A wellness coordinator discussing an optional Juice Plus product subscription" />
+    <main>
+      <TreatmentDetail kind="juice-plus-wellness-program" />
+      <BeforeAfterStory id="before-after-juice-plus-wellness-program" tone="light" number="11" eyebrow="Illustrative subscription pathway · Juice Plus" title="From an unclear product subscription." emphasis="To confirmed products, terms and support."
+        intro="This illustrative pathway shows how an optional non-clinical product subscription may move from questions to confirmed package, billing and coordinator details. It is not an actual participant case, medical or nutrition treatment, product-outcome proof or guaranteed result."
+        image="/images/generated/before-after-juice-plus-wellness-program-v1.webp" imageAlt="Illustrative comparison of unclear subscription questions and clarified Juice Plus product, billing and coordinator details"
+        beforeLabel="Before terms are confirmed" beforeDetail="The product, package, quantity, billing basis, term and support pathway may still be unclear."
+        afterLabel="Illustrative clarified pathway" afterDetail="The simulated view represents confirmed product and subscription details with coordinator access—not a health, nutrition or treatment outcome."
+        caseNote="Illustrative subscription pathway · not an actual participant case · products, terms and availability require confirmation" />
+      <HubFooter eyebrow="Ready to clarify an optional wellness subscription?" title="Confirm the product, terms and support before making it routine." />
+    </main>
+  </body>
+</html>
