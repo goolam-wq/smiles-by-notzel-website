@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement' | 'tooth-colored-dental-filling' | 'dental-crown' | 'dental-bridge' | 'full-mouth-reconstruction' | 'root-canal-treatment-coordination' | 'full-denture' | 'partial-denture' | 'oral-cancer-screening' | 'airway-sleep-screening' | 'artery-health-screening';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement' | 'tooth-colored-dental-filling' | 'dental-crown' | 'dental-bridge' | 'full-mouth-reconstruction' | 'root-canal-treatment-coordination' | 'full-denture' | 'partial-denture' | 'oral-cancer-screening' | 'airway-sleep-screening' | 'artery-health-screening' | 'prosomnus-sleep-apnea-appliance';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -49,8 +49,14 @@ const isPartialDenture = kind === 'partial-denture';
 const isOralCancerScreening = kind === 'oral-cancer-screening';
 const isAirwaySleepScreening = kind === 'airway-sleep-screening';
 const isArteryHealthScreening = kind === 'artery-health-screening';
+const isProSomnus = kind === 'prosomnus-sleep-apnea-appliance';
 
-const processSteps = isArteryHealthScreening ? [
+const processSteps = isProSomnus ? [
+  ['01', 'Confirm diagnosis', 'The pathway begins with an appropriate medical sleep diagnosis and the relevant prescribing or coordinating clinician—not dental screening alone.'],
+  ['02', 'Evaluate dental fit', 'Teeth, gums, bite, jaw comfort, oral health and medical context are reviewed before appliance candidacy is confirmed.'],
+  ['03', 'Fabricate & deliver', 'When appropriate, records guide a custom ProSomnus appliance that is fitted and delivered with individualized instructions.'],
+  ['04', 'Adjust & monitor', 'Fit, comfort, wear, dental effects and the medical follow-through plan are reviewed over time with the appropriate clinicians.'],
+] : isArteryHealthScreening ? [
   ['01', 'Review context', 'Current concerns, cardiovascular history, relevant risk context and the reason for screening are reviewed before measurements are taken.'],
   ['02', 'Screen', 'The confirmed noninvasive screening is completed according to the current office protocol without treating the result as a medical diagnosis.'],
   ['03', 'Place in context', 'The available result is considered as one screening signal alongside history and the wider complete-health conversation.'],
@@ -282,7 +288,14 @@ const processSteps = isArteryHealthScreening ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isArteryHealthScreening ? [
+const faqs = isProSomnus ? [
+  ['How much does the ProSomnus appliance program cost?', 'The customer-facing complete appliance program price is $5,750. The $160 monthly view is an approximate rounded 36-month illustration ($5,760 total), which is $10 above the fixed amount. The yearly view is a $5,750 treatment-program basis, not a subscription, unlimited service or automatic replacement plan.'],
+  ['Do I need a sleep-apnea diagnosis first?', 'Yes. This dental appliance pathway follows appropriate medical diagnosis and coordination. A dental screening alone does not diagnose sleep apnea or establish appliance candidacy.'],
+  ['Does an oral appliance replace CPAP for everyone?', 'No. It is not a universal substitute for CPAP or other medical therapy. Treatment selection and any change to medical care must be coordinated with the appropriate sleep clinician.'],
+  ['Is every patient a candidate?', 'No. Diagnosis, anatomy, teeth, gums, bite, jaw comfort, dental work and medical plan affect candidacy. The team evaluates fit before recommending an appliance.'],
+  ['Are sleep testing, medical visits or replacement appliances included?', 'No automatic inclusion is stated. Medical diagnosis, sleep testing, physician care, replacement appliances and services outside the confirmed dental program are separate.'],
+  ['Is ProSomnus care available at both offices?', 'Yes. Appointment-based evaluation and appliance care are available through Chicago Heights and Mokena, subject to diagnosis, candidacy and scheduling.'],
+] : isArteryHealthScreening ? [
   ['How much does artery-health screening cost?', 'The customer-facing price is $150. The $13 monthly view is an approximate rounded 12-month illustration ($156 total), which is $6 above the $150 fixed and yearly views. The yearly amount is an annual treatment amount, not a membership or unlimited screening plan.'],
   ['Does this screening diagnose cardiovascular disease?', 'No. It provides a limited screening signal and does not diagnose or rule out heart disease, vascular disease, stroke risk or another medical condition. Medical diagnosis belongs with the appropriate healthcare clinician.'],
   ['What method does the screening use?', 'The office confirms the current screening method and visit scope. No specific device, measurement, threshold or interpretation is assumed here unless the team confirms it.'],
@@ -574,7 +587,14 @@ const faqs = isArteryHealthScreening ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isArteryHealthScreening ? [
+const relatedServices = isProSomnus ? [
+  ['Complete Health & Airway', 'Explore the complete category', '/services/complete-health-airway/'],
+  ['Airway and sleep screening', 'Begin with contextual dental screening when appropriate', '/services/airway-sleep-screening/'],
+  ['Routine comprehensive exam', 'Connect appliance candidacy to current oral findings', '/services/routine-comprehensive-exam/'],
+  ['Custom night guard', 'Compare a separate pressure-management appliance', '/services/custom-night-guard/'],
+  ['HealthyStart System treatment', 'Explore a separate pediatric developmental pathway', '/services/healthystart-system/'],
+  ['Oral-cancer screening', 'Explore a separate focused soft-tissue screening', '/services/oral-cancer-screening/'],
+] : isArteryHealthScreening ? [
   ['Complete Health & Airway', 'Explore the complete category', '/services/complete-health-airway/'],
   ['Oral-cancer screening', 'Explore a separate focused soft-tissue screening', '/services/oral-cancer-screening/'],
   ['Airway and sleep screening', 'Explore a separate contextual dental screening', '/services/airway-sleep-screening/'],
@@ -864,7 +884,62 @@ const relatedServices = isArteryHealthScreening ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isArteryHealthScreening ? {
+const content = isProSomnus ? {
+  heroClass: 'is-prosomnus',
+  heroImages: [
+    ['/images/generated/prosomnus-sleep-apnea-appliance-hero-v1.webp', 'A dentist reviewing an established sleep-apnea diagnosis and care plan', 'CONFIRM THE DIAGNOSIS'],
+    ['/images/generated/prosomnus-sleep-apnea-appliance-hero-detail-v1.webp', 'A custom ProSomnus oral appliance being planned around dental fit and bite', 'EVALUATE DENTAL FIT'],
+    ['/images/generated/prosomnus-sleep-apnea-appliance-hero-result-v1.webp', 'A clinician reviewing appliance fit, comfort and ongoing monitoring', 'ADJUST AND MONITOR'],
+  ],
+  heroAria: ['Explore diagnosis-first coordination', 'Explore dental appliance candidacy', 'Explore appliance adjustment and monitoring'],
+  kicker: 'Complete Health & Airway · Service 04',
+  title: ['A custom appliance—', 'after the diagnosis, not instead of it.'],
+  intro: 'A custom ProSomnus oral appliance pathway for selected patients with an appropriate medical sleep diagnosis. Dental fit, bite, oral health and the wider medical plan determine candidacy.',
+  heroRail: ['Confirm the diagnosis', 'Evaluate dental fit', 'Fabricate, adjust and monitor'],
+  ledgerLabel: 'ProSomnus appliance', ledgerFixed: '$5,750 / program', ledgerMonthly: '$160 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['The appliance is dental.', 'The diagnosis remains', 'medical.'],
+  storyImage: '/images/generated/prosomnus-sleep-apnea-appliance-process-v1.webp',
+  storyAlt: 'A dentist coordinating a custom ProSomnus appliance with an established medical sleep plan',
+  storyRangeLabel: 'Compare an established diagnosis with a coordinated custom oral-appliance pathway',
+  storyNote: 'Diagnosis first. Dental candidacy second. Monitoring stays connected.',
+  storyLead: 'The pathway begins after appropriate medical diagnosis. The dental team evaluates teeth, gums, bite and jaw comfort, then coordinates fabrication, delivery and monitoring without replacing the role of the sleep clinician.',
+  storySteps: [
+    ['01', 'Confirm the medical foundation', 'Diagnosis and the wider sleep-care plan are established through the appropriate medical clinician.'],
+    ['02', 'Evaluate dental candidacy', 'Oral health, bite, existing work, comfort and anatomy are reviewed before an appliance is recommended.'],
+    ['03', 'Fit and monitor', 'The custom appliance is delivered, adjusted and reviewed alongside the ongoing medical follow-through plan.'],
+  ],
+  storyNotes: ['Begin after appropriate medical diagnosis.', 'Confirm oral health, bite and appliance candidacy.', 'Deliver, adjust and coordinate monitoring.'],
+  processTitle: ['Fit the appliance.', 'Keep the diagnosis and follow-through connected.'],
+  expectTitle: ['A custom dental appliance.', 'A coordinated medical boundary.'],
+  expectCopy: 'A ProSomnus appliance is not a universal CPAP replacement, cure or guaranteed outcome. Diagnosis, candidacy, response, side effects, adjustment needs and ongoing medical monitoring vary.',
+  metrics: [['1', 'custom appliance program'], ['4', 'stages: diagnose, evaluate, deliver, monitor'], ['2', 'connected office locations']],
+  pricingId: 'prosomnus-sleep-apnea-appliance-pricing',
+  pricingTitle: ['One complete appliance program.', 'Three planning views.'],
+  pricingIntro: 'The ProSomnus appliance program amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$5,750', 'complete appliance program'], ['MONTHLY · 02', '$160', 'per month · 36 months'], ['YEARLY · 03', '$5,750', 'treatment-program basis']],
+  pricingNote: 'The $160 monthly view is an approximate rounded illustration ($5,760 total across 36 months), which is $10 above the $5,750 fixed amount. The yearly view is a treatment-program basis, not a subscription, unlimited service or replacement plan. Diagnosis, scope, eligibility and terms are office-confirmed.',
+  whyTitle: ['A custom fit.', 'A clearly coordinated role.'],
+  whyIntro: 'The team protects the medical-dental boundary while connecting diagnosis, oral health, bite, appliance fit, adjustment and appropriate follow-through.',
+  whyImage: '/images/generated/prosomnus-sleep-apnea-appliance-result-v1.webp',
+  whyAlt: 'A dentist reviewing fit and monitoring for a custom ProSomnus sleep-apnea oral appliance',
+  whyPanels: [
+    ['01', 'Diagnosis comes first', 'Medical sleep diagnosis and care planning precede the dental appliance pathway.'],
+    ['02', 'Dental candidacy is individual', 'Teeth, gums, bite, jaw comfort and existing dental work are assessed before recommendation.'],
+    ['03', 'CPAP decisions stay medical', 'The appliance is not presented as a universal substitute for CPAP or other prescribed therapy.'],
+    ['04', 'Monitoring remains connected', 'Fit, comfort, dental effects and medical follow-through are reviewed with the appropriate clinicians.'],
+  ],
+  whyFoot: 'ONE CUSTOM APPLIANCE · FOUR STAGES · TWO OFFICES',
+  proofTitle: ['The diagnosis respected.', 'The dental fit individualized.'],
+  proofText: 'Patients frequently mention thoughtful listening, clear appliance explanations and coordinated complete-health care—general-practice themes that support this pathway without promising a sleep outcome.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Diagnosis first', 'Dental fit individualized', 'Monitoring coordinated'],
+  faqTitle: ['Before a', 'ProSomnus appliance.'],
+  relatedTitle: ['One custom appliance.', 'Several connected care paths.'],
+  relatedAria: 'Related airway, preventive and appliance services',
+  currentPath: 'ProSomnus sleep-apnea oral appliance',
+  locationsAria: 'ProSomnus appliance locations',
+} : isArteryHealthScreening ? {
   heroClass: 'is-artery-health-screening',
   heroImages: [
     ['/images/generated/artery-health-screening-hero-v1.webp', 'A clinician reviewing health context before a limited artery-health screening', 'REVIEW THE CONTEXT'],
@@ -4148,6 +4223,18 @@ const content = isArteryHealthScreening ? {
   .whitening-hero.is-artery-health-screening .hero-cinema__copy{top:15vh;width:min(45vw,47rem);transform:none}
   .whitening-hero.is-artery-health-screening .hero-cinema__copy h1{font-size:clamp(3.8rem,5.2vw,6rem);line-height:.83;margin:1.25rem 0 1.5rem}
   .whitening-hero.is-artery-health-screening .hero-cinema__copy h1 em{display:block;margin-left:clamp(1.75rem,4vw,4rem)}
+  .whitening-hero.is-prosomnus .hero-folds__scan{display:none}
+  .whitening-hero.is-prosomnus .hero-fold{border:0;overflow:hidden;box-shadow:0 2.5rem 6rem rgba(0,0,0,.36);transform-origin:center}
+  .whitening-hero.is-prosomnus .hero-fold--one{translate:9% -16%;scale:.72 .62;clip-path:inset(0 round 999px 1rem 1rem 999px)}
+  .whitening-hero.is-prosomnus .hero-fold--two{translate:-3% 0;scale:1.15 .82;clip-path:inset(0 round 999px)}
+  .whitening-hero.is-prosomnus .hero-fold--three{translate:-12% 16%;scale:.72 .62;clip-path:inset(0 round 1rem 999px 999px 1rem)}
+  .whitening-hero.is-prosomnus .hero-fold--one>img{object-position:43% center}
+  .whitening-hero.is-prosomnus .hero-fold--two>img{object-position:54% center}
+  .whitening-hero.is-prosomnus .hero-fold--three>img{object-position:66% center}
+  .whitening-hero.is-prosomnus .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 35%,rgba(4,24,20,.4) 63%,transparent 83%)}
+  .whitening-hero.is-prosomnus .hero-cinema__copy{top:15vh;width:min(47vw,49rem);transform:none}
+  .whitening-hero.is-prosomnus .hero-cinema__copy h1{font-size:clamp(3.35rem,4.65vw,5.35rem);line-height:.85;margin:1.25rem 0 1.5rem}
+  .whitening-hero.is-prosomnus .hero-cinema__copy h1 em{display:block;margin-left:clamp(1.5rem,3.5vw,3.5rem)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -4391,6 +4478,13 @@ const content = isArteryHealthScreening ? {
     .whitening-hero.is-artery-health-screening .hero-cinema__copy{top:7.15rem}
     .whitening-hero.is-artery-health-screening .hero-cinema__copy h1{font-size:clamp(2.6rem,11.2vw,3.55rem);line-height:.85}
     .whitening-hero.is-artery-health-screening .hero-cinema__copy h1 em{margin-left:1rem}
+    .whitening-hero.is-prosomnus .hero-fold--one{translate:3% -11%;scale:.76 .68;clip-path:inset(0 round 999px .8rem .8rem 999px)}
+    .whitening-hero.is-prosomnus .hero-fold--two{translate:-1% 1%;scale:1.06 .84;clip-path:inset(0 round 999px)}
+    .whitening-hero.is-prosomnus .hero-fold--three{translate:-4% 12%;scale:.76 .68;clip-path:inset(0 round .8rem 999px 999px .8rem)}
+    .whitening-hero.is-prosomnus .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.17) 64%,rgba(4,24,20,.84) 100%)}
+    .whitening-hero.is-prosomnus .hero-cinema__copy{top:7.15rem}
+    .whitening-hero.is-prosomnus .hero-cinema__copy h1{font-size:clamp(2.3rem,9.9vw,3.2rem);line-height:.87}
+    .whitening-hero.is-prosomnus .hero-cinema__copy h1 em{margin-left:.85rem}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
@@ -4544,6 +4638,7 @@ const content = isArteryHealthScreening ? {
         const isOralCancerHero = hero.classList.contains('is-oral-cancer-screening');
         const isAirwaySleepHero = hero.classList.contains('is-airway-sleep-screening');
         const isArteryHealthHero = hero.classList.contains('is-artery-health-screening');
+        const isProSomnusHero = hero.classList.contains('is-prosomnus');
         const phases = q('[data-hero-phase]');
         const edition = q('[data-hero-edition]')[0];
         const scan = q('[data-fold-scan]')[0];
@@ -4598,6 +4693,8 @@ const content = isArteryHealthScreening ? {
                   ? {opacity:0,xPercent:[22,0,-22][index],scale:[.82,.9,.82][index]}
                 : isArteryHealthHero
                   ? {opacity:0,xPercent:[20,-20,22][index],yPercent:[-18,20,0][index]}
+                : isProSomnusHero
+                  ? {opacity:0,xPercent:[22,0,-22][index],yPercent:[-18,0,18][index],scale:.82}
                 : isDentalBridgeHero
                   ? {opacity:0,xPercent:[-28,0,28][index],yPercent:[0,22,0][index]}
               : {}),
@@ -4630,12 +4727,14 @@ const content = isArteryHealthScreening ? {
                   ? {opacity:1,xPercent:0,scale:1}
                 : isArteryHealthHero
                   ? {opacity:1,xPercent:0,yPercent:0}
+                : isProSomnusHero
+                  ? {opacity:1,xPercent:0,yPercent:0,scale:1}
                 : isDentalBridgeHero
                   ? {opacity:1,xPercent:0,yPercent:0}
               : {}),
-          duration:isAmalgamHero ? 1.55 : isToothColoredHero ? 1.45 : isDentalCrownHero ? 1.6 : isDentalBridgeHero ? 1.5 : isFullMouthHero ? 1.55 : isRootCanalHero ? 1.5 : isFullDentureHero ? 1.55 : isPartialDentureHero ? 1.5 : isOralCancerHero ? 1.55 : isAirwaySleepHero ? 1.5 : isArteryHealthHero ? 1.55 : 1.35,
-          ease:isAmalgamHero ? 'expo.inOut' : isToothColoredHero ? 'power4.out' : isDentalCrownHero ? 'expo.out' : isDentalBridgeHero ? 'power4.inOut' : isFullMouthHero ? 'power4.out' : isRootCanalHero ? 'expo.out' : isFullDentureHero ? 'power4.out' : isPartialDentureHero ? 'expo.out' : isOralCancerHero ? 'power4.out' : isAirwaySleepHero ? 'expo.out' : isArteryHealthHero ? 'power4.out' : 'power3.inOut',
-        },index*(isAmalgamHero ? .12 : isToothColoredHero ? .16 : isDentalCrownHero ? .14 : isDentalBridgeHero ? .13 : isFullMouthHero ? .14 : isRootCanalHero ? .15 : isFullDentureHero ? .14 : isPartialDentureHero ? .15 : isOralCancerHero ? .14 : isAirwaySleepHero ? .15 : isArteryHealthHero ? .14 : .08)));
+          duration:isAmalgamHero ? 1.55 : isToothColoredHero ? 1.45 : isDentalCrownHero ? 1.6 : isDentalBridgeHero ? 1.5 : isFullMouthHero ? 1.55 : isRootCanalHero ? 1.5 : isFullDentureHero ? 1.55 : isPartialDentureHero ? 1.5 : isOralCancerHero ? 1.55 : isAirwaySleepHero ? 1.5 : isArteryHealthHero ? 1.55 : isProSomnusHero ? 1.55 : 1.35,
+          ease:isAmalgamHero ? 'expo.inOut' : isToothColoredHero ? 'power4.out' : isDentalCrownHero ? 'expo.out' : isDentalBridgeHero ? 'power4.inOut' : isFullMouthHero ? 'power4.out' : isRootCanalHero ? 'expo.out' : isFullDentureHero ? 'power4.out' : isPartialDentureHero ? 'expo.out' : isOralCancerHero ? 'power4.out' : isAirwaySleepHero ? 'expo.out' : isArteryHealthHero ? 'power4.out' : isProSomnusHero ? 'expo.out' : 'power3.inOut',
+        },index*(isAmalgamHero ? .12 : isToothColoredHero ? .16 : isDentalCrownHero ? .14 : isDentalBridgeHero ? .13 : isFullMouthHero ? .14 : isRootCanalHero ? .15 : isFullDentureHero ? .14 : isPartialDentureHero ? .15 : isOralCancerHero ? .14 : isAirwaySleepHero ? .15 : isArteryHealthHero ? .14 : isProSomnusHero ? .15 : .08)));
         intro.to(q('[data-hero-fold] img'),{scale:1.015,duration:1.2},0)
           .to(scan,{left:mobile?'100vw':'99vw',duration:1.4},0)
           .to(progress,{width:'100%',duration:1.35},0)

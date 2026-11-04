@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore the ProSomnus sleep-apnea oral appliance pathway at Smiles by Noetzel, including diagnosis-first coordination, candidacy, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>ProSomnus Sleep-Apnea Oral Appliance | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-prosomnus-sleep-apnea-appliance.webp" mediaAlt="A clinician reviewing a custom ProSomnus sleep-apnea oral appliance" />
+    <main>
+      <TreatmentDetail kind="prosomnus-sleep-apnea-appliance" />
+      <BeforeAfterStory id="before-after-prosomnus-sleep-apnea-appliance" tone="light" number="10" eyebrow="Illustrative appliance pathway · ProSomnus" title="From an established diagnosis." emphasis="To a coordinated dental appliance plan."
+        intro="This illustrative pathway shows how medical diagnosis, dental candidacy, custom appliance fit and monitoring may connect. It is not an actual patient case, sleep-apnea cure, CPAP replacement instruction, symptom-resolution promise or guaranteed outcome."
+        image="/images/generated/before-after-prosomnus-sleep-apnea-appliance-v1.webp" imageAlt="Illustrative comparison of an established sleep-apnea diagnosis and a coordinated ProSomnus appliance pathway"
+        beforeLabel="Before dental candidacy" beforeDetail="A medical diagnosis may be established, but oral health, bite, jaw comfort and appliance suitability have not yet been confirmed."
+        afterLabel="Illustrative coordinated appliance" afterDetail="The simulated view represents a custom appliance pathway—not universal candidacy, CPAP replacement, symptom resolution or medical outcome."
+        caseNote="Illustrative appliance pathway · not an actual patient case · diagnosis, candidacy and response vary" />
+      <HubFooter eyebrow="Ready to evaluate a custom appliance after diagnosis?" title="Connect the medical plan with a ProSomnus dental evaluation." />
+    </main>
+  </body>
+</html>
