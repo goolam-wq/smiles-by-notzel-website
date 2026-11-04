@@ -1,9 +1,10 @@
 ---
-interface Props { kind: 'chicago' | 'mokena' | 'cosmetic' | 'complete-health-airway' | 'emergency-comfort' | 'implants-oral-surgery' | 'orthodontic-dentistry' | 'pediatric-developmental' | 'periodontal-dentistry' | 'preventive-diagnostic' | 'recode-cognitive-health' | 'restorative-reconstructive' | 'wellness-offering' }
+interface Props { kind: 'chicago' | 'mokena' | 'south-chicago-heights' | 'cosmetic' | 'complete-health-airway' | 'emergency-comfort' | 'implants-oral-surgery' | 'orthodontic-dentistry' | 'pediatric-developmental' | 'periodontal-dentistry' | 'preventive-diagnostic' | 'recode-cognitive-health' | 'restorative-reconstructive' | 'wellness-offering' }
 const { kind } = Astro.props;
 const chicago = kind === 'chicago';
 const mokena = kind === 'mokena';
-const locationPage = chicago || mokena;
+const southChicagoHeights = kind === 'south-chicago-heights';
+const locationPage = chicago || mokena || southChicagoHeights;
 const completeHealth = kind === 'complete-health-airway';
 const emergencyComfort = kind === 'emergency-comfort';
 const implantsSurgery = kind === 'implants-oral-surgery';
@@ -758,7 +759,52 @@ const mokenaFaq = [
   ['Can my whole family visit this office?', 'Yes. The Mokena office provides preventive, restorative, cosmetic, kid-friendly and complete-health care.'],
   ['Do you serve communities outside Mokena?', 'Yes. This office supports Mokena and nine nearby communities listed on this page.'],
 ];
-const location = mokena ? {
+const location = southChicagoHeights ? {
+  slug: 'south-chicago-heights',
+  className: 'is-chicago',
+  officeNumber: '01',
+  name: 'South Chicago Heights',
+  phone: '(708) 755-1333',
+  phoneHref: 'tel:+17087551333',
+  addressLine: '500 Ashland Ave, Suite #2',
+  cityLine: 'Chicago Heights, IL 60411',
+  mapHref: 'https://maps.app.goo.gl/htHhNrnhbbu2WNR17',
+  heroKicker: 'South Chicago Heights · Near Office 01',
+  heroLead: 'Close enough for life.',
+  heroEmphasis: 'Connected enough for more.',
+  heroIntro: 'Extended hours, complete-health dentistry and one familiar team—minutes from South Chicago Heights.',
+  heroImage: '/images/generated/unique/south-chicago-heights/south-chicago-heights-hero-arrival.webp',
+  heroAlt: 'A South Chicago Heights patient being welcomed at the nearby Smiles by Noetzel reception desk',
+  ledger: [['NEAREST OFFICE', 'Chicago Heights'], ['COMMUNITIES', '16 connected'], ['PATIENT PROOF', '4.9 from 258 reviews'], ['CALL', '(708) 755-1333']],
+  aboutKicker: '01 · ABOUT SOUTH CHICAGO HEIGHTS',
+  aboutLead: 'Nearby care',
+  aboutEmphasis: 'that knows your route.',
+  aboutCopy: 'South Chicago Heights patients can reach extended hours, a familiar care team and complete-health thinking at the nearby Ashland Avenue office without turning care into a cross-town project.',
+  schedule: [['01', 'MON — THU', '7:30 AM', '— 7:00 PM'], ['02', 'FRIDAY', '7:30 AM', '— 12:00 PM'], ['03', 'SATURDAY', '8:00 AM', '— 12:00 PM']],
+  atlasCopy: 'Routine prevention, restorative care and more involved plans stay connected through one nearby team instead of becoming a sequence of disconnected visits.',
+  communityCountWord: 'Sixteen',
+  communityCopy: 'South Chicago Heights sits inside a connected group of familiar south-suburban communities served by the Chicago Heights care team.',
+  journeyLast: 'Treatment and follow-up stay coordinated with one nearby Chicago Heights team.',
+  trustImage: '/images/generated/unique/south-chicago-heights/south-chicago-heights-trust-family.webp',
+  trustAlt: 'A South Chicago Heights mother and daughter speaking with their dental hygienist',
+  trustLabel: 'SOUTH CHICAGO HEIGHTS · NEAR OFFICE 01',
+  trustCopy: 'The value is more than a short drive. It is practical access backed by a team that can keep preventive, restorative and complete-health decisions in one story.',
+  trustReasons: [['01', 'A familiar nearby office', 'The Ashland Avenue team is minutes from South Chicago Heights.'], ['02', '48 connected services', 'Prevention, comfort, restoration and advanced care in one network.'], ['03', 'Hours around real life', 'Early mornings, evenings and Saturday availability.'], ['04', 'Patient-backed care', 'A 4.9 Google rating from 258 local reviews.']],
+  pricingIntro: 'Compare a focused set of common services available to South Chicago Heights patients in fixed, monthly and yearly customer-facing views.',
+  reviewKicker: '08 · SOUTH CHICAGO HEIGHTS PATIENT PROOF',
+  reviewScore: '4.9',
+  reviewQuote: '“They made the whole visit feel organized and personal—from the first conversation through the next step.”',
+  reviewFooter: 'LOCAL PATIENT · VERIFIED REVIEW',
+  reviewTopics: ['Friendly staff · often noted', 'Clear explanations · patient mentioned', 'Convenient access · locally connected'],
+  reviewTotal: '258',
+  faqs: [
+    ['Which office serves South Chicago Heights?', 'The Chicago Heights office at 500 Ashland Avenue, Suite #2 is the nearest Smiles by Noetzel location.'],
+    ['How far is the office from South Chicago Heights?', 'Travel time depends on your starting point and traffic, but the Ashland Avenue office is nearby and serves the wider South Chicago Heights community.'],
+    ['Do you offer evening or Saturday appointments?', 'Yes. The Chicago Heights office is open until 7:00 PM Monday through Thursday and offers Saturday hours from 8:00 AM to 12:00 PM.'],
+    ['Can my whole family use the same office?', 'Yes. The nearby team provides preventive, restorative, cosmetic, kid-friendly and complete-health care.'],
+    ['Can I call about a dental emergency?', 'Yes. Call (708) 755-1333 so the team can understand what happened and guide the next step.'],
+  ],
+} : mokena ? {
   slug: 'mokena',
   className: 'is-chicago',
   officeNumber: '02',
@@ -768,6 +814,7 @@ const location = mokena ? {
   addressLine: '19160 88th Avenue',
   cityLine: 'Mokena, IL 60448',
   mapHref: 'https://www.google.com/maps/search/?api=1&query=Ashland+Dental+and+Wellness+Center+19160+88th+Avenue+Mokena+IL+60448',
+  heroKicker: 'Mokena · Office 02',
   heroLead: 'Focused care.',
   heroEmphasis: 'Room to breathe.',
   heroIntro: 'Monday and Thursday appointments, alternating Saturdays and one connected team—close to the rhythm of Mokena life.',
@@ -806,6 +853,7 @@ const location = mokena ? {
   addressLine: '500 Ashland Ave, Suite #2',
   cityLine: 'Chicago Heights, IL',
   mapHref: 'https://maps.app.goo.gl/htHhNrnhbbu2WNR17',
+  heroKicker: 'Chicago Heights · Office 01',
   heroLead: 'Care that keeps',
   heroEmphasis: 'pace with life.',
   heroIntro: 'Extended weekday hours, complete-health thinking and one connected team—right here on Ashland Avenue.',
@@ -851,7 +899,7 @@ const faqs = locationPage ? location.faqs : category.faqs;
       <div class="detail-hero__grid" aria-hidden="true"></div>
       <div class="detail-hero__watermark" aria-hidden="true"><span>{locationPage ? location.name.toUpperCase() : category.watermark[0]}</span><em>{locationPage ? 'OFFICE' : category.watermark[1]}</em></div>
       <div class="detail-hero__copy">
-        <p class="detail-kicker"><span></span>{locationPage ? `${location.name} · Office ${location.officeNumber}` : category.heroKicker}</p>
+        <p class="detail-kicker"><span></span>{locationPage ? (location.heroKicker || `${location.name} · Office ${location.officeNumber}`) : category.heroKicker}</p>
         {locationPage ? (
           <h1><span>{location.heroLead}</span><br /><em>{location.heroEmphasis}</em></h1>
         ) : (

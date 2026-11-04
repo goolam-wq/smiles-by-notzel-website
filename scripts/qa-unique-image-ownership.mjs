@@ -8,6 +8,7 @@ const routes = [
   '/services/cosmetic-dentistry/',
   '/service-areas/chicago-heights/',
   '/service-areas/mokena/',
+  '/service-areas/south-chicago-heights/',
   '/services/professional-teeth-whitening/',
   '/services/porcelain-veneers-laminates/',
   '/services/lumineers/',
