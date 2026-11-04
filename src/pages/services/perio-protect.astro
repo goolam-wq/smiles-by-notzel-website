@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore Perio Protect at Smiles by Noetzel, including periodontal evaluation, customized trays, home-use guidance, monitoring, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Perio Protect | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-perio-protect.webp" mediaAlt="A clinician explaining a customized adjunctive periodontal tray system to a patient" />
+    <main>
+      <TreatmentDetail kind="perio-protect" />
+      <BeforeAfterStory id="before-after-perio-protect" tone="light" reverse number="06" eyebrow="Illustrative adjunctive pathway · periodontal home care" title="From an unstructured home routine." emphasis="To a fitted adjunctive system."
+        intro="This illustrative pathway shows how periodontal home care may move from evaluation to customized trays, teaching and professional monitoring. It is not an actual patient outcome and does not replace deep cleaning or maintenance, promise cure or systemic benefit, or guarantee a specific periodontal result."
+        image="/images/generated/before-after-perio-protect-v1.webp" imageAlt="Illustrative comparison of unstructured periodontal home care and a fitted Perio Protect tray pathway"
+        beforeLabel="Before adjunctive tray planning" beforeDetail="Periodontal findings, current therapy, maintenance needs and tray candidacy still need professional evaluation."
+        afterLabel="Illustrative fitted system" afterDetail="The simulated view represents customized trays and monitoring alongside professional care—not an actual or guaranteed outcome."
+        caseNote="Illustrative simulated example · not an actual patient case · periodontal response varies" />
+      <HubFooter eyebrow="Ready to structure the home-care conversation?" title="Begin with periodontal evaluation and keep professional maintenance connected." />
+    </main>
+  </body>
+</html>

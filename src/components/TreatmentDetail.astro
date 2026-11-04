@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -26,8 +26,14 @@ const isFirstDentalVisit = kind === 'first-dental-visit';
 const isPediatricCleaningExam = kind === 'pediatric-cleaning-exam';
 const isHealthyStart = kind === 'healthystart-system';
 const isDeepCleaning = kind === 'gum-disease-deep-cleaning';
+const isPerioProtect = kind === 'perio-protect';
 
-const processSteps = isDeepCleaning ? [
+const processSteps = isPerioProtect ? [
+  ['01', 'Evaluate', 'Gum health, periodontal findings, current therapy, maintenance needs and medical history are reviewed before the adjunctive tray pathway is considered.'],
+  ['02', 'Capture & plan', 'Records support a customized upper-and-lower tray system and an individualized home-use plan after the clinical evaluation.'],
+  ['03', 'Fit & teach', 'Tray fit and use are reviewed with the patient, including placement, hygiene and the separate medication or refill instructions confirmed by the office.'],
+  ['04', 'Monitor', 'Gum response, tray fit, home use and the continuing need for deep cleaning or periodontal maintenance are reviewed over time.'],
+] : isDeepCleaning ? [
   ['01', 'Measure', 'Gum health, pocket depths, bleeding, buildup, bone support, medical history and home-care factors are evaluated before therapy is mapped.'],
   ['02', 'Plan', 'The clinician confirms which quadrants need treatment, explains comfort planning and sets realistic expectations for therapy and follow-up.'],
   ['03', 'Treat', 'Buildup is removed from tooth and root surfaces below the gumline according to the confirmed periodontal treatment plan.'],
@@ -144,7 +150,13 @@ const processSteps = isDeepCleaning ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isDeepCleaning ? [
+const faqs = isPerioProtect ? [
+  ['How much does the Perio Protect tray system cost?', 'The customer-facing price is $1,200 for the upper-and-lower tray system. The monthly planning view is $50 for 24 months, totaling exactly $1,200, and the yearly view is $1,200 on a complete-program basis. Medication and refills are separate.'],
+  ['Does Perio Protect replace deep cleaning or periodontal maintenance?', 'No. Perio Protect is presented as an adjunctive home-care tray system. It does not replace clinically recommended deep cleaning, re-evaluation, periodontal maintenance or other professional treatment.'],
+  ['Are medication and refills included in the listed tray price?', 'No. The listed $1,200 amount is for the upper-and-lower tray system. Medication and refills are separate, and the office confirms current instructions and costs.'],
+  ['Does Perio Protect treat systemic disease or guarantee a periodontal result?', 'No. No medical or systemic benefit, cure, reversal, permanent result or specific periodontal outcome is promised. The trays support an individualized home-care plan alongside professional periodontal care.'],
+  ['Is Perio Protect available at both offices?', 'Perio Protect evaluations can begin through Chicago Heights or Mokena by appointment. Call the preferred office to confirm scheduling and current availability.'],
+] : isDeepCleaning ? [
   ['How much does gum-disease deep cleaning cost?', 'The customer-facing price is $350 per quadrant. The monthly planning view is an approximate $111 for 12 months ($1,332 total) for a full-mouth illustration, and the yearly full-mouth treatment view is $1,330. The number of quadrants, final scope, eligibility and payment terms are confirmed after periodontal evaluation.'],
   ['Does deep cleaning cure or permanently reverse gum disease?', 'No. Periodontal therapy removes buildup below the gumline and supports a healthier foundation, but it is not presented as a cure, permanent reversal or guaranteed result. Ongoing home care and individualized maintenance remain important.'],
   ['Will every patient need all four quadrants treated?', 'No. Gum measurements, buildup, bleeding, bone support and other findings determine which areas need therapy. The clinician confirms the number of quadrants after evaluation.'],
@@ -284,7 +296,13 @@ const faqs = isDeepCleaning ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isDeepCleaning ? [
+const relatedServices = isPerioProtect ? [
+  ['Periodontal Dentistry', 'Explore the complete category', '/services/periodontal-dentistry/'],
+  ['Gum-disease deep cleaning', 'Connect active below-gumline therapy', '/services/gum-disease-deep-cleaning/'],
+  ['Preventive & Diagnostic Dentistry', 'Connect periodontal evaluation and monitoring', '/services/preventive-diagnostic/'],
+  ['Complete Health & Airway', 'Explore the wider oral-health conversation', '/services/complete-health-airway/'],
+  ['Restorative & Reconstructive Dentistry', 'Connect the wider restorative plan when needed', '/services/restorative-reconstructive/'],
+] : isDeepCleaning ? [
   ['Periodontal Dentistry', 'Explore the complete category', '/services/periodontal-dentistry/'],
   ['Preventive & Diagnostic Dentistry', 'Connect examination and periodontal monitoring', '/services/preventive-diagnostic/'],
   ['Emergency Comfort', 'Know where to begin for an urgent gum concern', '/services/emergency-comfort/'],
@@ -419,7 +437,61 @@ const relatedServices = isDeepCleaning ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isDeepCleaning ? {
+const content = isPerioProtect ? {
+  heroClass: 'is-perio-protect',
+  heroImages: [
+    ['/images/generated/perio-protect-hero-v1.webp', 'A clinician discussing an adjunctive periodontal home-care tray system with a patient', 'BEGIN WITH THE PERIODONTAL PLAN'],
+    ['/images/generated/perio-protect-hero-detail-v1.webp', 'A clinician checking the fit of customized Perio Protect trays', 'FIT THE HOME-CARE SYSTEM'],
+    ['/images/generated/perio-protect-hero-result-v1.webp', 'A patient and clinician reviewing Perio Protect monitoring and maintenance', 'KEEP PROFESSIONAL CARE CONNECTED'],
+  ],
+  heroAria: ['Explore the periodontal evaluation', 'Explore customized tray fit and home-use guidance', 'Explore monitoring and professional maintenance'],
+  kicker: 'Periodontal Dentistry · Adjunctive Care 02',
+  title: ['Home care shaped to fit.', 'Professional care kept connected.'],
+  intro: 'A customized upper-and-lower tray system designed as an adjunct to the periodontal plan—not a replacement for deep cleaning, re-evaluation or maintenance.',
+  heroRail: ['Begin with the periodontal plan', 'Fit the home-care system', 'Keep professional care connected'],
+  ledgerLabel: 'Perio Protect tray system', ledgerFixed: '$1,200 / system', ledgerMonthly: '$50 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['A home-care tray does not replace periodontal treatment.', 'It stays', 'connected to it.'],
+  storyImage: '/images/generated/perio-protect-process-v1.webp',
+  storyAlt: 'A clinician evaluating gum health and fitting a customized Perio Protect tray system',
+  storyRangeLabel: 'Compare unstructured periodontal home care with a fitted adjunctive tray system and connected professional monitoring',
+  storyNote: 'Confirm the periodontal treatment plan before adding adjunctive trays.',
+  storyLead: 'We place the tray system inside the wider periodontal plan. Gum health, previous therapy and maintenance needs are evaluated first; the customized trays then support home care while professional cleaning, re-evaluation and maintenance remain connected.',
+  storySteps: [
+    ['01', 'Evaluate the foundation', 'Periodontal findings, current therapy and maintenance needs establish whether adjunctive trays fit the plan.'],
+    ['02', 'Customize and teach', 'Records support the upper-and-lower trays, and the office explains fit, use, hygiene and separate medication or refill instructions.'],
+    ['03', 'Monitor alongside care', 'Gum response, tray fit and home use are reviewed without replacing professional periodontal therapy.'],
+  ],
+  storyNotes: ['Confirm the periodontal treatment plan before adding adjunctive trays.', 'Customize the system and teach practical home use.', 'Keep deep cleaning and maintenance connected to monitoring.'],
+  processTitle: ['Customized for home.', 'Connected to the office.'],
+  expectTitle: ['Adjunctive in purpose.', 'Professional care still required.'],
+  expectCopy: 'Perio Protect is a customized home-care tray system used alongside the periodontal plan. It does not replace deep cleaning, re-evaluation or maintenance, and it does not promise cure, reversal, permanent results, a specific periodontal outcome or any medical or systemic benefit.',
+  metrics: [['1', 'upper-and-lower customized tray system'], ['4', 'stages: evaluate, plan, fit, monitor'], ['2', 'appointment-based office locations']],
+  pricingId: 'perio-protect-pricing',
+  pricingTitle: ['One tray system.', 'Three planning views.'],
+  pricingIntro: 'The same upper-and-lower Perio Protect tray-system amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$1,200', 'upper + lower tray system'], ['MONTHLY · 02', '$50', 'per month · 24 months'], ['YEARLY · 03', '$1,200', 'complete-program amount']],
+  pricingNote: 'The $50 monthly view totals exactly $1,200 across 24 months. The yearly amount is a complete-program treatment view, not a recurring membership. Medication and refills are separate. Final candidacy, periodontal scope, eligibility and payment terms are confirmed by the office.',
+  whyTitle: ['Home use supported.', 'Professional maintenance preserved.'],
+  whyIntro: 'The tray system can make home care more structured while periodontal evaluation, active therapy and maintenance remain professional responsibilities. Monitoring keeps the adjunctive tool connected to the clinical plan.',
+  whyImage: '/images/generated/perio-protect-result-v1.webp',
+  whyAlt: 'A patient receiving Perio Protect monitoring and periodontal maintenance guidance',
+  whyPanels: [
+    ['01', 'Evaluation before trays', 'The existing periodontal condition and treatment plan are reviewed before the adjunctive system is recommended.'],
+    ['02', 'Customized fit and teaching', 'Upper-and-lower trays are planned for the individual, with practical fit, hygiene and use guidance.'],
+    ['03', 'Maintenance remains essential', 'Professional deep cleaning, re-evaluation and maintenance are not replaced by home-use trays.'],
+  ],
+  whyFoot: 'ONE TRAY SYSTEM · FOUR CONNECTED STAGES',
+  proofTitle: ['The home routine clarified.', 'The clinical plan preserved.'],
+  proofText: 'Patients frequently mention clear explanations, attentive care and practical next steps—general-practice themes that support how adjunctive periodontal home care is discussed.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Customized tray fit', 'Adjunctive home care', 'Connected maintenance'],
+  faqTitle: ['Before adding', 'Perio Protect.'],
+  relatedTitle: ['One adjunctive system.', 'Several connected paths.'],
+  relatedAria: 'Related periodontal, preventive and restorative services',
+  currentPath: 'Perio Protect',
+  locationsAria: 'Perio Protect appointment locations',
+} : isDeepCleaning ? {
   heroClass: 'is-deep-cleaning',
   heroImages: [
     ['/images/generated/gum-disease-deep-cleaning-hero-v1.webp', 'A clinician discussing gum measurements and periodontal findings with a patient', 'BEGIN WITH THE MEASUREMENTS'],
@@ -2207,6 +2279,15 @@ const content = isDeepCleaning ? {
   .whitening-hero.is-deep-cleaning .hero-fold--two>img{object-position:52% center}
   .whitening-hero.is-deep-cleaning .hero-fold--three>img{object-position:60% center}
   .whitening-hero.is-deep-cleaning .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.43) 57%,transparent 77%)}
+  .whitening-hero.is-perio-protect .hero-folds__scan{display:none}
+  .whitening-hero.is-perio-protect .hero-fold{border:0;box-shadow:0 2.2rem 5.75rem rgba(0,0,0,.31);overflow:hidden}
+  .whitening-hero.is-perio-protect .hero-fold--one{clip-path:inset(5% 2% 5% 2% round 8rem 2rem 8rem 2rem)}
+  .whitening-hero.is-perio-protect .hero-fold--two{clip-path:inset(2% 2% 8% 2% round 2rem 8rem 2rem 8rem)}
+  .whitening-hero.is-perio-protect .hero-fold--three{clip-path:inset(8% 2% 2% 2% round 8rem 2rem 8rem 2rem)}
+  .whitening-hero.is-perio-protect .hero-fold--one>img{object-position:42% center}
+  .whitening-hero.is-perio-protect .hero-fold--two>img{object-position:52% center}
+  .whitening-hero.is-perio-protect .hero-fold--three>img{object-position:60% center}
+  .whitening-hero.is-perio-protect .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.41) 57%,transparent 77%)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -2325,6 +2406,10 @@ const content = isDeepCleaning ? {
     .whitening-hero.is-deep-cleaning .hero-fold--two{clip-path:inset(1% 1% 6% 1% round 6rem 1rem 1rem 1rem)}
     .whitening-hero.is-deep-cleaning .hero-fold--three{clip-path:inset(6% 1% 1% 1% round 1rem 1rem 6rem 1rem)}
     .whitening-hero.is-deep-cleaning .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.2) 60%,rgba(4,24,20,.79) 100%)}
+    .whitening-hero.is-perio-protect .hero-fold--one{clip-path:inset(4% 1% 4% 1% round 5rem 1rem 5rem 1rem)}
+    .whitening-hero.is-perio-protect .hero-fold--two{clip-path:inset(1% 1% 6% 1% round 1rem 5rem 1rem 5rem)}
+    .whitening-hero.is-perio-protect .hero-fold--three{clip-path:inset(6% 1% 1% 1% round 5rem 1rem 5rem 1rem)}
+    .whitening-hero.is-perio-protect .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.19) 60%,rgba(4,24,20,.78) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
