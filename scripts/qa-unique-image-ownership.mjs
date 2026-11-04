@@ -65,6 +65,16 @@ const viewports = {
   phone: { width: 440, height: 956 },
 };
 
+const requestedRoutes = process.argv.slice(2);
+const activeRoutes = requestedRoutes.length
+  ? routes.filter((route) => requestedRoutes.includes(route))
+  : routes;
+
+if (requestedRoutes.length && activeRoutes.length !== requestedRoutes.length) {
+  const unknownRoutes = requestedRoutes.filter((route) => !routes.includes(route));
+  throw new Error(`Unknown unique-image QA route(s): ${unknownRoutes.join(', ')}`);
+}
+
 const browser = await chromium.launch({
   headless: true,
   executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
@@ -73,7 +83,7 @@ const browser = await chromium.launch({
 const results = [];
 
 for (const [viewportName, viewport] of Object.entries(viewports)) {
-  for (const route of routes) {
+  for (const route of activeRoutes) {
     const page = await browser.newPage({ viewport });
     const pageErrors = [];
     page.on('pageerror', (error) => pageErrors.push(error.message));
@@ -87,6 +97,26 @@ for (const [viewportName, viewport] of Object.entries(viewports)) {
       await page.evaluate((nextY) => window.scrollTo(0, nextY), y);
       await page.waitForTimeout(45);
     }
+
+    // The full-page scroll initiates native lazy-loaded images, but larger WebP
+    // assets can still be in flight when the final scroll step completes. Wait
+    // for every initiated image to settle before classifying it as broken so a
+    // slow local decode/network response cannot produce a false QA failure.
+    await page.evaluate(async () => {
+      const pendingImages = [...document.images].filter((image) => !image.complete);
+      await Promise.race([
+        Promise.all(
+          pendingImages.map(
+            (image) =>
+              new Promise((resolve) => {
+                image.addEventListener('load', resolve, { once: true });
+                image.addEventListener('error', resolve, { once: true });
+              }),
+          ),
+        ),
+        new Promise((resolve) => setTimeout(resolve, 5000)),
+      ]);
+    });
 
     const metrics = await page.evaluate(() => {
       const brokenImages = [...document.images]
