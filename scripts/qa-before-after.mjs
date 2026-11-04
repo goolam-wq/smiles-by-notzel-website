@@ -42,6 +42,7 @@ const routes = [
   ['healthystart-system', '/services/healthystart-system/', '#before-after-healthystart-system'],
   ['gum-disease-deep-cleaning', '/services/gum-disease-deep-cleaning/', '#before-after-gum-disease-deep-cleaning'],
   ['perio-protect', '/services/perio-protect/', '#before-after-perio-protect'],
+  ['professional-dental-cleaning', '/services/professional-dental-cleaning/', '#before-after-professional-dental-cleaning'],
 ];
 const viewports = [
   ['desktop', 1440, 900],

@@ -31,6 +31,7 @@ const routes = [
   '/services/healthystart-system/',
   '/services/gum-disease-deep-cleaning/',
   '/services/perio-protect/',
+  '/services/professional-dental-cleaning/',
   '/services/restorative-reconstructive/',
   '/services/wellness-offering/',
 ];

@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -27,8 +27,14 @@ const isPediatricCleaningExam = kind === 'pediatric-cleaning-exam';
 const isHealthyStart = kind === 'healthystart-system';
 const isDeepCleaning = kind === 'gum-disease-deep-cleaning';
 const isPerioProtect = kind === 'perio-protect';
+const isProfessionalCleaning = kind === 'professional-dental-cleaning';
 
-const processSteps = isPerioProtect ? [
+const processSteps = isProfessionalCleaning ? [
+  ['01', 'Review', 'Current concerns, health history, home-care routine and previous cleaning experience are reviewed before the visit scope is confirmed.'],
+  ['02', 'Assess', 'Teeth, gums and visible buildup are checked to confirm whether a routine cleaning is appropriate or periodontal evaluation is needed.'],
+  ['03', 'Clean', 'Plaque, surface buildup and stain are removed according to the confirmed routine-cleaning plan, with comfort and clinical findings considered throughout.'],
+  ['04', 'Recap', 'The team explains findings, home-care priorities and the recommended next interval or further evaluation based on the individual visit.'],
+] : isPerioProtect ? [
   ['01', 'Evaluate', 'Gum health, periodontal findings, current therapy, maintenance needs and medical history are reviewed before the adjunctive tray pathway is considered.'],
   ['02', 'Capture & plan', 'Records support a customized upper-and-lower tray system and an individualized home-use plan after the clinical evaluation.'],
   ['03', 'Fit & teach', 'Tray fit and use are reviewed with the patient, including placement, hygiene and the separate medication or refill instructions confirmed by the office.'],
@@ -150,7 +156,13 @@ const processSteps = isPerioProtect ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isPerioProtect ? [
+const faqs = isProfessionalCleaning ? [
+  ['How much does a professional dental cleaning cost?', 'The customer-facing price is $125 per routine-cleaning visit. The $21 monthly view is an approximate rounded 12-month illustration ($252 total) based on two visits, and the yearly view is $250 for two visits. Final visit frequency, scope, eligibility and payment terms are confirmed by the office.'],
+  ['Is a routine cleaning the same as periodontal deep cleaning?', 'No. A routine professional cleaning addresses appropriate plaque, surface buildup and stain for patients whose gum findings support that pathway. Periodontal disease or below-gumline buildup may require a different evaluation and therapy plan.'],
+  ['Are an exam, X-rays or fluoride automatically included?', 'No. Examination, imaging, fluoride and other preventive or diagnostic services are not represented as automatic parts of the listed cleaning price. The office confirms the recommended scope.'],
+  ['Can a cleaning guarantee healthy gums, no cavities or a pain-free visit?', 'No. No specific clinical or comfort outcome is guaranteed. Findings, home care, gum condition, sensitivity and the need for additional evaluation vary by patient.'],
+  ['Is professional dental cleaning available at both offices?', 'Routine-cleaning appointments can begin through Chicago Heights or Mokena. Call the preferred office to confirm scheduling and the recommended visit type.'],
+] : isPerioProtect ? [
   ['How much does the Perio Protect tray system cost?', 'The customer-facing price is $1,200 for the upper-and-lower tray system. The monthly planning view is $50 for 24 months, totaling exactly $1,200, and the yearly view is $1,200 on a complete-program basis. Medication and refills are separate.'],
   ['Does Perio Protect replace deep cleaning or periodontal maintenance?', 'No. Perio Protect is presented as an adjunctive home-care tray system. It does not replace clinically recommended deep cleaning, re-evaluation, periodontal maintenance or other professional treatment.'],
   ['Are medication and refills included in the listed tray price?', 'No. The listed $1,200 amount is for the upper-and-lower tray system. Medication and refills are separate, and the office confirms current instructions and costs.'],
@@ -296,7 +308,13 @@ const faqs = isPerioProtect ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isPerioProtect ? [
+const relatedServices = isProfessionalCleaning ? [
+  ['Preventive & Diagnostic Dentistry', 'Explore the complete category', '/services/preventive-diagnostic/'],
+  ['Gum-disease deep cleaning', 'Compare periodontal therapy when routine cleaning is not appropriate', '/services/gum-disease-deep-cleaning/'],
+  ['Periodontal Dentistry', 'Connect gum-health evaluation and maintenance', '/services/periodontal-dentistry/'],
+  ['Professional teeth whitening', 'Explore a separate shade-brightening pathway', '/services/professional-teeth-whitening/'],
+  ['Complete Health & Airway', 'Explore the wider oral-health conversation', '/services/complete-health-airway/'],
+] : isPerioProtect ? [
   ['Periodontal Dentistry', 'Explore the complete category', '/services/periodontal-dentistry/'],
   ['Gum-disease deep cleaning', 'Connect active below-gumline therapy', '/services/gum-disease-deep-cleaning/'],
   ['Preventive & Diagnostic Dentistry', 'Connect periodontal evaluation and monitoring', '/services/preventive-diagnostic/'],
@@ -437,7 +455,61 @@ const relatedServices = isPerioProtect ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isPerioProtect ? {
+const content = isProfessionalCleaning ? {
+  heroClass: 'is-professional-cleaning',
+  heroImages: [
+    ['/images/generated/professional-dental-cleaning-hero-v1.webp', 'A patient and clinician reviewing the scope of a routine dental cleaning', 'BEGIN WITH THE RIGHT VISIT'],
+    ['/images/generated/professional-dental-cleaning-hero-detail-v1.webp', 'A clinician completing a professional routine dental cleaning', 'REMOVE THE EVERYDAY BUILDUP'],
+    ['/images/generated/professional-dental-cleaning-hero-result-v1.webp', 'A patient receiving home-care guidance after a professional cleaning', 'RECAP WHAT COMES NEXT'],
+  ],
+  heroAria: ['Explore the routine-cleaning assessment', 'Explore professional plaque and surface-buildup removal', 'Explore the findings and home-care recap'],
+  kicker: 'Preventive & Diagnostic · Visit 01',
+  title: ['A cleaner surface.', 'A clearer preventive routine.'],
+  intro: 'A professional routine cleaning that confirms the right visit, removes appropriate plaque and surface buildup, and turns findings into practical next steps.',
+  heroRail: ['Begin with the right visit', 'Remove the everyday buildup', 'Recap what comes next'],
+  ledgerLabel: 'Professional dental cleaning', ledgerFixed: '$125 / visit', ledgerMonthly: '$21 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['A routine cleaning begins with the right classification.', 'Not every gum condition needs', 'the same visit.'],
+  storyImage: '/images/generated/professional-dental-cleaning-process-v1.webp',
+  storyAlt: 'A clinician assessing gum health and completing a professional routine dental cleaning',
+  storyRangeLabel: 'Compare everyday plaque and surface buildup with an appropriately cleaned and clearly guided preventive routine',
+  storyNote: 'Confirm that routine cleaning is appropriate before treatment begins.',
+  storyLead: 'We assess teeth, gums and visible buildup before classifying the visit. A routine professional cleaning removes appropriate plaque, surface buildup and stain; periodontal findings may require a different below-gumline therapy plan.',
+  storySteps: [
+    ['01', 'Confirm the visit type', 'Current concerns and gum findings establish whether routine cleaning or periodontal evaluation is appropriate.'],
+    ['02', 'Remove appropriate buildup', 'Plaque, surface buildup and stain are addressed according to the confirmed routine-cleaning scope.'],
+    ['03', 'Recap the preventive plan', 'Findings become practical home-care priorities and an individualized follow-up recommendation.'],
+  ],
+  storyNotes: ['Confirm that routine cleaning is appropriate before treatment begins.', 'Remove plaque and surface buildup according to the visit scope.', 'Turn findings into practical home care and follow-up.'],
+  processTitle: ['Classify the visit.', 'Clean with context.'],
+  expectTitle: ['Routine in purpose.', 'Individual in scope.'],
+  expectCopy: 'A professional routine cleaning addresses appropriate plaque, surface buildup and stain. It is distinct from periodontal deep cleaning, and the listed service does not automatically include an exam, X-rays or fluoride or guarantee a particular clinical or comfort outcome.',
+  metrics: [['$125', 'per routine-cleaning visit'], ['4', 'stages: review, assess, clean, recap'], ['2', 'connected office locations']],
+  pricingId: 'professional-dental-cleaning-pricing',
+  pricingTitle: ['One routine visit.', 'Three planning views.'],
+  pricingIntro: 'The professional cleaning amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$125', 'per routine-cleaning visit'], ['MONTHLY · 02', '$21', 'per month · 12 months'], ['YEARLY · 03', '$250', 'based on two visits']],
+  pricingNote: 'The $21 monthly view is an approximate rounded two-visit annual illustration ($252 total across 12 months). The yearly amount is $250 based on two $125 visits, not a subscription, unlimited-care package or universal schedule. Examination, X-rays and fluoride are not automatically included. Final scope, frequency, eligibility and payment terms are office-confirmed.',
+  whyTitle: ['Everyday buildup removed.', 'The right pathway preserved.'],
+  whyIntro: 'Routine cleaning and periodontal therapy are not interchangeable. Checking the gums first protects the patient from receiving the wrong visit and keeps preventive guidance connected to actual findings.',
+  whyImage: '/images/generated/professional-dental-cleaning-result-v1.webp',
+  whyAlt: 'A patient receiving preventive findings and home-care guidance after a professional dental cleaning',
+  whyPanels: [
+    ['01', 'Assessment before classification', 'Gum findings help distinguish routine cleaning from a periodontal therapy pathway.'],
+    ['02', 'Appropriate buildup removal', 'Plaque, surface buildup and stain are addressed within the confirmed routine-cleaning scope.'],
+    ['03', 'Practical preventive recap', 'Findings, home care and the next interval are explained for the individual patient.'],
+  ],
+  whyFoot: 'ONE ROUTINE VISIT · FOUR CONNECTED STAGES',
+  proofTitle: ['The visit explained.', 'The next routine understood.'],
+  proofText: 'Patients frequently mention careful cleanings, clear explanations and attentive care—general-practice themes that support how routine preventive visits are approached.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Correct visit classification', 'Professional routine cleaning', 'Practical preventive guidance'],
+  faqTitle: ['Before the next', 'professional cleaning.'],
+  relatedTitle: ['One routine visit.', 'Several connected paths.'],
+  relatedAria: 'Related preventive, periodontal and cosmetic services',
+  currentPath: 'Professional dental cleaning',
+  locationsAria: 'Professional dental-cleaning locations',
+} : isPerioProtect ? {
   heroClass: 'is-perio-protect',
   heroImages: [
     ['/images/generated/perio-protect-hero-v1.webp', 'A clinician discussing an adjunctive periodontal home-care tray system with a patient', 'BEGIN WITH THE PERIODONTAL PLAN'],
@@ -2288,6 +2360,15 @@ const content = isPerioProtect ? {
   .whitening-hero.is-perio-protect .hero-fold--two>img{object-position:52% center}
   .whitening-hero.is-perio-protect .hero-fold--three>img{object-position:60% center}
   .whitening-hero.is-perio-protect .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.41) 57%,transparent 77%)}
+  .whitening-hero.is-professional-cleaning .hero-folds__scan{display:none}
+  .whitening-hero.is-professional-cleaning .hero-fold{border:0;box-shadow:0 2.25rem 5.75rem rgba(0,0,0,.3);overflow:hidden}
+  .whitening-hero.is-professional-cleaning .hero-fold--one{clip-path:inset(4% 2% 7% 2% round 10rem 3rem 3rem 3rem)}
+  .whitening-hero.is-professional-cleaning .hero-fold--two{clip-path:inset(7% 2% 4% 2% round 3rem 3rem 10rem 3rem)}
+  .whitening-hero.is-professional-cleaning .hero-fold--three{clip-path:inset(4% 2% 7% 2% round 3rem 10rem 3rem 3rem)}
+  .whitening-hero.is-professional-cleaning .hero-fold--one>img{object-position:43% center}
+  .whitening-hero.is-professional-cleaning .hero-fold--two>img{object-position:52% center}
+  .whitening-hero.is-professional-cleaning .hero-fold--three>img{object-position:60% center}
+  .whitening-hero.is-professional-cleaning .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 36%,rgba(4,24,20,.39) 57%,transparent 77%)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -2410,6 +2491,10 @@ const content = isPerioProtect ? {
     .whitening-hero.is-perio-protect .hero-fold--two{clip-path:inset(1% 1% 6% 1% round 1rem 5rem 1rem 5rem)}
     .whitening-hero.is-perio-protect .hero-fold--three{clip-path:inset(6% 1% 1% 1% round 5rem 1rem 5rem 1rem)}
     .whitening-hero.is-perio-protect .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.19) 60%,rgba(4,24,20,.78) 100%)}
+    .whitening-hero.is-professional-cleaning .hero-fold--one{clip-path:inset(3% 1% 5% 1% round 6rem 2rem 2rem 2rem)}
+    .whitening-hero.is-professional-cleaning .hero-fold--two{clip-path:inset(5% 1% 3% 1% round 2rem 2rem 6rem 2rem)}
+    .whitening-hero.is-professional-cleaning .hero-fold--three{clip-path:inset(3% 1% 5% 1% round 2rem 6rem 2rem 2rem)}
+    .whitening-hero.is-professional-cleaning .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.17) 60%,rgba(4,24,20,.77) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */

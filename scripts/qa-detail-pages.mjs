@@ -39,6 +39,7 @@ const routes = [
   ['healthystart-system', '/services/healthystart-system/?qa=detail-matrix'],
   ['gum-disease-deep-cleaning', '/services/gum-disease-deep-cleaning/?qa=detail-matrix'],
   ['perio-protect', '/services/perio-protect/?qa=detail-matrix'],
+  ['professional-dental-cleaning', '/services/professional-dental-cleaning/?qa=detail-matrix'],
 ];
 const routeFilter = process.argv[2];
 const activeRoutes = routeFilter ? routes.filter(([name]) => name === routeFilter) : routes;
