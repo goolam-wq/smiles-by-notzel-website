@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement' | 'tooth-colored-dental-filling' | 'dental-crown' | 'dental-bridge' | 'full-mouth-reconstruction' | 'root-canal-treatment-coordination';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement' | 'tooth-colored-dental-filling' | 'dental-crown' | 'dental-bridge' | 'full-mouth-reconstruction' | 'root-canal-treatment-coordination' | 'full-denture';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -44,8 +44,14 @@ const isDentalCrown = kind === 'dental-crown';
 const isDentalBridge = kind === 'dental-bridge';
 const isFullMouthReconstruction = kind === 'full-mouth-reconstruction';
 const isRootCanalCoordination = kind === 'root-canal-treatment-coordination';
+const isFullDenture = kind === 'full-denture';
 
-const processSteps = isRootCanalCoordination ? [
+const processSteps = isFullDenture ? [
+  ['01', 'Assess', 'The arch, gums, bone support, bite, appearance goals, health history and any remaining teeth are evaluated before a complete removable pathway is confirmed.'],
+  ['02', 'Record & design', 'Records guide the planned arch form, tooth position, shade, bite and supporting contours for the individual removable restoration.'],
+  ['03', 'Try & refine', 'When the pathway requires it, appearance, tooth position and bite are reviewed before the final denture is completed.'],
+  ['04', 'Fit & adapt', 'Fit, bite, insertion, removal, hygiene and the expected adaptation period are reviewed with individualized follow-up.'],
+] : isRootCanalCoordination ? [
   ['01', 'Assess', 'Symptoms, tooth condition, restorability, relevant imaging, bite and the wider health history are reviewed before the treatment path is confirmed.'],
   ['02', 'Coordinate', 'Endodontic treatment, timing, comfort planning and the restorative follow-through are organized as one connected sequence.'],
   ['03', 'Treat', 'The confirmed root-canal pathway is completed by the appropriate clinician according to the individual tooth and clinical plan.'],
@@ -252,7 +258,14 @@ const processSteps = isRootCanalCoordination ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isRootCanalCoordination ? [
+const faqs = isFullDenture ? [
+  ['How much does a full denture cost?', 'The customer-facing price is $2,400 per arch. The $100 monthly view totals exactly $2,400 across 24 months. The yearly view is $2,400 per arch as a complete-treatment amount, not a subscription. Final scope, eligibility and terms are office-confirmed.'],
+  ['Is a full denture removable?', 'Yes. A conventional full denture is a removable complete-arch restoration. The team explains insertion, removal, cleaning, overnight guidance and the individual adaptation plan.'],
+  ['Does every patient need the same denture design?', 'No. The arch, gums, bone support, bite, facial context, appearance goals and health history guide the individual design and candidacy.'],
+  ['Will a full denture feel exactly like natural teeth?', 'No exact natural-tooth feel, stability, speech, chewing function or adaptation timeline is guaranteed. Experience varies, and adjustments or future relining may be needed.'],
+  ['Are extractions, immediate dentures or implants included?', 'No automatic inclusion is stated. Extractions, immediate dentures, relines, repairs, implant support, imaging and other services are separate unless the office confirms them in writing.'],
+  ['Is full-denture care available at both offices?', 'Yes. Evaluation and full-denture care are available through Chicago Heights and Mokena, subject to appointment availability and individual scope.'],
+] : isRootCanalCoordination ? [
   ['How much does root-canal treatment and coordination cost?', 'The customer-facing price starts at $1,025 per tooth. The $43 monthly view is an approximate rounded 24-month illustration ($1,032 total), which is $7 above the $1,025 starting fixed and yearly views. Final diagnosis, tooth complexity, restorative follow-through, eligibility and terms are office-confirmed.'],
   ['Does every painful tooth need a root canal?', 'No. Symptoms can have different causes. Examination and clinically indicated imaging help determine whether endodontic treatment, another restorative pathway, monitoring or extraction should be considered.'],
   ['Is the final crown or restoration included?', 'No automatic inclusion is stated. The final restoration, crown, core, specialist treatment, imaging and other services are separate unless the office confirms them in the written plan.'],
@@ -506,7 +519,15 @@ const faqs = isRootCanalCoordination ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isRootCanalCoordination ? [
+const relatedServices = isFullDenture ? [
+  ['Restorative & Reconstructive', 'Explore the complete restorative category', '/services/restorative-reconstructive/'],
+  ['Partial denture', 'Compare a removable pathway when some teeth remain', '/services/partial-denture/'],
+  ['Full-mouth reconstruction', 'Explore a connected multi-procedure pathway', '/services/full-mouth-reconstruction/'],
+  ['Simple tooth extraction', 'Explore straightforward removal when indicated', '/services/simple-tooth-extraction/'],
+  ['Surgical tooth extraction', 'Explore a surgical removal pathway when required', '/services/surgical-tooth-extraction/'],
+  ['All-on-4 implant solution', 'Compare an implant-supported full-arch pathway', '/services/all-on-4-implant-solution/'],
+  ['Routine comprehensive exam', 'Begin with the complete oral foundation', '/services/routine-comprehensive-exam/'],
+] : isRootCanalCoordination ? [
   ['Restorative & Reconstructive', 'Explore the complete restorative category', '/services/restorative-reconstructive/'],
   ['Dental crown', 'Connect full-coverage restoration when indicated', '/services/dental-crown/'],
   ['Tooth-colored dental filling', 'Compare a direct restorative pathway when appropriate', '/services/tooth-colored-dental-filling/'],
@@ -756,7 +777,62 @@ const relatedServices = isRootCanalCoordination ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isRootCanalCoordination ? {
+const content = isFullDenture ? {
+  heroClass: 'is-full-denture',
+  heroImages: [
+    ['/images/generated/full-denture-hero-v1.webp', 'A clinician evaluating the foundation for a complete removable denture', 'EVALUATE THE FOUNDATION'],
+    ['/images/generated/full-denture-hero-detail-v1.webp', 'A full denture being designed around arch form, bite and appearance', 'DESIGN THE ARCH'],
+    ['/images/generated/full-denture-hero-result-v1.webp', 'A patient reviewing denture fit, use and adaptation with the clinical team', 'FIT ADAPT MAINTAIN'],
+  ],
+  heroAria: ['Explore complete-arch foundation assessment', 'Explore full-denture design', 'Explore fit, adaptation and maintenance'],
+  kicker: 'Restorative & Reconstructive · Service 01',
+  title: ['A complete arch,', 'planned around the person wearing it.'],
+  intro: 'A complete removable restoration planned around the individual arch, comfort, stability, bite and a natural-looking smile. Candidacy and supporting treatment are confirmed after examination.',
+  heroRail: ['Evaluate the foundation', 'Design the arch', 'Fit, adapt and maintain'],
+  ledgerLabel: 'Full denture', ledgerFixed: '$2,400 / arch', ledgerMonthly: '$100 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['A complete arch.', 'Designed from the', 'foundation outward.'],
+  storyImage: '/images/generated/full-denture-process-v1.webp',
+  storyAlt: 'A clinician planning a complete removable denture around the individual arch, bite and appearance',
+  storyRangeLabel: 'Compare an unplanned complete arch with an individualized removable restoration pathway',
+  storyNote: 'Begin with the foundation before designing the visible arch.',
+  storyLead: 'A full denture is more than a row of replacement teeth. Gums, bone support, arch form, bite, facial context, dexterity and adaptation needs guide how the removable restoration is designed and supported.',
+  storySteps: [
+    ['01', 'Read the foundation', 'The arch, tissues, support, health history and any preliminary needs are assessed before design begins.'],
+    ['02', 'Design the complete arch', 'Tooth position, shade, contours and bite are planned around the individual person and clinical foundation.'],
+    ['03', 'Fit, adapt and maintain', 'Delivery includes fit, use, hygiene, realistic adaptation and individualized adjustment or maintenance guidance.'],
+  ],
+  storyNotes: ['Assess the full arch and supporting tissues.', 'Design tooth position, appearance and bite together.', 'Deliver with adaptation and maintenance guidance.'],
+  processTitle: ['Design the complete arch.', 'Keep the person central.'],
+  expectTitle: ['A removable restoration.', 'An individual adaptation.'],
+  expectCopy: 'A full denture is removable and does not feel or function exactly like natural teeth. Stability, speech, chewing, timing, adjustments and adaptation vary, and no universal outcome or lifespan is promised.',
+  metrics: [['1', 'complete removable arch'], ['4', 'stages: assess, design, try, adapt'], ['2', 'connected office locations']],
+  pricingId: 'full-denture-pricing',
+  pricingTitle: ['One complete arch.', 'Three planning views.'],
+  pricingIntro: 'The full-denture amount shown as fixed, monthly and yearly customer-facing planning views per arch.',
+  prices: [['FIXED · 01', '$2,400', 'per arch'], ['MONTHLY · 02', '$100', 'per month · 24 months'], ['YEARLY · 03', '$2,400', 'annual treatment amount · per arch']],
+  pricingNote: 'The $100 monthly view totals exactly $2,400 across 24 months. The yearly view is a $2,400 annual treatment amount per arch, not a subscription, replacement plan or unlimited service. Extractions, relines, repairs, immediate dentures, implant support, eligibility and terms are separate unless office-confirmed.',
+  whyTitle: ['The arch is complete.', 'The planning stays personal.'],
+  whyIntro: 'The team starts with the supporting foundation, then connects tooth position, appearance, bite, fit and realistic adaptation rather than treating a full denture as a universal appliance.',
+  whyImage: '/images/generated/full-denture-result-v1.webp',
+  whyAlt: 'A dentist reviewing a complete denture design, fit and adaptation plan with a patient',
+  whyPanels: [
+    ['01', 'Foundation before form', 'Tissues, support and preliminary needs are evaluated before the visible arch is designed.'],
+    ['02', 'Bite and appearance together', 'Tooth position, shade, contours and bite are considered in one complete removable restoration.'],
+    ['03', 'Adaptation stays realistic', 'Speech, chewing and comfort take individual time; no natural-tooth equivalence or fixed adaptation period is promised.'],
+    ['04', 'Maintenance remains visible', 'Cleaning, adjustments, relines, repairs and future review are explained according to the individual denture.'],
+  ],
+  whyFoot: 'ONE COMPLETE ARCH · FOUR STAGES · TWO OFFICES',
+  proofTitle: ['The foundation understood.', 'The complete arch contextualized.'],
+  proofText: 'Patients frequently mention careful explanations, thoughtful restorative planning and practical follow-up—general-practice themes that support a full-denture conversation without claiming an individual outcome.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Foundation first', 'Complete-arch design', 'Adaptation supported'],
+  faqTitle: ['Before a', 'full denture.'],
+  relatedTitle: ['One complete arch.', 'Several restorative paths.'],
+  relatedAria: 'Related denture, restorative, extraction and implant services',
+  currentPath: 'Full denture',
+  locationsAria: 'Full denture locations',
+} : isRootCanalCoordination ? {
   heroClass: 'is-root-canal-coordination',
   heroImages: [
     ['/images/generated/root-canal-treatment-coordination-hero-v1.webp', 'A clinician evaluating the source and restorability of a symptomatic tooth', 'CONFIRM THE SOURCE'],
@@ -3705,6 +3781,18 @@ const content = isRootCanalCoordination ? {
   .whitening-hero.is-root-canal-coordination .hero-cinema__copy{top:15vh;width:min(46vw,48rem);transform:none}
   .whitening-hero.is-root-canal-coordination .hero-cinema__copy h1{font-size:clamp(3.75rem,5.25vw,6rem);line-height:.83;margin:1.25rem 0 1.5rem}
   .whitening-hero.is-root-canal-coordination .hero-cinema__copy h1 em{display:block;margin-left:clamp(2rem,4.2vw,4rem)}
+  .whitening-hero.is-full-denture .hero-folds__scan{display:none}
+  .whitening-hero.is-full-denture .hero-fold{border:0;overflow:hidden;box-shadow:0 2.5rem 6.2rem rgba(0,0,0,.36);transform-origin:center}
+  .whitening-hero.is-full-denture .hero-fold--one{translate:7% -14%;scale:1.2 .7;clip-path:inset(0 round 6rem 6rem 1rem 1rem)}
+  .whitening-hero.is-full-denture .hero-fold--two{translate:-5% 17%;scale:.72 .66;clip-path:inset(0 round 1rem 1rem 6rem 6rem)}
+  .whitening-hero.is-full-denture .hero-fold--three{translate:-11% 17%;scale:.72 .66;clip-path:inset(0 round 1rem 1rem 6rem 6rem)}
+  .whitening-hero.is-full-denture .hero-fold--one>img{object-position:45% center}
+  .whitening-hero.is-full-denture .hero-fold--two>img{object-position:54% center}
+  .whitening-hero.is-full-denture .hero-fold--three>img{object-position:64% center}
+  .whitening-hero.is-full-denture .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 35%,rgba(4,24,20,.4) 63%,transparent 83%)}
+  .whitening-hero.is-full-denture .hero-cinema__copy{top:15vh;width:min(47vw,49rem);transform:none}
+  .whitening-hero.is-full-denture .hero-cinema__copy h1{font-size:clamp(3.55rem,4.95vw,5.7rem);line-height:.84;margin:1.25rem 0 1.5rem}
+  .whitening-hero.is-full-denture .hero-cinema__copy h1 em{display:block;margin-left:clamp(1.75rem,3.8vw,3.75rem)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -3913,6 +4001,13 @@ const content = isRootCanalCoordination ? {
     .whitening-hero.is-root-canal-coordination .hero-cinema__copy{top:7.15rem}
     .whitening-hero.is-root-canal-coordination .hero-cinema__copy h1{font-size:clamp(2.65rem,11.4vw,3.65rem);line-height:.85}
     .whitening-hero.is-root-canal-coordination .hero-cinema__copy h1 em{margin-left:1.1rem}
+    .whitening-hero.is-full-denture .hero-fold--one{translate:3% -9%;scale:1.04 .7;clip-path:inset(0 round 4rem 4rem .8rem .8rem)}
+    .whitening-hero.is-full-denture .hero-fold--two{translate:-2% 13%;scale:.78 .68;clip-path:inset(0 round .8rem .8rem 4rem 4rem)}
+    .whitening-hero.is-full-denture .hero-fold--three{translate:-4% 13%;scale:.78 .68;clip-path:inset(0 round .8rem .8rem 4rem 4rem)}
+    .whitening-hero.is-full-denture .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.17) 64%,rgba(4,24,20,.84) 100%)}
+    .whitening-hero.is-full-denture .hero-cinema__copy{top:7.15rem}
+    .whitening-hero.is-full-denture .hero-cinema__copy h1{font-size:clamp(2.5rem,10.8vw,3.45rem);line-height:.85}
+    .whitening-hero.is-full-denture .hero-cinema__copy h1 em{margin-left:1rem}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
@@ -4061,6 +4156,7 @@ const content = isRootCanalCoordination ? {
         const isDentalBridgeHero = hero.classList.contains('is-dental-bridge');
         const isFullMouthHero = hero.classList.contains('is-full-mouth-reconstruction');
         const isRootCanalHero = hero.classList.contains('is-root-canal-coordination');
+        const isFullDentureHero = hero.classList.contains('is-full-denture');
         const phases = q('[data-hero-phase]');
         const edition = q('[data-hero-edition]')[0];
         const scan = q('[data-fold-scan]')[0];
@@ -4105,6 +4201,8 @@ const content = isRootCanalCoordination ? {
                   ? {opacity:0,xPercent:24,yPercent:[-24,0,24][index]}
                 : isRootCanalHero
                   ? {opacity:0,xPercent:[18,-20,22][index],yPercent:[0,-18,20][index]}
+                : isFullDentureHero
+                  ? {opacity:0,yPercent:[-24,24,24][index],scale:[.9,.82,.82][index]}
                 : isDentalBridgeHero
                   ? {opacity:0,xPercent:[-28,0,28][index],yPercent:[0,22,0][index]}
               : {}),
@@ -4127,12 +4225,14 @@ const content = isRootCanalCoordination ? {
                   ? {opacity:1,xPercent:0,yPercent:0}
                 : isRootCanalHero
                   ? {opacity:1,xPercent:0,yPercent:0}
+                : isFullDentureHero
+                  ? {opacity:1,yPercent:0,scale:1}
                 : isDentalBridgeHero
                   ? {opacity:1,xPercent:0,yPercent:0}
               : {}),
-          duration:isAmalgamHero ? 1.55 : isToothColoredHero ? 1.45 : isDentalCrownHero ? 1.6 : isDentalBridgeHero ? 1.5 : isFullMouthHero ? 1.55 : isRootCanalHero ? 1.5 : 1.35,
-          ease:isAmalgamHero ? 'expo.inOut' : isToothColoredHero ? 'power4.out' : isDentalCrownHero ? 'expo.out' : isDentalBridgeHero ? 'power4.inOut' : isFullMouthHero ? 'power4.out' : isRootCanalHero ? 'expo.out' : 'power3.inOut',
-        },index*(isAmalgamHero ? .12 : isToothColoredHero ? .16 : isDentalCrownHero ? .14 : isDentalBridgeHero ? .13 : isFullMouthHero ? .14 : isRootCanalHero ? .15 : .08)));
+          duration:isAmalgamHero ? 1.55 : isToothColoredHero ? 1.45 : isDentalCrownHero ? 1.6 : isDentalBridgeHero ? 1.5 : isFullMouthHero ? 1.55 : isRootCanalHero ? 1.5 : isFullDentureHero ? 1.55 : 1.35,
+          ease:isAmalgamHero ? 'expo.inOut' : isToothColoredHero ? 'power4.out' : isDentalCrownHero ? 'expo.out' : isDentalBridgeHero ? 'power4.inOut' : isFullMouthHero ? 'power4.out' : isRootCanalHero ? 'expo.out' : isFullDentureHero ? 'power4.out' : 'power3.inOut',
+        },index*(isAmalgamHero ? .12 : isToothColoredHero ? .16 : isDentalCrownHero ? .14 : isDentalBridgeHero ? .13 : isFullMouthHero ? .14 : isRootCanalHero ? .15 : isFullDentureHero ? .14 : .08)));
         intro.to(q('[data-hero-fold] img'),{scale:1.015,duration:1.2},0)
           .to(scan,{left:mobile?'100vw':'99vw',duration:1.4},0)
           .to(progress,{width:'100%',duration:1.35},0)

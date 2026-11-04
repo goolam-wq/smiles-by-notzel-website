@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore full-denture care at Smiles by Noetzel, including complete-arch assessment, individualized design, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Full Denture | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-full-denture.webp" mediaAlt="A clinician planning a complete removable denture around the individual arch" />
+    <main>
+      <TreatmentDetail kind="full-denture" />
+      <BeforeAfterStory id="before-after-full-denture" tone="light" number="10" eyebrow="Illustrative restorative pathway · full denture" title="From an unplanned arch." emphasis="To an individualized removable restoration."
+        intro="This illustrative pathway shows how foundation, arch form, appearance, bite and adaptation may guide a full-denture plan. It is not an actual patient case, natural-tooth equivalent, stability promise, adaptation timeline or guaranteed outcome."
+        image="/images/generated/before-after-full-denture-v1.webp" imageAlt="Illustrative comparison of an unplanned complete arch and an individualized full-denture pathway"
+        beforeLabel="Before complete-arch planning" beforeDetail="The need may be visible, but supporting tissues, preliminary care, bite, design and adaptation needs have not yet been confirmed."
+        afterLabel="Illustrative removable restoration" afterDetail="The simulated view represents a complete-arch design—not promised stability, speech, chewing function, fit, longevity or natural-tooth feel."
+        caseNote="Illustrative full-denture pathway · not an actual patient case · fit, adaptation and maintenance vary" />
+      <HubFooter eyebrow="Ready to plan the complete arch around you?" title="Begin with the foundation and request a full-denture evaluation." />
+    </main>
+  </body>
+</html>

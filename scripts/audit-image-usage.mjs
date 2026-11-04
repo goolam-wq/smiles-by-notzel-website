@@ -48,6 +48,7 @@ const routes = [
   '/services/dental-bridge/',
   '/services/full-mouth-reconstruction/',
   '/services/root-canal-treatment-coordination/',
+  '/services/full-denture/',
   '/services/implants-oral-surgery/',
   '/services/orthodontic-dentistry/',
   '/services/pediatric-developmental/',
