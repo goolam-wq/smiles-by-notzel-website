@@ -22,6 +22,7 @@ const routes = [
   '/services/all-on-4-implant-solution/',
   '/services/bone-grafting/',
   '/services/dental-implant-restoration/',
+  '/services/simple-tooth-extraction/',
   '/services/restorative-reconstructive/',
   '/services/wellness-offering/',
 ];

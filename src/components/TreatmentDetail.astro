@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -18,8 +18,14 @@ const isImplantBridge = kind === 'implant-supported-bridge';
 const isAllOn4 = kind === 'all-on-4-implant-solution';
 const isBoneGrafting = kind === 'bone-grafting';
 const isImplantRestoration = kind === 'dental-implant-restoration';
+const isSimpleExtraction = kind === 'simple-tooth-extraction';
 
-const processSteps = isImplantRestoration ? [
+const processSteps = isSimpleExtraction ? [
+  ['01', 'Assess', 'The tooth, surrounding tissue, symptoms, medical history and relevant imaging are reviewed before extraction is recommended.'],
+  ['02', 'Compare', 'Restorative alternatives, extraction complexity and the practical next steps are explained before consent.'],
+  ['03', 'Remove', 'When a straightforward removal is clinically appropriate, the tooth is removed according to the confirmed treatment plan.'],
+  ['04', 'Review', 'The team explains site care, warning signs and any appropriate follow-up or tooth-replacement conversation.'],
+] : isImplantRestoration ? [
   ['01', 'Assess', 'The existing implant, surrounding tissue, bite, restorative space and available records are evaluated before a new restoration is recommended.'],
   ['02', 'Plan', 'The abutment and crown plan is coordinated around implant compatibility, function, neighboring teeth and the complete smile.'],
   ['03', 'Create', 'The confirmed restorative records guide fabrication of the planned abutment and crown for the existing implant.'],
@@ -96,7 +102,13 @@ const processSteps = isImplantRestoration ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isImplantRestoration ? [
+const faqs = isSimpleExtraction ? [
+  ['How much does a simple tooth extraction cost?', 'The customer-facing treatment price is $300 per tooth. The monthly planning view is $25 for 12 months, totaling exactly $300, and the yearly treatment amount is $300 per tooth. Final complexity, scope, eligibility and payment terms are confirmed after evaluation.'],
+  ['How do you know whether an extraction is simple?', 'The tooth position, remaining structure, surrounding tissue, symptoms and imaging help the clinician determine whether a straightforward removal is appropriate or a surgical pathway is needed.'],
+  ['Will alternatives be discussed first?', 'Yes. When a tooth may be restorable, the team explains the findings and relevant alternatives before extraction is confirmed. The appropriate recommendation depends on the individual tooth and wider care plan.'],
+  ['Is extraction guaranteed to be painless or complication-free?', 'No. No procedure can be promised as painless or free of complications. The team reviews comfort options, medical history, procedure expectations, site-care instructions and warning signs before and after care.'],
+  ['Is simple tooth extraction available at both offices?', 'Evaluations can begin through Chicago Heights or Mokena. Call the preferred office to confirm the recommended visit and current extraction availability.'],
+] : isImplantRestoration ? [
   ['How much does a dental implant restoration cost?', 'The customer-facing treatment price is $1,900 for a crown and abutment on an existing implant. The $80 monthly view is an approximate rounded 24-month financing illustration ($1,920 total), and the yearly treatment amount is $1,900. Final compatibility, scope, eligibility and payment terms are confirmed after evaluation.'],
   ['Does this price include placement of a new dental implant?', 'No. This service is for a crown and abutment restoration on an existing implant. New implant placement, surgery, grafting or other treatment is not represented as included in the listed amount.'],
   ['Can every existing implant receive a new restoration?', 'Not automatically. Implant condition, component compatibility, surrounding tissue, restorative space and bite must be evaluated before the team confirms an appropriate restoration.'],
@@ -188,7 +200,13 @@ const faqs = isImplantRestoration ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isImplantRestoration ? [
+const relatedServices = isSimpleExtraction ? [
+  ['Implants & Oral Surgery', 'Explore the complete category', '/services/implants-oral-surgery/'],
+  ['Surgical tooth extraction', 'Explore a more complex removal pathway', '/services/surgical-tooth-extraction/'],
+  ['Wisdom-tooth removal', 'Explore third-molar evaluation and care', '/services/wisdom-tooth-removal/'],
+  ['Preventive & Diagnostic', 'Explore examination and diagnostic care', '/services/preventive-diagnostic/'],
+  ['Restorative & Reconstructive', 'Explore repair and replacement options', '/services/restorative-reconstructive/'],
+] : isImplantRestoration ? [
   ['Implants & Oral Surgery', 'Explore the complete category', '/services/implants-oral-surgery/'],
   ['Single-tooth dental implant', 'Explore a complete one-tooth implant pathway', '/services/single-tooth-dental-implant/'],
   ['Implant-supported bridge', 'Explore a connected multi-tooth pathway', '/services/implant-supported-bridge/'],
@@ -274,7 +292,61 @@ const relatedServices = isImplantRestoration ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isImplantRestoration ? {
+const content = isSimpleExtraction ? {
+  heroClass: 'is-simple-extraction',
+  heroImages: [
+    ['/images/generated/simple-tooth-extraction-hero-v1.webp', 'A patient and dentist discussing a tooth that may need straightforward removal', 'BEGIN WITH THE TOOTH'],
+    ['/images/generated/simple-tooth-extraction-hero-detail-v1.webp', 'A dentist reviewing imaging before a simple tooth extraction', 'CONFIRM THE PATH'],
+    ['/images/generated/simple-tooth-extraction-hero-result-v1.webp', 'A dentist explaining site care after a straightforward extraction', 'PLAN THE RECOVERY'],
+  ],
+  heroAria: ['Explore the extraction assessment', 'Explore the imaging and alternatives review', 'Explore the site-care conversation'],
+  kicker: 'Implants & Oral Surgery · Treatment 06',
+  title: ['Remove only when appropriate.', 'Plan what follows.'],
+  intro: 'A straightforward tooth-removal pathway when clinical assessment shows it is appropriate—with imaging, medical history and relevant alternatives reviewed first.',
+  heroRail: ['Begin with the tooth', 'Confirm the path', 'Plan the recovery'],
+  ledgerLabel: 'Simple tooth extraction', ledgerFixed: '$300 / tooth', ledgerMonthly: '$25 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['Extraction is not the first assumption.', 'It is a', 'confirmed clinical decision.'],
+  storyImage: '/images/generated/simple-tooth-extraction-process-v1.webp',
+  storyAlt: 'A dentist reviewing a tooth and imaging before recommending simple extraction',
+  storyRangeLabel: 'Compare the starting tooth concern with the assessed extraction and site-care pathway',
+  storyNote: 'Understand the tooth, alternatives and complexity before removal.',
+  storyLead: 'We begin with the reason the tooth is in question. The examination and imaging help distinguish a restorable tooth, a straightforward extraction and a case that requires a different surgical or restorative path.',
+  storySteps: [
+    ['01', 'Read the tooth', 'Symptoms, structure, surrounding tissue, medical history and imaging establish the clinical starting point.'],
+    ['02', 'Compare the paths', 'Relevant restorative alternatives and extraction complexity are explained before treatment is confirmed.'],
+    ['03', 'Plan what follows', 'Site care, warning signs and any future replacement conversation stay connected to the removal decision.'],
+  ],
+  storyNotes: ['Understand the tooth, alternatives and complexity before removal.', 'Confirm that a straightforward extraction is clinically appropriate.', 'Connect site care and any future replacement plan to the decision.'],
+  processTitle: ['Clear in reason.', 'Careful in follow-through.'],
+  expectTitle: ['Straightforward in classification.', 'Individual in experience.'],
+  expectCopy: 'A simple extraction is considered only when the clinician determines that a straightforward removal is appropriate. Medical history, imaging, tooth condition and relevant alternatives are reviewed first; comfort, healing or a complication-free outcome cannot be guaranteed.',
+  metrics: [['1', 'tooth-specific evaluation'], ['3', 'checks: alternatives, complexity, recovery'], ['2', 'connected office locations']],
+  pricingId: 'simple-tooth-extraction-pricing',
+  pricingTitle: ['One tooth.', 'Three planning views.'],
+  pricingIntro: 'The same simple extraction per-tooth amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$300', 'per tooth'], ['MONTHLY · 02', '$25', 'per month · 12 months'], ['YEARLY · 03', '$300', 'per tooth']],
+  pricingNote: 'The $25 monthly view totals exactly $300 across 12 months. The yearly amount is a per-tooth treatment view, not a subscription. Imaging, additional procedures, surgical extraction and future replacement care are not represented as included; final complexity, scope, eligibility and terms are confirmed by the office.',
+  whyTitle: ['Assessment-led.', 'Never automatic.'],
+  whyIntro: 'We do not classify a removal from symptoms alone. The tooth, surrounding tissue, imaging, medical history, alternatives and expected complexity stay connected from recommendation through follow-up.',
+  whyImage: '/images/generated/simple-tooth-extraction-result-v1.webp',
+  whyAlt: 'A dentist and patient reviewing site care after a straightforward tooth extraction',
+  whyPanels: [
+    ['01', 'Alternatives before removal', 'The findings and relevant restorative choices are discussed before extraction is confirmed.'],
+    ['02', 'Complexity correctly classified', 'Imaging and tooth condition help distinguish a simple removal from a surgical pathway.'],
+    ['03', 'Recovery stays connected', 'Site-care instructions, warning signs and appropriate follow-up are explained clearly.'],
+  ],
+  whyFoot: 'ONE TOOTH · THREE DECISION CHECKS',
+  proofTitle: ['The reason understood.', 'The next step clear.'],
+  proofText: 'Patients frequently mention thoughtful explanations, attentive care and clear next steps—general-practice feedback that supports how extraction decisions and follow-up are discussed.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Alternatives reviewed', 'Complexity assessed', 'Connected aftercare'],
+  faqTitle: ['Before you remove', 'the tooth.'],
+  relatedTitle: ['One tooth concern.', 'Several connected paths.'],
+  relatedAria: 'Related extraction, preventive and restorative services',
+  currentPath: 'Simple tooth extraction',
+  locationsAria: 'Simple tooth extraction evaluation locations',
+} : isImplantRestoration ? {
   heroClass: 'is-implant-restoration',
   heroImages: [
     ['/images/generated/dental-implant-restoration-hero-v1.webp', 'A patient and dentist discussing restoration of an existing dental implant', 'BEGIN WITH THE IMPLANT'],
@@ -1558,6 +1630,15 @@ const content = isImplantRestoration ? {
   .whitening-hero.is-implant-restoration .hero-fold--two>img{object-position:51% center}
   .whitening-hero.is-implant-restoration .hero-fold--three>img{object-position:61% center}
   .whitening-hero.is-implant-restoration .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.46) 55%,transparent 74%)}
+  .whitening-hero.is-simple-extraction .hero-folds__scan{display:none}
+  .whitening-hero.is-simple-extraction .hero-fold{border:0;box-shadow:0 2.2rem 6rem rgba(0,0,0,.32)}
+  .whitening-hero.is-simple-extraction .hero-fold--one{clip-path:inset(0 0 7% 0 round 8rem 1rem 3rem 1rem)}
+  .whitening-hero.is-simple-extraction .hero-fold--two{clip-path:inset(5% 0 5% 0 round 1rem 8rem 1rem 8rem)}
+  .whitening-hero.is-simple-extraction .hero-fold--three{clip-path:inset(7% 0 0 0 round 1rem 3rem 1rem 8rem)}
+  .whitening-hero.is-simple-extraction .hero-fold--one>img{object-position:42% center}
+  .whitening-hero.is-simple-extraction .hero-fold--two>img{object-position:51% center}
+  .whitening-hero.is-simple-extraction .hero-fold--three>img{object-position:61% center}
+  .whitening-hero.is-simple-extraction .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.46) 55%,transparent 74%)}
 
   @media(min-width:721px) and (max-width:1100px){
     .whitening-hero{height:245svh}
@@ -1633,6 +1714,10 @@ const content = isImplantRestoration ? {
     .whitening-hero.is-implant-restoration .hero-fold--one,.whitening-hero.is-implant-restoration .hero-fold--three{clip-path:inset(4% 0 4% 0 round 6rem 1rem 6rem 1rem)}
     .whitening-hero.is-implant-restoration .hero-fold--two{clip-path:inset(0 0 0 0 round 1rem 6rem 1rem 6rem)}
     .whitening-hero.is-implant-restoration .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.21) 60%,rgba(4,24,20,.78) 100%)}
+    .whitening-hero.is-simple-extraction .hero-fold--one{clip-path:inset(0 0 5% 0 round 5rem .75rem 2rem .75rem)}
+    .whitening-hero.is-simple-extraction .hero-fold--two{clip-path:inset(3% 0 3% 0 round .75rem 5rem .75rem 5rem)}
+    .whitening-hero.is-simple-extraction .hero-fold--three{clip-path:inset(5% 0 0 0 round .75rem 2rem .75rem 5rem)}
+    .whitening-hero.is-simple-extraction .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.21) 60%,rgba(4,24,20,.78) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */

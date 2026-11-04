@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore simple tooth extraction at Smiles by Noetzel, including assessment, alternatives, pricing and both Illinois offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Simple Tooth Extraction | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-simple-tooth-extraction.webp" mediaAlt="A dentist and patient discussing a straightforward tooth-removal plan" />
+    <main>
+      <TreatmentDetail kind="simple-tooth-extraction" />
+      <BeforeAfterStory id="before-after-simple-tooth-extraction" tone="dark" reverse number="06" eyebrow="Illustrative care-journey visualization · straightforward removal" title="From an uncertain tooth." emphasis="To a clear next step."
+        intro="This simulated care-journey visualization explains how a tooth concern may move from examination and alternatives review to a straightforward extraction and site-care plan. It is not an actual patient outcome and does not guarantee comfort, healing or absence of complications."
+        image="/images/generated/before-after-simple-tooth-extraction-v1.webp" imageAlt="Illustrative simulated comparison of a tooth concern and a simple extraction site-care pathway"
+        beforeLabel="Before the assessment" beforeDetail="The tooth, surrounding tissue, symptoms, medical history and alternatives still need to be evaluated."
+        afterLabel="Illustrative next-step view" afterDetail="The simulated view represents a removal and site-care pathway after complexity is confirmed—not an actual patient result."
+        caseNote="Illustrative simulated example · not an actual patient case · treatment and healing vary" />
+      <HubFooter eyebrow="Want clarity about a tooth that may need removal?" title="Begin with the reason, the alternatives and the plan that follows." />
+    </main>
+  </body>
+</html>
