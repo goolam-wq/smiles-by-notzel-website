@@ -24,6 +24,7 @@ const routes = [
   ['complete-smile-makeover', '/services/complete-smile-makeover/?qa=detail-matrix'],
   ['same-day-emergency-dental-care', '/services/same-day-emergency-dental-care/?qa=detail-matrix'],
   ['nitrous-oxide-sedation', '/services/nitrous-oxide-sedation/?qa=detail-matrix'],
+  ['virtual-reality-anxiety-reduction', '/services/virtual-reality-anxiety-reduction/?qa=detail-matrix'],
 ];
 const routeFilter = process.argv[2];
 const activeRoutes = routeFilter ? routes.filter(([name]) => name === routeFilter) : routes;

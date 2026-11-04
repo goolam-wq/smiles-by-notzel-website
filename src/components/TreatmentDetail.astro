@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -12,8 +12,14 @@ const isContouring = kind === 'tooth-contouring';
 const isMakeover = kind === 'complete-smile-makeover';
 const isSameDayEmergency = kind === 'same-day-emergency-dental-care';
 const isNitrous = kind === 'nitrous-oxide-sedation';
+const isVirtualReality = kind === 'virtual-reality-anxiety-reduction';
 
-const processSteps = isNitrous ? [
+const processSteps = isVirtualReality ? [
+  ['01', 'Listen', 'We begin with the sights, sounds or moments that make dental care difficult and what kind of distraction feels comfortable.'],
+  ['02', 'Review', 'The planned procedure, headset fit, individual tolerance and relevant health considerations are reviewed before use.'],
+  ['03', 'Focus', 'The headset provides a visual and audio focal point while the dental team stays connected and the patient remains able to communicate.'],
+  ['04', 'Monitor', 'The team checks comfort and tolerance throughout the visit and removes or pauses the headset whenever needed.'],
+] : isNitrous ? [
   ['01', 'Listen', 'We begin with what makes treatment difficult, what has helped before and what the planned dental visit may involve.'],
   ['02', 'Review', 'Medical history, candidacy, the procedure and relevant instructions are reviewed before nitrous oxide is recommended.'],
   ['03', 'Support', 'The comfort option is administered and monitored while the patient remains responsive to the dental team.'],
@@ -60,7 +66,13 @@ const processSteps = isNitrous ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isNitrous ? [
+const faqs = isVirtualReality ? [
+  ['How much does virtual-reality anxiety reduction cost?', 'The customer-facing visit add-on price is $75. The $7 monthly view is a rounded 12-month planning display, and the yearly amount is $75. Candidacy, final treatment scope and payment terms are confirmed by the office.'],
+  ['How can virtual reality support a dental visit?', 'The headset can give some patients an alternate visual and audio focus so clinical sights and sounds feel less immediate. It is a comfort and distraction option, not a guaranteed anxiety treatment.'],
+  ['Is virtual reality appropriate for everyone?', 'No. The planned procedure, headset fit, individual tolerance and relevant health considerations are reviewed first. The headset can be paused or removed if it causes discomfort.'],
+  ['Does virtual reality replace sedation or mental-health care?', 'No. It is a dental-visit comfort option and is not a substitute for sedation when clinically indicated or for mental-health evaluation or treatment. The team discusses the appropriate support for the planned visit.'],
+  ['Is virtual-reality anxiety support available at both offices?', 'Yes. Virtual-reality anxiety reduction is listed at Chicago Heights and Mokena. Call the preferred office to discuss the planned visit and confirm current availability.'],
+] : isNitrous ? [
   ['How much does nitrous oxide sedation cost?', 'The customer-facing visit add-on price is $112. The $10 monthly view is a rounded 12-month planning display, and the yearly amount is $112. Candidacy, final treatment scope and payment terms are confirmed by the office.'],
   ['Will I be asleep during nitrous oxide sedation?', 'Nitrous oxide is presented here as a comfort option for selected patients who remain responsive to the dental team. The team explains what to expect for the planned visit before care begins.'],
   ['Is nitrous oxide appropriate for everyone?', 'No. Medical history, the planned procedure and individual circumstances are reviewed before the team recommends this option. Another comfort path may be more appropriate for some patients.'],
@@ -116,7 +128,12 @@ const faqs = isNitrous ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isNitrous ? [
+const relatedServices = isVirtualReality ? [
+  ['Emergency & Comfort Dentistry', 'Explore the complete category', '/services/emergency-comfort/'],
+  ['Nitrous oxide sedation', 'Explore another monitored comfort option', '/services/nitrous-oxide-sedation/'],
+  ['Same-day emergency dental care', 'Explore prompt assessment and next-step planning', '/services/same-day-emergency-dental-care/'],
+  ['Pediatric & Developmental', 'Explore connected child-friendly care', '/services/pediatric-developmental/'],
+] : isNitrous ? [
   ['Emergency & Comfort Dentistry', 'Explore the complete category', '/services/emergency-comfort/'],
   ['Same-day emergency dental care', 'Explore prompt assessment and next-step planning', '/services/same-day-emergency-dental-care/'],
   ['Virtual-reality anxiety reduction', 'Explore another comfort-support option', '/services/virtual-reality-anxiety-reduction/'],
@@ -167,7 +184,61 @@ const relatedServices = isNitrous ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isNitrous ? {
+const content = isVirtualReality ? {
+  heroClass: 'is-virtual-reality',
+  heroImages: [
+    ['/images/generated/virtual-reality-dental-anxiety-therapy-hero-v1.webp', 'A patient discussing dental anxiety triggers and virtual-reality support', 'BEGIN WITH THE TRIGGER'],
+    ['/images/generated/virtual-reality-dental-anxiety-therapy-hero-detail-v1.webp', 'A patient using a virtual-reality headset during monitored dental care', 'SHIFT THE FOCUS'],
+    ['/images/generated/virtual-reality-dental-anxiety-therapy-hero-result-v1.webp', 'A dental team checking in with a patient using virtual-reality support', 'STAY CONNECTED'],
+  ],
+  heroAria: ['Explore the virtual-reality comfort conversation', 'Explore the alternate visual and audio focus', 'Explore the team comfort check'],
+  kicker: 'Emergency & Comfort Dentistry · Treatment 03',
+  title: ['Change the focus.', 'Stay connected.'],
+  intro: 'Virtual-reality comfort support that can make clinical sights and sounds feel less immediate for selected patients—without disconnecting from the dental team.',
+  heroRail: ['Begin with the trigger', 'Shift the focus', 'Stay connected'],
+  ledgerLabel: 'Virtual-reality support', ledgerFixed: '$75 add-on', ledgerMonthly: '$7 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['Distraction is not avoidance.', 'It is a', 'different focal point.'],
+  storyImage: '/images/generated/virtual-reality-dental-anxiety-therapy-process-v1.webp',
+  storyAlt: 'A patient using a virtual-reality headset while the dental team monitors comfort',
+  storyRangeLabel: 'Compare the starting dental-visit focus with the virtual-reality supported view',
+  storyNote: 'Understand the trigger before choosing the focal point.',
+  storyLead: 'We plan distraction around the person and the procedure. The headset can change what feels immediate while communication with the dental team remains available.',
+  storySteps: [
+    ['01', 'Name the trigger', 'Clinical sights, sounds and specific moments are discussed before the comfort option is selected.'],
+    ['02', 'Check fit and tolerance', 'The headset, content and planned procedure are reviewed for individual suitability.'],
+    ['03', 'Keep communication open', 'The alternate focus stays connected to real-time check-ins with the dental team.'],
+  ],
+  storyNotes: ['Understand the trigger before choosing the focal point.', 'Check headset fit, individual tolerance and the planned procedure.', 'Keep communication open throughout the supported visit.'],
+  processTitle: ['A different focal point.', 'The same connected care.'],
+  expectTitle: ['Immersive in focus.', 'Responsive in use.'],
+  expectCopy: 'Virtual reality is a dental-visit distraction option for selected patients, not a guaranteed anxiety treatment. The planned procedure, headset fit, relevant health considerations and individual tolerance guide whether it belongs in the visit.',
+  metrics: [['1', 'individual comfort conversation'], ['3', 'checks: procedure, fit, tolerance'], ['2', 'connected office locations']],
+  pricingId: 'virtual-reality-anxiety-reduction-pricing',
+  pricingTitle: ['One visit add-on.', 'Three planning views.'],
+  pricingIntro: 'The same virtual-reality comfort add-on shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$75', 'visit add-on'], ['MONTHLY · 02', '$7', 'per month · 12 months'], ['YEARLY · 03', '$75', 'annual treatment amount']],
+  pricingNote: 'The $7 monthly view is a rounded 12-month planning display ($84 total), not an exact division of the $75 visit add-on. The yearly amount is an annual treatment view, not a subscription or unlimited-visit plan. Suitability, final scope, eligibility and payment terms are confirmed by the office.',
+  whyTitle: ['Immersive.', 'Never disconnected.'],
+  whyIntro: 'We do not hand over a headset and disappear. The recommendation connects the patient’s triggers, the planned procedure, headset tolerance and continuous communication with the dental team.',
+  whyImage: '/images/generated/virtual-reality-dental-anxiety-therapy-result-v1.webp',
+  whyAlt: 'A dentist checking in with a patient using virtual-reality comfort support',
+  whyPanels: [
+    ['01', 'Fit before focus', 'The procedure, headset fit and individual tolerance are reviewed before use.'],
+    ['02', 'Communication remains open', 'The patient can still respond and the team can pause or remove the headset whenever needed.'],
+    ['03', 'Comfort stays connected', 'The alternate visual and audio focus supports—not replaces—the dental care plan.'],
+  ],
+  whyFoot: 'ONE ALTERNATE FOCUS · THREE CONNECTION CHECKS',
+  proofTitle: ['The trigger acknowledged.', 'The visit supported.'],
+  proofText: 'Patients frequently mention patience, caring communication and clear explanations—general-practice feedback that supports how comfort preferences and visit expectations are discussed.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Patient-led comfort', 'Open communication', 'Responsive support'],
+  faqTitle: ['Before you shift', 'the focus.'],
+  relatedTitle: ['One alternate focus.', 'Several connected paths.'],
+  relatedAria: 'Related comfort, emergency and pediatric services',
+  currentPath: 'Virtual-reality anxiety reduction',
+  locationsAria: 'Virtual-reality anxiety reduction locations',
+} : isNitrous ? {
   heroClass: 'is-nitrous',
   heroImages: [
     ['/images/generated/nitrous-oxide-sedation-hero-v1.webp', 'A patient discussing dental comfort concerns with the care team', 'BEGIN WITH THE CONVERSATION'],
@@ -1073,6 +1144,15 @@ const content = isNitrous ? {
   .whitening-hero.is-nitrous .hero-fold--two>img{object-position:52% center}
   .whitening-hero.is-nitrous .hero-fold--three>img{object-position:60% center}
   .whitening-hero.is-nitrous .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 36%,rgba(4,24,20,.45) 55%,transparent 74%)}
+  .whitening-hero.is-virtual-reality .hero-folds__scan{display:none}
+  .whitening-hero.is-virtual-reality .hero-fold{border:0;box-shadow:0 2.2rem 6rem rgba(0,0,0,.32)}
+  .whitening-hero.is-virtual-reality .hero-fold--one{clip-path:inset(8% 0 8% 0 round 9rem 2rem 9rem 2rem)}
+  .whitening-hero.is-virtual-reality .hero-fold--two{clip-path:inset(0 0 0 0 round 2rem 9rem 2rem 9rem)}
+  .whitening-hero.is-virtual-reality .hero-fold--three{clip-path:inset(8% 0 8% 0 round 9rem 2rem 9rem 2rem)}
+  .whitening-hero.is-virtual-reality .hero-fold--one>img{object-position:43% center}
+  .whitening-hero.is-virtual-reality .hero-fold--two>img{object-position:50% center}
+  .whitening-hero.is-virtual-reality .hero-fold--three>img{object-position:61% center}
+  .whitening-hero.is-virtual-reality .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 35%,rgba(4,24,20,.43) 55%,transparent 74%)}
 
   @media(min-width:721px) and (max-width:1100px){
     .whitening-hero{height:245svh}
@@ -1126,6 +1206,9 @@ const content = isNitrous ? {
     .whitening-hero.is-nitrous .hero-fold--two{clip-path:inset(0 0 0 0 round 7rem)}
     .whitening-hero.is-nitrous .hero-fold--three{clip-path:inset(0 0 0 0 round 1rem 1rem 7rem 7rem)}
     .whitening-hero.is-nitrous .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.2) 60%,rgba(4,24,20,.77) 100%)}
+    .whitening-hero.is-virtual-reality .hero-fold--one,.whitening-hero.is-virtual-reality .hero-fold--three{clip-path:inset(5% 0 5% 0 round 5rem 1rem 5rem 1rem)}
+    .whitening-hero.is-virtual-reality .hero-fold--two{clip-path:inset(0 0 0 0 round 1rem 5rem 1rem 5rem)}
+    .whitening-hero.is-virtual-reality .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.19) 60%,rgba(4,24,20,.77) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
