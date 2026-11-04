@@ -19,6 +19,7 @@ const routes = [
   '/services/virtual-reality-anxiety-reduction/',
   '/services/single-tooth-dental-implant/',
   '/services/implant-supported-bridge/',
+  '/services/all-on-4-implant-solution/',
   '/services/restorative-reconstructive/',
   '/services/wellness-offering/',
 ];

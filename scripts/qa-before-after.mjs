@@ -30,6 +30,7 @@ const routes = [
   ['virtual-reality-anxiety-reduction', '/services/virtual-reality-anxiety-reduction/', '#before-after-virtual-reality-anxiety-reduction'],
   ['single-tooth-dental-implant', '/services/single-tooth-dental-implant/', '#before-after-single-tooth-dental-implant'],
   ['implant-supported-bridge', '/services/implant-supported-bridge/', '#before-after-implant-supported-bridge'],
+  ['all-on-4-implant-solution', '/services/all-on-4-implant-solution/', '#before-after-all-on-4-implant-solution'],
 ];
 const viewports = [
   ['desktop', 1440, 900],

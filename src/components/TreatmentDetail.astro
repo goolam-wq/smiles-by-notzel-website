@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -15,8 +15,14 @@ const isNitrous = kind === 'nitrous-oxide-sedation';
 const isVirtualReality = kind === 'virtual-reality-anxiety-reduction';
 const isSingleToothImplant = kind === 'single-tooth-dental-implant';
 const isImplantBridge = kind === 'implant-supported-bridge';
+const isAllOn4 = kind === 'all-on-4-implant-solution';
 
-const processSteps = isImplantBridge ? [
+const processSteps = isAllOn4 ? [
+  ['01', 'Assess', 'Oral health, the arch, bite, available bone, medical history and restorative goals are evaluated before an All-on-4 pathway is recommended.'],
+  ['02', 'Plan', 'Imaging and the final full-arch design guide implant positions, the sequence and any additional treatment that may be required.'],
+  ['03', 'Place', 'The planned implant foundation is placed according to the confirmed surgical plan, with healing and follow-up coordinated around the individual case.'],
+  ['04', 'Restore', 'The connected full-arch restoration is fitted and reviewed for function, hygiene access and appearance according to the confirmed restorative sequence.'],
+] : isImplantBridge ? [
   ['01', 'Assess', 'The missing-tooth span, gums, bite, neighboring teeth and available bone are evaluated before an implant-supported bridge is recommended.'],
   ['02', 'Plan', 'Imaging and the final bridge design guide implant positions, the surgical sequence and whether site development may be needed.'],
   ['03', 'Place', 'The supporting implants are placed according to the confirmed clinical plan, with healing and follow-up coordinated around each site.'],
@@ -78,7 +84,13 @@ const processSteps = isImplantBridge ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isImplantBridge ? [
+const faqs = isAllOn4 ? [
+  ['How much does an All-on-4 implant solution cost?', 'The customer-facing treatment price is $23,000 per arch. The $639 monthly view is an approximate rounded 36-month financing illustration ($23,004 total), and the yearly amount is $23,000 per arch as a complete-treatment case view. Final scope, eligibility, sequence and payment terms are confirmed after examination and imaging.'],
+  ['Does the price automatically include extractions, grafting or sedation?', 'No. The listed per-arch treatment amount does not promise that extractions, grafting, sedation, provisional restorations or a particular restorative material are included. The office confirms the case-specific scope after evaluation.'],
+  ['Is the final restoration guaranteed on the same day?', 'No. Same-day definitive treatment or immediate loading is not promised. Site readiness, stability, anatomy, healing and the confirmed clinical plan determine the sequence and timing.'],
+  ['Is everyone eligible for an All-on-4 solution?', 'No. Oral health, bone support, bite, medical history, restorative needs and other individual considerations must be reviewed before this pathway is recommended.'],
+  ['Is All-on-4 consultation available at both offices?', 'Consultations can begin through Chicago Heights or Mokena. Call the preferred office to confirm the recommended visit and current surgical and restorative availability.'],
+] : isImplantBridge ? [
   ['How much does an implant-supported bridge cost?', 'The customer-facing starting treatment price is $7,500. The $209 monthly view is a rounded 36-month planning display ($7,524 total), and the yearly treatment amount is $7,500. Final scope, number of implants, site preparation, eligibility and payment terms are confirmed after examination and imaging.'],
   ['Is everyone eligible for an implant-supported bridge?', 'No. Oral health, available bone, the missing-tooth span, bite, medical history and individual circumstances must be reviewed first. Additional treatment or another replacement path may be more appropriate.'],
   ['How many implants support the bridge?', 'There is no universal number. The span being replaced, anatomy, restorative design and clinical findings determine the recommended foundation after imaging and consultation.'],
@@ -152,7 +164,13 @@ const faqs = isImplantBridge ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isImplantBridge ? [
+const relatedServices = isAllOn4 ? [
+  ['Implants & Oral Surgery', 'Explore the complete category', '/services/implants-oral-surgery/'],
+  ['Single-tooth dental implant', 'Compare a one-tooth replacement path', '/services/single-tooth-dental-implant/'],
+  ['Implant-supported bridge', 'Compare a connected multi-tooth pathway', '/services/implant-supported-bridge/'],
+  ['Bone grafting', 'Explore site-development planning when needed', '/services/bone-grafting/'],
+  ['Restorative & Reconstructive', 'Compare removable and fixed full-arch paths', '/services/restorative-reconstructive/'],
+] : isImplantBridge ? [
   ['Implants & Oral Surgery', 'Explore the complete category', '/services/implants-oral-surgery/'],
   ['Single-tooth dental implant', 'Compare a one-tooth replacement path', '/services/single-tooth-dental-implant/'],
   ['Bone grafting', 'Explore site-development planning when needed', '/services/bone-grafting/'],
@@ -220,7 +238,61 @@ const relatedServices = isImplantBridge ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isImplantBridge ? {
+const content = isAllOn4 ? {
+  heroClass: 'is-all-on-4',
+  heroImages: [
+    ['/images/generated/all-on-4-implant-solution-hero-v1.webp', 'A patient and implant dentist discussing a full-arch replacement goal', 'BEGIN WITH THE ARCH'],
+    ['/images/generated/all-on-4-implant-solution-hero-detail-v1.webp', 'An implant dentist reviewing full-arch site and restorative planning', 'PLAN THE FOUNDATION'],
+    ['/images/generated/all-on-4-implant-solution-hero-result-v1.webp', 'A patient and dentist reviewing a connected full-arch restoration concept', 'CONNECT THE ARCH'],
+  ],
+  heroAria: ['Explore the All-on-4 consultation', 'Explore full-arch foundation planning', 'Explore the connected restoration review'],
+  kicker: 'Implants & Oral Surgery · Treatment 03',
+  title: ['One complete arch.', 'One connected plan.'],
+  intro: 'An All-on-4 implant pathway that connects the full-arch restorative design, surgical foundation and long-term care—with candidacy and sequence confirmed after examination and imaging.',
+  heroRail: ['Begin with the arch', 'Plan the foundation', 'Connect the restoration'],
+  ledgerLabel: 'All-on-4 implant solution', ledgerFixed: '$23,000 / arch', ledgerMonthly: '$639 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['A full arch is not a single procedure.', 'It is a', 'coordinated system.'],
+  storyImage: '/images/generated/all-on-4-implant-solution-process-v1.webp',
+  storyAlt: 'An implant dentist reviewing full-arch anatomy and restorative planning',
+  storyRangeLabel: 'Compare the starting full-arch concern with the planned implant-supported restoration pathway',
+  storyNote: 'Design the final arch before confirming the surgical foundation.',
+  storyLead: 'We plan the restoration and foundation together. Function, arch form, hygiene access and appearance establish what the final restoration must do; anatomy and imaging define the appropriate surgical sequence.',
+  storySteps: [
+    ['01', 'Read the arch', 'Oral health, remaining teeth, bite, bone support and restorative goals establish the clinical starting point.'],
+    ['02', 'Plan the foundation', 'Imaging and the final arch design guide implant positions and the treatment sequence without promising universal inclusions or timing.'],
+    ['03', 'Connect the restoration', 'The full-arch restoration is reviewed in function, hygiene access and appearance according to the confirmed case plan.'],
+  ],
+  storyNotes: ['Design the final arch before confirming the surgical foundation.', 'Confirm anatomy, candidacy, scope and sequence after clinical imaging.', 'Review the connected restoration in function, care access and the complete smile.'],
+  processTitle: ['Comprehensive in view.', 'Specific in sequence.'],
+  expectTitle: ['One complete arch.', 'Several coordinated stages.'],
+  expectCopy: 'An All-on-4 pathway may involve evaluation, site preparation, implant placement, healing and restorative stages. The exact inclusions, materials, timing and provisional or final restoration sequence depend on anatomy, oral health and the confirmed plan; immediate loading or a specific result is not guaranteed.',
+  metrics: [['1', 'connected full-arch plan'], ['3', 'checks: foundation, function, hygiene access'], ['2', 'connected office locations']],
+  pricingId: 'all-on-4-implant-solution-pricing',
+  pricingTitle: ['One complete arch.', 'Three planning views.'],
+  pricingIntro: 'The same All-on-4 per-arch treatment case shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$23,000', 'per arch · complete treatment case'], ['MONTHLY · 02', '$639', 'per month · 36 months'], ['YEARLY · 03', '$23,000', 'per arch · complete treatment case']],
+  pricingNote: 'The $639 monthly view is an approximate rounded financing illustration ($23,004 total across 36 months), not an exact division of $23,000. The yearly amount is a complete-treatment case view, not a subscription. Extractions, grafting, sedation, provisional restorations and particular materials are not promised as included; final scope, schedule, eligibility and terms are confirmed by the office.',
+  whyTitle: ['Restoration-led.', 'Case-specific.'],
+  whyIntro: 'We do not assume same-day definitive treatment, immediate loading or universal inclusions. The final arch, function, hygiene access, anatomy and available foundation stay connected from the first evaluation through restoration.',
+  whyImage: '/images/generated/all-on-4-implant-solution-result-v1.webp',
+  whyAlt: 'A dentist and patient reviewing an All-on-4 full-arch plan',
+  whyPanels: [
+    ['01', 'Final arch in view', 'Function, arch form, appearance and care access guide the restorative and surgical conversation.'],
+    ['02', 'Candidacy before treatment', 'Oral health, anatomy, imaging and individual considerations determine whether this pathway is appropriate.'],
+    ['03', 'Scope confirmed case by case', 'Additional treatment, materials, stages and timing are explained only after the clinical plan is established.'],
+  ],
+  whyFoot: 'ONE COMPLETE ARCH · THREE CONNECTED CHECKS',
+  proofTitle: ['The sequence explained.', 'The full plan understood.'],
+  proofText: 'Patients frequently mention thoughtful explanations, attentive care and clear next steps—general-practice feedback that supports how complex implant and restorative planning is discussed.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Restoration-led planning', 'Case-specific scope', 'Connected follow-up'],
+  faqTitle: ['Before you rebuild', 'a complete arch.'],
+  relatedTitle: ['One complete arch.', 'Several connected paths.'],
+  relatedAria: 'Related implant, surgical and restorative services',
+  currentPath: 'All-on-4 implant solution',
+  locationsAria: 'All-on-4 implant consultation locations',
+} : isImplantBridge ? {
   heroClass: 'is-implant-bridge',
   heroImages: [
     ['/images/generated/implant-supported-bridge-hero-v1.webp', 'A patient and implant dentist discussing an adjacent missing-tooth span', 'BEGIN WITH THE SPAN'],
@@ -1315,6 +1387,15 @@ const content = isImplantBridge ? {
   .whitening-hero.is-implant-bridge .hero-fold--two>img{object-position:51% center}
   .whitening-hero.is-implant-bridge .hero-fold--three>img{object-position:61% center}
   .whitening-hero.is-implant-bridge .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.47) 55%,transparent 74%)}
+  .whitening-hero.is-all-on-4 .hero-folds__scan{display:none}
+  .whitening-hero.is-all-on-4 .hero-fold{border:0;box-shadow:0 2.2rem 6rem rgba(0,0,0,.34)}
+  .whitening-hero.is-all-on-4 .hero-fold--one{clip-path:inset(0 0 8% 0 round 10rem 10rem 1.25rem 1.25rem)}
+  .whitening-hero.is-all-on-4 .hero-fold--two{clip-path:inset(4% 0 4% 0 round 10rem)}
+  .whitening-hero.is-all-on-4 .hero-fold--three{clip-path:inset(8% 0 0 0 round 1.25rem 1.25rem 10rem 10rem)}
+  .whitening-hero.is-all-on-4 .hero-fold--one>img{object-position:43% center}
+  .whitening-hero.is-all-on-4 .hero-fold--two>img{object-position:52% center}
+  .whitening-hero.is-all-on-4 .hero-fold--three>img{object-position:61% center}
+  .whitening-hero.is-all-on-4 .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.48) 55%,transparent 74%)}
 
   @media(min-width:721px) and (max-width:1100px){
     .whitening-hero{height:245svh}
@@ -1379,6 +1460,10 @@ const content = isImplantBridge ? {
     .whitening-hero.is-implant-bridge .hero-fold--two{clip-path:inset(0 0 0 0 round .75rem)}
     .whitening-hero.is-implant-bridge .hero-fold--three{clip-path:inset(4% 0 4% 0 round .75rem 5rem 5rem .75rem)}
     .whitening-hero.is-implant-bridge .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.22) 60%,rgba(4,24,20,.79) 100%)}
+    .whitening-hero.is-all-on-4 .hero-fold--one{clip-path:inset(0 0 6% 0 round 6rem 6rem .75rem .75rem)}
+    .whitening-hero.is-all-on-4 .hero-fold--two{clip-path:inset(3% 0 3% 0 round 6rem)}
+    .whitening-hero.is-all-on-4 .hero-fold--three{clip-path:inset(6% 0 0 0 round .75rem .75rem 6rem 6rem)}
+    .whitening-hero.is-all-on-4 .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.23) 60%,rgba(4,24,20,.79) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
