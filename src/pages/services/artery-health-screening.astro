@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore limited artery-health screening at Smiles by Noetzel, including clear medical boundaries, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Artery Health Screening | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-artery-health-screening.webp" mediaAlt="A clinician explaining a limited artery-health screening and its boundaries" />
+    <main>
+      <TreatmentDetail kind="artery-health-screening" />
+      <BeforeAfterStory id="before-after-artery-health-screening" tone="light" number="10" eyebrow="Illustrative screening pathway · artery health" title="From an open health question." emphasis="To one documented screening signal."
+        intro="This illustrative pathway shows how context, a limited office-confirmed screening and follow-through may be organized. It is not an actual patient case, cardiovascular diagnosis, medical clearance, risk prediction or promised outcome."
+        image="/images/generated/before-after-artery-health-screening-v1.webp" imageAlt="Illustrative comparison of an open health question and a documented artery-health screening pathway"
+        beforeLabel="Before limited screening" beforeDetail="The health question may be present, but screening scope, uncertainty and appropriate medical follow-through have not yet been established."
+        afterLabel="Illustrative documented signal" afterDetail="The simulated view represents a limited screening signal—not diagnosis, clearance, prediction, prevention or medical treatment guidance."
+        caseNote="Illustrative screening pathway · not an actual patient case · screening is not cardiovascular diagnosis" />
+      <HubFooter eyebrow="Ready to place one screening signal in the right context?" title="Review the question and request an artery-health screening." />
+    </main>
+  </body>
+</html>

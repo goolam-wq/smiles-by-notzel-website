@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement' | 'tooth-colored-dental-filling' | 'dental-crown' | 'dental-bridge' | 'full-mouth-reconstruction' | 'root-canal-treatment-coordination' | 'full-denture' | 'partial-denture' | 'oral-cancer-screening' | 'airway-sleep-screening';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement' | 'tooth-colored-dental-filling' | 'dental-crown' | 'dental-bridge' | 'full-mouth-reconstruction' | 'root-canal-treatment-coordination' | 'full-denture' | 'partial-denture' | 'oral-cancer-screening' | 'airway-sleep-screening' | 'artery-health-screening';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -48,8 +48,14 @@ const isFullDenture = kind === 'full-denture';
 const isPartialDenture = kind === 'partial-denture';
 const isOralCancerScreening = kind === 'oral-cancer-screening';
 const isAirwaySleepScreening = kind === 'airway-sleep-screening';
+const isArteryHealthScreening = kind === 'artery-health-screening';
 
-const processSteps = isAirwaySleepScreening ? [
+const processSteps = isArteryHealthScreening ? [
+  ['01', 'Review context', 'Current concerns, cardiovascular history, relevant risk context and the reason for screening are reviewed before measurements are taken.'],
+  ['02', 'Screen', 'The confirmed noninvasive screening is completed according to the current office protocol without treating the result as a medical diagnosis.'],
+  ['03', 'Place in context', 'The available result is considered as one screening signal alongside history and the wider complete-health conversation.'],
+  ['04', 'Coordinate next steps', 'The team explains uncertainty and whether medical follow-up or urgent evaluation should be considered.'],
+] : isAirwaySleepScreening ? [
   ['01', 'Listen', 'Sleep, breathing, daytime concerns, relevant health history and the reason for screening are reviewed before oral findings are assessed.'],
   ['02', 'Screen', 'Oral structures, development, bite and other clinically relevant signs are reviewed within the dental screening scope.'],
   ['03', 'Connect', 'History and dental findings are considered together without presenting screening as a medical sleep diagnosis.'],
@@ -276,7 +282,15 @@ const processSteps = isAirwaySleepScreening ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isAirwaySleepScreening ? [
+const faqs = isArteryHealthScreening ? [
+  ['How much does artery-health screening cost?', 'The customer-facing price is $150. The $13 monthly view is an approximate rounded 12-month illustration ($156 total), which is $6 above the $150 fixed and yearly views. The yearly amount is an annual treatment amount, not a membership or unlimited screening plan.'],
+  ['Does this screening diagnose cardiovascular disease?', 'No. It provides a limited screening signal and does not diagnose or rule out heart disease, vascular disease, stroke risk or another medical condition. Medical diagnosis belongs with the appropriate healthcare clinician.'],
+  ['What method does the screening use?', 'The office confirms the current screening method and visit scope. No specific device, measurement, threshold or interpretation is assumed here unless the team confirms it.'],
+  ['What happens if the result needs follow-up?', 'The team explains the screening context and may recommend medical follow-up. An unusual result is not itself a diagnosis or treatment recommendation.'],
+  ['Are medical testing or consultation included?', 'No. Physician consultation, diagnostic imaging, laboratory work, cardiovascular testing and medical treatment are separate.'],
+  ['What if cardiovascular symptoms are urgent?', 'Chest pain or pressure, trouble breathing, fainting, sudden weakness or numbness, or another acute symptom needs immediate medical evaluation rather than a routine dental screening. Call emergency services when appropriate.'],
+  ['Is artery-health screening available at both offices?', 'Yes. Screening is available through Chicago Heights and Mokena, subject to appointment availability and the confirmed scope.'],
+] : isAirwaySleepScreening ? [
   ['How much does airway and sleep screening cost?', 'The customer-facing price is $195. The $17 monthly view is an approximate rounded 12-month illustration ($204 total), which is $9 above the $195 fixed and yearly views. The yearly amount is an annual treatment amount, not a membership or unlimited screening plan.'],
   ['Does dental screening diagnose sleep apnea?', 'No. Dental airway and sleep screening does not diagnose or rule out sleep apnea or another medical sleep disorder. Diagnosis requires evaluation by an appropriate medical sleep clinician and testing when indicated.'],
   ['What does the screening consider?', 'The team reviews sleep and breathing context with relevant oral structures, development, bite and dental findings. Exact records or adjunctive tools are not assumed unless the office confirms them.'],
@@ -560,7 +574,15 @@ const faqs = isAirwaySleepScreening ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isAirwaySleepScreening ? [
+const relatedServices = isArteryHealthScreening ? [
+  ['Complete Health & Airway', 'Explore the complete category', '/services/complete-health-airway/'],
+  ['Oral-cancer screening', 'Explore a separate focused soft-tissue screening', '/services/oral-cancer-screening/'],
+  ['Airway and sleep screening', 'Explore a separate contextual dental screening', '/services/airway-sleep-screening/'],
+  ['Routine comprehensive exam', 'Connect screening to the complete oral picture', '/services/routine-comprehensive-exam/'],
+  ['Professional dental cleaning', 'Explore a separate routine-cleaning visit', '/services/professional-dental-cleaning/'],
+  ['Gum-disease screening', 'Connect complete-health context to measured gum findings', '/services/gum-disease-screening/'],
+  ['Oral spirochete test', 'Explore a separate contextual oral microbial signal', '/services/oral-spirochete-test/'],
+] : isAirwaySleepScreening ? [
   ['Complete Health & Airway', 'Explore the complete category', '/services/complete-health-airway/'],
   ['ProSomnus sleep-apnea appliance', 'Explore a separate appliance pathway after appropriate diagnosis and candidacy review', '/services/prosomnus-sleep-apnea-appliance/'],
   ['Oral-cancer screening', 'Explore a separate focused soft-tissue screening', '/services/oral-cancer-screening/'],
@@ -842,7 +864,62 @@ const relatedServices = isAirwaySleepScreening ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isAirwaySleepScreening ? {
+const content = isArteryHealthScreening ? {
+  heroClass: 'is-artery-health-screening',
+  heroImages: [
+    ['/images/generated/artery-health-screening-hero-v1.webp', 'A clinician reviewing health context before a limited artery-health screening', 'REVIEW THE CONTEXT'],
+    ['/images/generated/artery-health-screening-hero-detail-v1.webp', 'A clinician completing the office-confirmed artery-health screening', 'COMPLETE THE SCREENING'],
+    ['/images/generated/artery-health-screening-hero-result-v1.webp', 'A clinician documenting the screening signal and explaining medical follow-up boundaries', 'DOCUMENT THE NEXT STEP'],
+  ],
+  heroAria: ['Explore cardiovascular context review', 'Explore limited artery-health screening', 'Explore documentation and follow-through'],
+  kicker: 'Complete Health & Airway · Service 03',
+  title: ['One screening signal.', 'A clearer next conversation.'],
+  intro: 'A limited screening adds cardiovascular context to the complete-health conversation. It is one signal—not a diagnosis, clearance, prediction or substitute for medical cardiovascular evaluation.',
+  heroRail: ['Review the context', 'Complete the screening', 'Document the next step'],
+  ledgerLabel: 'Artery-health screening', ledgerFixed: '$150 / screening', ledgerMonthly: '$13 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['The signal is limited.', 'The boundary should be', 'clear.'],
+  storyImage: '/images/generated/artery-health-screening-process-v1.webp',
+  storyAlt: 'A clinician completing and documenting a limited artery-health screening',
+  storyRangeLabel: 'Compare an uncontextualized health question with a documented screening signal and appropriate follow-through',
+  storyNote: 'Use the signal to guide a conversation—not to create a diagnosis.',
+  storyLead: 'The screening begins with context, a clear explanation of scope and the office-confirmed screening method. The result is documented as one limited signal, with medical follow-up kept separate and visible.',
+  storySteps: [
+    ['01', 'Review the context', 'Current concerns, health history and the reason for screening establish the question without presuming disease.'],
+    ['02', 'Complete and document', 'The office-confirmed screening is performed and recorded without inventing a device, biomarker, threshold or diagnostic conclusion.'],
+    ['03', 'Guide the follow-through', 'The team explains uncertainty and when appropriate medical follow-up or urgent evaluation should be considered.'],
+  ],
+  storyNotes: ['Begin with health context and the screening question.', 'Explain the boundary, then complete and document.', 'Coordinate appropriate medical follow-through.'],
+  processTitle: ['Add one signal.', 'Keep the medical boundary clear.'],
+  expectTitle: ['A limited screening.', 'Not cardiovascular diagnosis.'],
+  expectCopy: 'This screening does not diagnose, clear, predict or prevent cardiovascular disease, heart attack, stroke or another medical condition. Physician consultation, diagnostic testing and treatment remain separate.',
+  metrics: [['1', 'limited screening signal'], ['4', 'stages: review, explain, document, guide'], ['2', 'connected office locations']],
+  pricingId: 'artery-health-screening-pricing',
+  pricingTitle: ['One limited screening.', 'Three planning views.'],
+  pricingIntro: 'The artery-health screening amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$150', 'per screening'], ['MONTHLY · 02', '$13', 'per month · 12 months'], ['YEARLY · 03', '$150', 'annual treatment amount']],
+  pricingNote: 'The $13 monthly view is an approximate rounded illustration ($156 total across 12 months), which is $6 above the $150 fixed and yearly views. The yearly amount is an annual treatment amount, not a membership or unlimited screening plan. Eligibility, scope and terms are office-confirmed.',
+  whyTitle: ['The signal stays useful.', 'The boundary stays visible.'],
+  whyIntro: 'The team reviews context, explains the limited screening role, documents the available result and directs medical questions to the appropriate healthcare clinician.',
+  whyImage: '/images/generated/artery-health-screening-result-v1.webp',
+  whyAlt: 'A clinician explaining the limited context and next steps after an artery-health screening',
+  whyPanels: [
+    ['01', 'Context before measurement', 'History and current concerns establish why the limited screening is being considered.'],
+    ['02', 'Method stays office-confirmed', 'No device, biomarker, imaging method or threshold is promised unless the current office protocol confirms it.'],
+    ['03', 'No diagnostic shortcut', 'The result does not diagnose, clear, predict or prevent cardiovascular disease or a medical event.'],
+    ['04', 'Medical follow-up stays connected', 'Questions outside the dental screening scope are directed to the appropriate medical clinician.'],
+  ],
+  whyFoot: 'ONE LIMITED SIGNAL · FOUR STAGES · TWO OFFICES',
+  proofTitle: ['The context reviewed.', 'The boundary explained.'],
+  proofText: 'Patients frequently mention thoughtful complete-health conversations, clear explanations and coordinated follow-up—general-practice themes that support screening without implying medical certainty.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Context reviewed', 'Scope limited', 'Follow-up coordinated'],
+  faqTitle: ['Before an', 'artery-health screening.'],
+  relatedTitle: ['One limited signal.', 'Several connected health paths.'],
+  relatedAria: 'Related complete-health, oral and preventive services',
+  currentPath: 'Artery-health screening',
+  locationsAria: 'Artery-health screening locations',
+} : isAirwaySleepScreening ? {
   heroClass: 'is-airway-sleep-screening',
   heroImages: [
     ['/images/generated/airway-sleep-screening-hero-v1.webp', 'A clinician listening to sleep and breathing concerns before dental screening', 'LISTEN TO THE PATTERN'],
@@ -4059,6 +4136,18 @@ const content = isAirwaySleepScreening ? {
   .whitening-hero.is-airway-sleep-screening .hero-cinema__copy{top:15vh;width:min(47vw,49rem);transform:none}
   .whitening-hero.is-airway-sleep-screening .hero-cinema__copy h1{font-size:clamp(3.55rem,4.95vw,5.7rem);line-height:.84;margin:1.25rem 0 1.5rem}
   .whitening-hero.is-airway-sleep-screening .hero-cinema__copy h1 em{display:block;margin-left:clamp(1.75rem,4vw,4rem)}
+  .whitening-hero.is-artery-health-screening .hero-folds__scan{display:none}
+  .whitening-hero.is-artery-health-screening .hero-fold{border:0;overflow:hidden;box-shadow:0 2.4rem 6.2rem rgba(0,0,0,.36);transform-origin:center}
+  .whitening-hero.is-artery-health-screening .hero-fold--one{translate:11% -15%;scale:.66 .62;clip-path:inset(0 round 5rem 1rem 1rem 5rem)}
+  .whitening-hero.is-artery-health-screening .hero-fold--two{translate:-1% 17%;scale:.66 .62;clip-path:inset(0 round 1rem 5rem 5rem 1rem)}
+  .whitening-hero.is-artery-health-screening .hero-fold--three{translate:-13% 0;scale:1.18 1.04;clip-path:inset(0 round 1.25rem 999px 999px 1.25rem)}
+  .whitening-hero.is-artery-health-screening .hero-fold--one>img{object-position:43% center}
+  .whitening-hero.is-artery-health-screening .hero-fold--two>img{object-position:54% center}
+  .whitening-hero.is-artery-health-screening .hero-fold--three>img{object-position:66% center}
+  .whitening-hero.is-artery-health-screening .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 35%,rgba(4,24,20,.4) 63%,transparent 83%)}
+  .whitening-hero.is-artery-health-screening .hero-cinema__copy{top:15vh;width:min(45vw,47rem);transform:none}
+  .whitening-hero.is-artery-health-screening .hero-cinema__copy h1{font-size:clamp(3.8rem,5.2vw,6rem);line-height:.83;margin:1.25rem 0 1.5rem}
+  .whitening-hero.is-artery-health-screening .hero-cinema__copy h1 em{display:block;margin-left:clamp(1.75rem,4vw,4rem)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -4295,6 +4384,13 @@ const content = isAirwaySleepScreening ? {
     .whitening-hero.is-airway-sleep-screening .hero-cinema__copy{top:7.15rem}
     .whitening-hero.is-airway-sleep-screening .hero-cinema__copy h1{font-size:clamp(2.45rem,10.6vw,3.4rem);line-height:.85}
     .whitening-hero.is-airway-sleep-screening .hero-cinema__copy h1 em{margin-left:1rem}
+    .whitening-hero.is-artery-health-screening .hero-fold--one{translate:4% -10%;scale:.72 .68;clip-path:inset(0 round 3.5rem .8rem .8rem 3.5rem)}
+    .whitening-hero.is-artery-health-screening .hero-fold--two{translate:-1% 13%;scale:.72 .68;clip-path:inset(0 round .8rem 3.5rem 3.5rem .8rem)}
+    .whitening-hero.is-artery-health-screening .hero-fold--three{translate:-5% 1%;scale:1.08 .98;clip-path:inset(0 round .9rem 999px 999px .9rem)}
+    .whitening-hero.is-artery-health-screening .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.17) 64%,rgba(4,24,20,.84) 100%)}
+    .whitening-hero.is-artery-health-screening .hero-cinema__copy{top:7.15rem}
+    .whitening-hero.is-artery-health-screening .hero-cinema__copy h1{font-size:clamp(2.6rem,11.2vw,3.55rem);line-height:.85}
+    .whitening-hero.is-artery-health-screening .hero-cinema__copy h1 em{margin-left:1rem}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
@@ -4447,6 +4543,7 @@ const content = isAirwaySleepScreening ? {
         const isPartialDentureHero = hero.classList.contains('is-partial-denture');
         const isOralCancerHero = hero.classList.contains('is-oral-cancer-screening');
         const isAirwaySleepHero = hero.classList.contains('is-airway-sleep-screening');
+        const isArteryHealthHero = hero.classList.contains('is-artery-health-screening');
         const phases = q('[data-hero-phase]');
         const edition = q('[data-hero-edition]')[0];
         const scan = q('[data-fold-scan]')[0];
@@ -4499,6 +4596,8 @@ const content = isAirwaySleepScreening ? {
                   ? {opacity:0,scale:[.72,.6,.72][index],yPercent:[18,-18,18][index]}
                 : isAirwaySleepHero
                   ? {opacity:0,xPercent:[22,0,-22][index],scale:[.82,.9,.82][index]}
+                : isArteryHealthHero
+                  ? {opacity:0,xPercent:[20,-20,22][index],yPercent:[-18,20,0][index]}
                 : isDentalBridgeHero
                   ? {opacity:0,xPercent:[-28,0,28][index],yPercent:[0,22,0][index]}
               : {}),
@@ -4529,12 +4628,14 @@ const content = isAirwaySleepScreening ? {
                   ? {opacity:1,scale:1,yPercent:0}
                 : isAirwaySleepHero
                   ? {opacity:1,xPercent:0,scale:1}
+                : isArteryHealthHero
+                  ? {opacity:1,xPercent:0,yPercent:0}
                 : isDentalBridgeHero
                   ? {opacity:1,xPercent:0,yPercent:0}
               : {}),
-          duration:isAmalgamHero ? 1.55 : isToothColoredHero ? 1.45 : isDentalCrownHero ? 1.6 : isDentalBridgeHero ? 1.5 : isFullMouthHero ? 1.55 : isRootCanalHero ? 1.5 : isFullDentureHero ? 1.55 : isPartialDentureHero ? 1.5 : isOralCancerHero ? 1.55 : isAirwaySleepHero ? 1.5 : 1.35,
-          ease:isAmalgamHero ? 'expo.inOut' : isToothColoredHero ? 'power4.out' : isDentalCrownHero ? 'expo.out' : isDentalBridgeHero ? 'power4.inOut' : isFullMouthHero ? 'power4.out' : isRootCanalHero ? 'expo.out' : isFullDentureHero ? 'power4.out' : isPartialDentureHero ? 'expo.out' : isOralCancerHero ? 'power4.out' : isAirwaySleepHero ? 'expo.out' : 'power3.inOut',
-        },index*(isAmalgamHero ? .12 : isToothColoredHero ? .16 : isDentalCrownHero ? .14 : isDentalBridgeHero ? .13 : isFullMouthHero ? .14 : isRootCanalHero ? .15 : isFullDentureHero ? .14 : isPartialDentureHero ? .15 : isOralCancerHero ? .14 : isAirwaySleepHero ? .15 : .08)));
+          duration:isAmalgamHero ? 1.55 : isToothColoredHero ? 1.45 : isDentalCrownHero ? 1.6 : isDentalBridgeHero ? 1.5 : isFullMouthHero ? 1.55 : isRootCanalHero ? 1.5 : isFullDentureHero ? 1.55 : isPartialDentureHero ? 1.5 : isOralCancerHero ? 1.55 : isAirwaySleepHero ? 1.5 : isArteryHealthHero ? 1.55 : 1.35,
+          ease:isAmalgamHero ? 'expo.inOut' : isToothColoredHero ? 'power4.out' : isDentalCrownHero ? 'expo.out' : isDentalBridgeHero ? 'power4.inOut' : isFullMouthHero ? 'power4.out' : isRootCanalHero ? 'expo.out' : isFullDentureHero ? 'power4.out' : isPartialDentureHero ? 'expo.out' : isOralCancerHero ? 'power4.out' : isAirwaySleepHero ? 'expo.out' : isArteryHealthHero ? 'power4.out' : 'power3.inOut',
+        },index*(isAmalgamHero ? .12 : isToothColoredHero ? .16 : isDentalCrownHero ? .14 : isDentalBridgeHero ? .13 : isFullMouthHero ? .14 : isRootCanalHero ? .15 : isFullDentureHero ? .14 : isPartialDentureHero ? .15 : isOralCancerHero ? .14 : isAirwaySleepHero ? .15 : isArteryHealthHero ? .14 : .08)));
         intro.to(q('[data-hero-fold] img'),{scale:1.015,duration:1.2},0)
           .to(scan,{left:mobile?'100vw':'99vw',duration:1.4},0)
           .to(progress,{width:'100%',duration:1.35},0)

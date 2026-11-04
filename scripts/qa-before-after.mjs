@@ -63,6 +63,7 @@ const routes = [
   ['partial-denture', '/services/partial-denture/', '#before-after-partial-denture'],
   ['oral-cancer-screening', '/services/oral-cancer-screening/', '#before-after-oral-cancer-screening'],
   ['airway-sleep-screening', '/services/airway-sleep-screening/', '#before-after-airway-sleep-screening'],
+  ['artery-health-screening', '/services/artery-health-screening/', '#before-after-artery-health-screening'],
 ];
 const requestedRoute = process.argv[2];
 const selectedRoutes = requestedRoute

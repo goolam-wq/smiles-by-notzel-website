@@ -52,6 +52,7 @@ const routes = [
   '/services/partial-denture/',
   '/services/oral-cancer-screening/',
   '/services/airway-sleep-screening/',
+  '/services/artery-health-screening/',
   '/services/restorative-reconstructive/',
   '/services/wellness-offering/',
 ];
