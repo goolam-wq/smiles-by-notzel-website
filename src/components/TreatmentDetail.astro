@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -25,8 +25,14 @@ const isInvisalign = kind === 'invisalign-clear-aligners';
 const isFirstDentalVisit = kind === 'first-dental-visit';
 const isPediatricCleaningExam = kind === 'pediatric-cleaning-exam';
 const isHealthyStart = kind === 'healthystart-system';
+const isDeepCleaning = kind === 'gum-disease-deep-cleaning';
 
-const processSteps = isHealthyStart ? [
+const processSteps = isDeepCleaning ? [
+  ['01', 'Measure', 'Gum health, pocket depths, bleeding, buildup, bone support, medical history and home-care factors are evaluated before therapy is mapped.'],
+  ['02', 'Plan', 'The clinician confirms which quadrants need treatment, explains comfort planning and sets realistic expectations for therapy and follow-up.'],
+  ['03', 'Treat', 'Buildup is removed from tooth and root surfaces below the gumline according to the confirmed periodontal treatment plan.'],
+  ['04', 'Re-evaluate', 'Healing response, gum measurements, home care and the individualized maintenance interval are reviewed after active therapy.'],
+] : isHealthyStart ? [
   ['01', 'Assess', 'Oral development, breathing and sleep context, dental findings, medical history and relevant outside evaluations are reviewed before candidacy is considered.'],
   ['02', 'Plan', 'The team explains the confirmed appliance pathway, realistic goals, responsibilities and any pediatric, ENT or sleep evaluation that remains important.'],
   ['03', 'Fit & guide', 'When appropriate, the appliance is fitted and the family receives individualized instructions without applying a universal wear schedule or duration.'],
@@ -138,7 +144,13 @@ const processSteps = isHealthyStart ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isHealthyStart ? [
+const faqs = isDeepCleaning ? [
+  ['How much does gum-disease deep cleaning cost?', 'The customer-facing price is $350 per quadrant. The monthly planning view is an approximate $111 for 12 months ($1,332 total) for a full-mouth illustration, and the yearly full-mouth treatment view is $1,330. The number of quadrants, final scope, eligibility and payment terms are confirmed after periodontal evaluation.'],
+  ['Does deep cleaning cure or permanently reverse gum disease?', 'No. Periodontal therapy removes buildup below the gumline and supports a healthier foundation, but it is not presented as a cure, permanent reversal or guaranteed result. Ongoing home care and individualized maintenance remain important.'],
+  ['Will every patient need all four quadrants treated?', 'No. Gum measurements, buildup, bleeding, bone support and other findings determine which areas need therapy. The clinician confirms the number of quadrants after evaluation.'],
+  ['Is deep cleaning guaranteed to be pain-free?', 'No. No procedure or recovery can be guaranteed as pain-free. The team discusses comfort planning, what to expect and when to contact the office about a concern.'],
+  ['Is periodontal deep cleaning available at both offices?', 'Periodontal evaluations and deep-cleaning appointments can begin through Chicago Heights or Mokena. Call the preferred office to confirm scheduling and the recommended visit.'],
+] : isHealthyStart ? [
   ['How much does the HealthyStart System treatment cost?', 'The customer-facing complete-program price is $3,500. The $98 monthly view is an approximate rounded 36-month illustration ($3,528 total), and the yearly view is $3,500 on a complete-program basis. Final candidacy, pathway, eligibility and payment terms are confirmed after evaluation.'],
   ['Does HealthyStart diagnose or treat sleep apnea?', 'No. This dental appliance program is not presented as a diagnosis or treatment for sleep apnea or another disease, and it does not replace pediatric, ENT, sleep-medicine or other medical evaluation when indicated.'],
   ['Is every child eligible, and is there a standard wear schedule?', 'No. Candidacy, appliance pathway, wear guidance and duration depend on the individual evaluation, development, clinical findings and wider care context. There is no universal schedule or eligibility promise.'],
@@ -272,7 +284,13 @@ const faqs = isHealthyStart ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isHealthyStart ? [
+const relatedServices = isDeepCleaning ? [
+  ['Periodontal Dentistry', 'Explore the complete category', '/services/periodontal-dentistry/'],
+  ['Preventive & Diagnostic Dentistry', 'Connect examination and periodontal monitoring', '/services/preventive-diagnostic/'],
+  ['Emergency Comfort', 'Know where to begin for an urgent gum concern', '/services/emergency-comfort/'],
+  ['Restorative & Reconstructive Dentistry', 'Connect the wider restorative plan when needed', '/services/restorative-reconstructive/'],
+  ['Complete Health & Airway', 'Explore the wider oral-health conversation', '/services/complete-health-airway/'],
+] : isHealthyStart ? [
   ['Pediatric & Developmental Dentistry', 'Explore the complete category', '/services/pediatric-developmental/'],
   ['First dental visit', 'Begin with a child-paced introduction', '/services/first-dental-visit/'],
   ['Pediatric cleaning & exam', 'Connect ongoing preventive review', '/services/pediatric-cleaning-exam/'],
@@ -401,7 +419,61 @@ const relatedServices = isHealthyStart ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isHealthyStart ? {
+const content = isDeepCleaning ? {
+  heroClass: 'is-deep-cleaning',
+  heroImages: [
+    ['/images/generated/gum-disease-deep-cleaning-hero-v1.webp', 'A clinician discussing gum measurements and periodontal findings with a patient', 'BEGIN WITH THE MEASUREMENTS'],
+    ['/images/generated/gum-disease-deep-cleaning-hero-detail-v1.webp', 'A clinician completing periodontal deep cleaning below the gumline', 'TREAT BELOW THE GUMLINE'],
+    ['/images/generated/gum-disease-deep-cleaning-hero-result-v1.webp', 'A patient and clinician reviewing periodontal maintenance guidance', 'RE-EVALUATE THE FOUNDATION'],
+  ],
+  heroAria: ['Explore periodontal measurement and diagnosis', 'Explore deep cleaning below the gumline', 'Explore re-evaluation and maintenance guidance'],
+  kicker: 'Periodontal Dentistry · Treatment 01',
+  title: ['Treat what sits below.', 'Protect the foundation above.'],
+  intro: 'Periodontal therapy that measures the condition, removes buildup below the gumline and connects active treatment with re-evaluation and individualized maintenance.',
+  heroRail: ['Begin with the measurements', 'Treat below the gumline', 'Re-evaluate the foundation'],
+  ledgerLabel: 'Gum-disease deep cleaning', ledgerFixed: '$350 / quadrant', ledgerMonthly: '$111 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['The visible gumline is not the whole condition.', 'The foundation needs', 'measurement and care.'],
+  storyImage: '/images/generated/gum-disease-deep-cleaning-process-v1.webp',
+  storyAlt: 'A clinician measuring gum health and removing buildup below the gumline',
+  storyRangeLabel: 'Compare the starting periodontal measurements and buildup with an actively treated and re-evaluated foundation',
+  storyNote: 'Measure the condition before deciding how many areas need therapy.',
+  storyLead: 'We begin with measurements and findings rather than assuming every mouth needs the same treatment. Deep cleaning removes buildup from tooth and root surfaces below the gumline, then connects healing response with home care and an individualized maintenance plan.',
+  storySteps: [
+    ['01', 'Measure the condition', 'Pocket depths, bleeding, buildup, bone support and risk factors establish the periodontal starting point.'],
+    ['02', 'Treat the confirmed areas', 'Only the quadrants supported by the evaluation are included in the active therapy plan.'],
+    ['03', 'Re-evaluate and maintain', 'Healing response and updated measurements guide home care and the ongoing maintenance interval.'],
+  ],
+  storyNotes: ['Measure the condition before deciding how many areas need therapy.', 'Remove buildup below the gumline according to the confirmed plan.', 'Use re-evaluation to guide individualized maintenance.'],
+  processTitle: ['Measure first.', 'Maintain what treatment begins.'],
+  expectTitle: ['Deeper than a routine cleaning.', 'Individual in scope.'],
+  expectCopy: 'Periodontal deep cleaning removes buildup below the gumline and supports a healthier foundation. It does not guarantee cure, reversal, a permanent result or pain-free treatment; the number of quadrants and maintenance interval remain individualized.',
+  metrics: [['$350', 'per treated quadrant'], ['4', 'stages: measure, plan, treat, re-evaluate'], ['2', 'connected office locations']],
+  pricingId: 'gum-disease-deep-cleaning-pricing',
+  pricingTitle: ['Quadrant-based treatment.', 'Three planning views.'],
+  pricingIntro: 'The periodontal therapy amount shown as per-quadrant, monthly and yearly full-mouth customer-facing planning views.',
+  prices: [['FIXED · 01', '$350', 'per treated quadrant'], ['MONTHLY · 02', '$111', 'per month · 12 months'], ['YEARLY · 03', '$1,330', 'full-mouth treatment basis']],
+  pricingNote: 'The $111 monthly view is an approximate full-mouth illustration ($1,332 total across 12 months). The $1,330 yearly amount is an annual full-mouth treatment basis, not a subscription or guaranteed treatment schedule. Final number of quadrants, maintenance needs, eligibility and payment terms are confirmed after evaluation.',
+  whyTitle: ['Active therapy completed.', 'Maintenance kept connected.'],
+  whyIntro: 'Removing buildup below the gumline is an active treatment phase, not the end of periodontal care. Re-evaluation, home care and an individualized maintenance interval protect the work that therapy begins.',
+  whyImage: '/images/generated/gum-disease-deep-cleaning-result-v1.webp',
+  whyAlt: 'A patient receiving periodontal re-evaluation and maintenance guidance',
+  whyPanels: [
+    ['01', 'Measurements before scope', 'The number of treated quadrants comes from periodontal findings rather than a universal plan.'],
+    ['02', 'Below-gumline treatment', 'Buildup is removed from tooth and root surfaces according to the confirmed therapy plan.'],
+    ['03', 'Maintenance stays individualized', 'Healing response, updated measurements and home care guide the follow-up interval.'],
+  ],
+  whyFoot: 'ONE PERIODONTAL PLAN · FOUR CONNECTED STAGES',
+  proofTitle: ['The findings explained.', 'The maintenance understood.'],
+  proofText: 'Patients frequently mention careful explanations, attentive treatment and clear next steps—general-practice themes that support how periodontal therapy and maintenance are discussed.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Measured periodontal scope', 'Below-gumline therapy', 'Individualized maintenance'],
+  faqTitle: ['Before periodontal', 'deep cleaning.'],
+  relatedTitle: ['One periodontal plan.', 'Several connected paths.'],
+  relatedAria: 'Related periodontal, preventive and restorative services',
+  currentPath: 'Gum-disease deep cleaning',
+  locationsAria: 'Gum-disease deep-cleaning locations',
+} : isHealthyStart ? {
   heroClass: 'is-healthystart-system',
   heroImages: [
     ['/images/generated/healthystart-system-hero-v1.webp', 'A child and caregiver discussing oral development and breathing context with the dental team', 'BEGIN WITH THE WHOLE CONTEXT'],
@@ -2126,6 +2198,15 @@ const content = isHealthyStart ? {
   .whitening-hero.is-healthystart-system .hero-fold--two>img{object-position:52% center}
   .whitening-hero.is-healthystart-system .hero-fold--three>img{object-position:60% center}
   .whitening-hero.is-healthystart-system .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.4) 57%,transparent 77%)}
+  .whitening-hero.is-deep-cleaning .hero-folds__scan{display:none}
+  .whitening-hero.is-deep-cleaning .hero-fold{border:0;box-shadow:0 2.35rem 6rem rgba(0,0,0,.34);overflow:hidden}
+  .whitening-hero.is-deep-cleaning .hero-fold--one{clip-path:inset(8% 1% 2% 1% round 2rem 10rem 2rem 2rem)}
+  .whitening-hero.is-deep-cleaning .hero-fold--two{clip-path:inset(2% 1% 8% 1% round 10rem 2rem 2rem 2rem)}
+  .whitening-hero.is-deep-cleaning .hero-fold--three{clip-path:inset(8% 1% 2% 1% round 2rem 2rem 10rem 2rem)}
+  .whitening-hero.is-deep-cleaning .hero-fold--one>img{object-position:42% center}
+  .whitening-hero.is-deep-cleaning .hero-fold--two>img{object-position:52% center}
+  .whitening-hero.is-deep-cleaning .hero-fold--three>img{object-position:60% center}
+  .whitening-hero.is-deep-cleaning .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.43) 57%,transparent 77%)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -2240,6 +2321,10 @@ const content = isHealthyStart ? {
     .whitening-hero.is-healthystart-system .hero-fold--two{clip-path:inset(1% 1% 5% 1% round 1rem 1rem 7rem 7rem)}
     .whitening-hero.is-healthystart-system .hero-fold--three{clip-path:inset(5% 1% 1% 1% round 7rem 7rem 1rem 1rem)}
     .whitening-hero.is-healthystart-system .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.18) 60%,rgba(4,24,20,.78) 100%)}
+    .whitening-hero.is-deep-cleaning .hero-fold--one{clip-path:inset(6% 1% 1% 1% round 1rem 6rem 1rem 1rem)}
+    .whitening-hero.is-deep-cleaning .hero-fold--two{clip-path:inset(1% 1% 6% 1% round 6rem 1rem 1rem 1rem)}
+    .whitening-hero.is-deep-cleaning .hero-fold--three{clip-path:inset(6% 1% 1% 1% round 1rem 1rem 6rem 1rem)}
+    .whitening-hero.is-deep-cleaning .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.2) 60%,rgba(4,24,20,.79) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */

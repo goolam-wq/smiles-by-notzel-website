@@ -29,6 +29,7 @@ const routes = [
   '/services/first-dental-visit/',
   '/services/pediatric-cleaning-exam/',
   '/services/healthystart-system/',
+  '/services/gum-disease-deep-cleaning/',
   '/services/implants-oral-surgery/',
   '/services/orthodontic-dentistry/',
   '/services/pediatric-developmental/',

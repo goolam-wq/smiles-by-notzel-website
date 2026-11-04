@@ -40,6 +40,7 @@ const routes = [
   ['first-dental-visit', '/services/first-dental-visit/', '#before-after-first-dental-visit'],
   ['pediatric-cleaning-exam', '/services/pediatric-cleaning-exam/', '#before-after-pediatric-cleaning-exam'],
   ['healthystart-system', '/services/healthystart-system/', '#before-after-healthystart-system'],
+  ['gum-disease-deep-cleaning', '/services/gum-disease-deep-cleaning/', '#before-after-gum-disease-deep-cleaning'],
 ];
 const viewports = [
   ['desktop', 1440, 900],

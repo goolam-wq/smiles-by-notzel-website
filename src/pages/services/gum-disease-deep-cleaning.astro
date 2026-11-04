@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore gum-disease deep cleaning at Smiles by Noetzel, including periodontal measurements, below-gumline therapy, re-evaluation, maintenance, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Gum Disease Deep Cleaning | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-gum-disease-deep-cleaning.webp" mediaAlt="A clinician explaining periodontal measurements and deep-cleaning care to a patient" />
+    <main>
+      <TreatmentDetail kind="gum-disease-deep-cleaning" />
+      <BeforeAfterStory id="before-after-gum-disease-deep-cleaning" tone="light" reverse number="06" eyebrow="Illustrative periodontal pathway · measured care" title="From buildup below the gumline." emphasis="To a treated and monitored foundation."
+        intro="This illustrative periodontal pathway shows how measured gum findings may move through quadrant-based therapy, re-evaluation and individualized maintenance. It is not an actual patient outcome and does not promise cure, reversal, permanent results or pain-free treatment."
+        image="/images/generated/before-after-gum-disease-deep-cleaning-v1.webp" imageAlt="Illustrative comparison of periodontal buildup before treatment and a treated, re-evaluated gum-health pathway"
+        beforeLabel="Before periodontal therapy" beforeDetail="Pocket depths, bleeding, buildup, bone support and the number of quadrants requiring treatment still need evaluation."
+        afterLabel="Illustrative treated foundation" afterDetail="The simulated view represents active below-gumline therapy followed by re-evaluation and maintenance—not an actual or guaranteed outcome."
+        caseNote="Illustrative simulated example · not an actual patient case · periodontal response varies" />
+      <HubFooter eyebrow="Ready to understand the periodontal foundation?" title="Begin with measurements, active therapy and a connected maintenance plan." />
+    </main>
+  </body>
+</html>
