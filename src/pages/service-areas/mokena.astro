@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Visit Smiles by Noetzel in Mokena for connected dental care, convenient hours and complete-health dentistry close to home." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Mokena Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/mokena/mokena-nav-consultation.webp" mediaAlt="A Mokena patient reviewing a care plan with her dentist" />
+    <main>
+      <DetailExperience kind="mokena" />
+      <BeforeAfterStory id="before-after-mokena" tone="dark" reverse number="05" eyebrow="Mokena · natural repair" title="One careful detail." emphasis="A smile that still feels yours."
+        intro="A small front-edge chip can become the first thing someone notices. This Mokena case restored proportion while preserving the patient’s natural shade and character."
+        image="/images/generated/unique/mokena/mokena-before-after-bonding.webp" imageAlt="Before and after Mokena dental bonding case showing a natural front-edge repair"
+        beforeLabel="A visible edge chip" beforeDetail="A small fracture disrupted the front-tooth contour and caught the light unevenly."
+        afterLabel="Balanced and polished" afterDetail="Conservative tooth-colored bonding restores the edge while keeping natural translucency and texture."
+        caseNote="Conservative dental bonding" />
+      <HubFooter eyebrow="Mokena is ready when you are." title="Start with a real conversation. We’ll connect the next step around you." phone="(708) 479-7733" phoneHref="tel:+17084797733" />
+    </main>
+  </body>
+</html>

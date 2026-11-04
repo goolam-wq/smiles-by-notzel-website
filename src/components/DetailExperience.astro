@@ -1,7 +1,9 @@
 ---
-interface Props { kind: 'chicago' | 'cosmetic' | 'complete-health-airway' | 'emergency-comfort' | 'implants-oral-surgery' | 'orthodontic-dentistry' | 'pediatric-developmental' | 'periodontal-dentistry' | 'preventive-diagnostic' | 'recode-cognitive-health' | 'restorative-reconstructive' | 'wellness-offering' }
+interface Props { kind: 'chicago' | 'mokena' | 'cosmetic' | 'complete-health-airway' | 'emergency-comfort' | 'implants-oral-surgery' | 'orthodontic-dentistry' | 'pediatric-developmental' | 'periodontal-dentistry' | 'preventive-diagnostic' | 'recode-cognitive-health' | 'restorative-reconstructive' | 'wellness-offering' }
 const { kind } = Astro.props;
 const chicago = kind === 'chicago';
+const mokena = kind === 'mokena';
+const locationPage = chicago || mokena;
 const completeHealth = kind === 'complete-health-airway';
 const emergencyComfort = kind === 'emergency-comfort';
 const implantsSurgery = kind === 'implants-oral-surgery';
@@ -13,7 +15,9 @@ const recode = kind === 'recode-cognitive-health';
 const restorative = kind === 'restorative-reconstructive';
 const wellness = kind === 'wellness-offering';
 
-const communities = ['Chicago Heights', 'South Chicago Heights', 'Steger', 'Sauk Village', 'Lynwood', 'Glenwood', 'Ford Heights', 'Olympia Fields', 'Park Forest', 'Homewood', 'Flossmoor', 'Hazel Crest', 'Matteson', 'Crete', 'Country Club Hills', 'Richton Park'];
+const communities = mokena
+  ? ['Mokena', 'Frankfort', 'New Lenox', 'Tinley Park', 'Orland Park', 'Homer Glen', 'Lockport', 'Manhattan', 'Frankfort Square', 'Orland Hills']
+  : ['Chicago Heights', 'South Chicago Heights', 'Steger', 'Sauk Village', 'Lynwood', 'Glenwood', 'Ford Heights', 'Olympia Fields', 'Park Forest', 'Homewood', 'Flossmoor', 'Hazel Crest', 'Matteson', 'Crete', 'Country Club Hills', 'Richton Park'];
 const serviceGroups = [
   { name: 'Preventive care', count: 9, href: '/services/#preventive-diagnostic' },
   { name: 'Cosmetic dentistry', count: 7, href: '/services/cosmetic-dentistry/' },
@@ -23,7 +27,9 @@ const serviceGroups = [
   { name: 'Kid-friendly dentistry', count: 9, href: '/services/#pediatric-developmental' },
 ];
 const relatedAreaLinks = [
-  { name: 'Mokena office', detail: '19160 88th Avenue', href: '/service-areas/#mokena' },
+  mokena
+    ? { name: 'Chicago Heights office', detail: '500 Ashland Ave, Suite #2', href: '/service-areas/chicago-heights/' }
+    : { name: 'Mokena office', detail: '19160 88th Avenue', href: '/service-areas/mokena/' },
   { name: 'All nearby communities', detail: '26 connected communities', href: '/service-areas/#community-map' },
   { name: 'Service + location map', detail: 'Compare care by office', href: '/service-areas/#coverage' },
 ];
@@ -745,6 +751,90 @@ const chicagoFaq = [
   ['Can my whole family visit this office?', 'Yes. The Chicago Heights office provides preventive, restorative, cosmetic, kid-friendly and complete-health care.'],
   ['Do you serve communities outside Chicago Heights?', 'Yes. This office supports Chicago Heights and 15 nearby communities listed on this page.'],
 ];
+const mokenaFaq = [
+  ['Where is the Mokena office?', 'We are at 19160 88th Avenue, Mokena, IL 60448.'],
+  ['What are your Mokena hours?', 'The Mokena office is open Monday 8:00 AM–7:00 PM, Thursday 9:30 AM–6:00 PM, and every other Saturday 8:00 AM–12:00 PM. Saturday hours may vary, so please call ahead.'],
+  ['Do you offer emergency dental care in Mokena?', 'Yes. Call (708) 479-7733 so the team can understand what happened, confirm availability and guide your next step.'],
+  ['Can my whole family visit this office?', 'Yes. The Mokena office provides preventive, restorative, cosmetic, kid-friendly and complete-health care.'],
+  ['Do you serve communities outside Mokena?', 'Yes. This office supports Mokena and nine nearby communities listed on this page.'],
+];
+const location = mokena ? {
+  slug: 'mokena',
+  className: 'is-chicago',
+  officeNumber: '02',
+  name: 'Mokena',
+  phone: '(708) 479-7733',
+  phoneHref: 'tel:+17084797733',
+  addressLine: '19160 88th Avenue',
+  cityLine: 'Mokena, IL 60448',
+  mapHref: 'https://www.google.com/maps/search/?api=1&query=Ashland+Dental+and+Wellness+Center+19160+88th+Avenue+Mokena+IL+60448',
+  heroLead: 'Focused care.',
+  heroEmphasis: 'Room to breathe.',
+  heroIntro: 'Monday and Thursday appointments, alternating Saturdays and one connected team—close to the rhythm of Mokena life.',
+  heroImage: '/images/generated/unique/mokena/mokena-hero-arrival.webp',
+  heroAlt: 'A Mokena patient being welcomed by the care coordinator at the reception desk',
+  ledger: [['OPEN', 'Mon until 7 PM'], ['COMMUNITIES', '10 connected'], ['PATIENT PROOF', '5.0 from local reviews'], ['CALL', '(708) 479-7733']],
+  aboutKicker: '01 · ABOUT MOKENA',
+  aboutLead: 'A focused office',
+  aboutEmphasis: 'with unhurried care.',
+  aboutCopy: 'The Mokena office brings practical scheduling, a familiar care team and complete-health thinking into a calmer weekly rhythm. The address is different; the connected standard is not.',
+  schedule: [['01', 'MONDAY', '8:00 AM', '— 7:00 PM'], ['02', 'THURSDAY', '9:30 AM', '— 6:00 PM'], ['03', 'EVERY OTHER SAT', '8:00 AM', '— 12:00 PM']],
+  atlasCopy: 'From routine prevention to a more involved plan, the Mokena team keeps the details connected instead of making every appointment feel like a new beginning.',
+  communityCountWord: 'Ten',
+  communityCopy: 'The Mokena team supports ten connected communities across the southwest suburbs—so complete care can stay close to the route you already travel.',
+  journeyLast: 'Treatment and follow-up stay coordinated with one familiar Mokena team.',
+  trustImage: '/images/generated/unique/mokena/mokena-trust-family.webp',
+  trustAlt: 'A multigenerational Mokena family speaking with a familiar dental hygienist',
+  trustLabel: '19160 88TH AVENUE · MOKENA',
+  trustCopy: 'The difference is a focused schedule with room for real conversation, supported by the same complete-health philosophy and connected service network.',
+  trustReasons: [['01', 'Focused appointment days', 'Monday, Thursday and alternating Saturday availability.'], ['02', '48 connected services', 'Prevention, comfort, restoration and advanced care in one network.'], ['03', 'Complete-health thinking', 'The team connects oral findings with the wider health story.'], ['04', 'A calm local rhythm', 'A smaller weekly schedule creates space for attentive, unhurried care.']],
+  pricingIntro: 'Compare a focused set of common Mokena services in fixed, monthly and yearly customer-facing views.',
+  reviewKicker: '08 · MOKENA PATIENT REVIEWS',
+  reviewScore: '5.0',
+  reviewQuote: '“Friendly, patient, pain-conscious and accommodating with scheduling—the visit felt calm from beginning to end.”',
+  reviewFooter: 'TERRE ROBERTSON · PATIENT REVIEW',
+  reviewTopics: ['Friendly care · consistently noted', 'Pain-conscious approach · patient mentioned', 'Helpful scheduling · patient mentioned'],
+  reviewTotal: '5',
+  faqs: mokenaFaq,
+} : {
+  slug: 'chicago-heights',
+  className: 'is-chicago',
+  officeNumber: '01',
+  name: 'Chicago Heights',
+  phone: '(708) 755-1333',
+  phoneHref: 'tel:+17087551333',
+  addressLine: '500 Ashland Ave, Suite #2',
+  cityLine: 'Chicago Heights, IL',
+  mapHref: 'https://maps.app.goo.gl/htHhNrnhbbu2WNR17',
+  heroLead: 'Care that keeps',
+  heroEmphasis: 'pace with life.',
+  heroIntro: 'Extended weekday hours, complete-health thinking and one connected team—right here on Ashland Avenue.',
+  heroImage: '/images/generated/chicago-heights-arrival-v1.webp',
+  heroAlt: 'A patient being welcomed at a calm dental reception desk',
+  ledger: [['OPEN', 'Mon–Thu until 7 PM'], ['COMMUNITIES', '16 connected'], ['PATIENT PROOF', '4.9 from 258 reviews'], ['CALL', '(708) 755-1333']],
+  aboutKicker: '01 · ABOUT CHICAGO HEIGHTS',
+  aboutLead: 'A neighborhood office',
+  aboutEmphasis: 'built for real life.',
+  aboutCopy: 'The Chicago Heights office connects extended hours, a familiar care team and complete-health thinking in one calm place. Care should fit the week you actually live.',
+  schedule: [['01', 'MON — THU', '7:30 AM', '— 7:00 PM'], ['02', 'FRIDAY', '7:30 AM', '— 12:00 PM'], ['03', 'SATURDAY', '8:00 AM', '— 12:00 PM']],
+  atlasCopy: 'From a preventive visit to a more complex plan, the same team can connect the details instead of treating each appointment like an isolated event.',
+  communityCountWord: 'Sixteen',
+  communityCopy: 'The Chicago Heights team supports familiar neighborhoods across the south suburbs—so connected care stays close to home.',
+  journeyLast: 'Treatment and follow-up stay coordinated with one familiar Chicago Heights team.',
+  trustImage: '/images/generated/unique/chicago-trust-local-family.webp',
+  trustAlt: 'A local family speaking with the Chicago Heights care team',
+  trustLabel: '500 ASHLAND AVE · CHICAGO HEIGHTS',
+  trustCopy: 'The difference is not a single technology or appointment. It is the way access, experience and the wider health story work together.',
+  trustReasons: [['01', 'Hours that make room', 'Early mornings, evenings and Saturday availability.'], ['02', '48 connected services', 'Prevention, comfort, restoration and advanced care in one network.'], ['03', 'Complete-health thinking', 'The team looks beyond one tooth and one appointment.'], ['04', 'Patient-backed care', 'A 4.9 Google rating from 258 Chicago Heights reviews.']],
+  pricingIntro: 'Compare a focused set of common Chicago Heights services in fixed, monthly and yearly customer-facing views.',
+  reviewKicker: '08 · CHICAGO HEIGHTS PATIENT REVIEWS',
+  reviewScore: '4.9',
+  reviewQuote: '“The staff work together like a well-oiled machine—friendly, efficient and attentive without making the visit feel rushed.”',
+  reviewFooter: 'KEANNA BENSON · PATIENT REVIEW',
+  reviewTopics: ['Friendly staff · 76 mentions', 'Caring staff · 35 mentions', 'Clear explanations · 9 mentions'],
+  reviewTotal: '258',
+  faqs: chicagoFaq,
+};
 const cosmeticFaq = [
   ['How do I know which cosmetic treatment fits my smile?', 'A consultation begins with your goals, timeline, oral health and budget. The team then explains which options make sense and why.'],
   ['Is cosmetic dentistry available at both offices?', 'Yes. Cosmetic services are available in Chicago Heights and Mokena. Appointment availability can vary by treatment.'],
@@ -752,33 +842,33 @@ const cosmeticFaq = [
   ['Will my result look natural?', 'The planning process considers tooth shape, shade, proportion and your facial features so the result feels like you—not a template.'],
   ['Can cosmetic work be financed monthly?', 'Monthly examples are included for each service. Final terms and eligibility are confirmed with the office.'],
 ];
-const faqs = chicago ? chicagoFaq : category.faqs;
+const faqs = locationPage ? location.faqs : category.faqs;
 ---
 
-<div class:list={['detail-page', chicago ? 'is-chicago' : completeHealth ? 'is-complete-health' : emergencyComfort ? 'is-emergency-comfort' : implantsSurgery ? 'is-implants-surgery' : orthodontic ? 'is-orthodontic' : pediatric ? 'is-pediatric' : periodontal ? 'is-periodontal' : preventive ? 'is-preventive' : recode ? 'is-recode' : restorative ? 'is-restorative' : wellness ? 'is-wellness' : 'is-cosmetic']} data-detail-root data-detail-kind={kind}>
-  <section class="detail-hero" data-detail-hero data-areas-hero={chicago ? '' : undefined} data-services-hero={!chicago ? '' : undefined}>
+<div class:list={['detail-page', locationPage ? location.className : completeHealth ? 'is-complete-health' : emergencyComfort ? 'is-emergency-comfort' : implantsSurgery ? 'is-implants-surgery' : orthodontic ? 'is-orthodontic' : pediatric ? 'is-pediatric' : periodontal ? 'is-periodontal' : preventive ? 'is-preventive' : recode ? 'is-recode' : restorative ? 'is-restorative' : wellness ? 'is-wellness' : 'is-cosmetic']} data-detail-root data-detail-kind={kind}>
+  <section class="detail-hero" data-detail-hero data-areas-hero={locationPage ? '' : undefined} data-services-hero={!locationPage ? '' : undefined}>
     <div class="detail-hero__sticky">
       <div class="detail-hero__grid" aria-hidden="true"></div>
-      <div class="detail-hero__watermark" aria-hidden="true"><span>{chicago ? 'CHICAGO' : category.watermark[0]}</span><em>{chicago ? 'HEIGHTS' : category.watermark[1]}</em></div>
+      <div class="detail-hero__watermark" aria-hidden="true"><span>{locationPage ? location.name.toUpperCase() : category.watermark[0]}</span><em>{locationPage ? 'OFFICE' : category.watermark[1]}</em></div>
       <div class="detail-hero__copy">
-        <p class="detail-kicker"><span></span>{chicago ? 'Chicago Heights · Office 01' : category.heroKicker}</p>
-        {chicago ? (
-          <h1>Care that keeps<br /><em>pace with life.</em></h1>
+        <p class="detail-kicker"><span></span>{locationPage ? `${location.name} · Office ${location.officeNumber}` : category.heroKicker}</p>
+        {locationPage ? (
+          <h1><span>{location.heroLead}</span><br /><em>{location.heroEmphasis}</em></h1>
         ) : (
           <h1><span>{category.heroLead}</span><br /><em>{category.heroEmphasis}</em></h1>
         )}
-        <p class="detail-hero__intro">{chicago ? 'Extended weekday hours, complete-health thinking and one connected team—right here on Ashland Avenue.' : category.heroIntro}</p>
-        <a class="detail-button" href={chicago ? 'tel:+17087551333' : `#${category.slug}-options`}>
-          <span>{chicago ? 'Call Chicago Heights' : category.heroButton}</span><b aria-hidden="true">↓</b>
+        <p class="detail-hero__intro">{locationPage ? location.heroIntro : category.heroIntro}</p>
+        <a class="detail-button" href={locationPage ? location.phoneHref : `#${category.slug}-options`}>
+          <span>{locationPage ? `Call ${location.name}` : category.heroButton}</span><b aria-hidden="true">↓</b>
         </a>
       </div>
 
-      <div class:list={['detail-hero__visual', !chicago && !completeHealth && !emergencyComfort && !implantsSurgery && !orthodontic && !pediatric && !periodontal && !preventive && !recode && !restorative && !wellness && 'cosmetic-triptych', completeHealth && 'health-scan', emergencyComfort && 'comfort-relief', implantsSurgery && 'implant-stage', orthodontic && 'aligner-reveal', pediatric && 'growing-story', periodontal && 'gum-story', preventive && 'preventive-window', recode && 'recode-focus', restorative && 'restorative-composition', wellness && 'wellness-portrait']} data-hero-visual>
-        {!completeHealth && !emergencyComfort && !implantsSurgery && !orthodontic && !pediatric && !periodontal && !preventive && !recode && !restorative && !wellness && <div class="detail-hero__outline" aria-hidden="true"><span>{chicago ? 'OFFICE 01' : category.heroOutline}</span></div>}
-        {chicago ? (
+      <div class:list={['detail-hero__visual', !locationPage && !completeHealth && !emergencyComfort && !implantsSurgery && !orthodontic && !pediatric && !periodontal && !preventive && !recode && !restorative && !wellness && 'cosmetic-triptych', completeHealth && 'health-scan', emergencyComfort && 'comfort-relief', implantsSurgery && 'implant-stage', orthodontic && 'aligner-reveal', pediatric && 'growing-story', periodontal && 'gum-story', preventive && 'preventive-window', recode && 'recode-focus', restorative && 'restorative-composition', wellness && 'wellness-portrait']} data-hero-visual>
+        {!completeHealth && !emergencyComfort && !implantsSurgery && !orthodontic && !pediatric && !periodontal && !preventive && !recode && !restorative && !wellness && <div class="detail-hero__outline" aria-hidden="true"><span>{locationPage ? `OFFICE ${location.officeNumber}` : category.heroOutline}</span></div>}
+        {locationPage ? (
           <>
             <div class="detail-hero__frame">
-              <img src="/images/generated/chicago-heights-arrival-v1.webp" alt="A patient being welcomed at a calm dental reception desk" width="1536" height="1024" loading="eager" fetchpriority="high" />
+              <img src={location.heroImage} alt={location.heroAlt} width="1536" height="1024" loading="eager" fetchpriority="high" />
             </div>
             <div class="hero-aperture" aria-hidden="true"><i></i><i></i></div>
           </>
@@ -845,8 +935,8 @@ const faqs = chicago ? chicagoFaq : category.faqs;
             <div class="cosmetic-slice slice-c" aria-hidden="true"><img src={category.heroImage} alt="" width="1536" height="1024" loading="eager" /></div>
           </div>
         )}
-        {chicago ? (
-          <div class="hero-address"><span>500 Ashland Ave, Suite #2</span><span>Chicago Heights, IL</span></div>
+        {locationPage ? (
+          <div class="hero-address"><span>{location.addressLine}</span><span>{location.cityLine}</span></div>
         ) : completeHealth || emergencyComfort || implantsSurgery || orthodontic || pediatric || periodontal || preventive || recode || restorative || wellness ? null : (
           <><div class="cosmetic-triptych__caption">{category.heroCaptions.map((caption) => <span>{caption}</span>)}</div><div class="hero-shade" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></>
         )}
@@ -857,34 +947,27 @@ const faqs = chicago ? chicagoFaq : category.faqs;
   </section>
 
   <section class="detail-ledger" aria-label="Key details">
-    {chicago ? (
-      <>
-        <div><small>OPEN</small><strong>Mon–Thu until 7 PM</strong></div>
-        <div><small>COMMUNITIES</small><strong>16 connected</strong></div>
-        <div><small>PATIENT PROOF</small><strong>4.9 from 258 reviews</strong></div>
-        <div><small>CALL</small><strong>(708) 755-1333</strong></div>
-      </>
+    {locationPage ? (
+      <>{location.ledger.map((item) => <div><small>{item[0]}</small><strong>{item[1]}</strong></div>)}</>
     ) : (
       <>{category.ledger.map((item) => <div><small>{item[0]}</small><strong>{item[1]}</strong></div>)}</>
     )}
   </section>
 
-  {chicago ? (
+  {locationPage ? (
     <>
       <section class="editorial-story section-shell" data-reveal-section>
-        <div class="editorial-story__eyebrow"><span>01</span><p>ABOUT CHICAGO HEIGHTS</p></div>
+        <div class="editorial-story__eyebrow"><span>01</span><p>{location.aboutKicker.replace('01 · ', '')}</p></div>
         <div class="editorial-story__headline">
-          <h2>A neighborhood office<br />built for <em>real life.</em></h2>
+          <h2>{location.aboutLead}<br /><em>{location.aboutEmphasis}</em></h2>
         </div>
         <div class="editorial-story__body">
-          <p>The Chicago Heights office connects extended hours, a familiar care team and complete-health thinking in one calm place. Care should fit the week you actually live.</p>
-          <a href="https://maps.app.goo.gl/htHhNrnhbbu2WNR17" target="_blank" rel="noreferrer">Open in Google Maps ↗</a>
+          <p>{location.aboutCopy}</p>
+          <a href={location.mapHref} target="_blank" rel="noreferrer">Open in Google Maps ↗</a>
         </div>
         <div class="schedule-rail" data-schedule-rail>
           <div class="schedule-rail__line"><i></i></div>
-          <article><b>01</b><span>MON — THU</span><strong>7:30 AM<br />— 7:00 PM</strong></article>
-          <article><b>02</b><span>FRIDAY</span><strong>7:30 AM<br />— 12:00 PM</strong></article>
-          <article><b>03</b><span>SATURDAY</span><strong>8:00 AM<br />— 12:00 PM</strong></article>
+          {location.schedule.map((item) => <article><b>{item[0]}</b><span>{item[1]}</span><strong>{item[2]}<br />{item[3]}</strong></article>)}
         </div>
       </section>
 
@@ -893,7 +976,7 @@ const faqs = chicago ? chicagoFaq : category.faqs;
           <div class="care-atlas__copy">
             <p class="detail-kicker light"><span></span>02 · ONE CONNECTED OFFICE</p>
             <h2>More of your care,<br /><em>under one roof.</em></h2>
-            <p>From a preventive visit to a more complex plan, the same team can connect the details instead of treating each appointment like an isolated event.</p>
+            <p>{location.atlasCopy}</p>
             <a href="/services/">View all services ↗</a>
           </div>
           <div class="care-spectrum" aria-label="Six connected care categories">
@@ -922,8 +1005,8 @@ const faqs = chicago ? chicagoFaq : category.faqs;
       <section class="communities section-shell" data-reveal-section>
         <div class="communities__head">
           <p class="detail-kicker"><span></span>03 · NEARBY BY DESIGN</p>
-          <h2>One office.<br /><em>Sixteen communities.</em></h2>
-          <p>The Chicago Heights team supports familiar neighborhoods across the south suburbs—so connected care stays close to home.</p>
+          <h2>One office.<br /><em>{location.communityCountWord} communities.</em></h2>
+          <p>{location.communityCopy}</p>
         </div>
         <div class="community-list">
           {communities.map((community, i) => <div><span>{String(i + 1).padStart(2, '0')}</span><strong>{community}</strong><i></i></div>)}
@@ -981,15 +1064,15 @@ const faqs = chicago ? chicagoFaq : category.faqs;
   <section class="journey" data-journey>
     <div class="journey__sticky">
       <header>
-        <p class="detail-kicker"><span></span>{chicago ? '04 · THE COMPLETE-HEALTH PROCESS' : category.processKicker}</p>
-        <h2>{chicago ? <>Care that becomes <em>clear.</em></> : <>{category.processLead} <em>{category.processEmphasis}</em></>}</h2>
+        <p class="detail-kicker"><span></span>{locationPage ? '04 · THE COMPLETE-HEALTH PROCESS' : category.processKicker}</p>
+        <h2>{locationPage ? <>Care that becomes <em>clear.</em></> : <>{category.processLead} <em>{category.processEmphasis}</em></>}</h2>
       </header>
       <div class="journey__track">
-        {(chicago ? [
+        {(locationPage ? [
           ['01', 'Listen', 'We begin with your concern, your health story and what you need from this visit.'],
           ['02', 'See', 'Exams, imaging and complete-health screening bring the full picture into focus.'],
           ['03', 'Plan', 'Options, timing and pricing are organized into a path you can understand.'],
-          ['04', 'Connect', 'Treatment and follow-up stay coordinated with one familiar Chicago Heights team.'],
+          ['04', 'Connect', location.journeyLast],
         ] : category.steps).map((step) => (
           <article data-journey-card>
             <span>{step[0]}</span><h3>{step[1]}</h3><p>{step[2]}</p><i aria-hidden="true"></i>
@@ -1000,34 +1083,29 @@ const faqs = chicago ? chicagoFaq : category.faqs;
     </div>
   </section>
 
-  <section class:list={['trust-story', chicago ? 'trust-chicago' : 'trust-cosmetic']} data-trust-story data-reveal-section>
+  <section class:list={['trust-story', locationPage ? 'trust-chicago' : 'trust-cosmetic']} data-trust-story data-reveal-section>
     <div class="trust-story__image" data-trust-image>
-      <img src={chicago ? '/images/generated/unique/chicago-trust-local-family.webp' : category.trustImage} alt={chicago ? 'A local family speaking with the Chicago Heights care team' : category.trustAlt} width="1536" height="1024" loading="lazy" />
-      <span>{chicago ? '500 ASHLAND AVE · CHICAGO HEIGHTS' : category.trustLabel}</span>
+      <img src={locationPage ? location.trustImage : category.trustImage} alt={locationPage ? location.trustAlt : category.trustAlt} width="1536" height="1024" loading="lazy" />
+      <span>{locationPage ? location.trustLabel : category.trustLabel}</span>
     </div>
     <div class="trust-story__content">
-      <p class="detail-kicker light"><span></span>{chicago ? '05 · WHY CHOOSE THIS OFFICE' : category.trustKicker}</p>
-      <h2>{chicago ? 'More than a convenient address.' : category.trustHeading}</h2>
-      <p>{chicago ? 'The difference is not a single technology or appointment. It is the way access, experience and the wider health story work together.' : category.trustCopy}</p>
+      <p class="detail-kicker light"><span></span>{locationPage ? '05 · WHY CHOOSE THIS OFFICE' : category.trustKicker}</p>
+      <h2>{locationPage ? 'More than a convenient address.' : category.trustHeading}</h2>
+      <p>{locationPage ? location.trustCopy : category.trustCopy}</p>
       <div class="trust-story__reasons">
-        {(chicago ? [
-          ['01', 'Hours that make room', 'Early mornings, evenings and Saturday availability.'],
-          ['02', '48 connected services', 'Prevention, comfort, restoration and advanced care in one network.'],
-          ['03', 'Complete-health thinking', 'The team looks beyond one tooth and one appointment.'],
-          ['04', 'Patient-backed care', 'A 4.9 Google rating from 258 Chicago Heights reviews.'],
-        ] : category.trustReasons).map((reason) => <article><b>{reason[0]}</b><strong>{reason[1]}</strong><p>{reason[2]}</p></article>)}
+        {(locationPage ? location.trustReasons : category.trustReasons).map((reason) => <article><b>{reason[0]}</b><strong>{reason[1]}</strong><p>{reason[2]}</p></article>)}
       </div>
     </div>
   </section>
 
-  {chicago && (
-    <section class="pricing pricing--chicago section-shell" id="chicago-pricing" data-reveal-section>
+  {locationPage && (
+    <section class="pricing pricing--chicago section-shell" id={`${location.slug}-pricing`} data-reveal-section>
       <div class="pricing__head">
         <p class="detail-kicker"><span></span>06 · PRICING, MADE LEGIBLE</p>
         <h2>Everyday care.<br /><em>Three ways to plan.</em></h2>
-        <p>Compare a focused set of common Chicago Heights services in fixed, monthly and yearly customer-facing views.</p>
+        <p>{location.pricingIntro}</p>
       </div>
-      <div class="pricing__table" role="table" aria-label="Chicago Heights general dentistry pricing">
+      <div class="pricing__table" role="table" aria-label={`${location.name} general dentistry pricing`}>
         <div class="pricing__row pricing__labels" role="row"><span>Service</span><span>Fixed</span><span>Monthly</span><span>Yearly</span></div>
         {chicagoPricing.map((service) => (
           <div class="pricing__row" role="row"><strong>{service.name}</strong><span>{service.fixed}</span><span>{service.monthly}</span><span>{service.yearly}</span></div>
@@ -1037,7 +1115,7 @@ const faqs = chicago ? chicagoFaq : category.faqs;
     </section>
   )}
 
-  {chicago && (
+  {locationPage && (
     <section class="related-paths section-shell" id="related-care" data-reveal-section>
       <header class="related-paths__head">
         <p class="detail-kicker"><span></span>07 · KEEP EXPLORING</p>
@@ -1065,7 +1143,7 @@ const faqs = chicago ? chicagoFaq : category.faqs;
     </section>
   )}
 
-  {!chicago && (
+  {!locationPage && (
     <section class="pricing section-shell" id={`${category.slug}-pricing`} data-reveal-section>
       <div class="pricing__head">
         <p class="detail-kicker"><span></span>{category.pricingKicker}</p>
@@ -1084,23 +1162,23 @@ const faqs = chicago ? chicagoFaq : category.faqs;
 
   <section class="patient-proof" data-proof>
     <div class="patient-proof__top">
-      <div><p class="detail-kicker light"><span></span>{chicago ? '08 · CHICAGO HEIGHTS PATIENT REVIEWS' : category.proofKicker}</p><h2 class="proof-heading">Real patients.<br /><em>Real perspective.</em></h2></div>
-      <div class="proof-score"><strong>4.9</strong><span>Google rating<br />Chicago Heights</span></div>
+      <div><p class="detail-kicker light"><span></span>{locationPage ? location.reviewKicker : category.proofKicker}</p><h2 class="proof-heading">Real patients.<br /><em>Real perspective.</em></h2></div>
+      <div class="proof-score"><strong>{locationPage ? location.reviewScore : '4.9'}</strong><span>Google rating<br />{locationPage ? location.name : 'Chicago Heights'}</span></div>
     </div>
     <div class="patient-proof__stage">
       <blockquote data-proof-quote>
-        <p>{chicago ? '“The staff work together like a well-oiled machine—friendly, efficient and attentive without making the visit feel rushed.”' : category.proofQuote}</p>
-        <footer>{chicago ? 'KEANNA BENSON · PATIENT REVIEW' : category.proofFooter}</footer>
+        <p>{locationPage ? location.reviewQuote : category.proofQuote}</p>
+        <footer>{locationPage ? location.reviewFooter : category.proofFooter}</footer>
       </blockquote>
       <div class="proof-topics">
-        {(chicago ? ['Friendly staff · 76 mentions', 'Caring staff · 35 mentions', 'Clear explanations · 9 mentions'] : category.proofTopics).map((topic) => <span>{topic}</span>)}
+        {(locationPage ? location.reviewTopics : category.proofTopics).map((topic) => <span>{topic}</span>)}
       </div>
     </div>
-    <p class="proof-total">{chicago ? '258' : category.proofTotal}<small>{chicago ? 'total Google reviews' : category.proofTotalLabel}</small></p>
+    <p class="proof-total">{locationPage ? location.reviewTotal : category.proofTotal}<small>{locationPage ? 'total Google reviews' : category.proofTotalLabel}</small></p>
   </section>
 
   <section class="detail-faq section-shell" data-reveal-section>
-    <div class="detail-faq__head"><p class="detail-kicker"><span></span>{chicago ? '09 · GOOD QUESTIONS' : category.faqKicker}</p><h2>Before you<br /><em>begin.</em></h2></div>
+    <div class="detail-faq__head"><p class="detail-kicker"><span></span>{locationPage ? '09 · GOOD QUESTIONS' : category.faqKicker}</p><h2>Before you<br /><em>begin.</em></h2></div>
     <div class="detail-faq__list">
       {faqs.map((faq, i) => (
         <details open={i === 0}>
@@ -1170,6 +1248,8 @@ const faqs = chicago ? chicagoFaq : category.faqs;
   @media (max-width:720px){.is-recode .detail-hero{height:100svh;min-height:52rem}.is-recode .detail-hero__visual{inset:4.9rem .7rem auto;height:47%;width:auto}.recode-focus__panorama{inset:0 0 9% 0;border-radius:4.8rem .7rem .7rem .7rem}.recode-focus__panorama:after{background:linear-gradient(180deg,rgba(6,29,25,.04),rgba(6,29,25,.08) 58%,rgba(6,29,25,.55))}.recode-focus__panorama img{object-position:61% center}.recode-focus__portrait{left:auto;right:.6rem;bottom:0;width:7.7rem;border-width:.35rem}.recode-focus__portrait img{object-position:22% 52%;transform:scale(1.65)}.recode-focus__note{display:none}.is-recode .detail-hero__copy{inset:55% 1.25rem 1rem;display:flex;max-width:none}.is-recode .detail-hero .detail-kicker{font-size:.46rem}.is-recode .detail-hero h1{margin:.9rem 0;font-size:clamp(3.1rem,13.6vw,4.15rem);line-height:.78}.is-recode .detail-hero__intro{max-width:23rem;margin:0 0 .9rem;font-size:.72rem;line-height:1.4}.is-recode .detail-button{margin-top:auto;min-width:13rem}.is-recode .detail-ledger{margin-top:0}}
   @media (max-width:720px){.is-restorative .detail-hero{height:100svh;min-height:52rem}.is-restorative .detail-hero__visual{inset:4.9rem .7rem auto;height:47%;width:auto}.restorative-composition__main{inset:0 0 7% 0;border-radius:.7rem 5rem .7rem .7rem}.restorative-composition__main img{object-position:63% center}.restorative-composition__detail{left:.4rem;bottom:0;width:7.7rem;height:42%;border-width:.35rem;border-radius:4rem 4rem .5rem .5rem}.restorative-composition__detail img{object-position:21% center;transform:scale(1.5)}.is-restorative .detail-hero__copy{inset:55% 1.25rem 1rem;display:flex;max-width:none}.is-restorative .detail-hero .detail-kicker{font-size:.46rem}.is-restorative .detail-hero h1{margin:.9rem 0;font-size:clamp(3.05rem,13.5vw,4.1rem);line-height:.78}.is-restorative .detail-hero__intro{max-width:23rem;margin:0 0 .9rem;font-size:.72rem;line-height:1.4}.is-restorative .detail-button{margin-top:auto;min-width:13rem}.is-restorative .detail-ledger{margin-top:0}}
   @media (max-width:720px){.is-wellness .detail-hero{height:100svh;min-height:52rem}.is-wellness .detail-hero__visual{inset:4.9rem .7rem auto;height:47%;width:auto}.wellness-portrait__stage{inset:0;border-radius:5.5rem 5.5rem .7rem .7rem}.wellness-portrait__stage img{object-position:59% center}.is-wellness .detail-hero__copy{inset:55% 1.25rem 1rem;display:flex;max-width:none}.is-wellness .detail-hero .detail-kicker{font-size:.46rem}.is-wellness .detail-hero h1{margin:.9rem 0;font-size:clamp(3.15rem,13.8vw,4.2rem);line-height:.78}.is-wellness .detail-hero__intro{max-width:23rem;margin:0 0 .9rem;font-size:.72rem;line-height:1.4}.is-wellness .detail-button{margin-top:auto;min-width:13rem}.is-wellness .detail-ledger{margin-top:0}}
+  /* Location-detail lock: all office pages keep the Chicago Heights cinematic
+     skeleton. Per-location variation is limited to copy, image and crop. */
   @media (prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}.detail-hero__frame img{transform:none!important}}
 </style>
 
@@ -1269,7 +1349,7 @@ const faqs = chicago ? chicagoFaq : category.faqs;
               .to(copy,{yPercent:-3,opacity:1,ease:'none'},0)
               .to(q('.detail-hero__watermark'),{xPercent:-9,yPercent:-5,ease:'none'},0)
               .to(q('.detail-hero__index'),{opacity:.78,ease:'none'},0);
-          } else if (root.dataset.detailKind !== 'chicago') {
+          } else if (!['chicago','mokena'].includes(root.dataset.detailKind || '')) {
             tl.to(visual,{width:stageWidth,height:compact?'78vh':'86vh',right:compact?'.8rem':'1vw',top:compact?'11vh':'7vh',ease:'none'},0)
               .to(q('.cosmetic-triptych__panels'),{gridTemplateColumns:'.58fr 1.58fr .62fr',gap:'.3rem',ease:'none'},0)
               .to(q('.cosmetic-slice'),{borderRadius:'3.5rem 3.5rem .75rem .75rem',ease:'none'},0)
@@ -1376,7 +1456,7 @@ const faqs = chicago ? chicagoFaq : category.faqs;
               .to(q('.health-scan__main img'),{xPercent:-2,ease:'none'},0)
               .to(q('.health-scan__detail.airway'),{yPercent:-3,ease:'none'},0)
               .to(q('.health-scan__detail.system'),{yPercent:3,ease:'none'},0);
-          } else if (root.dataset.detailKind !== 'chicago') {
+          } else if (!['chicago','mokena'].includes(root.dataset.detailKind || '')) {
             mobileTl.to(visual,{height:'52svh',left:'.5rem',right:'.5rem',bottom:'.5rem',ease:'none'},0)
               .to(q('.detail-hero__watermark'),{xPercent:-12,yPercent:-4,ease:'none'},0)
               .to(q('.cosmetic-triptych__panels'),{gridTemplateColumns:'.6fr 1.5fr .62fr',gap:'.2rem',ease:'none'},0)

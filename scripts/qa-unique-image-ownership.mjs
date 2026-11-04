@@ -7,6 +7,7 @@ const routes = [
   '/service-areas/',
   '/services/cosmetic-dentistry/',
   '/service-areas/chicago-heights/',
+  '/service-areas/mokena/',
   '/services/professional-teeth-whitening/',
   '/services/porcelain-veneers-laminates/',
   '/services/lumineers/',
