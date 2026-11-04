@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -34,8 +34,14 @@ const isFluorideTreatment = kind === 'fluoride-treatment';
 const isDentalSealants = kind === 'dental-sealants';
 const isGumScreening = kind === 'gum-disease-screening';
 const isSportsMouthguard = kind === 'custom-sports-mouthguard';
+const isNightGuard = kind === 'custom-night-guard';
 
-const processSteps = isSportsMouthguard ? [
+const processSteps = isNightGuard ? [
+  ['01', 'Review', 'The clinician reviews pressure concerns, symptoms, dental history, teeth, bite, restorations and existing wear before confirming the pathway.'],
+  ['02', 'Evaluate & capture', 'The current dental condition and bite are evaluated, and appropriate records are captured for the planned appliance when suitable.'],
+  ['03', 'Fabricate', 'The night guard is made to the confirmed design and current records rather than treated as a universal or same-day appliance.'],
+  ['04', 'Fit & guide', 'Fit is checked and individualized wear, cleaning, storage, monitoring and replacement factors are explained without promising an exact lifespan.'],
+] : isSportsMouthguard ? [
   ['01', 'Review', 'The clinician reviews the sport, age, dental history, current teeth, bite, restorations and braces or appliances before confirming the pathway.'],
   ['02', 'Capture', 'When appropriate, records of the teeth and bite are captured for the planned custom appliance; examination or imaging is separate unless confirmed.'],
   ['03', 'Fabricate', 'The mouthguard is made to the confirmed design and current dental records rather than treated as a universal or same-day fit.'],
@@ -192,7 +198,13 @@ const processSteps = isSportsMouthguard ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isSportsMouthguard ? [
+const faqs = isNightGuard ? [
+  ['How much does a custom night guard cost?', 'The customer-facing price is $450 per appliance. The $38 monthly view is an approximate rounded 12-month illustration ($456 total), which is $6 above the $450 fixed and yearly views. Final eligibility, scope and payment terms are confirmed by the office.'],
+  ['Will a night guard stop grinding or cure TMJ pain, headaches or sleep apnea?', 'No. A night guard is not presented as a cure for grinding, TMJ disorders, headaches, sleep apnea or another medical condition. Symptoms may have different causes and may require dental or medical evaluation.'],
+  ['Does a night guard prevent every crack or tooth problem?', 'No. An appliance may be considered within a protective plan, but it cannot guarantee prevention of cracks, wear, discomfort or future dental treatment. Monitoring remains important.'],
+  ['Is every patient suitable for the same type of night guard?', 'No. Teeth, bite, restorations, symptoms, sleep context and other findings affect whether an appliance is appropriate and which design may be considered.'],
+  ['Is a custom night guard the same as a sports mouthguard?', 'No. A custom night guard is planned for nighttime pressure or wear concerns; a sports mouthguard is designed for athletic use. Neither should be substituted for the other without clinician guidance.'],
+] : isSportsMouthguard ? [
   ['How much does a custom sports mouthguard cost?', 'The customer-facing price is $450 per appliance. The $38 monthly view is an approximate rounded 12-month illustration ($456 total), which is $6 above the $450 fixed and yearly views. Final eligibility, scope and payment terms are confirmed by the office.'],
   ['Does a custom mouthguard guarantee protection from dental injury or concussion?', 'No. No mouthguard can guarantee prevention of dental injury, facial injury or concussion. The appliance is one protective measure used alongside appropriate sport rules, equipment, coaching and medical guidance.'],
   ['Can the mouthguard be worn with braces?', 'Compatibility with braces, aligners or other appliances is not universal. The clinician reviews the current dental and orthodontic situation before confirming whether this pathway is appropriate.'],
@@ -381,7 +393,13 @@ const faqs = isSportsMouthguard ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isSportsMouthguard ? [
+const relatedServices = isNightGuard ? [
+  ['Preventive & Diagnostic Dentistry', 'Explore the complete preventive category', '/services/preventive-diagnostic/'],
+  ['Custom sports mouthguard', 'Explore a separate appliance for athletic use', '/services/custom-sports-mouthguard/'],
+  ['Routine comprehensive exam', 'Connect appliance planning to current oral findings', '/services/routine-comprehensive-exam/'],
+  ['Restorative & Reconstructive Dentistry', 'Connect wear or damage findings to restorative planning', '/services/restorative-reconstructive/'],
+  ['Dental crown', 'Explore a restorative pathway when clinically appropriate', '/services/dental-crown/'],
+] : isSportsMouthguard ? [
   ['Preventive & Diagnostic Dentistry', 'Explore the complete preventive category', '/services/preventive-diagnostic/'],
   ['Custom night guard', 'Explore a separate appliance pathway for nighttime wear', '/services/custom-night-guard/'],
   ['Routine comprehensive exam', 'Connect appliance planning to current oral findings', '/services/routine-comprehensive-exam/'],
@@ -564,7 +582,61 @@ const relatedServices = isSportsMouthguard ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isSportsMouthguard ? {
+const content = isNightGuard ? {
+  heroClass: 'is-night-guard',
+  heroImages: [
+    ['/images/generated/custom-night-guard-hero-v1.webp', 'A patient discussing nighttime pressure and tooth-wear concerns before a custom night guard is planned', 'BEGIN WITH THE PRESSURE CONCERN'],
+    ['/images/generated/custom-night-guard-hero-detail-v1.webp', 'A clinician evaluating the bite and capturing records for a custom night guard', 'EVALUATE THE CURRENT BITE'],
+    ['/images/generated/custom-night-guard-hero-result-v1.webp', 'A patient reviewing the fit and monitoring guidance for a custom night guard', 'FIT AND MONITOR'],
+  ],
+  heroAria: ['Explore nighttime pressure and dental review', 'Explore bite evaluation and current records', 'Explore night-guard fit and monitoring guidance'],
+  kicker: 'Preventive & Diagnostic · Protection 08',
+  title: ['Protection planned for the pressure', 'you may not notice.'],
+  intro: 'A custom night guard considered around the current teeth, bite and pressure or wear concerns—without promising to stop grinding, cure symptoms or prevent every crack.',
+  heroRail: ['Begin with the concern', 'Evaluate the current bite', 'Fit and monitor'],
+  ledgerLabel: 'Custom night guard', ledgerFixed: '$450 / appliance', ledgerMonthly: '$38 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['Nighttime pressure can leave daytime clues.', 'The appliance starts with', 'current findings.'],
+  storyImage: '/images/generated/custom-night-guard-process-v1.webp',
+  storyAlt: 'A clinician evaluating the bite and capturing records for a custom night guard',
+  storyRangeLabel: 'Compare an unassessed pressure concern with a fitted appliance and monitoring pathway',
+  storyNote: 'Evaluate the cause and current condition before planning the appliance.',
+  storyLead: 'We begin with symptoms, current teeth, bite, restorations and visible wear. When an appliance is appropriate, the team captures the records, confirms the design, checks the fit and explains monitoring without treating it as a cure or a universal solution.',
+  storySteps: [
+    ['01', 'Review the concern', 'Symptoms, dental history, bite, restorations and wear establish the starting point.'],
+    ['02', 'Build from current records', 'The confirmed evaluation and records support an individualized appliance design.'],
+    ['03', 'Fit and monitor', 'Wear, care, fit changes and replacement factors are reviewed over time.'],
+  ],
+  storyNotes: ['Begin with the symptoms and current dental condition.', 'Fabricate from confirmed bite records.', 'Monitor fit, wear and changing dental needs.'],
+  processTitle: ['Evaluate the pressure.', 'Guide the wear.'],
+  expectTitle: ['Custom in fit.', 'Careful in claims.'],
+  expectCopy: 'A custom night guard may be considered within a protective dental plan, but it does not guarantee that grinding stops, symptoms resolve or every crack is prevented. Suitability, fabrication timing, wear guidance and lifespan depend on the individual findings.',
+  metrics: [['1', 'custom nighttime appliance'], ['4', 'stages: review, evaluate, fabricate, fit'], ['2', 'connected office locations']],
+  pricingId: 'custom-night-guard-pricing',
+  pricingTitle: ['One custom appliance.', 'Three planning views.'],
+  pricingIntro: 'The custom night guard amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$450', 'per appliance'], ['MONTHLY · 02', '$38', 'per month · 12 months'], ['YEARLY · 03', '$450', 'annual treatment basis']],
+  pricingNote: 'The $38 monthly view is an approximate rounded illustration ($456 total across 12 months), which is $6 above the $450 fixed and yearly views. The yearly amount is shown on an annual-treatment basis; it is not a subscription and does not include unlimited appliances or replacement. Examination, imaging, replacement appliances and related treatment are separate unless office-confirmed.',
+  whyTitle: ['The current bite recorded.', 'The monitoring plan explained.'],
+  whyIntro: 'A custom night guard begins with current findings rather than an assumption about the cause. The team checks the finished appliance and explains how dental changes, wear or symptoms may affect future review.',
+  whyImage: '/images/generated/custom-night-guard-result-v1.webp',
+  whyAlt: 'A clinician checking a custom night guard and explaining individualized wear and monitoring guidance',
+  whyPanels: [
+    ['01', 'Symptoms and bite reviewed', 'Pressure concerns, visible wear, current teeth, bite and restorations are considered before suitability is confirmed.'],
+    ['02', 'Fit built from records', 'The appliance is fabricated from current records rather than a universal design or same-day assumption.'],
+    ['03', 'Monitoring without a cure claim', 'Fit, wear and symptoms are reviewed without promising that grinding stops or damage and discomfort are prevented.'],
+  ],
+  whyFoot: 'ONE CUSTOM APPLIANCE · FOUR CONNECTED STAGES',
+  proofTitle: ['The fit checked.', 'The limits understood.'],
+  proofText: 'Patients frequently mention careful explanations, thoughtful planning and clear follow-up—general-practice themes that support how custom appliance care is discussed.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Current bite records', 'Custom fit check', 'Ongoing monitoring'],
+  faqTitle: ['Before a custom', 'night guard.'],
+  relatedTitle: ['One nighttime appliance.', 'Several connected paths.'],
+  relatedAria: 'Related preventive, restorative and appliance services',
+  currentPath: 'Custom night guard',
+  locationsAria: 'Custom night guard locations',
+} : isSportsMouthguard ? {
   heroClass: 'is-sports-mouthguard',
   heroImages: [
     ['/images/generated/custom-sports-mouthguard-hero-v1.webp', 'An athlete discussing sport demands and dental protection before a custom mouthguard is planned', 'BEGIN WITH HOW YOU PLAY'],
@@ -2856,6 +2928,15 @@ const content = isSportsMouthguard ? {
   .whitening-hero.is-sports-mouthguard .hero-fold--two>img{object-position:51% center}
   .whitening-hero.is-sports-mouthguard .hero-fold--three>img{object-position:62% center}
   .whitening-hero.is-sports-mouthguard .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 35%,rgba(4,24,20,.39) 60%,transparent 80%)}
+  .whitening-hero.is-night-guard .hero-folds__scan{display:none}
+  .whitening-hero.is-night-guard .hero-fold{border:0;box-shadow:0 2.3rem 5.8rem rgba(0,0,0,.31);overflow:hidden}
+  .whitening-hero.is-night-guard .hero-fold--one{clip-path:inset(6% 3% 2% 2% round 8rem 2rem 2rem 8rem)}
+  .whitening-hero.is-night-guard .hero-fold--two{clip-path:inset(2% 2% 6% 3% round 2rem 8rem 8rem 2rem)}
+  .whitening-hero.is-night-guard .hero-fold--three{clip-path:inset(5% 3% 3% 2% round 8rem 2rem 2rem 8rem)}
+  .whitening-hero.is-night-guard .hero-fold--one>img{object-position:44% center}
+  .whitening-hero.is-night-guard .hero-fold--two>img{object-position:52% center}
+  .whitening-hero.is-night-guard .hero-fold--three>img{object-position:60% center}
+  .whitening-hero.is-night-guard .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.4) 60%,transparent 80%)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -3006,6 +3087,10 @@ const content = isSportsMouthguard ? {
     .whitening-hero.is-sports-mouthguard .hero-fold--two{clip-path:inset(7% 1% 2% 2% round 1rem 1rem 4rem 1rem)}
     .whitening-hero.is-sports-mouthguard .hero-fold--three{clip-path:inset(4% 2% 4% 1% round 4rem 1rem 1rem 1rem)}
     .whitening-hero.is-sports-mouthguard .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 31%,rgba(4,24,20,.17) 59%,rgba(4,24,20,.79) 100%)}
+    .whitening-hero.is-night-guard .hero-fold--one{clip-path:inset(6% 2% 2% 1% round 4rem 1rem 1rem 4rem)}
+    .whitening-hero.is-night-guard .hero-fold--two{clip-path:inset(2% 1% 6% 2% round 1rem 4rem 4rem 1rem)}
+    .whitening-hero.is-night-guard .hero-fold--three{clip-path:inset(4% 2% 3% 1% round 4rem 1rem 1rem 4rem)}
+    .whitening-hero.is-night-guard .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.18) 60%,rgba(4,24,20,.79) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */

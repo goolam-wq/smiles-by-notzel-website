@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore custom night guards at Smiles by Noetzel, including individualized fit, realistic limitations, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Custom Night Guard | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-custom-night-guard.webp" mediaAlt="A patient reviewing a custom night guard and individualized monitoring guidance" />
+    <main>
+      <TreatmentDetail kind="custom-night-guard" />
+      <BeforeAfterStory id="before-after-custom-night-guard" tone="light" reverse number="06" eyebrow="Illustrative appliance pathway · night guard" title="From an unassessed pressure concern." emphasis="To a fitted appliance and monitoring plan."
+        intro="This illustrative pathway shows how symptoms and current dental findings may lead to an individualized night-guard design, fit check and monitoring plan. It is not an actual symptom-resolution or damage-prevention result."
+        image="/images/generated/before-after-custom-night-guard-v1.webp" imageAlt="Illustrative comparison of an unassessed nighttime pressure concern and a fitted custom night guard with monitoring guidance"
+        beforeLabel="Before evaluation" beforeDetail="Symptoms, current teeth, bite, restorations and visible wear have not yet been evaluated together."
+        afterLabel="Illustrative fitted pathway" afterDetail="The simulated view represents a custom appliance and monitoring plan—not proof that grinding stops, symptoms resolve or damage is prevented."
+        caseNote="Illustrative appliance pathway · not an actual symptom or damage-prevention result · fit and response vary" />
+      <HubFooter eyebrow="Ready to understand the pressure?" title="Begin with current findings, a custom fit and realistic monitoring guidance." />
+    </main>
+  </body>
+</html>
