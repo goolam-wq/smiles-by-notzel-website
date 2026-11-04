@@ -37,6 +37,7 @@ const routes = [
   ['surgical-tooth-extraction', '/services/surgical-tooth-extraction/', '#before-after-surgical-tooth-extraction'],
   ['wisdom-tooth-removal', '/services/wisdom-tooth-removal/', '#before-after-wisdom-tooth-removal'],
   ['invisalign-clear-aligners', '/services/invisalign-clear-aligners/', '#before-after-invisalign-clear-aligners'],
+  ['first-dental-visit', '/services/first-dental-visit/', '#before-after-first-dental-visit'],
 ];
 const viewports = [
   ['desktop', 1440, 900],

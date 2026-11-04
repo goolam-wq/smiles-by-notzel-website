@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore a child-paced first dental visit at Smiles by Noetzel, including welcome, age-appropriate assessment, caregiver guidance, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>First Dental Visit | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-first-dental-visit.webp" mediaAlt="A child and caregiver receiving a calm welcome from the dental team" />
+    <main>
+      <TreatmentDetail kind="first-dental-visit" />
+      <BeforeAfterStory id="before-after-first-dental-visit" tone="light" reverse number="06" eyebrow="Illustrative visit pathway · child-paced introduction" title="From an unfamiliar first appointment." emphasis="To a welcomed next step."
+        intro="This illustrative visit pathway shows how a new dental setting may move from introduction and history to an age-appropriate assessment and caregiver guidance. It is not an actual patient outcome and does not guarantee comfort, cooperation or a specific procedure."
+        image="/images/generated/before-after-first-dental-visit-v1.webp" imageAlt="Illustrative comparison of an unfamiliar dental visit and a child-paced first-visit introduction"
+        beforeLabel="Before the introduction" beforeDetail="The room, team and appointment are new, and the child's response and clinical needs are not yet known."
+        afterLabel="Illustrative first-visit pathway" afterDetail="The simulated view represents welcome, familiarity, an appropriate assessment and clear caregiver guidance—not a guaranteed emotional or clinical outcome."
+        caseNote="Illustrative simulated example · not an actual patient case · visit response and scope vary" />
+      <HubFooter eyebrow="Ready for a smaller first step?" title="Begin with welcome, understanding and a clear next visit." />
+    </main>
+  </body>
+</html>

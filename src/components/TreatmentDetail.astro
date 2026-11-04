@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -22,8 +22,14 @@ const isSimpleExtraction = kind === 'simple-tooth-extraction';
 const isSurgicalExtraction = kind === 'surgical-tooth-extraction';
 const isWisdomTooth = kind === 'wisdom-tooth-removal';
 const isInvisalign = kind === 'invisalign-clear-aligners';
+const isFirstDentalVisit = kind === 'first-dental-visit';
 
-const processSteps = isInvisalign ? [
+const processSteps = isFirstDentalVisit ? [
+  ['01', 'Welcome', 'The child and caregiver are welcomed at a pace that supports an unhurried introduction to the office and team.'],
+  ['02', 'Familiarize', 'The visit is explained in age-appropriate language, with time to meet the room, chair and simple instruments before assessment.'],
+  ['03', 'Assess', 'History, development, teeth, gums and the child’s current comfort guide an age-appropriate examination when clinically suitable.'],
+  ['04', 'Guide', 'The caregiver receives practical findings, home-care guidance and the recommended next step based on what could be completed that day.'],
+] : isInvisalign ? [
   ['01', 'Assess', 'Teeth, bite, gums, existing dental work and treatment goals are evaluated before clear-aligner candidacy is confirmed.'],
   ['02', 'Record & plan', 'Digital records support a case-specific movement plan, sequence and aligner prescription after the clinical evaluation.'],
   ['03', 'Align', 'The patient follows the confirmed wear and change schedule while the teeth respond to the planned series of aligners.'],
@@ -120,7 +126,13 @@ const processSteps = isInvisalign ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isInvisalign ? [
+const faqs = isFirstDentalVisit ? [
+  ['How much does a first dental visit cost?', 'The customer-facing visit price is $150. The $13 monthly view is an approximate rounded 12-month planning illustration ($156 total), and the yearly amount is $150 on a single-visit basis. Final scope, eligibility and payment terms are confirmed by the office.'],
+  ['What happens during a child’s first visit?', 'The visit is paced around introduction, history and an age-appropriate assessment. What can be completed depends on the child’s comfort, development and clinical needs that day.'],
+  ['Are cleaning, X-rays or fluoride automatically included?', 'No. Cleaning, imaging, fluoride or other treatment are not represented as automatic parts of every first visit. The clinician recommends only what is appropriate after the child is assessed.'],
+  ['Can you guarantee a fear-free, pain-free or fully cooperative visit?', 'No. Children respond differently to a new setting. The team uses child-paced communication and explains choices, but cannot guarantee a specific emotional response, cooperation level or pain-free experience.'],
+  ['Is a first dental visit available at both offices?', 'First-visit appointments can begin through Chicago Heights or Mokena. Call the preferred office to confirm scheduling and the recommended appointment type.'],
+] : isInvisalign ? [
   ['How much does Invisalign clear-aligner treatment cost?', 'The customer-facing complete-case price is $5,495. The $153 monthly view is an approximate rounded 36-month financing illustration ($5,508 total), and the yearly amount is $5,495 on a complete-case basis. Final eligibility, scope and payment terms are confirmed after evaluation.'],
   ['Is everyone eligible for Invisalign treatment?', 'No. Teeth, bite, gums, existing dental work, growth considerations and the movement required must be evaluated before clear-aligner candidacy is confirmed.'],
   ['How often do aligners need to be worn or changed?', 'Wear and change schedules are prescribed for the individual case. The clinician explains the confirmed plan and monitors progress rather than applying a universal schedule here.'],
@@ -236,7 +248,13 @@ const faqs = isInvisalign ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isInvisalign ? [
+const relatedServices = isFirstDentalVisit ? [
+  ['Pediatric & Developmental Dentistry', 'Explore the complete category', '/services/pediatric-developmental/'],
+  ['Preventive & Diagnostic Dentistry', 'Connect ongoing examinations and prevention', '/services/preventive-diagnostic/'],
+  ['Kid-Friendly Dentistry', 'Explore care shaped for children and families', '/services/pediatric-developmental/#pediatric-options'],
+  ['HealthyStart', 'Explore development-focused planning', '/services/pediatric-developmental/#pediatric-options'],
+  ['Emergency Comfort', 'Know where to begin when a child has an urgent concern', '/services/emergency-comfort/'],
+] : isInvisalign ? [
   ['Orthodontic Dentistry', 'Explore the complete category', '/services/orthodontic-dentistry/'],
   ['Preventive & Diagnostic', 'Connect examination and imaging', '/services/preventive-diagnostic/'],
   ['Professional teeth whitening', 'Explore post-alignment shade planning', '/services/professional-teeth-whitening/'],
@@ -347,7 +365,61 @@ const relatedServices = isInvisalign ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isInvisalign ? {
+const content = isFirstDentalVisit ? {
+  heroClass: 'is-first-dental-visit',
+  heroImages: [
+    ['/images/generated/first-dental-visit-hero-v1.webp', 'A child and caregiver receiving a calm welcome at the dental office', 'BEGIN WITH WELCOME'],
+    ['/images/generated/first-dental-visit-hero-detail-v1.webp', 'A dental team member introducing a child to the treatment room', 'MAKE THE ROOM FAMILIAR'],
+    ['/images/generated/first-dental-visit-hero-result-v1.webp', 'A caregiver and child receiving age-appropriate dental guidance', 'LEAVE WITH A NEXT STEP'],
+  ],
+  heroAria: ['Explore the child-paced welcome', 'Explore the age-appropriate introduction', 'Explore the guidance and next-step conversation'],
+  kicker: 'Pediatric & Developmental · Kid-Friendly · Visit 01',
+  title: ['A first visit.', 'Built around the child.'],
+  intro: 'A child-paced introduction that connects history, familiarity and an age-appropriate assessment—without assuming every procedure must happen on day one.',
+  heroRail: ['Begin with welcome', 'Make the room familiar', 'Leave with a next step'],
+  ledgerLabel: 'First dental visit', ledgerFixed: '$150 / visit', ledgerMonthly: '$13 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['The first appointment is not a checklist.', 'It is a', 'careful introduction.'],
+  storyImage: '/images/generated/first-dental-visit-process-v1.webp',
+  storyAlt: 'A clinician introducing a child to the dental room at a comfortable pace',
+  storyRangeLabel: 'Compare an unfamiliar first appointment with a child-paced introduction and clear caregiver guidance',
+  storyNote: 'Build familiarity before asking the child to do more.',
+  storyLead: 'We meet the child where they are. History, development, comfort and clinical need determine what is introduced, what is assessed and what is saved for another visit. Cleaning, X-rays, fluoride or treatment are not automatic.',
+  storySteps: [
+    ['01', 'Welcome the child', 'The room, team and visit are introduced without treating immediate cooperation as a requirement.'],
+    ['02', 'Read the moment', 'Age, history, development and current comfort shape what can be assessed appropriately that day.'],
+    ['03', 'Guide the caregiver', 'Findings, home care and the next appointment are explained in practical language.'],
+  ],
+  storyNotes: ['Build familiarity before asking the child to do more.', 'Let development, history and comfort shape the assessment.', 'End with practical guidance and a clear next step.'],
+  processTitle: ['Welcome first.', 'Guide what comes next.'],
+  expectTitle: ['Child-paced in approach.', 'Clinical in purpose.'],
+  expectCopy: 'A first dental visit can include introduction, history and an age-appropriate assessment. What is completed depends on the child’s comfort, development and clinical needs; cleaning, X-rays, fluoride and treatment are not automatic, and no particular response or cooperation level is guaranteed.',
+  metrics: [['1', 'child-paced introductory visit'], ['4', 'stages: welcome, familiarize, assess, guide'], ['2', 'connected office locations']],
+  pricingId: 'first-dental-visit-pricing',
+  pricingTitle: ['One first visit.', 'Three planning views.'],
+  pricingIntro: 'The same first-visit amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$150', 'per first visit'], ['MONTHLY · 02', '$13', 'per month · 12 months'], ['YEARLY · 03', '$150', 'single-visit amount']],
+  pricingNote: 'The $13 monthly view is an approximate rounded planning illustration ($156 total across 12 months), not an exact division of $150. The yearly amount is a single-visit treatment view, not a subscription or unlimited-care package. Final scope, eligibility and payment terms are confirmed by the office.',
+  whyTitle: ['A smaller first step.', 'A clearer path forward.'],
+  whyIntro: 'The first appointment connects the child’s pace with real clinical purpose. The team can introduce, observe, assess what is appropriate and help the caregiver understand what should happen next.',
+  whyImage: '/images/generated/first-dental-visit-result-v1.webp',
+  whyAlt: 'A child and caregiver receiving clear guidance after a first dental visit',
+  whyPanels: [
+    ['01', 'Introduction before assumption', 'The team does not assume every child or every procedure should follow the same first-visit sequence.'],
+    ['02', 'Age-appropriate assessment', 'History, development, comfort and clinical need guide what is evaluated.'],
+    ['03', 'Caregiver guidance', 'Practical findings, home care and next steps leave the family with a useful plan.'],
+  ],
+  whyFoot: 'ONE FIRST VISIT · FOUR CONNECTED STAGES',
+  proofTitle: ['The child welcomed.', 'The caregiver informed.'],
+  proofText: 'Families frequently mention kind communication, patient explanations and attentive care—general-practice feedback that supports how child-paced introductions and caregiver conversations are approached.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Child-paced welcome', 'Age-appropriate assessment', 'Clear caregiver guidance'],
+  faqTitle: ['Before the', 'first appointment.'],
+  relatedTitle: ['One first visit.', 'Several connected paths.'],
+  relatedAria: 'Related pediatric, preventive and family dental services',
+  currentPath: 'First dental visit',
+  locationsAria: 'First dental visit locations',
+} : isInvisalign ? {
   heroClass: 'is-invisalign',
   heroImages: [
     ['/images/generated/invisalign-clear-aligners-hero-v1.webp', 'A patient and clinician discussing Invisalign clear-aligner goals', 'BEGIN WITH THE BITE'],
@@ -1883,6 +1955,15 @@ const content = isInvisalign ? {
   .whitening-hero.is-invisalign .hero-fold--two>img{object-position:51% center}
   .whitening-hero.is-invisalign .hero-fold--three>img{object-position:61% center}
   .whitening-hero.is-invisalign .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.44) 55%,transparent 74%)}
+  .whitening-hero.is-first-dental-visit .hero-folds__scan{display:none}
+  .whitening-hero.is-first-dental-visit .hero-fold{border:0;box-shadow:0 2.25rem 5.5rem rgba(0,0,0,.28)}
+  .whitening-hero.is-first-dental-visit .hero-fold--one{clip-path:ellipse(80% 55% at 52% 50%)}
+  .whitening-hero.is-first-dental-visit .hero-fold--two{clip-path:ellipse(74% 62% at 48% 50%)}
+  .whitening-hero.is-first-dental-visit .hero-fold--three{clip-path:ellipse(80% 55% at 48% 50%)}
+  .whitening-hero.is-first-dental-visit .hero-fold--one>img{object-position:44% center}
+  .whitening-hero.is-first-dental-visit .hero-fold--two>img{object-position:52% center}
+  .whitening-hero.is-first-dental-visit .hero-fold--three>img{object-position:58% center}
+  .whitening-hero.is-first-dental-visit .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 36%,rgba(4,24,20,.38) 56%,transparent 76%)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -1978,6 +2059,10 @@ const content = isInvisalign ? {
     .whitening-hero.is-invisalign .hero-fold--one,.whitening-hero.is-invisalign .hero-fold--three{clip-path:inset(4% 0 4% 0 round 7rem 1rem 7rem 1rem)}
     .whitening-hero.is-invisalign .hero-fold--two{clip-path:inset(1% 0 1% 0 round 1rem 7rem 1rem 7rem)}
     .whitening-hero.is-invisalign .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.19) 60%,rgba(4,24,20,.77) 100%)}
+    .whitening-hero.is-first-dental-visit .hero-fold--one{clip-path:ellipse(74% 54% at 52% 50%)}
+    .whitening-hero.is-first-dental-visit .hero-fold--two{clip-path:ellipse(70% 60% at 48% 50%)}
+    .whitening-hero.is-first-dental-visit .hero-fold--three{clip-path:ellipse(74% 54% at 48% 50%)}
+    .whitening-hero.is-first-dental-visit .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.16) 60%,rgba(4,24,20,.76) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
