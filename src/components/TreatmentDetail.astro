@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement' | 'tooth-colored-dental-filling' | 'dental-crown';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement' | 'tooth-colored-dental-filling' | 'dental-crown' | 'dental-bridge';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -41,8 +41,14 @@ const isRecodeProgram = kind === 'recode-2-0-dental-program';
 const isAmalgamReplacement = kind === 'amalgam-filling-replacement';
 const isToothColoredFilling = kind === 'tooth-colored-dental-filling';
 const isDentalCrown = kind === 'dental-crown';
+const isDentalBridge = kind === 'dental-bridge';
 
-const processSteps = isDentalCrown ? [
+const processSteps = isDentalBridge ? [
+  ['01', 'Evaluate & compare', 'The gap, adjacent teeth, gums, bite and goals are evaluated while a conventional bridge is compared with an implant, partial denture and other appropriate options.'],
+  ['02', 'Design', 'The support teeth, connected three-unit span, material, contact, shade, appearance and hygiene access are planned for the individual case.'],
+  ['03', 'Prepare & fabricate', 'Confirmed abutment teeth are prepared and records captured; a provisional may be used when required while the bridge is fabricated.'],
+  ['04', 'Seat & maintain', 'Margins, contact, span, shade and bite are checked before seating, then bridge-specific cleaning, maintenance and follow-up are explained.'],
+] : isDentalCrown ? [
   ['01', 'Evaluate options', 'The clinician evaluates remaining structure, cracks, wear, prior dental work, symptoms, bite and possible endodontic needs before recommending coverage.'],
   ['02', 'Prepare & record', 'When a crown is appropriate, the tooth is prepared and the required scan or impression, bite and shade records are captured for the plan.'],
   ['03', 'Protect & fabricate', 'A provisional may be used when required while the confirmed crown is fabricated; exact materials, timing and visit count depend on the individual case.'],
@@ -234,7 +240,14 @@ const processSteps = isDentalCrown ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isDentalCrown ? [
+const faqs = isDentalBridge ? [
+  ['How much does a dental bridge cost?', 'The customer-facing price is $4,500 for a three-unit case. The $125 monthly view totals exactly $4,500 across 36 months. The $4,500 yearly view is a complete-treatment-case basis, not a subscription. Final scope, eligibility and payment terms are office-confirmed.'],
+  ['What does a three-unit dental bridge replace?', 'A conventional three-unit bridge generally uses two supporting units connected to one replacement unit for a single missing-tooth space. The gap and support teeth must be evaluated before that design is confirmed.'],
+  ['Do the adjacent teeth need preparation?', 'A conventional bridge commonly relies on prepared adjacent support teeth, but the exact design and suitability are confirmed only after evaluation. No universal preparation amount or candidacy is promised.'],
+  ['How does a bridge compare with a dental implant?', 'A bridge uses adjacent teeth for support, while an implant-supported option uses an implant foundation. Bone, gums, neighboring teeth, timing, surgery, hygiene, cost and patient priorities affect the comparison.'],
+  ['How do I clean around a bridge?', 'The team explains bridge-specific brushing and cleaning beneath the connected span based on the final design. Individual products and techniques are confirmed after seating.'],
+  ['Will a bridge last permanently, and is it available at both offices?', 'No lifetime is guaranteed; longevity varies with support teeth, bite, hygiene, habits and future conditions. Evaluation and treatment are available through Chicago Heights and Mokena, subject to scheduling.'],
+] : isDentalCrown ? [
   ['How much does a dental crown cost?', 'The customer-facing price is $1,530 per tooth. The $64 monthly view is an approximate rounded 24-month illustration ($1,536 total), which is $6 above the $1,530 fixed and yearly views. Final scope, material, eligibility and payment terms are office-confirmed.'],
   ['How is a crown different from a filling?', 'A filling repairs an appropriate damaged area directly. A crown provides broader coverage when the remaining tooth needs more protection or rebuilding. The examination determines which pathway fits the tooth.'],
   ['Does every root-canal-treated tooth need a crown?', 'No universal rule is stated. Tooth location, remaining structure, cracks, access, bite, restoration history and the clinical plan determine whether a crown or another restoration is recommended.'],
@@ -467,7 +480,14 @@ const faqs = isDentalCrown ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isDentalCrown ? [
+const relatedServices = isDentalBridge ? [
+  ['Restorative & Reconstructive', 'Explore the complete restorative category', '/services/restorative-reconstructive/'],
+  ['Dental crown', 'Explore individual full-coverage restoration', '/services/dental-crown/'],
+  ['Single-tooth dental implant', 'Compare an implant-supported single-space pathway', '/services/single-tooth-dental-implant/'],
+  ['Partial denture', 'Explore a removable replacement pathway', '/services/partial-denture/'],
+  ['Implant-supported bridge', 'Explore an implant-supported connected span', '/services/implant-supported-bridge/'],
+  ['Routine comprehensive exam', 'Connect the gap to the complete oral picture', '/services/routine-comprehensive-exam/'],
+] : isDentalCrown ? [
   ['Restorative & Reconstructive', 'Explore the complete restorative category', '/services/restorative-reconstructive/'],
   ['Tooth-colored dental filling', 'Compare a direct restoration when appropriate', '/services/tooth-colored-dental-filling/'],
   ['Root-canal treatment & coordination', 'Connect deeper tooth care to the restorative plan', '/services/root-canal-treatment-coordination/'],
@@ -694,7 +714,62 @@ const relatedServices = isDentalCrown ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isDentalCrown ? {
+const content = isDentalBridge ? {
+  heroClass: 'is-dental-bridge',
+  heroImages: [
+    ['/images/generated/dental-bridge-hero-v1.webp', 'A dentist evaluating a single missing-tooth gap and adjacent support teeth', 'EVALUATE GAP AND SUPPORTS'],
+    ['/images/generated/dental-bridge-hero-detail-v1.webp', 'A clinician designing three connected bridge units around support, contact and bite', 'DESIGN THREE CONNECTED UNITS'],
+    ['/images/generated/dental-bridge-hero-result-v1.webp', 'A dental bridge being seated and reviewed with hygiene access in mind', 'SEAT AND MAINTAIN'],
+  ],
+  heroAria: ['Explore the gap and support-tooth evaluation', 'Explore the three-unit bridge design', 'Explore bridge seating and maintenance'],
+  kicker: 'Restorative & Reconstructive · Service 05',
+  title: ['Reconnect one space.', 'Plan all three units.'],
+  intro: 'A three-unit bridge replaces one missing tooth with a fixed restoration supported by adjacent teeth. The gap, support teeth, gums, bite and alternatives are evaluated first.',
+  heroRail: ['Evaluate gap and supports', 'Design three connected units', 'Seat and maintain'],
+  ledgerLabel: 'Dental bridge', ledgerFixed: '$4,500 / 3-unit case', ledgerMonthly: '$125 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['One missing tooth.', 'A decision that involves', 'the teeth beside it.'],
+  storyImage: '/images/generated/dental-bridge-process-v1.webp',
+  storyAlt: 'A clinician evaluating a missing-tooth gap and adjacent support teeth for a three-unit bridge',
+  storyRangeLabel: 'Compare a single missing-tooth gap with a support-led connected bridge plan',
+  storyNote: 'Evaluate the support before closing the space.',
+  storyLead: 'The visible gap is only the center of the case. Adjacent teeth, gums, contact, bite, hygiene access and alternatives determine whether a three-unit bridge is appropriate and how the connected span should be designed.',
+  storySteps: [
+    ['01', 'Read the supports', 'The gap and adjacent teeth are evaluated before either tooth is assigned a supporting role.'],
+    ['02', 'Compare the alternatives', 'A conventional bridge is weighed against implant-supported and removable pathways in the individual context.'],
+    ['03', 'Connect the span', 'The confirmed three-unit design is seated, checked and paired with a practical hygiene plan.'],
+  ],
+  storyNotes: ['Begin with the gap and both potential supports.', 'Compare fixed, implant-supported and removable paths.', 'Seat the connected span and protect hygiene access.'],
+  processTitle: ['Reconnect the space.', 'Respect the supports.'],
+  expectTitle: ['One missing tooth.', 'Three connected units.'],
+  expectCopy: 'A conventional three-unit bridge depends on the teeth beside the space. Support-tooth health, preparation, material, timing and longevity vary, and no fixed preparation amount, visit count or permanent result is promised.',
+  metrics: [['3', 'connected units in the stated case'], ['4', 'stages: evaluate, design, fabricate, seat'], ['2', 'connected office locations']],
+  pricingId: 'dental-bridge-pricing',
+  pricingTitle: ['One connected case.', 'Three planning views.'],
+  pricingIntro: 'The three-unit dental bridge case amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$4,500', 'three-unit case'], ['MONTHLY · 02', '$125', 'per month · 36 months'], ['YEARLY · 03', '$4,500', 'complete-treatment case']],
+  pricingNote: 'The $125 monthly view totals exactly $4,500 across 36 months. The $4,500 yearly view represents the complete-treatment case, not a subscription. Final support-tooth condition, preliminary needs, material, scope, eligibility and payment terms are office-confirmed.',
+  whyTitle: ['The gap is only', 'one part of the case.'],
+  whyIntro: 'The team starts with both potential support teeth, compares the alternatives and reviews the connected span for margins, contact, bite and realistic hygiene access.',
+  whyImage: '/images/generated/dental-bridge-result-v1.webp',
+  whyAlt: 'A dentist reviewing a three-unit dental bridge and its support, contact, bite and cleaning access',
+  whyPanels: [
+    ['01', 'Supports first', 'The adjacent teeth and gums are evaluated before the missing space is assigned a bridge design.'],
+    ['02', 'Alternatives visible', 'Implant-supported and removable pathways remain part of the conversation before preparation begins.'],
+    ['03', 'Span, contact & bite', 'Margins, neighboring contact, the connected span and bite are checked before final seating.'],
+    ['04', 'Hygiene stays practical', 'Cleaning beneath and around the bridge is explained according to the final design and individual needs.'],
+  ],
+  whyFoot: 'ONE MISSING SPACE · THREE CONNECTED UNITS · FOUR STAGES',
+  proofTitle: ['The supports understood.', 'The span contextualized.'],
+  proofText: 'Patients frequently mention clear explanations, careful restorative work and practical maintenance guidance—general-practice themes that support a connected bridge conversation.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Support teeth first', 'Alternatives compared', 'Hygiene planned'],
+  faqTitle: ['Before a', 'dental bridge.'],
+  relatedTitle: ['One missing space.', 'Several connected paths.'],
+  relatedAria: 'Related restorative, implant and removable services',
+  currentPath: 'Dental bridge',
+  locationsAria: 'Dental bridge locations',
+} : isDentalCrown ? {
   heroClass: 'is-dental-crown',
   heroImages: [
     ['/images/generated/dental-crown-hero-v1.webp', 'A dentist evaluating the remaining tooth structure before planning a dental crown', 'READ REMAINING STRUCTURE'],
@@ -3442,6 +3517,18 @@ const content = isDentalCrown ? {
   .whitening-hero.is-dental-crown .hero-cinema__copy{top:15vh;width:min(45vw,46rem);transform:none}
   .whitening-hero.is-dental-crown .hero-cinema__copy h1{font-size:clamp(3.8rem,5.25vw,6rem);line-height:.82;margin:1.25rem 0 1.5rem}
   .whitening-hero.is-dental-crown .hero-cinema__copy h1 em{display:block;margin-left:clamp(2rem,4.5vw,4.5rem)}
+  .whitening-hero.is-dental-bridge .hero-folds__scan{display:none}
+  .whitening-hero.is-dental-bridge .hero-fold{border:0;overflow:hidden;box-shadow:0 2.4rem 6.2rem rgba(0,0,0,.35);transform-origin:center}
+  .whitening-hero.is-dental-bridge .hero-fold--one{translate:4% -2%;scale:1.02 .84;clip-path:polygon(0 4%,93% 0,100% 92%,8% 100%)}
+  .whitening-hero.is-dental-bridge .hero-fold--two{translate:-5% 20%;scale:.78 .66;clip-path:inset(0 round 999px)}
+  .whitening-hero.is-dental-bridge .hero-fold--three{translate:-10% -2%;scale:1.02 .84;clip-path:polygon(7% 0,100% 4%,92% 100%,0 92%)}
+  .whitening-hero.is-dental-bridge .hero-fold--one>img{object-position:43% center}
+  .whitening-hero.is-dental-bridge .hero-fold--two>img{object-position:54% center}
+  .whitening-hero.is-dental-bridge .hero-fold--three>img{object-position:65% center}
+  .whitening-hero.is-dental-bridge .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 34%,rgba(4,24,20,.38) 62%,transparent 82%)}
+  .whitening-hero.is-dental-bridge .hero-cinema__copy{top:16vh;width:min(44vw,45rem);transform:none}
+  .whitening-hero.is-dental-bridge .hero-cinema__copy h1{font-size:clamp(4rem,5.6vw,6.3rem);line-height:.81;margin:1.25rem 0 1.5rem}
+  .whitening-hero.is-dental-bridge .hero-cinema__copy h1 em{display:block;margin-left:clamp(2rem,4vw,4rem)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -3629,6 +3716,13 @@ const content = isDentalCrown ? {
     .whitening-hero.is-dental-crown .hero-cinema__copy{top:7.1rem}
     .whitening-hero.is-dental-crown .hero-cinema__copy h1{font-size:clamp(2.7rem,11.5vw,3.65rem);line-height:.84}
     .whitening-hero.is-dental-crown .hero-cinema__copy h1 em{margin-left:1.3rem}
+    .whitening-hero.is-dental-bridge .hero-fold--one{translate:2% 0;scale:.94 .82;clip-path:polygon(0 3%,94% 0,100% 94%,7% 100%)}
+    .whitening-hero.is-dental-bridge .hero-fold--two{translate:-2% 17%;scale:.8 .68;clip-path:inset(0 round 999px)}
+    .whitening-hero.is-dental-bridge .hero-fold--three{translate:-4% 0;scale:.94 .82;clip-path:polygon(6% 0,100% 3%,93% 100%,0 94%)}
+    .whitening-hero.is-dental-bridge .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.88) 31%,rgba(4,24,20,.14) 63%,rgba(4,24,20,.82) 100%)}
+    .whitening-hero.is-dental-bridge .hero-cinema__copy{top:7.1rem}
+    .whitening-hero.is-dental-bridge .hero-cinema__copy h1{font-size:clamp(2.9rem,12.5vw,3.9rem);line-height:.83}
+    .whitening-hero.is-dental-bridge .hero-cinema__copy h1 em{margin-left:1.1rem}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
@@ -3774,6 +3868,7 @@ const content = isDentalCrown ? {
         const isAmalgamHero = hero.classList.contains('is-amalgam-replacement');
         const isToothColoredHero = hero.classList.contains('is-tooth-colored-filling');
         const isDentalCrownHero = hero.classList.contains('is-dental-crown');
+        const isDentalBridgeHero = hero.classList.contains('is-dental-bridge');
         const phases = q('[data-hero-phase]');
         const edition = q('[data-hero-edition]')[0];
         const scan = q('[data-fold-scan]')[0];
@@ -3814,6 +3909,8 @@ const content = isDentalCrown ? {
               ? {opacity:0,xPercent:[-24,0,24][index],yPercent:[-8,15,-12][index]}
               : isDentalCrownHero
                 ? {opacity:0,yPercent:[26,-20,26][index]}
+                : isDentalBridgeHero
+                  ? {opacity:0,xPercent:[-28,0,28][index],yPercent:[0,22,0][index]}
               : {}),
         }));
         if (progress) gsap.set(progress,{width:0});
@@ -3830,10 +3927,12 @@ const content = isDentalCrown ? {
               ? {opacity:1,xPercent:0,yPercent:0}
               : isDentalCrownHero
                 ? {opacity:1,yPercent:0}
+                : isDentalBridgeHero
+                  ? {opacity:1,xPercent:0,yPercent:0}
               : {}),
-          duration:isAmalgamHero ? 1.55 : isToothColoredHero ? 1.45 : isDentalCrownHero ? 1.6 : 1.35,
-          ease:isAmalgamHero ? 'expo.inOut' : isToothColoredHero ? 'power4.out' : isDentalCrownHero ? 'expo.out' : 'power3.inOut',
-        },index*(isAmalgamHero ? .12 : isToothColoredHero ? .16 : isDentalCrownHero ? .14 : .08)));
+          duration:isAmalgamHero ? 1.55 : isToothColoredHero ? 1.45 : isDentalCrownHero ? 1.6 : isDentalBridgeHero ? 1.5 : 1.35,
+          ease:isAmalgamHero ? 'expo.inOut' : isToothColoredHero ? 'power4.out' : isDentalCrownHero ? 'expo.out' : isDentalBridgeHero ? 'power4.inOut' : 'power3.inOut',
+        },index*(isAmalgamHero ? .12 : isToothColoredHero ? .16 : isDentalCrownHero ? .14 : isDentalBridgeHero ? .13 : .08)));
         intro.to(q('[data-hero-fold] img'),{scale:1.015,duration:1.2},0)
           .to(scan,{left:mobile?'100vw':'99vw',duration:1.4},0)
           .to(progress,{width:'100%',duration:1.35},0)

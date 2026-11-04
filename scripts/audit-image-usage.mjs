@@ -45,6 +45,7 @@ const routes = [
   '/services/amalgam-filling-replacement/',
   '/services/tooth-colored-dental-filling/',
   '/services/dental-crown/',
+  '/services/dental-bridge/',
   '/services/implants-oral-surgery/',
   '/services/orthodontic-dentistry/',
   '/services/pediatric-developmental/',

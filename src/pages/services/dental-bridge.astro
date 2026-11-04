@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore three-unit dental bridge treatment at Smiles by Noetzel, including support-tooth evaluation, connected-span planning, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Dental Bridge | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-dental-bridge.webp" mediaAlt="A clinician evaluating a missing-tooth gap and both potential support teeth" />
+    <main>
+      <TreatmentDetail kind="dental-bridge" />
+      <BeforeAfterStory id="before-after-dental-bridge" tone="light" number="10" eyebrow="Illustrative restorative pathway · dental bridge" title="From one missing space." emphasis="To three connected units."
+        intro="This illustrative pathway shows how a gap and both support teeth may guide a conventional three-unit bridge. It is not an actual patient case, preparation guarantee, promised lifespan, function or outcome."
+        image="/images/generated/before-after-dental-bridge-v1.webp" imageAlt="Illustrative comparison of a single missing-tooth gap and a planned three-unit dental bridge"
+        beforeLabel="Before support evaluation" beforeDetail="The missing space is visible, but support-tooth health, alternatives, preparation, bite and hygiene access have not yet been confirmed."
+        afterLabel="Illustrative connected span" afterDetail="The simulated view represents three units planned around both supports, contact and bite—not a guaranteed preparation amount, lifespan or functional result."
+        caseNote="Illustrative bridge pathway · not an actual patient case · candidacy, preparation and longevity vary" />
+      <HubFooter eyebrow="Ready to evaluate the support before closing the space?" title="Begin with the gap, compare the alternatives and request a dental bridge evaluation." />
+    </main>
+  </body>
+</html>

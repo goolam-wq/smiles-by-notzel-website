@@ -56,6 +56,7 @@ const routes = [
   ['amalgam-filling-replacement', '/services/amalgam-filling-replacement/', '#before-after-amalgam-filling-replacement'],
   ['tooth-colored-dental-filling', '/services/tooth-colored-dental-filling/', '#before-after-tooth-colored-dental-filling'],
   ['dental-crown', '/services/dental-crown/', '#before-after-dental-crown'],
+  ['dental-bridge', '/services/dental-bridge/', '#before-after-dental-bridge'],
 ];
 const requestedRoute = process.argv[2];
 const selectedRoutes = requestedRoute
