@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore dental sealants at Smiles by Noetzel, including clinically selected groove protection, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Dental Sealants | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-dental-sealants.webp" mediaAlt="A clinician reviewing a selected tooth surface before dental sealant placement" />
+    <main>
+      <TreatmentDetail kind="dental-sealants" />
+      <BeforeAfterStory id="before-after-dental-sealants" tone="light" reverse number="06" eyebrow="Illustrative preventive pathway · dental sealants" title="From an unreviewed groove." emphasis="To a clinically selected protective step."
+        intro="This illustrative pathway shows how tooth anatomy, current findings and cavity-risk context may lead to a sealant recommendation and monitoring plan. It is not an actual patient outcome, a physical transformation or a guarantee of cavity prevention."
+        image="/images/generated/before-after-dental-sealants-v1.webp" imageAlt="Illustrative comparison of an unreviewed tooth groove before assessment and a clinically selected dental sealant pathway"
+        beforeLabel="Before surface review" beforeDetail="The groove anatomy, current condition and appropriateness of a sealant have not yet been confirmed."
+        afterLabel="Illustrative selected pathway" afterDetail="The simulated view represents a confirmed tooth, placed sealant and monitoring plan—not treatment of existing decay or a cavity-free guarantee."
+        caseNote="Illustrative preventive pathway · not an actual patient case or physical transformation · recommendations vary" />
+      <HubFooter eyebrow="Ready to make prevention more precise?" title="Begin with the tooth surface, a clinically selected option and clear monitoring." />
+    </main>
+  </body>
+</html>

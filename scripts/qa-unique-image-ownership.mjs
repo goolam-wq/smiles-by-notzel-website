@@ -35,6 +35,7 @@ const routes = [
   '/services/routine-comprehensive-exam/',
   '/services/digital-dental-x-rays/',
   '/services/fluoride-treatment/',
+  '/services/dental-sealants/',
   '/services/restorative-reconstructive/',
   '/services/wellness-offering/',
 ];
