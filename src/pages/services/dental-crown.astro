@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore dental crown treatment at Smiles by Noetzel, including foundation-led evaluation, full-coverage planning, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Dental Crown | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-dental-crown.webp" mediaAlt="A clinician reviewing the tooth foundation before planning a dental crown" />
+    <main>
+      <TreatmentDetail kind="dental-crown" />
+      <BeforeAfterStory id="before-after-dental-crown" tone="light" reverse number="09" eyebrow="Illustrative restorative pathway · dental crown" title="From a compromised foundation." emphasis="To planned full coverage."
+        intro="This illustrative pathway shows how restorability, remaining structure and bite may guide a dental crown. It is not an actual patient case, guaranteed shade match, promised lifespan or assured outcome."
+        image="/images/generated/before-after-dental-crown-v1.webp" imageAlt="Illustrative comparison of a compromised tooth foundation and a planned full-coverage dental crown"
+        beforeLabel="Before crown evaluation" beforeDetail="The tooth may need broader protection, but restorability, preliminary needs, remaining support and the correct restorative pathway are not yet confirmed."
+        afterLabel="Illustrative crown pathway" afterDetail="The simulated view represents full coverage planned around the foundation, margins, contact, shade and bite—not an exact or permanent result."
+        caseNote="Illustrative crown pathway · not an actual patient case · candidacy, shade and longevity vary" />
+      <HubFooter eyebrow="Ready to understand the tooth beneath the restoration?" title="Begin with the foundation, confirm the appropriate coverage and request a crown evaluation." />
+    </main>
+  </body>
+</html>

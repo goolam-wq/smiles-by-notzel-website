@@ -52,6 +52,7 @@ const routes = [
   ['recode-2-0-dental-program', '/services/recode-2-0-dental-program/?qa=detail-matrix'],
   ['amalgam-filling-replacement', '/services/amalgam-filling-replacement/?qa=detail-matrix'],
   ['tooth-colored-dental-filling', '/services/tooth-colored-dental-filling/?qa=detail-matrix'],
+  ['dental-crown', '/services/dental-crown/?qa=detail-matrix'],
 ];
 const routeFilter = process.argv[2];
 const activeRoutes = routeFilter ? routes.filter(([name]) => name === routeFilter) : routes;

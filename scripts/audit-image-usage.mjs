@@ -44,6 +44,7 @@ const routes = [
   '/services/recode-2-0-dental-program/',
   '/services/amalgam-filling-replacement/',
   '/services/tooth-colored-dental-filling/',
+  '/services/dental-crown/',
   '/services/implants-oral-surgery/',
   '/services/orthodontic-dentistry/',
   '/services/pediatric-developmental/',

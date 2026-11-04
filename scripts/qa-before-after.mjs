@@ -55,6 +55,7 @@ const routes = [
   ['recode-2-0-dental-program', '/services/recode-2-0-dental-program/', '#before-after-recode-2-0-dental-program'],
   ['amalgam-filling-replacement', '/services/amalgam-filling-replacement/', '#before-after-amalgam-filling-replacement'],
   ['tooth-colored-dental-filling', '/services/tooth-colored-dental-filling/', '#before-after-tooth-colored-dental-filling'],
+  ['dental-crown', '/services/dental-crown/', '#before-after-dental-crown'],
 ];
 const requestedRoute = process.argv[2];
 const selectedRoutes = requestedRoute

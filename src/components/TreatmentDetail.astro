@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement' | 'tooth-colored-dental-filling';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement' | 'tooth-colored-dental-filling' | 'dental-crown';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -40,8 +40,14 @@ const isSpirocheteTest = kind === 'oral-spirochete-test';
 const isRecodeProgram = kind === 'recode-2-0-dental-program';
 const isAmalgamReplacement = kind === 'amalgam-filling-replacement';
 const isToothColoredFilling = kind === 'tooth-colored-dental-filling';
+const isDentalCrown = kind === 'dental-crown';
 
-const processSteps = isToothColoredFilling ? [
+const processSteps = isDentalCrown ? [
+  ['01', 'Evaluate options', 'The clinician evaluates remaining structure, cracks, wear, prior dental work, symptoms, bite and possible endodontic needs before recommending coverage.'],
+  ['02', 'Prepare & record', 'When a crown is appropriate, the tooth is prepared and the required scan or impression, bite and shade records are captured for the plan.'],
+  ['03', 'Protect & fabricate', 'A provisional may be used when required while the confirmed crown is fabricated; exact materials, timing and visit count depend on the individual case.'],
+  ['04', 'Seat & review', 'Margins, contact, shade and bite are checked before final seating, then cleaning, maintenance and follow-up guidance are explained.'],
+] : isToothColoredFilling ? [
   ['01', 'Evaluate', 'The clinician examines the damaged or decayed area, symptoms, remaining tooth structure, bite and relevant history before confirming that a direct filling is appropriate.'],
   ['02', 'Prepare the indicated area', 'Only the clinically indicated area is prepared according to the restorative plan while sound tooth structure is respected where possible.'],
   ['03', 'Place & shape', 'A tooth-colored material is selected, placed and shaped for the individual tooth without promising an invisible, perfect or permanent result.'],
@@ -228,7 +234,14 @@ const processSteps = isToothColoredFilling ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isToothColoredFilling ? [
+const faqs = isDentalCrown ? [
+  ['How much does a dental crown cost?', 'The customer-facing price is $1,530 per tooth. The $64 monthly view is an approximate rounded 24-month illustration ($1,536 total), which is $6 above the $1,530 fixed and yearly views. Final scope, material, eligibility and payment terms are office-confirmed.'],
+  ['How is a crown different from a filling?', 'A filling repairs an appropriate damaged area directly. A crown provides broader coverage when the remaining tooth needs more protection or rebuilding. The examination determines which pathway fits the tooth.'],
+  ['Does every root-canal-treated tooth need a crown?', 'No universal rule is stated. Tooth location, remaining structure, cracks, access, bite, restoration history and the clinical plan determine whether a crown or another restoration is recommended.'],
+  ['How many visits does a crown require?', 'Visit count and timing vary with the tooth, preliminary treatment, records, material, fabrication pathway and whether a provisional is required. The office confirms the planned sequence.'],
+  ['Will the crown be invisible or last permanently?', 'No exact shade match, invisible margin or lifetime is guaranteed. Appearance and longevity vary with the tooth, material, bite, habits, home care and future clinical conditions.'],
+  ['Is crown treatment available at both offices?', 'Yes. Dental crown evaluation and treatment are available through Chicago Heights and Mokena. Call the preferred office to confirm scheduling and the individual treatment scope.'],
+] : isToothColoredFilling ? [
   ['How much does a tooth-colored dental filling cost?', 'The customer-facing price starts at $255 per tooth. The $22 monthly view is an approximate rounded 12-month illustration ($264 total), which is $9 above the $255 starting fixed and yearly views. Final scope, eligibility and payment terms are confirmed after evaluation.'],
   ['What is a tooth-colored dental filling?', 'It is a direct restorative material selected to repair an appropriate damaged area and coordinate with the tooth shade. Material, shade and technique depend on the tooth and clinical plan.'],
   ['Can every damaged tooth be repaired with a filling?', 'No. Remaining tooth structure, location, bite, crack extent, decay and other findings determine whether a direct filling, crown, root-canal pathway or another treatment should be considered.'],
@@ -454,7 +467,14 @@ const faqs = isToothColoredFilling ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isToothColoredFilling ? [
+const relatedServices = isDentalCrown ? [
+  ['Restorative & Reconstructive', 'Explore the complete restorative category', '/services/restorative-reconstructive/'],
+  ['Tooth-colored dental filling', 'Compare a direct restoration when appropriate', '/services/tooth-colored-dental-filling/'],
+  ['Root-canal treatment & coordination', 'Connect deeper tooth care to the restorative plan', '/services/root-canal-treatment-coordination/'],
+  ['Dental bridge', 'Explore a connected replacement pathway', '/services/dental-bridge/'],
+  ['Full-mouth reconstruction', 'Coordinate several restorative priorities', '/services/full-mouth-reconstruction/'],
+  ['Custom night guard', 'Explore a separate pressure-management appliance', '/services/custom-night-guard/'],
+] : isToothColoredFilling ? [
   ['Restorative & Reconstructive', 'Explore the complete restorative category', '/services/restorative-reconstructive/'],
   ['Routine comprehensive exam', 'Connect the repair to the complete oral picture', '/services/routine-comprehensive-exam/'],
   ['Digital dental X-rays', 'Explore clinically indicated diagnostic imaging', '/services/digital-dental-x-rays/'],
@@ -674,7 +694,62 @@ const relatedServices = isToothColoredFilling ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isToothColoredFilling ? {
+const content = isDentalCrown ? {
+  heroClass: 'is-dental-crown',
+  heroImages: [
+    ['/images/generated/dental-crown-hero-v1.webp', 'A dentist evaluating the remaining tooth structure before planning a dental crown', 'READ REMAINING STRUCTURE'],
+    ['/images/generated/dental-crown-hero-detail-v1.webp', 'A clinician designing crown coverage, contact, shade and bite for an individual tooth', 'DESIGN COVERAGE AND BITE'],
+    ['/images/generated/dental-crown-hero-result-v1.webp', 'A dental crown being seated and reviewed in the complete bite', 'SEAT AND REVIEW'],
+  ],
+  heroAria: ['Explore crown candidacy and remaining structure', 'Explore crown coverage and bite design', 'Explore crown seating and review'],
+  kicker: 'Restorative & Reconstructive · Service 04',
+  title: ['Cover the compromised tooth.', 'Keep the plan specific.'],
+  intro: 'A full-coverage restoration when the tooth needs more protection or rebuilding than a filling can provide. Structure, cracks, wear, prior work, symptoms, bite and endodontic needs determine candidacy.',
+  heroRail: ['Read remaining structure', 'Design coverage and bite', 'Seat and review'],
+  ledgerLabel: 'Dental crown', ledgerFixed: '$1,530 / tooth', ledgerMonthly: '$64 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['The crown is visible.', 'The foundation', 'determines the result.'],
+  storyImage: '/images/generated/dental-crown-process-v1.webp',
+  storyAlt: 'A dentist evaluating the foundation, coverage and bite for a planned dental crown',
+  storyRangeLabel: 'Compare a compromised tooth with a foundation-led crown plan',
+  storyNote: 'Confirm restorability and any preliminary needs before designing coverage.',
+  storyLead: 'We begin beneath the visible restoration. Remaining structure, symptoms, cracks, prior work and bite determine whether the tooth is restorable, whether preliminary treatment is needed and how coverage should be designed.',
+  storySteps: [
+    ['01', 'Confirm the foundation', 'Restorability, remaining structure and any preliminary needs are assessed before crown design begins.'],
+    ['02', 'Design the coverage', 'Material, margins, contact, shade and bite are planned around the individual tooth and complete restoration.'],
+    ['03', 'Seat and review', 'The crown is checked, seated according to the plan and reviewed with maintenance and realistic limits.'],
+  ],
+  storyNotes: ['Begin with restorability and remaining structure.', 'Plan coverage, contact, shade and bite.', 'Seat and review the restoration in context.'],
+  processTitle: ['Protect the tooth.', 'Keep the foundation central.'],
+  expectTitle: ['Full coverage.', 'Individual foundation.'],
+  expectCopy: 'A crown can provide broader coverage when a filling is not enough, but candidacy, preliminary treatment, material, timing and longevity depend on the individual tooth. No invisible margin, exact shade, fixed visit count or permanent result is promised.',
+  metrics: [['1', 'tooth-specific full-coverage restoration'], ['4', 'stages: evaluate, record, fabricate, seat'], ['2', 'connected office locations']],
+  pricingId: 'dental-crown-pricing',
+  pricingTitle: ['One full-coverage restoration.', 'Three planning views.'],
+  pricingIntro: 'The dental crown amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$1,530', 'per tooth'], ['MONTHLY · 02', '$64', 'per month · 24 months'], ['YEARLY · 03', '$1,530', 'per year · per tooth']],
+  pricingNote: 'The $64 monthly view is an approximate rounded illustration ($1,536 total across 24 months), which is $6 above the $1,530 fixed and yearly views. Final tooth condition, preliminary needs, material, scope, eligibility and payment terms are office-confirmed.',
+  whyTitle: ['The tooth beneath the crown', 'stays central.'],
+  whyIntro: 'The team evaluates restorability, keeps alternatives and preliminary needs visible, and reviews margins, contact, shade and bite before the crown becomes the visible part of the plan.',
+  whyImage: '/images/generated/dental-crown-result-v1.webp',
+  whyAlt: 'A dentist reviewing a completed crown and its fit in the full bite',
+  whyPanels: [
+    ['01', 'Restorability first', 'Remaining structure, cracks, symptoms and prior work establish whether the tooth can support the planned restoration.'],
+    ['02', 'Alternatives & preliminary needs', 'A filling, root-canal evaluation, extraction or another pathway remains visible when the tooth requires it.'],
+    ['03', 'Fit, contact & bite', 'Margins, neighboring contact and bite are checked alongside the visible shade and form.'],
+    ['04', 'Maintenance & limits', 'Home care, monitoring and variable longevity are explained without guaranteeing a permanent restoration.'],
+  ],
+  whyFoot: 'ONE FOUNDATION-LED CROWN · FOUR CONNECTED STAGES',
+  proofTitle: ['The foundation understood.', 'The coverage contextualized.'],
+  proofText: 'Patients frequently mention clear explanations, careful restorative work and practical follow-up—general-practice themes that support a foundation-led crown conversation.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Restorability first', 'Coverage designed in context', 'Fit and bite reviewed'],
+  faqTitle: ['Before a', 'dental crown.'],
+  relatedTitle: ['One covered tooth.', 'Several connected paths.'],
+  relatedAria: 'Related restorative, endodontic and protective services',
+  currentPath: 'Dental crown',
+  locationsAria: 'Dental crown locations',
+} : isToothColoredFilling ? {
   heroClass: 'is-tooth-colored-filling',
   heroImages: [
     ['/images/generated/tooth-colored-dental-filling-hero-v1.webp', 'A dentist assessing a tooth before planning a tooth-colored dental filling', 'MAP THE DAMAGE'],
@@ -3355,6 +3430,18 @@ const content = isToothColoredFilling ? {
   .whitening-hero.is-tooth-colored-filling .hero-cinema__copy{top:15vh;width:min(46vw,48rem);transform:none}
   .whitening-hero.is-tooth-colored-filling .hero-cinema__copy h1{font-size:clamp(3.8rem,5.5vw,6.2rem);line-height:.82;margin:1.25rem 0 1.45rem}
   .whitening-hero.is-tooth-colored-filling .hero-cinema__copy h1 em{display:block;margin-left:clamp(1.75rem,4vw,4rem)}
+  .whitening-hero.is-dental-crown .hero-folds__scan{display:none}
+  .whitening-hero.is-dental-crown .hero-fold{border:0;overflow:hidden;box-shadow:0 2.6rem 6.4rem rgba(0,0,0,.36);transform-origin:center}
+  .whitening-hero.is-dental-crown .hero-fold--one{translate:5% 16%;scale:.7 .68;clip-path:inset(0 round 999px 999px 1rem 1rem)}
+  .whitening-hero.is-dental-crown .hero-fold--two{translate:-6% -5%;scale:1.12 .96;clip-path:inset(0 round 9rem 9rem 1rem 1rem)}
+  .whitening-hero.is-dental-crown .hero-fold--three{translate:-10% 16%;scale:.7 .68;clip-path:inset(0 round 999px 999px 1rem 1rem)}
+  .whitening-hero.is-dental-crown .hero-fold--one>img{object-position:44% center}
+  .whitening-hero.is-dental-crown .hero-fold--two>img{object-position:53% center}
+  .whitening-hero.is-dental-crown .hero-fold--three>img{object-position:64% center}
+  .whitening-hero.is-dental-crown .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 34%,rgba(4,24,20,.4) 61%,transparent 82%)}
+  .whitening-hero.is-dental-crown .hero-cinema__copy{top:15vh;width:min(45vw,46rem);transform:none}
+  .whitening-hero.is-dental-crown .hero-cinema__copy h1{font-size:clamp(3.8rem,5.25vw,6rem);line-height:.82;margin:1.25rem 0 1.5rem}
+  .whitening-hero.is-dental-crown .hero-cinema__copy h1 em{display:block;margin-left:clamp(2rem,4.5vw,4.5rem)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -3535,6 +3622,13 @@ const content = isToothColoredFilling ? {
     .whitening-hero.is-tooth-colored-filling .hero-cinema__copy{top:7.15rem}
     .whitening-hero.is-tooth-colored-filling .hero-cinema__copy h1{font-size:clamp(2.7rem,11.9vw,3.7rem);line-height:.84}
     .whitening-hero.is-tooth-colored-filling .hero-cinema__copy h1 em{margin-left:1.15rem}
+    .whitening-hero.is-dental-crown .hero-fold--one{translate:2% 11%;scale:.76 .72;clip-path:inset(0 round 999px 999px .8rem .8rem)}
+    .whitening-hero.is-dental-crown .hero-fold--two{translate:-2% -2%;scale:1.1 .96;clip-path:inset(0 round 5rem 5rem .8rem .8rem)}
+    .whitening-hero.is-dental-crown .hero-fold--three{translate:-4% 11%;scale:.76 .72;clip-path:inset(0 round 999px 999px .8rem .8rem)}
+    .whitening-hero.is-dental-crown .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.88) 32%,rgba(4,24,20,.15) 63%,rgba(4,24,20,.82) 100%)}
+    .whitening-hero.is-dental-crown .hero-cinema__copy{top:7.1rem}
+    .whitening-hero.is-dental-crown .hero-cinema__copy h1{font-size:clamp(2.7rem,11.5vw,3.65rem);line-height:.84}
+    .whitening-hero.is-dental-crown .hero-cinema__copy h1 em{margin-left:1.3rem}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
@@ -3679,6 +3773,7 @@ const content = isToothColoredFilling ? {
       if (hero && heroFolds.length === 3) {
         const isAmalgamHero = hero.classList.contains('is-amalgam-replacement');
         const isToothColoredHero = hero.classList.contains('is-tooth-colored-filling');
+        const isDentalCrownHero = hero.classList.contains('is-dental-crown');
         const phases = q('[data-hero-phase]');
         const edition = q('[data-hero-edition]')[0];
         const scan = q('[data-fold-scan]')[0];
@@ -3717,6 +3812,8 @@ const content = isToothColoredFilling ? {
             ? {opacity:0,yPercent:index===1 ? 16 : -14}
             : isToothColoredHero
               ? {opacity:0,xPercent:[-24,0,24][index],yPercent:[-8,15,-12][index]}
+              : isDentalCrownHero
+                ? {opacity:0,yPercent:[26,-20,26][index]}
               : {}),
         }));
         if (progress) gsap.set(progress,{width:0});
@@ -3731,10 +3828,12 @@ const content = isToothColoredFilling ? {
             ? {opacity:1,yPercent:0}
             : isToothColoredHero
               ? {opacity:1,xPercent:0,yPercent:0}
+              : isDentalCrownHero
+                ? {opacity:1,yPercent:0}
               : {}),
-          duration:isAmalgamHero ? 1.55 : isToothColoredHero ? 1.45 : 1.35,
-          ease:isAmalgamHero ? 'expo.inOut' : isToothColoredHero ? 'power4.out' : 'power3.inOut',
-        },index*(isAmalgamHero ? .12 : isToothColoredHero ? .16 : .08)));
+          duration:isAmalgamHero ? 1.55 : isToothColoredHero ? 1.45 : isDentalCrownHero ? 1.6 : 1.35,
+          ease:isAmalgamHero ? 'expo.inOut' : isToothColoredHero ? 'power4.out' : isDentalCrownHero ? 'expo.out' : 'power3.inOut',
+        },index*(isAmalgamHero ? .12 : isToothColoredHero ? .16 : isDentalCrownHero ? .14 : .08)));
         intro.to(q('[data-hero-fold] img'),{scale:1.015,duration:1.2},0)
           .to(scan,{left:mobile?'100vw':'99vw',duration:1.4},0)
           .to(progress,{width:'100%',duration:1.35},0)
