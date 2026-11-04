@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -38,8 +38,14 @@ const isNightGuard = kind === 'custom-night-guard';
 const isLaserDentistry = kind === 'laser-dentistry';
 const isSpirocheteTest = kind === 'oral-spirochete-test';
 const isRecodeProgram = kind === 'recode-2-0-dental-program';
+const isAmalgamReplacement = kind === 'amalgam-filling-replacement';
 
-const processSteps = isRecodeProgram ? [
+const processSteps = isAmalgamReplacement ? [
+  ['01', 'Assess', 'The clinician examines the tooth, existing restoration, symptoms, remaining structure and relevant history before discussing whether replacement is appropriate.'],
+  ['02', 'Compare', 'Keeping and monitoring the restoration is compared with replacement, including risks, benefits, alternatives and any diagnostics still needed.'],
+  ['03', 'Replace', 'When a clinical reason is confirmed, the existing filling is removed and the tooth is prepared according to the individualized restorative plan.'],
+  ['04', 'Restore & review', 'The selected restoration is placed, fit and bite are reviewed, and follow-up is explained without promising a universal material or outcome.'],
+] : isRecodeProgram ? [
   ['01', 'Listen', 'The team begins with dental concerns, health context, outside care and the reason a coordinated dental baseline is being considered.'],
   ['02', 'Assess', 'Oral findings and relevant records are reviewed within the confirmed dental scope; exact inclusions depend on the office-confirmed program plan.'],
   ['03', 'Connect', 'Dental findings are organized into a baseline and explained alongside the wider care context without making cognitive or medical diagnoses or outcome claims.'],
@@ -216,7 +222,13 @@ const processSteps = isRecodeProgram ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isRecodeProgram ? [
+const faqs = isAmalgamReplacement ? [
+  ['How much does amalgam filling replacement cost?', 'The customer-facing price starts at $400 per tooth. The $34 monthly view is an approximate rounded 12-month illustration ($408 total), which is $8 above the $400 starting fixed and yearly views. Final scope, restoration choice, eligibility and payment terms are confirmed after evaluation.'],
+  ['Should every amalgam filling be replaced?', 'No. Replacement is not recommended solely because a restoration is amalgam. The tooth condition, symptoms, restoration integrity, remaining structure, risks, alternatives and patient priorities guide the decision.'],
+  ['Does replacement detox the body or improve cognitive or systemic health?', 'No. No detoxification, cognitive, neurologic, cardiovascular, systemic or other medical benefit is claimed. Dental treatment does not replace medical evaluation or treatment.'],
+  ['Will every replacement use a tooth-colored filling?', 'Not automatically. The appropriate restoration depends on the tooth, remaining structure, location, bite and clinical plan. A filling, crown or another pathway may be discussed after evaluation.'],
+  ['Are examination and X-rays included in the starting price?', 'No automatic inclusion is stated. Examination, digital X-rays, additional diagnostics, crowns and other treatment are separate unless the office confirms them in the scheduled scope.'],
+] : isRecodeProgram ? [
   ['How much does the ReCODE 2.0 dental program cost?', 'The customer-facing annual program price is $1,599. The $134 monthly view is an approximate rounded 12-month illustration ($1,608 total), which is $9 above the $1,599 fixed and yearly views. Final inclusions, eligibility, appointment timing and payment terms are office-confirmed.'],
   ['What is included in the annual program?', 'Exact services, records, appointments and coordination are not assumed here. The office confirms the current program scope and what is separate before enrollment.'],
   ['Does the dental program diagnose or treat cognitive disease?', 'No. The program does not diagnose, treat, prevent, reverse or predict cognitive, neurologic or other medical disease. Dental findings remain within a clearly limited dental role.'],
@@ -429,7 +441,13 @@ const faqs = isRecodeProgram ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isRecodeProgram ? [
+const relatedServices = isAmalgamReplacement ? [
+  ['ReCODE & Cognitive Health', 'Explore the complete category and dental scope', '/services/recode-cognitive-health/'],
+  ['Tooth-colored dental filling', 'Explore a direct-restoration pathway when appropriate', '/services/tooth-colored-dental-filling/'],
+  ['Dental crown', 'Explore greater coverage when the tooth needs it', '/services/dental-crown/'],
+  ['Routine comprehensive exam', 'Connect the decision to a wider oral examination', '/services/routine-comprehensive-exam/'],
+  ['Digital dental X-rays', 'Explore clinically indicated diagnostic imaging', '/services/digital-dental-x-rays/'],
+] : isRecodeProgram ? [
   ['ReCODE & Cognitive Health', 'Explore the complete category and dental scope', '/services/recode-cognitive-health/'],
   ['Oral spirochete test', 'Explore one contextual oral microbial signal', '/services/oral-spirochete-test/'],
   ['Amalgam filling replacement', 'Explore a separate restorative pathway when appropriate', '/services/amalgam-filling-replacement/'],
@@ -636,7 +654,62 @@ const relatedServices = isRecodeProgram ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isRecodeProgram ? {
+const content = isAmalgamReplacement ? {
+  heroClass: 'is-amalgam-replacement',
+  heroImages: [
+    ['/images/generated/amalgam-filling-replacement-hero-v1.webp', 'A dentist examining a tooth and existing amalgam restoration before discussing replacement', 'READ THE TOOTH'],
+    ['/images/generated/amalgam-filling-replacement-hero-detail-v1.webp', 'A clinician comparing whether to keep or replace an existing amalgam filling', 'COMPARE KEEP VERSUS REPLACE'],
+    ['/images/generated/amalgam-filling-replacement-hero-result-v1.webp', 'A restored tooth being reviewed after clinically indicated filling replacement', 'RESTORE CONFIRMED NEED'],
+  ],
+  heroAria: ['Explore tooth and restoration assessment', 'Explore keep-versus-replace comparison', 'Explore the confirmed restorative pathway'],
+  kicker: 'ReCODE & Cognitive Health · Restorative 03',
+  title: ['Replace for a reason.', 'Restore with context.'],
+  intro: 'Amalgam replacement considered when the tooth, restoration and patient priorities support it—not as blanket removal, detoxification or a promise of cognitive or systemic benefit.',
+  heroRail: ['Read the tooth', 'Compare keep-versus-replace', 'Restore confirmed need'],
+  ledgerLabel: 'Amalgam filling replacement', ledgerFixed: 'From $400 / tooth', ledgerMonthly: '$34 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['The material is visible.', 'The tooth condition', 'decides.'],
+  storyImage: '/images/generated/amalgam-filling-replacement-process-v1.webp',
+  storyAlt: 'A clinician assessing an existing amalgam filling and the surrounding tooth structure',
+  storyRangeLabel: 'Compare a material-first concern with a tooth-led keep-versus-replace decision',
+  storyNote: 'Assess the tooth and restoration before deciding whether replacement is needed.',
+  storyLead: 'We begin with the tooth, the existing restoration and the reasons for concern. Keeping and monitoring the filling is compared with replacement before the restorative path is confirmed—without blanket removal or medical-outcome claims.',
+  storySteps: [
+    ['01', 'Read the tooth', 'Symptoms, restoration integrity, remaining structure and relevant diagnostics establish the current condition.'],
+    ['02', 'Compare the choices', 'Monitoring, replacement and the restorative alternatives are discussed with their risks and limitations.'],
+    ['03', 'Restore confirmed need', 'When replacement is appropriate, the selected restoration is placed and reviewed in the complete bite.'],
+  ],
+  storyNotes: ['Begin with tooth condition, not material fear.', 'Compare keeping and replacing the restoration.', 'Choose the restoration according to confirmed need.'],
+  processTitle: ['Assess the tooth.', 'Restore the reason.'],
+  expectTitle: ['Material visible.', 'Decision individualized.'],
+  expectCopy: 'Amalgam filling replacement is a restorative decision, not detoxification or treatment for cognitive or systemic disease. The tooth condition, remaining structure and alternatives determine whether replacement and which restoration are appropriate.',
+  metrics: [['1', 'tooth-led restorative decision'], ['4', 'stages: assess, compare, replace, review'], ['2', 'connected office locations']],
+  pricingId: 'amalgam-filling-replacement-pricing',
+  pricingTitle: ['One confirmed tooth.', 'Three planning views.'],
+  pricingIntro: 'The starting amalgam filling replacement amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', 'From $400', 'per tooth'], ['MONTHLY · 02', '$34', 'per month · 12 months'], ['YEARLY · 03', 'From $400', 'per year · per tooth']],
+  pricingNote: 'The $34 monthly view is an approximate rounded illustration ($408 total across 12 months), which is $8 above the $400 starting fixed and yearly views. Final tooth condition, diagnostics, restoration choice, scope, eligibility and payment terms are office-confirmed.',
+  whyTitle: ['The tooth comes before', 'the material conversation.'],
+  whyIntro: 'The team evaluates what the tooth needs, explains whether monitoring remains reasonable and keeps restorative alternatives visible before recommending replacement.',
+  whyImage: '/images/generated/amalgam-filling-replacement-result-v1.webp',
+  whyAlt: 'A dentist explaining the tooth condition, restoration choices and follow-up after filling replacement',
+  whyPanels: [
+    ['01', 'Condition before material', 'Symptoms, restoration integrity and remaining tooth structure guide the decision rather than material alone.'],
+    ['02', 'Keep-versus-replace visible', 'Monitoring remains part of the conversation when immediate replacement is not clinically indicated.'],
+    ['03', 'Restoration matched to need', 'A filling, crown or other pathway is selected according to the confirmed tooth condition and plan.'],
+    ['04', 'No medical-outcome claim', 'No detoxification, cognitive or systemic benefit is promised from replacement.'],
+  ],
+  whyFoot: 'ONE TOOTH-LED DECISION · FOUR CONNECTED STAGES',
+  proofTitle: ['The reason explained.', 'The restoration contextualized.'],
+  proofText: 'Patients frequently mention thorough explanations, careful restorative planning and clear choices—general-practice themes that support a tooth-led replacement decision.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Tooth condition first', 'Keep-versus-replace comparison', 'Restorative alternatives'],
+  faqTitle: ['Before amalgam', 'filling replacement.'],
+  relatedTitle: ['One tooth-led decision.', 'Several connected paths.'],
+  relatedAria: 'Related ReCODE, restorative and examination services',
+  currentPath: 'Amalgam filling replacement',
+  locationsAria: 'Amalgam filling replacement locations',
+} : isRecodeProgram ? {
   heroClass: 'is-recode-program',
   heroImages: [
     ['/images/generated/recode-2-0-dental-program-hero-v1.webp', 'Dr. Ilenne Noetzel listening to a patient before establishing a coordinated dental baseline', 'LISTEN'],
@@ -3183,6 +3256,18 @@ const content = isRecodeProgram ? {
   .whitening-hero.is-recode-program .hero-fold--two>img{object-position:53% center}
   .whitening-hero.is-recode-program .hero-fold--three>img{object-position:63% center}
   .whitening-hero.is-recode-program .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 34%,rgba(4,24,20,.34) 62%,transparent 82%)}
+  .whitening-hero.is-amalgam-replacement .hero-folds__scan{display:none}
+  .whitening-hero.is-amalgam-replacement .hero-fold{border:0;box-shadow:0 2.5rem 6.4rem rgba(0,0,0,.35);overflow:hidden;transform-origin:50% 50%}
+  .whitening-hero.is-amalgam-replacement .hero-fold--one{clip-path:polygon(4% 8%,94% 1%,100% 90%,10% 100%);rotate:-2.2deg}
+  .whitening-hero.is-amalgam-replacement .hero-fold--two{clip-path:polygon(7% 0,100% 9%,92% 100%,0 91%);rotate:2deg}
+  .whitening-hero.is-amalgam-replacement .hero-fold--three{clip-path:polygon(0 7%,92% 0,100% 94%,8% 100%);rotate:-1.2deg}
+  .whitening-hero.is-amalgam-replacement .hero-fold--one>img{object-position:39% center;scale:1.06}
+  .whitening-hero.is-amalgam-replacement .hero-fold--two>img{object-position:53% center;scale:1.04}
+  .whitening-hero.is-amalgam-replacement .hero-fold--three>img{object-position:66% center;scale:1.05}
+  .whitening-hero.is-amalgam-replacement .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.93) 33%,rgba(4,24,20,.31) 64%,transparent 84%)}
+  .whitening-hero.is-amalgam-replacement .hero-cinema__copy{top:13vh;width:min(43vw,45rem);transform:none}
+  .whitening-hero.is-amalgam-replacement .hero-cinema__copy h1{font-size:clamp(4.8rem,7vw,7.8rem);line-height:.8;margin:1.25rem 0 1.7rem}
+  .whitening-hero.is-amalgam-replacement .hero-cinema__copy h1 em{display:block;margin-left:clamp(2.5rem,5vw,5.5rem)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -3349,6 +3434,13 @@ const content = isRecodeProgram ? {
     .whitening-hero.is-recode-program .hero-fold--two{clip-path:inset(1% 3% 1% 3% round 1rem 1rem 45% 45%)}
     .whitening-hero.is-recode-program .hero-fold--three{clip-path:inset(4% 2% 4% 2% round 999px)}
     .whitening-hero.is-recode-program .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.89) 30%,rgba(4,24,20,.15) 61%,rgba(4,24,20,.81) 100%)}
+    .whitening-hero.is-amalgam-replacement .hero-fold--one{clip-path:polygon(3% 6%,96% 1%,100% 93%,7% 100%);rotate:-1.5deg}
+    .whitening-hero.is-amalgam-replacement .hero-fold--two{clip-path:polygon(5% 0,100% 7%,95% 100%,0 93%);rotate:1.4deg}
+    .whitening-hero.is-amalgam-replacement .hero-fold--three{clip-path:polygon(0 5%,94% 0,100% 95%,6% 100%);rotate:-.8deg}
+    .whitening-hero.is-amalgam-replacement .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.88) 29%,rgba(4,24,20,.13) 62%,rgba(4,24,20,.82) 100%)}
+    .whitening-hero.is-amalgam-replacement .hero-cinema__copy{top:7.25rem}
+    .whitening-hero.is-amalgam-replacement .hero-cinema__copy h1{font-size:clamp(3.25rem,14vw,4.35rem);line-height:.82}
+    .whitening-hero.is-amalgam-replacement .hero-cinema__copy h1 em{margin-left:1.6rem}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
@@ -3491,6 +3583,7 @@ const content = isRecodeProgram ? {
       const hero = q('[data-treatment-hero]')[0];
       const heroFolds = q('[data-hero-fold]') as HTMLElement[];
       if (hero && heroFolds.length === 3) {
+        const isAmalgamHero = hero.classList.contains('is-amalgam-replacement');
         const phases = q('[data-hero-phase]');
         const edition = q('[data-hero-edition]')[0];
         const scan = q('[data-fold-scan]')[0];
@@ -3523,11 +3616,22 @@ const content = isRecodeProgram ? {
         const collapsed = mobile
           ? [{left:'24vw',top:'35vh',width:'68vw',height:'54vh'},{left:'93vw',top:'38vh',width:'4vw',height:'48vh'},{left:'98vw',top:'41vh',width:'2vw',height:'42vh'}]
           : [{left:tablet?'48vw':'47vw',top:'12vh',width:tablet?'40vw':'42vw',height:'76vh'},{left:'89vw',top:'16vh',width:'5vw',height:'68vh'},{left:'95vw',top:'20vh',width:'4vw',height:'60vh'}];
-        heroFolds.forEach((fold,index)=>gsap.set(fold,collapsed[index]));
+        heroFolds.forEach((fold,index)=>gsap.set(fold,{
+          ...collapsed[index],
+          ...(isAmalgamHero ? {opacity:0,yPercent:index===1 ? 16 : -14} : {}),
+        }));
         if (progress) gsap.set(progress,{width:0});
         if (copy) gsap.set(copy,{opacity:.55});
         const intro = gsap.timeline({defaults:{ease:'power3.inOut'}});
-        heroFolds.forEach((fold,index)=>intro.to(fold,{left:restingLeft[index],top,width:restingWidth[index],height,duration:1.35},index*.08));
+        heroFolds.forEach((fold,index)=>intro.to(fold,{
+          left:restingLeft[index],
+          top,
+          width:restingWidth[index],
+          height,
+          ...(isAmalgamHero ? {opacity:1,yPercent:0} : {}),
+          duration:isAmalgamHero ? 1.55 : 1.35,
+          ease:isAmalgamHero ? 'expo.inOut' : 'power3.inOut',
+        },index*(isAmalgamHero ? .12 : .08)));
         intro.to(q('[data-hero-fold] img'),{scale:1.015,duration:1.2},0)
           .to(scan,{left:mobile?'100vw':'99vw',duration:1.4},0)
           .to(progress,{width:'100%',duration:1.35},0)

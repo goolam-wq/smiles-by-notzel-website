@@ -53,6 +53,7 @@ const routes = [
   ['laser-dentistry', '/services/laser-dentistry/', '#before-after-laser-dentistry'],
   ['oral-spirochete-test', '/services/oral-spirochete-test/', '#before-after-oral-spirochete-test'],
   ['recode-2-0-dental-program', '/services/recode-2-0-dental-program/', '#before-after-recode-2-0-dental-program'],
+  ['amalgam-filling-replacement', '/services/amalgam-filling-replacement/', '#before-after-amalgam-filling-replacement'],
 ];
 const viewports = [
   ['desktop', 1440, 900],

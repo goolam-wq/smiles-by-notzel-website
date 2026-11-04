@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore clinically indicated amalgam filling replacement at Smiles by Noetzel, including assessment, keep-versus-replace context, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Amalgam Filling Replacement | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-amalgam-filling-replacement.webp" mediaAlt="A clinician reviewing the condition of a tooth with an existing amalgam restoration" />
+    <main>
+      <TreatmentDetail kind="amalgam-filling-replacement" />
+      <BeforeAfterStory id="before-after-amalgam-filling-replacement" tone="light" reverse number="07" eyebrow="Illustrative restorative pathway · amalgam filling replacement" title="From a visible material question." emphasis="To a tooth-specific decision."
+        intro="This illustrative pathway shows how an existing amalgam filling may be assessed, compared and—only when clinically indicated—replaced with a tooth-colored restoration. It is not an actual patient case, detox claim or promised result."
+        image="/images/generated/before-after-amalgam-filling-replacement-v1.webp" imageAlt="Illustrative comparison of an existing amalgam restoration and a clinically planned tooth-colored replacement"
+        beforeLabel="Before assessment" beforeDetail="The material is visible, but the condition of the tooth, restoration margins and surrounding structure have not yet been confirmed."
+        afterLabel="Illustrative confirmed pathway" afterDetail="The simulated view represents a tooth-specific keep-versus-replace decision and a planned restoration—not a blanket removal recommendation or guaranteed outcome."
+        caseNote="Illustrative restorative pathway · not an actual patient case · replacement depends on confirmed clinical need" />
+      <HubFooter eyebrow="Ready to understand the tooth—not just the material?" title="Begin with an examination, a clear comparison and a reasoned restorative plan." />
+    </main>
+  </body>
+</html>

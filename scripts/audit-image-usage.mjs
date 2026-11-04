@@ -42,6 +42,7 @@ const routes = [
   '/services/laser-dentistry/',
   '/services/oral-spirochete-test/',
   '/services/recode-2-0-dental-program/',
+  '/services/amalgam-filling-replacement/',
   '/services/implants-oral-surgery/',
   '/services/orthodontic-dentistry/',
   '/services/pediatric-developmental/',
