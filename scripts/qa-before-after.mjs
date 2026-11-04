@@ -34,6 +34,7 @@ const routes = [
   ['bone-grafting', '/services/bone-grafting/', '#before-after-bone-grafting'],
   ['dental-implant-restoration', '/services/dental-implant-restoration/', '#before-after-dental-implant-restoration'],
   ['simple-tooth-extraction', '/services/simple-tooth-extraction/', '#before-after-simple-tooth-extraction'],
+  ['surgical-tooth-extraction', '/services/surgical-tooth-extraction/', '#before-after-surgical-tooth-extraction'],
 ];
 const viewports = [
   ['desktop', 1440, 900],

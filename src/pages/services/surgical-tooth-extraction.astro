@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore surgical tooth extraction at Smiles by Noetzel, including evaluation, alternatives, pricing and both Illinois offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Surgical Tooth Extraction | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-surgical-tooth-extraction.webp" mediaAlt="A dentist and patient reviewing a surgical tooth-extraction plan" />
+    <main>
+      <TreatmentDetail kind="surgical-tooth-extraction" />
+      <BeforeAfterStory id="before-after-surgical-tooth-extraction" tone="dark" reverse number="06" eyebrow="Illustrative care-journey visualization · surgical removal" title="From complex anatomy." emphasis="To a mapped next step."
+        intro="This simulated care-journey visualization explains how a complex tooth concern may move from examination and alternatives review to a surgical extraction and recovery plan. It is not an actual patient outcome and does not guarantee comfort, healing or absence of complications."
+        image="/images/generated/before-after-surgical-tooth-extraction-v1.webp" imageAlt="Illustrative simulated comparison of a complex tooth concern and a surgical extraction recovery pathway"
+        beforeLabel="Before complexity review" beforeDetail="The tooth, roots, surrounding structures, medical history and alternatives still need to be evaluated."
+        afterLabel="Illustrative next-step view" afterDetail="The simulated view represents a surgical-removal and recovery pathway after complexity is confirmed—not an actual patient result."
+        caseNote="Illustrative simulated example · not an actual patient case · treatment and healing vary" />
+      <HubFooter eyebrow="Want clarity about a complex tooth removal?" title="Begin with the anatomy, the alternatives and the plan that follows." />
+    </main>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -19,8 +19,14 @@ const isAllOn4 = kind === 'all-on-4-implant-solution';
 const isBoneGrafting = kind === 'bone-grafting';
 const isImplantRestoration = kind === 'dental-implant-restoration';
 const isSimpleExtraction = kind === 'simple-tooth-extraction';
+const isSurgicalExtraction = kind === 'surgical-tooth-extraction';
 
-const processSteps = isSimpleExtraction ? [
+const processSteps = isSurgicalExtraction ? [
+  ['01', 'Assess', 'The tooth, surrounding structures, symptoms, medical history and imaging are reviewed to understand why a surgical pathway may be required.'],
+  ['02', 'Compare', 'Restorative alternatives, extraction complexity, comfort planning and practical next steps are explained before consent.'],
+  ['03', 'Remove', 'When surgical removal is clinically appropriate, the tooth is removed according to the confirmed plan and individual anatomy.'],
+  ['04', 'Review', 'The team explains site care, warning signs and any appropriate follow-up or tooth-replacement conversation.'],
+] : isSimpleExtraction ? [
   ['01', 'Assess', 'The tooth, surrounding tissue, symptoms, medical history and relevant imaging are reviewed before extraction is recommended.'],
   ['02', 'Compare', 'Restorative alternatives, extraction complexity and the practical next steps are explained before consent.'],
   ['03', 'Remove', 'When a straightforward removal is clinically appropriate, the tooth is removed according to the confirmed treatment plan.'],
@@ -102,7 +108,13 @@ const processSteps = isSimpleExtraction ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isSimpleExtraction ? [
+const faqs = isSurgicalExtraction ? [
+  ['How much does a surgical tooth extraction cost?', 'The customer-facing treatment price is $400 per tooth. The $34 monthly view is an approximate rounded 12-month financing illustration ($408 total), and the yearly treatment amount is $400 per tooth. Final complexity, scope, eligibility and payment terms are confirmed after evaluation.'],
+  ['Why might an extraction need to be surgical?', 'Tooth position, remaining tooth structure, root form, surrounding bone or access may make a straightforward removal inappropriate. Examination and imaging help the clinician classify the required pathway.'],
+  ['Will alternatives be discussed first?', 'Yes. When a tooth may be restorable, the team explains the findings and relevant alternatives before surgical extraction is confirmed. The recommendation depends on the individual tooth and wider care plan.'],
+  ['Is surgical extraction guaranteed to be painless or complication-free?', 'No. No surgical procedure can be promised as painless or free of complications. The team reviews comfort planning, medical history, procedure expectations, site-care instructions and warning signs before and after care.'],
+  ['Is surgical tooth extraction available at both offices?', 'Evaluations can begin through Chicago Heights or Mokena. Call the preferred office to confirm the recommended visit and current surgical availability.'],
+] : isSimpleExtraction ? [
   ['How much does a simple tooth extraction cost?', 'The customer-facing treatment price is $300 per tooth. The monthly planning view is $25 for 12 months, totaling exactly $300, and the yearly treatment amount is $300 per tooth. Final complexity, scope, eligibility and payment terms are confirmed after evaluation.'],
   ['How do you know whether an extraction is simple?', 'The tooth position, remaining structure, surrounding tissue, symptoms and imaging help the clinician determine whether a straightforward removal is appropriate or a surgical pathway is needed.'],
   ['Will alternatives be discussed first?', 'Yes. When a tooth may be restorable, the team explains the findings and relevant alternatives before extraction is confirmed. The appropriate recommendation depends on the individual tooth and wider care plan.'],
@@ -200,7 +212,13 @@ const faqs = isSimpleExtraction ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isSimpleExtraction ? [
+const relatedServices = isSurgicalExtraction ? [
+  ['Implants & Oral Surgery', 'Explore the complete category', '/services/implants-oral-surgery/'],
+  ['Simple tooth extraction', 'Compare a straightforward removal pathway', '/services/simple-tooth-extraction/'],
+  ['Wisdom-tooth removal', 'Explore third-molar evaluation and care', '/services/wisdom-tooth-removal/'],
+  ['Bone grafting', 'Explore site-development planning when needed', '/services/bone-grafting/'],
+  ['Restorative & Reconstructive', 'Explore repair and replacement options', '/services/restorative-reconstructive/'],
+] : isSimpleExtraction ? [
   ['Implants & Oral Surgery', 'Explore the complete category', '/services/implants-oral-surgery/'],
   ['Surgical tooth extraction', 'Explore a more complex removal pathway', '/services/surgical-tooth-extraction/'],
   ['Wisdom-tooth removal', 'Explore third-molar evaluation and care', '/services/wisdom-tooth-removal/'],
@@ -292,7 +310,61 @@ const relatedServices = isSimpleExtraction ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isSimpleExtraction ? {
+const content = isSurgicalExtraction ? {
+  heroClass: 'is-surgical-extraction',
+  heroImages: [
+    ['/images/generated/surgical-tooth-extraction-hero-v1.webp', 'A patient and dentist discussing a tooth that may require surgical removal', 'BEGIN WITH THE COMPLEXITY'],
+    ['/images/generated/surgical-tooth-extraction-hero-detail-v1.webp', 'A dentist reviewing imaging before a surgical tooth extraction', 'MAP THE PATH'],
+    ['/images/generated/surgical-tooth-extraction-hero-result-v1.webp', 'A dentist explaining recovery after surgical tooth extraction', 'PLAN THE RECOVERY'],
+  ],
+  heroAria: ['Explore the surgical extraction assessment', 'Explore imaging and complexity planning', 'Explore the recovery conversation'],
+  kicker: 'Implants & Oral Surgery · Treatment 07',
+  title: ['When removal is more complex.', 'Make the pathway clear.'],
+  intro: 'A surgical tooth-removal pathway when clinical evaluation shows a straightforward extraction is not appropriate—with imaging, medical history and relevant alternatives reviewed first.',
+  heroRail: ['Begin with the complexity', 'Map the path', 'Plan the recovery'],
+  ledgerLabel: 'Surgical tooth extraction', ledgerFixed: '$400 / tooth', ledgerMonthly: '$34 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['Complexity should not create confusion.', 'It needs a', 'mapped clinical path.'],
+  storyImage: '/images/generated/surgical-tooth-extraction-process-v1.webp',
+  storyAlt: 'A dentist reviewing imaging and anatomy before surgical tooth extraction',
+  storyRangeLabel: 'Compare the starting tooth concern with the mapped surgical-removal and recovery pathway',
+  storyNote: 'Understand the anatomy, alternatives and complexity before surgery.',
+  storyLead: 'We begin with why a straightforward removal may not fit the tooth. Examination and imaging connect anatomy, access, alternatives and recovery into one case-specific surgical plan.',
+  storySteps: [
+    ['01', 'Read the anatomy', 'Tooth position, remaining structure, roots, surrounding tissues and medical history establish the starting point.'],
+    ['02', 'Compare the paths', 'Relevant restorative alternatives and the reasons for a surgical approach are explained before treatment is confirmed.'],
+    ['03', 'Plan what follows', 'Site care, warning signs and any future replacement or healing conversation stay connected to the surgical decision.'],
+  ],
+  storyNotes: ['Understand the anatomy, alternatives and complexity before surgery.', 'Confirm the surgical approach with examination and imaging.', 'Connect recovery and any future treatment to the removal plan.'],
+  processTitle: ['Specific in approach.', 'Clear in follow-through.'],
+  expectTitle: ['Surgical in classification.', 'Individual in experience.'],
+  expectCopy: 'Surgical extraction is considered when examination and imaging show that a straightforward removal is not appropriate. Medical history, tooth anatomy, alternatives and comfort planning are reviewed first; pain-free care, uncomplicated healing or a specific result cannot be guaranteed.',
+  metrics: [['1', 'tooth-specific surgical plan'], ['3', 'checks: alternatives, anatomy, recovery'], ['2', 'connected office locations']],
+  pricingId: 'surgical-tooth-extraction-pricing',
+  pricingTitle: ['One tooth.', 'Three planning views.'],
+  pricingIntro: 'The same surgical extraction per-tooth amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$400', 'per tooth'], ['MONTHLY · 02', '$34', 'per month · 12 months'], ['YEARLY · 03', '$400', 'per tooth']],
+  pricingNote: 'The $34 monthly view is an approximate rounded financing illustration ($408 total across 12 months), not an exact division of $400. The yearly amount is a per-tooth treatment view, not a subscription. Imaging, additional procedures, grafting and future replacement care are not represented as included; final complexity, scope, eligibility and terms are confirmed by the office.',
+  whyTitle: ['Complexity recognized.', 'Decisions explained.'],
+  whyIntro: 'We do not treat surgical removal as a generic extraction. Anatomy, imaging, medical history, alternatives, access and recovery stay connected from recommendation through follow-up.',
+  whyImage: '/images/generated/surgical-tooth-extraction-result-v1.webp',
+  whyAlt: 'A dentist and patient reviewing recovery after surgical tooth extraction',
+  whyPanels: [
+    ['01', 'Alternatives before surgery', 'The findings and relevant restorative choices are discussed before removal is confirmed.'],
+    ['02', 'Anatomy guides the approach', 'Imaging and tooth position help define the surgical pathway.'],
+    ['03', 'Recovery stays connected', 'Site-care instructions, warning signs and appropriate follow-up are explained clearly.'],
+  ],
+  whyFoot: 'ONE COMPLEX TOOTH · THREE DECISION CHECKS',
+  proofTitle: ['The complexity understood.', 'The next step clear.'],
+  proofText: 'Patients frequently mention thoughtful explanations, attentive care and clear next steps—general-practice feedback that supports how surgical decisions and follow-up are discussed.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Alternatives reviewed', 'Anatomy assessed', 'Connected aftercare'],
+  faqTitle: ['Before you choose', 'the surgical path.'],
+  relatedTitle: ['One complex tooth.', 'Several connected paths.'],
+  relatedAria: 'Related extraction, grafting and restorative services',
+  currentPath: 'Surgical tooth extraction',
+  locationsAria: 'Surgical tooth extraction evaluation locations',
+} : isSimpleExtraction ? {
   heroClass: 'is-simple-extraction',
   heroImages: [
     ['/images/generated/simple-tooth-extraction-hero-v1.webp', 'A patient and dentist discussing a tooth that may need straightforward removal', 'BEGIN WITH THE TOOTH'],
@@ -1639,6 +1711,16 @@ const content = isSimpleExtraction ? {
   .whitening-hero.is-simple-extraction .hero-fold--two>img{object-position:51% center}
   .whitening-hero.is-simple-extraction .hero-fold--three>img{object-position:61% center}
   .whitening-hero.is-simple-extraction .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.46) 55%,transparent 74%)}
+  .whitening-hero.is-surgical-extraction .hero-folds__scan{display:none}
+  .whitening-hero.is-surgical-extraction .hero-fold{border:0;box-shadow:0 2.2rem 6rem rgba(0,0,0,.34)}
+  .whitening-hero.is-surgical-extraction .hero-fold--one{clip-path:inset(7% 0 0 0 round 9rem 1rem 1rem 4rem)}
+  .whitening-hero.is-surgical-extraction .hero-fold--two{clip-path:inset(0 0 7% 0 round 1rem 9rem 4rem 1rem)}
+  .whitening-hero.is-surgical-extraction .hero-fold--three{clip-path:inset(7% 0 0 0 round 4rem 1rem 9rem 1rem)}
+  .whitening-hero.is-surgical-extraction .hero-fold--one>img{object-position:42% center}
+  .whitening-hero.is-surgical-extraction .hero-fold--two>img{object-position:51% center}
+  .whitening-hero.is-surgical-extraction .hero-fold--three>img{object-position:61% center}
+  .whitening-hero.is-surgical-extraction .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.47) 55%,transparent 74%)}
+  .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:721px) and (max-width:1100px){
     .whitening-hero{height:245svh}
@@ -1718,6 +1800,10 @@ const content = isSimpleExtraction ? {
     .whitening-hero.is-simple-extraction .hero-fold--two{clip-path:inset(3% 0 3% 0 round .75rem 5rem .75rem 5rem)}
     .whitening-hero.is-simple-extraction .hero-fold--three{clip-path:inset(5% 0 0 0 round .75rem 2rem .75rem 5rem)}
     .whitening-hero.is-simple-extraction .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.21) 60%,rgba(4,24,20,.78) 100%)}
+    .whitening-hero.is-surgical-extraction .hero-fold--one{clip-path:inset(5% 0 0 0 round 5rem .75rem .75rem 3rem)}
+    .whitening-hero.is-surgical-extraction .hero-fold--two{clip-path:inset(0 0 5% 0 round .75rem 5rem 3rem .75rem)}
+    .whitening-hero.is-surgical-extraction .hero-fold--three{clip-path:inset(5% 0 0 0 round 3rem .75rem 5rem .75rem)}
+    .whitening-hero.is-surgical-extraction .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.22) 60%,rgba(4,24,20,.79) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */

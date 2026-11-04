@@ -23,6 +23,7 @@ const routes = [
   '/services/bone-grafting/',
   '/services/dental-implant-restoration/',
   '/services/simple-tooth-extraction/',
+  '/services/surgical-tooth-extraction/',
   '/services/implants-oral-surgery/',
   '/services/orthodontic-dentistry/',
   '/services/pediatric-developmental/',
