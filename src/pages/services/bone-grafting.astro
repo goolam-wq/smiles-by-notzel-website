@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore bone grafting at Smiles by Noetzel, including site-specific planning, healing reassessment, pricing and both Illinois offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Bone Grafting | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-bone-grafting.webp" mediaAlt="A dentist and patient reviewing a bone grafting site-development plan" />
+    <main>
+      <TreatmentDetail kind="bone-grafting" />
+      <BeforeAfterStory id="before-after-bone-grafting" tone="dark" reverse number="06" eyebrow="Illustrative planning visualization · site development" title="From a site concern." emphasis="To a reassessment pathway."
+        intro="This simulated planning visualization explains how a treatment site may move from evaluation through grafting and healing review. It is not an actual patient outcome, does not depict measured bone gain and does not guarantee later implant candidacy."
+        image="/images/generated/before-after-bone-grafting-v1.webp" imageAlt="Illustrative simulated comparison of a treatment site before planning and after a bone grafting healing pathway"
+        beforeLabel="Before site development" beforeDetail="Anatomy, available support, oral health and the future treatment goal still need to be evaluated."
+        afterLabel="Illustrative reassessment concept" afterDetail="The simulated view represents a healing and site-readiness review—not an actual patient result or measured bone-gain claim."
+        caseNote="Illustrative simulated example · not an actual patient case · treatment and healing vary" />
+      <HubFooter eyebrow="Want to understand a site-development pathway?" title="Begin with the site, the future goal and the healing review between." />
+    </main>
+  </body>
+</html>

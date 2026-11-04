@@ -20,6 +20,7 @@ const routes = [
   '/services/single-tooth-dental-implant/',
   '/services/implant-supported-bridge/',
   '/services/all-on-4-implant-solution/',
+  '/services/bone-grafting/',
   '/services/restorative-reconstructive/',
   '/services/wellness-offering/',
 ];
