@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore root-canal treatment and restorative coordination at Smiles by Noetzel, including diagnosis, referral pathways, pricing and both offices." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Root-Canal Treatment & Coordination | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-root-canal-treatment-coordination.webp" mediaAlt="A clinician coordinating endodontic treatment and restorative follow-through" />
+    <main>
+      <TreatmentDetail kind="root-canal-treatment-coordination" />
+      <BeforeAfterStory id="before-after-root-canal-treatment-coordination" tone="light" number="10" eyebrow="Illustrative restorative pathway · root-canal coordination" title="From an unresolved source." emphasis="To a connected next step."
+        intro="This illustrative pathway shows how diagnosis, endodontic care and restorative follow-through may be coordinated. It is not an actual patient case, painless-treatment promise, crown inclusion, tooth-survival guarantee or permanent outcome."
+        image="/images/generated/before-after-root-canal-treatment-coordination-v1.webp" imageAlt="Illustrative comparison of an unresolved tooth concern and a coordinated endodontic-restorative pathway"
+        beforeLabel="Before source confirmation" beforeDetail="Symptoms may be present, but diagnosis, restorability, referral needs and the final restorative path have not yet been confirmed."
+        afterLabel="Illustrative coordinated pathway" afterDetail="The simulated view represents connected treatment and restoration planning—not guaranteed candidacy, timing, comfort, tooth survival or outcome."
+        caseNote="Illustrative coordination pathway · not an actual patient case · diagnosis, referral and restoration vary" />
+      <HubFooter eyebrow="Ready to connect treatment with what comes next?" title="Confirm the source and request a root-canal coordination evaluation." />
+    </main>
+  </body>
+</html>

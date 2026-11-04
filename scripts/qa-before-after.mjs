@@ -58,6 +58,7 @@ const routes = [
   ['dental-crown', '/services/dental-crown/', '#before-after-dental-crown'],
   ['dental-bridge', '/services/dental-bridge/', '#before-after-dental-bridge'],
   ['full-mouth-reconstruction', '/services/full-mouth-reconstruction/', '#before-after-full-mouth-reconstruction'],
+  ['root-canal-treatment-coordination', '/services/root-canal-treatment-coordination/', '#before-after-root-canal-treatment-coordination'],
 ];
 const requestedRoute = process.argv[2];
 const selectedRoutes = requestedRoute

@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement' | 'tooth-colored-dental-filling' | 'dental-crown' | 'dental-bridge' | 'full-mouth-reconstruction';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement' | 'tooth-colored-dental-filling' | 'dental-crown' | 'dental-bridge' | 'full-mouth-reconstruction' | 'root-canal-treatment-coordination';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -43,8 +43,14 @@ const isToothColoredFilling = kind === 'tooth-colored-dental-filling';
 const isDentalCrown = kind === 'dental-crown';
 const isDentalBridge = kind === 'dental-bridge';
 const isFullMouthReconstruction = kind === 'full-mouth-reconstruction';
+const isRootCanalCoordination = kind === 'root-canal-treatment-coordination';
 
-const processSteps = isFullMouthReconstruction ? [
+const processSteps = isRootCanalCoordination ? [
+  ['01', 'Assess', 'Symptoms, tooth condition, restorability, relevant imaging, bite and the wider health history are reviewed before the treatment path is confirmed.'],
+  ['02', 'Coordinate', 'Endodontic treatment, timing, comfort planning and the restorative follow-through are organized as one connected sequence.'],
+  ['03', 'Treat', 'The confirmed root-canal pathway is completed by the appropriate clinician according to the individual tooth and clinical plan.'],
+  ['04', 'Restore & review', 'The tooth is restored as indicated, then function, bite, symptoms and the planned follow-up are reviewed without promising a specific outcome.'],
+] : isFullMouthReconstruction ? [
   ['01', 'Listen & diagnose', 'The team reviews concerns, history, teeth, gums, bite, existing work and missing or worn structure before defining the restorative problem.'],
   ['02', 'Map the sequence', 'Priorities, alternatives, preliminary needs and the order of care are coordinated into a phased plan rather than assumed as one universal package.'],
   ['03', 'Restore in phases', 'Confirmed procedures are completed in the planned sequence, with each stage reviewed before the next restorative phase begins.'],
@@ -246,7 +252,14 @@ const processSteps = isFullMouthReconstruction ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isFullMouthReconstruction ? [
+const faqs = isRootCanalCoordination ? [
+  ['How much does root-canal treatment and coordination cost?', 'The customer-facing price starts at $1,025 per tooth. The $43 monthly view is an approximate rounded 24-month illustration ($1,032 total), which is $7 above the $1,025 starting fixed and yearly views. Final diagnosis, tooth complexity, restorative follow-through, eligibility and terms are office-confirmed.'],
+  ['Does every painful tooth need a root canal?', 'No. Symptoms can have different causes. Examination and clinically indicated imaging help determine whether endodontic treatment, another restorative pathway, monitoring or extraction should be considered.'],
+  ['Is the final crown or restoration included?', 'No automatic inclusion is stated. The final restoration, crown, core, specialist treatment, imaging and other services are separate unless the office confirms them in the written plan.'],
+  ['Will root-canal treatment save the tooth permanently?', 'No permanent result is guaranteed. Restorability, cracks, infection extent, anatomy, healing, the final restoration, bite, habits and maintenance all affect the outlook.'],
+  ['How many visits will treatment take?', 'Timing and visit count vary with diagnosis, anatomy, symptoms, clinician coordination and the final restorative plan. The office confirms the individual sequence.'],
+  ['Is coordination available at both offices?', 'Yes. Evaluation and restorative coordination can begin through Chicago Heights or Mokena, subject to appointment availability and the individual treatment path.'],
+] : isFullMouthReconstruction ? [
   ['How much does full-mouth reconstruction cost?', 'The customer-facing price starts at $25,000. The $695 monthly view is an approximate rounded 36-month illustration ($25,020 total), which is $20 above the $25,000 starting fixed and yearly views. Final procedures, phases, eligibility and payment terms are office-confirmed.'],
   ['What can a full-mouth reconstruction include?', 'It may coordinate several restorative services when needs span multiple teeth or the full mouth. Exact procedures, materials, preliminary treatment and phases depend on examination and the individualized plan.'],
   ['Is every treatment completed at once?', 'Not necessarily. Care is commonly sequenced in phases according to health, urgency, function, healing, budget and the confirmed restorative plan. No fixed timeline or visit count is promised.'],
@@ -493,7 +506,15 @@ const faqs = isFullMouthReconstruction ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isFullMouthReconstruction ? [
+const relatedServices = isRootCanalCoordination ? [
+  ['Restorative & Reconstructive', 'Explore the complete restorative category', '/services/restorative-reconstructive/'],
+  ['Dental crown', 'Connect full-coverage restoration when indicated', '/services/dental-crown/'],
+  ['Tooth-colored dental filling', 'Compare a direct restorative pathway when appropriate', '/services/tooth-colored-dental-filling/'],
+  ['Full-mouth reconstruction', 'Coordinate several restorative priorities', '/services/full-mouth-reconstruction/'],
+  ['Simple tooth extraction', 'Explore removal when the tooth cannot be predictably restored', '/services/simple-tooth-extraction/'],
+  ['Surgical tooth extraction', 'Explore a surgical removal pathway when required', '/services/surgical-tooth-extraction/'],
+  ['Same-day emergency dental care', 'Begin with prompt assessment for an urgent concern', '/services/same-day-emergency-dental-care/'],
+] : isFullMouthReconstruction ? [
   ['Restorative & Reconstructive', 'Explore the complete restorative category', '/services/restorative-reconstructive/'],
   ['Dental crown', 'Explore individual full-coverage restoration', '/services/dental-crown/'],
   ['Dental bridge', 'Explore a connected tooth-replacement pathway', '/services/dental-bridge/'],
@@ -735,7 +756,62 @@ const relatedServices = isFullMouthReconstruction ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isFullMouthReconstruction ? {
+const content = isRootCanalCoordination ? {
+  heroClass: 'is-root-canal-coordination',
+  heroImages: [
+    ['/images/generated/root-canal-treatment-coordination-hero-v1.webp', 'A clinician evaluating the source and restorability of a symptomatic tooth', 'CONFIRM THE SOURCE'],
+    ['/images/generated/root-canal-treatment-coordination-hero-detail-v1.webp', 'A dentist coordinating endodontic treatment and restorative timing', 'TREAT OR COORDINATE'],
+    ['/images/generated/root-canal-treatment-coordination-hero-result-v1.webp', 'A treated tooth being reviewed with its final restoration and bite', 'RESTORE AND MONITOR'],
+  ],
+  heroAria: ['Explore source and restorability assessment', 'Explore endodontic and restorative coordination', 'Explore final restoration and monitoring'],
+  kicker: 'Restorative & Reconstructive · Service 07',
+  title: ['Treat the inside.', 'Coordinate what comes next.'],
+  intro: 'Endodontic treatment and restorative follow-through organized as one connected path. Diagnosis, tooth anatomy, restorability and the final restoration determine whether treatment is completed in-office or coordinated with a specialist.',
+  heroRail: ['Confirm the source', 'Treat or coordinate', 'Restore and monitor'],
+  ledgerLabel: 'Root-canal coordination', ledgerFixed: 'From $1,025 / tooth', ledgerMonthly: '$43 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['The inside is treated.', 'The outside still needs', 'a plan.'],
+  storyImage: '/images/generated/root-canal-treatment-coordination-process-v1.webp',
+  storyAlt: 'A clinician connecting endodontic treatment with the required restorative follow-through',
+  storyRangeLabel: 'Compare an unresolved tooth concern with a connected endodontic and restorative pathway',
+  storyNote: 'Confirm the source, then connect treatment to restoration.',
+  storyLead: 'A root-canal pathway does not end when the inside of the tooth is treated. Diagnosis, restorability, timing and the final restoration are connected so the tooth is considered through the complete sequence.',
+  storySteps: [
+    ['01', 'Confirm the source', 'Symptoms, examination and clinically indicated imaging establish whether endodontic care belongs in the plan.'],
+    ['02', 'Coordinate the treatment', 'The appropriate clinician, timing and comfort plan are confirmed without assuming every case is completed in-house.'],
+    ['03', 'Restore and monitor', 'The required restorative follow-through and review are organized around the treated tooth and complete bite.'],
+  ],
+  storyNotes: ['Begin with diagnosis and restorability.', 'Coordinate treatment, referral and timing.', 'Restore the tooth and review it in the bite.'],
+  processTitle: ['Treat the source.', 'Coordinate the follow-through.'],
+  expectTitle: ['One tooth.', 'A connected sequence.'],
+  expectCopy: 'Treatment, referral, visit count, comfort needs and the final restoration vary by tooth. A crown, core, specialist fee, imaging or permanent outcome is not automatically included or promised.',
+  metrics: [['1', 'tooth-specific coordinated pathway'], ['4', 'stages: diagnose, confirm, treat, restore'], ['2', 'connected office locations']],
+  pricingId: 'root-canal-treatment-coordination-pricing',
+  pricingTitle: ['One tooth-specific pathway.', 'Three planning views.'],
+  pricingIntro: 'The starting root-canal treatment and coordination amount shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', 'From $1,025', 'per tooth'], ['MONTHLY · 02', '$43', 'per month · 24 months'], ['YEARLY · 03', '$1,025', 'annual treatment amount · per tooth']],
+  pricingNote: 'The $43 monthly view is an approximate rounded financing illustration ($1,032 total across 24 months), which is $7 above the $1,025 starting amount. The yearly view is an annual treatment amount per tooth, not a subscription. Diagnosis, complexity, referral, restoration, eligibility and terms are office-confirmed.',
+  whyTitle: ['The treatment and restoration', 'stay connected.'],
+  whyIntro: 'The team keeps diagnosis, restorability, the endodontic pathway and the final restoration in one coordinated conversation while maintaining clear specialist and scope boundaries.',
+  whyImage: '/images/generated/root-canal-treatment-coordination-result-v1.webp',
+  whyAlt: 'A dentist reviewing endodontic treatment and the final restorative plan for an individual tooth',
+  whyPanels: [
+    ['01', 'Diagnosis before treatment', 'Symptoms alone do not determine the pathway; examination and indicated imaging establish the clinical source.'],
+    ['02', 'Restorability stays visible', 'Remaining structure, cracks, support and alternatives are considered before treatment is assigned.'],
+    ['03', 'Coordination is explicit', 'In-office care and specialist referral are organized around the individual tooth rather than implied universally.'],
+    ['04', 'The final restoration matters', 'Coverage, bite, maintenance and review are connected to the completed endodontic stage.'],
+  ],
+  whyFoot: 'ONE TOOTH · FOUR CONNECTED STAGES · TWO OFFICES',
+  proofTitle: ['The source clarified.', 'The next step coordinated.'],
+  proofText: 'Patients frequently mention clear explanations, thoughtful coordination and practical restorative follow-through—general-practice themes that support a connected root-canal conversation without promising an outcome.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Diagnosis first', 'Referral when appropriate', 'Restoration connected'],
+  faqTitle: ['Before root-canal', 'treatment and coordination.'],
+  relatedTitle: ['One tooth concern.', 'Several connected paths.'],
+  relatedAria: 'Related restorative, extraction and emergency services',
+  currentPath: 'Root-canal treatment and coordination',
+  locationsAria: 'Root-canal treatment and coordination locations',
+} : isFullMouthReconstruction ? {
   heroClass: 'is-full-mouth-reconstruction',
   heroImages: [
     ['/images/generated/full-mouth-reconstruction-hero-v1.webp', 'A clinician reviewing the complete mouth before a full-mouth reconstruction plan', 'MAP THE WHOLE MOUTH'],
@@ -3617,6 +3693,18 @@ const content = isFullMouthReconstruction ? {
   .whitening-hero.is-full-mouth-reconstruction .hero-cinema__copy{top:15vh;width:min(46vw,48rem);transform:none}
   .whitening-hero.is-full-mouth-reconstruction .hero-cinema__copy h1{font-size:clamp(3.7rem,5.1vw,5.9rem);line-height:.83;margin:1.25rem 0 1.5rem}
   .whitening-hero.is-full-mouth-reconstruction .hero-cinema__copy h1 em{display:block;margin-left:clamp(2rem,4.3vw,4.25rem)}
+  .whitening-hero.is-root-canal-coordination .hero-folds__scan{display:none}
+  .whitening-hero.is-root-canal-coordination .hero-fold{border:0;overflow:hidden;box-shadow:0 2.5rem 6rem rgba(0,0,0,.36);transform-origin:center}
+  .whitening-hero.is-root-canal-coordination .hero-fold--one{translate:10% 0;scale:.58 1.08;clip-path:inset(0 round 999px)}
+  .whitening-hero.is-root-canal-coordination .hero-fold--two{translate:-2% -15%;scale:1.08 .64;clip-path:inset(0 round 1rem 5rem 1rem 5rem)}
+  .whitening-hero.is-root-canal-coordination .hero-fold--three{translate:-12% 17%;scale:.9 .72;clip-path:inset(0 round 5rem 1rem 5rem 1rem)}
+  .whitening-hero.is-root-canal-coordination .hero-fold--one>img{object-position:43% center}
+  .whitening-hero.is-root-canal-coordination .hero-fold--two>img{object-position:54% center}
+  .whitening-hero.is-root-canal-coordination .hero-fold--three>img{object-position:66% center}
+  .whitening-hero.is-root-canal-coordination .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 34%,rgba(4,24,20,.4) 62%,transparent 82%)}
+  .whitening-hero.is-root-canal-coordination .hero-cinema__copy{top:15vh;width:min(46vw,48rem);transform:none}
+  .whitening-hero.is-root-canal-coordination .hero-cinema__copy h1{font-size:clamp(3.75rem,5.25vw,6rem);line-height:.83;margin:1.25rem 0 1.5rem}
+  .whitening-hero.is-root-canal-coordination .hero-cinema__copy h1 em{display:block;margin-left:clamp(2rem,4.2vw,4rem)}
   .whitening-hero.is-surgical-extraction .hero-cinema__copy h1{font-size:clamp(4.4rem,6.5vw,7.4rem)}
 
   @media(min-width:1101px){
@@ -3818,6 +3906,13 @@ const content = isFullMouthReconstruction ? {
     .whitening-hero.is-full-mouth-reconstruction .hero-cinema__copy{top:7.15rem}
     .whitening-hero.is-full-mouth-reconstruction .hero-cinema__copy h1{font-size:clamp(2.55rem,11.1vw,3.55rem);line-height:.85}
     .whitening-hero.is-full-mouth-reconstruction .hero-cinema__copy h1 em{margin-left:1.15rem}
+    .whitening-hero.is-root-canal-coordination .hero-fold--one{translate:4% 1%;scale:.64 .98;clip-path:inset(0 round 999px)}
+    .whitening-hero.is-root-canal-coordination .hero-fold--two{translate:-1% -8%;scale:1.02 .72;clip-path:inset(0 round .8rem 3.5rem .8rem 3.5rem)}
+    .whitening-hero.is-root-canal-coordination .hero-fold--three{translate:-5% 13%;scale:.9 .76;clip-path:inset(0 round 3.5rem .8rem 3.5rem .8rem)}
+    .whitening-hero.is-root-canal-coordination .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.89) 31%,rgba(4,24,20,.16) 63%,rgba(4,24,20,.84) 100%)}
+    .whitening-hero.is-root-canal-coordination .hero-cinema__copy{top:7.15rem}
+    .whitening-hero.is-root-canal-coordination .hero-cinema__copy h1{font-size:clamp(2.65rem,11.4vw,3.65rem);line-height:.85}
+    .whitening-hero.is-root-canal-coordination .hero-cinema__copy h1 em{margin-left:1.1rem}
   }
 
   /* Interaction rhythm: immersive without trapping every section */
@@ -3965,6 +4060,7 @@ const content = isFullMouthReconstruction ? {
         const isDentalCrownHero = hero.classList.contains('is-dental-crown');
         const isDentalBridgeHero = hero.classList.contains('is-dental-bridge');
         const isFullMouthHero = hero.classList.contains('is-full-mouth-reconstruction');
+        const isRootCanalHero = hero.classList.contains('is-root-canal-coordination');
         const phases = q('[data-hero-phase]');
         const edition = q('[data-hero-edition]')[0];
         const scan = q('[data-fold-scan]')[0];
@@ -4007,6 +4103,8 @@ const content = isFullMouthReconstruction ? {
                 ? {opacity:0,yPercent:[26,-20,26][index]}
                 : isFullMouthHero
                   ? {opacity:0,xPercent:24,yPercent:[-24,0,24][index]}
+                : isRootCanalHero
+                  ? {opacity:0,xPercent:[18,-20,22][index],yPercent:[0,-18,20][index]}
                 : isDentalBridgeHero
                   ? {opacity:0,xPercent:[-28,0,28][index],yPercent:[0,22,0][index]}
               : {}),
@@ -4027,12 +4125,14 @@ const content = isFullMouthReconstruction ? {
                 ? {opacity:1,yPercent:0}
                 : isFullMouthHero
                   ? {opacity:1,xPercent:0,yPercent:0}
+                : isRootCanalHero
+                  ? {opacity:1,xPercent:0,yPercent:0}
                 : isDentalBridgeHero
                   ? {opacity:1,xPercent:0,yPercent:0}
               : {}),
-          duration:isAmalgamHero ? 1.55 : isToothColoredHero ? 1.45 : isDentalCrownHero ? 1.6 : isDentalBridgeHero ? 1.5 : isFullMouthHero ? 1.55 : 1.35,
-          ease:isAmalgamHero ? 'expo.inOut' : isToothColoredHero ? 'power4.out' : isDentalCrownHero ? 'expo.out' : isDentalBridgeHero ? 'power4.inOut' : isFullMouthHero ? 'power4.out' : 'power3.inOut',
-        },index*(isAmalgamHero ? .12 : isToothColoredHero ? .16 : isDentalCrownHero ? .14 : isDentalBridgeHero ? .13 : isFullMouthHero ? .14 : .08)));
+          duration:isAmalgamHero ? 1.55 : isToothColoredHero ? 1.45 : isDentalCrownHero ? 1.6 : isDentalBridgeHero ? 1.5 : isFullMouthHero ? 1.55 : isRootCanalHero ? 1.5 : 1.35,
+          ease:isAmalgamHero ? 'expo.inOut' : isToothColoredHero ? 'power4.out' : isDentalCrownHero ? 'expo.out' : isDentalBridgeHero ? 'power4.inOut' : isFullMouthHero ? 'power4.out' : isRootCanalHero ? 'expo.out' : 'power3.inOut',
+        },index*(isAmalgamHero ? .12 : isToothColoredHero ? .16 : isDentalCrownHero ? .14 : isDentalBridgeHero ? .13 : isFullMouthHero ? .14 : isRootCanalHero ? .15 : .08)));
         intro.to(q('[data-hero-fold] img'),{scale:1.015,duration:1.2},0)
           .to(scan,{left:mobile?'100vw':'99vw',duration:1.4},0)
           .to(progress,{width:'100%',duration:1.35},0)
