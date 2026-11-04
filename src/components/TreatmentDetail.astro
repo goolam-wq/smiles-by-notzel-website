@@ -1,6 +1,6 @@
 ---
 interface Props {
-  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover';
+  kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care';
 }
 
 const { kind = 'professional-teeth-whitening' } = Astro.props;
@@ -10,8 +10,14 @@ const isSnapOn = kind === 'snap-on-smile';
 const isBonding = kind === 'dental-bonding';
 const isContouring = kind === 'tooth-contouring';
 const isMakeover = kind === 'complete-smile-makeover';
+const isSameDayEmergency = kind === 'same-day-emergency-dental-care';
 
-const processSteps = isMakeover ? [
+const processSteps = isSameDayEmergency ? [
+  ['01', 'Call', 'Tell the team what happened, when it started and the symptoms you are experiencing so the right visit can be coordinated.'],
+  ['02', 'Assess', 'The team reviews urgency, relevant history and immediate concerns before confirming the practical appointment window.'],
+  ['03', 'Examine', 'The affected area, surrounding teeth and bite are evaluated to identify the problem and the safe options available that day.'],
+  ['04', 'Plan', 'The team explains the findings, appropriate relief or stabilization options and any follow-up care that may still be needed.'],
+] : isMakeover ? [
   ['01', 'Listen', 'We begin with what you notice, what you want to preserve and which changes matter most in everyday life.'],
   ['02', 'Evaluate', 'Teeth, gums, bite, existing dental work and the wider smile are examined before individual options are coordinated.'],
   ['03', 'Sequence', 'Recommended treatments are placed in a deliberate order so health, function, shade and shape support one connected plan.'],
@@ -48,7 +54,13 @@ const processSteps = isMakeover ? [
   ['04', 'Refine', 'We compare the finished shade, review sensitivity care and plan how to help the result last.'],
 ];
 
-const faqs = isMakeover ? [
+const faqs = isSameDayEmergency ? [
+  ['How much does a same-day emergency dental visit cost?', 'The customer-facing starting visit price is $250. The $21 monthly view is a rounded 12-month planning display, and the yearly amount is $250. Final treatment depends on the examination, recommended care and what can safely be completed.'],
+  ['Is definitive treatment guaranteed on the same day?', 'No. The service is designed to provide prompt assessment and a practical next step. Same-day availability and the care that can be completed depend on capacity, the diagnosis, clinical safety and the treatment required.'],
+  ['When should I seek emergency medical help instead?', 'Trouble breathing or swallowing, uncontrolled bleeding or major facial trauma requires emergency medical help rather than waiting for a dental appointment. For other urgent dental concerns, call the office so the team can assess the situation and guide the next step.'],
+  ['What if I need follow-up treatment?', 'The visit may lead to relief, stabilization, definitive treatment or a coordinated follow-up plan. The examination determines which next step is appropriate.'],
+  ['Is emergency dental care listed at both offices?', 'Yes. Same-day emergency dental care is listed at Chicago Heights and Mokena. Call first so the team can assess urgency and confirm current appointment availability.'],
+] : isMakeover ? [
   ['How much does a complete smile makeover cost?', 'The customer-facing starting price is $12,000. The $334 monthly view is a rounded 36-month planning display ($12,024 total), not an exact division of $12,000. The yearly view is the $12,000 starting complete-treatment case amount, not a recurring annual package. Final scope, sequence, total, eligibility and payment terms are confirmed after examination and consultation.'],
   ['What can a complete smile makeover include?', 'A coordinated plan may connect appropriate cosmetic and restorative services. The exact combination depends on oral health, existing dental work, the bite and the changes you want to explore.'],
   ['Does every smile makeover use the same treatments?', 'No. The plan is individualized. Some goals may involve one type of care, while others may require several treatments arranged in a clinically appropriate sequence.'],
@@ -92,7 +104,13 @@ const faqs = isMakeover ? [
   ['Is whitening available at both offices?', 'Yes. Professional teeth whitening is available at Chicago Heights and Mokena. Call the preferred office to confirm appointment availability.'],
 ];
 
-const relatedServices = isMakeover ? [
+const relatedServices = isSameDayEmergency ? [
+  ['Emergency & Comfort Dentistry', 'Explore the complete category', '/services/emergency-comfort/'],
+  ['Nitrous oxide sedation', 'Explore an available comfort-support option', '/services/nitrous-oxide-sedation/'],
+  ['Virtual-reality anxiety reduction', 'Explore another comfort-support option', '/services/virtual-reality-anxiety-reduction/'],
+  ['Restorative & Reconstructive', 'Explore connected tooth-repair pathways', '/services/restorative-reconstructive/'],
+  ['Implants & Oral Surgery', 'Explore surgical and replacement pathways', '/services/implants-oral-surgery/'],
+] : isMakeover ? [
   ['Cosmetic Dentistry', 'Explore the complete category', '/services/cosmetic-dentistry/'],
   ['Professional teeth whitening', 'Explore coordinated shade planning', '/services/professional-teeth-whitening/'],
   ['Porcelain veneers & laminates', 'Explore shape and proportion planning', '/services/porcelain-veneers-laminates/'],
@@ -132,7 +150,61 @@ const relatedServices = isMakeover ? [
   ['Complete smile makeover', 'A coordinated multi-treatment plan', '/services/cosmetic-dentistry/#cosmetic-options'],
 ];
 
-const content = isMakeover ? {
+const content = isSameDayEmergency ? {
+  heroClass: 'is-same-day-emergency',
+  heroImages: [
+    ['/images/generated/same-day-emergency-dental-care-hero-v1.webp', 'A patient calling a dental team about an urgent tooth concern', 'CALL WITH THE CONCERN'],
+    ['/images/generated/same-day-emergency-dental-care-hero-detail-v1.webp', 'A dentist performing a focused emergency dental assessment', 'ASSESS WHAT CANNOT WAIT'],
+    ['/images/generated/same-day-emergency-dental-care-hero-result-v1.webp', 'A dentist explaining the next practical emergency care step to a patient', 'LEAVE WITH A PLAN'],
+  ],
+  heroAria: ['Explore the first emergency call', 'Explore the focused dental assessment', 'Explore the explained next step'],
+  kicker: 'Emergency & Comfort Dentistry · Treatment 01',
+  title: ['When it cannot wait.', 'Start with clarity.'],
+  intro: 'Prompt emergency assessment, clear options and the next practical step—with same-day availability and treatment scope confirmed by the office.',
+  heroRail: ['Call with the concern', 'Assess the urgency', 'Explain the next step'],
+  ledgerLabel: 'Emergency dental visit', ledgerFixed: 'From $250', ledgerMonthly: '$21 / month',
+  storyKicker: '01 · WHAT CHANGES',
+  storyTitle: ['Urgency needs more than speed.', 'It needs a', 'clear next step.'],
+  storyImage: '/images/generated/same-day-emergency-dental-care-process-v1.webp',
+  storyAlt: 'A dentist completing a focused emergency dental examination',
+  storyRangeLabel: 'Compare the initial urgent concern with the explained emergency care plan',
+  storyNote: 'Understand the problem before choosing the next step.',
+  storyLead: 'We reduce uncertainty by making the problem understandable. The examination connects what you feel with what the team can safely recommend now and what may require follow-up.',
+  storySteps: [
+    ['01', 'Describe the concern', 'What happened, when it started and the symptoms you notice help the team assess urgency.'],
+    ['02', 'Find the source', 'The affected area, surrounding teeth and bite are examined before care is recommended.'],
+    ['03', 'Clarify the next step', 'Appropriate relief, stabilization, treatment or follow-up options are explained in practical terms.'],
+  ],
+  storyNotes: ['Understand the concern before choosing the next step.', 'Identify the source and the clinical options available at the visit.', 'Leave with the findings and the next practical step explained.'],
+  processTitle: ['Prompt in response.', 'Careful in decision.'],
+  expectTitle: ['Urgent in timing.', 'Specific in scope.'],
+  expectCopy: 'A same-day emergency visit begins with assessment. Depending on availability, diagnosis and clinical safety, the visit may include relief, stabilization, definitive treatment or a coordinated follow-up plan. No single outcome is promised before examination.',
+  metrics: [['1', 'focused emergency assessment'], ['3', 'next-step paths: relief, treatment, follow-up'], ['2', 'connected office locations']],
+  pricingId: 'same-day-emergency-dental-care-pricing',
+  pricingTitle: ['One starting visit.', 'Three planning views.'],
+  pricingIntro: 'The same starting emergency dental visit shown as fixed, monthly and yearly customer-facing planning views.',
+  prices: [['FIXED · 01', '$250', 'starting emergency visit'], ['MONTHLY · 02', '$21', 'per month · 12 months'], ['YEARLY · 03', '$250', 'starting annual treatment amount']],
+  pricingNote: 'Starting visit price; final treatment depends on the examination and recommended care. The $21 monthly view is a rounded 12-month planning display ($252 total), not an exact division of the $250 starting price. Eligibility, treatment scope and payment terms are confirmed by the office.',
+  whyTitle: ['Responsive.', 'Never rushed.'],
+  whyIntro: 'We do not promise a procedure before understanding the problem. The team connects urgency with a focused examination, practical options and a clearly explained next step.',
+  whyImage: '/images/generated/same-day-emergency-dental-care-result-v1.webp',
+  whyAlt: 'A patient and dentist reviewing the next step after an emergency dental assessment',
+  whyPanels: [
+    ['01', 'Call-first coordination', 'The team uses the first conversation to understand the concern and assess the appropriate appointment window.'],
+    ['02', 'Diagnosis before procedure', 'The affected area and surrounding structures are evaluated before treatment is recommended.'],
+    ['03', 'A practical next step', 'Findings, available options and any required follow-up are explained before the visit concludes.'],
+  ],
+  whyFoot: 'ONE URGENT CONCERN · THREE CLARITY CHECKS',
+  proofTitle: ['The concern heard.', 'The plan understood.'],
+  proofText: 'Patients frequently mention responsive communication, caring staff and clear explanations—general-practice feedback that supports the way urgent concerns and next steps are discussed.',
+  proofFooter: 'GENERAL PRACTICE REVIEW THEMES · PARAPHRASED',
+  proofTags: ['Responsive communication', 'Focused assessment', 'Clear next step'],
+  faqTitle: ['When care', 'cannot wait.'],
+  relatedTitle: ['One urgent concern.', 'Several connected paths.'],
+  relatedAria: 'Related emergency, comfort and restorative services',
+  currentPath: 'Same-day emergency dental care',
+  locationsAria: 'Same-day emergency dental care locations',
+} : isMakeover ? {
   heroClass: 'is-makeover',
   heroImages: [
     ['/images/generated/complete-smile-makeover-hero-v1.webp', 'A patient and dentist discussing priorities for a complete smile makeover', 'BEGIN WITH THE WHOLE'],
@@ -912,6 +984,15 @@ const content = isMakeover ? {
   .whitening-hero.is-makeover .hero-fold--two>img{object-position:50% center}
   .whitening-hero.is-makeover .hero-fold--three>img{object-position:61% center}
   .whitening-hero.is-makeover .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.94) 35%,rgba(4,24,20,.44) 54%,transparent 73%)}
+  .whitening-hero.is-same-day-emergency .hero-folds__scan{display:none}
+  .whitening-hero.is-same-day-emergency .hero-fold{border:0;box-shadow:0 2.2rem 6rem rgba(0,0,0,.34)}
+  .whitening-hero.is-same-day-emergency .hero-fold--one{clip-path:inset(0 0 0 0 round 10rem 1.25rem 1.25rem 1.25rem)}
+  .whitening-hero.is-same-day-emergency .hero-fold--two{clip-path:inset(0 0 0 0 round 1.25rem 10rem 1.25rem 1.25rem)}
+  .whitening-hero.is-same-day-emergency .hero-fold--three{clip-path:inset(0 0 0 0 round 1.25rem 1.25rem 10rem 10rem)}
+  .whitening-hero.is-same-day-emergency .hero-fold--one>img{object-position:42% center}
+  .whitening-hero.is-same-day-emergency .hero-fold--two>img{object-position:52% center}
+  .whitening-hero.is-same-day-emergency .hero-fold--three>img{object-position:62% center}
+  .whitening-hero.is-same-day-emergency .hero-cinema__matte{background:linear-gradient(90deg,rgba(4,24,20,.99) 0%,rgba(4,24,20,.95) 36%,rgba(4,24,20,.48) 55%,transparent 74%)}
 
   @media(min-width:721px) and (max-width:1100px){
     .whitening-hero{height:245svh}
@@ -957,6 +1038,10 @@ const content = isMakeover ? {
     .whitening-hero.is-makeover .hero-fold--two{clip-path:inset(0 0 0 0 round 6rem 6rem 1rem 1rem)}
     .whitening-hero.is-makeover .hero-fold--three{clip-path:inset(0 0 0 0 round 6rem 1rem 6rem 1rem)}
     .whitening-hero.is-makeover .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.9) 32%,rgba(4,24,20,.2) 60%,rgba(4,24,20,.77) 100%)}
+    .whitening-hero.is-same-day-emergency .hero-fold--one{clip-path:inset(0 0 0 0 round 6rem .75rem .75rem .75rem)}
+    .whitening-hero.is-same-day-emergency .hero-fold--two{clip-path:inset(0 0 0 0 round .75rem 6rem .75rem .75rem)}
+    .whitening-hero.is-same-day-emergency .hero-fold--three{clip-path:inset(0 0 0 0 round .75rem .75rem 6rem 6rem)}
+    .whitening-hero.is-same-day-emergency .hero-cinema__matte{background:linear-gradient(180deg,rgba(4,24,20,.98) 0%,rgba(4,24,20,.91) 32%,rgba(4,24,20,.23) 60%,rgba(4,24,20,.79) 100%)}
   }
 
   /* Interaction rhythm: immersive without trapping every section */

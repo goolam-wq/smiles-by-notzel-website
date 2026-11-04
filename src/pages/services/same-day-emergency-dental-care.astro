@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import TreatmentDetail from '../../components/TreatmentDetail.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Explore same-day emergency dental care at Smiles by Noetzel, including focused assessment, starting pricing and practical next-step coordination in Chicago Heights and Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Same-Day Emergency Dental Care | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/nav-same-day-emergency-dental-care.webp" mediaAlt="A patient speaking with a dental team about an urgent concern" />
+    <main>
+      <TreatmentDetail kind="same-day-emergency-dental-care" />
+      <BeforeAfterStory id="before-after-same-day-emergency-dental-care" tone="light" reverse number="06" eyebrow="Illustrative planning visualization · emergency assessment" title="From urgent concern." emphasis="To a clear next step."
+        intro="This simulated planning visualization explains how an urgent concern may move from focused assessment to an appropriate next-step plan. It is not an actual patient outcome, and same-day definitive treatment is not guaranteed."
+        image="/images/generated/before-after-same-day-emergency-dental-care-v1.webp" imageAlt="Illustrative simulated comparison showing an urgent dental concern and a clearly explained emergency care plan"
+        beforeLabel="Starting concern" beforeDetail="Pain, damage or uncertainty may make the problem feel larger before the source is understood."
+        afterLabel="Illustrative next-step view" afterDetail="The simulated view represents focused assessment, explained options and a practical plan—not a guaranteed clinical outcome."
+        caseNote="Illustrative simulated example · not an actual patient case · results and care vary" />
+      <HubFooter eyebrow="Need the team to assess an urgent dental concern?" title="Call first so the right visit can be coordinated." />
+    </main>
+  </body>
+</html>

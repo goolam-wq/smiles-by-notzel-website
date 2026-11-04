@@ -25,6 +25,7 @@ const routes = [
   ['dental-bonding', '/services/dental-bonding/', '#before-after-dental-bonding'],
   ['tooth-contouring', '/services/tooth-contouring/', '#before-after-tooth-contouring'],
   ['complete-smile-makeover', '/services/complete-smile-makeover/', '#before-after-complete-smile-makeover'],
+  ['same-day-emergency-dental-care', '/services/same-day-emergency-dental-care/', '#before-after-same-day-emergency-dental-care'],
 ];
 const viewports = [
   ['desktop', 1440, 900],

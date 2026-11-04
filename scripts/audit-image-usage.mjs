@@ -14,6 +14,7 @@ const routes = [
   '/services/dental-bonding/',
   '/services/tooth-contouring/',
   '/services/complete-smile-makeover/',
+  '/services/same-day-emergency-dental-care/',
   '/services/implants-oral-surgery/',
   '/services/orthodontic-dentistry/',
   '/services/pediatric-developmental/',
