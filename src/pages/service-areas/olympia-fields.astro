@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected dental care near Olympia Fields with extended hours and complete-health dentistry at Smiles by Noetzel." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Olympia Fields Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/olympia-fields/olympia-fields-nav-consultation.webp" mediaAlt="An Olympia Fields patient reviewing a care plan with her dentist" />
+    <main>
+      <DetailExperience kind="olympia-fields" />
+      <BeforeAfterStory id="before-after-olympia-fields" tone="dark" reverse number="05" eyebrow="Olympia Fields · natural shade restoration" title="One distracting shade softened." emphasis="The natural smile stays central."
+        intro="A single discolored front tooth can pull attention away from the whole expression. This Olympia Fields case restores balance without creating an artificial, over-whitened result."
+        image="/images/generated/unique/olympia-fields/olympia-fields-before-after.webp" imageAlt="Olympia Fields before-and-after result showing a subtle natural-shade front-tooth restoration"
+        beforeLabel="One darker front tooth" beforeDetail="A localized shade difference made one upper front tooth stand apart from the rest of the smile."
+        afterLabel="Balanced natural shade" afterDetail="A conservative restoration brings the tooth back into the surrounding smile while preserving natural enamel character."
+        caseNote="Conservative shade restoration" />
+      <HubFooter eyebrow="Olympia Fields care starts nearby." title="Bring the question. We’ll connect the next step around you." />
+    </main>
+  </body>
+</html>
