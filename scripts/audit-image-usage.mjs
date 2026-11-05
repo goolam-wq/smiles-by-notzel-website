@@ -18,6 +18,7 @@ const routes = [
   '/service-areas/park-forest/',
   '/service-areas/homewood/',
   '/service-areas/flossmoor/',
+  '/service-areas/hazel-crest/',
   '/services/professional-teeth-whitening/',
   '/services/porcelain-veneers-laminates/',
   '/services/lumineers/',

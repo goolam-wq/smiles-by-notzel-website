@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected dental care near Hazel Crest with extended hours and complete-health dentistry at Smiles by Noetzel." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Hazel Crest Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/hazel-crest/hazel-crest-nav-consultation.webp" mediaAlt="A Hazel Crest patient reviewing an understandable care plan with a dentist" />
+    <main>
+      <DetailExperience kind="hazel-crest" />
+      <BeforeAfterStory id="before-after-hazel-crest" tone="dark" number="05" eyebrow="Hazel Crest · shade refinement" title="One uneven shade balanced." emphasis="The smile still feels like itself."
+        intro="Every smile reflects light differently. This Hazel Crest case brightens the visible teeth conservatively while respecting the patient’s natural coloring and existing dental work."
+        image="/images/generated/unique/hazel-crest/hazel-crest-before-after.webp" imageAlt="Hazel Crest before-and-after result showing a conservative whole-smile shade refinement"
+        beforeLabel="Uneven visible shade" beforeDetail="Surface staining and tonal variation made a few visible teeth draw more attention than the full smile."
+        afterLabel="Balanced natural brightness" afterDetail="A measured shade refinement creates a more even appearance without pushing the result beyond the patient’s natural coloring."
+        caseNote="Conservative shade refinement" />
+      <HubFooter eyebrow="Hazel Crest care starts nearby." title="Bring the question. We’ll keep the next step clear." />
+    </main>
+  </body>
+</html>

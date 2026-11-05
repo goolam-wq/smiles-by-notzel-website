@@ -15,6 +15,7 @@ const routes = [
   ['park-forest', '/service-areas/park-forest/?qa=detail-matrix'],
   ['homewood', '/service-areas/homewood/?qa=detail-matrix'],
   ['flossmoor', '/service-areas/flossmoor/?qa=detail-matrix'],
+  ['hazel-crest', '/service-areas/hazel-crest/?qa=detail-matrix'],
   ['cosmetic', '/services/cosmetic-dentistry/?qa=detail-matrix'],
   ['complete-health-airway', '/services/complete-health-airway/?qa=detail-matrix'],
   ['emergency-comfort', '/services/emergency-comfort/?qa=detail-matrix'],
