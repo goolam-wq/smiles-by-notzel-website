@@ -1,5 +1,6 @@
 ---
 import Logo from './Logo.astro';
+import { serviceAreaDetailRoutes, serviceCategoryRoutes } from '../data/internalLinks';
 
 interface Props {
   mediaImage?: string;
@@ -11,30 +12,8 @@ const {
   mediaAlt = 'A patient being welcomed into the practice'
 } = Astro.props;
 
-const serviceGroups = [
-  ['01', 'Complete Health & Airway', 'complete-health-airway'],
-  ['02', 'Cosmetic Dentistry', 'cosmetic-dentistry'],
-  ['03', 'Emergency & Comfort', 'emergency-comfort'],
-  ['04', 'Implants & Oral Surgery', 'implants-oral-surgery'],
-  ['05', 'Orthodontic Dentistry', 'orthodontic-dentistry'],
-  ['06', 'Pediatric Dentistry', 'pediatric-developmental'],
-  ['07', 'Periodontal Dentistry', 'periodontal-dentistry'],
-  ['08', 'Preventive & Diagnostic', 'preventive-diagnostic'],
-  ['09', 'ReCODE & Cognitive Health', 'recode-cognitive-health'],
-  ['10', 'Restorative Dentistry', 'restorative-reconstructive'],
-  ['11', 'Wellness Offering', 'wellness-offering'],
-];
-
-const serviceAreas = [
-  'Chicago Heights',
-  'Mokena',
-  'Flossmoor',
-  'Homewood',
-  'Olympia Fields',
-  'Frankfort',
-  'New Lenox',
-  'Tinley Park',
-];
+const serviceGroups = serviceCategoryRoutes.map((group, index) => [String(index + 1).padStart(2, '0'), group.name, group.slug]);
+const serviceAreas = serviceAreaDetailRoutes;
 ---
 
 <header class="site-header" data-header>
@@ -57,7 +36,7 @@ const serviceAreas = [
           </div>
           <div class="service-links">
             {serviceGroups.map(([number, label, slug]) => (
-              <a href={['cosmetic-dentistry', 'complete-health-airway', 'emergency-comfort', 'implants-oral-surgery', 'orthodontic-dentistry', 'pediatric-developmental', 'periodontal-dentistry', 'preventive-diagnostic', 'recode-cognitive-health', 'restorative-reconstructive', 'wellness-offering'].includes(slug) ? `/services/${slug}/` : `/services/#${slug}`}>
+              <a href={`/services/${slug}/`}>
                 <span>{number}</span>
                 <strong>{label}</strong>
                 <i>↗</i>
@@ -88,13 +67,12 @@ const serviceAreas = [
           <div class="area-columns">
             <div>
               <span class="area-label">Our studios</span>
-              <a href="/service-areas/chicago-heights/"><strong>Chicago Heights</strong><small>500 Ashland Ave, Suite #2</small></a>
-              <a href="/service-areas/#mokena"><strong>Mokena</strong><small>19160 88th Avenue</small></a>
+              {serviceAreas.slice(0, 2).map((area) => <a href={`/service-areas/${area.slug}/`}><strong>{area.name}</strong><small>{area.office}</small></a>)}
             </div>
             <div>
               <span class="area-label">Nearby communities</span>
               <div class="area-grid">
-                {serviceAreas.slice(2).map((item) => <a href="/service-areas/#community-map">{item}<span>↗</span></a>)}
+                {serviceAreas.slice(2).map((area) => <a href={`/service-areas/${area.slug}/`}>{area.name}<span>↗</span></a>)}
               </div>
             </div>
           </div>

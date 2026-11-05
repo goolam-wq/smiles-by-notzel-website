@@ -1,4 +1,6 @@
 ---
+import { serviceAreaDetailRoutes } from '../data/internalLinks';
+
 interface Props {
   kind?: 'professional-teeth-whitening' | 'porcelain-veneers-laminates' | 'lumineers' | 'snap-on-smile' | 'dental-bonding' | 'tooth-contouring' | 'complete-smile-makeover' | 'same-day-emergency-dental-care' | 'nitrous-oxide-sedation' | 'virtual-reality-anxiety-reduction' | 'single-tooth-dental-implant' | 'implant-supported-bridge' | 'all-on-4-implant-solution' | 'bone-grafting' | 'dental-implant-restoration' | 'simple-tooth-extraction' | 'surgical-tooth-extraction' | 'wisdom-tooth-removal' | 'invisalign-clear-aligners' | 'first-dental-visit' | 'pediatric-cleaning-exam' | 'healthystart-system' | 'gum-disease-deep-cleaning' | 'perio-protect' | 'professional-dental-cleaning' | 'routine-comprehensive-exam' | 'digital-dental-x-rays' | 'fluoride-treatment' | 'dental-sealants' | 'gum-disease-screening' | 'custom-sports-mouthguard' | 'custom-night-guard' | 'laser-dentistry' | 'oral-spirochete-test' | 'recode-2-0-dental-program' | 'amalgam-filling-replacement' | 'tooth-colored-dental-filling' | 'dental-crown' | 'dental-bridge' | 'full-mouth-reconstruction' | 'root-canal-treatment-coordination' | 'full-denture' | 'partial-denture' | 'oral-cancer-screening' | 'airway-sleep-screening' | 'artery-health-screening' | 'prosomnus-sleep-apnea-appliance' | 'juice-plus-wellness-program';
 }
@@ -3697,9 +3699,10 @@ const content = isJuicePlus ? {
         <div class="related-route__locations">
           <span>AVAILABLE LOCATIONS</span>
           <nav aria-label={content.locationsAria}>
-            <a href="/service-areas/chicago-heights/" data-related-link data-route-label="Chicago Heights"><b>01</b><span><strong>Chicago Heights</strong><small>500 Ashland Ave, Suite #2</small></span><i>↗</i></a>
-            <a href="/service-areas/#mokena" data-related-link data-route-label="Mokena"><b>02</b><span><strong>Mokena</strong><small>19160 88th Avenue</small></span><i>↗</i></a>
-            <a href="/service-areas/#community-map" data-related-link data-route-label="All service areas"><b>03</b><span><strong>All service areas</strong><small>26 connected communities</small></span><i>↗</i></a>
+            {serviceAreaDetailRoutes.map((area, index) => (
+              <a href={`/service-areas/${area.slug}/`} data-related-link data-route-label={area.name}><b>{String(index + 1).padStart(2, '0')}</b><span><strong>{area.name}</strong><small>{area.office}</small></span><i>↗</i></a>
+            ))}
+            <a href="/service-areas/#community-map" data-related-link data-route-label="All service areas"><b>{String(serviceAreaDetailRoutes.length + 1).padStart(2, '0')}</b><span><strong>All service areas</strong><small>26 connected communities</small></span><i>↗</i></a>
           </nav>
         </div>
       </div>
