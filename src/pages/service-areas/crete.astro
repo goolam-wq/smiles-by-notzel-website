@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected dental care near Crete with extended hours and complete-health dentistry at Smiles by Noetzel." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Crete Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/crete/crete-nav-consultation.webp" mediaAlt="A Crete patient reviewing a clear care plan with a dentist" />
+    <main>
+      <DetailExperience kind="crete" />
+      <BeforeAfterStory id="before-after-crete" tone="dark" reverse number="05" eyebrow="Crete · conservative repair" title="One small edge restored." emphasis="The familiar smile remains."
+        intro="A small chip can catch the eye even when the rest of a smile feels balanced. This Crete case uses conservative composite repair to restore one incisal edge while preserving the patient’s natural shade and character."
+        image="/images/generated/unique/crete/crete-before-after.webp" imageAlt="Crete before-and-after result showing a small upper front-tooth chip restored with natural composite"
+        beforeLabel="Small chipped edge" beforeDetail="A minor chip on one upper central incisor interrupted the otherwise natural line of the smile."
+        afterLabel="Natural edge restored" afterDetail="Shade-matched composite rebuilds the edge while keeping the tooth shape and full expression familiar."
+        caseNote="Conservative composite edge repair" />
+      <HubFooter eyebrow="Crete care starts nearby." title="Bring the question. We’ll connect the next step." />
+    </main>
+  </body>
+</html>

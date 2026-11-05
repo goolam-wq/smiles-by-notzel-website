@@ -20,6 +20,7 @@ const routes = [
   '/service-areas/flossmoor/',
   '/service-areas/hazel-crest/',
   '/service-areas/matteson/',
+  '/service-areas/crete/',
   '/services/professional-teeth-whitening/',
   '/services/porcelain-veneers-laminates/',
   '/services/lumineers/',

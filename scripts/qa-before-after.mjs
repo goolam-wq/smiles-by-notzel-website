@@ -31,6 +31,7 @@ const routes = [
   ['flossmoor', '/service-areas/flossmoor/', '#before-after-flossmoor'],
   ['hazel-crest', '/service-areas/hazel-crest/', '#before-after-hazel-crest'],
   ['matteson', '/service-areas/matteson/', '#before-after-matteson'],
+  ['crete', '/service-areas/crete/', '#before-after-crete'],
   ['whitening', '/services/professional-teeth-whitening/', '#before-after-professional-whitening'],
   ['porcelain-veneers-laminates', '/services/porcelain-veneers-laminates/', '#before-after-porcelain-veneers-laminates'],
   ['lumineers', '/services/lumineers/', '#before-after-lumineers'],
