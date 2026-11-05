@@ -13,6 +13,7 @@ const routes = [
   ['ford-heights', '/service-areas/ford-heights/?qa=detail-matrix'],
   ['olympia-fields', '/service-areas/olympia-fields/?qa=detail-matrix'],
   ['park-forest', '/service-areas/park-forest/?qa=detail-matrix'],
+  ['homewood', '/service-areas/homewood/?qa=detail-matrix'],
   ['cosmetic', '/services/cosmetic-dentistry/?qa=detail-matrix'],
   ['complete-health-airway', '/services/complete-health-airway/?qa=detail-matrix'],
   ['emergency-comfort', '/services/emergency-comfort/?qa=detail-matrix'],

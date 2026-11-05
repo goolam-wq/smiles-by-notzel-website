@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected dental care near Homewood with extended hours and complete-health dentistry at Smiles by Noetzel." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Homewood Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/homewood/homewood-nav-consultation.webp" mediaAlt="A Homewood patient reviewing an understandable care plan with a dentist" />
+    <main>
+      <DetailExperience kind="homewood" />
+      <BeforeAfterStory id="before-after-homewood" tone="dark" number="05" eyebrow="Homewood · natural smile repair" title="One small fracture restored." emphasis="The smile still feels familiar."
+        intro="A fine fracture can change how one front tooth catches the light. This Homewood case restores the edge and surface while preserving the natural shade and texture around it."
+        image="/images/generated/unique/homewood/homewood-before-after.webp" imageAlt="Homewood before-and-after result showing a conservative natural front-tooth fracture restoration"
+        beforeLabel="Visible front-tooth fracture" beforeDetail="A fine fracture and uneven edge drew attention to one upper front tooth."
+        afterLabel="Natural surface restored" afterDetail="A conservative restoration rebuilds the contour and blends the surface back into the full smile."
+        caseNote="Conservative fracture restoration" />
+      <HubFooter eyebrow="Homewood care starts nearby." title="Bring the question. We’ll keep the next step clear." />
+    </main>
+  </body>
+</html>
