@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected dental care near Flossmoor with extended hours and complete-health dentistry at Smiles by Noetzel." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Flossmoor Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/flossmoor/flossmoor-nav-consultation.webp" mediaAlt="A Flossmoor patient reviewing an understandable care plan with a dentist" />
+    <main>
+      <DetailExperience kind="flossmoor" />
+      <BeforeAfterStory id="before-after-flossmoor" tone="dark" number="05" eyebrow="Flossmoor · natural shade lift" title="Everyday staining softened." emphasis="The smile still looks like his."
+        intro="Coffee and tea can gradually deepen the visible tooth shade. This Flossmoor case lifts the surface staining conservatively while preserving the natural variation that keeps the smile believable."
+        image="/images/generated/unique/flossmoor/flossmoor-before-after.webp" imageAlt="Flossmoor before-and-after result showing a conservative natural tooth-shade lift"
+        beforeLabel="Visible everyday staining" beforeDetail="Warm surface staining made the upper teeth read darker across the full smile."
+        afterLabel="A natural two-shade lift" afterDetail="A controlled whitening plan brightens the smile while keeping the result soft and age-appropriate."
+        caseNote="Conservative stain lift" />
+      <HubFooter eyebrow="Flossmoor care starts nearby." title="Bring the question. We’ll make room for the answer." />
+    </main>
+  </body>
+</html>

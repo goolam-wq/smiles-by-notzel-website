@@ -28,6 +28,7 @@ const routes = [
   ['olympia-fields', '/service-areas/olympia-fields/', '#before-after-olympia-fields'],
   ['park-forest', '/service-areas/park-forest/', '#before-after-park-forest'],
   ['homewood', '/service-areas/homewood/', '#before-after-homewood'],
+  ['flossmoor', '/service-areas/flossmoor/', '#before-after-flossmoor'],
   ['whitening', '/services/professional-teeth-whitening/', '#before-after-professional-whitening'],
   ['porcelain-veneers-laminates', '/services/porcelain-veneers-laminates/', '#before-after-porcelain-veneers-laminates'],
   ['lumineers', '/services/lumineers/', '#before-after-lumineers'],
@@ -144,9 +145,18 @@ for (const [routeName, route, selector] of selectedRoutes) {
         };
       });
       if (geometry.scrollWidth > geometry.clientWidth + 1) errors.push(`horizontal overflow ${geometry.scrollWidth - geometry.clientWidth}px`);
-      for (const key of ['visual', 'details']) {
-        const box = geometry[key];
-        if (!box || box.right < 0 || box.left > width || box.bottom < 0 || box.top > height) errors.push(`${key} outside viewport`);
+      for (const [key, selector] of [['visual', '.before-after__visual'], ['details', '.before-after__details']]) {
+        const target = section.locator(selector);
+        if (await target.count() !== 1) {
+          errors.push(`${key} missing`);
+          continue;
+        }
+        await target.scrollIntoViewIfNeeded();
+        await page.waitForTimeout(80);
+        const box = await target.boundingBox();
+        if (!box || box.width < 16 || box.height < 16 || box.x + box.width < 0 || box.x > width || box.y + box.height < 0 || box.y > height) {
+          errors.push(`${key} outside viewport`);
+        }
       }
       if (!geometry.media?.naturalWidth || !geometry.media?.naturalHeight) errors.push('comparison image failed to load');
       if (geometry.media?.objectFit !== 'cover') errors.push(`comparison image can distort: object-fit ${geometry.media?.objectFit ?? 'missing'}`);

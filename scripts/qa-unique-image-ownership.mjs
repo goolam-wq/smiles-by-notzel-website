@@ -17,6 +17,7 @@ const routes = [
   '/service-areas/olympia-fields/',
   '/service-areas/park-forest/',
   '/service-areas/homewood/',
+  '/service-areas/flossmoor/',
   '/services/professional-teeth-whitening/',
   '/services/porcelain-veneers-laminates/',
   '/services/lumineers/',
