@@ -11,6 +11,7 @@ const routes = [
   '/service-areas/south-chicago-heights/',
   '/service-areas/steger/',
   '/service-areas/sauk-village/',
+  '/service-areas/lynwood/',
   '/services/professional-teeth-whitening/',
   '/services/porcelain-veneers-laminates/',
   '/services/lumineers/',

@@ -8,6 +8,7 @@ const routes = [
   ['south-chicago-heights', '/service-areas/south-chicago-heights/?qa=detail-matrix'],
   ['steger', '/service-areas/steger/?qa=detail-matrix'],
   ['sauk-village', '/service-areas/sauk-village/?qa=detail-matrix'],
+  ['lynwood', '/service-areas/lynwood/?qa=detail-matrix'],
   ['cosmetic', '/services/cosmetic-dentistry/?qa=detail-matrix'],
   ['complete-health-airway', '/services/complete-health-airway/?qa=detail-matrix'],
   ['emergency-comfort', '/services/emergency-comfort/?qa=detail-matrix'],

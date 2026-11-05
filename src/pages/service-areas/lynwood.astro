@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected dental care near Lynwood with extended hours and complete-health dentistry at Smiles by Noetzel." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Lynwood Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/lynwood/lynwood-nav-consultation.webp" mediaAlt="A Lynwood patient reviewing a care plan with her dentist" />
+    <main>
+      <DetailExperience kind="lynwood" />
+      <BeforeAfterStory id="before-after-lynwood" tone="dark" reverse number="05" eyebrow="Lynwood · natural repair" title="A careful correction." emphasis="A familiar smile preserved."
+        intro="A small front-edge chip can change how a smile catches the light. This Lynwood case restores the missing contour while preserving natural shade and texture."
+        image="/images/generated/unique/lynwood/lynwood-before-after.webp" imageAlt="Lynwood dental bonding outcome showing a conservative natural front-edge repair"
+        beforeLabel="An uneven front edge" beforeDetail="A small fracture interrupted the tooth contour and made the edge more noticeable."
+        afterLabel="Restored with restraint" afterDetail="Conservative bonding rebuilds the contour while keeping the result natural in color and proportion."
+        caseNote="Conservative front-tooth bonding" />
+      <HubFooter eyebrow="Lynwood care starts nearby." title="Tell us what you need. We’ll connect the next step around you." />
+    </main>
+  </body>
+</html>

@@ -11,6 +11,7 @@ const routes = [
   '/service-areas/south-chicago-heights/',
   '/service-areas/steger/',
   '/service-areas/sauk-village/',
+  '/service-areas/lynwood/',
   '/services/professional-teeth-whitening/',
   '/services/porcelain-veneers-laminates/',
   '/services/lumineers/',
@@ -73,7 +74,10 @@ const uses = [];
 
 for (const route of routes) {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-  await page.goto(`http://localhost:4321${route}`, { waitUntil: 'networkidle' });
+  // Some pages intentionally keep media requests alive, so networkidle can
+  // time out even when the document and every inspectable image source are
+  // ready. The audit reads declared sources, making DOM readiness sufficient.
+  await page.goto(`http://localhost:4321${route}`, { waitUntil: 'domcontentloaded' });
   const routeUses = await page.evaluate(() => {
     const result = [];
     document.querySelectorAll('img').forEach((element) => {
