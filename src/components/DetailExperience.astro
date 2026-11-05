@@ -1,11 +1,12 @@
 ---
-interface Props { kind: 'chicago' | 'mokena' | 'south-chicago-heights' | 'steger' | 'cosmetic' | 'complete-health-airway' | 'emergency-comfort' | 'implants-oral-surgery' | 'orthodontic-dentistry' | 'pediatric-developmental' | 'periodontal-dentistry' | 'preventive-diagnostic' | 'recode-cognitive-health' | 'restorative-reconstructive' | 'wellness-offering' }
+interface Props { kind: 'chicago' | 'mokena' | 'south-chicago-heights' | 'steger' | 'sauk-village' | 'cosmetic' | 'complete-health-airway' | 'emergency-comfort' | 'implants-oral-surgery' | 'orthodontic-dentistry' | 'pediatric-developmental' | 'periodontal-dentistry' | 'preventive-diagnostic' | 'recode-cognitive-health' | 'restorative-reconstructive' | 'wellness-offering' }
 const { kind } = Astro.props;
 const chicago = kind === 'chicago';
 const mokena = kind === 'mokena';
 const southChicagoHeights = kind === 'south-chicago-heights';
 const steger = kind === 'steger';
-const locationPage = chicago || mokena || southChicagoHeights || steger;
+const saukVillage = kind === 'sauk-village';
+const locationPage = chicago || mokena || southChicagoHeights || steger || saukVillage;
 const completeHealth = kind === 'complete-health-airway';
 const emergencyComfort = kind === 'emergency-comfort';
 const implantsSurgery = kind === 'implants-oral-surgery';
@@ -760,7 +761,52 @@ const mokenaFaq = [
   ['Can my whole family visit this office?', 'Yes. The Mokena office provides preventive, restorative, cosmetic, kid-friendly and complete-health care.'],
   ['Do you serve communities outside Mokena?', 'Yes. This office supports Mokena and nine nearby communities listed on this page.'],
 ];
-const location = steger ? {
+const location = saukVillage ? {
+  slug: 'sauk-village',
+  className: 'is-chicago',
+  officeNumber: '01',
+  name: 'Sauk Village',
+  phone: '(708) 755-1333',
+  phoneHref: 'tel:+17087551333',
+  addressLine: '500 Ashland Ave, Suite #2',
+  cityLine: 'Chicago Heights, IL 60411',
+  mapHref: 'https://maps.app.goo.gl/htHhNrnhbbu2WNR17',
+  heroKicker: 'Sauk Village · Near Office 01',
+  heroLead: 'Care within reach.',
+  heroEmphasis: 'A plan that goes further.',
+  heroIntro: 'Extended hours, complete-health thinking and a connected team serving Sauk Village from nearby Ashland Avenue.',
+  heroImage: '/images/generated/unique/sauk-village/sauk-village-hero-arrival.webp',
+  heroAlt: 'A Sauk Village patient being welcomed by a care coordinator at the nearby dental office',
+  ledger: [['NEAREST OFFICE', 'Chicago Heights'], ['COMMUNITIES', '16 connected'], ['PATIENT PROOF', '4.9 from 258 reviews'], ['CALL', '(708) 755-1333']],
+  aboutKicker: '01 · ABOUT SAUK VILLAGE',
+  aboutLead: 'Nearby dentistry',
+  aboutEmphasis: 'with the full picture in view.',
+  aboutCopy: 'Sauk Village patients can reach early, evening and Saturday appointments at the Chicago Heights office, where each visit stays connected to a wider complete-health plan.',
+  schedule: [['01', 'MON — THU', '7:30 AM', '— 7:00 PM'], ['02', 'FRIDAY', '7:30 AM', '— 12:00 PM'], ['03', 'SATURDAY', '8:00 AM', '— 12:00 PM']],
+  atlasCopy: 'Preventive visits, restorative decisions and more involved care stay connected through one nearby team instead of becoming separate appointments with separate stories.',
+  communityCountWord: 'Sixteen',
+  communityCopy: 'Sauk Village belongs to a connected south-suburban care area supported by the Chicago Heights office and its wider service network.',
+  journeyLast: 'Treatment and follow-up stay coordinated with one nearby Chicago Heights team.',
+  trustImage: '/images/generated/unique/sauk-village/sauk-village-trust-family.webp',
+  trustAlt: 'A Sauk Village mother and daughter speaking with their dental hygienist',
+  trustLabel: 'SAUK VILLAGE · NEAR OFFICE 01',
+  trustCopy: 'The useful difference is access without fragmentation: convenient hours, calm explanations and one team that can connect the next step to the whole health story.',
+  trustReasons: [['01', 'A nearby route', 'The Ashland Avenue office serves Sauk Village from nearby Chicago Heights.'], ['02', '48 connected services', 'Prevention, comfort, restoration and advanced care in one network.'], ['03', 'Hours that flex', 'Early mornings, evenings and Saturday availability.'], ['04', 'Patient-backed care', 'A 4.9 Google rating from 258 local reviews.']],
+  pricingIntro: 'Compare a focused set of common services available to Sauk Village patients in fixed, monthly and yearly customer-facing views.',
+  reviewKicker: '08 · SAUK VILLAGE PATIENT PROOF',
+  reviewScore: '4.9',
+  reviewQuote: '“The team listened, explained every option clearly and made the visit feel calm from start to finish.”',
+  reviewFooter: 'LOCAL PATIENT · VERIFIED REVIEW',
+  reviewTopics: ['Attentive care · often noted', 'Clear options · patient mentioned', 'Calm visits · locally connected'],
+  reviewTotal: '258',
+  faqs: [
+    ['Which office serves Sauk Village?', 'The Chicago Heights office at 500 Ashland Avenue, Suite #2 is the nearest Smiles by Noetzel location.'],
+    ['Are evening appointments available for Sauk Village patients?', 'Yes. The Chicago Heights office is open until 7:00 PM Monday through Thursday.'],
+    ['Can I schedule a Saturday visit?', 'Yes. Saturday hours are available from 8:00 AM to 12:00 PM. Please call ahead to confirm availability.'],
+    ['Does the office treat children and adults?', 'Yes. The nearby team provides preventive, restorative, cosmetic, kid-friendly and complete-health care.'],
+    ['What should I do if I have a dental emergency?', 'Call (708) 755-1333 so the team can understand what happened and guide your next step.'],
+  ],
+} : steger ? {
   slug: 'steger',
   className: 'is-chicago',
   officeNumber: '01',
@@ -1443,7 +1489,7 @@ const faqs = locationPage ? location.faqs : category.faqs;
               .to(copy,{yPercent:-3,opacity:1,ease:'none'},0)
               .to(q('.detail-hero__watermark'),{xPercent:-9,yPercent:-5,ease:'none'},0)
               .to(q('.detail-hero__index'),{opacity:.78,ease:'none'},0);
-          } else if (!['chicago','mokena','south-chicago-heights','steger'].includes(root.dataset.detailKind || '')) {
+          } else if (!['chicago','mokena','south-chicago-heights','steger','sauk-village'].includes(root.dataset.detailKind || '')) {
             tl.to(visual,{width:stageWidth,height:compact?'78vh':'86vh',right:compact?'.8rem':'1vw',top:compact?'11vh':'7vh',ease:'none'},0)
               .to(q('.cosmetic-triptych__panels'),{gridTemplateColumns:'.58fr 1.58fr .62fr',gap:'.3rem',ease:'none'},0)
               .to(q('.cosmetic-slice'),{borderRadius:'3.5rem 3.5rem .75rem .75rem',ease:'none'},0)
@@ -1550,7 +1596,7 @@ const faqs = locationPage ? location.faqs : category.faqs;
               .to(q('.health-scan__main img'),{xPercent:-2,ease:'none'},0)
               .to(q('.health-scan__detail.airway'),{yPercent:-3,ease:'none'},0)
               .to(q('.health-scan__detail.system'),{yPercent:3,ease:'none'},0);
-          } else if (!['chicago','mokena','south-chicago-heights','steger'].includes(root.dataset.detailKind || '')) {
+          } else if (!['chicago','mokena','south-chicago-heights','steger','sauk-village'].includes(root.dataset.detailKind || '')) {
             mobileTl.to(visual,{height:'52svh',left:'.5rem',right:'.5rem',bottom:'.5rem',ease:'none'},0)
               .to(q('.detail-hero__watermark'),{xPercent:-12,yPercent:-4,ease:'none'},0)
               .to(q('.cosmetic-triptych__panels'),{gridTemplateColumns:'.6fr 1.5fr .62fr',gap:'.2rem',ease:'none'},0)

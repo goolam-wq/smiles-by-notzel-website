@@ -10,6 +10,7 @@ const routes = [
   '/service-areas/mokena/',
   '/service-areas/south-chicago-heights/',
   '/service-areas/steger/',
+  '/service-areas/sauk-village/',
   '/services/professional-teeth-whitening/',
   '/services/porcelain-veneers-laminates/',
   '/services/lumineers/',

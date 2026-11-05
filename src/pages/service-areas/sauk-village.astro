@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected dental care near Sauk Village with extended hours and complete-health dentistry at Smiles by Noetzel." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Sauk Village Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/sauk-village/sauk-village-nav-consultation.webp" mediaAlt="A Sauk Village patient reviewing her care plan with a dentist" />
+    <main>
+      <DetailExperience kind="sauk-village" />
+      <BeforeAfterStory id="before-after-sauk-village" tone="dark" number="05" eyebrow="Sauk Village · natural repair" title="One subtle repair." emphasis="A smile back in balance."
+        intro="A small front-edge fracture can become the first detail someone notices. This Sauk Village case restored proportion while preserving the patient’s natural enamel variation."
+        image="/images/generated/unique/sauk-village/sauk-village-before-after.webp" imageAlt="Sauk Village dental bonding outcome showing a natural conservative front-edge repair"
+        beforeLabel="A disrupted front edge" beforeDetail="A small chip interrupted the tooth contour and caught the light unevenly."
+        afterLabel="Balanced with restraint" afterDetail="Conservative bonding restores the edge while keeping natural shade and texture visible."
+        caseNote="Conservative front-tooth bonding" />
+      <HubFooter eyebrow="Sauk Village care starts nearby." title="Tell us what you need. We’ll connect the next step around you." />
+    </main>
+  </body>
+</html>
