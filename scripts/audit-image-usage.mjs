@@ -15,6 +15,7 @@ const routes = [
   '/service-areas/glenwood/',
   '/service-areas/ford-heights/',
   '/service-areas/olympia-fields/',
+  '/service-areas/park-forest/',
   '/services/professional-teeth-whitening/',
   '/services/porcelain-veneers-laminates/',
   '/services/lumineers/',

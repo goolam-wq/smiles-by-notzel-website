@@ -26,6 +26,7 @@ const routes = [
   ['glenwood', '/service-areas/glenwood/', '#before-after-glenwood'],
   ['ford-heights', '/service-areas/ford-heights/', '#before-after-ford-heights'],
   ['olympia-fields', '/service-areas/olympia-fields/', '#before-after-olympia-fields'],
+  ['park-forest', '/service-areas/park-forest/', '#before-after-park-forest'],
   ['whitening', '/services/professional-teeth-whitening/', '#before-after-professional-whitening'],
   ['porcelain-veneers-laminates', '/services/porcelain-veneers-laminates/', '#before-after-porcelain-veneers-laminates'],
   ['lumineers', '/services/lumineers/', '#before-after-lumineers'],

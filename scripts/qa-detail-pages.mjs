@@ -12,6 +12,7 @@ const routes = [
   ['glenwood', '/service-areas/glenwood/?qa=detail-matrix'],
   ['ford-heights', '/service-areas/ford-heights/?qa=detail-matrix'],
   ['olympia-fields', '/service-areas/olympia-fields/?qa=detail-matrix'],
+  ['park-forest', '/service-areas/park-forest/?qa=detail-matrix'],
   ['cosmetic', '/services/cosmetic-dentistry/?qa=detail-matrix'],
   ['complete-health-airway', '/services/complete-health-airway/?qa=detail-matrix'],
   ['emergency-comfort', '/services/emergency-comfort/?qa=detail-matrix'],

@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected dental care near Park Forest with extended hours and complete-health dentistry at Smiles by Noetzel." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Park Forest Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/park-forest/park-forest-nav-consultation.webp" mediaAlt="A Park Forest patient reviewing an understandable care plan with a dentist" />
+    <main>
+      <DetailExperience kind="park-forest" />
+      <BeforeAfterStory id="before-after-park-forest" tone="dark" reverse number="05" eyebrow="Park Forest · natural edge restoration" title="One worn edge rebuilt." emphasis="The familiar expression stays intact."
+        intro="A small chipped edge can pull attention toward one tooth. This Park Forest case restores the missing contour while preserving the shade, texture and character of the surrounding smile."
+        image="/images/generated/unique/park-forest/park-forest-before-after.webp" imageAlt="Park Forest before-and-after result showing a conservative natural front-tooth edge restoration"
+        beforeLabel="Worn front-tooth edge" beforeDetail="A small chip disrupted the natural line of the upper front teeth and made one edge stand apart."
+        afterLabel="Restored natural contour" afterDetail="A conservative restoration rebuilds the missing edge so it returns quietly to the full smile."
+        caseNote="Conservative edge restoration" />
+      <HubFooter eyebrow="Park Forest care starts nearby." title="Bring the question. We’ll connect the next step around you." />
+    </main>
+  </body>
+</html>
