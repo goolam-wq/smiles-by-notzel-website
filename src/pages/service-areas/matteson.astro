@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected dental care near Matteson with extended hours and complete-health dentistry at Smiles by Noetzel." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Matteson Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/matteson/matteson-nav-consultation.webp" mediaAlt="A Matteson patient reviewing an understandable care plan with a dentist" />
+    <main>
+      <DetailExperience kind="matteson" />
+      <BeforeAfterStory id="before-after-matteson" tone="dark" reverse number="05" eyebrow="Matteson · conservative bonding" title="One small space closed." emphasis="The natural smile stays familiar."
+        intro="Small spacing can draw attention away from the full expression. This Matteson case uses conservative composite bonding to close one visible space while respecting the patient’s existing shade and tooth character."
+        image="/images/generated/unique/matteson/matteson-before-after.webp" imageAlt="Matteson before-and-after result showing a small upper lateral-incisor gap closed with natural composite bonding"
+        beforeLabel="Small visible space" beforeDetail="A narrow gap beside an upper lateral incisor interrupted the otherwise natural rhythm of the smile."
+        afterLabel="Conservative gap closure" afterDetail="Carefully shaded composite closes the space while preserving the surrounding tooth shape and natural expression."
+        caseNote="Conservative composite bonding" />
+      <HubFooter eyebrow="Matteson care starts nearby." title="Bring the question. We’ll connect the next step." />
+    </main>
+  </body>
+</html>
