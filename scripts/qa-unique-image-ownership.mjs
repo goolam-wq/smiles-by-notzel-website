@@ -13,6 +13,7 @@ const routes = [
   '/service-areas/sauk-village/',
   '/service-areas/lynwood/',
   '/service-areas/glenwood/',
+  '/service-areas/ford-heights/',
   '/services/professional-teeth-whitening/',
   '/services/porcelain-veneers-laminates/',
   '/services/lumineers/',

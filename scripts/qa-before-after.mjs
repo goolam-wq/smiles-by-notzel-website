@@ -24,6 +24,7 @@ const routes = [
   ['sauk-village', '/service-areas/sauk-village/', '#before-after-sauk-village'],
   ['lynwood', '/service-areas/lynwood/', '#before-after-lynwood'],
   ['glenwood', '/service-areas/glenwood/', '#before-after-glenwood'],
+  ['ford-heights', '/service-areas/ford-heights/', '#before-after-ford-heights'],
   ['whitening', '/services/professional-teeth-whitening/', '#before-after-professional-whitening'],
   ['porcelain-veneers-laminates', '/services/porcelain-veneers-laminates/', '#before-after-porcelain-veneers-laminates'],
   ['lumineers', '/services/lumineers/', '#before-after-lumineers'],

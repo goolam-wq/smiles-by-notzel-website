@@ -10,6 +10,7 @@ const routes = [
   ['sauk-village', '/service-areas/sauk-village/?qa=detail-matrix'],
   ['lynwood', '/service-areas/lynwood/?qa=detail-matrix'],
   ['glenwood', '/service-areas/glenwood/?qa=detail-matrix'],
+  ['ford-heights', '/service-areas/ford-heights/?qa=detail-matrix'],
   ['cosmetic', '/services/cosmetic-dentistry/?qa=detail-matrix'],
   ['complete-health-airway', '/services/complete-health-airway/?qa=detail-matrix'],
   ['emergency-comfort', '/services/emergency-comfort/?qa=detail-matrix'],

@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected dental care near Ford Heights with extended hours and complete-health dentistry at Smiles by Noetzel." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Ford Heights Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/ford-heights/ford-heights-nav-consultation.webp" mediaAlt="A Ford Heights patient reviewing a care plan with his dentist" />
+    <main>
+      <DetailExperience kind="ford-heights" />
+      <BeforeAfterStory id="before-after-ford-heights" tone="dark" reverse number="05" eyebrow="Ford Heights · conservative restoration" title="One small edge restored." emphasis="The familiar smile remains."
+        intro="A subtle chip can interrupt an otherwise natural smile. This Ford Heights case restores the front-edge contour without changing the patient’s familiar shade, expression or character."
+        image="/images/generated/unique/ford-heights/ford-heights-before-after.webp" imageAlt="Ford Heights before-and-after result showing a subtle conservative front-tooth edge restoration"
+        beforeLabel="A small chipped edge" beforeDetail="A minor upper-front edge chip made the smile contour look uneven in conversation."
+        afterLabel="Natural contour restored" afterDetail="A conservative restoration rebuilds the edge while preserving the patient’s natural shade and smile."
+        caseNote="Conservative front-edge restoration" />
+      <HubFooter eyebrow="Ford Heights care starts nearby." title="Tell us what matters. We’ll connect the next step around you." />
+    </main>
+  </body>
+</html>
