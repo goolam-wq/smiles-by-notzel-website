@@ -23,6 +23,7 @@ const routes = [
   ['steger', '/service-areas/steger/', '#before-after-steger'],
   ['sauk-village', '/service-areas/sauk-village/', '#before-after-sauk-village'],
   ['lynwood', '/service-areas/lynwood/', '#before-after-lynwood'],
+  ['glenwood', '/service-areas/glenwood/', '#before-after-glenwood'],
   ['whitening', '/services/professional-teeth-whitening/', '#before-after-professional-whitening'],
   ['porcelain-veneers-laminates', '/services/porcelain-veneers-laminates/', '#before-after-porcelain-veneers-laminates'],
   ['lumineers', '/services/lumineers/', '#before-after-lumineers'],

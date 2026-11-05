@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected dental care near Glenwood with extended hours and complete-health dentistry at Smiles by Noetzel." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Glenwood Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/glenwood/glenwood-nav-consultation.webp" mediaAlt="A Glenwood patient reviewing a care plan with her dentist" />
+    <main>
+      <DetailExperience kind="glenwood" />
+      <BeforeAfterStory id="before-after-glenwood" tone="dark" reverse number="05" eyebrow="Glenwood · natural restoration" title="A subtle correction." emphasis="A confident smile retained."
+        intro="A small worn edge can change the way a smile looks in conversation. This Glenwood case rebuilds the contour while preserving natural shade, shape and character."
+        image="/images/generated/unique/glenwood/glenwood-before-after.webp" imageAlt="Glenwood dental restoration outcome showing a subtle natural front-edge correction"
+        beforeLabel="A visible worn edge" beforeDetail="Minor wear interrupted the natural contour and made one edge more noticeable."
+        afterLabel="Balanced with restraint" afterDetail="A conservative restoration restores the contour while preserving the patient’s familiar smile."
+        caseNote="Conservative front-edge restoration" />
+      <HubFooter eyebrow="Glenwood care starts nearby." title="Tell us what matters. We’ll connect the next step around you." />
+    </main>
+  </body>
+</html>
