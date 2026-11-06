@@ -27,6 +27,7 @@ const routes = [
   ['homer-glen', '/service-areas/homer-glen/?qa=detail-matrix'],
   ['lockport', '/service-areas/lockport/?qa=detail-matrix'],
   ['manhattan', '/service-areas/manhattan/?qa=detail-matrix'],
+  ['frankfort-square', '/service-areas/frankfort-square/?qa=detail-matrix'],
   ['cosmetic', '/services/cosmetic-dentistry/?qa=detail-matrix'],
   ['complete-health-airway', '/services/complete-health-airway/?qa=detail-matrix'],
   ['emergency-comfort', '/services/emergency-comfort/?qa=detail-matrix'],

@@ -1,0 +1,38 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected dental care near Frankfort Square through the nearby Smiles by Noetzel office in Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Frankfort Square Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/frankfort-square/frankfort-square-nav-scan.webp" mediaAlt="A dental assistant preparing an intraoral scanner for a Frankfort Square patient" />
+    <main>
+      <DetailExperience kind="frankfort-square" />
+      <BeforeAfterStory id="before-after-frankfort-square" tone="dark" reverse number="05" eyebrow="Frankfort Square · conservative repair" title="One small edge restored." emphasis="The expression still feels entirely yours."
+        intro="A subtle chip can interrupt the front-tooth line without requiring a dramatic makeover. This Frankfort Square example shows a conservative, shade-matched repair focused only on the missing contour."
+        image="/images/generated/unique/frankfort-square/frankfort-square-before-after.webp" imageAlt="Frankfort Square before-and-after dental comparison showing a conservative front-tooth edge repair"
+        beforeLabel="A small chip caught the light" beforeDetail="A limited edge fracture made one front tooth feel uneven while the surrounding enamel remained healthy."
+        afterLabel="The line reads naturally again" afterDetail="Shade-matched composite restores the missing edge with believable proportion, texture and translucency."
+        caseNote="Conservative anterior composite repair" />
+      <HubFooter eyebrow="Frankfort Square care starts nearby." title="Bring the questions. Leave with a connected plan." />
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  #before-after-frankfort-square .before-after__image img { object-position: center 69%; }
+  @media (max-width: 45rem) {
+    #before-after-frankfort-square .before-after__image img { object-position: center 66%; }
+  }
+</style>

@@ -30,6 +30,7 @@ const routes = [
   '/service-areas/homer-glen/',
   '/service-areas/lockport/',
   '/service-areas/manhattan/',
+  '/service-areas/frankfort-square/',
   '/services/professional-teeth-whitening/',
   '/services/porcelain-veneers-laminates/',
   '/services/lumineers/',
