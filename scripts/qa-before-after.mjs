@@ -33,6 +33,7 @@ const routes = [
   ['matteson', '/service-areas/matteson/', '#before-after-matteson'],
   ['crete', '/service-areas/crete/', '#before-after-crete'],
   ['country-club-hills', '/service-areas/country-club-hills/', '#before-after-country-club-hills'],
+  ['richton-park', '/service-areas/richton-park/', '#before-after-richton-park'],
   ['whitening', '/services/professional-teeth-whitening/', '#before-after-professional-whitening'],
   ['porcelain-veneers-laminates', '/services/porcelain-veneers-laminates/', '#before-after-porcelain-veneers-laminates'],
   ['lumineers', '/services/lumineers/', '#before-after-lumineers'],

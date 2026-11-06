@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected dental care near Richton Park with extended hours and complete-health dentistry at Smiles by Noetzel." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Richton Park Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/richton-park/richton-park-nav-xray-review.webp" mediaAlt="A Richton Park patient reviewing dental images with her dentist" />
+    <main>
+      <DetailExperience kind="richton-park" />
+      <BeforeAfterStory id="before-after-richton-park" tone="dark" number="05" eyebrow="Richton Park · conservative bonding" title="One small space resolved." emphasis="The smile still feels like his."
+        intro="A narrow space between the front teeth can pull attention away from an otherwise natural smile. This Richton Park case uses conservative bonding to close the gap while protecting familiar shape, texture and shade."
+        image="/images/generated/unique/richton-park/richton-park-before-after-gap.webp" imageAlt="Richton Park before-and-after portrait showing a small front-tooth gap closed with natural composite bonding"
+        beforeLabel="Small central gap" beforeDetail="A narrow space between the upper front teeth interrupted the smile line without affecting the surrounding teeth."
+        afterLabel="Gap closed naturally" afterDetail="Tooth-colored bonding closes the space while preserving believable texture, proportion and shade."
+        caseNote="Conservative front-tooth gap closure" />
+      <HubFooter eyebrow="Richton Park care starts nearby." title="Bring the question. We’ll keep the next step connected." />
+    </main>
+  </body>
+</html>
