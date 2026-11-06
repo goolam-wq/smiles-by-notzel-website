@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected dental care near Orland Park through the nearby Smiles by Noetzel office in Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Orland Park Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/orland-park/orland-park-nav-scan-review.webp" mediaAlt="An Orland Park patient reviewing a digital dental scan with his dentist" />
+    <main>
+      <DetailExperience kind="orland-park" />
+      <BeforeAfterStory id="before-after-orland-park" tone="dark" number="05" eyebrow="Orland Park · conservative bonding" title="A worn edge brought back into balance." emphasis="The smile still looks entirely like her."
+        intro="Old bonding can become uneven or slightly discolored over time. This Orland Park case uses conservative shade-matched composite to restore the contour without over-designing the result."
+        image="/images/generated/unique/orland-park/orland-park-before-after-bonding.webp" imageAlt="Orland Park before-and-after portrait showing conservative replacement of worn front-tooth bonding"
+        beforeLabel="Aging bonding, uneven contour" beforeDetail="An older front-edge repair had become slightly uneven and no longer blended naturally with the surrounding enamel."
+        afterLabel="A quieter, natural finish" afterDetail="Fresh shade-matched composite restores the line and texture while keeping the tooth character believable."
+        caseNote="Conservative replacement of front-edge composite bonding" />
+      <HubFooter eyebrow="Orland Park care starts nearby." title="Bring the question. Leave with a clearer direction." />
+    </main>
+  </body>
+</html>

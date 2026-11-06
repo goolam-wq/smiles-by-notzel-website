@@ -26,6 +26,7 @@ const routes = [
   '/service-areas/frankfort/',
   '/service-areas/new-lenox/',
   '/service-areas/tinley-park/',
+  '/service-areas/orland-park/',
   '/services/professional-teeth-whitening/',
   '/services/porcelain-veneers-laminates/',
   '/services/lumineers/',

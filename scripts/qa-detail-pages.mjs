@@ -23,6 +23,7 @@ const routes = [
   ['frankfort', '/service-areas/frankfort/?qa=detail-matrix'],
   ['new-lenox', '/service-areas/new-lenox/?qa=detail-matrix'],
   ['tinley-park', '/service-areas/tinley-park/?qa=detail-matrix'],
+  ['orland-park', '/service-areas/orland-park/?qa=detail-matrix'],
   ['cosmetic', '/services/cosmetic-dentistry/?qa=detail-matrix'],
   ['complete-health-airway', '/services/complete-health-airway/?qa=detail-matrix'],
   ['emergency-comfort', '/services/emergency-comfort/?qa=detail-matrix'],
