@@ -31,6 +31,7 @@ const routes = [
   '/service-areas/lockport/',
   '/service-areas/manhattan/',
   '/service-areas/frankfort-square/',
+  '/service-areas/orland-hills/',
   '/services/professional-teeth-whitening/',
   '/services/porcelain-veneers-laminates/',
   '/services/lumineers/',

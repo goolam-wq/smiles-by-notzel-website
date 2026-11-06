@@ -1,7 +1,7 @@
 ---
 import { locationRelatedServices, serviceAreaDetailRoutes, serviceAreaHref } from '../data/internalLinks';
 
-interface Props { kind: 'chicago' | 'mokena' | 'south-chicago-heights' | 'steger' | 'sauk-village' | 'lynwood' | 'glenwood' | 'ford-heights' | 'olympia-fields' | 'park-forest' | 'homewood' | 'flossmoor' | 'hazel-crest' | 'matteson' | 'crete' | 'country-club-hills' | 'richton-park' | 'frankfort' | 'new-lenox' | 'tinley-park' | 'orland-park' | 'homer-glen' | 'lockport' | 'manhattan' | 'frankfort-square' | 'cosmetic' | 'complete-health-airway' | 'emergency-comfort' | 'implants-oral-surgery' | 'orthodontic-dentistry' | 'pediatric-developmental' | 'periodontal-dentistry' | 'preventive-diagnostic' | 'recode-cognitive-health' | 'restorative-reconstructive' | 'wellness-offering' }
+interface Props { kind: 'chicago' | 'mokena' | 'south-chicago-heights' | 'steger' | 'sauk-village' | 'lynwood' | 'glenwood' | 'ford-heights' | 'olympia-fields' | 'park-forest' | 'homewood' | 'flossmoor' | 'hazel-crest' | 'matteson' | 'crete' | 'country-club-hills' | 'richton-park' | 'frankfort' | 'new-lenox' | 'tinley-park' | 'orland-park' | 'homer-glen' | 'lockport' | 'manhattan' | 'frankfort-square' | 'orland-hills' | 'cosmetic' | 'complete-health-airway' | 'emergency-comfort' | 'implants-oral-surgery' | 'orthodontic-dentistry' | 'pediatric-developmental' | 'periodontal-dentistry' | 'preventive-diagnostic' | 'recode-cognitive-health' | 'restorative-reconstructive' | 'wellness-offering' }
 const { kind } = Astro.props;
 const chicago = kind === 'chicago';
 const mokena = kind === 'mokena';
@@ -28,7 +28,8 @@ const homerGlen = kind === 'homer-glen';
 const lockport = kind === 'lockport';
 const manhattan = kind === 'manhattan';
 const frankfortSquare = kind === 'frankfort-square';
-const locationPage = chicago || mokena || southChicagoHeights || steger || saukVillage || lynwood || glenwood || fordHeights || olympiaFields || parkForest || homewood || flossmoor || hazelCrest || matteson || crete || countryClubHills || richtonPark || frankfort || newLenox || tinleyPark || orlandPark || homerGlen || lockport || manhattan || frankfortSquare;
+const orlandHills = kind === 'orland-hills';
+const locationPage = chicago || mokena || southChicagoHeights || steger || saukVillage || lynwood || glenwood || fordHeights || olympiaFields || parkForest || homewood || flossmoor || hazelCrest || matteson || crete || countryClubHills || richtonPark || frankfort || newLenox || tinleyPark || orlandPark || homerGlen || lockport || manhattan || frankfortSquare || orlandHills;
 const completeHealth = kind === 'complete-health-airway';
 const emergencyComfort = kind === 'emergency-comfort';
 const implantsSurgery = kind === 'implants-oral-surgery';
@@ -40,7 +41,7 @@ const recode = kind === 'recode-cognitive-health';
 const restorative = kind === 'restorative-reconstructive';
 const wellness = kind === 'wellness-offering';
 
-const communities = mokena || frankfort || newLenox || tinleyPark || orlandPark || homerGlen || lockport || manhattan || frankfortSquare
+const communities = mokena || frankfort || newLenox || tinleyPark || orlandPark || homerGlen || lockport || manhattan || frankfortSquare || orlandHills
   ? ['Mokena', 'Frankfort', 'New Lenox', 'Tinley Park', 'Orland Park', 'Homer Glen', 'Lockport', 'Manhattan', 'Frankfort Square', 'Orland Hills']
   : ['Chicago Heights', 'South Chicago Heights', 'Steger', 'Sauk Village', 'Lynwood', 'Glenwood', 'Ford Heights', 'Olympia Fields', 'Park Forest', 'Homewood', 'Flossmoor', 'Hazel Crest', 'Matteson', 'Crete', 'Country Club Hills', 'Richton Park'];
 const serviceGroups = [
@@ -776,7 +777,33 @@ const mokenaFaq = [
   ['Can my whole family visit this office?', 'Yes. The Mokena office provides preventive, restorative, cosmetic, kid-friendly and complete-health care.'],
   ['Do you serve communities outside Mokena?', 'Yes. This office supports Mokena and nine nearby communities listed on this page.'],
 ];
-const location = frankfortSquare ? {
+const location = orlandHills ? {
+  slug: 'orland-hills', className: 'is-orland-hills', officeNumber: '02', name: 'Orland Hills', phone: '(708) 479-7733', phoneHref: 'tel:+17084797733',
+  addressLine: '19160 88th Avenue', cityLine: 'Mokena, IL 60448', mapHref: 'https://maps.app.goo.gl/6R4R7P7xPznKtGiTA',
+  heroKicker: 'Orland Hills · Near Office 02', heroLead: 'Care that can grow with the household.', heroEmphasis: 'One nearby team keeps every chapter connected.',
+  heroIntro: 'Orland Hills families can use the nearby Mokena office for preventive, restorative, cosmetic, kid-friendly and complete-health dentistry without rebuilding the story at every visit.',
+  heroImage: '/images/generated/unique/orland-hills/orland-hills-hero-arrival.webp', heroAlt: 'An Orland Hills mother and adult daughter welcomed by a care coordinator at the nearby Mokena dental office',
+  ledger: [['NEARBY OFFICE', 'Mokena'], ['COMMUNITIES', '10 connected'], ['HOURS', 'Evenings available'], ['CALL', '(708) 479-7733']],
+  aboutKicker: '01 · ABOUT ORLAND HILLS', aboutLead: 'Different ages.', aboutEmphasis: 'One connected standard.',
+  aboutCopy: 'From a child’s preventive visit to an adult restoration or a more complete health conversation, Orland Hills households can keep imaging, decisions and follow-up connected through the same nearby team.',
+  schedule: [['01', 'MONDAY', '8:00 AM', '— 7:00 PM'], ['02', 'THURSDAY', '9:30 AM', '— 6:00 PM'], ['03', 'SELECT SATURDAY', '8:00 AM', '— 12:00 PM']],
+  atlasCopy: 'A nearby office is most valuable when every person in the household receives an understandable plan. The Mokena team connects findings, priorities and timing across changing needs.',
+  communityCountWord: 'Ten', communityCopy: 'Orland Hills is one of ten southwest-suburban communities connected to the Mokena office and one coordinated care network.',
+  journeyLast: 'Orland Hills visits, imaging, treatment choices and follow-up stay connected through one nearby team.',
+  trustImage: '/images/generated/unique/orland-hills/orland-hills-trust-plan.webp', trustAlt: 'An Orland Hills couple reviewing a long-term dental care plan with a coordinator',
+  trustLabel: 'ORLAND HILLS · NEAR OFFICE 02', trustCopy: 'Good dentistry should make the next decision easier. The Mokena team helps Orland Hills patients understand what matters now, what can wait and how each step fits the longer plan.',
+  trustReasons: [['01', 'Care across life stages', 'Preventive, restorative, cosmetic, pediatric and complete-health needs can stay connected.'], ['02', 'A plan in plain language', 'Findings are translated into priorities, options and realistic timing.'], ['03', 'Technology with context', 'Digital scans and images support a conversation instead of replacing one.'], ['04', 'Follow-up without a reset', 'The same team can carry context forward from one visit to the next.']],
+  pricingIntro: 'Compare a practical selection of common services available to Orland Hills patients across fixed, monthly and yearly customer-facing views.',
+  reviewKicker: '08 · ORLAND HILLS PATIENT PROOF', reviewScore: '4.9', reviewQuote: 'Patients often describe a calm welcome, thoughtful explanations and a team that makes a complicated plan feel manageable.',
+  reviewFooter: 'COMMON REVIEW THEMES · MOKENA OFFICE', reviewTopics: ['Calm welcome · commonly noted', 'Family-friendly planning · review theme', 'Clear next steps · locally supported'], reviewTotal: 'local',
+  faqs: [
+    ['Which office serves Orland Hills?', 'The Mokena office at 19160 88th Avenue is the nearby Smiles by Noetzel location serving Orland Hills.'],
+    ['Can adults and children use the same office?', 'Yes. The Mokena team supports preventive, restorative, cosmetic, kid-friendly and complete-health care across changing household needs.'],
+    ['Are evening appointments available?', 'Yes. Monday appointments are available until 7:00 PM, with Thursday hours until 6:00 PM.'],
+    ['Can the team coordinate a multi-step plan?', 'Yes. The team can connect imaging, priorities, treatment phases and follow-up so each next step remains understandable.'],
+    ['What if I need urgent guidance?', 'Call (708) 479-7733 so the team can understand the concern and guide the most appropriate next step.'],
+  ],
+} : frankfortSquare ? {
   slug: 'frankfort-square', className: 'is-frankfort-square', officeNumber: '02', name: 'Frankfort Square', phone: '(708) 479-7733', phoneHref: 'tel:+17084797733',
   addressLine: '19160 88th Avenue', cityLine: 'Mokena, IL 60448', mapHref: 'https://maps.app.goo.gl/6R4R7P7xPznKtGiTA',
   heroKicker: 'Frankfort Square · Near Office 02', heroLead: 'Close enough for real continuity.', heroEmphasis: 'Connected enough to keep the whole story.',
@@ -2328,6 +2355,21 @@ const relatedAreaLinks = [
   .is-frankfort-square .detail-hero__frame{border-radius:1rem 7rem 1rem 1rem}
   @media (min-width:721px) and (max-width:1100px){.is-frankfort-square .detail-hero__frame{border-radius:1rem 5rem 1rem 1rem}}
   @media (max-width:720px){.is-frankfort-square .detail-hero__frame{border-radius:.7rem 4.2rem .7rem .7rem}}
+  .is-orland-hills .detail-hero{height:138svh;background:var(--pine-950);color:var(--porcelain)}
+  .is-orland-hills .detail-hero__sticky{display:block;padding:0;background:var(--pine-950)}
+  .is-orland-hills .detail-hero__grid,.is-orland-hills .detail-hero__watermark,.is-orland-hills .detail-hero__index,.is-orland-hills .detail-hero__outline,.is-orland-hills .hero-aperture{display:none}
+  .is-orland-hills .detail-hero__visual{inset:0 0 0 42%;width:auto;height:100%;z-index:1;clip-path:polygon(14% 0,100% 0,100% 100%,0 100%)}
+  .is-orland-hills .detail-hero__frame{position:absolute;inset:5.4rem 1.5rem 2.4rem 0;overflow:hidden;border-radius:0 1rem 8rem 0;box-shadow:0 2.5rem 7rem rgba(0,0,0,.34)}
+  .is-orland-hills .detail-hero__frame img{object-position:58% center;transform:scale(1.025)}
+  .is-orland-hills .detail-hero__frame:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,29,25,.62),rgba(6,29,25,.08) 35%,transparent 66%),linear-gradient(0deg,rgba(6,29,25,.28),transparent 44%);pointer-events:none}
+  .is-orland-hills .detail-hero__copy{position:absolute;z-index:7;left:clamp(2rem,5vw,6rem);top:clamp(9rem,17vh,12rem);bottom:clamp(3rem,8vh,5rem);width:min(39vw,42rem);padding:0;display:flex;flex-direction:column;align-items:flex-start;max-width:none;text-align:left;filter:none}
+  .is-orland-hills .detail-hero h1{max-width:42rem;margin:1.15rem 0;font-size:clamp(3.8rem,5.65vw,6.5rem);line-height:.79;text-wrap:balance;color:var(--porcelain)}
+  .is-orland-hills .detail-hero h1 em{color:var(--mint-300)}
+  .is-orland-hills .detail-hero__intro{max-width:25rem;margin:0 0 1.3rem;color:rgba(245,240,231,.8)}
+  .is-orland-hills .detail-button{margin-top:auto;color:var(--porcelain);border-color:rgba(196,234,220,.4);background:rgba(6,29,25,.28)}
+  .is-orland-hills .hero-address{right:3%;left:auto;top:6.5rem;bottom:auto;background:rgba(245,240,231,.94)}
+  @media (min-width:721px) and (max-width:1100px){.is-orland-hills .detail-hero{height:140svh;min-height:62rem}.is-orland-hills .detail-hero__visual{left:39%;clip-path:polygon(12% 0,100% 0,100% 100%,0 100%)}.is-orland-hills .detail-hero__frame{inset:5.25rem 1rem 2.8rem 0;border-radius:0 1rem 6rem 0}.is-orland-hills .detail-hero__frame img{object-position:62% center}.is-orland-hills .detail-hero__copy{left:3rem;top:8.5rem;bottom:3.5rem;width:42vw}.is-orland-hills .detail-hero h1{max-width:33rem;font-size:clamp(3.15rem,6.45vw,4.7rem)}.is-orland-hills .detail-hero__intro{max-width:21rem}.is-orland-hills .hero-address{right:2%;top:6.05rem}}
+  @media (max-width:720px){.is-orland-hills .detail-hero{height:136svh;min-height:53rem}.is-orland-hills .detail-hero__sticky{padding:0}.is-orland-hills .detail-hero__visual{left:0;right:0;top:0;bottom:auto;width:100%;height:48%;clip-path:polygon(0 0,100% 0,100% 87%,0 100%)}.is-orland-hills .detail-hero__frame{left:.8rem;right:.8rem;top:5.05rem;bottom:0;border-radius:.7rem 4rem .7rem .7rem}.is-orland-hills .detail-hero__frame img{object-position:63% center;transform:scale(1.03)}.is-orland-hills .detail-hero__frame:after{background:linear-gradient(0deg,rgba(6,29,25,.44),transparent 58%)}.is-orland-hills .detail-hero__copy{inset:auto 1.25rem 1.05rem;z-index:7;width:auto;max-width:none;padding:0;display:flex}.is-orland-hills .detail-hero h1{max-width:22rem;margin:.75rem 0;font-size:clamp(2.75rem,12.2vw,3.9rem);line-height:.79}.is-orland-hills .detail-hero__intro{max-width:20rem;margin:0 0 .85rem;font-size:.73rem;line-height:1.45}.is-orland-hills .detail-button{margin-top:0;min-width:12.5rem}.is-orland-hills .hero-address{left:1.2rem;right:auto;top:6rem;bottom:auto;padding:.6rem .7rem}}
 </style>
 
 <script>
@@ -2426,7 +2468,7 @@ const relatedAreaLinks = [
               .to(copy,{yPercent:-3,opacity:1,ease:'none'},0)
               .to(q('.detail-hero__watermark'),{xPercent:-9,yPercent:-5,ease:'none'},0)
               .to(q('.detail-hero__index'),{opacity:.78,ease:'none'},0);
-          } else if (!['chicago','mokena','south-chicago-heights','steger','sauk-village','lynwood','glenwood','ford-heights','olympia-fields','park-forest','homewood','flossmoor','hazel-crest','matteson','crete','country-club-hills','richton-park','frankfort','new-lenox','tinley-park','orland-park','homer-glen','lockport','manhattan','frankfort-square'].includes(root.dataset.detailKind || '')) {
+          } else if (!['chicago','mokena','south-chicago-heights','steger','sauk-village','lynwood','glenwood','ford-heights','olympia-fields','park-forest','homewood','flossmoor','hazel-crest','matteson','crete','country-club-hills','richton-park','frankfort','new-lenox','tinley-park','orland-park','homer-glen','lockport','manhattan','frankfort-square','orland-hills'].includes(root.dataset.detailKind || '')) {
             tl.to(visual,{width:stageWidth,height:compact?'78vh':'86vh',right:compact?'.8rem':'1vw',top:compact?'11vh':'7vh',ease:'none'},0)
               .to(q('.cosmetic-triptych__panels'),{gridTemplateColumns:'.58fr 1.58fr .62fr',gap:'.3rem',ease:'none'},0)
               .to(q('.cosmetic-slice'),{borderRadius:'3.5rem 3.5rem .75rem .75rem',ease:'none'},0)
@@ -2438,6 +2480,10 @@ const relatedAreaLinks = [
               .to(q('.detail-hero__outline'),{scale:1.035,rotation:.35,ease:'none'},0)
               .to(q('.detail-hero__watermark'),{xPercent:-9,yPercent:-5,ease:'none'},0)
               .to(q('.cosmetic-triptych__caption, .detail-hero__index'),{opacity:.72,ease:'none'},0);
+          } else if (root.dataset.detailKind === 'orland-hills') {
+            tl.to(q('.detail-hero__frame img'),{scale:1.075,xPercent:-1.5,ease:'none'},0)
+              .to(q('.detail-hero__visual'),{clipPath:'polygon(8% 0,100% 0,100% 100%,0 100%)',ease:'none'},0)
+              .to(copy,{yPercent:-3,ease:'none'},0);
           } else if (root.dataset.detailKind === 'frankfort-square') {
             tl.to(q('.detail-hero__frame img'),{scale:1.065,xPercent:-1,ease:'none'},0)
               .to(copy,{yPercent:-3,ease:'none'},0)
@@ -2563,6 +2609,10 @@ const relatedAreaLinks = [
               .to(q('.health-scan__main img'),{xPercent:-2,ease:'none'},0)
               .to(q('.health-scan__detail.airway'),{yPercent:-3,ease:'none'},0)
               .to(q('.health-scan__detail.system'),{yPercent:3,ease:'none'},0);
+          } else if (root.dataset.detailKind === 'orland-hills') {
+            mobileTl.to(q('.detail-hero__frame img'),{scale:1.075,xPercent:-1,ease:'none'},0)
+              .to(q('.detail-hero__visual'),{clipPath:'polygon(0 0,100% 0,100% 93%,0 100%)',ease:'none'},0)
+              .to(q('.hero-address'),{yPercent:5,ease:'none'},0);
           } else if (root.dataset.detailKind === 'frankfort-square') {
             mobileTl.to(q('.detail-hero__frame img'),{scale:1.07,xPercent:-1,ease:'none'},0)
               .to(q('.hero-address'),{yPercent:5,ease:'none'},0);
@@ -2589,7 +2639,7 @@ const relatedAreaLinks = [
               .to(q('.tinley-hero__secondary'),{yPercent:-3,scale:1.02,ease:'none'},0)
               .to(copy,{yPercent:-1.5,ease:'none'},0)
               .to(q('.hero-address'),{yPercent:5,ease:'none'},0);
-          } else if (!['chicago','mokena','south-chicago-heights','steger','sauk-village','lynwood','glenwood','ford-heights','olympia-fields','park-forest','homewood','flossmoor','hazel-crest','matteson','crete','country-club-hills','richton-park','frankfort','new-lenox','tinley-park','orland-park','homer-glen','lockport','manhattan','frankfort-square'].includes(root.dataset.detailKind || '')) {
+          } else if (!['chicago','mokena','south-chicago-heights','steger','sauk-village','lynwood','glenwood','ford-heights','olympia-fields','park-forest','homewood','flossmoor','hazel-crest','matteson','crete','country-club-hills','richton-park','frankfort','new-lenox','tinley-park','orland-park','homer-glen','lockport','manhattan','frankfort-square','orland-hills'].includes(root.dataset.detailKind || '')) {
             mobileTl.to(visual,{height:'52svh',left:'.5rem',right:'.5rem',bottom:'.5rem',ease:'none'},0)
               .to(q('.detail-hero__watermark'),{xPercent:-12,yPercent:-4,ease:'none'},0)
               .to(q('.cosmetic-triptych__panels'),{gridTemplateColumns:'.6fr 1.5fr .62fr',gap:'.2rem',ease:'none'},0)

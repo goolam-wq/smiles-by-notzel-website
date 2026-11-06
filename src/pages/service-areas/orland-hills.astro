@@ -1,0 +1,38 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected family dental care near Orland Hills through the nearby Smiles by Noetzel office in Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Orland Hills Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/orland-hills/orland-hills-nav-scan.webp" mediaAlt="A dentist using an intraoral scanner for an Orland Hills patient" />
+    <main>
+      <DetailExperience kind="orland-hills" />
+      <BeforeAfterStory id="before-after-orland-hills" tone="dark" number="05" eyebrow="Orland Hills · conservative repair" title="One small edge restored." emphasis="The familiar smile stays entirely yours."
+        intro="A small front-tooth chip can interrupt an otherwise healthy smile. This Orland Hills example shows a conservative, shade-matched repair that restores only the missing contour."
+        image="/images/generated/unique/orland-hills/orland-hills-before-after.webp" imageAlt="Orland Hills before-and-after dental comparison showing a conservative front-tooth edge repair"
+        beforeLabel="A small edge looked uneven" beforeDetail="A limited chip made one front tooth catch the light differently while the surrounding enamel remained healthy."
+        afterLabel="The contour reads naturally" afterDetail="Shade-matched composite restores the edge with believable proportion, texture and translucency."
+        caseNote="Conservative anterior composite repair" />
+      <HubFooter eyebrow="Orland Hills care starts nearby." title="Bring every chapter. Leave with one connected plan." />
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  #before-after-orland-hills .before-after__image img { object-position: center 68%; }
+  @media (max-width: 45rem) {
+    #before-after-orland-hills .before-after__image img { object-position: center 64%; }
+  }
+</style>

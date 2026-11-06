@@ -42,6 +42,7 @@ const routes = [
   ['lockport', '/service-areas/lockport/', '#before-after-lockport'],
   ['manhattan', '/service-areas/manhattan/', '#before-after-manhattan'],
   ['frankfort-square', '/service-areas/frankfort-square/', '#before-after-frankfort-square'],
+  ['orland-hills', '/service-areas/orland-hills/', '#before-after-orland-hills'],
   ['whitening', '/services/professional-teeth-whitening/', '#before-after-professional-whitening'],
   ['porcelain-veneers-laminates', '/services/porcelain-veneers-laminates/', '#before-after-porcelain-veneers-laminates'],
   ['lumineers', '/services/lumineers/', '#before-after-lumineers'],
