@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected dental care near Tinley Park through the nearby Smiles by Noetzel office in Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Tinley Park Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/tinley-park/tinley-park-nav-scan-review.webp" mediaAlt="A Tinley Park patient reviewing a digital dental scan with his dentist" />
+    <main>
+      <DetailExperience kind="tinley-park" />
+      <BeforeAfterStory id="before-after-tinley-park" tone="dark" number="05" eyebrow="Tinley Park · conservative bonding" title="A small edge restored." emphasis="The expression still looks entirely natural."
+        intro="A subtle chip can interrupt the line of an otherwise healthy smile. This Tinley Park case uses conservative tooth-colored bonding to rebuild the edge without changing the character around it."
+        image="/images/generated/unique/tinley-park/tinley-park-before-after-bonding.webp" imageAlt="Tinley Park before-and-after portrait showing a natural front-tooth edge restored with conservative composite bonding"
+        beforeLabel="Interrupted smile line" beforeDetail="A small area of wear left one upper front edge slightly uneven beside the neighboring tooth."
+        afterLabel="Natural contour restored" afterDetail="Shade-matched bonding returns the missing contour while preserving the surrounding enamel and natural texture."
+        caseNote="Conservative front-edge composite bonding" />
+      <HubFooter eyebrow="Tinley Park care starts nearby." title="Bring the question. Leave with a clearer direction." />
+    </main>
+  </body>
+</html>
