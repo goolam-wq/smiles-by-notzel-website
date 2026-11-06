@@ -1,0 +1,38 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected dental care near Manhattan through the nearby Smiles by Noetzel office in Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Manhattan Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/manhattan/manhattan-nav-scan.webp" mediaAlt="A Manhattan patient reviewing a digital dental scan with her dentist" />
+    <main>
+      <DetailExperience kind="manhattan" />
+      <BeforeAfterStory id="before-after-manhattan" tone="dark" reverse number="05" eyebrow="Manhattan · conservative repair" title="One small edge rebuilt." emphasis="The natural smile stays in charge."
+        intro="A small worn edge can make the front-tooth line feel uneven. This Manhattan example shows a conservative, shade-matched composite repair that restores only the missing contour."
+        image="/images/generated/unique/manhattan/manhattan-before-after.webp" imageAlt="Manhattan before-and-after dental comparison showing a conservative front-tooth edge repair"
+        beforeLabel="A small edge worn away" beforeDetail="Minor wear interrupted the front-tooth line while the surrounding enamel remained healthy and natural."
+        afterLabel="The contour quietly restored" afterDetail="Shade-matched composite rebuilds the missing edge with natural proportion, texture and translucency."
+        caseNote="Conservative anterior composite repair" />
+      <HubFooter eyebrow="Manhattan care starts nearby." title="Bring the whole picture. Leave with a clear next step." />
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  #before-after-manhattan .before-after__image img { object-position: center 74%; }
+  @media (max-width: 45rem) {
+    #before-after-manhattan .before-after__image img { object-position: center 70%; }
+  }
+</style>
