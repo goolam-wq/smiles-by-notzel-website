@@ -28,6 +28,7 @@ const routes = [
   '/service-areas/tinley-park/',
   '/service-areas/orland-park/',
   '/service-areas/homer-glen/',
+  '/service-areas/lockport/',
   '/services/professional-teeth-whitening/',
   '/services/porcelain-veneers-laminates/',
   '/services/lumineers/',

@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected dental care near Lockport through the nearby Smiles by Noetzel office in Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Lockport Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/lockport/lockport-nav-scan.webp" mediaAlt="A Lockport patient reviewing a digital dental scan with his dentist" />
+    <main>
+      <DetailExperience kind="lockport" />
+      <BeforeAfterStory id="before-after-lockport" tone="dark" reverse number="05" eyebrow="Lockport · conservative repair" title="One worn edge restored." emphasis="The smile stays unmistakably hers."
+        intro="A worn front edge can interrupt an otherwise natural smile. This Lockport example uses conservative shade-matched composite to rebuild only the missing contour and preserve the surrounding character."
+        image="/images/generated/unique/lockport/lockport-before-after.webp" imageAlt="Lockport before-and-after dental comparison showing conservative repair of a worn front-tooth edge"
+        beforeLabel="A worn, uneven edge" beforeDetail="Minor wear changed the front-tooth line and caught the light more than the rest of the smile."
+        afterLabel="The contour restored" afterDetail="Shade-matched composite rebuilds the missing edge while preserving natural texture, proportion and translucency."
+        caseNote="Conservative front-edge composite repair" />
+      <HubFooter eyebrow="Lockport care starts nearby." title="See the picture clearly. Choose the next step calmly." />
+    </main>
+  </body>
+</html>
