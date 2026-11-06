@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected dental care near Frankfort through the nearby Smiles by Noetzel office in Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Frankfort Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/frankfort/frankfort-nav-scan-review.webp" mediaAlt="A Frankfort patient reviewing a digital dental scan with his hygienist" />
+    <main>
+      <DetailExperience kind="frankfort" />
+      <BeforeAfterStory id="before-after-frankfort" tone="dark" number="05" eyebrow="Frankfort · conservative bonding" title="One chipped edge restored." emphasis="The familiar smile stays intact."
+        intro="A small chip on a front tooth can interrupt an otherwise natural smile. This Frankfort case uses conservative tooth-colored bonding to restore the edge without making the result look newly manufactured."
+        image="/images/generated/unique/frankfort/frankfort-before-after-bonding.webp" imageAlt="Frankfort before-and-after portrait showing a small front-tooth chip repaired with natural composite bonding"
+        beforeLabel="Small chipped edge" beforeDetail="A minor fracture on one upper front tooth created an uneven edge that caught the eye in conversation."
+        afterLabel="Edge restored naturally" afterDetail="Conservative bonding recreates the missing contour while keeping the surrounding shade and texture believable."
+        caseNote="Conservative front-tooth edge restoration" />
+      <HubFooter eyebrow="Frankfort care starts nearby." title="Bring the question. We’ll connect it to a clear next step." />
+    </main>
+  </body>
+</html>

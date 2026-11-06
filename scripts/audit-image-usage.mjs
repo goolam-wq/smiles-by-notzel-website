@@ -23,6 +23,7 @@ const routes = [
   '/service-areas/crete/',
   '/service-areas/country-club-hills/',
   '/service-areas/richton-park/',
+  '/service-areas/frankfort/',
   '/services/professional-teeth-whitening/',
   '/services/porcelain-veneers-laminates/',
   '/services/lumineers/',
