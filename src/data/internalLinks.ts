@@ -76,6 +76,36 @@ export const serviceAreaDetailRoutes = [
   { name: 'South Chicago Heights', slug: 'south-chicago-heights', office: 'Chicago Heights care team' },
   { name: 'Steger', slug: 'steger', office: 'Chicago Heights care team' },
   { name: 'Sauk Village', slug: 'sauk-village', office: 'Chicago Heights care team' },
+  { name: 'Lynwood', slug: 'lynwood', office: 'Chicago Heights care team' },
+  { name: 'Glenwood', slug: 'glenwood', office: 'Chicago Heights care team' },
+  { name: 'Ford Heights', slug: 'ford-heights', office: 'Chicago Heights care team' },
+  { name: 'Olympia Fields', slug: 'olympia-fields', office: 'Chicago Heights care team' },
+  { name: 'Park Forest', slug: 'park-forest', office: 'Chicago Heights care team' },
+  { name: 'Homewood', slug: 'homewood', office: 'Chicago Heights care team' },
+  { name: 'Flossmoor', slug: 'flossmoor', office: 'Chicago Heights care team' },
+  { name: 'Hazel Crest', slug: 'hazel-crest', office: 'Chicago Heights care team' },
+  { name: 'Matteson', slug: 'matteson', office: 'Chicago Heights care team' },
+  { name: 'Crete', slug: 'crete', office: 'Chicago Heights care team' },
+  { name: 'Country Club Hills', slug: 'country-club-hills', office: 'Chicago Heights care team' },
+  { name: 'Richton Park', slug: 'richton-park', office: 'Chicago Heights care team' },
+  { name: 'Frankfort', slug: 'frankfort', office: 'Mokena care team' },
+  { name: 'New Lenox', slug: 'new-lenox', office: 'Mokena care team' },
+  { name: 'Tinley Park', slug: 'tinley-park', office: 'Mokena care team' },
+  { name: 'Orland Park', slug: 'orland-park', office: 'Mokena care team' },
+  { name: 'Homer Glen', slug: 'homer-glen', office: 'Mokena care team' },
+  { name: 'Lockport', slug: 'lockport', office: 'Mokena care team' },
+  { name: 'Manhattan', slug: 'manhattan', office: 'Mokena care team' },
+  { name: 'Frankfort Square', slug: 'frankfort-square', office: 'Mokena care team' },
+  { name: 'Orland Hills', slug: 'orland-hills', office: 'Mokena care team' },
+] as const;
+
+export const featuredServiceAreaRoutes = [
+  serviceAreaDetailRoutes[0],
+  serviceAreaDetailRoutes[1],
+  serviceAreaDetailRoutes[9],
+  serviceAreaDetailRoutes[13],
+  serviceAreaDetailRoutes[17],
+  serviceAreaDetailRoutes[20],
 ] as const;
 
 const serviceAreaSlugByName = new Map<string, string>(serviceAreaDetailRoutes.map(({ name, slug }) => [name, slug]));

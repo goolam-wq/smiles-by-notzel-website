@@ -1,5 +1,5 @@
 ---
-import { locationRelatedServices, serviceAreaDetailRoutes, serviceAreaHref } from '../data/internalLinks';
+import { featuredServiceAreaRoutes, locationRelatedServices, serviceAreaHref } from '../data/internalLinks';
 
 interface Props { kind: 'chicago' | 'mokena' | 'south-chicago-heights' | 'steger' | 'sauk-village' | 'lynwood' | 'glenwood' | 'ford-heights' | 'olympia-fields' | 'park-forest' | 'homewood' | 'flossmoor' | 'hazel-crest' | 'matteson' | 'crete' | 'country-club-hills' | 'richton-park' | 'frankfort' | 'new-lenox' | 'tinley-park' | 'orland-park' | 'homer-glen' | 'lockport' | 'manhattan' | 'frankfort-square' | 'orland-hills' | 'cosmetic' | 'complete-health-airway' | 'emergency-comfort' | 'implants-oral-surgery' | 'orthodontic-dentistry' | 'pediatric-developmental' | 'periodontal-dentistry' | 'preventive-diagnostic' | 'recode-cognitive-health' | 'restorative-reconstructive' | 'wellness-offering' }
 const { kind } = Astro.props;
@@ -1872,7 +1872,7 @@ const relatedServiceLinks = locationPage
   ? locationRelatedServices
   : category.services.slice(0, 6).map((service) => ({ name: service.name, detail: service.note, href: `/services/${service.slug}/` }));
 const relatedAreaLinks = [
-  ...serviceAreaDetailRoutes.map((area) => ({ name: area.name, detail: area.office, href: `/service-areas/${area.slug}/` })),
+  ...featuredServiceAreaRoutes.map((area) => ({ name: area.name, detail: area.office, href: `/service-areas/${area.slug}/` })),
   { name: 'All service areas', detail: '26 connected communities', href: '/service-areas/#community-map' },
 ];
 ---
