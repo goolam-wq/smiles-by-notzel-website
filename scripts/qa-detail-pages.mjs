@@ -21,6 +21,7 @@ const routes = [
   ['country-club-hills', '/service-areas/country-club-hills/?qa=detail-matrix'],
   ['richton-park', '/service-areas/richton-park/?qa=detail-matrix'],
   ['frankfort', '/service-areas/frankfort/?qa=detail-matrix'],
+  ['new-lenox', '/service-areas/new-lenox/?qa=detail-matrix'],
   ['cosmetic', '/services/cosmetic-dentistry/?qa=detail-matrix'],
   ['complete-health-airway', '/services/complete-health-airway/?qa=detail-matrix'],
   ['emergency-comfort', '/services/emergency-comfort/?qa=detail-matrix'],

@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected dental care near New Lenox through the nearby Smiles by Noetzel office in Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>New Lenox Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/new-lenox/new-lenox-nav-scan-review.webp" mediaAlt="A New Lenox patient reviewing a digital dental scan with his dentist" />
+    <main>
+      <DetailExperience kind="new-lenox" />
+      <BeforeAfterStory id="before-after-new-lenox" tone="dark" number="05" eyebrow="New Lenox · conservative bonding" title="One worn edge rebuilt." emphasis="The smile still feels like their own."
+        intro="A small worn edge can make an otherwise healthy smile feel uneven. This New Lenox case uses conservative tooth-colored bonding to restore the contour while preserving the natural character around it."
+        image="/images/generated/unique/new-lenox/new-lenox-before-after-bonding.webp" imageAlt="New Lenox before-and-after portrait showing a worn front-tooth edge restored with natural composite bonding"
+        beforeLabel="Uneven front edge" beforeDetail="A small area of wear made one upper front tooth look shorter and interrupted the smile line."
+        afterLabel="Contour restored" afterDetail="Conservative bonding rebuilds the missing edge with a shade and texture designed to disappear into the natural tooth."
+        caseNote="Conservative front-tooth edge bonding" />
+      <HubFooter eyebrow="New Lenox care starts nearby." title="Bring the question. We’ll connect it to a clear next step." />
+    </main>
+  </body>
+</html>

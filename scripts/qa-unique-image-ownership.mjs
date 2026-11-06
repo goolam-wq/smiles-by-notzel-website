@@ -24,6 +24,7 @@ const routes = [
   '/service-areas/country-club-hills/',
   '/service-areas/richton-park/',
   '/service-areas/frankfort/',
+  '/service-areas/new-lenox/',
   '/services/professional-teeth-whitening/',
   '/services/porcelain-veneers-laminates/',
   '/services/lumineers/',
