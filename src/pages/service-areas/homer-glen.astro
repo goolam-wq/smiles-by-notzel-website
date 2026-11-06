@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected family dental care near Homer Glen through the nearby Smiles by Noetzel office in Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Homer Glen Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/homer-glen/homer-glen-nav-scan.webp" mediaAlt="A Homer Glen patient reviewing a digital dental scan with a dentist" />
+    <main>
+      <DetailExperience kind="homer-glen" />
+      <BeforeAfterStory id="before-after-homer-glen" tone="dark" number="05" eyebrow="Homer Glen · conservative bonding" title="A small chip repaired without changing the smile." emphasis="The finish stays quiet and believable."
+        intro="A small front-edge chip can catch the light and feel larger than it is. This Homer Glen example uses conservative shade-matched composite to rebuild the missing contour while preserving the natural character around it."
+        image="/images/generated/unique/homer-glen/homer-glen-before-after.webp" imageAlt="Homer Glen before-and-after dental comparison showing conservative repair of a small front-tooth chip"
+        beforeLabel="A visible edge chip" beforeDetail="A small corner fracture interrupted the front-tooth line and created a rough edge that was easy to notice."
+        afterLabel="A natural contour restored" afterDetail="Shade-matched composite rebuilds only the missing area, blending the edge and texture into the surrounding enamel."
+        caseNote="Conservative front-edge composite bonding" />
+      <HubFooter eyebrow="Homer Glen care starts nearby." title="Bring the family story. Leave with a clearer plan." />
+    </main>
+  </body>
+</html>

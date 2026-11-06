@@ -38,6 +38,7 @@ const routes = [
   ['new-lenox', '/service-areas/new-lenox/', '#before-after-new-lenox'],
   ['tinley-park', '/service-areas/tinley-park/', '#before-after-tinley-park'],
   ['orland-park', '/service-areas/orland-park/', '#before-after-orland-park'],
+  ['homer-glen', '/service-areas/homer-glen/', '#before-after-homer-glen'],
   ['whitening', '/services/professional-teeth-whitening/', '#before-after-professional-whitening'],
   ['porcelain-veneers-laminates', '/services/porcelain-veneers-laminates/', '#before-after-porcelain-veneers-laminates'],
   ['lumineers', '/services/lumineers/', '#before-after-lumineers'],
