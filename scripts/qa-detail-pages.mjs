@@ -18,6 +18,7 @@ const routes = [
   ['hazel-crest', '/service-areas/hazel-crest/?qa=detail-matrix'],
   ['matteson', '/service-areas/matteson/?qa=detail-matrix'],
   ['crete', '/service-areas/crete/?qa=detail-matrix'],
+  ['country-club-hills', '/service-areas/country-club-hills/?qa=detail-matrix'],
   ['cosmetic', '/services/cosmetic-dentistry/?qa=detail-matrix'],
   ['complete-health-airway', '/services/complete-health-airway/?qa=detail-matrix'],
   ['emergency-comfort', '/services/emergency-comfort/?qa=detail-matrix'],

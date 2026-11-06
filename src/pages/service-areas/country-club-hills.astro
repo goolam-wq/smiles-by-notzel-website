@@ -1,0 +1,31 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import DetailExperience from '../../components/DetailExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import BeforeAfterStory from '../../components/BeforeAfterStory.astro';
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Find connected dental care near Country Club Hills with extended hours and complete-health dentistry at Smiles by Noetzel." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Country Club Hills Dentist | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/country-club-hills/country-club-hills-nav-xray-consultation.webp" mediaAlt="A Country Club Hills patient reviewing dental images with a dentist" />
+    <main>
+      <DetailExperience kind="country-club-hills" />
+      <BeforeAfterStory id="before-after-country-club-hills" tone="dark" number="05" eyebrow="Country Club Hills · conservative repair" title="One small chip refined." emphasis="The person remains familiar."
+        intro="A small incisal chip can interrupt an otherwise natural smile. This Country Club Hills case uses conservative composite to restore the edge while respecting the patient’s original shade, texture and expression."
+        image="/images/generated/unique/country-club-hills/country-club-hills-before-after.webp" imageAlt="Country Club Hills before-and-after portrait showing a small upper front-tooth chip restored with natural composite"
+        beforeLabel="Small edge chip" beforeDetail="A minor chip on one upper front tooth caught light differently and disrupted the smile line."
+        afterLabel="Edge restored naturally" afterDetail="Shade-matched composite restores the contour without making the tooth look over-treated."
+        caseNote="Conservative front-tooth composite repair" />
+      <HubFooter eyebrow="Country Club Hills care starts nearby." title="Bring the question. We’ll make the next step clear." />
+    </main>
+  </body>
+</html>

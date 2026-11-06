@@ -21,6 +21,7 @@ const routes = [
   '/service-areas/hazel-crest/',
   '/service-areas/matteson/',
   '/service-areas/crete/',
+  '/service-areas/country-club-hills/',
   '/services/professional-teeth-whitening/',
   '/services/porcelain-veneers-laminates/',
   '/services/lumineers/',
