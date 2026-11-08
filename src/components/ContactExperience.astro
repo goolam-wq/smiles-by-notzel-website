@@ -1,0 +1,202 @@
+---
+const contactPaths = [
+  ['01', 'Plan a first visit', 'Tell us what you would like to understand and which office feels most convenient.', 'Start the request', '#appointment-form'],
+  ['02', 'Reach the existing-patient team', 'Questions about a scheduled visit, records or an active plan are best handled directly by the office.', 'Call the team', 'tel:+17087551333'],
+  ['03', 'Get urgent guidance', 'For pain, swelling, trauma or a time-sensitive concern, call instead of waiting for an online reply.', 'Call now', 'tel:+17087551333'],
+  ['04', 'Ask a general question', 'Use the form for non-confidential questions about availability, locations or the next right step.', 'Send a question', '#appointment-form'],
+];
+
+const responseSteps = [
+  ['01', 'Send the request', 'Share the contact details, office preference and the reason you would like the team to call.'],
+  ['02', 'Hear from a person', 'A team member reviews the request and follows up using the contact method you selected.'],
+  ['03', 'Confirm the right visit', 'Together, you choose the office, timing and appointment type that fits the conversation.'],
+];
+
+const contactFaqs = [
+  ['How quickly will the team respond?', 'Online requests are reviewed during office hours. For a time-sensitive dental concern, please call the office directly rather than waiting for an online response.'],
+  ['Can I request either office?', 'Yes. Choose Chicago Heights, Mokena or No preference in the form. The team will confirm availability and the most appropriate location.'],
+  ['Should I include medical information?', 'No. Keep the online message general and do not include confidential medical, insurance or payment information. The team can collect necessary details securely.'],
+  ['Can an existing patient use this form?', 'Yes. Select Existing patient and briefly describe the non-confidential reason for contact. For appointment changes, calling the office is usually fastest.'],
+  ['Is submitting the form an appointment confirmation?', 'No. The request starts a conversation. An appointment is confirmed only after a team member follows up with the available date, time and office.'],
+];
+---
+
+<section class="contact-hero" id="top" data-contact-hero>
+  <div class="contact-hero__inner">
+    <div class="contact-hero__copy" data-contact-hero-copy>
+      <p class="eyebrow">Two offices · one connected conversation</p>
+      <h1>A better visit<br />starts with <em>hello.</em></h1>
+      <p class="contact-hero__intro">Whether you are ready to schedule or simply need a clear next step, begin with a real person who can listen.</p>
+      <div class="contact-hero__actions">
+        <a href="#appointment-form">Start your request <span>↓</span></a>
+        <a href="tel:+17087551333">Call (708) 755-1333</a>
+      </div>
+    </div>
+    <figure class="contact-hero__media" data-contact-hero-media>
+      <img src="/images/generated/unique/contact/contact-hero-welcome.webp" alt="A patient being welcomed by a care coordinator at Smiles by Noetzel" />
+      <figcaption><span>Thoughtful from the first hello</span><strong>Chicago Heights · Mokena</strong></figcaption>
+    </figure>
+    <div class="contact-hero__note"><span>01</span><p>Not sure where to begin?</p><strong>That is exactly what the conversation is for.</strong></div>
+  </div>
+  <div class="contact-hero__footer"><span>Scroll to begin</span><i></i><strong>Contact / 01</strong></div>
+</section>
+
+<section class="contact-form-section" id="appointment-form" data-contact-reveal>
+  <header class="contact-form-section__intro">
+    <p class="eyebrow">01 · Start the conversation</p>
+    <h2>Tell us what<br /><em>you need next.</em></h2>
+    <p>This is a scheduling and general-contact request. Please do not include confidential medical, insurance or payment information.</p>
+    <div class="contact-form-section__quick">
+      <a href="tel:+17087551333"><span>Call</span><strong>(708) 755-1333</strong></a>
+      <a href="mailto:nadia.ashland@gmail.com"><span>Email</span><strong>Write to the team ↗</strong></a>
+    </div>
+  </header>
+
+  <form class="contact-form" action="https://formsubmit.co/ajax/nadia.ashland@gmail.com" method="POST" data-contact-form>
+    <input type="hidden" name="_subject" value="New contact-page request" />
+    <input type="hidden" name="_template" value="table" />
+    <input type="hidden" name="_captcha" value="false" />
+    <label class="contact-form__trap" aria-hidden="true">Leave this empty<input name="_honey" tabindex="-1" autocomplete="off" /></label>
+
+    <div class="contact-form__heading"><span>Contact details</span><strong>Required fields are marked *</strong></div>
+    <label><span>Your name *</span><input name="name" type="text" autocomplete="name" required placeholder="First and last name" /></label>
+    <label><span>Phone *</span><input name="phone" type="tel" autocomplete="tel" required placeholder="(000) 000-0000" /></label>
+    <label><span>Email *</span><input name="email" type="email" autocomplete="email" required placeholder="you@email.com" /></label>
+    <label><span>Patient status *</span><select name="patient_status" required><option value="" selected disabled>Select one</option><option>New patient</option><option>Existing patient</option><option>Calling for a family member</option></select></label>
+    <label><span>Preferred office *</span><select name="office" required><option value="" selected disabled>Select a location</option><option>Chicago Heights</option><option>Mokena</option><option>No preference</option></select></label>
+    <label><span>Reason for contacting *</span><select name="reason" required><option value="" selected disabled>Choose a reason</option><option>Schedule a first visit</option><option>Existing appointment or plan</option><option>Urgent dental concern</option><option>General question</option></select></label>
+    <label><span>Contact me by *</span><select name="contact_method" required><option value="" selected disabled>Choose a method</option><option>Phone call</option><option>Email</option><option>Either is fine</option></select></label>
+    <label><span>Best time to reach you</span><input name="preferred_time" type="text" placeholder="Morning, afternoon or a specific window" /></label>
+    <label class="contact-form__message"><span>Optional message</span><textarea name="message" rows="4" placeholder="Keep this general—please do not include confidential medical information."></textarea></label>
+    <label class="contact-form__consent"><input name="consent" type="checkbox" required /><span>I agree that the practice may contact me about this request. This form does not confirm an appointment.</span></label>
+    <div class="contact-form__submit-row">
+      <p>For urgent pain, swelling or trauma, call the office directly.</p>
+      <button type="submit"><span>Send request</span><i aria-hidden="true">↗</i></button>
+    </div>
+    <output class="contact-form__status" aria-live="polite"></output>
+  </form>
+</section>
+
+<section class="contact-paths" data-contact-reveal>
+  <header>
+    <p class="eyebrow">02 · Choose the clearest path</p>
+    <h2>One conversation.<br /><em>Four ways in.</em></h2>
+    <p>Choose the route that matches the question. The team will help connect the rest.</p>
+  </header>
+  <div class="contact-paths__list">
+    {contactPaths.map((path) => (
+      <a href={path[4]} class="contact-path" data-contact-path>
+        <span>{path[0]}</span><h3>{path[1]}</h3><p>{path[2]}</p><strong>{path[3]} ↗</strong>
+      </a>
+    ))}
+  </div>
+</section>
+
+<section class="contact-offices" data-contact-reveal>
+  <header>
+    <p class="eyebrow">03 · Two offices, one team</p>
+    <h2>Choose the door.<br /><em>Keep the care connected.</em></h2>
+  </header>
+  <div class="contact-offices__stage">
+    <img src="/images/generated/unique/contact/contact-office-choice.webp" alt="A care coordinator guiding a patient through the connected Smiles by Noetzel practice" loading="lazy" />
+    <div class="contact-offices__cards">
+      <article>
+        <span>01 · Chicago Heights</span><h3>500 Ashland Ave,<br />Suite #2</h3><a href="tel:+17087551333">(708) 755-1333</a><p>Mon–Thu 7:30 AM–7 PM<br />Fri 7:30 AM–12 PM · Sat 8 AM–12 PM</p><a class="contact-offices__map" href="https://maps.app.goo.gl/htHhNrnhbbu2WNR17">Open map ↗</a>
+      </article>
+      <article>
+        <span>02 · Mokena</span><h3>19160<br />88th Avenue</h3><a href="tel:+17084797733">(708) 479-7733</a><p>Mon 8 AM–7 PM · Thu 9:30 AM–6 PM<br />Every other Sat 8 AM–12 PM*</p><a class="contact-offices__map" href="https://www.google.com/maps/search/?api=1&query=19160+88th+Avenue+Mokena+IL+60448">Open map ↗</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="contact-next" data-contact-reveal>
+  <header><p class="eyebrow">04 · What happens next</p><h2>Simple enough<br /><em>to feel human.</em></h2></header>
+  <div class="contact-next__steps">
+    {responseSteps.map((step) => <article><span>{step[0]}</span><h3>{step[1]}</h3><p>{step[2]}</p></article>)}
+  </div>
+</section>
+
+<section class="contact-human" data-contact-reveal>
+  <figure><img src="/images/generated/unique/contact/contact-human-response.webp" alt="Two Smiles by Noetzel team members coordinating a patient request" loading="lazy" /></figure>
+  <div class="contact-human__copy">
+    <p class="eyebrow">05 · A human response</p>
+    <h2>Your message does not<br /><em>disappear into a queue.</em></h2>
+    <p>A member of the team reviews the request, clarifies what you need and helps shape the next right conversation—without asking you to diagnose the visit yourself.</p>
+    <dl><div><dt>Two offices</dt><dd>One connected team</dd></div><div><dt>One request</dt><dd>A personal follow-up</dd></div></dl>
+    <a href="#appointment-form">Begin the conversation ↗</a>
+  </div>
+</section>
+
+<section class="contact-faq" data-contact-reveal>
+  <header><p class="eyebrow">06 · Before you send</p><h2>A little clarity<br /><em>before hello.</em></h2></header>
+  <div class="contact-faq__list">
+    {contactFaqs.map((faq, index) => <details><summary><span>{String(index + 1).padStart(2, '0')}</span><strong>{faq[0]}</strong><i>+</i></summary><p>{faq[1]}</p></details>)}
+  </div>
+</section>
+
+<aside class="contact-urgent" data-contact-reveal>
+  <p class="eyebrow">Need help sooner?</p>
+  <h2>Do not wait on the form.</h2>
+  <p>For pain, swelling, trauma or another time-sensitive dental concern, call the team directly.</p>
+  <a href="tel:+17087551333">Call (708) 755-1333 <span>↗</span></a>
+</aside>
+
+<style>
+  .contact-hero{position:relative;min-height:100svh;padding:7.2rem clamp(1rem,4vw,4.5rem) 2rem;overflow:hidden;background:var(--pine-950);color:var(--porcelain)}
+  .contact-hero__inner{display:grid;width:min(100%,92rem);min-height:calc(100svh - 11rem);margin:auto;grid-template-columns:.82fr 1.18fr;grid-template-rows:auto 1fr;gap:2rem 4rem;align-items:center}.contact-hero__copy{position:relative;z-index:2;align-self:end;padding-bottom:3rem}.contact-hero .eyebrow{color:var(--mint-300)}.contact-hero h1{max-width:48rem;margin:1.4rem 0 1.5rem;font-family:Georgia,serif;font-size:clamp(4.6rem,7.2vw,8.4rem);font-weight:400;line-height:.84;letter-spacing:-.075em}.contact-hero h1 em{color:var(--mint-300);font-weight:400}.contact-hero__intro{max-width:32rem;margin:0;color:rgba(245,240,231,.72);font-size:clamp(1rem,1.2vw,1.22rem);line-height:1.7}.contact-hero__actions{display:flex;margin-top:2rem;gap:1rem;align-items:center}.contact-hero__actions a{display:flex;min-height:3.8rem;padding:.7rem 1rem .7rem 1.4rem;align-items:center;gap:2rem;border:1px solid rgba(245,240,231,.3);border-radius:999px;font-size:.65rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.contact-hero__actions a:first-child{background:var(--mint-300);color:var(--pine-950);border-color:var(--mint-300)}.contact-hero__actions a span{display:grid;width:2.5rem;aspect-ratio:1;place-items:center;border-radius:50%;background:var(--pine-950);color:var(--porcelain)}
+  .contact-hero__media{position:relative;height:min(71vh,47rem);margin:0;grid-row:1/3;grid-column:2;overflow:hidden;border-radius:18rem 1.5rem 1.5rem 1.5rem}.contact-hero__media::after{position:absolute;inset:0;background:linear-gradient(180deg,transparent 62%,rgba(6,29,25,.75));content:""}.contact-hero__media img{width:100%;height:108%;object-fit:cover;object-position:center;display:block}.contact-hero__media figcaption{position:absolute;z-index:1;right:1.5rem;bottom:1.35rem;left:1.5rem;display:flex;justify-content:space-between;gap:1rem;font-size:.6rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}.contact-hero__note{display:grid;align-self:start;grid-template-columns:auto 1fr;gap:.3rem 1rem;max-width:28rem;padding-top:1.5rem;border-top:1px solid rgba(245,240,231,.22)}.contact-hero__note span{grid-row:1/3;color:var(--mint-300);font-size:.64rem;font-weight:900}.contact-hero__note p,.contact-hero__note strong{margin:0}.contact-hero__note p{color:rgba(245,240,231,.55);font-size:.72rem}.contact-hero__note strong{font-family:Georgia,serif;font-size:1.15rem;font-weight:400}.contact-hero__footer{position:absolute;right:clamp(1rem,4vw,4.5rem);bottom:1.3rem;left:clamp(1rem,4vw,4.5rem);display:flex;align-items:center;gap:1rem;font-size:.55rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}.contact-hero__footer i{height:1px;flex:1;background:rgba(245,240,231,.25)}
+  .contact-form-section{display:grid;padding:clamp(6.5rem,10vw,11rem) clamp(1rem,6vw,7rem);grid-template-columns:.72fr 1.28fr;gap:clamp(3rem,8vw,9rem);background:var(--paper)}.contact-form-section__intro{position:sticky;top:7.5rem;align-self:start}.contact-form-section h2,.contact-next h2,.contact-faq h2{margin:1.3rem 0 1.8rem;font-family:Georgia,serif;font-size:clamp(4rem,7vw,7.5rem);font-weight:400;line-height:.88;letter-spacing:-.07em}.contact-form-section h2 em,.contact-next h2 em,.contact-faq h2 em{color:var(--pine-700);font-weight:400}.contact-form-section__intro>p:not(.eyebrow){max-width:31rem;color:#5e6e69;line-height:1.75}.contact-form-section__quick{display:grid;margin-top:2.5rem;border-top:1px solid rgba(16,35,31,.18)}.contact-form-section__quick a{display:flex;padding:1rem 0;justify-content:space-between;gap:1rem;border-bottom:1px solid rgba(16,35,31,.18)}.contact-form-section__quick span{font-size:.6rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.contact-form-section__quick strong{font-family:Georgia,serif;font-size:1.05rem;font-weight:400}
+  .contact-form{display:grid;padding:clamp(1.5rem,3vw,2.8rem);grid-template-columns:1fr 1fr;gap:1.6rem 1.2rem;border:1px solid rgba(16,35,31,.16);border-radius:1.5rem;background:var(--porcelain)}.contact-form__trap{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(1px,1px,1px,1px)!important}.contact-form__heading{display:flex;grid-column:1/-1;padding-bottom:1.5rem;justify-content:space-between;border-bottom:1px solid rgba(16,35,31,.16)}.contact-form__heading span{font-family:Georgia,serif;font-size:1.9rem}.contact-form__heading strong{align-self:center;color:#71807c;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase}.contact-form label:not(.contact-form__consent):not(.contact-form__trap){display:grid;gap:.55rem}.contact-form label>span{font-size:.58rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}.contact-form input:not([type=checkbox]),.contact-form select,.contact-form textarea{width:100%;border:0;border-bottom:1px solid rgba(16,35,31,.32);outline:0;background:transparent;color:var(--ink);font:inherit;font-size:.9rem}.contact-form input:not([type=checkbox]),.contact-form select{height:3rem}.contact-form textarea{padding:.65rem 0;resize:vertical}.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:var(--pine-700)}.contact-form input::placeholder,.contact-form textarea::placeholder{color:#83908c}.contact-form__message,.contact-form__consent,.contact-form__submit-row,.contact-form__status{grid-column:1/-1}.contact-form__consent{display:flex;gap:.8rem;align-items:flex-start;color:#586863;line-height:1.5}.contact-form__consent input{width:1.05rem;height:1.05rem;margin:.15rem 0 0;accent-color:var(--pine-700)}.contact-form__consent span{font-size:.67rem!important;font-weight:500!important;letter-spacing:0!important;text-transform:none!important}.contact-form__submit-row{display:flex;padding-top:1.2rem;align-items:center;justify-content:space-between;gap:1rem;border-top:1px solid rgba(16,35,31,.16)}.contact-form__submit-row p{max-width:23rem;margin:0;color:#71807c;font-size:.68rem;line-height:1.5}.contact-form button{display:flex;min-width:12rem;min-height:3.6rem;padding:.5rem .5rem .5rem 1.3rem;align-items:center;justify-content:space-between;border:0;border-radius:999px;background:var(--pine-950);color:var(--porcelain);font-size:.61rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.contact-form button i{display:grid;width:2.6rem;aspect-ratio:1;place-items:center;border-radius:50%;background:var(--mint-300);color:var(--pine-950);font-style:normal}.contact-form button:disabled{opacity:.6}.contact-form__status{min-height:1.2rem;color:var(--pine-700);font-size:.7rem}
+  .contact-paths{display:grid;padding:clamp(6.5rem,10vw,10rem) clamp(1rem,6vw,7rem);grid-template-columns:.7fr 1.3fr;gap:clamp(3rem,8vw,9rem);overflow:hidden;background:var(--pine-950);color:var(--porcelain)}.contact-paths header{align-self:start;position:sticky;top:7rem}.contact-paths header h2{margin:1.3rem 0 1.5rem;font-family:Georgia,serif;font-size:clamp(4rem,6vw,7rem);font-weight:400;line-height:.87;letter-spacing:-.065em}.contact-paths header h2 em{color:var(--mint-300);font-weight:400}.contact-paths header>p:last-child{max-width:26rem;color:rgba(245,240,231,.6);line-height:1.7}.contact-paths__list{border-top:1px solid rgba(245,240,231,.22)}.contact-path{display:grid;padding:2rem .5rem;grid-template-columns:3rem 1.1fr 1fr auto;gap:1.5rem;align-items:center;border-bottom:1px solid rgba(245,240,231,.22);transition:background .35s ease,padding .35s ease}.contact-path:hover,.contact-path:focus-visible{padding-right:1.1rem;padding-left:1.1rem;background:rgba(158,215,196,.1)}.contact-path>span{color:var(--mint-300);font-size:.62rem;font-weight:900}.contact-path h3{margin:0;font-family:Georgia,serif;font-size:clamp(1.7rem,2.4vw,2.8rem);font-weight:400}.contact-path p{margin:0;color:rgba(245,240,231,.58);font-size:.76rem;line-height:1.55}.contact-path strong{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase}
+  .contact-offices{padding:clamp(6.5rem,10vw,10rem) clamp(1rem,5vw,6rem);background:var(--porcelain)}.contact-offices>header{display:flex;margin:0 auto 3rem;max-width:92rem;align-items:end;justify-content:space-between;gap:2rem}.contact-offices h2{max-width:60rem;margin:1.2rem 0 0;font-family:Georgia,serif;font-size:clamp(4rem,7vw,7.5rem);font-weight:400;line-height:.87;letter-spacing:-.07em}.contact-offices h2 em{color:var(--pine-700);font-weight:400}.contact-offices__stage{position:relative;max-width:92rem;min-height:48rem;margin:auto;overflow:hidden;border-radius:1.5rem;background:var(--pine-950)}.contact-offices__stage>img{position:absolute;width:100%;height:100%;object-fit:cover}.contact-offices__stage::after{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,29,25,.88),rgba(6,29,25,.25) 58%,rgba(6,29,25,.5));content:""}.contact-offices__cards{position:relative;z-index:1;display:grid;width:min(44rem,calc(100% - 3rem));min-height:48rem;padding:1.5rem;grid-template-columns:1fr 1fr;gap:1rem;align-items:end}.contact-offices__cards article{display:grid;min-height:25rem;padding:1.6rem;align-content:end;border-radius:1rem;background:rgba(245,240,231,.94);box-shadow:0 1rem 3rem rgba(6,29,25,.18)}.contact-offices__cards article>span{color:var(--pine-700);font-size:.58rem;font-weight:900;letter-spacing:.11em;text-transform:uppercase}.contact-offices__cards h3{margin:1rem 0;font-family:Georgia,serif;font-size:2.3rem;font-weight:400;line-height:.95}.contact-offices__cards article>a:not(.contact-offices__map){font-family:Georgia,serif;font-size:1.25rem}.contact-offices__cards p{color:#667570;font-size:.72rem;line-height:1.6}.contact-offices__map{margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(16,35,31,.16);font-size:.58rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+  .contact-next{padding:clamp(6.5rem,10vw,10rem) clamp(1rem,6vw,7rem);background:var(--paper)}.contact-next>header{display:grid;grid-template-columns:auto 1fr;gap:2rem 5rem;align-items:start}.contact-next>header .eyebrow{margin-top:.8rem}.contact-next h2{margin:0}.contact-next__steps{display:grid;margin-top:4rem;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(16,35,31,.22);border-bottom:1px solid rgba(16,35,31,.22)}.contact-next__steps article{display:grid;min-height:24rem;padding:1.5rem;align-content:space-between;border-right:1px solid rgba(16,35,31,.22)}.contact-next__steps article:last-child{border:0}.contact-next__steps span{color:var(--pine-700);font-size:.62rem;font-weight:900}.contact-next__steps h3{max-width:16rem;margin:auto 0 1.5rem;font-family:Georgia,serif;font-size:clamp(2.3rem,3.5vw,4.2rem);font-weight:400;line-height:.95}.contact-next__steps p{margin:0;color:#65746f;line-height:1.65}
+  .contact-human{display:grid;min-height:50rem;grid-template-columns:1.05fr .95fr;background:var(--pine-950);color:var(--porcelain)}.contact-human figure{min-height:40rem;margin:0;overflow:hidden}.contact-human img{width:100%;height:100%;object-fit:cover}.contact-human__copy{display:grid;padding:clamp(3rem,6vw,7rem);align-content:center}.contact-human h2{margin:1.5rem 0 2rem;font-family:Georgia,serif;font-size:clamp(3.6rem,5.8vw,7rem);font-weight:400;line-height:.88;letter-spacing:-.07em}.contact-human h2 em{color:var(--mint-300);font-weight:400}.contact-human__copy>p:not(.eyebrow){max-width:37rem;color:rgba(245,240,231,.64);line-height:1.75}.contact-human dl{display:grid;margin:2rem 0;grid-template-columns:1fr 1fr;border-top:1px solid rgba(245,240,231,.2);border-bottom:1px solid rgba(245,240,231,.2)}.contact-human dl div{display:grid;padding:1.2rem 0;gap:.45rem}.contact-human dt{color:var(--mint-300);font-size:.58rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.contact-human dd{margin:0;font-family:Georgia,serif;font-size:1.2rem}.contact-human__copy>a{justify-self:start;padding-bottom:.4rem;border-bottom:1px solid rgba(245,240,231,.35);font-size:.6rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+  .contact-faq{display:grid;padding:clamp(6.5rem,10vw,10rem) clamp(1rem,6vw,7rem);grid-template-columns:.75fr 1.25fr;gap:clamp(3rem,8vw,9rem);background:var(--porcelain)}.contact-faq header{position:sticky;top:7rem;align-self:start}.contact-faq__list{border-top:1px solid rgba(16,35,31,.2)}.contact-faq details{border-bottom:1px solid rgba(16,35,31,.2)}.contact-faq summary{display:grid;padding:1.6rem 0;grid-template-columns:3rem 1fr auto;gap:1rem;align-items:center;cursor:pointer;list-style:none}.contact-faq summary::-webkit-details-marker{display:none}.contact-faq summary span{color:var(--pine-700);font-size:.6rem;font-weight:900}.contact-faq summary strong{font-family:Georgia,serif;font-size:clamp(1.3rem,2vw,2rem);font-weight:400}.contact-faq summary i{font-style:normal;font-size:1.4rem;transition:transform .25s}.contact-faq details[open] summary i{transform:rotate(45deg)}.contact-faq details p{max-width:44rem;margin:0;padding:0 3rem 1.7rem;color:#61706c;line-height:1.7}
+  .contact-urgent{display:grid;padding:clamp(4rem,7vw,7rem) clamp(1rem,6vw,7rem);grid-template-columns:auto 1fr 1fr auto;gap:2rem;align-items:center;background:var(--mint-300);color:var(--pine-950)}.contact-urgent h2{margin:0;font-family:Georgia,serif;font-size:clamp(2.5rem,4vw,5rem);font-weight:400;letter-spacing:-.05em}.contact-urgent>p:not(.eyebrow){max-width:34rem;margin:0;line-height:1.65}.contact-urgent>a{display:flex;min-height:3.6rem;padding:.5rem .5rem .5rem 1.2rem;align-items:center;gap:1.5rem;border:1px solid rgba(6,29,25,.45);border-radius:999px;font-size:.6rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.contact-urgent>a span{display:grid;width:2.5rem;aspect-ratio:1;place-items:center;border-radius:50%;background:var(--pine-950);color:var(--porcelain)}
+  @media(max-width:68rem){.contact-hero{padding-top:6rem}.contact-hero__inner{grid-template-columns:1fr;grid-template-rows:auto auto auto;gap:1.5rem}.contact-hero__copy{align-self:auto;padding-bottom:0}.contact-hero h1{font-size:clamp(5rem,10vw,7.5rem)}.contact-hero__media{height:54rem;grid-row:auto;grid-column:auto;border-radius:12rem 1.2rem 1.2rem 1.2rem}.contact-hero__note{display:none}.contact-form-section,.contact-paths,.contact-faq{grid-template-columns:1fr}.contact-form-section__intro,.contact-paths header,.contact-faq header{position:relative;top:auto}.contact-path{grid-template-columns:3rem 1fr auto}.contact-path p{grid-column:2/4}.contact-offices__stage{min-height:58rem}.contact-offices__cards{width:calc(100% - 2rem);min-height:58rem}.contact-next>header{grid-template-columns:1fr}.contact-human{grid-template-columns:1fr}.contact-human figure{height:48rem}.contact-urgent{grid-template-columns:1fr 1fr}.contact-urgent .eyebrow,.contact-urgent h2{grid-column:1/-1}}
+  @media(max-width:46rem){.contact-hero{min-height:auto;padding:6.2rem 1rem 4rem}.contact-hero__inner{min-height:0}.contact-hero .eyebrow{font-size:.58rem}.contact-hero h1{margin:1.2rem 0;font-size:clamp(3.7rem,17vw,5.2rem);line-height:.84}.contact-hero__intro{font-size:.92rem}.contact-hero__actions{display:grid}.contact-hero__actions a{justify-content:space-between}.contact-hero__media{height:29rem;border-radius:7rem 1rem 1rem 1rem}.contact-hero__media img{height:104%;object-position:58% center}.contact-hero__media figcaption{right:1rem;bottom:1rem;left:1rem;font-size:.48rem}.contact-hero__footer{display:none}.contact-form-section,.contact-paths,.contact-offices,.contact-next,.contact-faq{padding:5.5rem 1rem}.contact-form-section h2,.contact-next h2,.contact-faq h2{font-size:clamp(3.3rem,15vw,4.7rem)}.contact-form{padding:1.2rem;grid-template-columns:1fr}.contact-form__heading,.contact-form__message,.contact-form__consent,.contact-form__submit-row,.contact-form__status{grid-column:1}.contact-form__heading{display:grid;gap:.5rem}.contact-form__submit-row{display:grid}.contact-form button{width:100%}.contact-paths header h2{font-size:clamp(3.4rem,15vw,4.8rem)}.contact-path{padding:1.3rem 0;grid-template-columns:2rem 1fr}.contact-path p,.contact-path strong{grid-column:2}.contact-offices>header{display:block}.contact-offices h2{font-size:clamp(3.4rem,15vw,4.8rem)}.contact-offices__stage{min-height:58rem}.contact-offices__cards{display:grid;width:100%;min-height:58rem;padding:1rem;grid-template-columns:1fr;align-content:end}.contact-offices__cards article{min-height:auto;padding:1.2rem}.contact-offices__stage::after{background:linear-gradient(180deg,rgba(6,29,25,.15),rgba(6,29,25,.8))}.contact-next__steps{grid-template-columns:1fr}.contact-next__steps article{min-height:18rem;border-right:0;border-bottom:1px solid rgba(16,35,31,.22)}.contact-human{min-height:auto}.contact-human figure{height:28rem}.contact-human__copy{padding:4rem 1rem}.contact-human h2{font-size:clamp(3.3rem,14vw,4.6rem)}.contact-faq details p{padding-left:0}.contact-urgent{padding:4rem 1rem;grid-template-columns:1fr}.contact-urgent .eyebrow,.contact-urgent h2{grid-column:1}.contact-urgent>a{justify-content:space-between}}
+  @media(prefers-reduced-motion:reduce){.contact-hero__media img{height:100%}.contact-form-section__intro,.contact-paths header,.contact-faq header{position:relative;top:auto}}
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion) {
+    gsap.from('[data-contact-hero-copy] > *', { y: 36, opacity: 0, duration: .85, stagger: .09, ease: 'power3.out' });
+    gsap.from('[data-contact-hero-media]', { y: 42, clipPath: 'inset(0 0 100% 0 round 18rem 1.5rem 1.5rem 1.5rem)', duration: 1.1, delay: .12, ease: 'power3.out' });
+    gsap.to('[data-contact-hero-media] img', { yPercent: -4, scale: 1.035, ease: 'none', scrollTrigger: { trigger: '[data-contact-hero]', start: 'top top', end: 'bottom top', scrub: .7, invalidateOnRefresh: true } });
+    document.querySelectorAll<HTMLElement>('[data-contact-reveal]').forEach((section) => {
+      gsap.from(Array.from(section.children), { y: 46, opacity: 0, duration: .8, stagger: .07, ease: 'power3.out', scrollTrigger: { trigger: section, start: 'top 82%', once: true } });
+    });
+    gsap.from('[data-contact-path]', { x: 38, opacity: 0, duration: .65, stagger: .08, ease: 'power2.out', scrollTrigger: { trigger: '.contact-paths__list', start: 'top 78%', once: true } });
+  }
+
+  const form = document.querySelector<HTMLFormElement>('[data-contact-form]');
+  if (form) {
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const label = button?.querySelector('span');
+    const status = form.querySelector<HTMLOutputElement>('.contact-form__status');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      if (button) button.disabled = true;
+      if (label) label.textContent = 'Sending…';
+      if (status) status.textContent = 'Sending your request…';
+      try {
+        const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+        if (!response.ok) throw new Error('Submission failed');
+        form.reset();
+        if (status) status.textContent = 'Thank you—your request was sent. A team member will follow up.';
+      } catch {
+        if (status) status.textContent = 'We could not send that request. Please call the team directly.';
+      } finally {
+        if (button) button.disabled = false;
+        if (label) label.textContent = 'Send request';
+      }
+    });
+  }
+</script>

@@ -4,6 +4,7 @@ import { writeFile } from 'node:fs/promises';
 const routes = [
   '/',
   '/about/',
+  '/contact/',
   '/pricing/',
   '/services/',
   '/service-areas/',
