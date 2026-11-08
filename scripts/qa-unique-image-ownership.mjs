@@ -3,6 +3,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 
 const routes = [
   '/',
+  '/pricing/',
   '/services/',
   '/service-areas/',
   '/services/cosmetic-dentistry/',

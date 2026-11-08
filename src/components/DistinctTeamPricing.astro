@@ -31,7 +31,7 @@ const services=[
     <div class="price-matrix">
       <div class="matrix-head"><span>Service</span><b>Fixed</b><b>Monthly</b><b>Yearly</b></div>
       {services.map((service)=><div class="matrix-row"><h3>{service.name}</h3><strong data-price-mode="fixed">{service.fixed}</strong><strong data-price-mode="monthly">{service.monthly}<small>/mo</small></strong><strong data-price-mode="yearly">{service.yearly}<small>/yr</small></strong></div>)}
-      <a href="/#pricing">View all service pricing <i>↗</i></a>
+      <a href="/pricing/">View all service pricing <i>↗</i></a>
     </div>
     <div class="mode-word" data-mode-word aria-hidden="true">FIXED</div>
   </div>

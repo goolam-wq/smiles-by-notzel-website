@@ -1,0 +1,42 @@
+---
+import Navbar from '../components/Navbar.astro';
+import PricingExperience from '../components/PricingExperience.astro';
+import BeforeAfterStory from '../components/BeforeAfterStory.astro';
+import HubFooter from '../components/HubFooter.astro';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Compare fixed, monthly and yearly customer-facing prices for 48 dental services at Smiles by Noetzel in Chicago Heights and Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Dental Pricing | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/pricing/pricing-nav-estimate.webp" mediaAlt="A treatment coordinator reviewing an itemized care estimate with a patient" />
+    <main>
+      <PricingExperience />
+      <BeforeAfterStory
+        id="before-after-pricing"
+        tone="light"
+        number="10"
+        eyebrow="Result context · never a guarantee"
+        title="A visible change."
+        emphasis="A plan with boundaries."
+        intro="A result image can show the kind of detail a service addresses. The consultation still determines candidacy, scope, price and what a realistic outcome means for one person."
+        image="/images/generated/unique/pricing/pricing-before-after-whitening.webp"
+        imageAlt="A side-by-side illustrative view of the same patient before and after conservative professional whitening"
+        beforeLabel="Everyday staining"
+        beforeDetail="Natural enamel with mild staining and uneven brightness before a shade-based whitening plan."
+        afterLabel="Conservative brightness"
+        afterDetail="A naturally brighter shade with the patient’s tooth shape, texture and expression preserved."
+        caseNote="Illustrative professional whitening · $550 fixed view"
+      />
+      <HubFooter eyebrow="Ready for a personal number?" title="A clear estimate begins with a real conversation." />
+    </main>
+  </body>
+</html>

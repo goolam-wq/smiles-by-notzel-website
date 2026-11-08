@@ -1,0 +1,275 @@
+---
+import { pricingCategories, pricingHighlights, pricingServices } from '../data/pricingData';
+
+const factors = [
+  ['01', 'Clinical scope', 'The number of teeth, sites or arches changes what belongs in the plan.'],
+  ['02', 'Diagnostics', 'Examination and indicated imaging clarify what the starting amount needs to include.'],
+  ['03', 'Materials & design', 'Material, laboratory and appliance choices are confirmed for the individual case.'],
+  ['04', 'Sequence', 'Preparation, healing, refinements and restoration can change timing and total scope.'],
+  ['05', 'Eligibility', 'Monthly examples are planning views; the office confirms eligibility and final terms.'],
+];
+
+const steps = [
+  ['01', 'Begin with the question', 'Choose a service or tell the team what you want to understand.'],
+  ['02', 'Confirm the clinical scope', 'The visit connects goals, findings and any diagnostics that are actually needed.'],
+  ['03', 'Receive the written plan', 'Recommended care, alternatives and customer-facing pricing are explained together.'],
+  ['04', 'Choose the pace', 'Review the fixed amount and any available monthly or yearly planning view.'],
+];
+
+const faqs = [
+  ['Are these final treatment quotes?', 'Prices are customer-facing planning amounts. Final scope and cost are confirmed after the appropriate clinical assessment, indicated diagnostics and a conversation about the recommended pathway.'],
+  ['What do fixed, monthly and yearly mean?', 'Fixed shows the stated treatment or unit amount. Monthly shows an illustrative payment view across the listed term. Yearly shows the treatment amount on an annual or complete-case basis; it is not automatically a membership or unlimited-care plan.'],
+  ['Why do some prices say “from” or “per tooth”?', 'Some treatments vary by tooth, quadrant, arch, site or case complexity. The label beside each amount defines the unit and prevents a starting price from being mistaken for a complete quote.'],
+  ['Is financing guaranteed?', 'No. Monthly amounts are customer-facing planning illustrations. Eligibility, payment schedule, lender or office terms and any difference caused by rounding are confirmed before treatment begins.'],
+  ['Are examination or X-rays included?', 'Only when the written plan specifically includes them. Examinations, indicated imaging, preparation and follow-up may be separate depending on the selected service.'],
+  ['Is pricing the same at both offices?', 'The same customer-facing pricing map is shown for Chicago Heights and Mokena. Availability, scheduling and the final treatment plan are confirmed by the team.'],
+];
+---
+
+<section class="pricing-hero" id="top" data-pricing-hero>
+  <div class="pricing-hero__sticky">
+    <div class="pricing-hero__copy" data-pricing-hero-copy>
+      <p class="eyebrow">48 services · 11 categories · 3 clear views</p>
+      <h1>Know the number.<br /><em>Understand the plan.</em></h1>
+    </div>
+    <div class="pricing-hero__stage">
+      <figure class="pricing-hero__media" data-pricing-hero-media>
+        <img src="/images/generated/unique/pricing/pricing-hero-consultation.webp" alt="A treatment coordinator reviewing a clear care plan with a patient couple" />
+        <figcaption><span>Clear before clinical</span><strong>Personal after assessment</strong></figcaption>
+      </figure>
+      <aside class="pricing-hero__rail">
+        <p>Pricing should make the next conversation easier—not turn care into a guessing game.</p>
+        <a href="#complete-pricing">Explore all pricing <span>↓</span></a>
+        <div class="pricing-hero__ledger" data-pricing-hero-ledger>
+          <article><span>01</span><small>Fixed</small><strong>See the stated amount</strong></article>
+          <article><span>02</span><small>Monthly</small><strong>See the planning pace</strong></article>
+          <article><span>03</span><small>Yearly</small><strong>See the treatment basis</strong></article>
+        </div>
+      </aside>
+    </div>
+    <div class="pricing-hero__footer"><span>Scroll to understand</span><i></i><strong>Pricing / 01</strong></div>
+  </div>
+</section>
+
+<section class="pricing-modes" data-reveal-section>
+  <div class="pricing-modes__intro">
+    <p class="eyebrow">01 · Three ways to read the same plan</p>
+    <h2>Change the view.<br /><em>Keep the care connected.</em></h2>
+    <p>The number changes format—not meaning. Use the controls to compare one pathway without losing its treatment unit or term.</p>
+  </div>
+  <div class="pricing-modes__stage" data-mode-stage>
+    <div class="pricing-modes__controls" role="tablist" aria-label="Pricing display mode">
+      <button class="is-active" type="button" role="tab" aria-selected="true" data-mode-button="fixed"><span>01</span>Fixed</button>
+      <button type="button" role="tab" aria-selected="false" data-mode-button="monthly"><span>02</span>Monthly</button>
+      <button type="button" role="tab" aria-selected="false" data-mode-button="yearly"><span>03</span>Yearly</button>
+    </div>
+    <div class="pricing-modes__card">
+      <div><span data-mode-label>Fixed amount</span><strong data-mode-amount>$5,495</strong><small data-mode-detail>Complete clear-aligner case</small></div>
+      <p>Invisalign clear-aligner treatment</p>
+      <a href="/services/invisalign-clear-aligners/">View treatment details ↗</a>
+    </div>
+    <div class="pricing-modes__note"><span>One pathway</span><strong>Three customer-facing perspectives.</strong><p>Eligibility, final scope and payment terms are confirmed by the office.</p></div>
+  </div>
+</section>
+
+<section class="pricing-highlights" data-reveal-section>
+  <header>
+    <p class="eyebrow">02 · A useful place to begin</p>
+    <h2>Six familiar services.<br /><em>Every number keeps its context.</em></h2>
+  </header>
+  <div class="pricing-highlights__grid">
+    {pricingHighlights.map((service, index) => (
+      <a href={`/services/${service.slug}/`} class="pricing-highlight">
+        <span>{String(index + 1).padStart(2, '0')}</span>
+        <h3>{service.name}</h3>
+        <p>{service.note}</p>
+        <div><small>Fixed</small><strong>{service.fixed}</strong><i>↗</i></div>
+      </a>
+    ))}
+  </div>
+</section>
+
+<section class="pricing-directory" id="complete-pricing" data-pricing-directory>
+  <header class="pricing-directory__header">
+    <div><p class="eyebrow">03 · Complete pricing directory</p><h2>Find the service.<br /><em>Compare the view.</em></h2></div>
+    <p>Filter all 48 mapped offerings by category, search by treatment name and switch the amount shown in every row.</p>
+  </header>
+  <div class="pricing-directory__toolbar">
+    <label><span class="sr-only">Search services</span><input type="search" placeholder="Search all services" data-pricing-search /><i>⌕</i></label>
+    <div class="pricing-directory__modes" aria-label="Directory price view">
+      <button class="is-active" type="button" data-directory-mode="fixed">Fixed</button>
+      <button type="button" data-directory-mode="monthly">Monthly</button>
+      <button type="button" data-directory-mode="yearly">Yearly</button>
+    </div>
+  </div>
+  <div class="pricing-directory__body">
+    <nav class="pricing-directory__categories" aria-label="Pricing categories">
+      <button class="is-active" type="button" data-category-filter="all"><span>00</span>All services <i>{pricingServices.length}</i></button>
+      {pricingCategories.map((category) => <button type="button" data-category-filter={category.slug}><span>{category.number}</span>{category.short}<i>{category.services.length}</i></button>)}
+    </nav>
+    <div class="pricing-directory__results" data-pricing-results>
+      {pricingCategories.map((category) => (
+        <section id={`pricing-${category.slug}`} data-pricing-category={category.slug}>
+          <header><span>{category.number}</span><div><h3>{category.name}</h3><p>{category.services.length} {category.services.length === 1 ? 'offering' : 'services'}</p></div><a href={`/services/${category.slug}/`}>Category page ↗</a></header>
+          <div>
+            {category.services.map((service) => (
+              <article id={`price-${service.slug}`} data-pricing-row data-search={`${service.name} ${service.note}`.toLowerCase()}>
+                <span>{service.n}</span>
+                <div><h4>{service.name}</h4><p>{service.note}</p></div>
+                <strong data-price-fixed={service.fixed} data-price-monthly={service.monthly} data-price-yearly={service.yearly}>{service.fixed}</strong>
+                <a href={`/services/${service.slug}/`} aria-label={`View ${service.name}`}>↗</a>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+      <p class="pricing-directory__empty" data-pricing-empty hidden>No mapped service matches that search.</p>
+    </div>
+  </div>
+  <footer><span>Amounts are customer-facing planning views.</span><i></i><strong>Clinical scope and final terms are office-confirmed.</strong></footer>
+</section>
+
+<section class="pricing-factors" data-pricing-factors>
+  <div class="pricing-factors__copy">
+    <p class="eyebrow">04 · What shapes the final fee</p>
+    <h2>A price is a point.<br /><em>Your plan has dimensions.</em></h2>
+    <p>A starting amount becomes useful only when the treatment unit, clinical findings and sequence remain visible.</p>
+  </div>
+  <div class="pricing-factors__list">
+    {factors.map((factor) => <article data-factor><span>{factor[0]}</span><h3>{factor[1]}</h3><p>{factor[2]}</p></article>)}
+  </div>
+</section>
+
+<section class="pricing-process" data-reveal-section>
+  <header><p class="eyebrow">05 · From amount to personal plan</p><h2>Four steps.<br /><em>No mystery in the middle.</em></h2></header>
+  <div class="pricing-process__steps">
+    {steps.map((step) => <article><span>{step[0]}</span><h3>{step[1]}</h3><p>{step[2]}</p></article>)}
+  </div>
+</section>
+
+<section class="pricing-example" data-reveal-section>
+  <div class="pricing-example__story">
+    <p class="eyebrow">06 · Illustrative care-plan view</p>
+    <h2>One conversation.<br /><em>Several connected numbers.</em></h2>
+    <p>This example shows how a plan can combine preventive and cosmetic steps. It is not a patient quote or a bundled offer.</p>
+  </div>
+  <div class="pricing-example__sheet">
+    <header><span>Example 01</span><strong>Confidence + prevention</strong><small>Illustrative only</small></header>
+    <article><span>01</span><div><strong>Routine comprehensive exam</strong><small>Clinical starting point</small></div><b>$125</b></article>
+    <article><span>02</span><div><strong>Professional dental cleaning</strong><small>Preventive visit</small></div><b>$125</b></article>
+    <article><span>03</span><div><strong>Professional teeth whitening</strong><small>Cosmetic pathway</small></div><b>$550</b></article>
+    <footer><span>Illustrative fixed-view total</span><strong>$800</strong></footer>
+  </div>
+</section>
+
+<section class="pricing-payment" data-reveal-section>
+  <div><p class="eyebrow">07 · Payment planning</p><h2>A monthly view is a planning tool.<br /><em>Not a hidden promise.</em></h2></div>
+  <div class="pricing-payment__body"><p>Monthly examples make the pace visible before the office confirms eligibility, the exact term and any difference created by rounding.</p><ul><li><span>01</span>Treatment scope comes first</li><li><span>02</span>Terms are reviewed before care</li><li><span>03</span>No implied unlimited-service plan</li></ul></div>
+</section>
+
+<section class="pricing-proof" data-reveal-section>
+  <header><p class="eyebrow">08 · Patient proof</p><span>Clarity before treatment</span></header>
+  <blockquote>“Everything was explained in a way that made the next step feel manageable—not rushed, not vague.”</blockquote>
+  <footer><span>General practice review theme · paraphrased</span><i></i><strong>Two offices · one connected standard</strong></footer>
+</section>
+
+<section class="pricing-faq" id="pricing-faq">
+  <header><p class="eyebrow">09 · Good questions</p><h2>Before a number<br /><em>becomes a decision.</em></h2></header>
+  <div>
+    {faqs.map((faq, index) => <details open={index === 0}><summary><span>{String(index + 1).padStart(2, '0')}</span><strong>{faq[0]}</strong><i></i></summary><p>{faq[1]}</p></details>)}
+  </div>
+</section>
+
+<style>
+  .pricing-hero{min-height:100svh;background:var(--pine-950);color:var(--porcelain)}
+  .pricing-hero__sticky{position:relative;display:grid;min-height:100svh;padding:9rem 5vw 2rem;overflow:hidden;grid-template-rows:auto 1fr auto}
+  .pricing-hero__copy{position:relative;z-index:4;width:min(82rem,92vw)}.pricing-hero .eyebrow{color:var(--mint-300)}
+  .pricing-hero h1{max-width:78rem;margin:1.15rem 0 0;font-family:Georgia,serif;font-size:clamp(4.8rem,7.6vw,8.2rem);font-weight:400;line-height:.79;letter-spacing:-.07em}.pricing-hero h1 em{color:var(--mint-300);font-weight:400}
+  .pricing-hero__stage{position:relative;z-index:3;display:grid;margin-top:2rem;grid-template-columns:minmax(0,1.45fr) minmax(19rem,.55fr);gap:1.2rem;align-items:stretch}
+  .pricing-hero__media{position:relative;min-width:0;height:clamp(27rem,49svh,43rem);margin:0;overflow:hidden;border-radius:1.2rem 11rem 1.2rem 1.2rem;box-shadow:0 3rem 8rem rgba(0,0,0,.24)}
+  .pricing-hero__media::after{position:absolute;inset:0;background:linear-gradient(180deg,transparent 54%,rgba(6,29,25,.76));content:''}.pricing-hero__media img{width:100%;height:108%;object-fit:cover;object-position:58% center;will-change:transform}.pricing-hero__media figcaption{position:absolute;z-index:1;right:1.3rem;bottom:1.2rem;left:1.3rem;display:flex;justify-content:space-between;gap:1rem;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase}
+  .pricing-hero__rail{display:flex;min-width:0;padding:1.7rem;flex-direction:column;border:1px solid rgba(245,240,231,.2);border-radius:1.2rem;background:linear-gradient(145deg,rgba(158,219,200,.12),rgba(6,29,25,.2))}.pricing-hero__rail>p{max-width:25rem;margin:0;color:rgba(245,240,231,.68);font-size:.88rem;line-height:1.7}.pricing-hero__rail>a{display:flex;width:100%;margin:1.6rem 0 2rem;padding:.75rem .75rem .75rem 1rem;align-items:center;justify-content:space-between;border:1px solid rgba(245,240,231,.28);border-radius:999px;font-size:.58rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.pricing-hero__rail>a span{display:grid;width:2.25rem;aspect-ratio:1;place-items:center;border-radius:50%;background:var(--mint-300);color:var(--pine-950)}
+  .pricing-hero__ledger{display:grid;margin-top:auto;border-top:1px solid rgba(245,240,231,.25)}.pricing-hero__ledger article{display:grid;min-height:5rem;padding:1rem 0;grid-template-columns:2rem 1fr;gap:.2rem .8rem;border-bottom:1px solid rgba(245,240,231,.18)}.pricing-hero__ledger article>span{grid-row:1/3;color:var(--mint-300);font-size:.52rem;font-weight:900}.pricing-hero__ledger small{color:rgba(245,240,231,.45);font-size:.5rem;letter-spacing:.14em;text-transform:uppercase}.pricing-hero__ledger strong{font-family:Georgia,serif;font-size:1.12rem;font-weight:400}
+  .pricing-hero__footer{position:relative;z-index:3;display:flex;margin-top:1.25rem;align-items:center;gap:1rem;color:rgba(245,240,231,.5);font-size:.5rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.pricing-hero__footer i{height:1px;flex:1;background:rgba(245,240,231,.25)}
+  .pricing-modes{display:grid;padding:clamp(8rem,12vw,13rem) 5vw;grid-template-columns:.75fr 1.25fr;gap:7vw;background:var(--paper)}.pricing-modes__intro h2,.pricing-directory__header h2,.pricing-factors h2,.pricing-process h2,.pricing-example h2,.pricing-payment h2,.pricing-faq h2{margin:1.5rem 0;font-family:Georgia,serif;font-size:clamp(4rem,6.5vw,7.4rem);font-weight:400;line-height:.83;letter-spacing:-.065em}.pricing-modes h2 em,.pricing-directory h2 em,.pricing-factors h2 em,.pricing-process h2 em,.pricing-example h2 em,.pricing-payment h2 em,.pricing-faq h2 em{color:var(--pine-700);font-weight:400}.pricing-modes__intro>p:last-child{max-width:30rem;color:rgba(16,35,31,.63);line-height:1.75}.pricing-modes__stage{position:relative;display:grid;grid-template-columns:.32fr 1fr;gap:1.25rem;align-content:center}.pricing-modes__controls{display:grid;align-content:stretch;border:1px solid rgba(16,35,31,.18);border-radius:1rem;overflow:hidden}.pricing-modes__controls button{display:flex;padding:1.2rem;align-items:center;gap:1rem;border:0;border-bottom:1px solid rgba(16,35,31,.14);background:transparent;color:rgba(16,35,31,.48);text-align:left;cursor:pointer}.pricing-modes__controls button:last-child{border-bottom:0}.pricing-modes__controls button span{font-size:.5rem;font-weight:900}.pricing-modes__controls button.is-active{background:var(--mint-200);color:var(--ink)}.pricing-modes__card{display:grid;min-height:32rem;padding:2rem;align-content:space-between;border-radius:1rem;background:var(--pine-950);color:var(--porcelain);box-shadow:0 2rem 6rem rgba(6,29,25,.16)}.pricing-modes__card>div{display:grid}.pricing-modes__card span{color:var(--mint-300);font-size:.58rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}.pricing-modes__card strong{margin:.75rem 0;font-family:Georgia,serif;font-size:clamp(4.5rem,7vw,8rem);font-weight:400;letter-spacing:-.06em}.pricing-modes__card small{color:rgba(245,240,231,.56)}.pricing-modes__card>p{max-width:28rem;margin:0;font-family:Georgia,serif;font-size:2rem}.pricing-modes__card>a{width:max-content;padding-bottom:.4rem;border-bottom:1px solid var(--mint-300);font-size:.6rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.pricing-modes__note{position:absolute;right:-2rem;bottom:-3.5rem;width:17rem;padding:1.2rem;border:1px solid rgba(16,35,31,.16);border-radius:.8rem;background:var(--porcelain)}.pricing-modes__note span{font-size:.5rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.pricing-modes__note strong{display:block;margin:.7rem 0;font-family:Georgia,serif;font-size:1.4rem}.pricing-modes__note p{margin:0;color:rgba(16,35,31,.58);font-size:.68rem;line-height:1.5}
+  .pricing-highlights{padding:clamp(8rem,12vw,12rem) 5vw;background:var(--mint-200)}.pricing-highlights header{display:grid;margin-bottom:4rem;grid-template-columns:.5fr 1.5fr;gap:4vw}.pricing-highlights h2{max-width:80rem;margin:0;font-family:Georgia,serif;font-size:clamp(4rem,7.2vw,8rem);font-weight:400;line-height:.83;letter-spacing:-.065em}.pricing-highlights h2 em{color:var(--pine-700);font-weight:400}.pricing-highlights__grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(16,35,31,.2)}.pricing-highlight{display:flex;min-height:28rem;padding:1.4rem;flex-direction:column;border-right:1px solid rgba(16,35,31,.18);border-bottom:1px solid rgba(16,35,31,.18);transition:background .35s,color .35s}.pricing-highlight:hover{background:var(--pine-950);color:var(--porcelain)}.pricing-highlight>span{font-size:.55rem;font-weight:900}.pricing-highlight h3{margin:3rem 0 1rem;font-family:Georgia,serif;font-size:clamp(2rem,3.3vw,3.5rem);font-weight:400;line-height:.94;letter-spacing:-.04em}.pricing-highlight>p{max-width:22rem;margin:0;color:currentColor;font-size:.78rem;line-height:1.6;opacity:.6}.pricing-highlight>div{display:grid;margin-top:auto;padding-top:1rem;grid-template-columns:1fr auto;border-top:1px solid currentColor}.pricing-highlight small{grid-column:1/-1;font-size:.5rem;text-transform:uppercase;opacity:.55}.pricing-highlight strong{font-family:Georgia,serif;font-size:1.8rem;font-weight:400}.pricing-highlight i{align-self:end;font-style:normal}
+  .pricing-directory{padding:clamp(7rem,10vw,10rem) 4vw 4rem;background:var(--paper)}.pricing-directory__header{display:grid;margin:0 auto 4rem;max-width:110rem;grid-template-columns:1.3fr .7fr;gap:5vw;align-items:end}.pricing-directory__header>p{max-width:29rem;color:rgba(16,35,31,.62);line-height:1.7}.pricing-directory__toolbar{position:sticky;z-index:10;top:6.2rem;display:flex;margin:0 auto 2rem;padding:.7rem;max-width:110rem;justify-content:space-between;gap:1rem;border:1px solid rgba(16,35,31,.16);border-radius:999px;background:rgba(251,248,242,.92);backdrop-filter:blur(20px)}.pricing-directory__toolbar label{display:flex;min-width:20rem;padding:0 1rem;align-items:center;gap:1rem}.pricing-directory__toolbar input{width:100%;border:0;outline:0;background:transparent}.pricing-directory__toolbar label i{font-style:normal}.pricing-directory__modes{display:flex;padding:.25rem;border-radius:999px;background:rgba(16,35,31,.06)}.pricing-directory__modes button{padding:.75rem 1.2rem;border:0;border-radius:999px;background:transparent;color:var(--ink);font-size:.57rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}.pricing-directory__modes button.is-active{background:var(--pine-950);color:var(--porcelain)}.pricing-directory__body{display:grid;margin:0 auto;max-width:110rem;grid-template-columns:17rem minmax(0,1fr);gap:3rem}.pricing-directory__categories{position:sticky;top:11rem;display:grid;height:max-content}.pricing-directory__categories button{display:grid;padding:.8rem 0;grid-template-columns:2rem 1fr auto;gap:.5rem;border:0;border-bottom:1px solid rgba(16,35,31,.14);background:transparent;color:rgba(16,35,31,.58);text-align:left;cursor:pointer}.pricing-directory__categories button span,.pricing-directory__categories button i{font-size:.5rem;font-weight:900;font-style:normal}.pricing-directory__categories button.is-active{color:var(--pine-700)}.pricing-directory__results>section{margin-bottom:5rem;scroll-margin-top:12rem}.pricing-directory__results>section>header{display:grid;padding-bottom:1.5rem;grid-template-columns:3rem 1fr auto;gap:1rem;align-items:end;border-bottom:1px solid rgba(16,35,31,.24)}.pricing-directory__results>section>header>span{color:var(--pine-700);font-size:.6rem;font-weight:900}.pricing-directory__results h3{margin:0;font-family:Georgia,serif;font-size:clamp(2.5rem,4.5vw,5rem);font-weight:400;letter-spacing:-.05em}.pricing-directory__results header p{margin:.4rem 0 0;color:rgba(16,35,31,.5);font-size:.55rem;text-transform:uppercase}.pricing-directory__results header a{padding-bottom:.35rem;border-bottom:1px solid currentColor;font-size:.55rem;font-weight:900;text-transform:uppercase}.pricing-directory__results article{display:grid;min-height:8.5rem;padding:1.2rem 0;grid-template-columns:3rem minmax(0,1fr) minmax(10rem,auto) 2rem;gap:1rem;align-items:center;border-bottom:1px solid rgba(16,35,31,.15)}.pricing-directory__results article>span{color:var(--pine-700);font-size:.5rem;font-weight:900}.pricing-directory__results h4{margin:0;font-family:Georgia,serif;font-size:clamp(1.5rem,2.5vw,2.7rem);font-weight:400}.pricing-directory__results article p{max-width:38rem;margin:.45rem 0 0;color:rgba(16,35,31,.56);font-size:.72rem;line-height:1.45}.pricing-directory__results article>strong{font-family:Georgia,serif;font-size:clamp(1.4rem,2.2vw,2.2rem);font-weight:400;text-align:right}.pricing-directory__results article>a{font-size:1.1rem}.pricing-directory__empty{padding:6rem 0;font-family:Georgia,serif;font-size:2rem}.pricing-directory>footer{display:grid;margin:2rem auto 0;max-width:110rem;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center;color:rgba(16,35,31,.5);font-size:.52rem;text-transform:uppercase}.pricing-directory>footer i{height:1px;background:rgba(16,35,31,.2)}
+  .pricing-factors{display:grid;padding:clamp(8rem,11vw,12rem) 5vw;overflow:hidden;grid-template-columns:.9fr 1.1fr;gap:8vw;background:var(--pine-950);color:var(--porcelain)}.pricing-factors__copy{position:sticky;top:9rem;height:max-content}.pricing-factors .eyebrow{color:var(--mint-300)}.pricing-factors h2 em{color:var(--mint-300)}.pricing-factors__copy>p:last-child{max-width:29rem;color:rgba(245,240,231,.6);line-height:1.7}.pricing-factors__list{border-top:1px solid rgba(245,240,231,.2)}.pricing-factors__list article{display:grid;min-height:13rem;padding:2rem 0;grid-template-columns:3rem .8fr 1fr;gap:1rem;align-items:end;border-bottom:1px solid rgba(245,240,231,.2)}.pricing-factors__list span{align-self:start;color:var(--mint-300);font-size:.55rem;font-weight:900}.pricing-factors__list h3{margin:0;font-family:Georgia,serif;font-size:clamp(2.2rem,3.3vw,4rem);font-weight:400;line-height:.95}.pricing-factors__list p{margin:0;color:rgba(245,240,231,.56);font-size:.78rem;line-height:1.65}
+  .pricing-process{padding:clamp(8rem,12vw,13rem) 5vw;background:var(--porcelain)}.pricing-process header{display:grid;margin-bottom:5rem;grid-template-columns:.5fr 1.5fr;gap:4vw}.pricing-process header h2{margin:0}.pricing-process__steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(16,35,31,.2);border-bottom:1px solid rgba(16,35,31,.2)}.pricing-process__steps article{display:flex;min-height:27rem;padding:1.3rem;flex-direction:column;border-right:1px solid rgba(16,35,31,.18)}.pricing-process__steps span{font-size:.55rem;font-weight:900}.pricing-process__steps h3{margin:auto 0 1rem;font-family:Georgia,serif;font-size:clamp(2.2rem,3.5vw,4rem);font-weight:400;line-height:.92}.pricing-process__steps p{margin:0;color:rgba(16,35,31,.62);font-size:.76rem;line-height:1.6}
+  .pricing-example{display:grid;padding:clamp(8rem,12vw,12rem) 5vw;grid-template-columns:.85fr 1.15fr;gap:7vw;background:var(--mint-200)}.pricing-example__story>p:last-child{max-width:29rem;color:rgba(16,35,31,.62);line-height:1.7}.pricing-example__sheet{align-self:center;padding:1.5rem;border-radius:1rem;background:var(--paper);box-shadow:0 2rem 6rem rgba(6,29,25,.14)}.pricing-example__sheet header{display:grid;padding:1rem 0 2rem;grid-template-columns:auto 1fr auto;gap:1rem;border-bottom:1px solid rgba(16,35,31,.18);font-size:.55rem;text-transform:uppercase}.pricing-example__sheet article{display:grid;min-height:7rem;padding:1rem 0;grid-template-columns:2rem 1fr auto;gap:1rem;align-items:center;border-bottom:1px solid rgba(16,35,31,.14)}.pricing-example__sheet article>span{font-size:.5rem;font-weight:900}.pricing-example__sheet article>div{display:grid;gap:.4rem}.pricing-example__sheet article strong{font-family:Georgia,serif;font-size:1.4rem;font-weight:400}.pricing-example__sheet article small{color:rgba(16,35,31,.5)}.pricing-example__sheet article b{font-family:Georgia,serif;font-size:1.7rem;font-weight:400}.pricing-example__sheet footer{display:flex;padding-top:1.5rem;justify-content:space-between;align-items:end}.pricing-example__sheet footer span{font-size:.55rem;text-transform:uppercase}.pricing-example__sheet footer strong{font-family:Georgia,serif;font-size:3.5rem;font-weight:400}
+  .pricing-payment{display:grid;padding:clamp(8rem,12vw,12rem) 5vw;grid-template-columns:1.15fr .85fr;gap:7vw;background:var(--paper)}.pricing-payment__body{align-self:end}.pricing-payment__body>p{max-width:32rem;color:rgba(16,35,31,.62);line-height:1.75}.pricing-payment ul{margin:3rem 0 0;padding:0;border-top:1px solid rgba(16,35,31,.2);list-style:none}.pricing-payment li{display:grid;padding:1.1rem 0;grid-template-columns:3rem 1fr;border-bottom:1px solid rgba(16,35,31,.16);font-family:Georgia,serif;font-size:1.3rem}.pricing-payment li span{font-family:inherit;font-size:.6rem;color:var(--pine-700)}
+  .pricing-proof{padding:clamp(8rem,12vw,12rem) 8vw;background:var(--pine-950);color:var(--porcelain)}.pricing-proof header,.pricing-proof footer{display:flex;justify-content:space-between;gap:2rem}.pricing-proof header>span,.pricing-proof footer{color:rgba(245,240,231,.48);font-size:.54rem;text-transform:uppercase}.pricing-proof blockquote{max-width:88rem;margin:8rem auto;font-family:Georgia,serif;font-size:clamp(3.5rem,7vw,8rem);line-height:.88;letter-spacing:-.06em;text-align:center}.pricing-proof footer{display:grid;grid-template-columns:auto 1fr auto;align-items:center}.pricing-proof footer i{height:1px;background:rgba(245,240,231,.22)}
+  .pricing-faq{display:grid;padding:clamp(8rem,12vw,12rem) 5vw;grid-template-columns:.8fr 1.2fr;gap:8vw;background:var(--porcelain)}.pricing-faq header{position:sticky;top:8rem;height:max-content}.pricing-faq>div{border-top:1px solid rgba(16,35,31,.2)}.pricing-faq details{border-bottom:1px solid rgba(16,35,31,.18)}.pricing-faq summary{display:grid;padding:1.5rem 0;grid-template-columns:3rem 1fr 1rem;gap:1rem;align-items:start;cursor:pointer;list-style:none}.pricing-faq summary::-webkit-details-marker{display:none}.pricing-faq summary span{color:var(--pine-700);font-size:.55rem;font-weight:900}.pricing-faq summary strong{font-family:Georgia,serif;font-size:clamp(1.6rem,2.4vw,2.7rem);font-weight:400}.pricing-faq summary i{position:relative;width:1rem;height:1rem}.pricing-faq summary i::before,.pricing-faq summary i::after{position:absolute;top:50%;left:0;width:100%;height:1px;background:currentColor;content:''}.pricing-faq summary i::after{transform:rotate(90deg);transition:transform .25s}.pricing-faq details[open] summary i::after{transform:rotate(0)}.pricing-faq details p{max-width:43rem;margin:0;padding:0 2rem 2rem 4rem;color:rgba(16,35,31,.62);line-height:1.7}
+  @media(max-width:68rem){.pricing-hero{min-height:auto}.pricing-hero__sticky{min-height:auto;padding-top:8rem;grid-template-rows:auto auto auto}.pricing-hero h1{font-size:clamp(5rem,10vw,7rem)}.pricing-hero__stage{grid-template-columns:minmax(0,1.15fr) minmax(18rem,.85fr);align-items:start}.pricing-hero__media{height:50svh;border-top-right-radius:7rem}.pricing-hero__rail{height:50svh;padding:1.25rem}.pricing-hero__ledger article{min-height:4.7rem}.pricing-hero__ledger strong{font-size:1rem}.pricing-modes{grid-template-columns:1fr}.pricing-modes__intro{max-width:50rem}.pricing-modes__stage{grid-template-columns:12rem 1fr}.pricing-modes__note{right:1rem}.pricing-highlights header{grid-template-columns:1fr}.pricing-highlights__grid{grid-template-columns:1fr 1fr}.pricing-directory__header{grid-template-columns:1fr}.pricing-directory__body{grid-template-columns:12rem minmax(0,1fr);gap:2rem}.pricing-directory__results article{grid-template-columns:2rem minmax(0,1fr) minmax(8rem,auto) 1.5rem}.pricing-factors{grid-template-columns:1fr}.pricing-factors__copy{position:relative;top:auto}.pricing-process header{grid-template-columns:1fr}.pricing-process__steps{grid-template-columns:1fr 1fr}.pricing-process__steps article:nth-child(2){border-right:0}.pricing-example,.pricing-payment,.pricing-faq{grid-template-columns:1fr}.pricing-faq header{position:relative;top:auto}.pricing-proof blockquote{margin:6rem auto}}
+  @media(max-width:46rem){.pricing-hero__sticky{min-height:auto;padding:6.5rem 1rem 2rem}.pricing-hero__copy{width:auto}.pricing-hero h1{font-size:clamp(4rem,17vw,5.3rem)}.pricing-hero__stage{display:flex;margin-top:1.5rem;flex-direction:column}.pricing-hero__media{height:52svh;border-radius:.8rem 5rem .8rem .8rem}.pricing-hero__media img{object-position:56% center}.pricing-hero__rail{height:auto;padding:1rem}.pricing-hero__rail>p{font-size:.78rem}.pricing-hero__rail>a{margin:1.2rem 0}.pricing-hero__ledger{grid-template-columns:repeat(3,1fr)}.pricing-hero__ledger article{min-height:6.5rem;padding:.75rem .5rem;grid-template-columns:1fr;align-content:start;border-right:1px solid rgba(245,240,231,.15);border-bottom:0}.pricing-hero__ledger article>span{grid-row:auto;font-size:.45rem}.pricing-hero__ledger strong{font-size:.8rem;line-height:1.12}.pricing-hero__ledger small{font-size:.43rem}.pricing-hero__footer{margin-top:1rem}.pricing-modes,.pricing-highlights,.pricing-directory,.pricing-factors,.pricing-process,.pricing-example,.pricing-payment,.pricing-proof,.pricing-faq{padding-right:1rem;padding-left:1rem}.pricing-modes{padding-top:6rem;padding-bottom:7rem}.pricing-modes__intro h2,.pricing-directory__header h2,.pricing-factors h2,.pricing-process h2,.pricing-example h2,.pricing-payment h2,.pricing-faq h2{font-size:clamp(3.5rem,16vw,4.7rem)}.pricing-modes__stage{display:block}.pricing-modes__controls{grid-template-columns:repeat(3,1fr);margin:2rem 0 1rem}.pricing-modes__controls button{display:grid;padding:1rem .5rem;justify-items:center;border-right:1px solid rgba(16,35,31,.14);border-bottom:0}.pricing-modes__card{min-height:28rem;padding:1.3rem}.pricing-modes__card strong{font-size:4.3rem}.pricing-modes__note{position:relative;right:auto;bottom:auto;width:auto;margin-top:1rem}.pricing-highlights header{margin-bottom:2.5rem}.pricing-highlights h2{font-size:clamp(3.5rem,16vw,4.8rem)}.pricing-highlights__grid{grid-template-columns:1fr}.pricing-highlight{min-height:23rem;border-right:0}.pricing-directory__header{margin-bottom:2.5rem}.pricing-directory__toolbar{top:4.8rem;display:block;border-radius:1rem}.pricing-directory__toolbar label{min-width:0;padding:.7rem}.pricing-directory__modes{margin-top:.5rem}.pricing-directory__modes button{flex:1;padding:.7rem .4rem}.pricing-directory__body{display:block}.pricing-directory__categories{position:relative;top:auto;display:flex;margin-bottom:2rem;overflow-x:auto;scrollbar-width:none}.pricing-directory__categories button{min-width:max-content;padding:.75rem 1rem;grid-template-columns:auto auto auto;gap:.5rem;border-right:1px solid rgba(16,35,31,.14)}.pricing-directory__results>section{margin-bottom:4rem;scroll-margin-top:10rem}.pricing-directory__results>section>header{grid-template-columns:2rem 1fr}.pricing-directory__results>section>header>a{grid-column:2}.pricing-directory__results h3{font-size:2.5rem}.pricing-directory__results article{grid-template-columns:1.5rem 1fr auto;gap:.7rem}.pricing-directory__results article>strong{grid-column:2;text-align:left}.pricing-directory__results article>a{grid-column:3;grid-row:1/3}.pricing-directory__results h4{font-size:1.6rem}.pricing-directory__results article p{font-size:.68rem}.pricing-directory>footer{grid-template-columns:1fr}.pricing-directory>footer i{display:none}.pricing-factors__list article{grid-template-columns:2rem 1fr;min-height:0}.pricing-factors__list article p{grid-column:2}.pricing-process__steps{grid-template-columns:1fr}.pricing-process__steps article{min-height:20rem;border-right:0}.pricing-example__sheet{padding:1rem}.pricing-example__sheet header{grid-template-columns:1fr auto}.pricing-example__sheet header strong{grid-row:2}.pricing-example__sheet article{grid-template-columns:1.5rem 1fr auto}.pricing-example__sheet article strong{font-size:1.15rem}.pricing-example__sheet footer strong{font-size:2.5rem}.pricing-proof header{display:grid}.pricing-proof blockquote{margin:5rem auto;font-size:3.4rem;text-align:left}.pricing-proof footer{grid-template-columns:1fr}.pricing-proof footer i{display:none}.pricing-faq details p{padding-left:2rem}}
+  @media(prefers-reduced-motion:reduce){.pricing-hero__media img{height:100%}.pricing-factors__copy,.pricing-faq header,.pricing-directory__toolbar,.pricing-directory__categories{position:relative;top:auto}}
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hero = document.querySelector<HTMLElement>('[data-pricing-hero]');
+  if (!reduceMotion && hero) {
+    gsap.from('[data-pricing-hero-copy] > *', { y: 34, opacity: 0, duration: .9, stagger: .1, ease: 'power3.out' });
+    gsap.from('[data-pricing-hero-media]', { y: 42, clipPath: 'inset(0 0 100% 0 round 1.2rem)', duration: 1.15, delay: .12, ease: 'power3.out' });
+    gsap.from('.pricing-hero__rail', { y: 42, opacity: 0, duration: 1, delay: .24, ease: 'power3.out' });
+    gsap.to('[data-pricing-hero-media] img', { yPercent: -4, scale: 1.035, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: .7, invalidateOnRefresh: true } });
+    gsap.from('[data-pricing-hero-ledger] article', { x: 22, opacity: .35, stagger: .08, ease: 'none', scrollTrigger: { trigger: '[data-pricing-hero-ledger]', start: 'top 88%', end: 'bottom 58%', scrub: .55, invalidateOnRefresh: true } });
+  }
+
+  const modeCopy = {
+    fixed: { label: 'Fixed amount', amount: '$5,495', detail: 'Complete clear-aligner case' },
+    monthly: { label: 'Monthly view', amount: '$153', detail: 'Per month · 36 months' },
+    yearly: { label: 'Yearly view', amount: '$5,495', detail: 'Complete-case treatment basis' },
+  } as const;
+  document.querySelectorAll<HTMLButtonElement>('[data-mode-button]').forEach((button) => button.addEventListener('click', () => {
+    const key = button.dataset.modeButton as keyof typeof modeCopy;
+    document.querySelectorAll<HTMLButtonElement>('[data-mode-button]').forEach((item) => { const active = item === button; item.classList.toggle('is-active', active); item.setAttribute('aria-selected', String(active)); });
+    const amount = document.querySelector<HTMLElement>('[data-mode-amount]');
+    const label = document.querySelector<HTMLElement>('[data-mode-label]');
+    const detail = document.querySelector<HTMLElement>('[data-mode-detail]');
+    if (amount && label && detail) gsap.timeline().to([amount, label, detail], { y: 14, opacity: 0, duration: .18 }).add(() => { amount.textContent = modeCopy[key].amount; label.textContent = modeCopy[key].label; detail.textContent = modeCopy[key].detail; }).to([amount, label, detail], { y: 0, opacity: 1, duration: .3, stagger: .04 });
+  }));
+
+  let activeCategory = 'all';
+  let activeMode: 'fixed' | 'monthly' | 'yearly' = 'fixed';
+  const search = document.querySelector<HTMLInputElement>('[data-pricing-search]');
+  const groups = [...document.querySelectorAll<HTMLElement>('[data-pricing-category]')];
+  const rows = [...document.querySelectorAll<HTMLElement>('[data-pricing-row]')];
+  const empty = document.querySelector<HTMLElement>('[data-pricing-empty]');
+  const applyFilters = () => {
+    const query = (search?.value || '').trim().toLowerCase();
+    let visibleCount = 0;
+    groups.forEach((group) => {
+      const categoryMatch = activeCategory === 'all' || group.dataset.pricingCategory === activeCategory;
+      let groupCount = 0;
+      group.querySelectorAll<HTMLElement>('[data-pricing-row]').forEach((row) => {
+        const match = categoryMatch && (!query || (row.dataset.search || '').includes(query));
+        row.hidden = !match;
+        if (match) { groupCount += 1; visibleCount += 1; }
+      });
+      group.hidden = groupCount === 0;
+    });
+    if (empty) empty.hidden = visibleCount > 0;
+    if (!reduceMotion) requestAnimationFrame(() => ScrollTrigger.refresh());
+  };
+  document.querySelectorAll<HTMLButtonElement>('[data-category-filter]').forEach((button) => button.addEventListener('click', () => {
+    activeCategory = button.dataset.categoryFilter || 'all';
+    document.querySelectorAll('[data-category-filter]').forEach((item) => item.classList.toggle('is-active', item === button));
+    applyFilters();
+  }));
+  search?.addEventListener('input', applyFilters);
+  document.querySelectorAll<HTMLButtonElement>('[data-directory-mode]').forEach((button) => button.addEventListener('click', () => {
+    activeMode = (button.dataset.directoryMode || 'fixed') as typeof activeMode;
+    document.querySelectorAll('[data-directory-mode]').forEach((item) => item.classList.toggle('is-active', item === button));
+    rows.forEach((row) => { const price = row.querySelector<HTMLElement>('strong'); if (price) price.textContent = price.dataset[`price${activeMode.charAt(0).toUpperCase()}${activeMode.slice(1)}` as keyof DOMStringMap] || ''; });
+  }));
+
+  if (!reduceMotion) {
+    document.querySelectorAll<HTMLElement>('[data-reveal-section]').forEach((section) => gsap.from(section.children, { y: 54, opacity: 0, duration: .85, stagger: .07, ease: 'power3.out', scrollTrigger: { trigger: section, start: 'top 78%', once: true } }));
+    gsap.from('[data-factor]', { x: 55, opacity: 0, duration: .8, stagger: .12, ease: 'power3.out', scrollTrigger: { trigger: '[data-pricing-factors]', start: 'top 70%', once: true } });
+  }
+</script>

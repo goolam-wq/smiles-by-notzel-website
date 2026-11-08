@@ -14,5 +14,6 @@ Thumbs.db
 
 # Local responsive QA artifact
 mobile-reference-audit.png
+public/__qa-responsive.html
 qa-artifacts/
 public/images/generated/service-area-connected-landscape-v1.png

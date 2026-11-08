@@ -70,7 +70,7 @@ const {hideHero=false,hideHandoff=false}=Astro.props;
     <header><p class="eyebrow">Pricing, made legible</p><h2>One service.<br /><em>Three ways to plan.</em></h2><p>Fixed, monthly and yearly customer-facing views are available for every mapped service.</p></header>
     <div class="pricing-track" data-pricing-track>
       {priceHighlights.map((item,index)=><article><span>0{index+1}</span><h3>{item[0]}</h3><div><p>Fixed<strong>{item[1]}</strong></p><p>Monthly<strong>{item[2]}</strong></p><p>Yearly<strong>{item[3]}</strong></p></div></article>)}
-      <article class="pricing-track__end"><span>48 / 48</span><h3>See the complete pricing map.</h3><a href="/#pricing">Explore pricing ↗</a></article>
+      <article class="pricing-track__end"><span>48 / 48</span><h3>See the complete pricing map.</h3><a href="/pricing/">Explore pricing ↗</a></article>
     </div>
   </div>
 </section>
