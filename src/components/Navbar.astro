@@ -65,21 +65,31 @@ const serviceAreas = serviceAreaDetailRoutes;
             <a class="mega-primary" href="/service-areas/">View all service areas <span>↗</span></a>
           </div>
           <div class="area-columns">
-            <div>
+            <section class="studio-block">
               <span class="area-label">Our studios</span>
-              {serviceAreas.slice(0, 2).map((area) => <a href={`/service-areas/${area.slug}/`}><strong>{area.name}</strong><small>{area.office}</small></a>)}
-            </div>
-            <div>
+              <div class="studio-grid">
+                {serviceAreas.slice(0, 2).map((area, index) => (
+                  <a href={`/service-areas/${area.slug}/`}>
+                    <span class="studio-index">0{index + 1}</span>
+                    <strong>{area.name}</strong>
+                    <small>{area.office}</small>
+                    <i aria-hidden="true">↗</i>
+                  </a>
+                ))}
+              </div>
+            </section>
+            <section class="community-block">
               <span class="area-label">Nearby communities</span>
               <div class="area-grid">
                 {serviceAreas.slice(2).map((area) => <a href={`/service-areas/${area.slug}/`}>{area.name}<span>↗</span></a>)}
               </div>
-            </div>
+            </section>
           </div>
         </div>
       </div>
 
       <a class="nav-link" href="/#pricing">Pricing</a>
+      <a class="nav-link" href="/about/">About</a>
       <a class="nav-link" href="#contact">Contact</a>
 
       <div class="nav-group resources-group">
@@ -87,10 +97,9 @@ const serviceAreas = serviceAreaDetailRoutes;
           Resources <span class="chevron" aria-hidden="true"></span>
         </button>
         <div class="resource-menu">
-          <a href="/#about"><span>01</span> About <i>↗</i></a>
-          <a href="/#team"><span>02</span> Team <i>↗</i></a>
-          <a href="/#blog"><span>03</span> Blog <i>↗</i></a>
-          <a href="/#faq"><span>04</span> FAQ <i>↗</i></a>
+          <a href="/#team"><span>01</span> Team <i>↗</i></a>
+          <a href="/#blog"><span>02</span> Blog <i>↗</i></a>
+          <a href="/#faq"><span>03</span> FAQ <i>↗</i></a>
         </div>
       </div>
     </nav>
@@ -111,10 +120,11 @@ const serviceAreas = serviceAreaDetailRoutes;
       <a href="/services/"><span>01</span> Services <i>↗</i></a>
       <a href="/service-areas/"><span>02</span> Service Areas <i>↗</i></a>
       <a href="/#pricing"><span>03</span> Pricing <i>↗</i></a>
-      <a href="#contact"><span>04</span> Contact <i>↗</i></a>
-      <a href="/#about"><span>05</span> About <i>↗</i></a>
+      <a href="/about/"><span>04</span> About <i>↗</i></a>
+      <a href="#contact"><span>05</span> Contact <i>↗</i></a>
       <a href="/#team"><span>06</span> Team <i>↗</i></a>
-      <a href="/#faq"><span>07</span> FAQ <i>↗</i></a>
+      <a href="/#blog"><span>07</span> Blog <i>↗</i></a>
+      <a href="/#faq"><span>08</span> FAQ <i>↗</i></a>
     </div>
     <div class="mobile-meta">
       <p>Chicago Heights · Mokena</p>
@@ -480,16 +490,16 @@ const serviceAreas = serviceAreaDetailRoutes;
   }
 
   .areas-menu {
-    width: min(68rem, calc(100vw - 4rem));
-    min-height: 26rem;
-    grid-template-columns: 0.9fr 1.5fr;
+    width: min(78rem, calc(100vw - 4rem));
+    min-height: 30rem;
+    grid-template-columns: 0.72fr 1.78fr;
   }
 
   .area-columns {
     display: grid;
-    padding: 1rem;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    padding: 1.1rem;
+    grid-template-rows: auto 1fr;
+    gap: 1.3rem;
     border-radius: 0.95rem;
     background: rgba(245, 240, 231, 0.055);
   }
@@ -504,16 +514,54 @@ const serviceAreas = serviceAreaDetailRoutes;
     text-transform: uppercase;
   }
 
-  .area-columns > div:first-child > a {
+  .studio-grid {
     display: grid;
-    padding: 1rem 0;
-    gap: 0.35rem;
-    border-bottom: 1px solid rgba(245, 240, 231, 0.13);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .studio-grid > a {
+    position: relative;
+    display: grid;
+    min-height: 8.35rem;
+    padding: 1rem;
+    align-content: end;
+    gap: 0.32rem;
+    overflow: hidden;
+    border: 1px solid rgba(245, 240, 231, 0.12);
+    border-radius: 0.8rem;
+    background: rgba(6, 29, 25, 0.36);
+    transition: border-color 220ms ease, background 220ms ease, transform 220ms ease;
+  }
+
+  .studio-grid > a:hover,
+  .studio-grid > a:focus-visible {
+    border-color: rgba(158, 215, 196, 0.48);
+    background: rgba(158, 215, 196, 0.09);
+    transform: translateY(-2px);
+  }
+
+  .studio-index {
+    position: absolute;
+    top: 0.8rem;
+    left: 1rem;
+    color: var(--mint-300);
+    font-size: 0.56rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+  }
+
+  .studio-grid i {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.9rem;
+    font-style: normal;
+    opacity: 0.65;
   }
 
   .area-columns strong {
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: 1.45rem;
+    font-size: 1.55rem;
     font-weight: 400;
   }
 
@@ -523,14 +571,31 @@ const serviceAreas = serviceAreaDetailRoutes;
 
   .area-grid {
     display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 1rem;
   }
 
   .area-grid a {
     display: flex;
-    padding: 0.78rem 0;
+    min-width: 0;
+    padding: 0.58rem 0;
     justify-content: space-between;
+    gap: 0.55rem;
     border-bottom: 1px solid rgba(245, 240, 231, 0.13);
-    font-size: 0.76rem;
+    font-size: 0.69rem;
+    line-height: 1.3;
+    transition: color 180ms ease, border-color 180ms ease;
+  }
+
+  .area-grid a:hover,
+  .area-grid a:focus-visible {
+    border-color: rgba(158, 215, 196, 0.5);
+    color: var(--mint-300);
+  }
+
+  .area-grid a span {
+    flex: 0 0 auto;
+    opacity: 0.55;
   }
 
   .resource-menu {

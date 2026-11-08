@@ -1,0 +1,26 @@
+---
+import Navbar from '../components/Navbar.astro';
+import AboutExperience from '../components/AboutExperience.astro';
+import BeforeAfterStory from '../components/BeforeAfterStory.astro';
+import HubFooter from '../components/HubFooter.astro';
+import '../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Meet the doctors, team and connected care philosophy behind Smiles by Noetzel in Chicago Heights and Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>About Smiles by Noetzel | Connected Dental Care</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/about/about-nav-welcome.webp" mediaAlt="A dental team member welcoming a couple into the practice" />
+    <main>
+      <AboutExperience />
+      <BeforeAfterStory id="before-after-about" tone="light" reverse number="11" eyebrow="A conservative care story" title="A familiar smile." emphasis="A more confident detail." intro="Thoughtful care is not about replacing identity. It is about understanding the detail, choosing a restrained plan and keeping the person recognizable in the result." image="/images/generated/unique/about/about-before-after-edge.webp" imageAlt="A side-by-side illustrative view of a patient before and after subtle front-tooth edge refinement" beforeLabel="A detail that felt unfinished" beforeDetail="A small front-edge irregularity interrupted an otherwise healthy, natural smile." afterLabel="Refined, not redesigned" afterDetail="A restrained edge refinement preserves texture, proportion and the patient’s natural expression." caseNote="Illustrative conservative edge refinement" />
+      <HubFooter eyebrow="Ready when you are" title="Thoughtful care begins with a real conversation." />
+    </main>
+  </body>
+</html>

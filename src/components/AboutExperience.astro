@@ -1,0 +1,394 @@
+---
+const doctors = [
+  {
+    number: '01',
+    name: 'Dr. Joseph William Noetzel',
+    role: 'Restorative perspective',
+    copy: 'Care starts by understanding the structure, the long-term plan and the person who will live with the result.',
+    image: '/images/generated/unique/about/about-doctor-joseph-provisional.webp',
+  },
+  {
+    number: '02',
+    name: 'Dr. Ilenne Noetzel',
+    role: 'Complete-health perspective',
+    copy: 'Oral health can reveal a wider story. Listening closely helps the team connect what is visible with what matters beyond the smile.',
+    image: '/images/generated/unique/about/about-doctor-ilenne-provisional.webp',
+  },
+  {
+    number: '03',
+    name: 'Dr. Michael Drinski',
+    role: 'Clinical coordination',
+    copy: 'Clear records and a coordinated sequence keep complex decisions understandable, considered and grounded in the next right step.',
+    image: '/images/generated/unique/about/about-doctor-michael-provisional.webp',
+  },
+];
+
+const faqs = [
+  ['What makes the practice different?', 'The practice connects preventive, restorative, cosmetic and complete-health thinking in one coordinated care experience. Recommendations are explained in context—not as isolated procedures.'],
+  ['Can my family use both offices?', 'Yes. Chicago Heights and Mokena work as two connected offices, so the team can help coordinate care around the location and schedule that fit your family.'],
+  ['Will I understand my options before treatment begins?', 'That is the goal. The team uses conversation, clinical records and visual explanations to make the reason, sequence and tradeoffs behind a recommendation easier to understand.'],
+  ['Do you offer both routine and complex care?', 'The practice supports routine prevention as well as more involved restorative, cosmetic and wellness-centered care. Your first visit helps clarify the right starting point.'],
+  ['How do I begin?', 'Choose the office that works for you, call the team or send the short request form at the bottom of this page. The team will help identify the most appropriate visit.'],
+];
+---
+
+<section class="about-hero" id="top" data-about-hero data-hero-stage>
+  <div class="about-hero__sticky">
+    <div class="about-hero__visual" aria-hidden="true">
+      <img src="/images/generated/unique/about/about-hero-team-arrival.webp" alt="" fetchpriority="high" decoding="async" />
+      <div class="about-hero__wash"></div>
+    </div>
+    <div class="about-hero__copy container-shell">
+      <p class="about-kicker">About Smiles by Noetzel · two connected offices</p>
+      <h1>Care begins<br />with <em>being seen.</em></h1>
+      <p>Not a collection of appointments. A connected relationship built around your health, your questions and the life beyond the chair.</p>
+      <a href="#our-story">Meet the practice <span>↓</span></a>
+    </div>
+    <div class="about-hero__rail" aria-hidden="true"><span>Chicago Heights</span><i></i><b>01</b><i></i><span>Mokena</span></div>
+  </div>
+</section>
+
+<section class="about-story about-light" id="our-story" data-reveal-section>
+  <div class="about-story__grid container-shell">
+    <header>
+      <p class="about-kicker">01 · Our story</p>
+      <h2>A practice built<br />to keep the <em>whole story</em><br />in view.</h2>
+    </header>
+    <figure>
+      <img src="/images/generated/unique/about/about-practice-story-collaboration.webp" alt="Two clinicians reviewing a patient plan together in the practice" loading="lazy" decoding="async" />
+      <figcaption><span>One conversation</span><span>One connected plan</span></figcaption>
+    </figure>
+    <div class="about-story__body">
+      <p class="lead">Smiles by Noetzel brings dentistry and wellness thinking together so that one decision can make sense beside the next.</p>
+      <p>The team looks at today’s concern, the history behind it and the long-term direction ahead. That means fewer disconnected answers and a clearer reason for every next step.</p>
+      <div class="about-story__facts"><span><strong>02</strong> connected offices</span><span><strong>01</strong> coordinated team</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="about-philosophy" data-reveal-section>
+  <div class="about-philosophy__image" data-about-parallax>
+    <img src="/images/generated/unique/about/about-philosophy-consultation.webp" alt="A dentist listening carefully to a patient during a consultation" loading="lazy" decoding="async" />
+  </div>
+  <div class="about-philosophy__content">
+    <p class="about-kicker">02 · Our point of view</p>
+    <h2>Listen first.<br /><em>Then look closer.</em></h2>
+    <p>Clinical detail matters. So does the way a question is heard. We believe a thoughtful plan begins when evidence and lived experience are allowed in the same room.</p>
+    <ol>
+      <li><span>01</span><strong>Understand what brought you here.</strong></li>
+      <li><span>02</span><strong>Connect the findings—not just the symptoms.</strong></li>
+      <li><span>03</span><strong>Explain the path before asking you to take it.</strong></li>
+    </ol>
+  </div>
+</section>
+
+<section class="about-doctors about-light" id="team" data-doctor-story>
+  <div class="about-doctors__sticky">
+    <header class="about-doctors__intro container-shell">
+      <p class="about-kicker">03 · Meet the doctors</p>
+      <div>
+        <h2>Three perspectives.<br /><em>One standard of care.</em></h2>
+        <p>One connected clinical team—seen through three distinct perspectives.</p>
+      </div>
+    </header>
+    <div class="about-doctors__viewport" aria-live="polite">
+      <div class="about-doctors__track" data-doctor-track>
+        {doctors.map((doctor) => (
+          <article class="doctor-card" data-doctor-card>
+            <figure><img src={doctor.image} alt={`Environmental portrait representing ${doctor.name}`} loading="lazy" decoding="async" /></figure>
+            <div class="doctor-card__dossier">
+              <span>{doctor.number} · {doctor.role}</span>
+              <h3>{doctor.name}</h3>
+              <p>{doctor.copy}</p>
+              <a href="#contact">Begin a conversation <b>↗</b></a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+    <nav class="about-doctors__chapters" aria-label="Choose a doctor">
+      {doctors.map((doctor, index) => (
+        <button type="button" data-doctor-jump={index} aria-current={index === 0 ? 'true' : 'false'}>
+          <span>{doctor.number}</span><strong>{doctor.name.replace('Dr. ', '')}</strong>
+        </button>
+      ))}
+    </nav>
+    <div class="about-doctors__progress container-shell" aria-hidden="true"><span>01</span><i><b data-doctor-progress></b></i><span>03</span></div>
+  </div>
+</section>
+
+<section class="about-team" data-reveal-section>
+  <div class="about-team__visual" data-about-parallax>
+    <img src="/images/generated/unique/about/about-team-huddle.webp" alt="The clinical and front-office team coordinating the day together" loading="lazy" decoding="async" />
+    <div><span>Clinical team</span><strong>Coordination is part of the care.</strong></div>
+  </div>
+  <div class="about-team__content">
+    <p class="about-kicker">04 · The team around the visit</p>
+    <h2>No handoff should<br />feel like <em>starting over.</em></h2>
+    <p>From the first phone call to the clinical room, the details should travel with you. Our team shares context, clarifies questions and helps keep the experience human.</p>
+    <div class="about-team__list">
+      <span><b>01</b> A welcome that knows why you came</span>
+      <span><b>02</b> Records that support the conversation</span>
+      <span><b>03</b> Follow-through that keeps the next step clear</span>
+    </div>
+  </div>
+</section>
+
+<section class="about-why about-light" data-reveal-section>
+  <header class="container-shell">
+    <p class="about-kicker">05 · Why choose us</p>
+    <h2>Thoughtful dentistry<br />is felt <em>between</em> the procedures.</h2>
+  </header>
+  <div class="about-why__grid container-shell">
+    <article><span>01</span><h3>More context</h3><p>Your mouth, health history, priorities and timing are considered together.</p></article>
+    <article><span>02</span><h3>Clearer choices</h3><p>Options are explained with the reason, sequence and tradeoffs made visible.</p></article>
+    <article><span>03</span><h3>Connected offices</h3><p>Chicago Heights and Mokena share one standard and one coordinated care story.</p></article>
+    <article><span>04</span><h3>A natural result</h3><p>The goal is care that supports health and still feels unmistakably like you.</p></article>
+  </div>
+</section>
+
+<section class="about-technology" data-reveal-section>
+  <div class="about-technology__copy">
+    <p class="about-kicker">06 · Technology with a reason</p>
+    <h2>Better records.<br /><em>More human decisions.</em></h2>
+    <p>Technology earns its place when it makes the clinical picture easier to understand—not when it gets between you and the conversation.</p>
+    <ul><li>Visual records that support explanation</li><li>Planning that connects details over time</li><li>A clearer shared view of the next step</li></ul>
+  </div>
+  <figure data-about-parallax><img src="/images/generated/unique/about/about-technology-scan.webp" alt="A clinician using digital scanning technology while a colleague reviews the scan" loading="lazy" decoding="async" /></figure>
+</section>
+
+<section class="about-offices about-light" data-reveal-section>
+  <header class="container-shell"><p class="about-kicker">07 · Two offices · one connected team</p><h2>Choose what fits your day.<br /><em>Keep the same standard.</em></h2></header>
+  <div class="about-offices__grid container-shell">
+    <a href="/service-areas/chicago-heights/"><span>01 · Chicago Heights</span><h3>500 Ashland Ave,<br />Suite #2</h3><p>(708) 755-1333</p><b>Explore this office ↗</b></a>
+    <a href="/service-areas/mokena/"><span>02 · Mokena</span><h3>19160 88th Avenue</h3><p>(708) 479-7733</p><b>Explore this office ↗</b></a>
+  </div>
+</section>
+
+<section class="about-reviews" data-reveal-section>
+  <div class="about-reviews__inner container-shell">
+    <p class="about-kicker">08 · Patient perspective</p>
+    <blockquote>“Long-term family care with technology, efficiency and minimal waiting.”</blockquote>
+    <div><span>Keanna Benson</span><p>Chicago Heights</p></div>
+    <div class="about-reviews__index"><span>01</span><i></i><span>CONNECTED CARE</span></div>
+  </div>
+</section>
+
+<section class="about-connected about-light" data-reveal-section>
+  <header class="container-shell"><p class="about-kicker">09 · Continue your story</p><h2>Find the part of care<br />that meets you <em>now.</em></h2></header>
+  <div class="about-connected__links container-shell">
+    <a href="/services/"><span>All services</span><strong>Explore the complete care map</strong><i>↗</i></a>
+    <a href="/services/cosmetic-dentistry/"><span>Cosmetic care</span><strong>See thoughtful aesthetic options</strong><i>↗</i></a>
+    <a href="/services/complete-health-airway/"><span>Complete health</span><strong>Connect the wider health story</strong><i>↗</i></a>
+    <a href="/service-areas/"><span>Service areas</span><strong>Choose the office near you</strong><i>↗</i></a>
+  </div>
+</section>
+
+<section class="about-faq about-light" id="faq" data-reveal-section>
+  <div class="about-faq__grid container-shell">
+    <header><p class="about-kicker">10 · Questions before the visit</p><h2>A little more<br /><em>clarity.</em></h2><p>Start here, then ask us the question that is specific to you.</p></header>
+    <div class="about-faq__items">
+      {faqs.map(([question, answer], index) => (
+        <details open={index === 0}><summary><span>{String(index + 1).padStart(2, '0')}</span><strong>{question}</strong><i>+</i></summary><p>{answer}</p></details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-kicker{display:flex;align-items:center;gap:.75rem;margin:0;color:var(--mint-300);font-size:.62rem;font-weight:900;line-height:1.4;letter-spacing:.16em;text-transform:uppercase}.about-kicker::before{width:2rem;height:1px;background:currentColor;content:''}.about-light{background:var(--paper);color:var(--ink)}.about-light .about-kicker{color:var(--pine-700)}
+  .about-hero{position:relative;height:175svh;background:var(--pine-950);color:var(--porcelain)}.about-hero__sticky{position:sticky;top:0;height:100svh;overflow:hidden}.about-hero__visual{position:absolute;inset:0;clip-path:inset(0 0 0 42%);transform-origin:70% 50%}.about-hero__visual img{width:100%;height:100%;object-fit:cover;object-position:center}.about-hero__wash{position:absolute;inset:0;background:linear-gradient(90deg,var(--pine-950) 0 30%,rgba(6,29,25,.82) 44%,rgba(6,29,25,.08) 75%),linear-gradient(0deg,rgba(6,29,25,.5),transparent 38%)}.about-hero__copy{position:relative;z-index:2;display:grid;height:100%;align-content:center;padding-top:7rem}.about-hero__copy h1{max-width:61rem;margin:1.7rem 0 1.7rem;font-family:Georgia,serif;font-size:clamp(5rem,9.5vw,10.5rem);font-weight:400;line-height:.79;letter-spacing:-.075em}.about-hero__copy h1 em{display:inline-block;color:var(--mint-300);font-weight:400}.about-hero__copy>p:not(.about-kicker){max-width:31rem;margin:0;color:rgba(245,240,231,.72);font-size:clamp(.92rem,1.15vw,1.1rem);line-height:1.7}.about-hero__copy>a{display:flex;width:min(100%,24rem);margin-top:2.4rem;padding:1rem 1rem 1rem 1.3rem;align-items:center;justify-content:space-between;border:1px solid rgba(245,240,231,.35);border-radius:999px;font-size:.6rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.about-hero__copy>a span{display:grid;width:2.8rem;aspect-ratio:1;place-items:center;border-radius:50%;background:var(--mint-300);color:var(--pine-950)}.about-hero__rail{position:absolute;z-index:3;right:2rem;bottom:1.5rem;left:2rem;display:grid;grid-template-columns:auto 1fr auto 1fr auto;gap:1rem;align-items:center;color:rgba(245,240,231,.82);font-size:.52rem;font-weight:900;letter-spacing:.15em;text-transform:uppercase}.about-hero__rail i{height:1px;background:rgba(245,240,231,.3)}
+  .about-story{padding:clamp(7rem,11vw,12rem) 0}.about-story__grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,6vw,7rem);align-items:start}.about-story header{grid-column:1/-1;display:grid;grid-template-columns:.65fr 1.35fr;gap:2rem}.about-story h2,.about-philosophy h2,.about-doctors h2,.about-team h2,.about-why h2,.about-technology h2,.about-offices h2,.about-connected h2,.about-faq h2{margin:1.4rem 0 0;font-family:Georgia,serif;font-size:clamp(4rem,7vw,8rem);font-weight:400;line-height:.86;letter-spacing:-.065em}.about-story h2{grid-column:2}.about-story h2 em,.about-philosophy h2 em,.about-doctors h2 em,.about-team h2 em,.about-why h2 em,.about-technology h2 em,.about-offices h2 em,.about-connected h2 em,.about-faq h2 em{color:var(--pine-700);font-weight:400}.about-story figure{position:relative;min-height:clamp(35rem,66vw,56rem);margin:0;overflow:hidden;border-radius:1.5rem}.about-story figure img{width:100%;height:110%;object-fit:cover;object-position:center}.about-story figcaption{position:absolute;right:1rem;bottom:1rem;left:1rem;display:flex;padding:1rem 1.2rem;justify-content:space-between;background:rgba(6,29,25,.78);color:var(--porcelain);font-size:.54rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;backdrop-filter:blur(14px)}.about-story__body{display:grid;min-height:38rem;padding:3rem 0;align-content:space-between;border-top:1px solid rgba(16,35,31,.2);border-bottom:1px solid rgba(16,35,31,.2)}.about-story__body p{max-width:34rem;color:rgba(16,35,31,.65);font-size:.95rem;line-height:1.75}.about-story__body .lead{margin:0;color:var(--ink);font-family:Georgia,serif;font-size:clamp(2rem,3.2vw,3.8rem);line-height:1.05;letter-spacing:-.035em}.about-story__facts{display:flex;gap:3rem}.about-story__facts span{display:grid;gap:.25rem;color:rgba(16,35,31,.62);font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.about-story__facts strong{color:var(--pine-700);font-family:Georgia,serif;font-size:3rem;font-weight:400;letter-spacing:-.05em}
+  .about-philosophy{display:grid;min-height:100svh;grid-template-columns:1.05fr .95fr;background:var(--pine-950);color:var(--porcelain)}.about-philosophy__image{min-height:100svh;overflow:hidden}.about-philosophy__image img{width:100%;height:112%;object-fit:cover}.about-philosophy__content{display:grid;padding:clamp(6rem,8vw,9rem) clamp(2rem,6vw,7rem);align-content:center}.about-philosophy h2 em{color:var(--mint-300)}.about-philosophy__content>p:not(.about-kicker){max-width:35rem;color:rgba(245,240,231,.66);line-height:1.75}.about-philosophy ol{margin:2.5rem 0 0;padding:0;list-style:none;border-top:1px solid rgba(245,240,231,.2)}.about-philosophy li{display:grid;padding:1.25rem 0;grid-template-columns:3rem 1fr;gap:1rem;border-bottom:1px solid rgba(245,240,231,.2)}.about-philosophy li span{color:var(--mint-300);font-size:.55rem;font-weight:900}.about-philosophy li strong{font-family:Georgia,serif;font-size:1.35rem;font-weight:400}
+  .about-doctors{position:relative;height:300svh}.about-doctors__sticky{position:sticky;top:0;display:grid;width:100%;height:100svh;padding:clamp(6.75rem,9vh,8rem) max(1rem,calc((100vw - 92rem)/2 + 1rem)) 1.5rem;grid-template-columns:minmax(20rem,.72fr) minmax(0,1.28fr);grid-template-rows:minmax(0,1fr) auto;gap:1.35rem clamp(2rem,4vw,4rem);overflow:hidden}.about-doctors header.container-shell{display:flex;width:auto;max-width:none;margin:0;padding:0;flex-direction:column;justify-content:center}.about-doctors header>div{display:block;margin-top:1.5rem}.about-doctors h2{margin:0;font-size:clamp(3.75rem,5.1vw,5.9rem);line-height:.88}.about-doctors header>div>p{max-width:24rem;margin:1.4rem 0 0;color:rgba(16,35,31,.68);font-size:.9rem;line-height:1.7}.about-doctors__viewport{position:relative;width:100%;height:100%;max-height:min(64vh,38rem);margin:0;align-self:center;overflow:hidden;border-radius:1.3rem}.about-doctors__track{position:relative;width:100%;height:100%;padding:0;will-change:transform}.doctor-card{position:absolute;inset:0;display:grid;width:100%;height:100%;grid-template-columns:.95fr 1.05fr;overflow:hidden;border:1px solid rgba(16,35,31,.16);border-radius:1.3rem;background:#f1ece3;opacity:0;visibility:hidden;will-change:opacity,transform}.doctor-card:first-child{opacity:1;visibility:visible}.doctor-card figure{margin:0;overflow:hidden}.doctor-card figure img{width:100%;height:100%;object-fit:cover}.doctor-card>div{display:grid;min-width:0;padding:clamp(1.5rem,2.7vw,3.25rem);align-content:end}.doctor-card span{color:var(--pine-700);font-size:.56rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}.doctor-card h3{max-width:30rem;margin:1rem 0;font-family:Georgia,serif;font-size:clamp(2.45rem,3.4vw,4.4rem);font-weight:400;line-height:.9;letter-spacing:-.05em}.doctor-card p{max-width:28rem;color:rgba(16,35,31,.67);font-size:.82rem;line-height:1.65}.doctor-card a{margin-top:1.6rem;font-size:.57rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}.about-doctors__progress.container-shell{display:grid;width:auto;max-width:none;margin:0;padding:0;grid-column:1/-1;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center;color:var(--pine-700);font-size:.52rem;font-weight:900}.about-doctors__progress i{height:1px;background:rgba(16,35,31,.18)}.about-doctors__progress b{display:block;width:100%;height:100%;background:var(--pine-700);transform:scaleX(0);transform-origin:left}
+  .about-team{display:grid;min-height:100svh;grid-template-columns:1.1fr .9fr;background:var(--pine-950);color:var(--porcelain)}.about-team__visual{position:relative;min-height:100svh;overflow:hidden}.about-team__visual img{width:100%;height:112%;object-fit:cover}.about-team__visual>div{position:absolute;right:1rem;bottom:1rem;left:1rem;display:flex;padding:1rem 1.2rem;justify-content:space-between;gap:1rem;background:rgba(6,29,25,.8);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;backdrop-filter:blur(12px)}.about-team__content{display:grid;padding:clamp(6rem,8vw,9rem) clamp(2rem,6vw,7rem);align-content:center}.about-team h2 em{color:var(--mint-300)}.about-team__content>p:not(.about-kicker){max-width:33rem;color:rgba(245,240,231,.64);line-height:1.75}.about-team__list{margin-top:2rem;border-top:1px solid rgba(245,240,231,.2)}.about-team__list span{display:grid;padding:1.15rem 0;grid-template-columns:3rem 1fr;border-bottom:1px solid rgba(245,240,231,.2);font-family:Georgia,serif;font-size:1.25rem}.about-team__list b{color:var(--mint-300);font-family:inherit;font-size:.55rem;letter-spacing:.12em}
+  .about-why{padding:clamp(7rem,11vw,11rem) 0}.about-why header{display:grid;grid-template-columns:.5fr 1.5fr;gap:2rem}.about-why h2{grid-column:2}.about-why__grid{display:grid;margin-top:clamp(3rem,6vw,6rem);grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(16,35,31,.2);border-left:1px solid rgba(16,35,31,.2)}.about-why article{display:grid;min-height:24rem;padding:1.5rem;align-content:space-between;border-right:1px solid rgba(16,35,31,.2);border-bottom:1px solid rgba(16,35,31,.2);transition:background .3s,color .3s,transform .3s}.about-why article:hover{background:var(--pine-950);color:var(--porcelain);transform:translateY(-.6rem)}.about-why article>span{color:var(--pine-700);font-size:.55rem;font-weight:900}.about-why article:hover>span{color:var(--mint-300)}.about-why article h3{margin:auto 0 1rem;font-family:Georgia,serif;font-size:clamp(2rem,2.8vw,3.2rem);font-weight:400;line-height:.92}.about-why article p{margin:0;color:rgba(16,35,31,.62);font-size:.78rem;line-height:1.65}.about-why article:hover p{color:rgba(245,240,231,.64)}
+  .about-technology{display:grid;min-height:100svh;grid-template-columns:.85fr 1.15fr;background:var(--pine-950);color:var(--porcelain)}.about-technology__copy{display:grid;padding:clamp(6rem,8vw,9rem) clamp(2rem,5vw,6rem);align-content:center}.about-technology h2 em{color:var(--mint-300)}.about-technology__copy>p:not(.about-kicker){max-width:34rem;color:rgba(245,240,231,.65);line-height:1.75}.about-technology ul{margin:2rem 0 0;padding:0;list-style:none;border-top:1px solid rgba(245,240,231,.2)}.about-technology li{padding:1rem 0;border-bottom:1px solid rgba(245,240,231,.2);font-family:Georgia,serif;font-size:1.3rem}.about-technology figure{min-height:100svh;margin:0;overflow:hidden}.about-technology figure img{width:100%;height:112%;object-fit:cover}
+  .about-offices{padding:clamp(7rem,11vw,11rem) 0}.about-offices header{display:grid;grid-template-columns:.5fr 1.5fr;gap:2rem}.about-offices h2{grid-column:2}.about-offices__grid{display:grid;margin-top:4rem;grid-template-columns:1fr 1fr;gap:1.2rem}.about-offices__grid a{display:grid;min-height:30rem;padding:2rem;align-content:space-between;border:1px solid rgba(16,35,31,.18);border-radius:1.2rem;background:linear-gradient(145deg,#f0ebe1,var(--paper));transition:transform .35s,background .35s}.about-offices__grid a:hover{background:var(--mint-200);transform:translateY(-.6rem)}.about-offices__grid span,.about-offices__grid b{font-size:.56rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}.about-offices__grid h3{align-self:end;margin:auto 0 1rem;font-family:Georgia,serif;font-size:clamp(2.8rem,4.5vw,5.4rem);font-weight:400;line-height:.9;letter-spacing:-.05em}.about-offices__grid p{margin:0;color:var(--pine-700)}
+  .about-reviews{min-height:92svh;padding:clamp(7rem,10vw,10rem) 0;background:var(--mint-200);color:var(--ink)}.about-reviews__inner{display:grid;min-height:70svh;align-content:space-between}.about-reviews .about-kicker{color:var(--pine-700)}.about-reviews blockquote{max-width:78rem;margin:4rem auto;font-family:Georgia,serif;font-size:clamp(3.5rem,7.4vw,8.6rem);font-weight:400;line-height:.9;letter-spacing:-.055em;text-align:center}.about-reviews__inner>div:not(.about-reviews__index){text-align:center}.about-reviews__inner>div>span{font-size:.56rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.about-reviews__inner>div>p{margin:.35rem 0;color:rgba(16,35,31,.62)}.about-reviews__index{display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center;font-size:.5rem;font-weight:900;letter-spacing:.12em}.about-reviews__index i{height:1px;background:rgba(16,35,31,.25)}
+  .about-connected{padding:clamp(7rem,11vw,11rem) 0}.about-connected header{display:grid;grid-template-columns:.5fr 1.5fr;gap:2rem}.about-connected h2{grid-column:2}.about-connected__links{margin-top:4rem;border-top:1px solid rgba(16,35,31,.2)}.about-connected__links a{display:grid;padding:1.25rem 0;grid-template-columns:.35fr 1fr auto;gap:2rem;align-items:center;border-bottom:1px solid rgba(16,35,31,.2);transition:padding .3s,background .3s}.about-connected__links a:hover{padding-right:1rem;padding-left:1rem;background:var(--mint-200)}.about-connected__links span{font-size:.55rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.about-connected__links strong{font-family:Georgia,serif;font-size:clamp(1.65rem,2.8vw,3.1rem);font-weight:400}.about-connected__links i{font-style:normal}
+  .about-faq{padding:clamp(7rem,10vw,10rem) 0}.about-faq__grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(3rem,8vw,9rem)}.about-faq header{position:sticky;top:8rem;align-self:start}.about-faq header>p:last-child{max-width:22rem;color:rgba(16,35,31,.62);line-height:1.7}.about-faq__items{border-top:1px solid rgba(16,35,31,.2)}.about-faq details{border-bottom:1px solid rgba(16,35,31,.2)}.about-faq summary{display:grid;padding:1.35rem 0;grid-template-columns:3rem 1fr auto;gap:1rem;align-items:center;cursor:pointer;list-style:none}.about-faq summary::-webkit-details-marker{display:none}.about-faq summary span{color:var(--pine-700);font-size:.53rem;font-weight:900}.about-faq summary strong{font-family:Georgia,serif;font-size:clamp(1.35rem,2.1vw,2.25rem);font-weight:400}.about-faq summary i{font-style:normal;font-size:1.5rem}.about-faq details[open] summary i{transform:rotate(45deg)}.about-faq details p{max-width:45rem;margin:0;padding:0 3rem 1.5rem;color:rgba(16,35,31,.64);font-size:.86rem;line-height:1.72}
+  [data-reveal-section] .about-kicker,[data-reveal-section] h2,[data-reveal-section] figure,[data-reveal-section] article,[data-reveal-section] .about-story__body,[data-reveal-section] .about-philosophy__content,[data-reveal-section] .about-team__content,[data-reveal-section] .about-technology__copy,[data-reveal-section] .about-faq__items{transition:transform .7s cubic-bezier(.2,.7,.2,1)}.is-pending .about-kicker,.is-pending h2,.is-pending figure,.is-pending article,.is-pending .about-story__body,.is-pending .about-philosophy__content,.is-pending .about-team__content,.is-pending .about-technology__copy,.is-pending .about-faq__items{opacity:1;transform:translateY(1.25rem)}
+  @media(max-width:68rem){.about-hero__visual{clip-path:inset(0 0 0 32%)}.about-hero__copy h1{font-size:clamp(5.3rem,12vw,8rem)}.about-story__grid{gap:2rem}.about-story header,.about-why header,.about-offices header,.about-connected header{grid-template-columns:.35fr 1.65fr}.about-philosophy,.about-team,.about-technology{grid-template-columns:1fr 1fr}.about-doctors{height:290svh}.about-doctors__sticky{padding-top:6.5rem;grid-template-columns:minmax(16rem,.72fr) minmax(0,1.28fr);gap:1.25rem 1.5rem}.about-doctors h2{font-size:clamp(3.35rem,6.5vw,4.8rem)}.about-doctors header>div{margin-top:1.25rem}.about-doctors header>div>p{font-size:.78rem}.about-doctors__viewport{max-height:min(62vh,38rem)}.doctor-card{grid-template-columns:1fr 1fr}.doctor-card>div{padding:1.6rem}.doctor-card h3{font-size:clamp(2.15rem,4.4vw,3.4rem)}.doctor-card p{font-size:.72rem}.about-why__grid{grid-template-columns:1fr 1fr}.about-why article{min-height:19rem}.about-faq__grid{grid-template-columns:.8fr 1.2fr;gap:3rem}}
+  @media(max-width:46rem){.about-hero{height:150svh}.about-hero__visual{clip-path:inset(0);}.about-hero__visual img{object-position:64% center}.about-hero__wash{background:linear-gradient(0deg,var(--pine-950) 0 26%,rgba(6,29,25,.5) 58%,rgba(6,29,25,.1)),linear-gradient(90deg,rgba(6,29,25,.3),transparent)}.about-hero__copy{align-content:end;padding:0 1rem 8rem}.about-hero__copy .about-kicker{font-size:.5rem}.about-hero__copy h1{font-size:clamp(4.1rem,18vw,5.8rem)}.about-hero__copy>p:not(.about-kicker){font-size:.78rem}.about-hero__copy>a{margin-top:1.3rem}.about-hero__rail{right:1rem;bottom:1rem;left:1rem}.about-hero__rail span:last-child,.about-hero__rail i:nth-of-type(2){display:none}.about-hero__rail{grid-template-columns:auto 1fr auto}.about-story{padding:6rem 0}.about-story__grid,.about-story header{display:block}.about-story h2{margin:1.5rem 0 2.5rem;font-size:clamp(3.5rem,16vw,5rem)}.about-story figure{min-height:31rem}.about-story__body{min-height:31rem;padding:2rem 0}.about-story__body .lead{font-size:2rem}.about-story__facts{gap:2rem}.about-philosophy,.about-team,.about-technology{display:block}.about-philosophy__image,.about-team__visual,.about-technology figure{min-height:60svh;height:60svh}.about-philosophy__content,.about-team__content,.about-technology__copy{padding:5rem 1rem}.about-philosophy h2,.about-team h2,.about-technology h2{font-size:clamp(3.4rem,15vw,4.8rem)}.about-doctors{height:auto}.about-doctors__sticky{position:relative;display:block;height:auto;padding:6rem 0}.about-doctors header.container-shell{padding-inline:1rem}.about-doctors header>div{display:block}.about-doctors h2{font-size:clamp(3.5rem,15vw,5rem)}.about-doctors header>div>p{margin-top:1.2rem}.about-doctors__viewport{height:auto;max-height:none;margin-top:2rem;overflow:visible;border-radius:0}.about-doctors__track{display:grid;width:auto;height:auto;padding:0 1rem;gap:1rem;transform:none!important}.doctor-card{position:relative;inset:auto;display:block;width:100%;height:auto;opacity:1!important;visibility:visible!important;transform:none!important}.doctor-card figure{height:min(58svh,28rem)}.doctor-card>div{min-height:0;padding:2rem}.doctor-card h3{font-size:clamp(2.75rem,13vw,4rem)}.doctor-card p{font-size:.8rem}.about-doctors__progress{display:none!important}.about-why,.about-offices,.about-connected,.about-faq{padding:6rem 0}.about-why header,.about-offices header,.about-connected header{display:block}.about-why h2,.about-offices h2,.about-connected h2,.about-faq h2{font-size:clamp(3.4rem,15vw,4.8rem)}.about-why__grid{grid-template-columns:1fr 1fr;margin-top:2.5rem}.about-why article{min-height:16rem;padding:1rem}.about-why article h3{font-size:2rem}.about-why article p{font-size:.7rem}.about-offices__grid{grid-template-columns:1fr}.about-offices__grid a{min-height:23rem}.about-reviews{min-height:80svh;padding:6rem 0}.about-reviews__inner{min-height:65svh}.about-reviews blockquote{margin:3rem 0;font-size:clamp(3.1rem,15vw,4.8rem)}.about-connected__links{margin-top:2.5rem}.about-connected__links a{grid-template-columns:1fr auto;gap:.5rem}.about-connected__links span{grid-column:1/-1}.about-connected__links strong{font-size:1.5rem}.about-faq__grid{display:block}.about-faq header{position:relative;top:auto;margin-bottom:2.5rem}.about-faq details p{padding-left:0}.about-faq summary{grid-template-columns:2rem 1fr auto}}
+  @media(prefers-reduced-motion:reduce) and (min-width:46.01rem){.about-doctors{height:auto}.about-doctors__sticky{position:relative;height:auto;display:block}.about-doctors header.container-shell{max-width:42rem;margin-bottom:2rem}.about-doctors__viewport{height:auto;max-height:none;overflow:visible}.about-doctors__track{display:grid;height:auto;gap:1rem}.doctor-card{position:relative;opacity:1;visibility:visible;min-height:32rem}.about-doctors__progress{display:none!important}}
+  @media(prefers-reduced-motion:reduce){.about-hero__visual,.about-hero__copy,.about-doctors__track,[data-about-parallax] img{transform:none!important}.is-pending .about-kicker,.is-pending h2,.is-pending figure,.is-pending article,.is-pending .about-story__body,.is-pending .about-philosophy__content,.is-pending .about-team__content,.is-pending .about-technology__copy,.is-pending .about-faq__items{opacity:1;transform:none}}
+
+  /* Keep the story image and its caption as one editorial unit. */
+  .about-story{padding:clamp(6rem,8vw,8.5rem) 0}
+  .about-story__grid{align-items:stretch}
+  .about-story figure,.about-story__body{height:clamp(34rem,66vh,44rem);min-height:0}
+  .about-story figure img{height:100%;transform:none!important}
+  .about-story__body{padding:clamp(2rem,3vw,3.5rem) 0}
+
+  /* Meet the doctors: all three portraits stay present while the active voice expands. */
+  .about-doctors{position:relative;height:300svh;background:var(--paper);color:var(--ink)}
+  .about-doctors__sticky{position:sticky;top:0;display:grid;width:100%;height:100svh;padding:clamp(6.3rem,8vh,7.5rem) max(1rem,calc((100vw - 92rem)/2 + 1rem)) 1.2rem;grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr) auto;gap:clamp(.85rem,1.7vh,1.35rem);overflow:hidden;background:var(--paper)}
+  .about-doctors header.about-doctors__intro.container-shell{display:grid;width:100%;max-width:none;margin:0;padding:0;grid-template-columns:minmax(10rem,.42fr) minmax(0,1.58fr);gap:2rem;align-items:end;justify-content:normal}
+  .about-doctors__intro .about-kicker{align-self:start;color:var(--pine-700)}
+  .about-doctors header.about-doctors__intro>div{display:grid;margin:0;grid-template-columns:minmax(0,1fr) minmax(15rem,.38fr);gap:clamp(2rem,5vw,6rem);align-items:end}
+  .about-doctors__intro h2{margin:0;color:var(--ink);font-size:clamp(3.15rem,4.7vw,5.45rem);line-height:.84}
+  .about-doctors__intro h2 em{color:var(--pine-700)}
+  .about-doctors__intro>div>p{max-width:22rem;margin:0 0 .2rem;color:rgba(16,35,31,.68);font-size:.82rem;line-height:1.65}
+  .about-doctors__viewport{position:relative;width:100%;height:100%;min-height:0;max-height:none;margin:0;align-self:stretch;overflow:visible;border:0;border-radius:0;background:transparent;isolation:isolate}
+  .about-doctors__track{display:flex;width:100%;height:100%;padding:0;gap:.85rem}
+  .about-doctors .doctor-card{position:relative;inset:auto;display:block;min-width:0;height:100%;flex:1 1 0;overflow:hidden;border:1px solid rgba(16,35,31,.18);border-radius:1.25rem;background:var(--pine-950);opacity:1;visibility:visible;transform:none;will-change:flex-grow}
+  .about-doctors .doctor-card.is-active{flex-grow:2.45}
+  .about-doctors .doctor-card figure{position:absolute;inset:0;height:auto;margin:0;overflow:hidden}
+  .about-doctors .doctor-card figure::after{position:absolute;inset:0;content:'';background:linear-gradient(0deg,rgba(4,25,21,.78) 0,rgba(4,25,21,.18) 48%,transparent 72%);pointer-events:none}
+  .about-doctors .doctor-card figure img{width:100%;height:100%;object-fit:cover;object-position:center 9%;transform:scale(1.015);transition:transform .75s cubic-bezier(.2,.7,.2,1)}
+  .about-doctors .doctor-card:nth-child(2) figure img{object-position:center 10%}
+  .about-doctors .doctor-card:nth-child(3) figure img{object-position:center 24%}
+  .about-doctors .doctor-card.is-active figure img{transform:scale(1)}
+  .doctor-card__dossier{position:absolute;right:.8rem;bottom:.8rem;left:.8rem;display:grid;min-width:0;padding:1rem;align-content:end;border-radius:.85rem;background:rgba(4,25,21,.72);color:var(--porcelain);box-shadow:none;backdrop-filter:blur(10px);transition:background .35s,color .35s,padding .35s}
+  .doctor-card.is-active .doctor-card__dossier{right:1rem;bottom:1rem;left:auto;width:min(29rem,48%);padding:clamp(1.25rem,2vw,2rem);background:var(--paper);color:var(--ink);box-shadow:0 1.5rem 4rem rgba(0,0,0,.18);backdrop-filter:none}
+  .doctor-card__dossier>span{color:var(--mint-300);font-size:.5rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+  .doctor-card.is-active .doctor-card__dossier>span{color:var(--pine-700)}
+  .doctor-card__dossier h3{max-width:28rem;margin:.65rem 0 0;font-family:Georgia,serif;font-size:clamp(1.45rem,2vw,2.25rem);font-weight:400;line-height:.9;letter-spacing:-.045em}
+  .doctor-card.is-active .doctor-card__dossier h3{margin:.8rem 0 .75rem;font-size:clamp(2.35rem,3.1vw,4rem)}
+  .doctor-card__dossier p,.doctor-card__dossier a{display:none}
+  .doctor-card.is-active .doctor-card__dossier p{display:block;max-width:27rem;margin:0;color:rgba(16,35,31,.72);font-size:.78rem;line-height:1.6}
+  .doctor-card.is-active .doctor-card__dossier a{display:flex;width:100%;margin-top:1.1rem;padding-top:.85rem;justify-content:space-between;border-top:1px solid rgba(16,35,31,.2);font-size:.54rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+  .doctor-card__dossier a b{font-size:.95rem;font-weight:400}
+  .about-doctors__chapters{display:grid;width:100%;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(16,35,31,.18);border-bottom:1px solid rgba(16,35,31,.18)}
+  .about-doctors__chapters button{display:grid;min-width:0;padding:.72rem 1rem;grid-template-columns:2rem minmax(0,1fr);gap:.65rem;align-items:center;border:0;border-right:1px solid rgba(16,35,31,.18);background:transparent;color:rgba(16,35,31,.46);font:inherit;text-align:left;cursor:pointer;transition:background .25s,color .25s}
+  .about-doctors__chapters button:last-child{border-right:0}
+  .about-doctors__chapters button[aria-current='true']{background:var(--pine-950);color:var(--porcelain)}
+  .about-doctors__chapters span{font-size:.5rem;font-weight:900;letter-spacing:.12em}
+  .about-doctors__chapters strong{overflow:hidden;font-family:Georgia,serif;font-size:clamp(.85rem,1.1vw,1.05rem);font-weight:400;white-space:nowrap;text-overflow:ellipsis}
+  .about-doctors__progress.container-shell{position:absolute;top:0;right:0;left:0;display:none}
+
+  @media(max-width:68rem) and (min-width:46.01rem){
+    .about-story figure,.about-story__body{height:clamp(32rem,58vh,40rem)}
+    .about-doctors{height:290svh}
+    .about-doctors__sticky{padding-top:6.2rem;gap:.9rem}
+    .about-doctors header.about-doctors__intro.container-shell{grid-template-columns:8.5rem minmax(0,1fr);gap:1rem}
+    .about-doctors header.about-doctors__intro>div{grid-template-columns:1fr;gap:.55rem}
+    .about-doctors__intro h2{font-size:clamp(3rem,5.9vw,4.45rem)}
+    .about-doctors__intro>div>p{max-width:30rem;font-size:.72rem}
+    .about-doctors__track{gap:.6rem}
+    .about-doctors .doctor-card.is-active{flex-grow:2.75}
+    .doctor-card.is-active .doctor-card__dossier{width:min(25rem,58%);padding:1.2rem}
+    .doctor-card.is-active .doctor-card__dossier h3{font-size:clamp(2.1rem,4vw,3.25rem)}
+    .doctor-card.is-active .doctor-card__dossier p{font-size:.7rem}
+  }
+
+  @media(max-width:46rem){
+    .about-story figure{height:31rem;min-height:31rem}
+    .about-story__body{height:auto;min-height:31rem}
+    .about-doctors{height:auto;background:var(--paper);color:var(--ink)}
+    .about-doctors__sticky{position:relative;display:block;height:auto;padding:5.5rem 0;background:var(--paper);overflow:hidden}
+    .about-doctors header.about-doctors__intro.container-shell{display:block;padding:0 1rem}
+    .about-doctors header.about-doctors__intro>div{display:block;margin-top:1.2rem}
+    .about-doctors__intro h2{font-size:clamp(3.3rem,15.3vw,4.7rem)}
+    .about-doctors__intro>div>p{max-width:22rem;margin-top:1.1rem;font-size:.78rem}
+    .about-doctors__viewport{height:auto;max-height:none;margin-top:2.5rem;overflow:visible}
+    .about-doctors__track{display:grid;width:auto;height:auto;padding:0 1rem;gap:1.25rem;transform:none!important}
+    .about-doctors .doctor-card,.about-doctors .doctor-card.is-active{position:relative;display:block;width:100%;height:auto;overflow:hidden;border:1px solid rgba(16,35,31,.18);border-radius:1.1rem;background:var(--paper);opacity:1!important;visibility:visible!important;clip-path:none!important;transform:none!important}
+    .about-doctors .doctor-card figure{position:relative;height:min(55svh,28rem)}
+    .about-doctors .doctor-card figure::after{background:linear-gradient(0deg,rgba(4,25,21,.16),transparent 50%)}
+    .about-doctors .doctor-card figure img{transform:none}
+    .doctor-card__dossier,.doctor-card.is-active .doctor-card__dossier{position:relative;right:auto;bottom:auto;left:auto;width:auto;min-width:0;padding:1.5rem;border-radius:0;background:var(--paper);color:var(--ink);box-shadow:none;backdrop-filter:none}
+    .doctor-card__dossier>span,.doctor-card.is-active .doctor-card__dossier>span{color:var(--pine-700)}
+    .doctor-card__dossier h3,.doctor-card.is-active .doctor-card__dossier h3{margin:.8rem 0;font-size:clamp(2.65rem,12vw,3.8rem)}
+    .doctor-card__dossier p,.doctor-card.is-active .doctor-card__dossier p{display:block;color:rgba(16,35,31,.72);font-size:.78rem;line-height:1.6}
+    .doctor-card__dossier a,.doctor-card.is-active .doctor-card__dossier a{display:flex;width:100%;margin-top:1.1rem;padding-top:.85rem;justify-content:space-between;border-top:1px solid rgba(16,35,31,.2);font-size:.54rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+    .about-doctors__chapters,.about-doctors__progress{display:none!important}
+  }
+
+  @media(prefers-reduced-motion:reduce) and (min-width:46.01rem){
+    .about-doctors{height:auto}
+    .about-doctors__sticky{position:relative;height:auto;padding-bottom:5rem}
+    .about-doctors__viewport{height:auto;overflow:visible}
+    .about-doctors__track{display:grid;height:auto;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .about-doctors .doctor-card,.about-doctors .doctor-card.is-active{min-height:34rem}
+    .about-doctors__chapters{display:none}
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hero = document.querySelector<HTMLElement>('[data-about-hero]');
+  if (hero && !reduced) {
+    const visual = hero.querySelector<HTMLElement>('.about-hero__visual');
+    gsap.timeline({ scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom bottom', scrub: 0.75 } })
+      .to(visual, { clipPath: 'inset(0 0 0 0%)', scale: 1.035, ease: 'none' }, 0);
+  }
+
+  const story = document.querySelector<HTMLElement>('[data-doctor-story]');
+  const track = story?.querySelector<HTMLElement>('[data-doctor-track]');
+  const progress = story?.querySelector<HTMLElement>('[data-doctor-progress]');
+  if (story && track && progress && !reduced) {
+    ScrollTrigger.matchMedia({
+      '(min-width: 737px)': () => {
+        const cards = Array.from(track.querySelectorAll<HTMLElement>('.doctor-card'));
+        const chapterButtons = Array.from(story.querySelectorAll<HTMLButtonElement>('[data-doctor-jump]'));
+        let activeIndex = 0;
+        let transition: gsap.core.Tween | null = null;
+        cards.forEach((card, index) => card.classList.toggle('is-active', index === 0));
+        const updateChapters = (nextIndex: number) => chapterButtons.forEach((button, index) => {
+          button.setAttribute('aria-current', index === nextIndex ? 'true' : 'false');
+        });
+        const showCard = (nextIndex: number) => {
+          if (nextIndex === activeIndex) return;
+          transition?.kill();
+          cards.forEach((card, index) => card.classList.toggle('is-active', index === nextIndex));
+          updateChapters(nextIndex);
+          transition = gsap.to(cards, {
+            flexGrow: (index: number) => index === nextIndex ? 2.45 : 1,
+            duration: 0.62,
+            ease: 'power3.inOut',
+            overwrite: true
+          });
+          activeIndex = nextIndex;
+        };
+        const chapterHandlers = chapterButtons.map((button, index) => {
+          const handler = () => {
+            const travel = Math.max(0, story.offsetHeight - window.innerHeight);
+            const destination = story.offsetTop + (index / Math.max(1, cards.length - 1)) * travel;
+            showCard(index);
+            window.scrollTo({ top: destination, behavior: 'smooth' });
+          };
+          button.addEventListener('click', handler);
+          return handler;
+        });
+        const trigger = ScrollTrigger.create({
+          trigger: story,
+          start: 'top top',
+          end: 'bottom bottom',
+          invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            showCard(Math.min(cards.length - 1, Math.floor(self.progress * cards.length)));
+            gsap.set(progress, { scaleX: self.progress });
+          }
+        });
+        return () => {
+          transition?.kill();
+          trigger.kill();
+          chapterButtons.forEach((button, index) => button.removeEventListener('click', chapterHandlers[index]));
+          gsap.set(cards, { clearProps: 'flexGrow' });
+        };
+      }
+    });
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-reveal-section]').forEach((section) => {
+    section.classList.add('is-pending');
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { section.classList.remove('is-pending'); observer.disconnect(); }
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+    observer.observe(section);
+  });
+
+  if (!reduced) {
+    document.querySelectorAll<HTMLElement>('[data-about-parallax]').forEach((holder) => {
+      const image = holder.querySelector<HTMLElement>('img');
+      if (!image) return;
+      gsap.fromTo(image, { yPercent: -5 }, { yPercent: 5, ease: 'none', scrollTrigger: { trigger: holder, start: 'top bottom', end: 'bottom top', scrub: 0.6 } });
+    });
+  }
+</script>

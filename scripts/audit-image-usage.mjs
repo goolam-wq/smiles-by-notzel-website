@@ -3,6 +3,7 @@ import { writeFile } from 'node:fs/promises';
 
 const routes = [
   '/',
+  '/about/',
   '/services/',
   '/service-areas/',
   '/services/cosmetic-dentistry/',
