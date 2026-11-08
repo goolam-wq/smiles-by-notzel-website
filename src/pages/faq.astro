@@ -1,0 +1,25 @@
+---
+import Navbar from '../components/Navbar.astro';
+import FaqExperience from '../components/FaqExperience.astro';
+import HubFooter from '../components/HubFooter.astro';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Clear answers about first visits, treatment comfort, pricing, insurance, office access and aftercare at Smiles by Noetzel." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Dental FAQs | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/faq/faq-nav-listening.webp" mediaAlt="A care coordinator listening carefully to a patient's question" />
+    <main>
+      <FaqExperience />
+      <HubFooter eyebrow="A question still open?" title="The clearest answer may begin with a conversation." />
+    </main>
+  </body>
+</html>

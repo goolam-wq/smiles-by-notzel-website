@@ -1,0 +1,200 @@
+---
+const categories = [
+  ['all', 'All questions'],
+  ['visit', 'Your visit'],
+  ['care', 'Care & comfort'],
+  ['pricing', 'Pricing & insurance'],
+  ['offices', 'Offices & access'],
+  ['aftercare', 'Aftercare & records'],
+];
+
+const questions = [
+  { category: 'visit', question: 'What should I bring to my first visit?', answer: 'Bring a photo ID, insurance information if you plan to use coverage, a current medication list and any recent dental records or images you already have. If another office holds your records, our team can help coordinate the transfer.' },
+  { category: 'visit', question: 'How long should I plan for a first appointment?', answer: 'Appointment length depends on the reason for your visit and the records needed. The team will confirm the expected timing when scheduling so the conversation and clinical evaluation do not feel rushed.' },
+  { category: 'visit', question: 'Can I complete forms before I arrive?', answer: 'Yes. Ask the care team for the current forms when you schedule. Completing them in advance gives the clinical team more time to understand your priorities and health history.' },
+  { category: 'visit', question: 'Can a family member join the conversation?', answer: 'Yes. A trusted family member or support person may join when helpful, subject to patient consent and the privacy needed for the visit.' },
+  { category: 'care', question: 'What if dental visits make me anxious?', answer: 'Tell the team before the appointment. They can explain the visit in smaller steps, build in pauses and discuss available comfort options such as nitrous oxide or virtual-reality support when clinically appropriate.' },
+  { category: 'care', question: 'Will treatment hurt?', answer: 'Comfort planning depends on the service. The team explains what you may feel, how the area will be kept comfortable and what to expect afterward before treatment begins.' },
+  { category: 'care', question: 'Do you care for children?', answer: 'Yes. Pediatric services include first visits, preventive exams, cleanings, fluoride, sealants and developmental guidance. The goal is to make the experience understandable and age-appropriate.' },
+  { category: 'care', question: 'What does complete-health dentistry mean here?', answer: 'It means oral findings are considered in a wider context that may include airway, sleep, inflammation and other health signals. Dental care remains coordinated with the appropriate medical professionals when needed.' },
+  { category: 'pricing', question: 'Will I receive an estimate before treatment?', answer: 'Yes. After the recommended scope is clear, the team can explain the expected fee, likely insurance contribution when available and your estimated portion before treatment is scheduled.' },
+  { category: 'pricing', question: 'Do you accept dental insurance?', answer: 'The team can review your plan information and help estimate available benefits. Coverage is determined by your insurer, so an estimate is not a guarantee of payment.' },
+  { category: 'pricing', question: 'Are payment plans available?', answer: 'Monthly options may be available for qualifying treatment. The pricing page shows fixed, monthly and yearly views, and the care team can explain which options apply to your plan.' },
+  { category: 'pricing', question: 'Why can the final cost differ from the website?', answer: 'Website pricing is a planning reference. Diagnostic findings, materials, complexity and insurance rules can change the final scope. A personal estimate follows the clinical evaluation.' },
+  { category: 'offices', question: 'Can I visit either office?', answer: 'Yes. Chicago Heights and Mokena share the same connected care philosophy. Some scheduling and advanced services may depend on the day, clinician or equipment available.' },
+  { category: 'offices', question: 'How do the two offices share my information?', answer: 'The team uses connected records and coordinated communication so the next person can understand the plan without asking you to restart the story.' },
+  { category: 'offices', question: 'Do you offer same-day emergency visits?', answer: 'Same-day emergency care is offered when scheduling and clinical capacity allow. Call first so the team can understand the symptoms, assess urgency and direct you to the right office.' },
+  { category: 'offices', question: 'What are the office hours?', answer: 'Chicago Heights is open Monday through Thursday 7:30 AM–7 PM, Friday 7:30 AM–12 PM and Saturday 8 AM–12 PM. Mokena is open Monday 8 AM–7 PM, Thursday 9:30 AM–6 PM and every other Saturday 8 AM–12 PM. Saturday hours may vary.' },
+  { category: 'aftercare', question: 'Who do I call with a question after treatment?', answer: 'Call the office that coordinated your visit. If the office is closed and the concern feels urgent, follow the aftercare instructions you received and use the emergency contact guidance provided by the team.' },
+  { category: 'aftercare', question: 'How do I request records or x-rays?', answer: 'Contact the care team and specify what records are needed and where they should be sent. A signed authorization may be required to protect your privacy.' },
+  { category: 'aftercare', question: 'What if my symptoms change before my appointment?', answer: 'Call the team. New swelling, fever, trauma, uncontrolled bleeding or rapidly increasing pain can change the urgency and the most appropriate next step.' },
+  { category: 'aftercare', question: 'How will I know what happens next?', answer: 'Before you leave, the team will review the recommended next step, expected timing, relevant home care and who to contact if something changes.' },
+];
+---
+
+<section class="faq-hero" data-hero-stage data-faq-hero>
+  <img class="faq-hero__image" src="/images/generated/unique/faq/faq-hero-clear-answers.webp" alt="A dentist calmly answering a patient's questions while reviewing a care plan" />
+  <div class="faq-hero__wash"></div>
+  <div class="faq-shell faq-hero__content">
+    <p class="faq-kicker">Questions, answered · 01</p>
+    <h1>Clear answers.<br /><em>Calmer decisions.</em></h1>
+    <p class="faq-hero__intro">The useful answer is not the fastest one. It is the one that gives you enough context to understand the next step.</p>
+    <a class="faq-pill" href="#question-library">Find your question <span>↓</span></a>
+  </div>
+  <div class="faq-shell faq-hero__foot"><span>Visit</span><i></i><span>Care</span><i></i><span>Cost</span><i></i><span>Aftercare</span></div>
+</section>
+
+<section class="faq-navigator faq-light" data-faq-reveal>
+  <div class="faq-shell">
+    <header><p class="faq-kicker">02 · Start with the subject</p><h2>One question can<br /><em>change the whole visit.</em></h2></header>
+    <div class="faq-navigator__grid">
+      <p>Choose a subject to move directly into the full answer library. You can change the filter at any time.</p>
+      <div class="faq-category-list">
+        {categories.slice(1).map(([id, label], index) => <button type="button" data-jump-category={id}><span>{String(index + 1).padStart(2, '0')}</span><strong>{label}</strong><i>↘</i></button>)}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-first" data-faq-reveal>
+  <div class="faq-shell faq-first__grid">
+    <figure><img src="/images/generated/unique/faq/faq-first-visit-welcome.webp" alt="A care coordinator answering questions for a father and teenage daughter" loading="lazy" /></figure>
+    <div class="faq-first__copy">
+      <p class="faq-kicker">03 · Before the first visit</p>
+      <h2>Arrive with context.<br /><em>Not uncertainty.</em></h2>
+      <div class="faq-first__steps">
+        <article><span>01</span><div><h3>Share the reason</h3><p>Tell us what brings you in and what you hope the visit will clarify.</p></div></article>
+        <article><span>02</span><div><h3>Bring the picture</h3><p>Insurance details, medication lists and existing records help connect the clinical context.</p></div></article>
+        <article><span>03</span><div><h3>Ask without editing</h3><p>There is no need to make the question sound clinical. Start with what you notice or feel.</p></div></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-comfort faq-light" data-faq-reveal>
+  <div class="faq-shell faq-comfort__grid">
+    <header><p class="faq-kicker">04 · Care & comfort</p><h2>Understanding is<br /><em>part of comfort.</em></h2><p>Knowing what happens, why it is recommended and how you will be supported can make a clinical visit feel much smaller.</p></header>
+    <div class="faq-comfort__cards">
+      <article><span>01</span><h3>Before</h3><p>Tell the team about anxiety, sensitivity, past experiences or the need for breaks.</p></article>
+      <article><span>02</span><h3>During</h3><p>Expect clear cues, agreed pauses and comfort options matched to the service.</p></article>
+      <article><span>03</span><h3>After</h3><p>Leave with written next steps, realistic recovery guidance and a number to call.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="faq-pricing" data-faq-reveal>
+  <div class="faq-shell faq-pricing__grid">
+    <div>
+      <p class="faq-kicker">05 · Price & coverage</p>
+      <h2>Know the number.<br /><em>Know its boundaries.</em></h2>
+      <p>Insurance estimates and website prices are planning tools. The personal number follows the records, evaluation and final scope.</p>
+      <a href="/pricing/">Explore pricing views ↗</a>
+    </div>
+    <div class="faq-pricing__ledger">
+      <article><span>01</span><strong>Fixed</strong><p>A clear starting fee for defined services.</p></article>
+      <article><span>02</span><strong>Monthly</strong><p>A planning view when qualifying options apply.</p></article>
+      <article><span>03</span><strong>Yearly</strong><p>A wider look at preventive and phased care.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="faq-offices faq-light" data-faq-reveal>
+  <div class="faq-shell faq-offices__grid">
+    <figure><img src="/images/generated/unique/faq/faq-two-offices-team.webp" alt="Care coordinators sharing a schedule between two connected offices" loading="lazy" /></figure>
+    <div>
+      <p class="faq-kicker">06 · Two offices, one standard</p>
+      <h2>Choose the door.<br /><em>Keep the connection.</em></h2>
+      <p>Records, context and the next step stay connected across Chicago Heights and Mokena.</p>
+      <nav aria-label="FAQ office links"><a href="/service-areas/chicago-heights/"><span>01</span><strong>Chicago Heights</strong><i>500 Ashland Ave, Suite #2 ↗</i></a><a href="/service-areas/mokena/"><span>02</span><strong>Mokena</strong><i>19160 88th Avenue ↗</i></a></nav>
+    </div>
+  </div>
+</section>
+
+<section class="faq-library" id="question-library" data-faq-reveal>
+  <div class="faq-shell">
+    <header class="faq-library__head">
+      <div><p class="faq-kicker">07 · The full answer library</p><h2>Ask the question<br /><em>you actually have.</em></h2></div>
+      <label class="faq-search"><span>Search all questions</span><input type="search" placeholder="Try “insurance” or “first visit”" data-faq-search /></label>
+    </header>
+    <div class="faq-filters" role="group" aria-label="Filter questions">
+      {categories.map(([id, label], index) => <button type="button" class={index === 0 ? 'active' : ''} aria-pressed={index === 0 ? 'true' : 'false'} data-faq-filter={id}>{label}</button>)}
+    </div>
+    <div class="faq-library__grid">
+      <aside><span data-faq-count>{String(questions.length).padStart(2, '0')}</span><p>answers currently visible</p><a href="/contact/#appointment-form">Ask the team directly ↗</a></aside>
+      <div class="faq-questions" data-faq-list>
+        {questions.map((item, index) => (
+          <details data-faq-item data-category={item.category} data-search={`${item.question} ${item.answer}`.toLowerCase()} open={index === 0}>
+            <summary><span>{String(index + 1).padStart(2, '0')}</span><strong>{item.question}</strong><i>+</i></summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
+        <p class="faq-empty" data-faq-empty>No matching answer yet. Try a shorter phrase or ask the team directly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-still faq-light" data-faq-reveal>
+  <div class="faq-shell faq-still__grid"><p class="faq-kicker">08 · Still unsure?</p><h2>Some questions<br /><em>need a conversation.</em></h2><div><p>If your question depends on symptoms, timing or a personal treatment plan, the most useful answer begins with the team.</p><a href="/contact/#appointment-form">Start a conversation ↗</a></div></div>
+</section>
+
+<style>
+  .faq-shell{width:min(100% - 3rem,92rem);margin-inline:auto}.faq-kicker{display:flex;align-items:center;gap:.8rem;margin:0;font-size:.62rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase}.faq-kicker:before{width:2rem;height:1px;background:currentColor;content:""}.faq-light{background:var(--paper);color:var(--ink)}
+  .faq-hero{position:relative;min-height:100svh;overflow:hidden;background:var(--pine-950);color:var(--porcelain)}.faq-hero__image,.faq-hero__wash{position:absolute;inset:0;width:100%;height:100%}.faq-hero__image{object-fit:cover}.faq-hero__wash{background:linear-gradient(90deg,rgba(6,29,25,.98) 0 33%,rgba(6,29,25,.62) 48%,rgba(6,29,25,.08) 72%)}.faq-hero__content{position:relative;z-index:2;display:flex;min-height:100svh;padding:10rem 0 7rem;flex-direction:column;justify-content:center}.faq-hero .faq-kicker{color:var(--mint-300)}.faq-hero h1{max-width:62rem;margin:1.3rem 0;font:400 clamp(4.8rem,8vw,9rem)/.82 Georgia,serif;letter-spacing:-.065em}.faq-hero h1 em{color:var(--mint-300);font-weight:400}.faq-hero__intro{max-width:36rem;color:rgba(245,240,231,.75);font-size:clamp(.92rem,1.2vw,1.12rem);line-height:1.65}.faq-pill{display:flex;width:min(100%,19rem);margin-top:2rem;padding:.5rem .5rem .5rem 1.25rem;align-items:center;justify-content:space-between;border:1px solid rgba(245,240,231,.45);border-radius:999px;font-size:.58rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.faq-pill span{display:grid;width:2.7rem;aspect-ratio:1;place-items:center;border-radius:50%;background:var(--mint-300);color:var(--pine-950)}.faq-hero__foot{position:absolute;right:0;bottom:1.5rem;left:0;z-index:3;display:flex;align-items:center;gap:1rem;color:rgba(245,240,231,.75);font-size:.5rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.faq-hero__foot i{height:1px;flex:1;background:rgba(245,240,231,.28)}
+  .faq-navigator,.faq-first,.faq-comfort,.faq-pricing,.faq-offices,.faq-library,.faq-still{padding:clamp(6rem,9vw,10rem) 0}.faq-navigator{padding-bottom:clamp(4rem,6vw,6rem)}.faq-navigator header{display:grid;grid-template-columns:.62fr 1.38fr;gap:2rem}.faq-navigator h2,.faq-first h2,.faq-comfort h2,.faq-pricing h2,.faq-offices h2,.faq-library h2,.faq-still h2{margin:1.2rem 0;font:400 clamp(3.7rem,6.3vw,7.2rem)/.87 Georgia,serif;letter-spacing:-.06em}.faq-navigator h2{grid-column:2}.faq-navigator h2 em,.faq-first h2 em,.faq-comfort h2 em,.faq-pricing h2 em,.faq-offices h2 em,.faq-library h2 em,.faq-still h2 em{color:var(--pine-700);font-weight:400}.faq-navigator__grid{display:grid;margin-top:4rem;grid-template-columns:.65fr 1.35fr;gap:5vw}.faq-navigator__grid>p{max-width:26rem;color:#63716c;line-height:1.7}.faq-category-list{border-top:1px solid rgba(16,35,31,.2)}.faq-category-list button{display:grid;width:100%;padding:1.35rem 0;grid-template-columns:3rem 1fr auto;gap:1rem;align-items:center;border:0;border-bottom:1px solid rgba(16,35,31,.2);background:transparent;color:inherit;text-align:left;cursor:pointer}.faq-category-list span{color:var(--pine-700);font-size:.55rem}.faq-category-list strong{font:400 clamp(1.55rem,2.5vw,2.8rem) Georgia,serif}.faq-category-list i{font-style:normal}.faq-category-list button:hover strong{color:var(--pine-700)}
+  .faq-first{background:var(--pine-950);color:var(--porcelain)}.faq-first__grid{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(3rem,7vw,8rem);align-items:center}.faq-first figure{height:min(67vw,48rem);margin:0;overflow:hidden;border-radius:18rem 18rem 1rem 1rem}.faq-first figure img{width:100%;height:100%;object-fit:cover}.faq-first .faq-kicker{color:var(--mint-300)}.faq-first h2 em{color:var(--mint-300)}.faq-first__steps{border-top:1px solid rgba(245,240,231,.2)}.faq-first__steps article{display:grid;padding:1.3rem 0;grid-template-columns:2.5rem 1fr;gap:1rem;border-bottom:1px solid rgba(245,240,231,.2)}.faq-first__steps span{color:var(--mint-300);font-size:.55rem}.faq-first__steps h3{margin:0 0 .35rem;font:400 1.65rem Georgia,serif}.faq-first__steps p{margin:0;color:rgba(245,240,231,.6);font-size:.78rem;line-height:1.6}
+  .faq-comfort__grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(3rem,8vw,9rem)}.faq-comfort header{position:sticky;top:8rem;align-self:start}.faq-comfort header>p:last-child{max-width:31rem;color:#61706b;line-height:1.7}.faq-comfort__cards{border-top:1px solid rgba(16,35,31,.2)}.faq-comfort__cards article{display:grid;min-height:14rem;padding:1.6rem 0;grid-template-columns:3rem 1fr;gap:1rem;border-bottom:1px solid rgba(16,35,31,.2);align-content:center}.faq-comfort__cards span{color:var(--pine-700);font-size:.55rem}.faq-comfort__cards h3{margin:0;font:400 clamp(2.2rem,4vw,4.4rem) Georgia,serif}.faq-comfort__cards p{grid-column:2;max-width:33rem;margin:0;color:#62706b;line-height:1.65}
+  .faq-pricing{background:#0a2923;color:var(--porcelain)}.faq-pricing__grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(3rem,8vw,9rem);align-items:end}.faq-pricing .faq-kicker{color:var(--mint-300)}.faq-pricing h2 em{color:var(--mint-300)}.faq-pricing__grid>div:first-child>p:not(.faq-kicker){max-width:35rem;color:rgba(245,240,231,.64);line-height:1.7}.faq-pricing__grid>div:first-child>a{display:inline-block;margin-top:1rem;padding-bottom:.3rem;border-bottom:1px solid currentColor;font-size:.6rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.faq-pricing__ledger{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(245,240,231,.2);border-bottom:1px solid rgba(245,240,231,.2)}.faq-pricing__ledger article{min-height:19rem;padding:1.4rem;border-right:1px solid rgba(245,240,231,.2)}.faq-pricing__ledger article:last-child{border:0}.faq-pricing__ledger span{color:var(--mint-300);font-size:.55rem}.faq-pricing__ledger strong{display:block;margin:6rem 0 1rem;font:400 2.6rem Georgia,serif}.faq-pricing__ledger p{color:rgba(245,240,231,.58);font-size:.72rem;line-height:1.6}
+  .faq-offices__grid{display:grid;grid-template-columns:1.18fr .82fr;gap:clamp(3rem,7vw,8rem);align-items:center}.faq-offices figure{height:min(58vw,40rem);margin:0;overflow:hidden;border-radius:1.2rem}.faq-offices figure img{width:100%;height:100%;object-fit:cover}.faq-offices__grid>div>p:not(.faq-kicker){color:#61706b;line-height:1.7}.faq-offices nav{margin-top:2rem;border-top:1px solid rgba(16,35,31,.2)}.faq-offices nav a{display:grid;padding:1.15rem 0;grid-template-columns:2.5rem 1fr;gap:.6rem 1rem;border-bottom:1px solid rgba(16,35,31,.2)}.faq-offices nav span{color:var(--pine-700);font-size:.52rem}.faq-offices nav strong{font:400 1.5rem Georgia,serif}.faq-offices nav i{grid-column:2;color:#65726d;font-size:.62rem;font-style:normal}
+  .faq-library{background:var(--pine-950);color:var(--porcelain)}.faq-library .faq-kicker{color:var(--mint-300)}.faq-library h2 em{color:var(--mint-300)}.faq-library__head{display:grid;grid-template-columns:1.25fr .75fr;gap:3rem;align-items:end}.faq-search{display:grid;gap:.7rem;padding-bottom:1.3rem}.faq-search span{color:var(--mint-300);font-size:.55rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.faq-search input{width:100%;padding:0 0 .8rem;border:0;border-bottom:1px solid rgba(245,240,231,.4);outline:0;background:transparent;color:var(--porcelain);font:400 1.3rem Georgia,serif}.faq-search input::placeholder{color:rgba(245,240,231,.4)}.faq-filters{display:flex;margin:2.5rem 0 3.5rem;gap:.6rem;flex-wrap:wrap}.faq-filters button{padding:.7rem 1rem;border:1px solid rgba(245,240,231,.25);border-radius:999px;background:transparent;color:var(--porcelain);font-size:.52rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}.faq-filters button.active{border-color:var(--mint-300);background:var(--mint-300);color:var(--pine-950)}.faq-library__grid{display:grid;grid-template-columns:.35fr 1.65fr;gap:clamp(2rem,6vw,7rem)}.faq-library aside{position:sticky;top:8rem;height:max-content}.faq-library aside>span{font:400 clamp(5rem,8vw,8rem) Georgia,serif;color:var(--mint-300)}.faq-library aside p{max-width:8rem;color:rgba(245,240,231,.5);font-size:.6rem;line-height:1.5;text-transform:uppercase}.faq-library aside a{display:inline-block;margin-top:2rem;padding-bottom:.3rem;border-bottom:1px solid rgba(245,240,231,.4);font-size:.55rem;font-weight:850;text-transform:uppercase}.faq-questions{border-top:1px solid rgba(245,240,231,.2)}.faq-questions details{border-bottom:1px solid rgba(245,240,231,.2)}.faq-questions summary{display:grid;padding:1.5rem 0;grid-template-columns:2.7rem 1fr auto;gap:1rem;align-items:center;list-style:none;cursor:pointer}.faq-questions summary::-webkit-details-marker{display:none}.faq-questions summary span{color:var(--mint-300);font-size:.52rem}.faq-questions summary strong{font:400 clamp(1.3rem,2vw,2.1rem) Georgia,serif}.faq-questions summary i{font-style:normal;transition:transform .25s}.faq-questions details[open] summary i{transform:rotate(45deg)}.faq-questions details p{max-width:48rem;margin:0;padding:0 2rem 1.5rem 3.7rem;color:rgba(245,240,231,.62);line-height:1.7}.faq-questions details[hidden]{display:none}.faq-empty{display:none;color:rgba(245,240,231,.65);line-height:1.7}.faq-empty.visible{display:block}
+  .faq-still__grid{display:grid;grid-template-columns:.45fr 1.1fr .55fr;gap:clamp(2rem,5vw,6rem);align-items:end}.faq-still h2{margin:0}.faq-still__grid>div p{color:#61706b;line-height:1.7}.faq-still__grid>div a{display:inline-block;margin-top:1rem;padding-bottom:.3rem;border-bottom:1px solid currentColor;font-size:.6rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}
+  @media(max-width:68rem){.faq-navigator header,.faq-navigator__grid{grid-template-columns:.45fr 1.55fr}.faq-first__grid,.faq-offices__grid{grid-template-columns:1fr 1fr}.faq-pricing__grid{grid-template-columns:1fr}.faq-library__head{grid-template-columns:1fr}.faq-still__grid{grid-template-columns:1fr 1.5fr}.faq-still__grid>div{grid-column:2}}
+  @media(max-width:48rem){.faq-shell{width:min(100% - 1.5rem,92rem)}.faq-hero__wash{background:linear-gradient(180deg,rgba(6,29,25,.12),rgba(6,29,25,.84) 55%,rgba(6,29,25,.98))}.faq-hero__image{object-position:67% center}.faq-hero__content{padding:8rem 0 5.5rem;justify-content:flex-end}.faq-hero h1{font-size:clamp(3.6rem,16vw,5.2rem)}.faq-hero__intro{font-size:.84rem}.faq-hero__foot span:nth-of-type(n+3),.faq-hero__foot i:nth-of-type(n+2){display:none}.faq-navigator header,.faq-navigator__grid,.faq-first__grid,.faq-comfort__grid,.faq-offices__grid,.faq-library__grid,.faq-still__grid{grid-template-columns:1fr}.faq-navigator h2{grid-column:auto}.faq-navigator h2,.faq-first h2,.faq-comfort h2,.faq-pricing h2,.faq-offices h2,.faq-library h2,.faq-still h2{font-size:clamp(3.25rem,14vw,4.7rem)}.faq-navigator__grid{margin-top:2rem}.faq-category-list button{grid-template-columns:2rem 1fr auto}.faq-first figure{height:34rem;border-radius:12rem 12rem .8rem .8rem}.faq-comfort header,.faq-library aside{position:static}.faq-comfort__cards{margin-top:2rem}.faq-comfort__cards article{min-height:12rem;grid-template-columns:2rem 1fr}.faq-pricing__ledger{grid-template-columns:1fr}.faq-pricing__ledger article{min-height:0;border-right:0;border-bottom:1px solid rgba(245,240,231,.2)}.faq-pricing__ledger strong{margin:2rem 0 .6rem}.faq-offices figure{height:28rem}.faq-library aside{display:flex;align-items:baseline;gap:1rem}.faq-library aside>span{font-size:4rem}.faq-library aside a{margin-left:auto}.faq-questions summary{grid-template-columns:2rem 1fr auto}.faq-questions details p{padding-left:0}.faq-still__grid>div{grid-column:auto}}
+  @media(prefers-reduced-motion:reduce){[data-faq-hero] *,[data-faq-reveal]>*{transform:none!important;opacity:1!important}}
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced) {
+    gsap.from('[data-faq-hero] .faq-kicker, [data-faq-hero] h1, [data-faq-hero] .faq-hero__intro, [data-faq-hero] .faq-pill', { y: 34, opacity: 0, duration: .85, stagger: .1, ease: 'power3.out', delay: .15 });
+    gsap.from('[data-faq-hero] .faq-hero__image', { scale: 1.07, duration: 1.7, ease: 'power3.out' });
+    document.querySelectorAll<HTMLElement>('[data-faq-reveal]').forEach((section) => gsap.from(section.children, { y: 28, opacity: 0, duration: .72, stagger: .07, ease: 'power2.out', scrollTrigger: { trigger: section, start: 'top 84%', once: true } }));
+  }
+
+  const items = [...document.querySelectorAll<HTMLElement>('[data-faq-item]')];
+  const filters = [...document.querySelectorAll<HTMLButtonElement>('[data-faq-filter]')];
+  const search = document.querySelector<HTMLInputElement>('[data-faq-search]');
+  const count = document.querySelector<HTMLElement>('[data-faq-count]');
+  const empty = document.querySelector<HTMLElement>('[data-faq-empty]');
+  let active = 'all';
+
+  const applyFilter = () => {
+    const query = search?.value.trim().toLowerCase() || '';
+    let visible = 0;
+    items.forEach((item) => {
+      const matchesCategory = active === 'all' || item.dataset.category === active;
+      const matchesSearch = !query || (item.dataset.search || '').includes(query);
+      item.hidden = !(matchesCategory && matchesSearch);
+      if (!item.hidden) visible += 1;
+    });
+    if (count) count.textContent = String(visible).padStart(2, '0');
+    empty?.classList.toggle('visible', visible === 0);
+    requestAnimationFrame(() => ScrollTrigger.refresh());
+  };
+
+  filters.forEach((button) => button.addEventListener('click', () => {
+    active = button.dataset.faqFilter || 'all';
+    filters.forEach((item) => { const selected = item === button; item.classList.toggle('active', selected); item.setAttribute('aria-pressed', String(selected)); });
+    applyFilter();
+  }));
+  search?.addEventListener('input', applyFilter);
+  document.querySelectorAll<HTMLButtonElement>('[data-jump-category]').forEach((button) => button.addEventListener('click', () => {
+    const target = button.dataset.jumpCategory || 'all';
+    filters.find((filter) => filter.dataset.faqFilter === target)?.click();
+    document.querySelector('#question-library')?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+  }));
+</script>
