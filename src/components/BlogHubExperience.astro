@@ -1,0 +1,105 @@
+---
+import { blogPosts, blogHref } from '../data/blogData';
+
+const categories = ['All stories', ...new Set(blogPosts.map((post) => post.category))];
+const featured = blogPosts.find((post) => post.featured) ?? blogPosts[0];
+---
+
+<section class="blog-hero" data-hero-stage data-blog-hero>
+  <img src="/images/generated/unique/blog/blog-hub-hero-editorial.webp" alt="A dentist and patient reviewing an oral-health plan together" />
+  <div class="blog-hero__veil"></div>
+  <div class="blog-shell blog-hero__content">
+    <p class="blog-kicker">The care journal · ideas made useful</p>
+    <h1>Context before<br /><em>the conclusion.</em></h1>
+    <p>Clear, human guidance for understanding your smile, your health and the decisions that connect them.</p>
+    <a href="#all-stories">Explore the journal <span>↓</span></a>
+  </div>
+  <div class="blog-shell blog-hero__index"><span>Complete health</span><i></i><span>Prevention</span><i></i><span>Family</span><i></i><span>Smile design</span></div>
+</section>
+
+<section class="blog-feature blog-light" data-blog-reveal>
+  <div class="blog-shell">
+    <header><p class="blog-kicker">01 · Featured perspective</p><p>One considered read, selected by the clinical team.</p></header>
+    <a class="blog-feature__card" href={blogHref(featured)}>
+      <figure><img src="/images/generated/unique/blog/blog-featured-complete-health.webp" alt="A dentist and patient reviewing a complete-health care plan together" loading="lazy" /></figure>
+      <article>
+        <div><span>{featured.category}</span><span>{featured.readTime}</span></div>
+        <h2>{featured.title}</h2>
+        <p>{featured.excerpt}</p>
+        <strong>Read the full perspective ↗</strong>
+      </article>
+    </a>
+  </div>
+</section>
+
+<section class="blog-topics" data-blog-reveal>
+  <div class="blog-shell blog-topics__grid">
+    <div><p class="blog-kicker">02 · Follow your question</p><h2>Start with what<br /><em>matters today.</em></h2></div>
+    <div class="blog-topics__list">
+      {categories.slice(1).map((category, index) => <button type="button" data-topic-jump={category}><span>{String(index + 1).padStart(2, '0')}</span><strong>{category}</strong><i>↘</i></button>)}
+    </div>
+  </div>
+</section>
+
+<section class="blog-index blog-light" id="all-stories" data-blog-reveal>
+  <div class="blog-shell">
+    <header class="blog-index__head"><div><p class="blog-kicker">03 · All stories</p><h2>Useful enough to<br /><em>carry with you.</em></h2></div><p>No clinical jargon for its own sake. Each story is written to make the next conversation more informed.</p></header>
+    <div class="blog-filters" role="group" aria-label="Filter blog posts">
+      {categories.map((category, index) => <button type="button" class={index === 0 ? 'active' : ''} aria-pressed={String(index === 0)} data-blog-filter={category}>{category}</button>)}
+    </div>
+    <div class="blog-list" data-blog-list>
+      {blogPosts.map((post, index) => (
+        <a href={blogHref(post)} data-blog-post data-category={post.category}>
+          <span class="blog-list__number">{String(index + 1).padStart(2, '0')}</span>
+          <figure><img src={post.image} alt={post.imageAlt} loading="lazy" /></figure>
+          <article><div><span>{post.category}</span><span>{post.date}</span></div><h3>{post.title}</h3><p>{post.excerpt}</p></article>
+          <div class="blog-list__read"><span>{post.readTime}</span><i>↗</i></div>
+        </a>
+      ))}
+      <p class="blog-empty" data-blog-empty>No story matches this topic yet.</p>
+    </div>
+  </div>
+</section>
+
+<section class="blog-promise" data-blog-reveal>
+  <div class="blog-shell blog-promise__grid">
+    <p class="blog-kicker">04 · A useful boundary</p>
+    <h2>Education opens<br /><em>the conversation.</em></h2>
+    <div><p>These articles offer context—not a diagnosis. Your records, exam and personal priorities are what turn general guidance into a responsible plan.</p><a href="/contact/#appointment-form">Bring us your question ↗</a></div>
+  </div>
+</section>
+
+<style>
+  .blog-shell{width:min(100% - 3rem,92rem);margin-inline:auto}.blog-kicker{display:flex;align-items:center;gap:.8rem;margin:0;font-size:.62rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase}.blog-kicker:before{width:2rem;height:1px;background:currentColor;content:""}.blog-light{background:var(--paper);color:var(--ink)}
+  .blog-hero{position:relative;min-height:100svh;overflow:hidden;background:var(--pine-950);color:var(--porcelain)}.blog-hero>img,.blog-hero__veil{position:absolute;inset:0;width:100%;height:100%}.blog-hero>img{object-fit:cover;object-position:center}.blog-hero__veil{background:linear-gradient(90deg,rgba(6,29,25,.98) 0 38%,rgba(6,29,25,.68) 53%,rgba(6,29,25,.1) 78%)}.blog-hero__content{position:relative;z-index:1;display:flex;min-height:100svh;padding:10rem 0 7rem;flex-direction:column;justify-content:center}.blog-hero .blog-kicker{color:var(--mint-300)}.blog-hero h1{max-width:72rem;margin:1.2rem 0;font:400 clamp(4.8rem,8.2vw,9.2rem)/.82 Georgia,serif;letter-spacing:-.065em}.blog-hero h1 em{color:var(--mint-300);font-weight:400}.blog-hero__content>p:last-of-type{max-width:34rem;color:rgba(245,240,231,.72);line-height:1.7}.blog-hero__content>a{display:flex;width:min(100%,19rem);margin-top:2rem;padding:.45rem .45rem .45rem 1.2rem;align-items:center;justify-content:space-between;border:1px solid rgba(245,240,231,.38);border-radius:999px;font-size:.58rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.blog-hero__content>a span{display:grid;width:2.7rem;aspect-ratio:1;place-items:center;border-radius:50%;background:var(--mint-300);color:var(--pine-950)}.blog-hero__index{position:absolute;right:0;bottom:1.5rem;left:0;z-index:1;display:flex;align-items:center;gap:1rem;color:rgba(245,240,231,.72);font-size:.5rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.blog-hero__index i{height:1px;flex:1;background:rgba(245,240,231,.25)}
+  .blog-feature,.blog-topics,.blog-index,.blog-promise{padding:clamp(6rem,9vw,10rem) 0}.blog-feature header{display:flex;margin-bottom:2.5rem;align-items:center;justify-content:space-between;gap:2rem}.blog-feature header>p:last-child{max-width:23rem;color:#62706b;line-height:1.6}.blog-feature__card{display:grid;grid-template-columns:1.14fr .86fr;overflow:hidden;border:1px solid rgba(16,35,31,.18);border-radius:1.2rem;background:var(--porcelain)}.blog-feature figure{min-height:38rem;margin:0;overflow:hidden}.blog-feature img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}.blog-feature__card:hover img{transform:scale(1.035)}.blog-feature article{display:flex;padding:clamp(2rem,5vw,5rem);flex-direction:column;justify-content:center}.blog-feature article>div,.blog-list article>div{display:flex;justify-content:space-between;gap:1rem;color:var(--pine-700);font-size:.55rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.blog-feature h2{margin:2rem 0;font:400 clamp(3rem,5vw,5.7rem)/.9 Georgia,serif;letter-spacing:-.06em}.blog-feature article>p{color:#61706b;line-height:1.75}.blog-feature article>strong{margin-top:2rem;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase}
+  .blog-topics{background:var(--pine-950);color:var(--porcelain)}.blog-topics__grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(3rem,8vw,9rem)}.blog-topics .blog-kicker{color:var(--mint-300)}.blog-topics h2,.blog-index h2,.blog-promise h2{margin:1.2rem 0;font:400 clamp(3.7rem,6.3vw,7rem)/.87 Georgia,serif;letter-spacing:-.06em}.blog-topics h2 em,.blog-promise h2 em{color:var(--mint-300);font-weight:400}.blog-topics__list{border-top:1px solid rgba(245,240,231,.2)}.blog-topics__list button{display:grid;width:100%;padding:1.45rem 0;grid-template-columns:3rem 1fr auto;gap:1rem;align-items:center;border:0;border-bottom:1px solid rgba(245,240,231,.2);background:transparent;color:inherit;text-align:left;cursor:pointer}.blog-topics__list span{color:var(--mint-300);font-size:.55rem}.blog-topics__list strong{font:400 clamp(1.8rem,3vw,3rem) Georgia,serif}.blog-topics__list i{font-style:normal}.blog-topics__list button:hover strong{color:var(--mint-300)}
+  .blog-index__head{display:grid;grid-template-columns:1.35fr .65fr;gap:3rem;align-items:end}.blog-index__head>p{max-width:28rem;color:#61706b;line-height:1.7}.blog-index h2 em{color:var(--pine-700);font-weight:400}.blog-filters{display:flex;margin:2rem 0 3rem;gap:.6rem;flex-wrap:wrap}.blog-filters button{padding:.7rem 1rem;border:1px solid rgba(16,35,31,.22);border-radius:999px;background:transparent;color:inherit;font-size:.52rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}.blog-filters button.active{border-color:var(--pine-700);background:var(--pine-700);color:var(--porcelain)}.blog-list{border-top:1px solid rgba(16,35,31,.2)}.blog-list>a{display:grid;min-height:18rem;padding:1.2rem 0;grid-template-columns:3rem minmax(14rem,.66fr) 1.34fr 7rem;gap:clamp(1rem,3vw,3rem);align-items:center;border-bottom:1px solid rgba(16,35,31,.2)}.blog-list>a[hidden]{display:none}.blog-list__number{align-self:start;padding-top:.5rem;color:var(--pine-700);font-size:.55rem}.blog-list figure{height:15.5rem;margin:0;overflow:hidden;border-radius:.8rem}.blog-list img{width:100%;height:100%;object-fit:cover;transition:transform .65s ease}.blog-list>a:hover img{transform:scale(1.04)}.blog-list h3{max-width:48rem;margin:1.1rem 0;font:400 clamp(2rem,3.5vw,3.8rem)/.95 Georgia,serif;letter-spacing:-.045em}.blog-list article>p{max-width:48rem;margin:0;color:#61706b;line-height:1.65}.blog-list__read{display:grid;gap:2rem;justify-items:end;font-size:.52rem;font-weight:850;text-transform:uppercase}.blog-list__read i{font:400 2rem Georgia,serif}.blog-empty{display:none;padding:2rem 0;color:#61706b}.blog-empty.visible{display:block}
+  .blog-promise{background:#0a2923;color:var(--porcelain)}.blog-promise__grid{display:grid;grid-template-columns:.45fr 1.1fr .55fr;gap:clamp(2rem,5vw,6rem);align-items:end}.blog-promise .blog-kicker{color:var(--mint-300)}.blog-promise h2{margin:0}.blog-promise__grid>div p{color:rgba(245,240,231,.62);line-height:1.7}.blog-promise__grid>div a{display:inline-block;margin-top:1rem;padding-bottom:.3rem;border-bottom:1px solid currentColor;font-size:.58rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}
+  @media(max-width:68rem){.blog-feature__card{grid-template-columns:1fr}.blog-feature figure{min-height:32rem}.blog-topics__grid{grid-template-columns:.8fr 1.2fr}.blog-index__head{grid-template-columns:1fr}.blog-list>a{grid-template-columns:2rem 15rem 1fr}.blog-list__read{grid-column:3;justify-items:start;display:flex}.blog-promise__grid{grid-template-columns:1fr 1.5fr}.blog-promise__grid>div{grid-column:2}}
+  @media(max-width:48rem){.blog-shell{width:min(100% - 1.5rem,92rem)}.blog-hero__veil{background:linear-gradient(180deg,rgba(6,29,25,.05),rgba(6,29,25,.72) 48%,rgba(6,29,25,.98))}.blog-hero>img{object-position:64% center}.blog-hero__content{padding:8rem 0 5.8rem;justify-content:flex-end}.blog-hero h1{font-size:clamp(3.7rem,16vw,5.4rem)}.blog-hero__content>p:last-of-type{font-size:.84rem}.blog-hero__index span:nth-of-type(n+3),.blog-hero__index i:nth-of-type(n+2){display:none}.blog-feature header{display:grid}.blog-feature figure{min-height:23rem}.blog-feature h2{font-size:clamp(2.7rem,13vw,4.3rem)}.blog-topics__grid,.blog-promise__grid{grid-template-columns:1fr}.blog-topics h2,.blog-index h2,.blog-promise h2{font-size:clamp(3.2rem,14vw,4.8rem)}.blog-topics__list button{grid-template-columns:2rem 1fr auto}.blog-index__head{gap:1rem}.blog-list>a{grid-template-columns:2rem 1fr;padding:1.3rem 0}.blog-list figure{grid-column:2;height:17rem}.blog-list article{grid-column:2}.blog-list__read{grid-column:2}.blog-list h3{font-size:2.35rem}.blog-promise__grid>div{grid-column:auto}}
+  @media(prefers-reduced-motion:reduce){[data-blog-hero] *,[data-blog-reveal]>*{transform:none!important;opacity:1!important}}
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced) {
+    gsap.from('[data-blog-hero] .blog-kicker, [data-blog-hero] h1, [data-blog-hero] .blog-hero__content>p, [data-blog-hero] .blog-hero__content>a', { y: 34, opacity: 0, duration: .85, stagger: .09, ease: 'power3.out', delay: .15 });
+    gsap.from('[data-blog-hero]>img', { scale: 1.06, duration: 1.65, ease: 'power3.out' });
+    document.querySelectorAll<HTMLElement>('[data-blog-reveal]').forEach((section) => gsap.from(section.children, { y: 28, opacity: 0, duration: .72, stagger: .07, ease: 'power2.out', scrollTrigger: { trigger: section, start: 'top 84%', once: true } }));
+  }
+  const posts = [...document.querySelectorAll<HTMLElement>('[data-blog-post]')];
+  const filters = [...document.querySelectorAll<HTMLButtonElement>('[data-blog-filter]')];
+  const empty = document.querySelector<HTMLElement>('[data-blog-empty]');
+  const apply = (category: string) => {
+    let visible = 0;
+    posts.forEach((post) => { post.hidden = category !== 'All stories' && post.dataset.category !== category; if (!post.hidden) visible += 1; });
+    empty?.classList.toggle('visible', visible === 0);
+    requestAnimationFrame(() => ScrollTrigger.refresh());
+  };
+  filters.forEach((button) => button.addEventListener('click', () => { filters.forEach((item) => { const active = item === button; item.classList.toggle('active', active); item.setAttribute('aria-pressed', String(active)); }); apply(button.dataset.blogFilter || 'All stories'); }));
+  document.querySelectorAll<HTMLButtonElement>('[data-topic-jump]').forEach((button) => button.addEventListener('click', () => { const category = button.dataset.topicJump; filters.find((filter) => filter.dataset.blogFilter === category)?.click(); document.querySelector('#all-stories')?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' }); }));
+</script>

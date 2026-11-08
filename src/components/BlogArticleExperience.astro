@@ -1,0 +1,107 @@
+---
+import type { BlogArticle } from '../data/blogData';
+import { blogPosts, blogHref } from '../data/blogData';
+
+interface Props { article: BlogArticle }
+const { article } = Astro.props;
+const related = blogPosts.filter((post) => post.slug !== article.slug).slice(0, 3);
+const [firstSection, secondSection, thirdSection] = article.sections;
+---
+
+<article class="article" data-article>
+  <header class="article-hero" data-hero-stage data-article-hero>
+    <div class="article-shell article-hero__copy">
+      <p class="article-kicker">{article.kicker}</p>
+      <h1>{article.title}<br /><em>{article.emphasis}</em></h1>
+      <div class="article-hero__meta"><span>{article.date}</span><span>{article.readTime}</span><span>{article.author}</span></div>
+    </div>
+    <figure><img src={article.heroImage} alt={article.heroAlt} /></figure>
+    <div class="article-shell article-hero__intro"><p>{article.heroIntro}</p><a href="#article-body">Begin the read <span>↓</span></a></div>
+  </header>
+
+  <section class="article-body" id="article-body">
+    <div class="article-shell article-body__grid">
+      <aside data-article-rail>
+        <p>In this story</p>
+        <nav>{article.sections.map((section) => <a href={`#${section.id}`}>{section.eyebrow}</a>)}</nav>
+        <div><span data-read-progress></span></div>
+        <small><b data-read-percent>0%</b> read</small>
+      </aside>
+      <div class="article-copy">
+        <p class="article-lede">{article.lede} <em>{article.ledeEmphasis}</em></p>
+
+        <section id={firstSection.id} data-article-section>
+          <p class="article-number">{firstSection.number} · {firstSection.eyebrow}</p>
+          <h2>{firstSection.heading}<br /><em>{firstSection.emphasis}</em></h2>
+          {firstSection.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          {firstSection.quote && <blockquote>{firstSection.quote}</blockquote>}
+        </section>
+
+        <figure class="article-context" data-article-section><img src={article.contextImage} alt={article.contextAlt} loading="lazy" /><figcaption>{article.contextCaption}</figcaption></figure>
+
+        <section id={secondSection.id} data-article-section>
+          <p class="article-number">{secondSection.number} · {secondSection.eyebrow}</p>
+          <h2>{secondSection.heading}<br /><em>{secondSection.emphasis}</em></h2>
+          {secondSection.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          <div class="article-signals">
+            {article.signals.map((signal, index) => <article><span>{String(index + 1).padStart(2, '0')}</span><h3>{signal.title}</h3><p>{signal.text}</p></article>)}
+          </div>
+        </section>
+
+        <section id={thirdSection.id} data-article-section>
+          <p class="article-number">{thirdSection.number} · {thirdSection.eyebrow}</p>
+          <h2>{thirdSection.heading}<br /><em>{thirdSection.emphasis}</em></h2>
+          {thirdSection.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          <div class="article-checklist"><strong>{article.checklistTitle}</strong><ul>{article.checklist.map((item) => <li>{item}</li>)}</ul></div>
+          <p>{article.closing}</p>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="article-related" data-article-reveal>
+    <div class="article-shell">
+      <header><p class="article-kicker">Continue reading</p><h2>One question often<br /><em>opens another.</em></h2></header>
+      <div>{related.map((post, index) => <a href={blogHref(post)}><span>{String(index + 1).padStart(2, '0')}</span><small>{post.category}</small><h3>{post.title}</h3><i>↗</i></a>)}</div>
+      <a class="article-related__all" href="/blog/">View the full care journal ↗</a>
+    </div>
+  </section>
+</article>
+
+<style>
+  .article-shell{width:min(100% - 3rem,92rem);margin-inline:auto}.article-kicker{display:flex;align-items:center;gap:.8rem;margin:0;font-size:.62rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase}.article-kicker:before{width:2rem;height:1px;background:currentColor;content:""}
+  .article-hero{position:relative;overflow:hidden;padding:10rem 0 0;background:var(--pine-950);color:var(--porcelain)}.article-hero__copy{position:relative;z-index:1}.article-hero .article-kicker{color:var(--mint-300)}.article-hero h1{max-width:80rem;margin:1.4rem 0 2rem;font:400 clamp(4rem,7.3vw,8.2rem)/.86 Georgia,serif;letter-spacing:-.065em}.article-hero h1 em{color:var(--mint-300);font-weight:400}.article-hero__meta{display:flex;padding:1rem 0 2rem;gap:1.5rem;flex-wrap:wrap;border-top:1px solid rgba(245,240,231,.22);color:rgba(245,240,231,.62);font-size:.55rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.article-hero figure{width:min(100% - 3rem,104rem);height:min(58vw,52rem);margin:0 auto;overflow:hidden;border-radius:1.25rem 1.25rem 0 0}.article-hero figure img{width:100%;height:100%;object-fit:cover}.article-hero__intro{display:grid;padding:2.5rem 0 4rem;grid-template-columns:1fr auto;gap:3rem;align-items:center}.article-hero__intro p{max-width:62rem;margin:0;font:400 clamp(1.65rem,2.7vw,3rem)/1.15 Georgia,serif}.article-hero__intro>a{display:flex;width:13rem;padding:.45rem .45rem .45rem 1rem;align-items:center;justify-content:space-between;border:1px solid rgba(245,240,231,.32);border-radius:999px;font-size:.55rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.article-hero__intro>a span{display:grid;width:2.5rem;aspect-ratio:1;place-items:center;border-radius:50%;background:var(--mint-300);color:var(--pine-950)}
+  .article-body{padding:clamp(6rem,9vw,10rem) 0;background:var(--paper);color:var(--ink)}.article-body__grid{display:grid;grid-template-columns:.35fr 1.65fr;gap:clamp(3rem,8vw,9rem)}.article-body aside{position:sticky;top:8rem;height:max-content;padding-top:1rem;border-top:1px solid rgba(16,35,31,.2)}.article-body aside>p{color:var(--pine-700);font-size:.55rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.article-body aside nav{display:grid;margin:1.5rem 0 2.5rem;gap:.85rem}.article-body aside nav a{color:#64716d;font-size:.72rem}.article-body aside nav a:hover{color:var(--pine-700)}.article-body aside>div{height:2px;overflow:hidden;background:rgba(16,35,31,.13)}.article-body aside>div span{display:block;width:100%;height:100%;background:var(--pine-700);transform:scaleX(0);transform-origin:left}.article-body aside small{display:block;margin-top:.8rem;color:#64716d;font-size:.55rem;text-transform:uppercase}.article-body aside b{color:var(--pine-700)}.article-copy{max-width:62rem}.article-lede{margin:0 0 7rem;font:400 clamp(2rem,3.7vw,4.2rem)/1.02 Georgia,serif;letter-spacing:-.045em}.article-lede em{color:var(--pine-700)}.article-copy section{margin-bottom:7rem;scroll-margin-top:8rem}.article-number{color:var(--pine-700)!important;font-size:.58rem!important;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.article-copy h2{margin:1.4rem 0 2rem;font:400 clamp(3rem,5.3vw,6rem)/.9 Georgia,serif;letter-spacing:-.06em}.article-copy h2 em{color:var(--pine-700);font-weight:400}.article-copy section>p:not(.article-number){max-width:48rem;color:#53625e;font-size:1.05rem;line-height:1.9}.article-copy blockquote{margin:4rem 0;padding:1rem 0 1rem clamp(1.5rem,4vw,4rem);border-left:2px solid var(--mint-300);font:400 clamp(2rem,3.8vw,4rem)/1.03 Georgia,serif;color:var(--pine-700)}.article-context{margin:0 0 7rem}.article-context img{width:100%;max-height:42rem;object-fit:cover;border-radius:1rem}.article-context figcaption{max-width:38rem;margin-top:1rem;color:#68746f;font-size:.68rem;line-height:1.6}.article-signals{display:grid;margin-top:3rem;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(16,35,31,.2);border-bottom:1px solid rgba(16,35,31,.2)}.article-signals article{min-height:15rem;padding:1.4rem;border-right:1px solid rgba(16,35,31,.2)}.article-signals article:last-child{border:0}.article-signals span{color:var(--pine-700);font-size:.55rem}.article-signals h3{margin:5rem 0 .8rem;font:400 2rem Georgia,serif}.article-signals p{color:#64716d;font-size:.72rem;line-height:1.6}.article-checklist{max-width:48rem;margin:3rem 0;padding:2rem;border:1px solid rgba(16,35,31,.2);border-radius:1rem;background:var(--porcelain)}.article-checklist strong{font:400 1.6rem Georgia,serif}.article-checklist ul{display:grid;margin:1.5rem 0 0;padding-left:1.2rem;gap:.7rem;color:#53625e;line-height:1.6}
+  .article-related{padding:clamp(6rem,9vw,10rem) 0;background:#0a2923;color:var(--porcelain)}.article-related .article-kicker{color:var(--mint-300)}.article-related header{display:grid;grid-template-columns:.45fr 1.55fr;gap:3rem}.article-related h2{margin:1rem 0 4rem;font:400 clamp(3.7rem,6.3vw,7rem)/.87 Georgia,serif;letter-spacing:-.06em}.article-related h2 em{color:var(--mint-300);font-weight:400}.article-related header h2{grid-column:2}.article-related>.article-shell>div{border-top:1px solid rgba(245,240,231,.2)}.article-related>.article-shell>div>a{display:grid;padding:1.45rem 0;grid-template-columns:3rem 10rem 1fr auto;gap:1rem;align-items:center;border-bottom:1px solid rgba(245,240,231,.2)}.article-related a>span,.article-related a>small{color:var(--mint-300);font-size:.55rem;text-transform:uppercase}.article-related h3{margin:0;font:400 clamp(1.6rem,2.8vw,3rem) Georgia,serif}.article-related i{font-style:normal}.article-related__all{display:inline-block;margin-top:2rem;padding-bottom:.3rem;border-bottom:1px solid currentColor;font-size:.56rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}
+  @media(max-width:68rem){.article-body__grid{grid-template-columns:.3fr 1.7fr}.article-related header{grid-template-columns:1fr}.article-related header h2{grid-column:auto}.article-related>.article-shell>div>a{grid-template-columns:2rem 7rem 1fr auto}}
+  @media(max-width:48rem){.article-shell{width:min(100% - 1.5rem,92rem)}.article-hero{padding-top:7.5rem}.article-hero h1{font-size:clamp(3.3rem,14.5vw,5rem)}.article-hero figure{width:calc(100% - 1.5rem);height:30rem}.article-hero figure img{object-position:62% center}.article-hero__intro{grid-template-columns:1fr}.article-hero__intro p{font-size:1.7rem}.article-body{padding-bottom:4rem}.article-body__grid{grid-template-columns:1fr}.article-body aside{position:static;display:none}.article-lede{margin-bottom:5rem;font-size:2.3rem}.article-copy h2{font-size:clamp(3rem,13vw,4.5rem)}.article-copy section{margin-bottom:5rem}.article-copy section:last-child{margin-bottom:0}.article-copy section>p:not(.article-number){font-size:.95rem}.article-signals{grid-template-columns:1fr}.article-signals article{min-height:0;border-right:0;border-bottom:1px solid rgba(16,35,31,.2)}.article-signals h3{margin:2rem 0 .6rem}.article-related{padding-bottom:4rem}.article-related h2{font-size:clamp(3.2rem,14vw,4.7rem)}.article-related>.article-shell>div>a{grid-template-columns:2rem 1fr auto}.article-related a>small{grid-column:2}.article-related h3{grid-column:2}.article-related i{grid-column:3;grid-row:1/4}}
+  @media(prefers-reduced-motion:reduce){[data-article-hero] *,[data-article-section],[data-article-reveal]>*{transform:none!important;opacity:1!important}}
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced) {
+    gsap.from('[data-article-hero] .article-kicker, [data-article-hero] h1, [data-article-hero] .article-hero__meta', { y: 34, opacity: 0, duration: .85, stagger: .1, ease: 'power3.out', delay: .12 });
+    gsap.from('[data-article-hero] figure img', { scale: 1.055, duration: 1.6, ease: 'power3.out' });
+    document.querySelectorAll<HTMLElement>('[data-article-section]').forEach((section) => gsap.from(section, { y: 26, opacity: 0, duration: .72, ease: 'power2.out', scrollTrigger: { trigger: section, start: 'top 84%', once: true } }));
+    const related = document.querySelector<HTMLElement>('[data-article-reveal]');
+    if (related) gsap.from(related.children, { y: 28, opacity: 0, duration: .72, stagger: .08, scrollTrigger: { trigger: related, start: 'top 84%', once: true } });
+  }
+  const progress = document.querySelector<HTMLElement>('[data-read-progress]');
+  const percent = document.querySelector<HTMLElement>('[data-read-percent]');
+  const article = document.querySelector<HTMLElement>('[data-article]');
+  const updateProgress = () => {
+    if (!article) return;
+    const start = article.offsetTop;
+    const distance = Math.max(1, article.offsetHeight - window.innerHeight);
+    const value = Math.min(1, Math.max(0, (window.scrollY - start) / distance));
+    if (progress) progress.style.transform = `scaleX(${value})`;
+    if (percent) percent.textContent = `${Math.round(value * 100)}%`;
+  };
+  updateProgress();
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress, { passive: true });
+</script>

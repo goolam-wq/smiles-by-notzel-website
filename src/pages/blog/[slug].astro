@@ -1,0 +1,35 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import BlogArticleExperience from '../../components/BlogArticleExperience.astro';
+import HubFooter from '../../components/HubFooter.astro';
+import { blogArticles } from '../../data/blogData';
+import '../../styles/global.css';
+
+export function getStaticPaths() {
+  return Object.values(blogArticles).map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content={article.metaDescription} />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>{article.pageTitle}</title>
+  </head>
+  <body>
+    <Navbar mediaImage={article.navImage} mediaAlt={article.navAlt} />
+    <main>
+      <BlogArticleExperience article={article} />
+      <HubFooter eyebrow={article.footerEyebrow} title={article.footerTitle} />
+    </main>
+  </body>
+</html>
