@@ -1,0 +1,211 @@
+---
+const doctors = [
+  {
+    number: '01',
+    name: 'Dr. Joseph William Noetzel',
+    role: 'Restorative perspective',
+    copy: 'Care starts by understanding the structure, the long-term plan and the person who will live with the result.',
+    image: '/images/generated/unique/team/doctor-joseph.webp',
+    alt: 'Dr. Joseph William Noetzel listening during a patient conversation',
+  },
+  {
+    number: '02',
+    name: 'Dr. Ilenne Noetzel',
+    role: 'Complete-health perspective',
+    copy: 'Oral health can reveal a wider story. Listening closely helps the team connect what is visible with what matters beyond the smile.',
+    image: '/images/generated/unique/team/doctor-ilenne.webp',
+    alt: 'Dr. Ilenne Noetzel speaking warmly with a patient',
+  },
+  {
+    number: '03',
+    name: 'Dr. Michael Drinski',
+    role: 'Clinical coordination',
+    copy: 'Clear records and a coordinated sequence keep complex decisions understandable, considered and grounded in the next right step.',
+    image: '/images/generated/unique/team/doctor-michael.webp',
+    alt: 'Dr. Michael Drinski reviewing a care plan with a colleague',
+  },
+];
+
+const faqs = [
+  ['Will I see the same team throughout my care?', 'The team works to keep the people, records and next steps connected. Who you see may vary by visit, but the plan and communication are shared across the practice.'],
+  ['How do the two offices work together?', 'Chicago Heights and Mokena are supported as two connected offices. The team can help coordinate the location and schedule that fit your family.'],
+  ['Can the team explain more complex treatment clearly?', 'That is the intention. Conversation, clinical records and visual explanations are used to make the reason, sequence and tradeoffs behind a recommendation easier to understand.'],
+  ['Can I request a specific doctor?', 'You can share that preference when you contact the practice. The team will help match the visit with the right office, schedule and clinical need.'],
+];
+---
+
+<section class="team-hero" id="top" data-team-hero>
+  <img class="team-hero__image" src="/images/generated/unique/team/team-hero.webp" alt="The Smiles by Noetzel clinical team walking together through the practice" fetchpriority="high" />
+  <div class="team-hero__shade"></div>
+  <div class="team-shell team-hero__content">
+    <p class="team-kicker">The people behind the care · 01</p>
+    <h1>Many perspectives.<br /><em>One connected team.</em></h1>
+    <p class="team-hero__intro">Different disciplines, shared context and one clear standard: care should feel personal, considered and easy to understand.</p>
+    <a class="team-pill" href="#doctors">Meet the doctors <span>↓</span></a>
+  </div>
+  <div class="team-shell team-hero__foot"><span>Chicago Heights · Mokena</span><i></i><strong>Scroll to meet the team</strong></div>
+</section>
+
+<section class="team-philosophy team-light" data-team-reveal>
+  <div class="team-shell team-philosophy__grid">
+    <header>
+      <p class="team-kicker">01 · A shared point of view</p>
+      <h2>Good care is a<br /><em>team sport.</em></h2>
+      <p>No single appointment sits in isolation. The useful details move with you—from the conversation to the records to the next clinical decision.</p>
+    </header>
+    <figure><img src="/images/generated/unique/team/team-philosophy.webp" alt="Dentists and a patient reviewing a care plan together" loading="lazy" /></figure>
+    <div class="team-principles">
+      <article><span>01</span><h3>Listen first</h3><p>Understand the person, the concern and the larger health context before recommending the next step.</p></article>
+      <article><span>02</span><h3>Share the picture</h3><p>Keep records, observations and treatment sequence connected across the team.</p></article>
+      <article><span>03</span><h3>Explain the why</h3><p>Make options easier to evaluate without turning the visit into a sales conversation.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="team-doctors" id="doctors" data-doctor-stage>
+  <div class="team-shell">
+    <header class="team-section-head" data-team-reveal>
+      <p class="team-kicker">02 · Meet the doctors</p>
+      <h2>Three perspectives.<br /><em>One standard of care.</em></h2>
+      <p>Select a doctor to explore the point of view each person brings to the connected plan.</p>
+    </header>
+
+    <div class="doctor-stage">
+      <div class="doctor-stage__visual">
+        {doctors.map((doctor, index) => <img src={doctor.image} alt={doctor.alt} loading="lazy" data-doctor-image class:list={{ active: index === 0 }} />)}
+        <span class="doctor-stage__count" data-doctor-count>01 / 03</span>
+      </div>
+      <div class="doctor-stage__copy" aria-live="polite">
+        {doctors.map((doctor, index) => (
+          <article data-doctor-copy class:list={{ active: index === 0 }}>
+            <span>{doctor.number} · {doctor.role}</span>
+            <h3>{doctor.name}</h3>
+            <p>{doctor.copy}</p>
+            <a href="/contact/#appointment-form">Begin a conversation ↗</a>
+          </article>
+        ))}
+      </div>
+    </div>
+    <div class="doctor-tabs" role="tablist" aria-label="Meet the doctors">
+      {doctors.map((doctor, index) => <button type="button" role="tab" aria-selected={index === 0 ? 'true' : 'false'} data-doctor-tab data-index={index}><span>{doctor.number}</span>{doctor.name.replace('Dr. ', '')}</button>)}
+    </div>
+  </div>
+</section>
+
+<section class="team-specialties team-light" data-team-reveal>
+  <div class="team-shell team-specialties__grid">
+    <header>
+      <p class="team-kicker">03 · A wider clinical view</p>
+      <h2>The whole picture stays<br /><em>in the room.</em></h2>
+      <p>A broader conversation helps the team connect prevention, restoration, cosmetic care and complete-health thinking without treating each visit as an isolated event.</p>
+      <a href="/services/">Explore every service ↗</a>
+    </header>
+    <div class="specialty-list">
+      <article><span>01</span><h3>Prevention &amp; diagnostics</h3><p>Records and routine care that make change easier to see early.</p></article>
+      <article><span>02</span><h3>Restorative planning</h3><p>Structure, function and longevity considered as one connected decision.</p></article>
+      <article><span>03</span><h3>Cosmetic refinement</h3><p>Shade, shape and proportion planned around the person—not a template.</p></article>
+      <article><span>04</span><h3>Complete-health thinking</h3><p>Oral health observed in the context of comfort, breathing and long-term wellbeing.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="team-support" data-team-reveal>
+  <div class="team-shell">
+    <div class="team-support__image"><img src="/images/generated/unique/team/team-support.webp" alt="Dental assistants and care coordinators meeting together" loading="lazy" /></div>
+    <div class="team-support__copy">
+      <p class="team-kicker">04 · The team around the visit</p>
+      <h2>No handoff should<br /><em>feel like a reset.</em></h2>
+      <p>Care coordinators, hygienists and clinical assistants keep the experience moving—before the chair, during the visit and after the plan is made.</p>
+      <div class="support-roles"><span>Care coordination</span><span>Clinical assisting</span><span>Preventive care</span><span>Patient communication</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="team-journey team-light" data-team-reveal>
+  <div class="team-shell team-journey__grid">
+    <header>
+      <p class="team-kicker">05 · The visit in motion</p>
+      <h2>One visit.<br /><em>Five connected moments.</em></h2>
+    </header>
+    <figure><img src="/images/generated/unique/team/team-visit.webp" alt="A dental assistant welcoming a patient into a treatment room" loading="lazy" /></figure>
+    <ol>
+      <li><span>01</span><div><h3>Welcome</h3><p>Start with the person, not the chart.</p></div></li>
+      <li><span>02</span><div><h3>Listen</h3><p>Make room for context, concern and priorities.</p></div></li>
+      <li><span>03</span><div><h3>Observe</h3><p>Connect clinical records to what you are experiencing.</p></div></li>
+      <li><span>04</span><div><h3>Explain</h3><p>Put the why and the sequence into plain language.</p></div></li>
+      <li><span>05</span><div><h3>Coordinate</h3><p>Leave with the right next step and a team that remembers it.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="team-offices" data-team-reveal>
+  <div class="team-shell team-offices__grid">
+    <figure><img src="/images/generated/unique/team/team-offices.webp" alt="Care coordinators reviewing the schedule together" loading="lazy" /></figure>
+    <div class="team-offices__copy">
+      <p class="team-kicker">06 · Two offices, one standard</p>
+      <h2>Near to home.<br /><em>Never disconnected.</em></h2>
+      <p>Chicago Heights and Mokena give families two ways into the same connected care philosophy.</p>
+      <div class="office-links"><a href="/service-areas/chicago-heights/"><span>01</span><strong>Chicago Heights</strong><i>500 Ashland Ave, Suite #2 ↗</i></a><a href="/service-areas/mokena/"><span>02</span><strong>Mokena</strong><i>19160 88th Avenue ↗</i></a></div>
+    </div>
+  </div>
+</section>
+
+<section class="team-proof team-light" data-team-reveal>
+  <div class="team-shell team-proof__grid">
+    <p class="team-kicker">07 · The feeling around the visit</p>
+    <h2>Clinical clarity.<br /><em>Human warmth.</em></h2>
+    <div><p>The most reassuring visit is not necessarily the quietest or the quickest. It is the one where the team understands the concern, explains the options and stays connected to what happens next.</p><a href="/contact/#appointment-form">Start with a conversation ↗</a></div>
+  </div>
+</section>
+
+<section class="team-faq" id="faq" data-team-reveal>
+  <div class="team-shell team-faq__grid">
+    <header><p class="team-kicker">08 · Team questions</p><h2>Before you<br /><em>meet us.</em></h2></header>
+    <div class="team-faq__list">
+      {faqs.map(([question, answer], index) => <details open={index === 0}><summary><span>{String(index + 1).padStart(2, '0')}</span>{question}<i>+</i></summary><p>{answer}</p></details>)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .team-shell{width:min(100% - 3rem,92rem);margin-inline:auto}.team-kicker{display:flex;align-items:center;gap:.8rem;margin:0;color:inherit;font-size:.65rem;font-weight:850;letter-spacing:.17em;text-transform:uppercase}.team-kicker:before{width:2rem;height:1px;background:currentColor;content:""}.team-light{background:var(--paper);color:var(--ink)}
+  .team-hero{position:relative;min-height:100svh;overflow:hidden;background:var(--pine-950);color:var(--porcelain)}.team-hero__image,.team-hero__shade{position:absolute;inset:0;width:100%;height:100%}.team-hero__image{object-fit:cover;object-position:center}.team-hero__shade{background:linear-gradient(90deg,rgba(6,29,25,.94) 0%,rgba(6,29,25,.76) 33%,rgba(6,29,25,.13) 68%,rgba(6,29,25,.15) 100%)}.team-hero__content{position:relative;z-index:2;display:flex;min-height:100svh;padding-top:clamp(9rem,14vh,12rem);padding-bottom:7rem;flex-direction:column;justify-content:center}.team-hero .team-kicker{color:var(--mint-300)}.team-hero h1{max-width:64rem;margin:1.4rem 0 1.5rem;font-family:Georgia,serif;font-size:clamp(4.8rem,8.2vw,9.3rem);font-weight:400;line-height:.82;letter-spacing:-.065em}.team-hero h1 em{color:var(--mint-300);font-weight:400}.team-hero__intro{max-width:38rem;margin:0;color:rgba(245,240,231,.78);font-size:clamp(.95rem,1.15vw,1.16rem);line-height:1.65}.team-pill{display:flex;width:min(100%,20rem);margin-top:2rem;padding:.55rem .55rem .55rem 1.4rem;align-items:center;justify-content:space-between;border:1px solid rgba(245,240,231,.45);border-radius:999px;font-size:.62rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.team-pill span{display:grid;width:2.8rem;aspect-ratio:1;place-items:center;border-radius:50%;background:var(--mint-300);color:var(--pine-950)}.team-hero__foot{position:absolute;right:0;bottom:1.8rem;left:0;z-index:2;display:flex;align-items:center;gap:1rem;font-size:.56rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.team-hero__foot i{height:1px;flex:1;background:rgba(245,240,231,.35)}
+  .team-philosophy{padding:clamp(6rem,10vw,10rem) 0}.team-philosophy__grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:clamp(2rem,6vw,7rem);align-items:start}.team-philosophy header{position:sticky;top:8rem}.team-philosophy h2,.team-section-head h2,.team-specialties h2,.team-support h2,.team-journey h2,.team-offices h2,.team-proof h2,.team-faq h2{margin:1.2rem 0 1.4rem;font-family:Georgia,serif;font-size:clamp(3.6rem,6.2vw,7.2rem);font-weight:400;line-height:.88;letter-spacing:-.055em}.team-philosophy h2 em,.team-section-head h2 em,.team-specialties h2 em,.team-support h2 em,.team-journey h2 em,.team-offices h2 em,.team-proof h2 em,.team-faq h2 em{color:var(--pine-700);font-weight:400}.team-philosophy header>p:last-child{max-width:31rem;color:#5d6c67;line-height:1.7}.team-philosophy figure{height:min(72vw,47rem);margin:0;overflow:hidden;border-radius:18rem 18rem 1rem 1rem}.team-philosophy figure img{width:100%;height:100%;object-fit:cover}.team-principles{grid-column:2;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(16,35,31,.22)}.team-principles article{padding:1.5rem;border-right:1px solid rgba(16,35,31,.18)}.team-principles article:last-child{border:0}.team-principles span{font-size:.58rem;font-weight:850}.team-principles h3{margin:2.8rem 0 .8rem;font-family:Georgia,serif;font-size:1.8rem;font-weight:400}.team-principles p{margin:0;color:#69756f;font-size:.76rem;line-height:1.65}
+  .team-doctors{padding:clamp(6rem,9vw,9rem) 0;background:var(--pine-950);color:var(--porcelain)}.team-section-head{display:grid;grid-template-columns:1.15fr .85fr;gap:2rem;align-items:end}.team-section-head .team-kicker{grid-column:1/-1;color:var(--mint-300)}.team-section-head h2{margin-bottom:2.5rem}.team-section-head h2 em{color:var(--mint-300)}.team-section-head>p:last-child{max-width:28rem;margin:0 0 2.8rem auto;color:rgba(245,240,231,.66);line-height:1.65}.doctor-stage{display:grid;min-height:39rem;grid-template-columns:1.15fr .85fr;overflow:hidden;border:1px solid rgba(245,240,231,.18);border-radius:1.4rem}.doctor-stage__visual{position:relative;min-height:39rem;background:#0a2822}.doctor-stage__visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.035);transition:opacity .65s ease,transform 1s cubic-bezier(.2,.7,.2,1)}.doctor-stage__visual img.active{opacity:1;transform:scale(1)}.doctor-stage__count{position:absolute;right:1.2rem;bottom:1rem;padding:.55rem .7rem;background:rgba(6,29,25,.78);font-size:.58rem;font-weight:850;letter-spacing:.13em}.doctor-stage__copy{position:relative;display:grid;min-height:39rem;padding:clamp(2rem,4vw,4.5rem);align-items:center;background:var(--paper);color:var(--ink)}.doctor-stage__copy article{grid-area:1/1;visibility:hidden;opacity:0;transform:translateY(1.5rem);transition:opacity .4s ease,transform .55s ease}.doctor-stage__copy article.active{visibility:visible;opacity:1;transform:none}.doctor-stage__copy article>span{color:var(--pine-700);font-size:.62rem;font-weight:850;letter-spacing:.13em;text-transform:uppercase}.doctor-stage__copy h3{max-width:30rem;margin:1rem 0 1.6rem;font-family:Georgia,serif;font-size:clamp(3.3rem,5vw,6rem);font-weight:400;line-height:.86;letter-spacing:-.055em}.doctor-stage__copy p{max-width:31rem;color:#5d6c67;line-height:1.7}.doctor-stage__copy a,.team-specialties header>a,.team-proof a{display:inline-block;margin-top:1.4rem;padding-bottom:.35rem;border-bottom:1px solid currentColor;font-size:.62rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.doctor-tabs{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid rgba(245,240,231,.18)}.doctor-tabs button{display:flex;padding:1.25rem;gap:1rem;border:0;border-right:1px solid rgba(245,240,231,.18);background:transparent;color:rgba(245,240,231,.45);text-align:left;font-family:Georgia,serif;font-size:1rem;cursor:pointer;transition:background .3s,color .3s}.doctor-tabs button:last-child{border-right:0}.doctor-tabs button span{font-family:Arial,sans-serif;font-size:.5rem;font-weight:800}.doctor-tabs button[aria-selected="true"]{background:var(--mint-300);color:var(--pine-950)}
+  .team-specialties{padding:clamp(6rem,10vw,10rem) 0}.team-specialties__grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(3rem,8vw,9rem)}.team-specialties header{position:sticky;top:8rem;align-self:start}.team-specialties header>p:not(.team-kicker){max-width:31rem;color:#62706b;line-height:1.7}.specialty-list{border-top:1px solid rgba(16,35,31,.2)}.specialty-list article{display:grid;padding:2.2rem 0;grid-template-columns:3rem 1fr 1fr;gap:1rem;border-bottom:1px solid rgba(16,35,31,.2);align-items:start}.specialty-list span{color:var(--pine-700);font-size:.58rem;font-weight:850}.specialty-list h3{margin:0;font-family:Georgia,serif;font-size:clamp(1.7rem,2.7vw,3.2rem);font-weight:400;line-height:1}.specialty-list p{margin:0;color:#66736e;font-size:.8rem;line-height:1.65}
+  .team-support{padding:clamp(6rem,9vw,9rem) 0;background:var(--pine-950);color:var(--porcelain)}.team-support .team-shell{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(2rem,6vw,6rem);align-items:center}.team-support__image{height:min(62vw,45rem);overflow:hidden;border-radius:22rem 22rem 1rem 1rem}.team-support__image img{width:100%;height:100%;object-fit:cover}.team-support .team-kicker{color:var(--mint-300)}.team-support h2 em{color:var(--mint-300)}.team-support__copy>p:not(.team-kicker){max-width:32rem;color:rgba(245,240,231,.68);line-height:1.7}.support-roles{display:grid;margin-top:2rem;grid-template-columns:1fr 1fr;border-top:1px solid rgba(245,240,231,.2)}.support-roles span{padding:1rem 0;border-bottom:1px solid rgba(245,240,231,.2);font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+  .team-journey{padding:clamp(6rem,9vw,9rem) 0}.team-journey__grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(2rem,5vw,5rem)}.team-journey header{grid-column:1/-1;display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(2rem,5vw,5rem)}.team-journey header h2{grid-column:2;margin-top:0}.team-journey figure{height:min(66vw,46rem);margin:0;overflow:hidden;border-radius:1.2rem}.team-journey figure img{width:100%;height:100%;object-fit:cover}.team-journey ol{margin:0;padding:0;list-style:none;border-top:1px solid rgba(16,35,31,.2)}.team-journey li{display:grid;padding:1.6rem 0;grid-template-columns:3rem 1fr;border-bottom:1px solid rgba(16,35,31,.2)}.team-journey li>span{color:var(--pine-700);font-size:.58rem;font-weight:850}.team-journey h3{margin:0 0 .4rem;font-family:Georgia,serif;font-size:clamp(1.8rem,2.8vw,3.2rem);font-weight:400}.team-journey li p{margin:0;color:#64716c;font-size:.78rem;line-height:1.55}
+  .team-offices{padding:clamp(6rem,9vw,9rem) 0;background:#0a2923;color:var(--porcelain)}.team-offices__grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,6vw,7rem);align-items:center}.team-offices figure{height:min(58vw,39rem);margin:0;overflow:hidden;border-radius:1.2rem}.team-offices figure img{width:100%;height:100%;object-fit:cover}.team-offices .team-kicker{color:var(--mint-300)}.team-offices h2 em{color:var(--mint-300)}.team-offices__copy>p:not(.team-kicker){color:rgba(245,240,231,.65);line-height:1.7}.office-links{margin-top:2rem;border-top:1px solid rgba(245,240,231,.2)}.office-links a{display:grid;padding:1.2rem 0;grid-template-columns:2.5rem 1fr auto;gap:1rem;border-bottom:1px solid rgba(245,240,231,.2);align-items:center}.office-links span{font-size:.52rem}.office-links strong{font-family:Georgia,serif;font-size:1.3rem;font-weight:400}.office-links i{color:rgba(245,240,231,.58);font-size:.62rem;font-style:normal}
+  .team-proof{padding:clamp(7rem,12vw,12rem) 0}.team-proof__grid{display:grid;grid-template-columns:.5fr 1.1fr .6fr;gap:clamp(2rem,5vw,6rem);align-items:end}.team-proof h2{margin:0}.team-proof>div>div>p{color:#5e6c67;line-height:1.7}
+  .team-faq{padding:clamp(6rem,9vw,9rem) 0;background:var(--pine-950);color:var(--porcelain)}.team-faq__grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(3rem,7vw,8rem)}.team-faq header{position:sticky;top:8rem;align-self:start}.team-faq .team-kicker{color:var(--mint-300)}.team-faq h2 em{color:var(--mint-300)}.team-faq__list{border-top:1px solid rgba(245,240,231,.2)}.team-faq details{border-bottom:1px solid rgba(245,240,231,.2)}.team-faq summary{display:grid;padding:1.5rem 0;grid-template-columns:2.5rem 1fr auto;gap:1rem;align-items:center;list-style:none;cursor:pointer;font-family:Georgia,serif;font-size:clamp(1.25rem,2vw,2.1rem)}.team-faq summary::-webkit-details-marker{display:none}.team-faq summary span{font-family:Arial,sans-serif;color:var(--mint-300);font-size:.5rem;font-weight:850}.team-faq summary i{font-family:Arial,sans-serif;font-size:1rem;font-style:normal;transition:transform .25s}.team-faq details[open] summary i{transform:rotate(45deg)}.team-faq details p{max-width:43rem;margin:0;padding:0 2rem 1.5rem 3.5rem;color:rgba(245,240,231,.65);line-height:1.65}
+  @media(max-width:64rem){.team-hero h1{font-size:clamp(4.8rem,10vw,7rem)}.team-philosophy__grid,.team-specialties__grid,.team-support .team-shell,.team-offices__grid{gap:3rem}.team-principles{grid-template-columns:1fr}.team-principles article{display:grid;grid-template-columns:2rem 1fr 1fr;gap:1rem;border-right:0;border-bottom:1px solid rgba(16,35,31,.18)}.team-principles h3{margin:0}.doctor-stage,.doctor-stage__visual,.doctor-stage__copy{min-height:32rem}.doctor-stage__copy h3{font-size:clamp(3rem,5vw,4.8rem)}.team-proof__grid{grid-template-columns:1fr 1.3fr}.team-proof__grid>div:last-child{grid-column:2}}
+  @media(max-width:48rem){.team-shell{width:min(100% - 1.5rem,92rem)}.team-hero{min-height:50rem}.team-hero__shade{background:linear-gradient(180deg,rgba(6,29,25,.18),rgba(6,29,25,.8) 55%,rgba(6,29,25,.98))}.team-hero__image{object-position:64% center}.team-hero__content{min-height:50rem;padding-top:8rem;justify-content:flex-end}.team-hero h1{font-size:clamp(3.5rem,15vw,5rem)}.team-hero__intro{font-size:.86rem}.team-hero__foot{bottom:.8rem}.team-hero__foot strong{display:none}.team-philosophy__grid,.team-specialties__grid,.team-support .team-shell,.team-journey__grid,.team-offices__grid,.team-faq__grid{grid-template-columns:1fr}.team-philosophy header,.team-specialties header,.team-faq header{position:static}.team-philosophy h2,.team-section-head h2,.team-specialties h2,.team-support h2,.team-journey h2,.team-offices h2,.team-proof h2,.team-faq h2{font-size:clamp(3.2rem,14vw,4.7rem)}.team-philosophy figure{height:36rem;border-radius:14rem 14rem .8rem .8rem}.team-principles{grid-column:1}.team-principles article{grid-template-columns:1.5rem 1fr}.team-principles article p{grid-column:2}.team-section-head{grid-template-columns:1fr}.team-section-head>p:last-child{margin:0 0 2rem}.doctor-stage{grid-template-columns:1fr;min-height:0}.doctor-stage__visual{min-height:30rem}.doctor-stage__copy{min-height:25rem;padding:2rem 1.3rem}.doctor-stage__copy h3{font-size:clamp(3.1rem,14vw,4.4rem)}.doctor-tabs{grid-template-columns:1fr}.doctor-tabs button{border-right:0;border-bottom:1px solid rgba(245,240,231,.18)}.specialty-list article{grid-template-columns:2rem 1fr}.specialty-list article p{grid-column:2}.team-support__image{height:30rem}.support-roles{grid-template-columns:1fr}.team-journey header{display:block;grid-column:1}.team-journey header h2{margin-top:1.2rem}.team-journey figure{height:28rem}.team-journey ol{margin-top:.5rem}.team-offices figure{height:27rem}.office-links a{grid-template-columns:2rem 1fr}.office-links i{grid-column:2}.team-proof__grid{grid-template-columns:1fr}.team-proof__grid>div:last-child{grid-column:auto}.team-faq details p{padding-left:0}.team-faq summary{grid-template-columns:2rem 1fr auto}}
+  @media(max-width:48rem){.team-hero,.team-hero__content{min-height:100svh}}
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced) {
+    gsap.from('[data-team-hero] .team-kicker, [data-team-hero] h1, [data-team-hero] .team-hero__intro, [data-team-hero] .team-pill', { y: 35, opacity: 0, duration: .9, stagger: .1, ease: 'power3.out', delay: .2 });
+    gsap.from('[data-team-hero] .team-hero__image', { scale: 1.08, duration: 1.8, ease: 'power3.out' });
+    document.querySelectorAll<HTMLElement>('[data-team-reveal]').forEach((section) => {
+      gsap.from(section.children, { y: 34, opacity: 0, duration: .75, stagger: .08, ease: 'power2.out', scrollTrigger: { trigger: section, start: 'top 83%', once: true } });
+    });
+  }
+
+  const tabs = [...document.querySelectorAll<HTMLButtonElement>('[data-doctor-tab]')];
+  const images = [...document.querySelectorAll<HTMLElement>('[data-doctor-image]')];
+  const copies = [...document.querySelectorAll<HTMLElement>('[data-doctor-copy]')];
+  const count = document.querySelector<HTMLElement>('[data-doctor-count]');
+  const activateDoctor = (index: number) => {
+    tabs.forEach((tab, item) => tab.setAttribute('aria-selected', item === index ? 'true' : 'false'));
+    images.forEach((image, item) => image.classList.toggle('active', item === index));
+    copies.forEach((copy, item) => copy.classList.toggle('active', item === index));
+    if (count) count.textContent = `${String(index + 1).padStart(2, '0')} / 03`;
+  };
+  tabs.forEach((tab, index) => tab.addEventListener('click', () => activateDoctor(index)));
+</script>

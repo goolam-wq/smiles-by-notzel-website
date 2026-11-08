@@ -1,0 +1,25 @@
+---
+import Navbar from '../components/Navbar.astro';
+import TeamExperience from '../components/TeamExperience.astro';
+import HubFooter from '../components/HubFooter.astro';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#061d19" />
+    <meta name="description" content="Meet the doctors, clinical team and care coordinators behind connected dental care at Smiles by Noetzel in Chicago Heights and Mokena." />
+    <link rel="icon" type="image/svg+xml" href="/brand/smiles-by-noetzel-mark.svg" />
+    <title>Meet the Team | Smiles by Noetzel</title>
+  </head>
+  <body>
+    <Navbar mediaImage="/images/generated/unique/team/team-nav.webp" mediaAlt="A care coordinator welcoming a couple to the practice" />
+    <main>
+      <TeamExperience />
+      <HubFooter eyebrow="Ready when you are" title="Meet a team that keeps the details connected." />
+    </main>
+  </body>
+</html>
