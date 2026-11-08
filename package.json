@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "qa:process": "node scripts/qa-process-parity.mjs"
+    "qa:process": "node scripts/qa-process-parity.mjs",
+    "qa:links": "node scripts/qa-internal-links.mjs"
   },
   "keywords": [],
   "author": "",

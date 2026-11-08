@@ -1,16 +1,16 @@
 ---
 const categories = [
-  { number: '01', title: 'Complete Health & Airway', count: '4 services', accent: 'mint', items: ['Oral-cancer screening', 'Airway & sleep screening', 'ProSomnus therapy'] },
-  { number: '02', title: 'Cosmetic Dentistry', count: '7 services', accent: 'sage', items: ['Professional whitening', 'Veneers & Lumineers', 'Complete smile makeover'] },
-  { number: '03', title: 'Preventive & Diagnostic', count: '9 services', accent: 'paper', items: ['Cleanings & exams', 'Digital X-rays', 'Guards & laser dentistry'] },
-  { number: '04', title: 'Implants & Oral Surgery', count: '8 services', accent: 'image', image: '/images/generated/unique/home-service-implants.webp', items: ['Single-tooth implants', 'All-on-4 solutions', 'Extractions & bone grafting'] },
-  { number: '05', title: 'Restorative Care', count: '7 services', accent: 'mint', items: ['Fillings, crowns & bridges', 'Dentures & partials', 'Full-mouth reconstruction'] },
-  { number: '06', title: 'Invisalign', count: '1 service', accent: 'image', image: '/images/generated/unique/home-service-invisalign.webp', items: ['Clear-aligner treatment', 'Teen and adult options', 'Personalized case planning'] },
-  { number: '07', title: 'Kids & Development', count: '3 services', accent: 'paper', items: ['First dental visits', 'Pediatric cleaning & exam', 'HealthyStart treatment'] },
-  { number: '08', title: 'Periodontal Care', count: '2 services', accent: 'image', image: '/images/generated/unique/home-service-periodontal.webp', items: ['Deep cleaning', 'Gum-disease treatment', 'Perio Protect tray therapy'] },
-  { number: '09', title: 'Emergency & Comfort', count: '3 services', accent: 'mint', items: ['Same-day emergency care', 'Nitrous oxide sedation', 'Virtual-reality comfort'] },
-  { number: '10', title: 'ReCODE & Cognitive Health', count: '3 services', accent: 'sage', items: ['ReCODE 2.0 program', 'Oral spirochete testing', 'Amalgam replacement'] },
-  { number: '11', title: 'Wellness', count: '1 offering', accent: 'paper', items: ['Juice Plus program', 'Wellness coordination', 'In-office or remote access'] },
+  { number: '01', title: 'Complete Health & Airway', count: '4 services', accent: 'mint', href: '/services/complete-health-airway/', items: ['Oral-cancer screening', 'Airway & sleep screening', 'ProSomnus therapy'] },
+  { number: '02', title: 'Cosmetic Dentistry', count: '7 services', accent: 'sage', href: '/services/cosmetic-dentistry/', items: ['Professional whitening', 'Veneers & Lumineers', 'Complete smile makeover'] },
+  { number: '03', title: 'Preventive & Diagnostic', count: '9 services', accent: 'paper', href: '/services/preventive-diagnostic/', items: ['Cleanings & exams', 'Digital X-rays', 'Guards & laser dentistry'] },
+  { number: '04', title: 'Implants & Oral Surgery', count: '8 services', accent: 'image', image: '/images/generated/unique/home-service-implants.webp', href: '/services/implants-oral-surgery/', items: ['Single-tooth implants', 'All-on-4 solutions', 'Extractions & bone grafting'] },
+  { number: '05', title: 'Restorative Care', count: '7 services', accent: 'mint', href: '/services/restorative-reconstructive/', items: ['Fillings, crowns & bridges', 'Dentures & partials', 'Full-mouth reconstruction'] },
+  { number: '06', title: 'Invisalign', count: '1 service', accent: 'image', image: '/images/generated/unique/home-service-invisalign.webp', href: '/services/orthodontic-dentistry/', items: ['Clear-aligner treatment', 'Teen and adult options', 'Personalized case planning'] },
+  { number: '07', title: 'Kids & Development', count: '3 services', accent: 'paper', href: '/services/pediatric-developmental/', items: ['First dental visits', 'Pediatric cleaning & exam', 'HealthyStart treatment'] },
+  { number: '08', title: 'Periodontal Care', count: '2 services', accent: 'image', image: '/images/generated/unique/home-service-periodontal.webp', href: '/services/periodontal-dentistry/', items: ['Deep cleaning', 'Gum-disease treatment', 'Perio Protect tray therapy'] },
+  { number: '09', title: 'Emergency & Comfort', count: '3 services', accent: 'mint', href: '/services/emergency-comfort/', items: ['Same-day emergency care', 'Nitrous oxide sedation', 'Virtual-reality comfort'] },
+  { number: '10', title: 'ReCODE & Cognitive Health', count: '3 services', accent: 'sage', href: '/services/recode-cognitive-health/', items: ['ReCODE 2.0 program', 'Oral spirochete testing', 'Amalgam replacement'] },
+  { number: '11', title: 'Wellness', count: '1 offering', accent: 'paper', href: '/services/wellness-offering/', items: ['Juice Plus program', 'Wellness coordination', 'In-office or remote access'] },
 ];
 ---
 
@@ -38,7 +38,7 @@ const categories = [
                 {category.items.map((item) => <li>{item}</li>)}
               </ul>
             </div>
-            <a href="/services/" aria-label={`Explore ${category.title}`}>Explore category <i>↗</i></a>
+            <a href={category.href} aria-label={`Explore ${category.title}`}>Explore category <i>↗</i></a>
           </article>
         ))}
         <article class="service-card service-card--final">

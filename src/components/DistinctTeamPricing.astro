@@ -17,7 +17,7 @@ const services=[
     <div class="doctor-reel" data-doctor-reel>
       {doctors.map((doctor)=><article class="reel-frame">
         <figure><img src={doctor.img} alt={`${doctor.name}, provisional portrait pending client approval`} loading="lazy" /></figure>
-        <div class="reel-copy"><span>{doctor.n} · D.D.S.</span><h2>{doctor.name}</h2><h3>{doctor.role}</h3><p>{doctor.detail}</p><a href="/#team">Meet the complete team ↗</a></div>
+        <div class="reel-copy"><span>{doctor.n} · D.D.S.</span><h2>{doctor.name}</h2><h3>{doctor.role}</h3><p>{doctor.detail}</p><a href="/team/">Meet the complete team ↗</a></div>
       </article>)}
     </div>
     <div class="reel-film" aria-hidden="true">PORTRAIT OF CARE · PORTRAIT OF CARE · PORTRAIT OF CARE</div>
